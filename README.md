@@ -25,6 +25,7 @@ To host it for free, turn on **GitHub Pages** (Settings → Pages → Deploy fro
 - **Modes:** Free-for-all, or Red vs Blue (both humans on the same team against the bots)
 - **Bots:** Chill, Spicy or Brutal. They find their way through the mazes, grab weapons, block and dodge spikes.
 - **Shouts:** speech bubbles fade with distance, standing in for proximity chat
+- **Menu theme:** "Custard Knights" plays on the menu, fades out when the brawl starts, and follows the Sound button
 
 ## Controls
 

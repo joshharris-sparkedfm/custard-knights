@@ -1178,9 +1178,19 @@ const $=id=>document.getElementById(id);
 const isTouch=matchMedia('(pointer:coarse)').matches;
 function showTouch(on){ $('touch').hidden=!(on&&isTouch); }
 document.querySelectorAll('.seg').forEach(seg=>{ seg.addEventListener('click',ev=>{ const b=ev.target.closest('button'); if(!b)return; seg.querySelectorAll('button').forEach(x=>x.setAttribute('aria-pressed',String(x===b))); const k=seg.dataset.k; cfg[k]=k==='players'?+b.dataset.v:b.dataset.v; }); });
-function start(){ audio(); newGame(false); paused=false; $('menu').hidden=true; $('end').hidden=true; $('pause').hidden=true; $('pauseBtn').hidden=false; showTouch(true);
+const music=new Audio('menu-theme.mp3'); music.loop=true; music.preload='auto';
+let musicWant=true, fadeT=null;
+function menuMusic(on){
+ musicWant=on; clearInterval(fadeT);
+ if(on&&!muted){ if(music.paused){ music.volume=0; music.play().catch(()=>{}); } fadeT=setInterval(()=>{ music.volume=Math.min(.55,music.volume+.05); if(music.volume>=.55)clearInterval(fadeT); },60); }
+ else fadeT=setInterval(()=>{ music.volume=Math.max(0,music.volume-.06); if(music.volume<=0){ clearInterval(fadeT); music.pause(); } },40);
+}
+// browsers only allow sound after the first click or key press
+const kick=()=>{ if(musicWant&&!muted&&music.paused) menuMusic(true); };
+addEventListener('pointerdown',kick,{once:true}); addEventListener('keydown',kick,{once:true});
+function start(){ audio(); menuMusic(false); newGame(false); paused=false; $('menu').hidden=true; $('end').hidden=true; $('pause').hidden=true; $('pauseBtn').hidden=false; showTouch(true);
  G.banner={title:'FIGHT!',sub:G.map.name+(G.mode==='teams'?'. Red vs Blue.':'. Every knight for themselves.'),col:CUST,t:2,max:2}; sfx('event'); }
-function toMenu(){ newGame(true); paused=false; $('menu').hidden=false; $('end').hidden=true; $('pause').hidden=true; $('pauseBtn').hidden=true; showTouch(false); }
+function toMenu(){ menuMusic(true); newGame(true); paused=false; $('menu').hidden=false; $('end').hidden=true; $('pause').hidden=true; $('pauseBtn').hidden=true; showTouch(false); }
 function setPause(p){ if(!G||G.demo||G.over)return; paused=p; $('pause').hidden=!p; }
 function endMatch(){
  G.over=true; $('pauseBtn').hidden=true; showTouch(false);
@@ -1197,7 +1207,7 @@ function endMatch(){
 }
 $('startBtn').onclick=start; $('againBtn').onclick=start; $('menuBtn').onclick=toMenu; $('quitBtn').onclick=toMenu;
 $('resumeBtn').onclick=()=>setPause(false); $('pauseBtn').onclick=()=>setPause(!paused);
-$('muteBtn').onclick=()=>{ muted=!muted; $('muteBtn').textContent='Sound: '+(muted?'off':'on'); };
+$('muteBtn').onclick=()=>{ muted=!muted; $('muteBtn').textContent='Sound: '+(muted?'off':'on'); if(muted){ clearInterval(fadeT); music.pause(); } else if(musicWant) menuMusic(true); };
 function shout(n,i){ if(!G||G.demo)return; const e=G.ents.find(x=>x.human===n); if(e&&alive(e)){ say(e,isChicken(e)?'BAWK!':SHOUTS[i],1.8); sfx('shout'); } }
 addEventListener('keydown',ev=>{
  const playing=G&&!G.demo&&!G.over;

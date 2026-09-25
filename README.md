@@ -1,6 +1,6 @@
 # Custard Knights
 
-A cartoon top-down arena brawler for 8 knights. You fight bots, a friend on the same keyboard, or both. The power-ups start sensible and get sillier as the match goes on.
+A cartoon top-down arena brawler for 8 knights. You fight bots, a friend on the same keyboard, friends online, or all of them at once. The power-ups start sensible and get sillier as the match goes on.
 
 This is a browser prototype built to test the feel before a proper build (Godot 4, online play, proximity voice).
 
@@ -25,6 +25,8 @@ To host it for free, turn on **GitHub Pages** (Settings → Pages → Deploy fro
 - **Modes:** Free-for-all, or Red vs Blue (both humans on the same team against the bots)
 - **Bots:** Chill, Spicy or Brutal. They find their way through the mazes, grab weapons, block and dodge spikes.
 - **Shouts:** speech bubbles fade with distance, standing in for proximity chat
+- **Online play:** one player hosts a room and gets a 5-letter code and invite link. Up to 8 knights join from their own browsers and bots fill the empty spots. The host's browser runs the match. Players connect directly through [PeerJS](https://peerjs.com/), so there's no server to run.
+- **The Power of Steve:** once a match, an announcer drops a golden egg. Whoever grabs it rides Steve, a giant cockerel, for 14 seconds: faster, bigger, flies over pits and tramples everyone.
 - **Menu theme:** "Custard Knights" plays on the menu, fades out when the brawl starts, and follows the Sound button
 
 ## Controls
@@ -46,5 +48,5 @@ Touch devices get an on-screen stick plus Swing, Dash and Block buttons. Pause w
 ## Ideas for next
 
 - Pie Heist: carry the pie back to your base (Red vs Blue)
-- Online multiplayer and proximity voice in the Godot build
+- Proximity voice for online matches
 - More arenas and weapons

@@ -209,7 +209,7 @@ for i, (ang, L) in enumerate([(-.42, .95), (-.14, 1.15), (.14, 1.1), (.42, .9)])
     f.location = (ang * .45, .42, 2.0 + L * .35); f.rotation_euler = (-.85, ang * .8, 0)
     finish(f, M['plume'], sub=1)
 # sword in the right hand (knight's right is +X from its own view; it faces -Y, so its right is -X)
-sw = bpy.data.objects.new('sword', None); sc.collection.objects.link(sw); sw.parent = ROOT; sw.location = (-.66, -.3, .6); sw.rotation_euler = (.55, .5, 0); sw.scale = (1.15, 1.15, 1.15)
+sw = bpy.data.objects.new('sword', None); sc.collection.objects.link(sw); sw.parent = ROOT; sw.location = (-.66, -.24, .6); sw.rotation_euler = (.28, .2, 0); sw.scale = (1.15, 1.15, 1.15)
 cube('blade', (0, 0, .68), (.1, .03, .55), M['steel'], bevel=.03, outline=.024, sub=0, parent=sw)
 cube('guard', (0, 0, .12), (.26, .06, .06), M['gold'], bevel=.04, outline=.022, sub=0, parent=sw)
 cyl('grip', (0, 0, -.06), .04, .2, M['leather'], sub=0, outline=.012, parent=sw)
@@ -250,3 +250,72 @@ if MODE == 'turnaround':
         sc.render.filepath = os.path.join(OUT, f'dir_{i}_{n}.png')
         bpy.ops.render.render(write_still=True)
     print('KNIGHT_OK', OUT)
+
+# ------------------------------------------------------------------ sprite sheet: 5 directions x (idle 2, walk 6, swing 4), two layers
+# base layer: everything, with team-coloured parts in a white/grey cel ramp; mask layer: team parts white, everything else a holdout.
+# The game multiplies the player's colour onto the base through the mask, so one sheet serves every colour.
+if MODE == 'sheet':
+    import json
+    CELL = SIZE
+    cam.ortho_scale = 4.6
+    co.location = (0, -D * math.cos(ELEV), 1.45 + D * math.sin(ELEV))
+    def flatmat(name, col):
+        m = bpy.data.materials.new(name); m.use_nodes = True; N = m.node_tree.nodes
+        for n in list(N): N.remove(n)
+        o = N.new('ShaderNodeOutputMaterial'); e = N.new('ShaderNodeEmission'); e.inputs['Color'].default_value = (*col, 1); m.node_tree.links.new(e.outputs[0], o.inputs['Surface']); return m
+    hold = bpy.data.materials.new('holdout'); hold.use_nodes = True; N = hold.node_tree.nodes
+    for n in list(N): N.remove(n)
+    o = N.new('ShaderNodeOutputMaterial'); h = N.new('ShaderNodeHoldout'); hold.node_tree.links.new(h.outputs[0], o.inputs['Surface'])
+    white = flatmat('maskwhite', (1, 1, 1))
+    holdc = hold.copy(); holdc.name = 'holdout_cull'; holdc.use_backface_culling = True   # outline shells must stay see-through from inside
+    PAL['tgrey'] = ('#FFFFFF', '#9C9C9C', '#FFFFFF'); tgrey = toon('tgrey', 'tgrey', split=.45, hi_at=.99)
+    TEAMS = {M['team'].name, M['plume'].name}
+    objs = [o for o in bpy.data.objects if o.type == 'MESH']
+    orig = {o.name: [sl.material for sl in o.material_slots] for o in objs}
+    def set_layer(layer):
+        for ob in objs:
+            for i, sl in enumerate(ob.material_slots):
+                m = orig[ob.name][i]
+                if layer == 'base': sl.material = tgrey if m and m.name in TEAMS else m
+                else: sl.material = white if m and m.name in TEAMS else (holdc if m and m.name == INKM.name else hold)
+    P = {o.name: (o.location.copy(), o.rotation_euler.copy()) for o in bpy.data.objects}
+    def reset():
+        for n, (l, r) in P.items(): o = bpy.data.objects[n]; o.location = l.copy(); o.rotation_euler = r.copy()
+    def mv(name, dx=0, dy=0, dz=0):
+        o = bpy.data.objects[name]; l, _ = P[name]; o.location = (l.x + dx, l.y + dy, l.z + dz)
+    def leg(sx, fwd, lift):
+        for n in (f'boot{sx}', f'bootcuff{sx}', f'leg{sx}'): mv(n, 0, -fwd, lift)
+    def arm(sx, fwd, dz=0):
+        for n in (f'cuff{sx}', f'glove{sx}'): mv(n, 0, -fwd, dz)
+    SW = bpy.data.objects['sword']
+    def pose(anim, k):
+        reset(); r0 = ROOT.location.copy()
+        if anim == 'idle':
+            ROOT.location = (r0.x, r0.y, r0.z - (.025 if k else 0))
+        elif anim == 'walk':
+            ph = k / 6 * 2 * math.pi; s1 = math.sin(ph)
+            leg(-1, .2 * s1, max(0, s1) * .12); leg(1, -.2 * s1, max(0, -s1) * .12)
+            arm(-1, -.12 * s1); arm(1, .12 * s1)
+            ROOT.location = (r0.x, r0.y, r0.z + abs(math.cos(ph)) * .06)
+        elif anim == 'swing':
+            a = math.radians([205, 245, 290, 335][k]); rr = .62
+            SW.location = (math.cos(a) * rr, math.sin(a) * rr, .74); SW.rotation_euler = (math.pi / 2 - .15, 0, a + math.pi / 2)
+            g = bpy.data.objects['glove-1']; g.location = (math.cos(a) * .52, math.sin(a) * .52, .72)
+            c = bpy.data.objects['cuff-1']; c.location = (math.cos(a) * .5, math.sin(a) * .5, .74)
+            ROOT.location = (r0.x, r0.y, r0.z - (.04 if k in (1, 2) else 0))
+    ANIMS = [('idle', 2), ('walk', 6), ('swing', 4)]
+    DIRS = ['S', 'SE', 'E', 'NE', 'N']
+    frames = []
+    for di, dn in enumerate(DIRS):
+        for an, cnt in ANIMS:
+            for k in range(cnt):
+                frames.append((di, dn, an, k))
+    rz0 = ROOT.location.z
+    for idx, (di, dn, an, k) in enumerate(frames):
+        pose(an, k); ROOT.rotation_euler = (0, 0, math.radians(di * 45))
+        for layer in ('base', 'mask'):
+            set_layer(layer)
+            sc.render.filepath = os.path.join(OUT, f'{layer}_{idx:03d}.png'); bpy.ops.render.render(write_still=True)
+        ROOT.location.z = rz0
+    json.dump({'cell': CELL, 'dirs': DIRS, 'anims': ANIMS, 'frames': [[di, an, k] for di, dn, an, k in frames]}, open(os.path.join(OUT, 'sheet.json'), 'w'))
+    print('SHEET_OK', len(frames))

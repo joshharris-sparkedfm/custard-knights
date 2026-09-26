@@ -19,7 +19,7 @@ process.on('exit',()=>{ try{chrome.kill()}catch(e){} });
  ws.onmessage=m=>{ const d=JSON.parse(m.data); if(d.id&&pend[d.id]){ pend[d.id](d.result); delete pend[d.id]; } };
  await new Promise(r=>ws.onopen=r);
  const evalJs=async(expression,awaitPromise=false)=>{ const r=await send('Runtime.evaluate',{expression,returnByValue:true,awaitPromise,timeout:600000}); if(r&&r.exceptionDetails) throw new Error(JSON.stringify(r.exceptionDetails).slice(0,600)); return r&&r.result&&r.result.value; };
- await send('Page.navigate',{url:'file:///'+path.join(ROOT,'index.html').replace(/\\/g,'/')+'?qa=1'});
+ await send('Page.navigate',{url:'file:///'+path.join(ROOT,'index.html').replace(/\\/g,'/')+'?qa=1'+(process.env.CKQ||'')});
  for(let i=0;i<40;i++){ await sleep(250); if(await evalJs('!!window.CK')) break; }
  await evalJs(fs.readFileSync(path.join(__dirname,'agents.js'),'utf8'));
  const maps=await evalJs('Object.keys(CK.MAPS)'), personas=await evalJs('QA.personas');

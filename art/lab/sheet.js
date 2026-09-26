@@ -3,6 +3,7 @@
 // Rows: 8 facing directions (idle), then states (walk cycle, swing, charge, block, hit, stunned, win, chicken), then game scale.
 (() => {
   const P = window.LAB || {};
+  if (P.sprites) CK.sprites(true);
   const G = CK.begin({ map: 'courtyard', humans: 0 }); G.over = true; CK.freeze(true);
   const S = P.scale || 2.1, cell = 112 * S, cols = 8, rows = 3, W = cols * cell, H = rows * cell + 260;
   const c = document.createElement('canvas'); c.width = W; c.height = H; const x = c.getContext('2d');

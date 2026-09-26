@@ -1551,9 +1551,14 @@ function drawKnight(e){
   let alpha=1; if(e.fx.ghost)alpha=.28; if(e.inv>0&&Math.floor(t*14)%2)alpha*=.5; ctx.globalAlpha=alpha;
  }
  if(isChicken(e)){ if(!(useSprites()&&drawChickenSprite(e,r,moving,bob))) drawChicken(e,r,bob); ctx.restore(); return; }
- if(useSprites()&&!e.fx.steve&&!isBoss(e)&&drawKnightSprite(e,r,moving,bob)){
-  if(e.wpn){ ctx.save(); ctx.translate(0,-bob-r*.3); drawHeld(e,r); ctx.restore(); }
-  knightFx(e,r,t,fx,fy,moving); ctx.restore(); return; }
+ if(useSprites()){ const ride=!!e.fx.steve, lift=ride?r*1.55:0;
+  if(ride) drawSteve(e,r,fx,moving);
+  ctx.save(); ctx.translate(0,-lift); const ok=drawKnightSprite(e,r,moving&&!ride,bob); ctx.restore();
+  if(ok){ // a knight riding Steve stands on his back; the boss wears its crown on top of the baked helm
+   if(isBoss(e)) drawCrown(r,sprTop(r)-lift+r*.55);
+   if(e.wpn){ ctx.save(); ctx.translate(0,-bob-r*.3-lift); drawHeld(e,r); ctx.restore(); }
+   knightFx(e,r,t,fx,fy,moving); ctx.restore(); return; }
+  if(ride){ ctx.restore(); return; } }
  const ph=moving?Math.sin(e.walk):0, m=e.kit.metal;
  const riding=!!e.fx.steve;
  if(riding) drawSteve(e,r,fx,moving);
@@ -1580,13 +1585,14 @@ function drawKnight(e){
  if(!front) drawPlume(e,hy-hr*.18,hr,fx,moving);
  if(e.goo>0){ const k=Math.min(1,e.goo/2.5); custardBlob(0,hy-hr*.55,hr*.85,e.id*3.1,Math.min(1,e.goo),1.1,0); ctx.fillStyle=CU.body; ctx.strokeStyle=CU.edge; ctx.lineWidth=2; for(const k2 of [-.5,.2,.6]){ const L=hr*(.5+(1-k)*.9); ctx.beginPath(); ctx.moveTo(k2*hr-hr*.1,hy-hr*.2); ctx.quadraticCurveTo(k2*hr-hr*.12,hy+L*.5,k2*hr,hy+L); ctx.quadraticCurveTo(k2*hr+hr*.12,hy+L*.5,k2*hr+hr*.1,hy-hr*.2); ctx.closePath(); ctx.fill(); ctx.stroke(); } }
  if(e.flash>0){ circle(0,hy,hr,'rgba(255,255,255,.7)'); ell(0,r*.05,r*.66,r*.5,'rgba(255,255,255,.6)'); }
- if(isBoss(e)){ const y=hy-hr*.8; ctx.fillStyle=lgrad(ctx,0,y-r*.55,0,y,['#FFF1B0','#FFC933','#B7791A']); ctx.strokeStyle=INK; ctx.lineWidth=3; ctx.beginPath(); ctx.moveTo(-r*.5,y); ctx.lineTo(-r*.5,y-r*.45); ctx.lineTo(-r*.25,y-r*.2); ctx.lineTo(0,y-r*.55); ctx.lineTo(r*.25,y-r*.2); ctx.lineTo(r*.5,y-r*.45); ctx.lineTo(r*.5,y); ctx.closePath(); ctx.fill(); ctx.stroke(); circle(0,y-r*.15,r*.08,TOM,INK,1.5); }
+ if(isBoss(e)) drawCrown(r,hy-hr*.8);
  ctx.restore();
  if(!shieldBehind) drawShield(e,r);
  if(fy>=-.25) weapon();
  knightFx(e,r,t,fx,fy,moving);
  ctx.restore();
 }
+function drawCrown(r,y){ ctx.fillStyle=lgrad(ctx,0,y-r*.55,0,y,['#FFF1B0','#FFC933','#B7791A']); ctx.strokeStyle=INK; ctx.lineWidth=3; ctx.lineJoin='round'; ctx.beginPath(); ctx.moveTo(-r*.5,y); ctx.lineTo(-r*.5,y-r*.45); ctx.lineTo(-r*.25,y-r*.2); ctx.lineTo(0,y-r*.55); ctx.lineTo(r*.25,y-r*.2); ctx.lineTo(r*.5,y-r*.45); ctx.lineTo(r*.5,y); ctx.closePath(); ctx.fill(); ctx.stroke(); circle(0,y-r*.15,r*.08,TOM,INK,1.5); }
 function knightFx(e,r,t,fx,fy,moving){
  if(e.protect>0){ ctx.save(); ctx.globalAlpha=Math.min(1,e.protect*2); ctx.setLineDash([5,6]); ctx.lineDashOffset=-G.clock*30; circle(0,-r*.4,r*1.5,'rgba(46,196,182,.08)','rgba(120,235,225,.85)',2.5); ctx.restore(); }
  if(e.stun>0){ ctx.fillStyle=CUST; ctx.strokeStyle=INK; ctx.lineWidth=1.5; for(let i=0;i<3;i++){ const a=G.clock*9+i*2.09; star4(ctx,Math.cos(a)*r*.7,-r*1.9+Math.sin(a)*r*.2,5); ctx.fill(); ctx.stroke(); } }
@@ -1676,7 +1682,7 @@ function drawChickenSprite(e,r,moving,bob){ if(!SPRC||!SPRC.chicks) return false
  ctx.restore(); return true; }
 const sprTop=r=>r*.72-(SPR?(SPR.anchorY-SPR.topY)*sprScale(r):r*3);
 function heart(x,y,s,fill){ ctx.beginPath(); ctx.moveTo(x,y+s*.9); ctx.bezierCurveTo(x-s*1.5,y-s*.1,x-s*.7,y-s*1.2,x,y-s*.35); ctx.bezierCurveTo(x+s*.7,y-s*1.2,x+s*1.5,y-s*.1,x,y+s*.9); ctx.closePath(); ctx.fillStyle=fill; ctx.fill(); ctx.lineWidth=2; ctx.strokeStyle=INK; ctx.stroke(); }
-const headTop=e=>{ const r0=e.r*sizeMul(e); if(typeof useSprites==='function'&&useSprites()&&!isChicken(e)&&!e.fx.steve&&!isBoss(e)) return e.y+sprTop(r0*KV)*KV+4; const r=r0*KV; return e.y-r*(isChicken(e)?2.1:3.05)-(isBoss(e)?r*.35:0)-(e.fx.steve?r*1.5:0); };
+const headTop=e=>{ const r0=e.r*sizeMul(e); if(typeof useSprites==='function'&&useSprites()&&!isChicken(e)) return e.y+(sprTop(r0*KV)-(e.fx.steve?r0*KV*1.55:0)-(isBoss(e)?r0*KV*.3:0))*KV+4; const r=r0*KV; return e.y-r*(isChicken(e)?2.1:3.05)-(isBoss(e)?r*.35:0)-(e.fx.steve?r*1.5:0); };
 function drawOverhead(e){
  const top=Math.max(OY+22,headTop(e)), mh=maxHp(e);
  if(mh>3){ const w=70; ctx.fillStyle=INK; rr(ctx,e.x-w/2-3,top-9,w+6,12,6); ctx.fill(); ctx.fillStyle=lgrad(ctx,0,top-6,0,top,['#FF8A7E',TOM]); rr(ctx,e.x-w/2,top-6,Math.max(1,w*Math.max(0,e.hp)/mh),6,3); ctx.fill(); }

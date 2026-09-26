@@ -315,7 +315,7 @@ function spikeState(){ const p=G.clock%3.4; return p>=2.8?'up':p>=2.25?'warn':'d
 /* ---------- setup ---------- */
 function newGame(demo,setup){
  const remote=(!demo&&!setup&&NET.role==='host')?NET.players.slice(1):[];
- const mode=setup?setup.mode:demo?'ffa':cfg.mode, humans=(demo||setup)?0:Math.min(8,cfg.players+remote.length), names=shuffle(NAMES), ents=[];
+ const mode=setup?setup.mode:demo?'ffa':cfg.mode, humans=(demo||setup)?0:Math.min(8,Math.max(0,cfg.players)+remote.length), names=shuffle(NAMES), ents=[];
  const mapKey=setup?setup.mapKey:(demo||cfg.map==='random')?pick(Object.keys(MAPS)):cfg.map, map=MAPS[mapKey];
  const grid=buildGrid(map.q), spawns=[], pads=[], floor=[], crateHp={}, portals=[];
  for(let r=0;r<ROWS;r++)for(let c=0;c<COLS;c++){ const t=grid[r][c], p=centerOf(c,r);
@@ -323,6 +323,7 @@ function newGame(demo,setup){
  const left=spawns.filter(p=>p.x<W/2), right=spawns.filter(p=>p.x>=W/2);
  G={demo,mode,mapKey,map,theme:THEMES[map.theme],grid,spawns,left,right,pads,floor,crateHp,portals,ents,pickups:[],bananas:[],proj:[],bombs:[],decals:[],parts:[],bubbles:[],feed:[],floaters:[],amb:[],flows:new Map(),
   mines:[],bees:[],flock:[],holes:[],mayhem:null,mayhemAt:rand(22,32),ts:1,norrAt:rand(30,55),
+  log:[],stats:{swings:{h:0,b:0},swingHits:{h:0,b:0},shots:{h:0,b:0},shotHits:{h:0,b:0},blocks:0,dashes:0,frames:0},
   time:demo?1e9:180,chaos:0,chaosHold:0,ev:null,banner:null,spawnT:2,shake:0,clock:0,over:false,lastSpike:'down',steveAt:rand(70,130),steveDone:false,diff:DIFFS[demo?'spicy':cfg.diff]};
  const order=mode==='teams'?[...shuffle(left),...shuffle(right)]:shuffle(spawns), kits=shuffle(KITS), embs=shuffle(EMBLEMS);
  for(let i=0;i<8;i++){
@@ -353,6 +354,8 @@ function speedOf(e){let s=235; if(!e.human)s*=G.diff.speed; if(e.fx.steve)s*=1.4
 function say(e,text,t=2.2){ G.bubbles=G.bubbles.filter(b=>b.e!==e); G.bubbles.push({e,text,t,max:t}); }
 function floater(x,y,text,col){ G.floaters.push({x,y,text,col,t:1.3}); }
 function feed(text){ G.feed.unshift({text,t:5}); G.feed.length=Math.min(G.feed.length,4); }
+function logEv(k,d){ if(G.demo||G.log.length>=20000) return; d.k=k; d.t=Math.round(G.clock*100)/100; G.log.push(d); }
+const hb=e=>e.human?'h':'b';
 function burst(x,y,n,cols,spd=260,kind='conf'){ netfx('burst',arguments); for(let i=0;i<n;i++){const a=Math.random()*Math.PI*2,s=rand(.3,1)*spd; G.parts.push({x,y,vx:Math.cos(a)*s,vy:Math.sin(a)*s,life:rand(.5,1.1),max:1.1,col:pick(cols),size:rand(4,8),kind,rot:Math.random()*6,vr:rand(-12,12)})} }
 function dust(x,y,n=6,col='rgba(255,247,224,.7)'){ netfx('dust',arguments); for(let i=0;i<n;i++)G.parts.push({x:x+rand(-8,8),y:y+rand(-4,4),vx:rand(-60,60),vy:rand(-60,20),life:rand(.3,.6),max:.6,col,size:rand(5,10),kind:'puff'}) }
 function sparks(x,y,n,cols,spd=420){ netfx('sparks',arguments); for(let i=0;i<n;i++){ const a=Math.random()*Math.PI*2,s=rand(.4,1)*spd; G.parts.push({kind:'spark',x,y,vx:Math.cos(a)*s,vy:Math.sin(a)*s,life:rand(.18,.4),max:.4,col:pick(cols),size:rand(3,6)}); } }
@@ -387,7 +390,7 @@ function steer(e,tx,ty){
 
 /* ---------- events & powerups ---------- */
 function startEvent(kind,owner){
- const P=PU[kind]; G.ev={kind,t:P.dur,max:P.dur,owner};
+ const P=PU[kind]; G.ev={kind,t:P.dur,max:P.dur,owner}; logEv('event',{kind,id:owner.id,h:hb(owner)});
  G.banner={title:P.name,sub:`${owner.name} started it. ${P.sub}.`,col:CUST,t:2.6,max:2.6};
  G.shake=Math.max(G.shake,14); sfx('event');
  if(kind==='boss'){owner.hp=8}
@@ -403,7 +406,7 @@ function endEvent(){ const ev=G.ev; if(ev.kind==='boss'&&!ev.owner.dead) ev.owne
 function roar(e,dmg){
  fxRing(e.x,e.y,280,'#FF7A2B',.6); fxRing(e.x,e.y,160,TOM,.4); fxFlash(e.x,e.y-20,150,.3); G.shake=Math.max(G.shake,18); sfx('norr'); say(e,'NORRRRRRRR!',1.4);
  for(const o of G.ents){ if(o===e||!alive(o)||isAlly(e,o))continue; const d=Math.hypot(o.x-e.x,o.y-e.y); if(d>300)continue; const n=norm(o.x-e.x,o.y-e.y);
-  if(dmg&&o.inv<=0) hurt(o,e,dmg,{dx:n.x,dy:n.y,kb:900,how:'got norred'}); else { o.vx+=n.x*750; o.vy+=n.y*750; o.slip=Math.max(o.slip,.35); }
+  if(dmg&&o.inv<=0) hurt(o,e,dmg,{dx:n.x,dy:n.y,kb:900,how:'got norred',src:'norr'}); else { o.vx+=n.x*750; o.vy+=n.y*750; o.slip=Math.max(o.slip,.35); }
   if(alive(o)&&Math.random()<.5) say(o,pick(['NORR?!','AAAAH','What IS that?!','Run!']),1.2); }
 }
 function swapAll(){ const al=G.ents.filter(alive); if(al.length<2)return; const pos=shuffle(al.map(e=>({x:e.x,y:e.y})));
@@ -420,7 +423,7 @@ function startMayhem(kind){
  if(kind==='supply'){ for(const e of G.ents) if(alive(e)) giveWeapon(e,pick(Object.keys(WEAPONS))); for(const p of G.pads) p.item=pick(Object.keys(WEAPONS)); const near=G.floor.filter(f=>Math.hypot(f.x-W/2,f.y-440)<220); for(let i=0;i<4;i++) spawnPickup(near.length?pick(near):freeSpot()); }
  if(kind==='stampede'){ G.mayhem.side=Math.random()<.5?1:-1; G.mayhem.n=14; }
  if(kind==='catapult'){ G.mayhem.next=.3; G.mayhem.n=6; }
- G.banner={title:M.title,sub,col:TOM,t:2.6,max:2.6}; G.shake=Math.max(G.shake,10); sfx('alarm'); feed(M.title.replace('!',''));
+ G.banner={title:M.title,sub,col:TOM,t:2.6,max:2.6}; G.shake=Math.max(G.shake,10); sfx('alarm'); feed(M.title.replace('!','')); logEv('mayhem',{kind});
 }
 function endMayhem(){ const m=G.mayhem; if(!m)return; if(m.kind==='slowmo') G.ts=1;
  if(m.kind==='trapdoor'){ for(const h of G.holes) if(h.open&&G.grid[h.r][h.c]==='o') G.grid[h.r][h.c]='.'; G.holes=[]; G.flows.clear(); }
@@ -431,11 +434,11 @@ function updateMayhem(dt){
  const m=G.mayhem; m.t-=dt; if(m.t<=0){ endMayhem(); return; }
  if(m.kind==='trapdoor'){ for(const h of G.holes){ if(h.open)continue; h.t-=dt; if(h.t<=0){ h.open=1; if(G.grid[h.r][h.c]==='.'){ G.grid[h.r][h.c]='o'; G.flows.clear(); const p=centerOf(h.c,h.r); dust(p.x,p.y,8,'rgba(40,25,60,.7)'); sfx('crate'); } } } }
  else if(m.kind==='catapult'){ m.next-=dt; if(m.next<=0&&m.n>0){ m.n--; m.next=.55; const al=G.ents.filter(alive).sort((a,b)=>b.score-a.score), tg=al[Math.floor(Math.random()*Math.min(3,al.length))];
-  if(tg){ const tx=cx(tg.x+tg.vx*.9),ty=cy(tg.y+tg.vy*.9); G.bombs.push({sx:tx,sy:ty-700,tx,ty,x:tx,y:ty-700,z:0,t:0,fl:.95,fuse:0,owner:null,lvl:1,meteor:1,o:{how:'got pied by the catapult'}}); sfx('swing'); } } }
+  if(tg){ const tx=cx(tg.x+tg.vx*.9),ty=cy(tg.y+tg.vy*.9); G.bombs.push({sx:tx,sy:ty-700,tx,ty,x:tx,y:ty-700,z:0,t:0,fl:.95,fuse:0,owner:null,lvl:1,meteor:1,o:{how:'got pied by the catapult',src:'catapult'}}); sfx('swing'); } } }
  else if(m.kind==='stampede'){ m.next-=dt; if(m.next<=0&&m.n>0){ m.n--; m.next=.22; const row=pick(G.floor); G.flock.push({x:m.side>0?-40:W+40,y:row.y,vx:m.side*rand(330,420),vy:0,t:6,p:Math.random()*6}); } }
 }
 function applyPU(e,kind){
- const P=PU[kind]; sfx('pickup'); fxRing(e.x,e.y,46,TIER_COL[P.t]);
+ const P=PU[kind]; sfx('pickup'); fxRing(e.x,e.y,46,TIER_COL[P.t]); logEv('pickup',{id:e.id,h:hb(e),kind});
  if(kind==='norr'){ e.fx.norr=12; e.norrT=2.2; G.banner={title:'THE POWER OF NORR',sub:`${e.name} ate the shepherd's pie. NORRRRRRRR!`,col:'#FF7A2B',t:2.8,max:2.8};
   feed(`${e.name==='You'?'You have':e.name+' has'} the power of Norr`); burst(e.x,e.y,60,['#FF7A2B',TOM,CUST,CREAM],460); roar(e,1); return; }
  if(kind==='steve'){ e.fx.steve=14; delete e.fx.ghost; G.banner={title:'THE POWER OF STEVE',sub:`${e.name} is riding Steve the giant cockerel!`,col:'#FFB020',t:2.8,max:2.8};
@@ -470,7 +473,7 @@ function giveWeapon(e,kind){
  const W0=WEAPONS[kind];
  if(e.wpn&&e.wpn.kind===kind){ e.wpn.lvl=Math.min(3,e.wpn.lvl+1); e.wpn.ammo+=W0.ammo; floater(e.x,e.y-50,`${W0.name} LV${e.wpn.lvl}!`,CUST); }
  else { e.wpn={kind,lvl:1,ammo:W0.ammo}; floater(e.x,e.y-50,W0.name,CREAM); }
- sfx('weapon');
+ sfx('weapon'); logEv('weapon',{id:e.id,h:hb(e),kind});
 }
 
 /* ---------- combat ---------- */
@@ -480,18 +483,20 @@ function hurt(b,a,dmg,o={}){
  const d=Math.hypot(dx,dy)||1;
  let kb=o.kb!==undefined?o.kb:(isBoss(b)?260:520); if(a&&a.fx.bouncy)kb*=2.6; if(a&&(a.fx.giant||isBoss(a)))kb*=1.3; if(isBoss(b))kb*=.5; if(G.ev&&G.ev.kind==='jelly')kb*=1.9;
  b.vx+=dx/d*kb; b.vy+=dy/d*kb;
- if(a&&a!==b) b.lastHit={by:a,t:G.clock};
+ if(a&&a!==b) b.lastHit={by:a,t:G.clock}; b.lastSrc=o.src||'sword';
  if(b.fx.shield){ delete b.fx.shield; b.inv=.3; sfx('shield'); burst(b.x,b.y-10,18,[TEAL,CREAM],240); floater(b.x,b.y-50,'BLOCKED',TEAL); return; }
  if(isChicken(b)&&a) dmg=99;
  b.hp-=dmg; b.flash=.15; b.inv=.3; if(a&&a!==b&&(a.human||b.human)) G.hitstop=Math.max(G.hitstop||0,.055); G.shake=Math.max(G.shake,(a&&a.human)||b.human?8:4); sfx('hit');
  burst(b.x,b.y-12,8,[CREAM,b.color],200); fxStar(b.x,b.y-18,26); sparks(b.x,b.y-14,7,[CREAM,CUST],380);
- if(b.fx.thorns&&a&&a!==b&&!o.thorn&&alive(a)){ sparks(a.x,a.y-14,10,['#C9D0EE',CREAM],420); floater(a.x,a.y-50,'PRICKLED',TOM); hurt(a,b,1,{kb:420,thorn:true,how:'hugged a cactus'}); }
+ if(b.fx.thorns&&a&&a!==b&&!o.thorn&&alive(a)){ sparks(a.x,a.y-14,10,['#C9D0EE',CREAM],420); floater(a.x,a.y-50,'PRICKLED',TOM); hurt(a,b,1,{kb:420,thorn:true,how:'hugged a cactus',src:'thorns'}); }
  if(b.hp<=0){ const cred=(a&&a!==b)?a:(b.lastHit&&G.clock-b.lastHit.t<4?b.lastHit.by:null); ko(b,cred,o.how||(a===b?'blew themselves up':'got spiked')); }
  else if(!b.human&&Math.random()<.15) say(b,pick(['Ow!','Rude!','Not the face!','Oof']),1.4);
 }
 function ko(b,a,how){
  const bounty=!!(G.mayhem&&G.mayhem.kind==='bounty'&&G.mayhem.who===b&&a&&!isAlly(a,b)), pts=(isBoss(b)||bounty)?3:1; b.deaths++; b.dead=true; b.respawn=2.2; b.falling=0; b.wpn=null;
  G.chaos=Math.min(1,G.chaos+.025); G.shake=Math.max(G.shake,12); sfx('ko');
+ { let ne=1e9; for(const o of G.ents) if(o!==b&&alive(o)&&!isAlly(o,b)) ne=Math.min(ne,Math.hypot(o.x-b.x,o.y-b.y));
+   logEv('ko',{v:b.id,vh:hb(b),a:a?a.id:-1,ah:a?hb(a):'-',src:how==='fell in a pit'?'pit':(b.lastSrc||'sword'),how,alive:Math.round((G.clock-(b.spawnAt||0))*10)/10,x:Math.round(b.x),y:Math.round(b.y),map:G.mapKey,ev:G.ev?G.ev.kind:'',mh:G.mayhem?G.mayhem.kind:'',ne:Math.round(ne)}); }
  if(how!=='fell in a pit'){
   burst(b.x,b.y-10,40,[b.color,CUST,PINK,TEAL,CREAM],380);
   helmetFx(b.x,b.y,b.color,b.kit.metal);
@@ -504,7 +509,7 @@ function ko(b,a,how){
  G.bubbles=G.bubbles.filter(x=>x.e!==b);
 }
 function blockedFrom(b,sx,sy){ return b.blocking&&Math.abs(angDiff(Math.atan2(sy-b.y,sx-b.x),b.face))<1.15; }
-function clang(b,x,y){ sfx('clang'); burst(x,y-12,10,[CUST,CREAM],260); sparks(x,y-12,14,[CUST,CREAM,'#FFFFFF'],480); fxStar(x,y-12,20); floater(b.x,b.y-50,'CLANG',CREAM); }
+function clang(b,x,y){ sfx('clang'); G.stats.blocks++; burst(x,y-12,10,[CUST,CREAM],260); sparks(x,y-12,14,[CUST,CREAM,'#FFFFFF'],480); fxStar(x,y-12,20); floater(b.x,b.y-50,'CLANG',CREAM); }
 const swingArc=(a,el)=>{ const p=clamp(el/SWING,0,1), a0=a.face-1.4; return [a0,a0+2.8*(1-Math.pow(1-p,3))]; };
 function doHit(a,el){
  const R=reach(a), ar=a.r*sizeMul(a), [a0,a1]=swingArc(a,el);
@@ -517,7 +522,7 @@ function doHit(a,el){
   if(b.inv>0&&!(b.lastHit&&b.lastHit.by!==a&&G.clock-b.lastHit.t<.4)) continue;
   a.hitSet.push(b.id);
   if(blockedFrom(b,a.x,a.y)&&!(a.fx.giant||isBoss(a))){ const n=norm(dx,dy); a.vx-=n.x*420;a.vy-=n.y*420; b.vx+=n.x*140;b.vy+=n.y*140; a.atkCd=.6; a.swing=Math.min(a.swing,.04); clang(b,(a.x+b.x)/2,(a.y+b.y)/2); return; }
-  hurt(b,a,(a.fx.giant||isBoss(a)||a.fx.norr)?2:1);
+  hurt(b,a,(a.fx.giant||isBoss(a)||a.fx.norr)?2:1,{src:'sword'}); a.hitLanded=true;
  }
  if(!a.crateHit&&el>=.07){ a.crateHit=true; const hx=a.x+Math.cos(a.face)*R*.75, hy=a.y+Math.sin(a.face)*R*.75; hitCrate(tcol(hx),trow(hy),1); }
 }
@@ -546,11 +551,12 @@ function explode(x,y,R,owner,o={}){
  burst(x,y,40,[TOM,'#FF9F43',CUST,CREAM],420); dust(x,y,14,'rgba(60,45,80,.6)');
  fxFlash(x,y,R*1.2,.3); fxRing(x,y,R,'rgba(255,220,150,1)',.5); smoke(x,y,10); sparks(x,y,24,[CUST,'#FF9F43',CREAM],600);
  G.decals.push({k:'scorch',x,y,r:R*.55,t:10});
- for(const b of G.ents){ if(!alive(b)||b.inv>0)continue; if(owner&&b!==owner&&isAlly(owner,b))continue; if(o.skipOwner&&b===owner)continue; const d=Math.hypot(b.x-x,b.y-y); if(d<R+b.r*sizeMul(b)){ const n=norm(b.x-x,b.y-y); hurt(b,owner,2,{dx:n.x,dy:n.y,kb:760,how:o.how||'blew themselves up'}); } }
+ for(const b of G.ents){ if(!alive(b)||b.inv>0)continue; if(owner&&b!==owner&&isAlly(owner,b))continue; if(o.skipOwner&&b===owner)continue; const d=Math.hypot(b.x-x,b.y-y); if(d<R+b.r*sizeMul(b)){ const n=norm(b.x-x,b.y-y); hurt(b,owner,2,{dx:n.x,dy:n.y,kb:760,how:o.how||'blew themselves up',src:o.src||'bomb'}); } }
  const c0=tcol(x-R),c1=tcol(x+R),r0=trow(y-R),r1=trow(y+R);
  for(let r=r0;r<=r1;r++)for(let c=c0;c<=c1;c++){ const p=centerOf(c,r); if(Math.hypot(p.x-x,p.y-y)<R+10) hitCrate(c,r,3); }
 }
-function respawn(e){ const p=spawnPointFor(e); Object.assign(e,{x:p.x,y:p.y,vx:0,vy:0,hp:3,dead:false,falling:0,inv:1.6,fx:{},slip:0,swing:0,dashT:0,wpn:null,lastHit:null,portalCd:0,spot:e.human?1.6:0}); dust(e.x,e.y+10,10); }
+function respawn(e){ const p=spawnPointFor(e); Object.assign(e,{x:p.x,y:p.y,vx:0,vy:0,hp:3,dead:false,falling:0,inv:1.6,fx:{},slip:0,swing:0,dashT:0,wpn:null,lastHit:null,portalCd:0,spot:e.human?1.6:0,spawnAt:G.clock}); dust(e.x,e.y+10,10);
+ let ne=1e9; for(const o of G.ents) if(o!==e&&alive(o)&&!isAlly(o,e)) ne=Math.min(ne,Math.hypot(o.x-e.x,o.y-e.y)); logEv('respawn',{id:e.id,h:hb(e),x:Math.round(e.x),y:Math.round(e.y),ne:Math.round(ne)}); }
 function startFall(e){ e.falling=.7; e.vx*=.15; e.vy*=.15; e.swing=0; if(e.human||Math.hypot(e.x-W/2,e.y-440)<2000)sfx('fall'); if(!e.human&&Math.random()<.6) say(e,pick(['Nooooo','Wheee','Tell my mum…']),1); }
 
 /* ---------- input ---------- */
@@ -650,7 +656,7 @@ function collideTiles(e,rt,bouncy){
  }
 }
 function update(dt){
- G.clock+=dt;
+ G.clock+=dt; G.stats.frames++;
  if(!G.demo){ G.time-=dt; G.chaos=Math.min(1,G.chaos+dt/115); }
  else { G.chaos=Math.min(1,G.chaos+dt/38); if(G.chaos>=1){G.chaosHold+=dt; if(G.chaosHold>22){ newGame(true); return; }} }
  if(!G.demo&&!G.steveDone&&G.time<=G.steveAt){ G.steveDone=true; const near=G.floor.filter(f=>Math.hypot(f.x-W/2,f.y-440)<280), p=near.length?pick(near):freeSpot();
@@ -661,7 +667,7 @@ function update(dt){
  G.spawnT-=dt; if(G.spawnT<=0){ G.spawnT=G.demo?3:rand(3.8,5.2); if(G.pickups.length<4) spawnPickup(); }
  for(const p of G.pads){ p.t+=dt; if(!p.item){ p.cd-=dt; if(p.cd<=0) p.item=pick(Object.keys(WEAPONS)); } }
  if(G.ev){ G.ev.t-=dt; if(G.ev.t<=0||(!alive(G.ev.owner)&&G.ev.kind!=='chicken')) endEvent(); }
- if(G.ev&&G.ev.kind==='meteors'){ G.ev.next-=dt; if(G.ev.next<=0){ G.ev.next=rand(.35,.6); const p=freeSpot(); G.bombs.push({sx:p.x,sy:p.y-700,tx:p.x,ty:p.y,x:p.x,y:p.y-700,z:0,t:0,fl:1,fuse:0,owner:G.ev.owner,lvl:0,meteor:1,o:{skipOwner:true,how:'got flattened by a meteor'}}); } }
+ if(G.ev&&G.ev.kind==='meteors'){ G.ev.next-=dt; if(G.ev.next<=0){ G.ev.next=rand(.35,.6); const p=freeSpot(); G.bombs.push({sx:p.x,sy:p.y-700,tx:p.x,ty:p.y,x:p.x,y:p.y-700,z:0,t:0,fl:1,fuse:0,owner:G.ev.owner,lvl:0,meteor:1,o:{skipOwner:true,how:'got flattened by a meteor',src:'meteor'}}); } }
  if(G.ev&&G.ev.kind==='swapparty'){ G.ev.next-=dt; if(G.ev.next<=0){ G.ev.next=2; swapAll(); } }
  updateMayhem(dt);
  if(G.banner){ G.banner.t-=dt; if(G.banner.t<=0)G.banner=null; }
@@ -690,12 +696,12 @@ function update(dt){
   if(isChicken(e)&&inp.atk&&e.bawkCd<=0){ e.bawkCd=.8; say(e,'BAWK!',1); sfx('bawk'); }
   if(inp.atk) e.atkBuf=.2; else if(e.atkBuf>0) e.atkBuf-=dt;
   if(inp.dash) e.dashBuf=.15; else if(e.dashBuf>0) e.dashBuf-=dt;
-  if(e.dashBuf>0&&e.dashCd<=0&&e.slip<=0){ e.dashBuf=0; const dl=Math.hypot(mx,my); const dx=dl>.1?mx/dl:Math.cos(e.face), dy=dl>.1?my/dl:Math.sin(e.face); e.vx=dx*680;e.vy=dy*680;e.dashT=.16;e.dashCd=1.1;e.blocking=false; dust(e.x,e.y+12,8); if(e.human)sfx('dash'); }
+  if(e.dashBuf>0&&e.dashCd<=0&&e.slip<=0){ e.dashBuf=0; const dl=Math.hypot(mx,my); const dx=dl>.1?mx/dl:Math.cos(e.face), dy=dl>.1?my/dl:Math.sin(e.face); e.vx=dx*680;e.vy=dy*680;e.dashT=.16;e.dashCd=1.1;e.blocking=false; dust(e.x,e.y+12,8); if(e.human)sfx('dash'); G.stats.dashes++; }
   if(e.atkBuf>0&&!e.blocking&&!isChicken(e)&&e.slip<=0){
-   if(e.wpn){ if(e.fireCd<=0){ e.atkBuf=0; fire(e); } }
-   else if(e.atkCd<=0){ e.atkBuf=0; if(e.human) aimAssist(e); e.swing=SWING;e.atkCd=.46;e.hitSet=[];e.crateHit=false; e.vx+=Math.cos(e.face)*150; e.vy+=Math.sin(e.face)*150; if(e.human)sfx('swing'); }
+   if(e.wpn){ if(e.fireCd<=0){ e.atkBuf=0; fire(e); G.stats.shots[hb(e)]++; } }
+   else if(e.atkCd<=0){ e.atkBuf=0; if(e.human) aimAssist(e); e.swing=SWING;e.atkCd=.46;e.hitSet=[];e.crateHit=false;e.hitLanded=false;G.stats.swings[hb(e)]++; e.vx+=Math.cos(e.face)*150; e.vy+=Math.sin(e.face)*150; if(e.human)sfx('swing'); }
   }
-  if(e.swing>0){ e.swing-=dt; const el=SWING-e.swing; if(el>.02&&el<.18) doHit(e,el); }
+  if(e.swing>0){ e.swing-=dt; const el=SWING-e.swing; if(el>.02&&el<.18) doHit(e,el); if(e.swing<=0&&e.hitLanded) G.stats.swingHits[hb(e)]++; }
   if(Math.hypot(e.vx,e.vy)>430&&e.dashT<=0&&Math.random()<.4) dust(e.x,e.y+12,1);
   let bx=0,by=0; if(e.dashT<=0){ if(tile==='>')bx=150; else if(tile==='<')bx=-150; }
   if(G.mayhem&&G.mayhem.kind==='gust'&&!e.fx.steve){ bx+=G.mayhem.dx*150; by+=G.mayhem.dy*150; }
@@ -706,14 +712,14 @@ function update(dt){
   // hazards
   const t2=tileAt(e.x,e.y+4);
   if(t2==='o'&&e.dashT<=0&&!e.fx.ghost&&!e.fx.steve){ startFall(e); continue; }
-  if(t2==='^'&&spk==='up'&&e.inv<=0) hurt(e,null,1,{kb:120,dx:rand(-1,1),dy:rand(-1,1),how:'got spiked'});
-  if(t2==='L'&&e.dashT<=0&&!e.fx.ghost&&!e.fx.steve&&e.inv<=0){ hurt(e,null,1,{kb:300,dx:-Math.cos(e.face),dy:-Math.sin(e.face),how:'took a lava bath'}); e.inv=.55; burst(e.x,e.y,8,['#FF7A2B',CUST],220); if(alive(e)&&Math.random()<.7) say(e,pick(['HOT HOT HOT','Ow ow ow','My feet!']),.9); }
+  if(t2==='^'&&spk==='up'&&e.inv<=0) hurt(e,null,1,{kb:120,dx:rand(-1,1),dy:rand(-1,1),how:'got spiked',src:'spike'});
+  if(t2==='L'&&e.dashT<=0&&!e.fx.ghost&&!e.fx.steve&&e.inv<=0){ hurt(e,null,1,{kb:300,dx:-Math.cos(e.face),dy:-Math.sin(e.face),how:'took a lava bath',src:'lava'}); e.inv=.55; burst(e.x,e.y,8,['#FF7A2B',CUST],220); if(alive(e)&&Math.random()<.7) say(e,pick(['HOT HOT HOT','Ow ow ow','My feet!']),.9); }
   if(t2==='j'&&e.springCd<=0&&e.dashT<=0){ e.springCd=.8; const dl=Math.hypot(mx,my), dx=dl>.1?mx/dl:Math.cos(e.face), dy=dl>.1?my/dl:Math.sin(e.face); e.vx=dx*820; e.vy=dy*820; e.dashT=.26; e.blocking=false; dust(e.x,e.y+12,10); sfx('spring'); if(Math.random()<.5) say(e,pick(['BOING','Wheee!','Up we go']),.9); }
   if(t2==='p'&&e.portalCd<=0){ const others=G.portals.filter(q=>Math.hypot(q.x-e.x,q.y-e.y)>T); if(others.length){ const q=pick(others); burst(e.x,e.y,14,['#9B7BFF',CREAM],240,'puff'); e.x=q.x; e.y=q.y; e.portalCd=1.2; burst(e.x,e.y,14,['#9B7BFF',CREAM],240,'puff'); fxRing(e.x,e.y,40,'#9B7BFF'); sfx('portal'); if(Math.random()<.4) say(e,pick(['Woah','Where am I?','Portal!']),.9); } }
   if(!alive(e)) continue;
   if(e.fx.magnet) for(const p of G.pickups){ const d=Math.hypot(p.x-e.x,p.y-e.y); if(d<260&&d>4){ const n=norm(e.x-p.x,e.y-p.y); p.x+=n.x*320*dt; p.y+=n.y*320*dt; } }
   // Steve tramples anyone in the way
-  if(e.fx.steve){ for(const o of G.ents){ if(o===e||!alive(o)||isAlly(e,o)||o.inv>0)continue; if(Math.hypot(o.x-e.x,o.y-e.y)<rr+o.r*sizeMul(o)*.8){ hurt(o,e,1,{kb:820}); dust(o.x,o.y+10,6); } }
+  if(e.fx.steve){ for(const o of G.ents){ if(o===e||!alive(o)||isAlly(e,o)||o.inv>0)continue; if(Math.hypot(o.x-e.x,o.y-e.y)<rr+o.r*sizeMul(o)*.8){ hurt(o,e,1,{kb:820,src:'steve'}); dust(o.x,o.y+10,6); } }
    if(Math.random()<dt*.35){ say(e,pick(['COCK-A-DOODLE-DOO!','BWAAARK!','Steve says hi','Mind the beak!']),1.4); sfx('crow'); } }
   if(e.fx.norr){ e.norrT-=dt; if(e.norrT<=0){ e.norrT=2.2; roar(e,0); } }
   if(!alive(e)) continue;
@@ -731,13 +737,13 @@ function update(dt){
  for(const b of G.bees){ b.t-=dt; b.sting-=dt; let tg=b.tid>=0?G.ents[b.tid]:null;
   if(!tg||!alive(tg)||isAlly(b.owner,tg)||Math.random()<dt*.3){ let bd=1e9; tg=null; for(const o of G.ents){ if(!alive(o)||isAlly(b.owner,o)||o.fx.ghost)continue; const d=Math.hypot(o.x-b.x,o.y-b.y); if(d<bd){bd=d;tg=o} } b.tid=tg?tg.id:-1; }
   if(tg){ const d=Math.hypot(tg.x-b.x,tg.y-b.y)||1, sp=Math.min(d*4,300); b.x+=(tg.x-b.x)/d*sp*dt+Math.sin(G.clock*17)*30*dt; b.y+=(tg.y-b.y)/d*sp*dt+Math.cos(G.clock*13)*30*dt;
-   if(d<tg.r*sizeMul(tg)+14&&b.sting<=0){ b.sting=.9; hurt(tg,b.owner,1,{kb:240,dx:rand(-1,1),dy:rand(-1,1),how:'got stung to bits'}); if(alive(tg)&&Math.random()<.6) say(tg,pick(['BEES!','Not the bees!','Ow! Bzz! Ow!']),1); } }
+   if(d<tg.r*sizeMul(tg)+14&&b.sting<=0){ b.sting=.9; hurt(tg,b.owner,1,{kb:240,dx:rand(-1,1),dy:rand(-1,1),how:'got stung to bits',src:'bees'}); if(alive(tg)&&Math.random()<.6) say(tg,pick(['BEES!','Not the bees!','Ow! Bzz! Ow!']),1); } }
   else { b.x+=Math.sin(G.clock*2+b.t)*40*dt; b.y+=Math.cos(G.clock*1.7)*40*dt; } }
  G.bees=G.bees.filter(b=>b.t>0);
- for(const m of G.mines){ m.t-=dt; m.arm-=dt; if(m.arm>0)continue; for(const o of G.ents){ if(!alive(o)||o===m.owner||isAlly(m.owner,o)||o.fx.ghost||o.dashT>0)continue; if(Math.hypot(o.x-m.x,o.y-m.y)<o.r*sizeMul(o)*.7+12){ m.t=0; explode(m.x,m.y,80,m.owner,{how:'stepped on a pie'}); break; } } }
+ for(const m of G.mines){ m.t-=dt; m.arm-=dt; if(m.arm>0)continue; for(const o of G.ents){ if(!alive(o)||o===m.owner||isAlly(m.owner,o)||o.fx.ghost||o.dashT>0)continue; if(Math.hypot(o.x-m.x,o.y-m.y)<o.r*sizeMul(o)*.7+12){ m.t=0; explode(m.x,m.y,80,m.owner,{how:'stepped on a pie',src:'mine'}); break; } } }
  G.mines=G.mines.filter(m=>m.t>0);
  for(const c of G.flock){ c.t-=dt; c.x+=c.vx*dt; c.y+=Math.sin(G.clock*20+c.p)*40*dt; if(c.x<-60||c.x>W+60)c.t=0;
-  for(const o of G.ents){ if(!alive(o)||o.inv>0||o.fx.steve)continue; if(Math.hypot(o.x-c.x,o.y-c.y)<o.r*sizeMul(o)*.8+14){ hurt(o,null,1,{kb:520,dx:c.vx>0?1:-1,dy:rand(-.4,.4),how:'got trampled by chickens'}); if(alive(o)) say(o,pick(['CHICKENS!','Not again!','BAWK?!']),1); } }
+  for(const o of G.ents){ if(!alive(o)||o.inv>0||o.fx.steve)continue; if(Math.hypot(o.x-c.x,o.y-c.y)<o.r*sizeMul(o)*.8+14){ hurt(o,null,1,{kb:520,dx:c.vx>0?1:-1,dy:rand(-.4,.4),how:'got trampled by chickens',src:'chickens'}); if(alive(o)) say(o,pick(['CHICKENS!','Not again!','BAWK?!']),1); } }
   if(Math.random()<dt*.5) sfx('bawk'); }
  G.flock=G.flock.filter(c=>c.t>0);
  // projectiles
@@ -750,8 +756,8 @@ function update(dt){
    const br=b.r*sizeMul(b); if(Math.hypot(b.x-p.x,b.y-p.y)>br+p.r) continue;
    if(blockedFrom(b,p.x-p.vx,p.y-p.vy)){ p.vx=-p.vx; p.vy=-p.vy; p.owner=b; p.life=Math.max(p.life,.8); p.x+=p.vx*.03; p.y+=p.vy*.03; clang(b,p.x,p.y); break; }
    const n=norm(p.vx,p.vy);
-   if(p.k==='blob'){ hurt(b,p.owner,1,{dx:n.x,dy:n.y,kb:760+p.lvl*120}); if(alive(b)){b.slip=.6+p.lvl*.15;} G.decals.push({k:'splat',x:b.x,y:b.y+6,r:p.r*1.8,t:8}); burst(p.x,p.y,16,[CUST,CREAM],260); }
-   else hurt(b,p.owner,1,{dx:n.x,dy:n.y,kb:300});
+   if(p.k==='blob'){ hurt(b,p.owner,1,{dx:n.x,dy:n.y,kb:760+p.lvl*120,src:'cannon'}); if(p.owner&&alive(p.owner)) G.stats.shotHits[hb(p.owner)]++; if(alive(b)){b.slip=.6+p.lvl*.15;} G.decals.push({k:'splat',x:b.x,y:b.y+6,r:p.r*1.8,t:8}); burst(p.x,p.y,16,[CUST,CREAM],260); }
+   else { hurt(b,p.owner,1,{dx:n.x,dy:n.y,kb:300,src:'bow'}); if(p.owner&&alive(p.owner)) G.stats.shotHits[hb(p.owner)]++; }
    p.life=0; break;
   }
  }
@@ -1724,6 +1730,12 @@ $('lobbyCopy').onclick=()=>{ const u=inviteUrl(); (navigator.clipboard?navigator
 { const qj=new URLSearchParams(location.search).get('join'); if(qj){ $('codeIn').value=qj.toUpperCase().replace(/[^A-Z0-9]/g,'').slice(0,5); $('menuMsg').textContent='Type your name and press Join to enter room '+$('codeIn').value+'.'; } }
 
 newGame(true);
+if(new URLSearchParams(location.search).get('qa')){
+ window.CK={G:()=>G,cfg,keys,touch,update,newGame,start,startEvent,startMayhem,applyPU,giveWeapon,spawnPickup,MAYHEM,PU,MAPS,WEAPONS,
+  adv:n=>{for(let i=0;i<n;i++)update(1/60)},freeze:v=>{paused=v},
+  begin:(o={})=>{ Object.assign(cfg,o); if(o.humans!==undefined) cfg.players=o.humans; $('menu').hidden=true; audio(); menuMusic(false); newGame(false); paused=true; $('pauseBtn').hidden=true; G.banner=null; return G; },
+  zoom:(s,gx,gy)=>{ const r=document.getElementById('stage').getBoundingClientRect(); scale=s; offX=r.width/2-gx*s; offY=r.height/2-gy*s; }};
+}
 requestAnimationFrame(frame);
 })();
 </script>

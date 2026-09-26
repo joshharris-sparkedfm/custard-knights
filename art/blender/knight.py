@@ -442,6 +442,114 @@ if MODE == 'turnaround':
 # ------------------------------------------------------------------ sprite sheet: 5 directions x (idle 2, walk 6, swing 4), two layers
 # base layer: everything, with team-coloured parts in a white/grey cel ramp; mask layer: team parts white, everything else a holdout.
 # The game multiplies the player's colour onto the base through the mask, so one sheet serves every colour.
+if MODE == 'chicken':
+    # The chicken every knight turns into when chaos peaks: 6 skins x 5 directions x (idle 2, walk 4), base + team mask.
+    import json
+    for o in bpy.data.objects: o.hide_render = o.type != 'LIGHT'   # keep the sun
+    PAL.update({'hen': ('#FFFFFF', '#E6DAC2', '#FFFFFF'), 'rubber': ('#FFE45C', '#E0A21E', '#FFF7B8'), 'goldc': ('#F2A92E', '#A8650E', '#FFE58A'),
+                'beak': ('#F7A534', '#C4661C', '#FFD27A'), 'comb': ('#E8392F', '#A61E2A', '#FF7A5C'), 'rgreen': ('#2FA070', '#1B5E45', '#6FD0A0'),
+                'rblue': ('#4A5A8C', '#20283F', '#8C9CD0'), 'rorange': ('#F28A3C', '#C4541C', '#FFB878')})
+    CM = {k: toon('c_' + k, k) for k in ['hen', 'rubber', 'goldc', 'beak', 'comb', 'rgreen', 'rblue', 'rorange']}
+    CROOT = bpy.data.objects.new('chick', None); sc.collection.objects.link(CROOT)
+    CG = {}
+    def cgroup(name, fn):
+        before = set(bpy.data.objects.keys()); fn(); CG[name] = [n for n in bpy.data.objects.keys() if n not in before]
+    def S(name, loc, scl, mat, ol=.03, sub=1, rot=None):
+        # built at the origin (primitives carry their position in the mesh), optionally turned, then moved
+        o = sphere(name, (0, 0, 0), scl, mat, outline=ol, sub=sub, parent=CROOT)
+        if rot:
+            o.rotation_euler = rot; bpy.ops.object.select_all(action='DESELECT'); o.select_set(True); bpy.context.view_layer.objects.active = o
+            bpy.ops.object.transform_apply(location=False, rotation=True, scale=False)
+        o.location = loc; return o
+    HC_ = (0, -.4, 1.24); HR_ = .34
+    def c_base():
+        S('cbody', (0, .05, .72), (.6, .68, .56), CM['hen'])
+        S('chead', HC_, (HR_, HR_, HR_), CM['hen'])
+        cyl('cbeak', (0, -.8, 1.2), .1, .26, CM['beak'], rot=(math.pi / 2, 0, 0), r2=.012, sub=0, outline=.02, parent=CROOT)
+        S('cwattle', (0, -.72, 1.03), (.06, .05, .1), CM['comb'], ol=.016)
+        for sx in (-1, 1):
+            a = sx * .62; n = (math.sin(a), -math.cos(a)); tg = (math.cos(a), math.sin(a))
+            def on(d, lat, dz): return (HC_[0] + n[0] * (HR_ + d) + tg[0] * lat, HC_[1] + n[1] * (HR_ + d) + tg[1] * lat, HC_[2] + dz)
+            S(f'ceye{sx}', on(.0, 0, .04), (.1, .06, .12), M['eyew'], ol=.014, sub=0, rot=(0, 0, a))
+            S(f'cpupil{sx}', on(.045, .02, .03), (.058, .03, .072), M['pupil'], ol=0, sub=0, rot=(0, 0, a))
+            S(f'cglint{sx}', on(.07, -.01, .08), (.022, .01, .022), M['eyew'], ol=0, sub=0, rot=(0, 0, a))
+            S(f'cwing{sx}', (sx * .57, .1, .8), (.12, .38, .27), CM['hen'])
+            cyl(f'cleg{sx}', (sx * .2, .05, .2), .04, .34, CM['beak'], sub=0, outline=.015, parent=CROOT)
+            S(f'cfoot{sx}', (sx * .2, -.08, .03), (.1, .17, .035), CM['beak'], ol=.015)
+    def c_tail():
+        for i, x in enumerate((-.13, 0, .13)): S(f'ctail{i}', (x, .66, 1.02 + (.06 if i == 1 else 0)), (.07, .13, .28), CM['hen'], rot=(-.55, x * 2, 0))
+    def c_rtail():
+        for i, (x, m) in enumerate(((-.16, 'rgreen'), (0, 'rblue'), (.16, 'rorange'))): S(f'crtail{i}', (x, .72, 1.12 + (.08 if i == 1 else 0)), (.08, .14, .42), CM[m], rot=(-.7, x * 2.2, 0))
+    def c_comb():
+        for i, (y, z) in enumerate(((-.52, 1.57), (-.4, 1.63), (-.28, 1.58))): S(f'ccomb{i}', (0, y, z), (.055, .07, .1), CM['comb'], ol=.016)
+    def c_helm():
+        S('chelm', (0, -.4, 1.36), (.37, .37, .27), M['steel'])
+        S('cvisor', (0, -.62, 1.33), (.26, .1, .06), M['dark'], ol=.014)
+        for i, (x, L) in enumerate(((-.07, .26), (0, .34), (.07, .26))): S(f'cplume{i}', (x, -.32, 1.72), (.05, .1, L), M['team'], rot=(-.35, x * 3, 0))
+    def c_custard():
+        S('ccust0', (0, -.4, 1.5), (.3, .3, .13), M['custard'], ol=.02)
+        S('ccust1', (.04, -.42, 1.63), (.15, .15, .1), M['custard'], ol=.02)
+        for i, ang in enumerate((-2.2, -1.2, -.4, .6, 2.4)):
+            S(f'cdrip{i}', (math.cos(ang) * .3, -.4 + math.sin(ang) * .3, 1.36), (.05, .05, .11), M['custard'], ol=.014)
+    for g, fn in (('base', c_base), ('tail', c_tail), ('rtail', c_rtail), ('comb', c_comb), ('helm', c_helm), ('custard', c_custard)): cgroup(g, fn)
+    BODYP = ['cbody', 'chead', 'cwing-1', 'cwing1', 'ctail0', 'ctail1', 'ctail2']
+    SKINS = {'hen': ({'base', 'tail', 'comb'}, 'hen'), 'rooster': ({'base', 'rtail', 'comb'}, 'hen'), 'rubber': ({'base', 'tail', 'comb'}, 'rubber'),
+             'knight': ({'base', 'tail', 'helm'}, 'hen'), 'golden': ({'base', 'tail', 'comb'}, 'goldc'), 'custard': ({'base', 'tail', 'comb', 'custard'}, 'hen')}
+    cam.ortho_scale = 3.4; co.location = (0, -D * math.cos(ELEV), 1.0 + D * math.sin(ELEV))   # tighter than the knights: chickens are small
+    try:
+        sun.use_shadow = False; sc.eevee.taa_render_samples = 8
+    except Exception:
+        pass
+    hold = bpy.data.materials.new('c_hold'); hold.use_nodes = True; N = hold.node_tree.nodes
+    for n_ in list(N): N.remove(n_)
+    o_ = N.new('ShaderNodeOutputMaterial'); hd = N.new('ShaderNodeHoldout'); hold.node_tree.links.new(hd.outputs[0], o_.inputs['Surface'])
+    holdc = hold.copy(); holdc.use_backface_culling = True
+    white = flat('c_white', (1, 1, 1))
+    PAL['tgrey'] = ('#FFFFFF', '#9C9C9C', '#FFFFFF'); tgrey = toon('c_tgrey', 'tgrey', split=.45, hi_at=.99)
+    cobjs = [bpy.data.objects[n] for g in CG.values() for n in g if bpy.data.objects[n].type == 'MESH']
+    ORIG0 = {o.name: [sl.material for sl in o.material_slots] for o in cobjs}
+    def dress(body):
+        orig = {k: list(v) for k, v in ORIG0.items()}
+        for n in BODYP: orig[n][0] = CM[body]
+        return orig
+    def set_layer(layer, orig):
+        for ob in cobjs:
+            for i, sl in enumerate(ob.material_slots):
+                m = orig[ob.name][i]; ink = m is not None and m.name == INKM.name; team = m is not None and m.name == M['team'].name
+                if layer == 'base': sl.material = tgrey if team else m
+                else: sl.material = white if team else (holdc if ink else hold)
+    P = {o.name: (o.location.copy(), o.rotation_euler.copy()) for o in cobjs}
+    def reset():
+        for n, (l, r) in P.items(): o = bpy.data.objects[n]; o.location = l.copy(); o.rotation_euler = r.copy()
+    def mv(n, dx=0, dy=0, dz=0):
+        o = bpy.data.objects[n]; l, _ = P[n]; o.location = (l.x + dx, l.y + dy, l.z + dz)
+    def pose(an, k):
+        reset()
+        if an == 'idle':
+            if k: [mv(n, 0, 0, -.03) for n in ('cbody', 'chead', 'cwing-1', 'cwing1')]
+            return 0
+        ph = k / 4 * 2 * math.pi; s1 = math.sin(ph)
+        for sx, s_ in ((-1, s1), (1, -s1)):
+            for n in (f'cleg{sx}', f'cfoot{sx}'): mv(n, 0, -.16 * s_, max(0, s_) * .12)
+            bpy.data.objects[f'cwing{sx}'].rotation_euler = (0, sx * (.5 + .4 * math.sin(ph * 2)), 0)
+        return abs(math.cos(ph)) * .08
+    ANIMS_C = [('idle', 2), ('walk', 4)]; DIRS = ['S', 'SE', 'E', 'NE', 'N']
+    frames = [(di, an, k) for di in range(5) for an, cnt in ANIMS_C for k in range(cnt)]
+    only = argv[3].split(',') if len(argv) > 3 and argv[3] != 'all' else None
+    for skin, (groups, body) in SKINS.items():
+        if only and skin not in only: continue
+        on = {n for g in groups for n in CG[g]}
+        for g in CG.values():
+            for n in g: bpy.data.objects[n].hide_render = n not in on
+        orig = dress(body)
+        for idx, (di, an, k) in enumerate(frames):
+            lift = pose(an, k); CROOT.location.z = lift; CROOT.rotation_euler = (0, 0, math.radians(di * 45))
+            for layer in ('base', 'mask'):
+                set_layer(layer, orig); sc.render.filepath = os.path.join(OUT, f'chick_{skin}_{layer}_{idx:03d}.png'); bpy.ops.render.render(write_still=True)
+        print('PART_OK chick_' + skin, flush=True)
+    json.dump({'cell': SIZE, 'scale': 4.6 / 3.4, 'dirs': DIRS, 'anims': ANIMS_C, 'helms': [], 'plumes': [], 'chicks': list(SKINS), 'frames': [list(f) for f in frames]}, open(os.path.join(OUT, 'sheet.json'), 'w'))
+    print('SHEET_OK', len(frames))
+
 if MODE in ('sheet', 'hero'):   # hero: a high-resolution idle (5 directions) + win set for the menus
     # Sheets: for every helm, a body+helm layer (base and team mask); for every plume, a plume layer occluded by a standard helm.
     # 5 directions x (idle 2, walk 6, swing 4, block 2, hit 1, win 2) = 85 frames per sheet.

@@ -290,6 +290,7 @@ kbd{font-family:Nunito,sans-serif;font-weight:900;font-size:11px;background:var(
 </div></div>
 
 <script src="sprites/knight.js"></script>
+<script src="sprites/chicken.js"></script>
 <script>
 (()=>{
 const cv=document.getElementById('game'); let ctx=cv.getContext('2d');
@@ -1549,7 +1550,7 @@ function drawKnight(e){
   if(e.dashT>0){ ctx.save(); ctx.globalCompositeOperation='lighter'; ctx.strokeStyle=rgba(e.color,.5); ctx.lineCap='round'; ctx.lineWidth=5; for(const k of [-1,0,1]){ ctx.beginPath(); ctx.moveTo(-fx*r*.6+k*fy*10,-r*.4-fy*r*.6-k*fx*10); ctx.lineTo(-fx*r*2.4+k*fy*10,-r*.4-fy*r*2.4-k*fx*10); ctx.stroke(); } ctx.restore(); }
   let alpha=1; if(e.fx.ghost)alpha=.28; if(e.inv>0&&Math.floor(t*14)%2)alpha*=.5; ctx.globalAlpha=alpha;
  }
- if(isChicken(e)){ drawChicken(e,r,bob); ctx.restore(); return; }
+ if(isChicken(e)){ if(!(useSprites()&&drawChickenSprite(e,r,moving,bob))) drawChicken(e,r,bob); ctx.restore(); return; }
  if(useSprites()&&!e.fx.steve&&!isBoss(e)&&drawKnightSprite(e,r,moving,bob)){
   if(e.wpn){ ctx.save(); ctx.translate(0,-bob-r*.3); drawHeld(e,r); ctx.restore(); }
   knightFx(e,r,t,fx,fy,moving); ctx.restore(); return; }
@@ -1653,6 +1654,25 @@ function drawKnightSprite(e,r,moving,bob){ const f=sprFrame(e,moving);
  const sq=moving||f.an!=='idle'?0:Math.sin(G.clock*4+e.id)*.015; ctx.scale(1+sq,1-sq);
  ctx.drawImage(img,-cell/2*sc,-SH.anchorY*sc,cell*sc,cell*sc);
  if(e.flash>0){ ctx.globalAlpha=.65; ctx.globalCompositeOperation='lighter'; ctx.drawImage(img,-cell/2*sc,-SH.anchorY*sc,cell*sc,cell*sc); }
+ ctx.restore(); return true; }
+/* baked chickens: 6 skins x 5 directions x (idle 2, walk 4); the knight chicken's plume takes the player's colour */
+const SPRC=(window.CK_SPRITES&&window.CK_SPRITES.chicken)||null;
+function drawChickenSprite(e,r,moving,bob){ if(!SPRC||!SPRC.chicks) return false;
+ const sk=SPRC.chicks[e.chickSkin]?e.chickSkin:'hen', L=SPRC.chicks[sk], base=sprImg('c:'+sk+'.base',L.base); if(!base) return false;
+ let a=Math.atan2(Math.sin(e.face),Math.cos(e.face))*180/Math.PI, mir=false; if(Math.abs(a)>92){ mir=true; a=180-a; if(a>180)a-=360; }
+ const di=clamp(Math.round((90-a)/45),0,4), per=SPRC.anims.walk[0]+SPRC.anims.walk[1];
+ let i=di*per+Math.floor(G.clock*1.6+e.id)%2; if(moving){ const ph=((e.walk*1.6%(Math.PI*2))+Math.PI*2)%(Math.PI*2); i=di*per+SPRC.anims.walk[0]+Math.floor(ph/(Math.PI*2)*4)%4; }
+ const cell=SPRC.cell, [S1,S2]=sprScratch(cell), x=S1.getContext('2d'), y=S2.getContext('2d');
+ x.globalCompositeOperation='source-over'; x.clearRect(0,0,cell,cell); sprBlit(x,L.base,base,i);
+ const mr=L.mask&&L.mask.r[i], mk=mr&&mr[2]&&sprImg('c:'+sk+'.mask',L.mask);
+ if(mk){ y.globalCompositeOperation='source-over'; y.clearRect(0,0,cell,cell); sprBlit(y,L.mask,mk,i); y.globalCompositeOperation='source-in'; y.fillStyle=e.color||TOM; y.fillRect(0,0,cell,cell);
+  x.globalCompositeOperation='multiply'; x.drawImage(S2,0,0); x.globalCompositeOperation='destination-in'; sprBlit(x,L.base,base,i); x.globalCompositeOperation='source-over'; }
+ const sc=sprScale(r)*1.25/(SPRC.scale||1);
+ ctx.save(); ctx.translate(0,r*.72-bob*.3);
+ if(sk==='golden'){ ctx.save(); ctx.globalCompositeOperation='lighter'; const gg=ctx.createRadialGradient(0,-r*.7,2,0,-r*.7,r*1.9); gg.addColorStop(0,'rgba(255,210,80,.35)'); gg.addColorStop(1,'rgba(255,210,80,0)'); ctx.fillStyle=gg; ctx.fillRect(-r*2,-r*2.7,r*4,r*4); ctx.restore(); }
+ if(mir) ctx.scale(-1,1);
+ ctx.drawImage(S1,-cell/2*sc,-SPRC.anchorY*sc,cell*sc,cell*sc);
+ if(e.flash>0){ ctx.globalAlpha=.65; ctx.globalCompositeOperation='lighter'; ctx.drawImage(S1,-cell/2*sc,-SPRC.anchorY*sc,cell*sc,cell*sc); }
  ctx.restore(); return true; }
 const sprTop=r=>r*.72-(SPR?(SPR.anchorY-SPR.topY)*sprScale(r):r*3);
 function heart(x,y,s,fill){ ctx.beginPath(); ctx.moveTo(x,y+s*.9); ctx.bezierCurveTo(x-s*1.5,y-s*.1,x-s*.7,y-s*1.2,x,y-s*.35); ctx.bezierCurveTo(x+s*.7,y-s*1.2,x+s*1.5,y-s*.1,x,y+s*.9); ctx.closePath(); ctx.fillStyle=fill; ctx.fill(); ctx.lineWidth=2; ctx.strokeStyle=INK; ctx.stroke(); }

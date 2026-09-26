@@ -1,52 +1,93 @@
-"""Pack the rendered sheet frames into atlases and write sprites/knight.js for the game.
+"""Pack the rendered sheet frames into tight atlases and write sprites/knight.js for the game.
 
-Per helm: base (team parts grey), team mask and metal mask. Per plume: one plume layer (all team colour, already occluded
-by a standard helm). Atlases are WebP data URLs so the game still works from file:// and the canvas never gets tainted.
-Masks keep only their alpha, which WebP stores compactly. Also measures the anchor (feet) and head top."""
+Every layer is 85 frames (5 directions x 17). Each frame is cropped to its visible pixels and shelf-packed, so a small
+part such as an emblem costs a few KB of decoded memory instead of a full 160px cell per frame. A layer is
+{u: WebP data URL, r: [[x, y, w, h, ox, oy], ...]}: frame i is atlas rect (x, y, w, h) drawn at (ox, oy) inside its cell.
+Layers:
+  helms[h]  = {base, mask, metal}   body + helm; team parts grey (base), team coverage (mask), steel coverage (metal)
+  plumes[p] = layer                 team-grey plume, held out by the body and a standard helm
+  blades[b] = layer                 blade + hilt in true colours, held out by body, helm and cape
+  cape      = layer                 team-grey cape, held out by body, helm and sword
+  pats[p]   = layer                 cape pattern coverage (white)
+  embs[k]   = layer                 chest and shield emblem in true colours
+Data URLs keep file:// working and the canvas untainted."""
 import base64, io, json, os, sys
 from PIL import Image
 HERE = os.path.dirname(os.path.abspath(__file__))
 SRC = sys.argv[1] if len(sys.argv) > 1 else os.path.join(HERE, 'sheet')
 OUT = os.path.join(HERE, '..', '..', 'sprites'); os.makedirs(OUT, exist_ok=True)
 meta = json.load(open(os.path.join(SRC, 'sheet.json')))
-n = len(meta['frames']); cell = meta['cell']; cols = 10; rows = (n + cols - 1) // cols
-total = 0
+n = len(meta['frames']); cell = meta['cell']
+total = 0; decoded = 0
 
-def atlas(prefix, layer, white=False):
-    a = Image.new('RGBA', (cols * cell, rows * cell), (0, 0, 0, 0))
+def frames(prefix, fname, white=False):
+    out = []
     for i in range(n):
-        f = os.path.join(SRC, f'{prefix}_{layer}_{i:03d}.png')
+        f = os.path.join(SRC, f'{prefix}_{fname}_{i:03d}.png')
         if not os.path.exists(f): return None
         im = Image.open(f).convert('RGBA')
-        if white:  # coverage only: white RGB, alpha from the render
-            im = Image.merge('RGBA', (*[Image.new('L', im.size, 255)] * 3, im.split()[3]))
-        a.paste(im, ((i % cols) * cell, (i // cols) * cell))
-    return a
+        if white: im = Image.merge('RGBA', (*[Image.new('L', im.size, 255)] * 3, im.split()[3]))
+        out.append(im)
+    return out
 
-def durl(im, lossless=False):
-    global total
-    b = io.BytesIO(); im.save(b, 'WEBP', lossless=lossless, quality=92 if not lossless else 80, method=6)
-    total += len(b.getvalue()); return 'data:image/webp;base64,' + base64.b64encode(b.getvalue()).decode()
+def pack(ims):
+    """crop each frame to its alpha bbox (1px pad) and shelf-pack into a 1024-wide atlas"""
+    global total, decoded
+    crops = []
+    for i, im in enumerate(ims):
+        bb = im.split()[3].point(lambda a: 255 if a > 2 else 0).getbbox()
+        if not bb: crops.append((i, None, None)); continue
+        x0, y0, x1, y1 = max(0, bb[0] - 1), max(0, bb[1] - 1), min(cell, bb[2] + 1), min(cell, bb[3] + 1)
+        crops.append((i, im.crop((x0, y0, x1, y1)), (x0, y0)))
+    W = 1024; x = y = sh = 0; place = {}
+    for i, c, o in sorted([c for c in crops if c[1] is not None], key=lambda c: -c[1].height):
+        w, h = c.size
+        if x + w > W: x = 0; y += sh; sh = 0
+        place[i] = (x, y); x += w; sh = max(sh, h)
+    H = max(1, y + sh); A = Image.new('RGBA', (W, H), (0, 0, 0, 0)); rects = []
+    for i, c, o in crops:
+        if c is None: rects.append([0, 0, 0, 0, 0, 0]); continue
+        px, py = place[i]; A.paste(c, (px, py)); rects.append([px, py, c.width, c.height, o[0], o[1]])
+    b = io.BytesIO(); A.save(b, 'WEBP', quality=92, method=6); total += len(b.getvalue()); decoded += W * H * 4
+    return {'u': 'data:image/webp;base64,' + base64.b64encode(b.getvalue()).decode(), 'r': rects}, A
 
-helms, plumes, anchor = {}, {}, None
+def layer(prefix, fname, white=False, need=True):
+    ims = frames(prefix, fname, white)
+    if ims is None:
+        if need: print('missing', prefix, fname)
+        return None, None
+    return pack(ims)
+
+K = {'cell': cell, 'dirs': meta['dirs'], 'per': 0, 'anims': {}, 'helms': {}, 'plumes': {}, 'blades': {}, 'pats': {}, 'embs': {}}
+o = 0
+for an, cnt in meta['anims']: K['anims'][an] = [o, cnt]; o += cnt
+K['per'] = o
+anchor = None
 for h in meta['helms']:
-    base = atlas('helm_' + h, 'base')
-    if base is None: print('skip helm', h); continue
-    if anchor is None or h == 'great':
-        s0 = base.crop((0, 0, cell, cell)); bb = s0.split()[3].getbbox(); anchor = (bb[3] - 6, bb[1])
-    ent = {'base': durl(base), 'mask': durl(atlas('helm_' + h, 'mask', True))}
-    met = atlas('helm_' + h, 'metal', True)
-    if met is not None: ent['metal'] = durl(met)
-    helms[h] = ent; base.save(os.path.join(SRC, f'_atlas_{h}.png'))
+    base, A = layer('helm_' + h, 'base')
+    if base is None: continue
+    if h == 'great':  # feet and head top from the south idle frame, in cell space
+        r = base['r'][0]; anchor = (r[5] + r[3] - 6, r[5])
+    ent = {'base': base, 'mask': layer('helm_' + h, 'mask', True)[0]}
+    met = layer('helm_' + h, 'metal', True, need=False)[0]
+    if met: ent['metal'] = met
+    K['helms'][h] = ent
 for p in meta['plumes']:
-    pl = atlas('plume_' + p, 'plume')
-    if pl is None: print('skip plume', p); continue
-    plumes[p] = durl(pl)
-# per-anim frame offsets inside a direction block
-off, o = {}, 0
-for an, cnt in meta['anims']: off[an] = [o, cnt]; o += cnt
-js = ('// generated by art/blender/pack.py from art/blender/knight.py. Do not edit.\n'
-      'window.CK_SPRITES=' + json.dumps({'knight': {'cell': cell, 'cols': cols, 'dirs': meta['dirs'], 'per': o, 'anims': off,
-                                           'anchorY': anchor[0], 'topY': anchor[1], 'helms': helms, 'plumes': plumes}}) + ';\n')
+    L = layer('plume_' + p, 'plume')[0]
+    if L: K['plumes'][p] = L
+for b in meta.get('blades', []):
+    L = layer('blade_' + b, 'solo')[0]
+    if L: K['blades'][b] = L
+L = layer('cape', 'solo')[0]
+if L: K['cape'] = L
+for p in meta.get('pats', []):
+    L = layer('capepat_' + p, 'mask', True)[0]
+    if L: K['pats'][p] = L
+for k in meta.get('embs', []):
+    L = layer('emb_' + k, 'solo')[0]
+    if L: K['embs'][k] = L
+K['anchorY'], K['topY'] = anchor
+js = '// generated by art/blender/pack.py from art/blender/knight.py. Do not edit.\nwindow.CK_SPRITES=' + json.dumps({'knight': K}, separators=(',', ':')) + ';\n'
 open(os.path.join(OUT, 'knight.js'), 'w').write(js)
-print(f'packed {n} frames x {len(helms)} helms + {len(plumes)} plumes, atlas {cols * cell}x{rows * cell}, images {total // 1024} KB, js {len(js) // 1024} KB, anchor {anchor}')
+print(f"packed {len(K['helms'])} helms, {len(K['plumes'])} plumes, {len(K['blades'])} blades, cape {'cape' in K}, {len(K['pats'])} patterns, {len(K['embs'])} emblems; "
+      f"images {total // 1024} KB, js {len(js) // 1024} KB, all atlases decoded {decoded // 1048576} MB, anchor {anchor}")

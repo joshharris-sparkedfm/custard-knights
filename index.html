@@ -250,7 +250,7 @@ kbd{font-family:Nunito,sans-serif;font-weight:900;font-size:11px;background:var(
       <label class="slider">Sounds <input type="range" id="sSfx" min="0" max="100"><output id="oSfx"></output></label>
       <label class="slider">Screen shake <input type="range" id="sShake" min="0" max="100"><output id="oShake"></output></label>
       <label class="check"><input type="checkbox" id="cFlash"> Reduce flashing (Disco Fever, explosions)</label>
-      <label class="check"><input type="checkbox" id="cSprites"> New knights (preview of the 3D-rendered art)</label>
+      <label class="check"><input type="checkbox" id="cSprites"> Classic knights (the original hand-drawn look)</label>
       <label class="check"><input type="checkbox" id="cNames"> Show every knight's name (not just those near you)</label>
       <div class="row"><button class="btn" id="tipsReset" type="button">Show the beginner tips again</button></div>
       <p class="note">This game has flashing lights and screen shake. Both can be turned down here.</p>
@@ -401,7 +401,7 @@ const cx=x=>clamp(x,T*1.5,W-T*1.5), cy=y=>clamp(y,OY+T*1.5,H-T*1.5);
 
 let cfg={mode:'ffa',players:1,diff:'spicy',map:'random',chaosPlus:false,chaosSpeed:'normal',length:180,teamSplit:false}, showHit=false;
 try{ Object.assign(cfg,JSON.parse(localStorage.getItem('ck-cfg')||'{}')); }catch(e){} function saveCfg(){ try{ localStorage.setItem('ck-cfg',JSON.stringify(cfg)); }catch(e){} }
-const SET={music:.55,sfx:1,shake:1,flash:true,names:'near',sprites:false};
+const SET={music:.55,sfx:1,shake:1,flash:true,names:'near',classic:false};
 try{ Object.assign(SET,JSON.parse(localStorage.getItem('ck-settings')||'{}')); }catch(e){} function saveSet(){ try{ localStorage.setItem('ck-settings',JSON.stringify(SET)); }catch(e){} }
 // what a first-timer has already been taught, so tips show once
 const TAUGHT=new Set(); try{ (JSON.parse(localStorage.getItem('ck-taught')||'[]')).forEach(k=>TAUGHT.add(k)); }catch(e){}
@@ -1597,19 +1597,20 @@ function knightFx(e,r,t,fx,fy,moving){
  if(e.fx.norr){ ctx.save(); ctx.globalCompositeOperation='lighter'; for(let i=0;i<2;i++){ const ph=((t*1.1+i*.5)%1); ctx.globalAlpha=1-ph; circle(0,-r*.3,r*(1.2+ph*1.6),null,'#FF7A2B',5); } ctx.restore(); }
 }
 /* ---------- baked sprite knights ----------
-   art/blender/knight.py renders 5 directions x (idle 2, walk 6, swing 4, block 2, hit 1, win 2) for every helm (base, team mask,
-   metal mask) and every plume. Each draw composes one frame in a small scratch canvas: team colour and metal colour are multiplied
-   in through their masks, then the plume layer is tinted and laid on top. Atlases decode lazily the first time a kit needs them.
-   West-facing directions are mirrors. */
+   art/blender/knight.py renders 5 directions x (idle 2, walk 6, swing 4, block 2, hit 1, win 2) for every swappable part:
+   helm (base, team mask, metal mask), plume, blade, cape, cape pattern and emblem. Each part layer was rendered with the
+   rest of the knight held out, so layers simply stack. Every frame is cropped and packed; a layer is {u:url, r:[[x,y,w,h,ox,oy]]}.
+   Each draw composes one frame in a small scratch canvas and tints team colour, metal, cape pattern and plume there.
+   Atlases decode lazily the first time a kit needs them. West-facing directions are mirrors. */
 const SPR=(window.CK_SPRITES&&window.CK_SPRITES.knight)||null;
 let sprReady=false; const sprImgs={};
-function sprImg(key,url){ let im=sprImgs[key]; if(!im){ im=sprImgs[key]=new Image(); im.onload=()=>{ im.ok=true; if(key==='great.base'||key==='great.mask') sprReady=!!(sprImgs['great.base'].ok&&sprImgs['great.mask'].ok); }; im.src=url; } return im.ok?im:null; }
+function sprImg(key,L){ if(!L) return null; let im=sprImgs[key]; if(!im){ im=sprImgs[key]=new Image(); im.onload=()=>{ im.ok=true; if(key==='great.base'||key==='great.mask') sprReady=!!(sprImgs['great.base'].ok&&sprImgs['great.mask'].ok); }; im.src=L.u; } return im.ok?im:null; }
 if(SPR&&SPR.helms&&SPR.helms.great){ sprImg('great.base',SPR.helms.great.base); sprImg('great.mask',SPR.helms.great.mask); }
-const FORCE_SPR=new URLSearchParams(location.search).get('r')==='sprite';
-const useSprites=()=>sprReady&&(SET.sprites||FORCE_SPR);
-const SPR_METAL={gold:'#FFC23A',dark:'#6E78B4'};
-let sprS1=null,sprS2=null;
-function sprScratch(){ if(!sprS1){ const mk=()=>{ const c=document.createElement('canvas'); c.width=c.height=SPR.cell; return c; }; sprS1=mk(); sprS2=mk(); } }
+const R_MODE=new URLSearchParams(location.search).get('r'); // ?r=sprite or ?r=classic forces a renderer (QA)
+const useSprites=()=>sprReady&&(R_MODE==='sprite'||(R_MODE!=='classic'&&!SET.classic));
+const SPR_METAL={gold:'#FFC23A',dark:'#6E78B4'}, SPR_PAT={stripes:['#FFF7E0',.55],chevron:['#FFF7E0',.55],checker:['#FFF7E0',.55],stars:['#FFD23F',1],trim:['#FFC933',1]};
+let sprS=null;
+function sprScratch(){ if(!sprS){ sprS=[0,1,2].map(()=>{ const c=document.createElement('canvas'); c.width=c.height=SPR.cell; return c; }); } return sprS; }
 function sprFrame(e,moving){ let a=Math.atan2(Math.sin(e.face),Math.cos(e.face))*180/Math.PI, mir=false; if(Math.abs(a)>92){ mir=true; a=180-a; if(a>180)a-=360; }
  const di=clamp(Math.round((90-a)/45),0,4), A=SPR.anims; let an='idle',k=0;
  if(G.over&&G.winners&&G.winners.includes(e)){ an='win'; k=Math.floor(performance.now()/260+e.id)%2; }
@@ -1620,22 +1621,28 @@ function sprFrame(e,moving){ let a=Math.atan2(Math.sin(e.face),Math.cos(e.face))
  else { k=Math.floor(G.clock*1.6+e.id)%2; }
  const [o,c]=A[an]||A.idle; return {i:di*SPR.per+o+Math.min(k,c-1),mir,an}; }
 const sprScale=r=>r/22*.66;
-function sprCompose(e,i){ // returns the scratch canvas with frame i fully tinted, or null if its helm atlas is not decoded yet
+function sprBlit(x,L,img,i){ const r=L.r[i]; if(r&&r[2]) x.drawImage(img,r[0],r[1],r[2],r[3],r[4],r[5],r[2],r[3]); }
+function sprCompose(e,i){ // returns the scratch canvas holding frame i of this knight's kit, or null until its helm atlas has decoded
  const K=e.kit||{}; let h=SPR.helms[K.helm]?K.helm:'great', H=SPR.helms[h];
  let base=sprImg(h+'.base',H.base), mask=sprImg(h+'.mask',H.mask);
  if(!base||!mask){ h='great'; H=SPR.helms.great; base=sprImg('great.base',H.base); mask=sprImg('great.mask',H.mask); if(!base||!mask) return null; }
- sprScratch(); const cell=SPR.cell, sx=(i%SPR.cols)*cell, sy=Math.floor(i/SPR.cols)*cell, a=sprS1.getContext('2d'), b=sprS2.getContext('2d');
- const tint=(img,col)=>{ b.globalCompositeOperation='source-over'; b.clearRect(0,0,cell,cell); b.drawImage(img,sx,sy,cell,cell,0,0,cell,cell); b.globalCompositeOperation='source-in'; b.fillStyle=col; b.fillRect(0,0,cell,cell); a.globalCompositeOperation='multiply'; a.drawImage(sprS2,0,0); };
- a.globalCompositeOperation='source-over'; a.clearRect(0,0,cell,cell); a.drawImage(base,sx,sy,cell,cell,0,0,cell,cell);
- tint(mask,e.color);
- const mc=SPR_METAL[K.metal]; if(mc&&H.metal){ const mm=sprImg(h+'.metal',H.metal); if(mm) tint(mm,mc); }
- a.globalCompositeOperation='destination-in'; a.drawImage(base,sx,sy,cell,cell,0,0,cell,cell);
- const pu=SPR.plumes[K.plume]?K.plume:'feather', pi=sprImg('plume.'+pu,SPR.plumes[pu]);
- if(pi){ b.globalCompositeOperation='source-over'; b.clearRect(0,0,cell,cell); b.drawImage(pi,sx,sy,cell,cell,0,0,cell,cell);
-  b.globalCompositeOperation='multiply'; b.fillStyle=plumeCols(e)[0]; b.fillRect(0,0,cell,cell);
-  b.globalCompositeOperation='destination-in'; b.drawImage(pi,sx,sy,cell,cell,0,0,cell,cell);
-  a.globalCompositeOperation='source-over'; a.drawImage(sprS2,0,0); }
- a.globalCompositeOperation='source-over'; return sprS1; }
+ const [S1,S2,S3]=sprScratch(), cell=SPR.cell, a=S1.getContext('2d'), b=S2.getContext('2d'), c=S3.getContext('2d');
+ const clr=x=>{ x.globalCompositeOperation='source-over'; x.globalAlpha=1; x.clearRect(0,0,cell,cell); };
+ const tint=(L,img,col)=>{ clr(b); sprBlit(b,L,img,i); b.globalCompositeOperation='source-in'; b.fillStyle=col; b.fillRect(0,0,cell,cell); a.globalCompositeOperation='multiply'; a.drawImage(S2,0,0); };
+ const grey=(L,img,col)=>{ const r=L.r[i]; if(!r||!r[2]) return false; clr(b); sprBlit(b,L,img,i); b.globalCompositeOperation='multiply'; b.fillStyle=col; b.fillRect(0,0,cell,cell); b.globalCompositeOperation='destination-in'; sprBlit(b,L,img,i); b.globalCompositeOperation='source-over'; return true; };
+ clr(a); sprBlit(a,H.base,base,i);
+ tint(H.mask,mask,e.color);
+ const mc=SPR_METAL[K.metal]; if(mc&&H.metal){ const mm=sprImg(h+'.metal',H.metal); if(mm) tint(H.metal,mm,mc); }
+ a.globalCompositeOperation='destination-in'; sprBlit(a,H.base,base,i); a.globalCompositeOperation='source-over';
+ const ci=sprImg('cape',SPR.cape); // cape in team colour, then its pattern on top of it
+ if(ci&&grey(SPR.cape,ci,e.color)){ const pk=e.cape, PL=SPR.pats&&SPR.pats[pk], pi2=PL&&sprImg('pat.'+pk,PL);
+  if(pi2){ const [col,al]=SPR_PAT[pk]||['#FFF7E0',.55]; clr(c); sprBlit(c,PL,pi2,i); c.globalCompositeOperation='source-in'; c.fillStyle=col; c.fillRect(0,0,cell,cell); b.globalCompositeOperation='source-atop'; b.globalAlpha=al; b.drawImage(S3,0,0); b.globalAlpha=1; b.globalCompositeOperation='source-over'; }
+  a.drawImage(S2,0,0); }
+ const ek=SPR.embs&&SPR.embs[e.emblem]?e.emblem:'star', EL=SPR.embs&&SPR.embs[ek], ei=EL&&sprImg('emb.'+ek,EL); if(ei) sprBlit(a,EL,ei,i);
+ if(!e.wpn){ const bk=SPR.blades&&SPR.blades[e.blade]?e.blade:'steel', BL=SPR.blades&&SPR.blades[bk], bi=BL&&sprImg('blade.'+bk,BL); if(bi) sprBlit(a,BL,bi,i); }
+ const pu=SPR.plumes[K.plume]?K.plume:'feather', PU=SPR.plumes[pu], pi=sprImg('plume.'+pu,PU);
+ if(pi&&grey(PU,pi,plumeCols(e)[0])) a.drawImage(S2,0,0);
+ return S1; }
 function drawKnightSprite(e,r,moving,bob){ const f=sprFrame(e,moving), sc=sprScale(r), cell=SPR.cell;
  const img=sprCompose(e,f.i); if(!img) return false;
  ctx.save(); ctx.translate(0,r*.72-bob*.3); if(f.mir) ctx.scale(-1,1);
@@ -2110,13 +2117,13 @@ $('tHowto').onclick=()=>showScreen('howto');
 $('tSettings').onclick=()=>{ syncSettings(); showScreen('settings'); };
 $('setupBtn').onclick=()=>{ if(NET.role==='client') return; newGame(true); paused=false; $('pauseBtn').hidden=true; showTouch(false); menuMusic(true); buildSetup(); showScreen('setup'); };
 /* ---------- settings ---------- */
-function syncSettings(){ $('sMusic').value=Math.round(SET.music*100); $('sSfx').value=Math.round(SET.sfx*100); $('sShake').value=Math.round(SET.shake*100); $('cFlash').checked=!SET.flash; $('cNames').checked=SET.names==='all'; $('cSprites').checked=!!SET.sprites; ['Music','Sfx','Shake'].forEach(k=>$('o'+k).value=$('s'+k).value+'%'); }
+function syncSettings(){ $('sMusic').value=Math.round(SET.music*100); $('sSfx').value=Math.round(SET.sfx*100); $('sShake').value=Math.round(SET.shake*100); $('cFlash').checked=!SET.flash; $('cNames').checked=SET.names==='all'; $('cSprites').checked=!!SET.classic; ['Music','Sfx','Shake'].forEach(k=>$('o'+k).value=$('s'+k).value+'%'); }
 $('sMusic').oninput=e=>{ SET.music=+e.target.value/100; $('oMusic').value=e.target.value+'%'; if(!music.paused) music.volume=SET.music; saveSet(); };
 $('sSfx').oninput=e=>{ SET.sfx=+e.target.value/100; $('oSfx').value=e.target.value+'%'; saveSet(); };
 $('sShake').oninput=e=>{ SET.shake=+e.target.value/100; $('oShake').value=e.target.value+'%'; saveSet(); };
 $('cFlash').onchange=e=>{ SET.flash=!e.target.checked; saveSet(); };
 $('cNames').onchange=e=>{ SET.names=e.target.checked?'all':'near'; saveSet(); };
-$('cSprites').onchange=e=>{ SET.sprites=e.target.checked; saveSet(); };
+$('cSprites').onchange=e=>{ SET.classic=e.target.checked; saveSet(); };
 $('tipsReset').onclick=()=>{ TAUGHT.clear(); try{ localStorage.removeItem('ck-taught'); localStorage.setItem('ck-hits','0'); }catch(e){} hitsLanded=0; $('tipsReset').textContent='Tips are back on'; };
 /* ---------- wardrobe ---------- */
 let wardWho=1;
@@ -2402,7 +2409,7 @@ syncSegs();
 
 newGame(true);
 if(new URLSearchParams(location.search).get('qa')){
- window.CK={G:()=>G,cfg,keys,touch,update,newGame,start,loadProfile,saveProfile,drawKnight:e=>drawKnight(e),sprites:v=>{ SET.sprites=v; },spritesReady:()=>sprReady,sprLoadAll:()=>{ if(!SPR) return Promise.resolve(0); const L=[...Object.entries(SPR.helms).flatMap(([h,H])=>Object.entries(H).map(([l,u])=>[h+'.'+l,u])),...Object.entries(SPR.plumes).map(([q,u])=>['plume.'+q,u])]; return Promise.all(L.map(([k,u])=>{ sprImg(k,u); const im=sprImgs[k]; return im.ok?1:new Promise(r=>{ im.addEventListener('load',()=>setTimeout(r,0)); im.addEventListener('error',r); }); })).then(v=>v.length); },mkKnight:o=>mkKnight(o),withCtx:(c,fn)=>{ const k=ctx; ctx=c; try{ fn(); }finally{ ctx=k; } },startEvent,startMayhem,applyPU,giveWeapon,spawnPickup,MAYHEM,PU,MAPS,WEAPONS,
+ window.CK={G:()=>G,cfg,keys,touch,update,newGame,start,loadProfile,saveProfile,drawKnight:e=>drawKnight(e),sprites:v=>{ SET.classic=!v; },spritesReady:()=>sprReady,sprLoadAll:()=>{ if(!SPR) return Promise.resolve(0); const ent=(pre,o)=>Object.entries(o||{}).map(([q,u])=>[pre+q,u]); const L=[...Object.entries(SPR.helms).flatMap(([h,H])=>ent(h+'.',H)),...ent('plume.',SPR.plumes),...ent('blade.',SPR.blades),...ent('pat.',SPR.pats),...ent('emb.',SPR.embs),...(SPR.cape?[['cape',SPR.cape]]:[])]; return Promise.all(L.map(([k,u])=>{ sprImg(k,u); const im=sprImgs[k]; return im.ok?1:new Promise(r=>{ im.addEventListener('load',()=>setTimeout(r,0)); im.addEventListener('error',r); }); })).then(v=>v.length); },mkKnight:o=>mkKnight(o),withCtx:(c,fn)=>{ const k=ctx; ctx=c; try{ fn(); }finally{ ctx=k; } },startEvent,startMayhem,applyPU,giveWeapon,spawnPickup,MAYHEM,PU,MAPS,WEAPONS,
   adv:n=>{for(let i=0;i<n;i++)update(1/60)},freeze:v=>{paused=v},
   begin:(o={})=>{ Object.assign(cfg,o); if(o.humans!==undefined) cfg.players=o.humans; $('menu').hidden=true; audio(); menuMusic(false); newGame(false); paused=true; $('pauseBtn').hidden=true; G.banner=null; return G; },
   zoom:(s,gx,gy)=>{ const r=document.getElementById('stage').getBoundingClientRect(); scale=s; offX=r.width/2-gx*s; offY=r.height/2-gy*s; }};

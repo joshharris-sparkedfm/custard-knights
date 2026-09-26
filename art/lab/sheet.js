@@ -3,7 +3,7 @@
 // Rows: 8 facing directions (idle), then states (walk cycle, swing, charge, block, hit, stunned, win, chicken), then game scale.
 (() => {
   const P = window.LAB || {};
-  if (P.sprites) CK.sprites(true);
+  if ('sprites' in P) CK.sprites(!!P.sprites);
   const G = CK.begin({ map: 'courtyard', humans: 0 }); G.over = true; CK.freeze(true);
   const S = P.scale || 2.1, cell = 112 * S, cols = 8, rows = 3, W = cols * cell, H = rows * cell + 260;
   const c = document.createElement('canvas'); c.width = W; c.height = H; const x = c.getContext('2d');
@@ -34,8 +34,9 @@
   // bottom strip: game scale (1x and 2x), four colours, so readability is judged where it matters
   const cols2 = ['#FF5A4E', '#2EC4B6', '#9B7BFF', '#FFD23F', '#4DA8FF', '#9BE564', '#FF8FB1', '#FF9F43'];
   x.fillStyle = '#5C5470'; x.fillRect(0, rows * cell, W / 2, 260); x.fillStyle = '#CFE2F1'; x.fillRect(W / 2, rows * cell, W / 2, 260);
-  cols2.forEach((col, i) => { put(K({ color: col, face: Math.PI / 2 - .6 + i * .15, id: 40 + i }), 40 + i * 44, rows * cell + 90, 1); put(K({ color: col, face: Math.PI / 2 - .6 + i * .15, id: 40 + i }), 60 + i * 88, rows * cell + 210, 2); });
-  cols2.forEach((col, i) => { put(K({ color: col, face: Math.PI / 2 + .6 - i * .15, id: 50 + i, kit: { helm: ['great', 'sallet', 'horned', 'crest', 'kettle', 'barbute', 'great', 'horned'][i], plume: ['feather', 'twin', 'mohawk', 'flame', 'brush', 'feather', 'flame', 'twin'][i], metal: ['steel', 'gold', 'dark', 'steel', 'gold', 'dark', 'steel', 'gold'][i] } }), W / 2 + 40 + i * 44, rows * cell + 90, 1); put(K({ color: col, face: Math.PI / 2 + .6 - i * .15, id: 50 + i, kit: { helm: ['great', 'sallet', 'horned', 'crest', 'kettle', 'barbute', 'great', 'horned'][i], plume: ['feather', 'twin', 'mohawk', 'flame', 'brush', 'feather', 'flame', 'twin'][i], metal: ['steel', 'gold', 'dark', 'steel', 'gold', 'dark', 'steel', 'gold'][i] } }), W / 2 + 60 + i * 88, rows * cell + 210, 2); });
-  label('game scale 1x and 2x on a dark floor', W / 4, rows * cell + 22); label('game scale 1x and 2x on a light floor, every helm', W * .75, rows * cell + 22);
+  const CP = ['plain', 'stripes', 'chevron', 'checker', 'stars', 'trim', 'stripes', 'stars'], BL = ['steel', 'wooden', 'baguette', 'fish', 'candy', 'spoon', 'fish', 'baguette'], EM = ['star', 'heart', 'crown', 'skull', 'bolt', 'moon', 'pie', 'sun'];
+  cols2.forEach((col, i) => { put(K({ color: col, face: -Math.PI / 2 - .6 + i * .15, id: 40 + i, cape: CP[i] }), 40 + i * 44, rows * cell + 90, 1); put(K({ color: col, face: -Math.PI / 2 - .6 + i * .15, id: 40 + i, cape: CP[i] }), 60 + i * 88, rows * cell + 210, 2); });
+  cols2.forEach((col, i) => { put(K({ color: col, face: Math.PI / 2 + .6 - i * .15, id: 50 + i, kit: { helm: ['great', 'sallet', 'horned', 'crest', 'kettle', 'barbute', 'great', 'horned'][i], plume: ['feather', 'twin', 'mohawk', 'flame', 'brush', 'feather', 'flame', 'twin'][i], metal: ['steel', 'gold', 'dark', 'steel', 'gold', 'dark', 'steel', 'gold'][i] }, blade: BL[i], emblem: EM[i] }), W / 2 + 40 + i * 44, rows * cell + 90, 1); put(K({ color: col, face: Math.PI / 2 + .6 - i * .15, id: 50 + i, kit: { helm: ['great', 'sallet', 'horned', 'crest', 'kettle', 'barbute', 'great', 'horned'][i], plume: ['feather', 'twin', 'mohawk', 'flame', 'brush', 'feather', 'flame', 'twin'][i], metal: ['steel', 'gold', 'dark', 'steel', 'gold', 'dark', 'steel', 'gold'][i] }, blade: BL[i], emblem: EM[i] }), W / 2 + 60 + i * 88, rows * cell + 210, 2); });
+  label('from behind: every cape pattern', W / 4, rows * cell + 22); label('game scale 1x and 2x on a light floor, every helm, blade and emblem', W * .75, rows * cell + 22);
   window.__sheet = c.toDataURL('image/png'); document.title = 'DONE';
 })();

@@ -23,7 +23,12 @@ To host it for free, turn on **GitHub Pages** (Settings → Pages → Deploy fro
   - Silly: Giant Head, Bouncy Arms, Swap-o-matic, Banana Trail, Ghost Mode, Bee Swarm (a swarm that hunts your nearest enemy), Pie Traps (three pies on the floor that explode when an enemy steps on them)
   - Unhinged: Chicken Party, Custard Flood, Boss Mode, Disco Fever, Mirror Curse, Tiny Town, Meteor Shower (custard falls from the sky, you are immune), Lights Out (only a small circle around each knight is lit, yours is bigger), Jelly Arena (walls bounce and every hit sends people flying), Swap Party (everyone swaps places every two seconds)
 - **Arena events:** every half a minute or so the arena itself does something, with a red banner and a countdown: Trapdoors (cracks appear, then the floor opens), Pie Catapult (the castle lobs pies at the leaders), Chicken Stampede (a flock runs across and tramples anyone in the way), Gale Force (everyone is pushed one way), Slow-mo, Bounty (three points to whoever knocks out the leader) and Supply Drop (everyone gets a weapon, power-ups land in the middle)
-- **Modes:** Free-for-all, or Red vs Blue (both humans on the same team against the bots)
+- **Modes:** Free-for-all, Red vs Blue (humans on the same team or split up), Last Knight Standing (three lives, then you are a chicken who can still peck), King of the Pie (stand alone on a giant pie that moves every 30 seconds, first to 60), Pie Heist (Red vs Blue, steal the enemy pie and carry it home, first to 3) and Chicken Racing (everyone is a chicken, four laps round the arena, peck to shove)
+- **Combat:** light swings, a charged heavy that breaks blocks, dash with i-frames and a dash-attack stab, a parry window when you block just as they swing (with a riposte), a guard meter, shield bash, ring-out knockback that grows as you get hurt, hitstun, and two seconds of real spawn protection that ends the moment you attack
+- **Bots:** Chill telegraphs every swing with a "!", Spicy fights fair, Brutal punishes whiffs, parries mashers and charges heavies. Only so many bots press a human at once.
+- **Menu:** Quick brawl, Custom brawl with mode and arena cards, chaos speed and match length, an online screen with an invite landing card, a Wardrobe with a live knight preview (helm, plume, metal, emblem, colour, name, for two local players), How to play, and Settings (music, sounds, screen shake, reduce flashing, show every name)
+- **Pads:** up to four gamepads. Left stick moves, right stick aims, A swings, B dashes, X blocks, Y shouts, Start pauses. The menus work from the d-pad.
+- **Teaching:** a control card at the start until you have landed three hits, a death card that tells you what got you and what to do about it, one-line tips the first time you meet a pit, ice, a bow or a bounty, captions on power-ups, and a banner each time the Chaos Meter changes tier
 - **Bots:** Chill, Spicy or Brutal. They find their way through the mazes, grab weapons, block and dodge spikes.
 - **Shouts:** speech bubbles fade with distance, standing in for proximity chat
 - **Online play:** one player hosts a room and gets a 5-letter code and invite link. Up to 8 knights join from their own browsers and bots fill the empty spots. The host's browser runs the match. Players connect directly through [PeerJS](https://peerjs.com/), so there's no server to run.
@@ -53,9 +58,14 @@ Touch devices get an on-screen stick plus Swing, Dash and Block buttons. Pause w
 |---|---|---|
 | ![Dragon's Larder](docs/m_dungeon.png) | ![Rooftop Rumble](docs/m_roof.png) | ![Custard Bog](docs/m_bog.png) |
 
+## QA agents
+
+`node qa/run.js` plays full matches in headless Chrome with scripted player personas (rusher, camper, collector, pacifist, fuzzer, idle, parrier, pro) and writes a summary of pace, hazard deaths, spawn deaths, what kills people, combat feel and every mode ending cleanly. See `qa/README.md`. Five reviewer reports (combat, level design, art direction, Steam Early Access readiness, first five minutes) are in `qa/reviews/`.
+
 ## Ideas for next
 
-- Pie Heist: carry the pie back to your base (Red vs Blue)
 - Proximity voice for online matches
+- Desktop build for Steam (Electron plus Steamworks), bundled fonts, Steam lobbies
+- Cape patterns, blade skins and taunts in the Wardrobe
 - More weapons
 - Wire the power of Norr up to a proper roar recording

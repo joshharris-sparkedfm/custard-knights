@@ -30,8 +30,10 @@ process.on('exit',()=>{ try{chrome.kill()}catch(e){} });
    const fps=await evalJs(`new Promise(res=>{let n=0,t0=performance.now();const f=()=>{n++; if(performance.now()-t0>4000) res(n/((performance.now()-t0)/1000)); else requestAnimationFrame(f)}; requestAnimationFrame(f)})`,true);
    console.log(map.padEnd(9),'fps',fps.toFixed(1)); results.push({map,fps}); await evalJs('CK.freeze(true);0'); }
  } else {
-  const plan=[];
-  if(mode==='quick'){ personas.forEach((p,i)=>plan.push({persona:p,map:maps[i%maps.length],diff:'spicy'})); maps.forEach(m=>plan.push({persona:'idle',map:m,diff:'spicy',humans:0})); }
+  const plan=[]; const modeRows=[];
+  const MODESET=['lks','kotp','heist','race'];
+  if(mode==='quick'){ personas.forEach((p,i)=>plan.push({persona:p,map:maps[i%maps.length],diff:'spicy'})); maps.forEach(m=>plan.push({persona:'idle',map:m,diff:'spicy',humans:0})); MODESET.forEach((md,i)=>plan.push({persona:'rusher',map:maps[i],diff:'spicy',mode:md})); }
+  else if(mode==='modes'){ for(const md of MODESET) for(const m of maps){ plan.push({persona:'idle',map:m,diff:'spicy',mode:md,humans:0}); plan.push({persona:'rusher',map:m,diff:'spicy',mode:md}); plan.push({persona:'collector',map:m,diff:'brutal',mode:md}); } }
   else { for(const m of maps){ plan.push({persona:'idle',map:m,diff:'spicy',humans:0}); for(const p of personas) plan.push({persona:p,map:m,diff:'spicy'}); } for(const p of ['rusher','pro','collector','parrier']) for(let i=0;i<3;i++) plan.push({persona:p,map:maps[i],diff:'brutal'}); for(const p of ['rusher','pro']) for(let i=0;i<2;i++) plan.push({persona:p,map:maps[i+3],diff:'chill'}); plan.push({persona:'pro',map:'frost',diff:'spicy',mode:'teams'}); plan.push({persona:'rusher',map:'factory',diff:'spicy',mode:'teams'}); }
   for(const o of plan) await run(o);
  }
@@ -48,13 +50,13 @@ function summarise(R){
  let out=`# Custard Knights QA summary\n\n${R.length} simulated matches, ${R.reduce((a,r)=>a+r.seconds,0)/60|0} minutes of play, run ${stamp}.\n\n`;
  const errs=R.filter(r=>r.errors.length); out+=`## Crashes and errors\n\n${errs.length?errs.map(r=>`- ${r.map} / ${r.persona}: ${r.errors.join(' | ')}`).join('\n'):'None.'}\n\n`;
  // persona outcomes
- const rows=[]; for(const p of [...new Set(R.filter(r=>r.humans).map(r=>r.persona))]){ const rs=R.filter(r=>r.persona===p&&r.humans&&r.diff==='spicy'&&r.mode!=='teams'); const me=rs.map(r=>r.ents.find(e=>e.human===1));
+ const rows=[]; for(const p of [...new Set(R.filter(r=>r.humans).map(r=>r.persona))]){ const rs=R.filter(r=>r.persona===p&&r.humans&&r.diff==='spicy'&&(!r.mode||r.mode==='ffa')); const me=rs.map(r=>r.ents.find(e=>e.human===1));
   const kos=rs.flatMap(r=>r.log.filter(l=>l.k==='ko'&&l.vh==='h')), spawnDeaths=kos.filter(l=>l.alive<3).length, rank=rs.map(r=>r.ents.slice().sort((a,b)=>b.score-a.score).findIndex(e=>e.human===1)+1);
   rows.push([p,rs.length,(me.reduce((a,e)=>a+e.score,0)/rs.length).toFixed(1),(me.reduce((a,e)=>a+e.deaths,0)/rs.length).toFixed(1),(rank.reduce((a,b)=>a+b,0)/rs.length).toFixed(1),pct(spawnDeaths,kos.length),med(kos.map(l=>l.alive)).toFixed(1)+'s']); }
  out+='## Personas (spicy bots, free-for-all)\n\nHow each scripted player type fares against the bots. Rank is out of 8. "Spawn deaths" is the share of the persona\'s deaths that came within 3 seconds of respawning.\n\n'+table(rows,['persona','matches','KOs','deaths','avg rank','spawn deaths','median life'])+'\n';
  // per-map
  const mrows=[]; const maps=[...new Set(R.map(r=>r.map))];
- for(const m of maps){ const rs=R.filter(r=>r.map===m&&r.diff==='spicy'&&r.mode!=='teams'); const kos=rs.flatMap(r=>r.log.filter(l=>l.k==='ko')); const byS={}; kos.forEach(l=>byS[l.src]=(byS[l.src]||0)+1);
+ for(const m of maps){ const rs=R.filter(r=>r.map===m&&r.diff==='spicy'&&(!r.mode||r.mode==='ffa')); if(!rs.length) continue; const kos=rs.flatMap(r=>r.log.filter(l=>l.k==='ko')); const byS={}; kos.forEach(l=>byS[l.src]=(byS[l.src]||0)+1);
   const haz=kos.filter(l=>['pit','spike','lava','chickens','meteor','catapult'].includes(l.src)).length, sd=kos.filter(l=>l.alive<3).length, rsp=rs.flatMap(r=>r.log.filter(l=>l.k==='respawn'));
   const top=Object.entries(byS).sort((a,b)=>b[1]-a[1]).slice(0,4).map(([k,v])=>`${k} ${pct(v,kos.length)}`).join(', ');
   mrows.push([m,rs.length,(kos.length/rs.length/(rs[0].seconds/60)).toFixed(1),pct(haz,kos.length),pct(sd,kos.length),med(rsp.map(l=>l.ne))+'px',top]); }
@@ -77,6 +79,7 @@ function summarise(R){
  const drows=[]; for(const d of ['chill','spicy','brutal']) for(const p of ['rusher','pro','collector','parrier']){ const rs=R.filter(r=>r.diff===d&&r.persona===p&&r.humans&&r.mode!=='teams'); if(!rs.length)continue; const me=rs.map(r=>r.ents.find(e=>e.human===1)); drows.push([d,p,rs.length,(me.reduce((a,e)=>a+e.score,0)/rs.length).toFixed(1),(me.reduce((a,e)=>a+e.deaths,0)/rs.length).toFixed(1)]); }
  out+='## Difficulty\n\n'+table(drows,['bots','persona','matches','KOs','deaths'])+'\n';
  const tr=R.filter(r=>r.mode==='teams'); if(tr.length) out+='## Teams\n\n'+tr.map(r=>{ let rs=0,bs=0; r.ents.forEach(e=>e.team==='red'?rs+=e.score:bs+=e.score); return `- ${r.map} with ${r.persona}: red ${rs}, blue ${bs}`; }).join('\n')+'\n\n';
+ const mr=R.filter(r=>r.mode&&r.mode!=='ffa'&&r.mode!=='teams'); if(mr.length) out+='## Modes\n\nEvery mode must end on its own with no errors.\n\n'+table(mr.map(r=>{ const w=r.ents.slice().sort((a,b)=>b.score-a.score)[0]; return [r.mode,r.map,r.persona,r.over?'ended':'RAN OUT',Math.round(r.seconds-r.timeLeft)+'s',w?`${w.name} ${w.score}`:'-',r.errors.length]; }),['mode','arena','persona','result','length','leader','errors'])+'\n';
  // spawn hot spots: where deaths cluster within 3s of spawn
  const sdk=all.filter(l=>l.alive<3); const spots={}; sdk.forEach(l=>{ const k=`${l.map} (${Math.round(l.x/40)*40},${Math.round(l.y/40)*40})`; spots[k]=(spots[k]||0)+1; });
  out+='## Spawn-death hot spots (top 8)\n\n'+table(Object.entries(spots).sort((a,b)=>b[1]-a[1]).slice(0,8).map(([k,v])=>[k,v]),['arena and tile','spawn deaths'])+'\n';

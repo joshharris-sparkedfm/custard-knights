@@ -32,7 +32,7 @@ process.on('exit',()=>{ try{chrome.kill()}catch(e){} });
  } else {
   const plan=[];
   if(mode==='quick'){ personas.forEach((p,i)=>plan.push({persona:p,map:maps[i%maps.length],diff:'spicy'})); maps.forEach(m=>plan.push({persona:'idle',map:m,diff:'spicy',humans:0})); }
-  else { for(const m of maps){ plan.push({persona:'idle',map:m,diff:'spicy',humans:0}); for(const p of personas) plan.push({persona:p,map:m,diff:'spicy'}); } for(const p of ['rusher','pro','collector']) plan.push({persona:p,map:'courtyard',diff:'brutal'}); for(const p of ['rusher','pro']) plan.push({persona:p,map:'courtyard',diff:'chill'}); plan.push({persona:'pro',map:'frost',diff:'spicy',mode:'teams'}); plan.push({persona:'rusher',map:'factory',diff:'spicy',mode:'teams'}); }
+  else { for(const m of maps){ plan.push({persona:'idle',map:m,diff:'spicy',humans:0}); for(const p of personas) plan.push({persona:p,map:m,diff:'spicy'}); } for(const p of ['rusher','pro','collector','parrier']) for(let i=0;i<3;i++) plan.push({persona:p,map:maps[i],diff:'brutal'}); for(const p of ['rusher','pro']) for(let i=0;i<2;i++) plan.push({persona:p,map:maps[i+3],diff:'chill'}); plan.push({persona:'pro',map:'frost',diff:'spicy',mode:'teams'}); plan.push({persona:'rusher',map:'factory',diff:'spicy',mode:'teams'}); }
   for(const o of plan) await run(o);
  }
  fs.writeFileSync(path.join(OUT,'raw.json'),JSON.stringify(results));
@@ -64,7 +64,9 @@ function summarise(R){
  out+='## What actually kills people\n\n'+table(Object.entries(byS).sort((a,b)=>b[1]-a[1]).map(([k,v])=>[k,v,pct(v,all.length)]),['source','KOs','share'])+'\n';
  // combat feel
  const st=R.reduce((a,r)=>{ for(const k of ['swings','swingHits','shots','shotHits']){ a[k].h+=r.stats[k].h; a[k].b+=r.stats[k].b; } a.blocks+=r.stats.blocks; a.dashes+=r.stats.dashes; return a; },{swings:{h:0,b:0},swingHits:{h:0,b:0},shots:{h:0,b:0},shotHits:{h:0,b:0},blocks:0,dashes:0});
- out+=`## Combat feel\n\n- Sword swings that connected: humans ${pct(st.swingHits.h,st.swings.h)} of ${st.swings.h}, bots ${pct(st.swingHits.b,st.swings.b)} of ${st.swings.b}\n- Ranged shots that hit: humans ${pct(st.shotHits.h,st.shots.h)} of ${st.shots.h}, bots ${pct(st.shotHits.b,st.shots.b)} of ${st.shots.b}\n- Blocks (clangs): ${st.blocks}; dashes: ${st.dashes}\n\n`;
+ const ex=R.reduce((a,r)=>{ for(const k of ['parries','guardBreaks','heavies','stabs','bashes','protectedHits']) a[k]+=r.stats[k]||0; return a; },{parries:0,guardBreaks:0,heavies:0,stabs:0,bashes:0,protectedHits:0});
+ const ringouts=all.filter(l=>l.src==='pit'&&l.a>=0).length, hum=R.filter(r=>r.humans), deadShare=hum.length?hum.reduce((a,r)=>{ const me=r.ents.find(e=>e.human===1); return a+Math.min(1,me.deaths*1.8/r.seconds); },0)/hum.length:0;
+ out+=`## Combat feel\n\n- Sword swings that connected: humans ${pct(st.swingHits.h,st.swings.h)} of ${st.swings.h}, bots ${pct(st.swingHits.b,st.swings.b)} of ${st.swings.b}\n- Ranged shots that hit: humans ${pct(st.shotHits.h,st.shots.h)} of ${st.shots.h}, bots ${pct(st.shotHits.b,st.shots.b)} of ${st.shots.b}\n- Blocks (clangs): ${st.blocks}; parries: ${ex.parries}; guard breaks: ${ex.guardBreaks}; dashes: ${st.dashes}\n- Heavy swings: ${ex.heavies}; dash-stabs: ${ex.stabs}; shield bashes: ${ex.bashes}; hits absorbed by spawn protection: ${ex.protectedHits}\n- Ring-outs (pit deaths credited to an attacker): ${ringouts} of ${all.length} KOs (${pct(ringouts,all.length)})\n- Share of the match a human persona spent dead (deaths x 1.8s / match): ${Math.round(deadShare*100)}%\n\n`;
  // pickups and events
  const pk={}; R.flatMap(r=>r.log.filter(l=>l.k==='pickup')).forEach(l=>pk[l.kind]=(pk[l.kind]||0)+1);
  const ev={}; R.flatMap(r=>r.log.filter(l=>l.k==='event'||l.k==='mayhem')).forEach(l=>ev[l.kind]=(ev[l.kind]||0)+1);
@@ -72,7 +74,7 @@ function summarise(R){
  out+='## Power-ups picked up\n\n'+table(Object.entries(pk).sort((a,b)=>b[1]-a[1]).map(([k,v])=>[k,v]),['power-up','pickups'])+'\n';
  out+='## Events fired and KOs during them\n\n'+table(Object.keys(ev).sort().map(k=>[k,ev[k],evk[k]||evk['mayhem:'+k]||0]),['event','times','KOs while active'])+'\n';
  // difficulty and teams
- const drows=[]; for(const d of ['chill','spicy','brutal']) for(const p of ['rusher','pro','collector']){ const rs=R.filter(r=>r.diff===d&&r.persona===p&&r.humans&&r.mode!=='teams'); if(!rs.length)continue; const me=rs.map(r=>r.ents.find(e=>e.human===1)); drows.push([d,p,rs.length,(me.reduce((a,e)=>a+e.score,0)/rs.length).toFixed(1),(me.reduce((a,e)=>a+e.deaths,0)/rs.length).toFixed(1)]); }
+ const drows=[]; for(const d of ['chill','spicy','brutal']) for(const p of ['rusher','pro','collector','parrier']){ const rs=R.filter(r=>r.diff===d&&r.persona===p&&r.humans&&r.mode!=='teams'); if(!rs.length)continue; const me=rs.map(r=>r.ents.find(e=>e.human===1)); drows.push([d,p,rs.length,(me.reduce((a,e)=>a+e.score,0)/rs.length).toFixed(1),(me.reduce((a,e)=>a+e.deaths,0)/rs.length).toFixed(1)]); }
  out+='## Difficulty\n\n'+table(drows,['bots','persona','matches','KOs','deaths'])+'\n';
  const tr=R.filter(r=>r.mode==='teams'); if(tr.length) out+='## Teams\n\n'+tr.map(r=>{ let rs=0,bs=0; r.ents.forEach(e=>e.team==='red'?rs+=e.score:bs+=e.score); return `- ${r.map} with ${r.persona}: red ${rs}, blue ${bs}`; }).join('\n')+'\n\n';
  // spawn hot spots: where deaths cluster within 3s of spawn

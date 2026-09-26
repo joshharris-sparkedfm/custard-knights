@@ -5,6 +5,7 @@
 const K=CK.keys, W=1280, H=800, T=40, OY=80;
 const dist=(a,b)=>Math.hypot(a.x-b.x,a.y-b.y);
 function setMove(dx,dy){ K.KeyW=dy<-.3; K.KeyS=dy>.3; K.KeyA=dx<-.3; K.KeyD=dx>.3; }
+function tap(on,st){ st.tapPh=(st.tapPh||0)+1; K.Space=!!on&&(st.tapPh%2===0); }
 function clearKeys(){ for(const k of ['KeyW','KeyA','KeyS','KeyD','Space','ShiftLeft','KeyE']) K[k]=false; }
 function nearestEnemy(G,me){ let b=null,bd=1e9; for(const o of G.ents){ if(o===me||o.dead||o.falling>0||(G.mode==='teams'&&o.team===me.team))continue; const d=dist(o,me); if(d<bd){bd=d;b=o} } return {e:b,d:bd}; }
 function nearestThing(G,me){ let b=null,bd=1e9; for(const p of G.pickups){ const d=dist(p,me); if(d<bd){bd=d;b=p} } for(const p of G.pads){ if(!p.item)continue; const d=dist(p,me); if(d<bd){bd=d;b=p} } return {p:b,d:bd}; }
@@ -18,17 +19,18 @@ function steerTo(me,tx,ty,st){
  setMove(dx/d,dy/d);
 }
 const P={
- rusher:{ tick(G,me,st){ const {e,d}=nearestEnemy(G,me); if(!e){clearKeys();return} steerTo(me,e.x,e.y,st); K.Space=d<80; K.ShiftLeft=d>200&&d<360&&me.dashCd<=0; K.KeyE=false; } },
+ rusher:{ tick(G,me,st){ const {e,d}=nearestEnemy(G,me); if(!e){clearKeys();return} steerTo(me,e.x,e.y,st); tap(d<80,st); K.ShiftLeft=d>200&&d<360&&me.dashCd<=0; K.KeyE=false; } },
  camper:{ tick(G,me,st){ if(!st.home) st.home={x:me.x,y:me.y}; const {e,d}=nearestEnemy(G,me); const dh=dist(me,st.home);
-   if(dh>60) steerTo(me,st.home.x,st.home.y,st); else clearKeys(); K.KeyE=!!e&&d<120&&d>60; K.Space=!!e&&d<=70; } },
+   if(dh>60) steerTo(me,st.home.x,st.home.y,st); else clearKeys(); K.KeyE=!!e&&d<120&&d>60; tap(!!e&&d<=70,st); } },
  collector:{ tick(G,me,st){ const {p,d}=nearestThing(G,me); const en=nearestEnemy(G,me);
-   if(p&&d<600){ steerTo(me,p.x,p.y,st); K.Space=en.e&&en.d<70; K.ShiftLeft=d>200&&me.dashCd<=0; }
-   else if(en.e){ steerTo(me,en.e.x,en.e.y,st); K.Space=en.d<80; } else clearKeys(); K.KeyE=false; } },
+   if(p&&d<600){ steerTo(me,p.x,p.y,st); tap(en.e&&en.d<70,st); K.ShiftLeft=d>200&&me.dashCd<=0; }
+   else if(en.e){ steerTo(me,en.e.x,en.e.y,st); tap(en.d<80,st); } else clearKeys(); K.KeyE=false; } },
  pacifist:{ tick(G,me,st){ const {e,d}=nearestEnemy(G,me); if(!e){clearKeys();return}
    const ax=me.x+(me.x-e.x), ay=me.y+(me.y-e.y); steerTo(me,Math.max(80,Math.min(W-80,ax)),Math.max(OY+80,Math.min(H-80,ay)),st);
    K.Space=false; K.ShiftLeft=d<140&&me.dashCd<=0; K.KeyE=d<90; } },
  fuzzer:{ tick(G,me,st){ st.t=(st.t||0)-1; if(st.t<=0){ st.t=5+Math.random()*40; clearKeys(); for(const k of ['KeyW','KeyA','KeyS','KeyD','Space','ShiftLeft','KeyE']) K[k]=Math.random()<.35; } } },
  idle:{ tick(){ clearKeys(); } },
+ parrier:{ tick(G,me,st){ const {e,d}=nearestEnemy(G,me); if(!e){clearKeys();return} if(d>90) steerTo(me,e.x,e.y,st); else setMove(0,0); K.KeyE=e.swing>0&&d<120; tap(!K.KeyE&&d<75&&(e.stun>0||e.atkCd>.2),st); K.ShiftLeft=false; } },
  // a competent player: rush with block reads and dodge dashes, grab weapons on the way
  pro:{ tick(G,me,st){ const {e,d}=nearestEnemy(G,me); const th=nearestThing(G,me);
    if(!e){clearKeys();return}
@@ -37,7 +39,10 @@ const P={
    if(threat&&me.dashCd<=0&&Math.random()<.5){ K.ShiftLeft=true; const dx=me.x-e.x,dy=me.y-e.y,l=Math.hypot(dx,dy)||1; setMove(-dy/l,dx/l); K.Space=false; K.KeyE=false; return; }
    K.ShiftLeft=false; K.KeyE=threat&&me.dashCd>0;
    if(me.wpn){ steerTo(me,e.x,e.y,st); if(d<220){ setMove(0,0); } K.Space=d<420&&Math.abs(Math.atan2(e.y-me.y,e.x-me.x)-me.face)<.5; return; }
-   steerTo(me,e.x,e.y,st); K.Space=d<78&&!K.KeyE; } },
+   // parry a swing that is about to land, charge a heavy when the enemy is stunned or recovering, otherwise tap
+   if(e.swing>0&&d<110&&!K.KeyE&&Math.random()<.6){ K.KeyE=true; K.Space=false; return; }
+   if((e.stun>0||e.atkCd>.25)&&d<120&&me.atkCd<=0){ K.Space=true; st.holdT=(st.holdT||0)+1; if(st.holdT>40){ K.Space=false; st.holdT=0; } return; } st.holdT=0;
+   steerTo(me,e.x,e.y,st); tap(d<78&&!K.KeyE,st); } },
 };
 window.QA={
  personas:Object.keys(P),

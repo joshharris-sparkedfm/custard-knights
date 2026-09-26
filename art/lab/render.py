@@ -19,6 +19,7 @@ const port=9334, fs=require('fs'); const sleep=ms=>new Promise(r=>setTimeout(r,m
  await new Promise(r=>ws.onopen=r); await send('Page.navigate',{url:process.argv[2]});
  for(let i=0;i<60;i++){ await sleep(250); const r=await send('Runtime.evaluate',{expression:'!!window.CK',returnByValue:true}); if(r&&r.result&&r.result.value) break; }
  await sleep(600);
+ await send('Runtime.evaluate',{expression:'window.CK.sprLoadAll?CK.sprLoadAll():0',awaitPromise:true,returnByValue:true});
  const r=await send('Runtime.evaluate',{expression:fs.readFileSync(process.argv[3],'utf8'),returnByValue:true});
  if(r&&r.exceptionDetails){ console.log('EXC',JSON.stringify(r.exceptionDetails).slice(0,600)); process.exit(1); }
  const d=await send('Runtime.evaluate',{expression:'window.__sheet',returnByValue:true});

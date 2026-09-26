@@ -1550,9 +1550,8 @@ function drawKnight(e){
   let alpha=1; if(e.fx.ghost)alpha=.28; if(e.inv>0&&Math.floor(t*14)%2)alpha*=.5; ctx.globalAlpha=alpha;
  }
  if(isChicken(e)){ drawChicken(e,r,bob); ctx.restore(); return; }
- if(useSprites()&&!e.fx.steve&&!isBoss(e)){ drawKnightSprite(e,r,moving,bob);
+ if(useSprites()&&!e.fx.steve&&!isBoss(e)&&drawKnightSprite(e,r,moving,bob)){
   if(e.wpn){ ctx.save(); ctx.translate(0,-bob-r*.3); drawHeld(e,r); ctx.restore(); }
-  if(e.blocking){ ctx.save(); ctx.translate(0,-bob-r*.3); drawShield(e,r); ctx.restore(); }
   knightFx(e,r,t,fx,fy,moving); ctx.restore(); return; }
  const ph=moving?Math.sin(e.walk):0, m=e.kit.metal;
  const riding=!!e.fx.steve;
@@ -1598,31 +1597,52 @@ function knightFx(e,r,t,fx,fy,moving){
  if(e.fx.norr){ ctx.save(); ctx.globalCompositeOperation='lighter'; for(let i=0;i<2;i++){ const ph=((t*1.1+i*.5)%1); ctx.globalAlpha=1-ph; circle(0,-r*.3,r*(1.2+ph*1.6),null,'#FF7A2B',5); } ctx.restore(); }
 }
 /* ---------- baked sprite knights ----------
-   art/blender/knight.py renders 5 directions x (idle 2, walk 6, swing 4) as a base layer (team parts white) and a mask layer.
-   Per player colour we bake one tinted atlas: the colour multiplied onto the base through the mask. West-facing directions are mirrors. */
-const SPR=(window.CK_SPRITES&&window.CK_SPRITES.knight)||null, SPR_TS=.75;
-let sprBase=null, sprMask=null, sprReady=false; const sprTint={};
-if(SPR){ let n=0; const done=()=>{ if(++n===2) sprReady=true; }; sprBase=new Image(); sprBase.onload=done; sprBase.src=SPR.base; sprMask=new Image(); sprMask.onload=done; sprMask.src=SPR.mask; }
+   art/blender/knight.py renders 5 directions x (idle 2, walk 6, swing 4, block 2, hit 1, win 2) for every helm (base, team mask,
+   metal mask) and every plume. Each draw composes one frame in a small scratch canvas: team colour and metal colour are multiplied
+   in through their masks, then the plume layer is tinted and laid on top. Atlases decode lazily the first time a kit needs them.
+   West-facing directions are mirrors. */
+const SPR=(window.CK_SPRITES&&window.CK_SPRITES.knight)||null;
+let sprReady=false; const sprImgs={};
+function sprImg(key,url){ let im=sprImgs[key]; if(!im){ im=sprImgs[key]=new Image(); im.onload=()=>{ im.ok=true; if(key==='great.base'||key==='great.mask') sprReady=!!(sprImgs['great.base'].ok&&sprImgs['great.mask'].ok); }; im.src=url; } return im.ok?im:null; }
+if(SPR&&SPR.helms&&SPR.helms.great){ sprImg('great.base',SPR.helms.great.base); sprImg('great.mask',SPR.helms.great.mask); }
 const FORCE_SPR=new URLSearchParams(location.search).get('r')==='sprite';
 const useSprites=()=>sprReady&&(SET.sprites||FORCE_SPR);
-function sprAtlas(col){ if(sprTint[col]) return sprTint[col]; const w=Math.round(sprBase.width*SPR_TS), h=Math.round(sprBase.height*SPR_TS);
- const c=document.createElement('canvas'); c.width=w; c.height=h; const x=c.getContext('2d'); x.imageSmoothingQuality='high'; x.drawImage(sprBase,0,0,w,h);
- const m=document.createElement('canvas'); m.width=w; m.height=h; const mx=m.getContext('2d'); mx.drawImage(sprMask,0,0,w,h); mx.globalCompositeOperation='source-in'; mx.fillStyle=col; mx.fillRect(0,0,w,h);
- x.globalCompositeOperation='multiply'; x.drawImage(m,0,0); x.globalCompositeOperation='destination-in'; x.drawImage(sprBase,0,0,w,h);
- return sprTint[col]=c; }
+const SPR_METAL={gold:'#FFC23A',dark:'#6E78B4'};
+let sprS1=null,sprS2=null;
+function sprScratch(){ if(!sprS1){ const mk=()=>{ const c=document.createElement('canvas'); c.width=c.height=SPR.cell; return c; }; sprS1=mk(); sprS2=mk(); } }
 function sprFrame(e,moving){ let a=Math.atan2(Math.sin(e.face),Math.cos(e.face))*180/Math.PI, mir=false; if(Math.abs(a)>92){ mir=true; a=180-a; if(a>180)a-=360; }
- const di=clamp(Math.round((90-a)/45),0,4); let off=0,k=0;
- if(e.swing>0){ off=8; k=clamp(Math.floor((1-e.swing/(e.swingDur||.22))*4),0,3); }
- else if(moving){ off=2; const ph=((e.walk%(Math.PI*2))+Math.PI*2)%(Math.PI*2); k=Math.floor(ph/(Math.PI*2)*6)%6; }
- else { off=0; k=Math.floor(G.clock*1.6+e.id)%2; }
- return {i:di*12+off+k,mir}; }
+ const di=clamp(Math.round((90-a)/45),0,4), A=SPR.anims; let an='idle',k=0;
+ if(G.over&&G.winners&&G.winners.includes(e)){ an='win'; k=Math.floor(performance.now()/260+e.id)%2; }
+ else if(e.flash>0||e.stun>0){ an='hit'; }
+ else if(e.swing>0){ an='swing'; k=clamp(Math.floor((1-e.swing/(e.swingDur||.22))*4),0,3); }
+ else if(e.blocking){ an='block'; k=Math.floor(G.clock*3+e.id)%2; }
+ else if(moving){ an='walk'; const ph=((e.walk%(Math.PI*2))+Math.PI*2)%(Math.PI*2); k=Math.floor(ph/(Math.PI*2)*6)%6; }
+ else { k=Math.floor(G.clock*1.6+e.id)%2; }
+ const [o,c]=A[an]||A.idle; return {i:di*SPR.per+o+Math.min(k,c-1),mir,an}; }
 const sprScale=r=>r/22*.66;
-function drawKnightSprite(e,r,moving,bob){ const f=sprFrame(e,moving), sc=sprScale(r), cell=SPR.cell, cs=cell*SPR_TS, sx=(f.i%SPR.cols)*cs, sy=Math.floor(f.i/SPR.cols)*cs;
- const at=sprAtlas(e.color); ctx.save(); ctx.translate(0,r*.72-bob*.3); if(f.mir) ctx.scale(-1,1);
- const k=sc/SPR_TS, sq=moving?0:Math.sin(G.clock*4+e.id)*.015; ctx.scale(1+sq,1-sq);
- ctx.drawImage(at,sx,sy,cs,cs,-cell/2*sc,-SPR.anchorY*sc,cell*sc,cell*sc);
- if(e.flash>0){ ctx.globalAlpha=.65; ctx.globalCompositeOperation='lighter'; ctx.drawImage(at,sx,sy,cs,cs,-cell/2*sc,-SPR.anchorY*sc,cell*sc,cell*sc); }
- ctx.restore(); }
+function sprCompose(e,i){ // returns the scratch canvas with frame i fully tinted, or null if its helm atlas is not decoded yet
+ const K=e.kit||{}; let h=SPR.helms[K.helm]?K.helm:'great', H=SPR.helms[h];
+ let base=sprImg(h+'.base',H.base), mask=sprImg(h+'.mask',H.mask);
+ if(!base||!mask){ h='great'; H=SPR.helms.great; base=sprImg('great.base',H.base); mask=sprImg('great.mask',H.mask); if(!base||!mask) return null; }
+ sprScratch(); const cell=SPR.cell, sx=(i%SPR.cols)*cell, sy=Math.floor(i/SPR.cols)*cell, a=sprS1.getContext('2d'), b=sprS2.getContext('2d');
+ const tint=(img,col)=>{ b.globalCompositeOperation='source-over'; b.clearRect(0,0,cell,cell); b.drawImage(img,sx,sy,cell,cell,0,0,cell,cell); b.globalCompositeOperation='source-in'; b.fillStyle=col; b.fillRect(0,0,cell,cell); a.globalCompositeOperation='multiply'; a.drawImage(sprS2,0,0); };
+ a.globalCompositeOperation='source-over'; a.clearRect(0,0,cell,cell); a.drawImage(base,sx,sy,cell,cell,0,0,cell,cell);
+ tint(mask,e.color);
+ const mc=SPR_METAL[K.metal]; if(mc&&H.metal){ const mm=sprImg(h+'.metal',H.metal); if(mm) tint(mm,mc); }
+ a.globalCompositeOperation='destination-in'; a.drawImage(base,sx,sy,cell,cell,0,0,cell,cell);
+ const pu=SPR.plumes[K.plume]?K.plume:'feather', pi=sprImg('plume.'+pu,SPR.plumes[pu]);
+ if(pi){ b.globalCompositeOperation='source-over'; b.clearRect(0,0,cell,cell); b.drawImage(pi,sx,sy,cell,cell,0,0,cell,cell);
+  b.globalCompositeOperation='multiply'; b.fillStyle=plumeCols(e)[0]; b.fillRect(0,0,cell,cell);
+  b.globalCompositeOperation='destination-in'; b.drawImage(pi,sx,sy,cell,cell,0,0,cell,cell);
+  a.globalCompositeOperation='source-over'; a.drawImage(sprS2,0,0); }
+ a.globalCompositeOperation='source-over'; return sprS1; }
+function drawKnightSprite(e,r,moving,bob){ const f=sprFrame(e,moving), sc=sprScale(r), cell=SPR.cell;
+ const img=sprCompose(e,f.i); if(!img) return false;
+ ctx.save(); ctx.translate(0,r*.72-bob*.3); if(f.mir) ctx.scale(-1,1);
+ const sq=moving||f.an!=='idle'?0:Math.sin(G.clock*4+e.id)*.015; ctx.scale(1+sq,1-sq);
+ ctx.drawImage(img,-cell/2*sc,-SPR.anchorY*sc,cell*sc,cell*sc);
+ if(e.flash>0){ ctx.globalAlpha=.65; ctx.globalCompositeOperation='lighter'; ctx.drawImage(img,-cell/2*sc,-SPR.anchorY*sc,cell*sc,cell*sc); }
+ ctx.restore(); return true; }
 const sprTop=r=>r*.72-(SPR?(SPR.anchorY-SPR.topY)*sprScale(r):r*3);
 function heart(x,y,s,fill){ ctx.beginPath(); ctx.moveTo(x,y+s*.9); ctx.bezierCurveTo(x-s*1.5,y-s*.1,x-s*.7,y-s*1.2,x,y-s*.35); ctx.bezierCurveTo(x+s*.7,y-s*1.2,x+s*1.5,y-s*.1,x,y+s*.9); ctx.closePath(); ctx.fillStyle=fill; ctx.fill(); ctx.lineWidth=2; ctx.strokeStyle=INK; ctx.stroke(); }
 const headTop=e=>{ const r0=e.r*sizeMul(e); if(typeof useSprites==='function'&&useSprites()&&!isChicken(e)&&!e.fx.steve&&!isBoss(e)) return e.y+sprTop(r0*KV)*KV+4; const r=r0*KV; return e.y-r*(isChicken(e)?2.1:3.05)-(isBoss(e)?r*.35:0)-(e.fx.steve?r*1.5:0); };
@@ -2382,7 +2402,7 @@ syncSegs();
 
 newGame(true);
 if(new URLSearchParams(location.search).get('qa')){
- window.CK={G:()=>G,cfg,keys,touch,update,newGame,start,loadProfile,saveProfile,drawKnight:e=>drawKnight(e),sprites:v=>{ SET.sprites=v; },spritesReady:()=>sprReady,mkKnight:o=>mkKnight(o),withCtx:(c,fn)=>{ const k=ctx; ctx=c; try{ fn(); }finally{ ctx=k; } },startEvent,startMayhem,applyPU,giveWeapon,spawnPickup,MAYHEM,PU,MAPS,WEAPONS,
+ window.CK={G:()=>G,cfg,keys,touch,update,newGame,start,loadProfile,saveProfile,drawKnight:e=>drawKnight(e),sprites:v=>{ SET.sprites=v; },spritesReady:()=>sprReady,sprLoadAll:()=>{ if(!SPR) return Promise.resolve(0); const L=[...Object.entries(SPR.helms).flatMap(([h,H])=>Object.entries(H).map(([l,u])=>[h+'.'+l,u])),...Object.entries(SPR.plumes).map(([q,u])=>['plume.'+q,u])]; return Promise.all(L.map(([k,u])=>{ sprImg(k,u); const im=sprImgs[k]; return im.ok?1:new Promise(r=>{ im.addEventListener('load',()=>setTimeout(r,0)); im.addEventListener('error',r); }); })).then(v=>v.length); },mkKnight:o=>mkKnight(o),withCtx:(c,fn)=>{ const k=ctx; ctx=c; try{ fn(); }finally{ ctx=k; } },startEvent,startMayhem,applyPU,giveWeapon,spawnPickup,MAYHEM,PU,MAPS,WEAPONS,
   adv:n=>{for(let i=0;i<n;i++)update(1/60)},freeze:v=>{paused=v},
   begin:(o={})=>{ Object.assign(cfg,o); if(o.humans!==undefined) cfg.players=o.humans; $('menu').hidden=true; audio(); menuMusic(false); newGame(false); paused=true; $('pauseBtn').hidden=true; G.banner=null; return G; },
   zoom:(s,gx,gy)=>{ const r=document.getElementById('stage').getBoundingClientRect(); scale=s; offX=r.width/2-gx*s; offY=r.height/2-gy*s; }};

@@ -164,50 +164,104 @@ for sx in (-1, 1):
     cyl(f'arm{sx}', (sx * .54, -.06, .8), .12, .36, M['mail'], rot=(0, sx * .35, 0))
     lathe(f'cuff{sx}', [(.0, 0), (.15, .0), (.18, .1), (.16, .16), (0, .17)], M['leather'], loc=(sx * .6, -.12, .6))
     sphere(f'glove{sx}', (sx * .62, -.15, .56), (.17, .17, .15), M['leather'])
-# helm: the big silhouette
+# ------------------------------------------------------------------ helms and plumes, one group per variant so each can be rendered as its own sheet
+GROUPS = {}
+def group(name, fn):
+    before = set(bpy.data.objects.keys()); fn(); GROUPS[name] = [n for n in bpy.data.objects.keys() if n not in before]
 HC, HR = 1.52, .565
-helm = lathe('helm', [(0, 1.05), (.5, 1.07), (.56, 1.2), (.575, 1.45), (.56, 1.66), (.5, 1.82), (.36, 1.96), (.18, 2.03), (0, 2.05)], M['steel'])
-vb = lathe('visorband', [(.585, 1.5), (.605, 1.52), (.605, 1.66), (.585, 1.68)], M['visor'], sub=0, outline=.026)
-# dark face opening below the band, the eyes sit inside it
-face = lathe('face', [(.001, 1.26), (.22, 1.27), (.27, 1.39), (.23, 1.5), (.001, 1.51)], M['dark'], loc=(0, -.52, 0), scale=(1.25, .32, 1), sub=1, outline=.022)
-for i in range(5):
-    x = (i - 2) * .14
-    cube(f'slot{i}', (x, -.6, 1.59), (.035, .04, .05), M['dark'], bevel=.015, outline=0, sub=0)
-for sx in (-1, 1):
-    sphere(f'eye{sx}', (sx * .14, -.61, 1.39), (.11, .02, .12), M['eyew'], outline=0, sub=0)
-    sphere(f'pupil{sx}', (sx * .14 + .025, -.628, 1.38), (.064, .01, .078), M['pupil'], outline=0, sub=0)
-    sphere(f'glint{sx}', (sx * .14 - .005, -.636, 1.43), (.026, .006, .026), M['eyew'], outline=0, sub=0)
-cube('chin', (0, -.5, 1.17), (.36, .1, .1), M['steel'], bevel=.08, sub=1)
-cyl('ridge', (0, -.02, 1.86), .045, .6, M['steel'], rot=(math.pi / 2, 0, 0), sub=0, outline=.016)
-for sx in (-1, 1):
-    sphere(f'rivet{sx}', (sx * .6, -.05, 1.58), (.09, .06, .09), M['visor'], outline=.02)
-# custard crown: metaballs so it melts together, with drips
-mb = bpy.data.metaballs.new('custard'); mb.resolution = .03; mb.render_resolution = .02; mb.threshold = .5
-cr = bpy.data.objects.new('custard', mb); sc.collection.objects.link(cr); cr.parent = ROOT
-for loc, rad in [((0, 0, 1.98), .44), ((.18, .08, 2.02), .3), ((-.17, -.06, 2.01), .3), ((0, 0, 2.2), .27), ((.04, .02, 2.36), .17), ((-.02, 0, 2.48), .09)]:
-    e = mb.elements.new(); e.co = loc; e.radius = rad
-import math as _m
-for ang, L in [(-2.35, .5), (-1.8, .72), (-1.3, .46), (-.7, .62), (.2, .4), (2.55, .5), (1.5, .36)]:
-    n = 12
-    for k in range(n):
-        u = k / (n - 1)
-        el = _m.radians(62) - u * L * 1.25          # elevation angle on the helm, from near the top downwards
-        rr = HR + .015
-        x, y, z = _m.cos(ang) * _m.cos(el) * rr, _m.sin(ang) * _m.cos(el) * rr, HC + _m.sin(el) * rr
-        rad = .085 - .02 * u + (.035 if k == n - 1 else 0)
-        e = mb.elements.new(); e.co = (x, y, z); e.radius = rad
-cr.data.materials.append(M['custard'])
-bpy.context.view_layer.objects.active = cr; cr.select_set(True)
-bpy.ops.object.convert(target='MESH'); cr = bpy.context.object; cr.parent = ROOT
-cr.data.materials.clear(); finish(cr, M['custard'], sub=0, parent=ROOT)
-# plume: three curved feathers from the back of the helm
-for i, (ang, L) in enumerate([(-.42, .95), (-.14, 1.15), (.14, 1.1), (.42, .9)]):
-    bpy.ops.mesh.primitive_uv_sphere_add(segments=24, ring_count=12, location=(0, 0, 0))
-    f = bpy.context.object; f.name = f'feather{i}'
-    f.scale = (.16, .07, L / 2); bpy.ops.object.transform_apply(scale=True)
-    sw = f.modifiers.new('bend', 'SIMPLE_DEFORM'); sw.deform_method = 'BEND'; sw.angle = 1.2; sw.deform_axis = 'X'
-    f.location = (ang * .45, .42, 2.0 + L * .35); f.rotation_euler = (-.85, ang * .8, 0)
-    finish(f, M['plume'], sub=1)
+def eyes(z, y=-.61, sx_=.14, sc_=1.0):
+    for sx in (-1, 1):
+        # eyes bulge out of the visor so they still read in the side views (flat discs vanish edge-on)
+        sphere(f'eye{sx}', (sx * sx_, y - .02, z), (.11 * sc_, .07, .12 * sc_), M['eyew'], outline=.012, sub=0)
+        sphere(f'pupil{sx}', (sx * sx_ + .025, y - .075, z - .01), (.064 * sc_, .03, .078 * sc_), M['pupil'], outline=0, sub=0)
+        sphere(f'glint{sx}', (sx * sx_ - .005, y - .098, z + .04 * sc_), (.026, .012, .026), M['eyew'], outline=0, sub=0)
+def custard(top=1.98):
+    mb = bpy.data.metaballs.new('custard'); mb.resolution = .03; mb.render_resolution = .02; mb.threshold = .5
+    cr = bpy.data.objects.new('custard', mb); sc.collection.objects.link(cr); cr.parent = ROOT
+    for loc, rad in [((0, 0, top), .44), ((.18, .08, top + .04), .3), ((-.17, -.06, top + .03), .3), ((0, 0, top + .22), .27), ((.04, .02, top + .38), .17), ((-.02, 0, top + .5), .09)]:
+        e = mb.elements.new(); e.co = loc; e.radius = rad
+    for ang, L in [(-2.35, .5), (-1.8, .72), (-1.3, .46), (-.7, .62), (.2, .4), (2.55, .5), (1.5, .36)]:
+        n = 12
+        for k in range(n):
+            u = k / (n - 1); el = math.radians(62) - u * L * 1.25; rr = HR + .015
+            e = mb.elements.new(); e.co = (math.cos(ang) * math.cos(el) * rr, math.sin(ang) * math.cos(el) * rr, HC + math.sin(el) * rr); e.radius = .085 - .02 * u + (.035 if k == n - 1 else 0)
+    cr.data.materials.append(M['custard'])
+    bpy.context.view_layer.objects.active = cr; cr.select_set(True)
+    bpy.ops.object.convert(target='MESH'); cr = bpy.context.object; cr.parent = ROOT
+    cr.data.materials.clear(); finish(cr, M['custard'], sub=0, parent=ROOT)
+def rivets(z=1.58):
+    for sx in (-1, 1): sphere(f'rivet{sx}', (sx * .6, -.05, z), (.09, .06, .09), M['visor'], outline=.02)
+
+def h_great():
+    lathe('helm', [(0, 1.05), (.5, 1.07), (.56, 1.2), (.575, 1.45), (.56, 1.66), (.5, 1.82), (.36, 1.96), (.18, 2.03), (0, 2.05)], M['steel'])
+    lathe('visorband', [(.585, 1.5), (.605, 1.52), (.605, 1.66), (.585, 1.68)], M['visor'], sub=0, outline=.026)
+    lathe('face', [(.001, 1.26), (.22, 1.27), (.27, 1.39), (.23, 1.5), (.001, 1.51)], M['dark'], loc=(0, -.52, 0), scale=(1.25, .32, 1), sub=1, outline=.022)
+    for i in range(5): cube(f'slot{i}', ((i - 2) * .14, -.6, 1.59), (.035, .04, .05), M['dark'], bevel=.015, outline=0, sub=0)
+    eyes(1.39); cube('chin', (0, -.5, 1.17), (.36, .1, .1), M['steel'], bevel=.08, sub=1)
+    cyl('ridge', (0, -.02, 1.86), .045, .6, M['steel'], rot=(math.pi / 2, 0, 0), sub=0, outline=.016); rivets(); custard()
+def h_sallet():
+    lathe('helm', [(0, 1.15), (.45, 1.12), (.56, 1.28), (.585, 1.5), (.55, 1.72), (.43, 1.9), (.22, 2.0), (0, 2.03)], M['steel'])
+    lathe('tail', [(.001, 1.34), (.5, 1.3), (.64, 1.14), (.66, 1.08), (.5, 1.2), (.001, 1.26)], M['visor'], loc=(0, .2, 0), scale=(.9, 1.05, 1))
+    cube('slit', (0, -.56, 1.5), (.46, .08, .075), M['dark'], bevel=.05, outline=.02, sub=0)
+    cube('bevor', (0, -.5, 1.27), (.44, .12, .15), M['visor'], bevel=.1, sub=1)
+    eyes(1.5, y=-.62, sc_=.8); rivets(1.5); custard()
+def h_horned():
+    lathe('helm', [(0, 1.05), (.52, 1.07), (.58, 1.25), (.585, 1.5), (.55, 1.72), (.42, 1.9), (.22, 2.0), (0, 2.03)], M['steel'])
+    lathe('face', [(.001, 1.3), (.24, 1.31), (.3, 1.42), (.25, 1.52), (.001, 1.53)], M['dark'], loc=(0, -.52, 0), scale=(1.25, .32, 1), sub=1, outline=.022)
+    eyes(1.42)
+    cyl('nasal', (0, -.6, 1.44), .045, .36, M['steel'], sub=0, outline=.016)
+    for sx in (-1, 1):
+        mb = bpy.data.metaballs.new(f'horn{sx}'); mb.resolution = .03; mb.render_resolution = .02
+        hn = bpy.data.objects.new(f'horn{sx}', mb); sc.collection.objects.link(hn)
+        for k in range(14):
+            u = k / 13; a = u * 1.9
+            x = sx * (.5 + .45 * math.sin(a)); z = 1.62 + .5 * (1 - math.cos(a)) + u * .15
+            e = mb.elements.new(); e.co = (x, -.02, z); e.radius = .27 - .17 * u
+        hn.data.materials.append(M['cream'])
+        bpy.context.view_layer.objects.active = hn; hn.select_set(True); bpy.ops.object.convert(target='MESH'); hn = bpy.context.object
+        hn.data.materials.clear(); finish(hn, M['cream'], sub=0)
+    custard()
+def h_crest():
+    lathe('helm', [(0, 1.08), (.5, 1.08), (.57, 1.26), (.58, 1.5), (.55, 1.72), (.42, 1.9), (.22, 2.0), (0, 2.03)], M['steel'])
+    lathe('face', [(.001, 1.26), (.22, 1.27), (.27, 1.39), (.23, 1.5), (.001, 1.51)], M['dark'], loc=(0, -.52, 0), scale=(1.25, .32, 1), sub=1, outline=.022)
+    eyes(1.39); cube('chin', (0, -.5, 1.17), (.34, .1, .1), M['steel'], bevel=.08, sub=1)
+    sphere('crest', (0, .38, 2.12), (.08, .5, .42), M['team']); rivets(1.5); custard(1.96)
+def h_kettle():
+    lathe('helm', [(0, 1.3), (.5, 1.3), (.55, 1.45), (.53, 1.7), (.42, 1.88), (.22, 1.98), (0, 2.0)], M['steel'])
+    lathe('brim', [(.45, 1.47), (.98, 1.37), (1.0, 1.41), (.5, 1.54)], M['visor'], sub=1, outline=.028)
+    lathe('face', [(.001, 1.05), (.3, 1.06), (.36, 1.2), (.32, 1.4), (.001, 1.42)], M['dark'], loc=(0, -.36, 0), scale=(1.2, .45, 1), sub=1, outline=.022)
+    eyes(1.24, y=-.58, sc_=1.15); custard(1.94)
+def h_barbute():
+    lathe('helm', [(0, 1.05), (.48, 1.06), (.55, 1.2), (.565, 1.5), (.53, 1.78), (.4, 1.95), (.2, 2.04), (0, 2.07)], M['steel'])
+    cube('tbar', (0, -.55, 1.46), (.38, .09, .08), M['dark'], bevel=.05, outline=.02, sub=0)
+    cube('tstem', (0, -.56, 1.26), (.085, .08, .2), M['dark'], bevel=.04, outline=.02, sub=0)
+    eyes(1.46, y=-.62, sx_=.19, sc_=.85); rivets(1.46); custard(2.0)
+
+def feather_fan(specs):
+    for i, (x, y, z, L, rx, ry, bend, w) in enumerate(specs):
+        bpy.ops.mesh.primitive_uv_sphere_add(segments=24, ring_count=12, location=(0, 0, 0)); f = bpy.context.object; f.name = f'feather{i}'
+        f.scale = (w, .07, L / 2); bpy.ops.object.transform_apply(scale=True)
+        bd = f.modifiers.new('bend', 'SIMPLE_DEFORM'); bd.deform_method = 'BEND'; bd.angle = bend; bd.deform_axis = 'X'
+        f.location = (x, y, z); f.rotation_euler = (rx, ry, 0); finish(f, M['plume'], sub=1)
+def p_feather(): feather_fan([(a * .45, .42, 2.0 + L * .35, L, -.85, a * .8, 1.2, .16) for a, L in [(-.42, .95), (-.14, 1.15), (.14, 1.1), (.42, .9)]])
+def p_twin(): feather_fan([(sx * .52, .15, 2.05, 1.1, -.35, sx * .75, 1.0, .17) for sx in (-1, 1)])
+def p_mohawk(): feather_fan([(0, y, 2.06 + (.1 if abs(y) < .2 else 0), .55, -.2 + y * .6, 0, .3, .12) for y in (-.34, -.18, 0, .18, .34, .5)])
+def p_flame(): feather_fan([(x, .3, 2.1 + L * .35, L, -.35, x * 1.2, -1.4 if x < 0 else 1.4, .15) for x, L in [(-.2, .9), (0, 1.25), (.2, .95)]])
+def p_brush():
+    sphere('brush', (0, .12, 2.2), (.1, .62, .3), M['plume'])
+    for i, y in enumerate((-.35, -.1, .15, .4)): sphere(f'tuft{i}', (0, y + .12, 2.42), (.09, .12, .14), M['plume'])
+
+HELMS = ['great', 'sallet', 'horned', 'crest', 'kettle', 'barbute']
+PLUMES = ['feather', 'twin', 'mohawk', 'flame', 'brush']
+for h in HELMS: group('helm_' + h, globals()['h_' + h])
+for pl in PLUMES: group('plume_' + pl, globals()['p_' + pl])
+def show(visible):
+    """visible: set of group names to render; every other helm/plume group is hidden."""
+    for g, names in GROUPS.items():
+        for n in names:
+            o = bpy.data.objects.get(n)
+            if o: o.hide_render = g not in visible
+show({'helm_great', 'plume_feather'})
 # sword in the right hand (knight's right is +X from its own view; it faces -Y, so its right is -X)
 sw = bpy.data.objects.new('sword', None); sc.collection.objects.link(sw); sw.parent = ROOT; sw.location = (-.66, -.24, .6); sw.rotation_euler = (.28, .2, 0); sw.scale = (1.15, 1.15, 1.15)
 cube('blade', (0, 0, .68), (.1, .03, .55), M['steel'], bevel=.03, outline=.024, sub=0, parent=sw)
@@ -255,67 +309,103 @@ if MODE == 'turnaround':
 # base layer: everything, with team-coloured parts in a white/grey cel ramp; mask layer: team parts white, everything else a holdout.
 # The game multiplies the player's colour onto the base through the mask, so one sheet serves every colour.
 if MODE == 'sheet':
+    # Sheets: for every helm, a body+helm layer (base and team mask); for every plume, a plume layer occluded by a standard helm.
+    # 5 directions x (idle 2, walk 6, swing 4, block 2, hit 1, win 2) = 85 frames per sheet.
     import json
     CELL = SIZE
     cam.ortho_scale = 4.6
     co.location = (0, -D * math.cos(ELEV), 1.45 + D * math.sin(ELEV))
+    try:
+        sun.use_shadow = False; sc.eevee.taa_render_samples = 8
+    except Exception:
+        pass
     def flatmat(name, col):
         m = bpy.data.materials.new(name); m.use_nodes = True; N = m.node_tree.nodes
         for n in list(N): N.remove(n)
         o = N.new('ShaderNodeOutputMaterial'); e = N.new('ShaderNodeEmission'); e.inputs['Color'].default_value = (*col, 1); m.node_tree.links.new(e.outputs[0], o.inputs['Surface']); return m
     hold = bpy.data.materials.new('holdout'); hold.use_nodes = True; N = hold.node_tree.nodes
     for n in list(N): N.remove(n)
-    o = N.new('ShaderNodeOutputMaterial'); h = N.new('ShaderNodeHoldout'); hold.node_tree.links.new(h.outputs[0], o.inputs['Surface'])
+    o = N.new('ShaderNodeOutputMaterial'); hd = N.new('ShaderNodeHoldout'); hold.node_tree.links.new(hd.outputs[0], o.inputs['Surface'])
     white = flatmat('maskwhite', (1, 1, 1))
-    holdc = hold.copy(); holdc.name = 'holdout_cull'; holdc.use_backface_culling = True   # outline shells must stay see-through from inside
+    holdc = hold.copy(); holdc.name = 'holdout_cull'; holdc.use_backface_culling = True
     PAL['tgrey'] = ('#FFFFFF', '#9C9C9C', '#FFFFFF'); tgrey = toon('tgrey', 'tgrey', split=.45, hi_at=.99)
     TEAMS = {M['team'].name, M['plume'].name}
     objs = [o for o in bpy.data.objects if o.type == 'MESH']
     orig = {o.name: [sl.material for sl in o.material_slots] for o in objs}
+    PLUME_OBJS = {n for g, ns in GROUPS.items() if g.startswith('plume_') for n in ns}
     def set_layer(layer):
         for ob in objs:
+            inplume = ob.name in PLUME_OBJS
             for i, sl in enumerate(ob.material_slots):
-                m = orig[ob.name][i]
-                if layer == 'base': sl.material = tgrey if m and m.name in TEAMS else m
-                else: sl.material = white if m and m.name in TEAMS else (holdc if m and m.name == INKM.name else hold)
+                m = orig[ob.name][i]; ink = m is not None and m.name == INKM.name; team = m is not None and m.name in TEAMS
+                if layer == 'base': sl.material = tgrey if team else m
+                elif layer == 'mask': sl.material = white if team else (holdc if ink else hold)
+                elif layer == 'metal': sl.material = white if (m is not None and m.name == M['steel'].name) else (holdc if ink else hold)
+                else: sl.material = (tgrey if team else m) if inplume else (holdc if ink else hold)   # plume layer
     P = {o.name: (o.location.copy(), o.rotation_euler.copy()) for o in bpy.data.objects}
     def reset():
         for n, (l, r) in P.items(): o = bpy.data.objects[n]; o.location = l.copy(); o.rotation_euler = r.copy()
     def mv(name, dx=0, dy=0, dz=0):
         o = bpy.data.objects[name]; l, _ = P[name]; o.location = (l.x + dx, l.y + dy, l.z + dz)
+    def at(name, x, y, z): bpy.data.objects[name].location = (x, y, z)
     def leg(sx, fwd, lift):
         for n in (f'boot{sx}', f'bootcuff{sx}', f'leg{sx}'): mv(n, 0, -fwd, lift)
     def arm(sx, fwd, dz=0):
         for n in (f'cuff{sx}', f'glove{sx}'): mv(n, 0, -fwd, dz)
-    SW = bpy.data.objects['sword']
+    SW = bpy.data.objects['sword']; SH = bpy.data.objects['shield']
     def pose(anim, k):
-        reset(); r0 = ROOT.location.copy()
+        """returns (lift, tilt): whole-knight vertical offset and forward lean in radians"""
+        reset()
         if anim == 'idle':
-            ROOT.location = (r0.x, r0.y, r0.z - (.025 if k else 0))
-        elif anim == 'walk':
+            return (-.025 if k else 0), 0
+        if anim == 'walk':
             ph = k / 6 * 2 * math.pi; s1 = math.sin(ph)
-            leg(-1, .2 * s1, max(0, s1) * .12); leg(1, -.2 * s1, max(0, -s1) * .12)
-            arm(-1, -.12 * s1); arm(1, .12 * s1)
-            ROOT.location = (r0.x, r0.y, r0.z + abs(math.cos(ph)) * .06)
-        elif anim == 'swing':
-            a = math.radians([205, 245, 290, 335][k]); rr = .62
-            SW.location = (math.cos(a) * rr, math.sin(a) * rr, .74); SW.rotation_euler = (math.pi / 2 - .15, 0, a + math.pi / 2)
-            g = bpy.data.objects['glove-1']; g.location = (math.cos(a) * .52, math.sin(a) * .52, .72)
-            c = bpy.data.objects['cuff-1']; c.location = (math.cos(a) * .5, math.sin(a) * .5, .74)
-            ROOT.location = (r0.x, r0.y, r0.z - (.04 if k in (1, 2) else 0))
-    ANIMS = [('idle', 2), ('walk', 6), ('swing', 4)]
+            leg(-1, .3 * s1, max(0, s1) * .18); leg(1, -.3 * s1, max(0, -s1) * .18)
+            arm(-1, -.18 * s1, .04); arm(1, .18 * s1, .04)
+            return abs(math.cos(ph)) * .1, .1
+        if anim == 'swing':
+            a = math.radians([200, 245, 292, 340][k]); rr = .64
+            SW.location = (math.cos(a) * rr, math.sin(a) * rr, .76); SW.rotation_euler = (math.pi / 2 - .15, 0, a + math.pi / 2)
+            at('glove-1', math.cos(a) * .52, math.sin(a) * .52, .74); at('cuff-1', math.cos(a) * .5, math.sin(a) * .5, .76)
+            leg(-1, .12, 0); leg(1, -.12, 0)
+            return (-.05 if k in (1, 2) else 0), [.05, .14, .18, .1][k]
+        if anim == 'block':
+            SH.location = (.08, -.72, .9); SH.rotation_euler = (0, 0, 0)
+            at('glove1', .12, -.55, .84); at('cuff1', .2, -.5, .84)
+            return (-.05 if k else -.03), .08
+        if anim == 'hit':
+            arm(-1, .1, .3); arm(1, .1, .3); leg(-1, -.1, 0); leg(1, .1, .06)
+            return .04, -.3
+        if anim == 'win':
+            SW.location = (-.46, -.08, 1.35 if k == 0 else 1.55); SW.rotation_euler = (0, -.2, 0)
+            at('glove-1', -.46, -.1, 1.3 if k == 0 else 1.5); at('cuff-1', -.5, -.08, 1.25 if k == 0 else 1.45)
+            return (0 if k == 0 else .16), -.05
+        return 0, 0
+    ANIMS = [('idle', 2), ('walk', 6), ('swing', 4), ('block', 2), ('hit', 1), ('win', 2)]
     DIRS = ['S', 'SE', 'E', 'NE', 'N']
-    frames = []
-    for di, dn in enumerate(DIRS):
-        for an, cnt in ANIMS:
-            for k in range(cnt):
-                frames.append((di, dn, an, k))
+    frames = [(di, dn, an, k) for di, dn in enumerate(DIRS) for an, cnt in ANIMS for k in range(cnt)]
     rz0 = ROOT.location.z
-    for idx, (di, dn, an, k) in enumerate(frames):
-        pose(an, k); ROOT.rotation_euler = (0, 0, math.radians(di * 45))
-        for layer in ('base', 'mask'):
-            set_layer(layer)
-            sc.render.filepath = os.path.join(OUT, f'{layer}_{idx:03d}.png'); bpy.ops.render.render(write_still=True)
-        ROOT.location.z = rz0
-    json.dump({'cell': CELL, 'dirs': DIRS, 'anims': ANIMS, 'frames': [[di, an, k] for di, dn, an, k in frames]}, open(os.path.join(OUT, 'sheet.json'), 'w'))
+    def render_all(prefix, layers):
+        for idx, (di, dn, an, k) in enumerate(frames):
+            lift, tilt = pose(an, k); ROOT.location.z = rz0 + lift; ROOT.rotation_euler = (tilt, 0, math.radians(di * 45))
+            for layer in layers:
+                set_layer(layer); sc.render.filepath = os.path.join(OUT, f'{prefix}_{layer}_{idx:03d}.png'); bpy.ops.render.render(write_still=True)
+        ROOT.location.z = rz0; ROOT.rotation_euler = (0, 0, 0)
+    only = argv[3].split(',') if len(argv) > 3 and argv[3] != 'all' else None
+    HL = tuple(argv[4].split(',')) if len(argv) > 4 else ('base', 'mask', 'metal')
+    for h in HELMS:
+        if only and ('helm_' + h) not in only: continue
+        show({'helm_' + h}); render_all('helm_' + h, HL); print('HELM_OK', h, flush=True)
+    for pl in PLUMES:
+        if (only and ('plume_' + pl) not in only) or (len(argv) > 4 and 'plume' not in HL): continue
+        show({'helm_great', 'plume_' + pl}); render_all('plume_' + pl, ('plume',)); print('PLUME_OK', pl, flush=True)
+    json.dump({'cell': CELL, 'dirs': DIRS, 'anims': ANIMS, 'helms': HELMS, 'plumes': PLUMES, 'frames': [[di, an, k] for di, dn, an, k in frames]}, open(os.path.join(OUT, 'sheet.json'), 'w'))
     print('SHEET_OK', len(frames))
+
+if MODE == 'variants':
+    ROOT.rotation_euler = (0, 0, math.radians(45))
+    for h in HELMS:
+        show({'helm_' + h, 'plume_feather'}); sc.render.filepath = os.path.join(OUT, f'var_helm_{h}.png'); bpy.ops.render.render(write_still=True)
+    for pl in PLUMES:
+        show({'helm_great', 'plume_' + pl}); sc.render.filepath = os.path.join(OUT, f'var_plume_{pl}.png'); bpy.ops.render.render(write_still=True)
+    print('VARIANTS_OK')

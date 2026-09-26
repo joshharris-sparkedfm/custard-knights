@@ -1,2 +1,4 @@
 out/
 sheet/
+*.log
+.knight_backup.py

@@ -1609,8 +1609,10 @@ if(SPR&&SPR.helms&&SPR.helms.great){ sprImg('great.base',SPR.helms.great.base); 
 const R_MODE=new URLSearchParams(location.search).get('r'); // ?r=sprite or ?r=classic forces a renderer (QA)
 const useSprites=()=>sprReady&&(R_MODE==='sprite'||(R_MODE!=='classic'&&!SET.classic));
 const SPR_METAL={gold:'#FFC23A',dark:'#6E78B4'}, SPR_PAT={stripes:['#FFF7E0',.55],chevron:['#FFF7E0',.55],checker:['#FFF7E0',.55],stars:['#FFD23F',1],trim:['#FFC933',1]};
-let sprS=null;
-function sprScratch(){ if(!sprS){ sprS=[0,1,2].map(()=>{ const c=document.createElement('canvas'); c.width=c.height=SPR.cell; return c; }); } return sprS; }
+const sprS={};
+function sprScratch(cell){ return sprS[cell]||(sprS[cell]=[0,1,2].map(()=>{ const c=document.createElement('canvas'); c.width=c.height=cell; return c; })); }
+// the menus draw from a high-resolution idle + win set (sprites/hero.js), loaded after the page so it never slows the first load
+let SPRH=null; { const hs=document.createElement('script'); hs.src='sprites/hero.js'; hs.async=true; hs.onload=()=>{ SPRH=(window.CK_SPRITES&&window.CK_SPRITES.hero)||null; }; document.head.appendChild(hs); }
 function sprFrame(e,moving){ let a=Math.atan2(Math.sin(e.face),Math.cos(e.face))*180/Math.PI, mir=false; if(Math.abs(a)>92){ mir=true; a=180-a; if(a>180)a-=360; }
  const di=clamp(Math.round((90-a)/45),0,4), A=SPR.anims; let an='idle',k=0;
  if(G.over&&G.winners&&G.winners.includes(e)){ an='win'; k=Math.floor(performance.now()/260+e.id)%2; }
@@ -1619,36 +1621,38 @@ function sprFrame(e,moving){ let a=Math.atan2(Math.sin(e.face),Math.cos(e.face))
  else if(e.blocking){ an='block'; k=Math.floor(G.clock*3+e.id)%2; }
  else if(moving){ an='walk'; const ph=((e.walk%(Math.PI*2))+Math.PI*2)%(Math.PI*2); k=Math.floor(ph/(Math.PI*2)*6)%6; }
  else { k=Math.floor(G.clock*1.6+e.id)%2; }
- const [o,c]=A[an]||A.idle; return {i:di*SPR.per+o+Math.min(k,c-1),mir,an}; }
+ const [o,c]=A[an]||A.idle; return {i:di*SPR.per+o+Math.min(k,c-1),mir,an,di}; }
 const sprScale=r=>r/22*.66;
 function sprBlit(x,L,img,i){ const r=L.r[i]; if(r&&r[2]) x.drawImage(img,r[0],r[1],r[2],r[3],r[4],r[5],r[2],r[3]); }
-function sprCompose(e,i){ // returns the scratch canvas holding frame i of this knight's kit, or null until its helm atlas has decoded
- const K=e.kit||{}; let h=SPR.helms[K.helm]?K.helm:'great', H=SPR.helms[h];
- let base=sprImg(h+'.base',H.base), mask=sprImg(h+'.mask',H.mask);
- if(!base||!mask){ h='great'; H=SPR.helms.great; base=sprImg('great.base',H.base); mask=sprImg('great.mask',H.mask); if(!base||!mask) return null; }
- const [S1,S2,S3]=sprScratch(), cell=SPR.cell, a=S1.getContext('2d'), b=S2.getContext('2d'), c=S3.getContext('2d');
+function sprCompose(e,i,SH=SPR){ // returns the scratch canvas holding frame i of this knight's kit, or null until its helm atlas has decoded
+ const K=e.kit||{}, q=SH===SPR?'':'h:', I=(k,L)=>sprImg(q+k,L); let h=SH.helms[K.helm]?K.helm:'great', H=SH.helms[h];
+ let base=I(h+'.base',H.base), mask=I(h+'.mask',H.mask);
+ if(!base||!mask){ h='great'; H=SH.helms.great; base=I('great.base',H.base); mask=I('great.mask',H.mask); if(!base||!mask) return null; }
+ const [S1,S2,S3]=sprScratch(SH.cell), cell=SH.cell, a=S1.getContext('2d'), b=S2.getContext('2d'), c=S3.getContext('2d');
  const clr=x=>{ x.globalCompositeOperation='source-over'; x.globalAlpha=1; x.clearRect(0,0,cell,cell); };
  const tint=(L,img,col)=>{ clr(b); sprBlit(b,L,img,i); b.globalCompositeOperation='source-in'; b.fillStyle=col; b.fillRect(0,0,cell,cell); a.globalCompositeOperation='multiply'; a.drawImage(S2,0,0); };
  const grey=(L,img,col)=>{ const r=L.r[i]; if(!r||!r[2]) return false; clr(b); sprBlit(b,L,img,i); b.globalCompositeOperation='multiply'; b.fillStyle=col; b.fillRect(0,0,cell,cell); b.globalCompositeOperation='destination-in'; sprBlit(b,L,img,i); b.globalCompositeOperation='source-over'; return true; };
  clr(a); sprBlit(a,H.base,base,i);
  tint(H.mask,mask,e.color);
- const mc=SPR_METAL[K.metal]; if(mc&&H.metal){ const mm=sprImg(h+'.metal',H.metal); if(mm) tint(H.metal,mm,mc); }
+ const mc=SPR_METAL[K.metal]; if(mc&&H.metal){ const mm=I(h+'.metal',H.metal); if(mm) tint(H.metal,mm,mc); }
  a.globalCompositeOperation='destination-in'; sprBlit(a,H.base,base,i); a.globalCompositeOperation='source-over';
- const ci=sprImg('cape',SPR.cape); // cape in team colour, then its pattern on top of it
- if(ci&&grey(SPR.cape,ci,e.color)){ const pk=e.cape, PL=SPR.pats&&SPR.pats[pk], pi2=PL&&sprImg('pat.'+pk,PL);
+ const ci=I('cape',SH.cape); // cape in team colour, then its pattern on top of it
+ if(ci&&grey(SH.cape,ci,e.color)){ const pk=e.cape, PL=SH.pats&&SH.pats[pk], pi2=PL&&I('pat.'+pk,PL);
   if(pi2){ const [col,al]=SPR_PAT[pk]||['#FFF7E0',.55]; clr(c); sprBlit(c,PL,pi2,i); c.globalCompositeOperation='source-in'; c.fillStyle=col; c.fillRect(0,0,cell,cell); b.globalCompositeOperation='source-atop'; b.globalAlpha=al; b.drawImage(S3,0,0); b.globalAlpha=1; b.globalCompositeOperation='source-over'; }
   a.drawImage(S2,0,0); }
- const ek=SPR.embs&&SPR.embs[e.emblem]?e.emblem:'star', EL=SPR.embs&&SPR.embs[ek], ei=EL&&sprImg('emb.'+ek,EL); if(ei) sprBlit(a,EL,ei,i);
- if(!e.wpn){ const bk=SPR.blades&&SPR.blades[e.blade]?e.blade:'steel', BL=SPR.blades&&SPR.blades[bk], bi=BL&&sprImg('blade.'+bk,BL); if(bi) sprBlit(a,BL,bi,i); }
- const pu=SPR.plumes[K.plume]?K.plume:'feather', PU=SPR.plumes[pu], pi=sprImg('plume.'+pu,PU);
+ const ek=SH.embs&&SH.embs[e.emblem]?e.emblem:'star', EL=SH.embs&&SH.embs[ek], ei=EL&&I('emb.'+ek,EL); if(ei) sprBlit(a,EL,ei,i);
+ if(!e.wpn){ const bk=SH.blades&&SH.blades[e.blade]?e.blade:'steel', BL=SH.blades&&SH.blades[bk], bi=BL&&I('blade.'+bk,BL); if(bi) sprBlit(a,BL,bi,i); }
+ const pu=SH.plumes[K.plume]?K.plume:'feather', PU=SH.plumes[pu], pi=I('plume.'+pu,PU);
  if(pi&&grey(PU,pi,plumeCols(e)[0])) a.drawImage(S2,0,0);
  return S1; }
-function drawKnightSprite(e,r,moving,bob){ const f=sprFrame(e,moving), sc=sprScale(r), cell=SPR.cell;
- const img=sprCompose(e,f.i); if(!img) return false;
+function drawKnightSprite(e,r,moving,bob){ const f=sprFrame(e,moving);
+ let SH=SPR, img=null; if(e.hero&&SPRH&&(f.an==='idle'||f.an==='win')){ img=sprCompose(e,f.an==='win'?5:f.di,SPRH); if(img) SH=SPRH; }
+ if(!img) img=sprCompose(e,f.i); if(!img) return false;
+ const cell=SH.cell, sc=sprScale(r)*SPR.cell/cell;
  ctx.save(); ctx.translate(0,r*.72-bob*.3); if(f.mir) ctx.scale(-1,1);
  const sq=moving||f.an!=='idle'?0:Math.sin(G.clock*4+e.id)*.015; ctx.scale(1+sq,1-sq);
- ctx.drawImage(img,-cell/2*sc,-SPR.anchorY*sc,cell*sc,cell*sc);
- if(e.flash>0){ ctx.globalAlpha=.65; ctx.globalCompositeOperation='lighter'; ctx.drawImage(img,-cell/2*sc,-SPR.anchorY*sc,cell*sc,cell*sc); }
+ ctx.drawImage(img,-cell/2*sc,-SH.anchorY*sc,cell*sc,cell*sc);
+ if(e.flash>0){ ctx.globalAlpha=.65; ctx.globalCompositeOperation='lighter'; ctx.drawImage(img,-cell/2*sc,-SH.anchorY*sc,cell*sc,cell*sc); }
  ctx.restore(); return true; }
 const sprTop=r=>r*.72-(SPR?(SPR.anchorY-SPR.topY)*sprScale(r):r*3);
 function heart(x,y,s,fill){ ctx.beginPath(); ctx.moveTo(x,y+s*.9); ctx.bezierCurveTo(x-s*1.5,y-s*.1,x-s*.7,y-s*1.2,x,y-s*.35); ctx.bezierCurveTo(x+s*.7,y-s*1.2,x+s*1.5,y-s*.1,x,y+s*.9); ctx.closePath(); ctx.fillStyle=fill; ctx.fill(); ctx.lineWidth=2; ctx.strokeStyle=INK; ctx.stroke(); }
@@ -2140,9 +2144,9 @@ function syncWardrobe(){ const pr=loadProfile(wardWho); document.querySelectorAl
  $('wardCh').textContent='Challenges: '+Object.entries(CHALLENGES).map(([k,c])=>`${c.text} (${Math.min(c.goal,PROG.ch[k]||0)}/${c.goal})`).join(' · ');
  let n=''; try{ n=localStorage.getItem(wardWho===1?'ck-name':'ck-name2')||''; }catch(e){} $('wardName').value=n; $('wardName').placeholder=wardWho===1?"Your knight's name":"Player 2's name"; }
 function openWardrobe(){ if(!$('wardrobe').dataset.built){ buildWardrobe(); $('wardrobe').dataset.built='1'; } syncWardrobe(); showScreen('wardrobe'); }
-const wardEnt={id:9,name:'',team:null,human:0,netId:null,x:100,y:112,vx:0,vy:0,r:22,hp:3,face:.6,atkCd:0,swing:0,swingKind:'light',swingDur:.22,hitSet:[],crateHit:true,hitDone:true,dashCd:0,dashT:0,fireCd:0,wpn:null,blocking:false,falling:0,lastHit:null,dead:false,respawn:0,inv:0,protect:0,score:0,deaths:0,walk:0,flash:0,slip:0,fx:{},bananaT:0,bawkCd:0,sayCd:9,stun:0,charge:0,guard:1.5,spot:0,ai:{}};
+const wardEnt={id:9,hero:1,name:'',team:null,human:0,netId:null,x:100,y:112,vx:0,vy:0,r:22,hp:3,face:.6,atkCd:0,swing:0,swingKind:'light',swingDur:.22,hitSet:[],crateHit:true,hitDone:true,dashCd:0,dashT:0,fireCd:0,wpn:null,blocking:false,falling:0,lastHit:null,dead:false,respawn:0,inv:0,protect:0,score:0,deaths:0,walk:0,flash:0,slip:0,fx:{},bananaT:0,bawkCd:0,sayCd:9,stun:0,charge:0,guard:1.5,spot:0,ai:{}};
 function mkKnight(o={}){ return Object.assign({id:30,name:'',team:null,human:0,netId:null,x:0,y:0,vx:0,vy:0,r:22,hp:3,face:Math.PI/2,atkCd:0,swing:0,swingKind:'light',swingDur:.22,hitSet:[],crateHit:true,dashCd:0,dashT:0,fireCd:0,wpn:null,blocking:false,falling:0,lastHit:null,dead:false,respawn:0,inv:0,protect:0,score:0,deaths:0,walk:0,flash:0,slip:0,fx:{},bananaT:0,bawkCd:0,sayCd:9,stun:0,charge:0,guard:1.5,spot:0,ai:{},kit:{helm:'great',plume:'feather',metal:'steel'},emblem:'star',color:'#FF5A4E',plume:CUST,cape:'plain',blade:'steel',chickSkin:'hen'},o); }
-const heroMain=mkKnight({id:31}), heroL=mkKnight({id:32,kit:{helm:'kettle',plume:'brush',metal:'gold'},emblem:'pie',color:'#2EC4B6',cape:'chevron',blade:'baguette'}), heroR=mkKnight({id:33,kit:{helm:'horned',plume:'flame',metal:'dark'},emblem:'skull',color:'#9B7BFF',cape:'stars',blade:'fish'});
+const heroMain=mkKnight({id:31,hero:1}), heroL=mkKnight({id:32,hero:1,kit:{helm:'kettle',plume:'brush',metal:'gold'},emblem:'pie',color:'#2EC4B6',cape:'chevron',blade:'baguette'}), heroR=mkKnight({id:33,hero:1,kit:{helm:'horned',plume:'flame',metal:'dark'},emblem:'skull',color:'#9B7BFF',cape:'stars',blade:'fish'});
 let heroFrame=0;
 function drawHero(){ const c=$('heroCv'); if(!c||$('menu').hidden||!G) return; const px=c.getContext('2d'), S=c.width, t=G.clock; px.setTransform(1,0,0,1,0,0); px.clearRect(0,0,S,S);
  const g=px.createRadialGradient(S*.5,S*.66,10,S*.5,S*.62,S*.5); g.addColorStop(0,'rgba(255,214,120,.42)'); g.addColorStop(1,'rgba(255,214,120,0)'); px.fillStyle=g; px.fillRect(0,0,S,S);
@@ -2153,12 +2157,12 @@ function drawHero(){ const c=$('heroCv'); if(!c||$('menu').hidden||!G) return; c
   const step=e=>{ if(e.swing>0) e.swing-=1/60; e.walk+=.02; };
   for(const [e,x,sc,ph] of [[heroL,S*.22,4.2,0],[heroR,S*.78,4.2,2.7]]){ px.setTransform(sc,0,0,sc,x,S*.62); ctx.globalAlpha=.8; e.face=Math.PI/2+(x<S/2?-.6:.6)+Math.sin(t*.7+ph)*.3; if((t+ph)%4.2<.02&&e.swing<=0){ e.swing=.22; e.hitSet=[]; } step(e); drawKnight(e); ctx.globalAlpha=1; }
   px.setTransform(6.4,0,0,6.4,S*.5,S*.74); custardPuddle(0,20,30,3.3,1);
-  heroMain.face=Math.PI/2+Math.sin(t*.45)*1.25; if(t%5<.02&&heroMain.swing<=0){ heroMain.swing=.22; heroMain.hitSet=[]; } heroMain.blocking=(t%9)>7.6; step(heroMain); drawKnight(heroMain);
+  heroMain.face=Math.PI/2+Math.sin(t*.45)*.7; if(t%5<.02&&heroMain.swing<=0){ heroMain.swing=.22; heroMain.hitSet=[]; } heroMain.blocking=(t%9)>7.6; step(heroMain); drawKnight(heroMain);
  }finally{ ctx=keep; }
  if(++heroFrame%30===0){ let n=''; try{ n=localStorage.getItem('ck-name')||''; }catch(e){} $('plateName').textContent=n||'Your knight'; const tr=tierOf(), nxt=tr<TRACK.length?(PROG.earned-tr*TIER_COST)/TIER_COST:1; $('plateTier').textContent=`Tier ${tr} of ${TRACK.length} · ${PROG.earned} Custard Coins`; $('plateBar').style.width=Math.round(nxt*100)+'%'; } }
 function drawWardrobe(){ const c=$('wardCv'); if(!c||$('wardrobe').hidden||!G) return; const pr=loadProfile(wardWho), px=c.getContext('2d'); px.setTransform(1,0,0,1,0,0); px.fillStyle='#5FA84E'; px.fillRect(0,0,600,600);
  px.fillStyle='rgba(0,0,0,.08)'; for(let i=0;i<8;i++)for(let j=0;j<8;j++) if((i+j)%2) px.fillRect(i*75,j*75,75,75);
- px.setTransform(4,0,0,4,0,0); const e=wardEnt; e.x=75; e.y=108; e.kit={helm:pr.helm,plume:pr.plume,metal:pr.metal}; e.emblem=pr.emblem; e.color=pr.color; e.cape=pr.cape; e.blade=pr.blade; e.chickSkin=pr.chick; e.chick=(G.clock%14)>11; e.plume=pr.color===CUST?PINK:CUST; e.face=G.clock*.7; const ph=G.clock%5; if(ph<.22&&e.swing<=0){ e.swing=.22; e.hitSet=[]; e.swingKind='light'; e.swingDur=.22; } if(e.swing>0) e.swing-=1/60; e.walk+=.05; e.vx=Math.cos(e.face)*40; e.vy=Math.sin(e.face)*40;
+ px.setTransform(6.2,0,0,6.2,0,0); const e=wardEnt; e.x=48.4; e.y=61; e.kit={helm:pr.helm,plume:pr.plume,metal:pr.metal}; e.emblem=pr.emblem; e.color=pr.color; e.cape=pr.cape; e.blade=pr.blade; e.chickSkin=pr.chick; e.chick=(G.clock%14)>11; e.plume=pr.color===CUST?PINK:CUST; e.face=G.clock*.7; const ph=G.clock%5; if(ph<.22&&e.swing<=0){ e.swing=.22; e.hitSet=[]; e.swingKind='light'; e.swingDur=.22; } if(e.swing>0) e.swing-=1/60; e.vx=0; e.vy=0; // turns in place so the preview uses the sharp menu art
  const keep=ctx; ctx=px; try{ drawKnight(e); }finally{ ctx=keep; } }
 const music=new Audio('menu-theme.mp3'); music.loop=true; music.preload='auto';
 let musicWant=true, fadeT=null;

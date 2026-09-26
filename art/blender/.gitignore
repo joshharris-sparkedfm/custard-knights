@@ -2,3 +2,4 @@ out/
 sheet/
 *.log
 .knight_backup.py
+sheet_hero/

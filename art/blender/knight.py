@@ -165,12 +165,21 @@ GROUPS = {}
 def group(name, fn):
     before = set(bpy.data.objects.keys()); fn(); GROUPS[name] = [n for n in bpy.data.objects.keys() if n not in before]
 HC, HR = 1.52, .565
-def eyes(z, y=-.61, sx_=.14, sc_=1.0):
+def eyes(z, y=-.61, sx_=.14, sc_=1.0, az=.5):
+    """Big cartoon eyes set around the curve of the helm (az radians from the front) so one still reads in profile.
+    They bulge out of the visor; flat discs vanish edge-on. y is the helm's front surface, sx_ is kept for old calls."""
+    R = -y
     for sx in (-1, 1):
-        # eyes bulge out of the visor so they still read in the side views (flat discs vanish edge-on)
-        sphere(f'eye{sx}', (sx * sx_, y - .02, z), (.11 * sc_, .07, .12 * sc_), M['eyew'], outline=.012, sub=0)
-        sphere(f'pupil{sx}', (sx * sx_ + .025, y - .075, z - .01), (.064 * sc_, .03, .078 * sc_), M['pupil'], outline=0, sub=0)
-        sphere(f'glint{sx}', (sx * sx_ - .005, y - .098, z + .04 * sc_), (.026, .012, .026), M['eyew'], outline=0, sub=0)
+        a = sx * az; nx, ny = math.sin(a), -math.cos(a); tx, ty = math.cos(a), math.sin(a)   # outward normal, tangent
+        def put(name, d, lat, dz, scl, mat, ol):
+            # built at the origin, turned to face outward, then moved: new primitives carry their position in the mesh
+            o = sphere(name, (0, 0, 0), scl, mat, outline=ol, sub=0); o.rotation_euler = (0, 0, a)
+            bpy.ops.object.select_all(action='DESELECT'); o.select_set(True); bpy.context.view_layer.objects.active = o
+            bpy.ops.object.transform_apply(location=False, rotation=True, scale=False)
+            o.location = (nx * (R + d) + tx * lat, ny * (R + d) + ty * lat, z + dz)
+        put(f'eye{sx}', .02, 0, 0, (.12 * sc_, .07, .13 * sc_), M['eyew'], .014)
+        put(f'pupil{sx}', .075, .03 * sc_, -.01, (.068 * sc_, .03, .082 * sc_), M['pupil'], 0)
+        put(f'glint{sx}', .098, -.005, .045 * sc_, (.027, .012, .027), M['eyew'], 0)
 def custard(top=1.98):
     mb = bpy.data.metaballs.new('custard'); mb.resolution = .03; mb.render_resolution = .02; mb.threshold = .5
     cr = bpy.data.objects.new('custard', mb); sc.collection.objects.link(cr); cr.parent = ROOT
@@ -188,22 +197,33 @@ def custard(top=1.98):
 def rivets(z=1.58):
     for sx in (-1, 1): sphere(f'rivet{sx}', (sx * .6, -.05, z), (.09, .06, .09), M['visor'], outline=.02)
 
+def visor_band(name, z0, z1, r=.598, amax=1.0, n=28):
+    """dark visor opening wrapped around the front of the helm, rounded at the ends, so the eyes inside it read from any side"""
+    me = bpy.data.meshes.new(name); bm = bmesh.new(); cols = []
+    for i in range(n + 1):
+        a = -amax + 2 * amax * i / n; k = (abs(a) / amax) ** 3; zm = (z0 + z1) / 2; hh = (z1 - z0) / 2 * (1 - .55 * k)
+        cols.append([bm.verts.new((math.sin(a) * r, -math.cos(a) * r, zm + hh * t)) for t in (-1, -.5, 0, .5, 1)])
+    for i in range(n):
+        for j in range(4): bm.faces.new((cols[i][j], cols[i + 1][j], cols[i + 1][j + 1], cols[i][j + 1]))
+    bm.to_mesh(me); bm.free(); ob = bpy.data.objects.new(name, me); sc.collection.objects.link(ob)
+    t = ob.modifiers.new('thick', 'SOLIDIFY'); t.thickness = .03; t.offset = 0
+    return finish(ob, M['dark'], outline=.022, sub=1, parent=ROOT)
 def h_great():
     lathe('helm', [(0, 1.05), (.5, 1.07), (.56, 1.2), (.575, 1.45), (.56, 1.66), (.5, 1.82), (.36, 1.96), (.18, 2.03), (0, 2.05)], M['steel'])
     lathe('visorband', [(.585, 1.5), (.605, 1.52), (.605, 1.66), (.585, 1.68)], M['visor'], sub=0, outline=.026)
-    lathe('face', [(.001, 1.26), (.22, 1.27), (.27, 1.39), (.23, 1.5), (.001, 1.51)], M['dark'], loc=(0, -.52, 0), scale=(1.25, .32, 1), sub=1, outline=.022)
+    visor_band('face', 1.25, 1.52)
     for i in range(5): cube(f'slot{i}', ((i - 2) * .14, -.6, 1.59), (.035, .04, .05), M['dark'], bevel=.015, outline=0, sub=0)
     eyes(1.39); cube('chin', (0, -.5, 1.17), (.36, .1, .1), M['steel'], bevel=.08, sub=1)
     cyl('ridge', (0, -.02, 1.86), .045, .6, M['steel'], rot=(math.pi / 2, 0, 0), sub=0, outline=.016); rivets(); custard()
 def h_sallet():
     lathe('helm', [(0, 1.15), (.45, 1.12), (.56, 1.28), (.585, 1.5), (.55, 1.72), (.43, 1.9), (.22, 2.0), (0, 2.03)], M['steel'])
     lathe('tail', [(.001, 1.34), (.5, 1.3), (.64, 1.14), (.66, 1.08), (.5, 1.2), (.001, 1.26)], M['visor'], loc=(0, .2, 0), scale=(.9, 1.05, 1))
-    cube('slit', (0, -.56, 1.5), (.46, .08, .075), M['dark'], bevel=.05, outline=.02, sub=0)
+    cube('slit', (0, -.56, 1.5), (.5, .08, .09), M['dark'], bevel=.05, outline=.02, sub=0)
     cube('bevor', (0, -.5, 1.27), (.44, .12, .15), M['visor'], bevel=.1, sub=1)
-    eyes(1.5, y=-.62, sc_=.8); rivets(1.5); custard()
+    eyes(1.5, y=-.62, sc_=.8, az=.32); rivets(1.5); custard()
 def h_horned():
     lathe('helm', [(0, 1.05), (.52, 1.07), (.58, 1.25), (.585, 1.5), (.55, 1.72), (.42, 1.9), (.22, 2.0), (0, 2.03)], M['steel'])
-    lathe('face', [(.001, 1.3), (.24, 1.31), (.3, 1.42), (.25, 1.52), (.001, 1.53)], M['dark'], loc=(0, -.52, 0), scale=(1.25, .32, 1), sub=1, outline=.022)
+    visor_band('face', 1.29, 1.55)
     eyes(1.42)
     cyl('nasal', (0, -.6, 1.44), .045, .36, M['steel'], sub=0, outline=.016)
     for sx in (-1, 1):
@@ -219,19 +239,19 @@ def h_horned():
     custard()
 def h_crest():
     lathe('helm', [(0, 1.08), (.5, 1.08), (.57, 1.26), (.58, 1.5), (.55, 1.72), (.42, 1.9), (.22, 2.0), (0, 2.03)], M['steel'])
-    lathe('face', [(.001, 1.26), (.22, 1.27), (.27, 1.39), (.23, 1.5), (.001, 1.51)], M['dark'], loc=(0, -.52, 0), scale=(1.25, .32, 1), sub=1, outline=.022)
+    visor_band('face', 1.25, 1.52)
     eyes(1.39); cube('chin', (0, -.5, 1.17), (.34, .1, .1), M['steel'], bevel=.08, sub=1)
     sphere('crest', (0, .38, 2.12), (.08, .5, .42), M['team']); rivets(1.5); custard(1.96)
 def h_kettle():
     lathe('helm', [(0, 1.3), (.5, 1.3), (.55, 1.45), (.53, 1.7), (.42, 1.88), (.22, 1.98), (0, 2.0)], M['steel'])
     lathe('brim', [(.45, 1.47), (.98, 1.37), (1.0, 1.41), (.5, 1.54)], M['visor'], sub=1, outline=.028)
     lathe('face', [(.001, 1.05), (.3, 1.06), (.36, 1.2), (.32, 1.4), (.001, 1.42)], M['dark'], loc=(0, -.36, 0), scale=(1.2, .45, 1), sub=1, outline=.022)
-    eyes(1.24, y=-.58, sc_=1.15); custard(1.94)
+    eyes(1.24, y=-.58, sc_=1.15, az=.36); custard(1.94)
 def h_barbute():
     lathe('helm', [(0, 1.05), (.48, 1.06), (.55, 1.2), (.565, 1.5), (.53, 1.78), (.4, 1.95), (.2, 2.04), (0, 2.07)], M['steel'])
-    cube('tbar', (0, -.55, 1.46), (.38, .09, .08), M['dark'], bevel=.05, outline=.02, sub=0)
+    cube('tbar', (0, -.55, 1.46), (.42, .09, .1), M['dark'], bevel=.05, outline=.02, sub=0)
     cube('tstem', (0, -.56, 1.26), (.085, .08, .2), M['dark'], bevel=.04, outline=.02, sub=0)
-    eyes(1.46, y=-.62, sx_=.19, sc_=.85); rivets(1.46); custard(2.0)
+    eyes(1.46, y=-.62, sc_=.85, az=.32); rivets(1.46); custard(2.0)
 
 def feather_fan(specs):
     for i, (x, y, z, L, rx, ry, bend, w) in enumerate(specs):
@@ -422,7 +442,7 @@ if MODE == 'turnaround':
 # ------------------------------------------------------------------ sprite sheet: 5 directions x (idle 2, walk 6, swing 4), two layers
 # base layer: everything, with team-coloured parts in a white/grey cel ramp; mask layer: team parts white, everything else a holdout.
 # The game multiplies the player's colour onto the base through the mask, so one sheet serves every colour.
-if MODE == 'sheet':
+if MODE in ('sheet', 'hero'):   # hero: a high-resolution idle (5 directions) + win set for the menus
     # Sheets: for every helm, a body+helm layer (base and team mask); for every plume, a plume layer occluded by a standard helm.
     # 5 directions x (idle 2, walk 6, swing 4, block 2, hit 1, win 2) = 85 frames per sheet.
     import json
@@ -501,6 +521,7 @@ if MODE == 'sheet':
     ANIMS = [('idle', 2), ('walk', 6), ('swing', 4), ('block', 2), ('hit', 1), ('win', 2)]
     DIRS = ['S', 'SE', 'E', 'NE', 'N']
     frames = [(di, dn, an, k) for di, dn in enumerate(DIRS) for an, cnt in ANIMS for k in range(cnt)]
+    if MODE == 'hero': frames = [(di, dn, 'idle', 0) for di, dn in enumerate(DIRS)] + [(0, 'S', 'win', 1)]
     rz0 = ROOT.location.z
     CP = bpy.data.objects['capepivot']
     CAPE = {'idle': (0, .05), 'walk': (.3, .38, .3, .22, .3, .38), 'swing': (.18, .26, .3, .22), 'block': (.12, .14), 'hit': (-.05,), 'win': (.2, .34)}

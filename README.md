@@ -19,7 +19,7 @@ To host it for free, turn on **GitHub Pages** (Settings → Pages → Deploy fro
 - **Weapon pads:** Bow, Bomb Bag and Custard Cannon. Picking up the same weapon again levels it up.
 - **Shield block:** stops sword hits and bounces arrows back at the shooter
 - **Chaos Meter:** fills with time and knockouts and unlocks three tiers of power-ups
-  - Sensible: Zoomy Boots, Bubble Shield, Long Sword, Pork Pie, Magnet Mitts (pulls power-ups to you), Prickly Armour (whoever hits you gets hurt back)
+  - Sensible: Zoomy Boots, Bubble Shield, Long Sword, Pork Pie, Custard Potion, Magnet Mitts (pulls power-ups to you), Prickly Armour (whoever hits you gets hurt back)
   - Silly: Giant Head, Bouncy Arms, Swap-o-matic, Banana Trail, Ghost Mode, Bee Swarm (a swarm that hunts your nearest enemy), Pie Traps (three pies on the floor that explode when an enemy steps on them)
   - Unhinged: Chicken Party, Custard Flood, Boss Mode, Disco Fever, Mirror Curse, Tiny Town, Meteor Shower (custard falls from the sky, you are immune), Lights Out (only a small circle around each knight is lit, yours is bigger), Jelly Arena (walls bounce and every hit sends people flying), Swap Party (everyone swaps places every two seconds)
 - **Arena events:** every half a minute or so the arena itself does something, with a red banner and a countdown: Trapdoors (cracks appear, then the floor opens), Pie Catapult (the castle lobs pies at the leaders), Chicken Stampede (a flock runs across and tramples anyone in the way), Gale Force (everyone is pushed one way), Slow-mo, Bounty (three points to whoever knocks out the leader) and Supply Drop (everyone gets a weapon, power-ups land in the middle)
@@ -27,6 +27,8 @@ To host it for free, turn on **GitHub Pages** (Settings → Pages → Deploy fro
 - **Combat:** light swings, a charged heavy that breaks blocks, dash with i-frames and a dash-attack stab, a parry window when you block just as they swing (with a riposte), a guard meter, shield bash, ring-out knockback that grows as you get hurt, hitstun, and two seconds of real spawn protection that ends the moment you attack
 - **Bots:** Chill telegraphs every swing with a "!", Spicy fights fair, Brutal punishes whiffs, parries mashers and charges heavies. Only so many bots press a human at once.
 - **Menu:** Quick brawl, Custom brawl with mode and arena cards, chaos speed and match length, an online screen with an invite landing card, a Wardrobe with a live knight preview (helm, plume, metal, emblem, colour, name, for two local players), How to play, and Settings (music, sounds, screen shake, reduce flashing, show every name)
+- **Earn everything:** matches pay out Custard Coins (3 for playing, 1 per KO, 5 for a win, plus mode bonuses). An 18-tier track unlocks cape patterns, blade skins (wooden, baguette, fish, candy cane, spoon), extra colours and chicken skins for when you are a chicken, and six challenges unlock specific items early. Everything is cosmetic. There is no shop, no currency to buy and nothing that changes how you fight.
+- **Stacking:** power-ups stack. A second Long Sword makes it longer still (three levels), Zoomy Boots get zoomier, Bubble Shield holds up to three bubbles, and durations add up. The Custard Potion gives a heart now and one every six seconds for a while.
 - **Pads:** up to four gamepads. Left stick moves, right stick aims, A swings, B dashes, X blocks, Y shouts, Start pauses. The menus work from the d-pad.
 - **Teaching:** a control card at the start until you have landed three hits, a death card that tells you what got you and what to do about it, one-line tips the first time you meet a pit, ice, a bow or a bounty, captions on power-ups, and a banner each time the Chaos Meter changes tier
 - **Bots:** Chill, Spicy or Brutal. They find their way through the mazes, grab weapons, block and dodge spikes.
@@ -66,6 +68,6 @@ Touch devices get an on-screen stick plus Swing, Dash and Block buttons. Pause w
 
 - Proximity voice for online matches
 - Desktop build for Steam (Electron plus Steamworks), bundled fonts, Steam lobbies
-- Cape patterns, blade skins and taunts in the Wardrobe
+- Taunts and victory poses in the Wardrobe
 - More weapons
 - Wire the power of Norr up to a proper roar recording

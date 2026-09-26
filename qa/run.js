@@ -31,7 +31,7 @@ process.on('exit',()=>{ try{chrome.kill()}catch(e){} });
    console.log(map.padEnd(9),'fps',fps.toFixed(1)); results.push({map,fps}); await evalJs('CK.freeze(true);0'); }
  } else {
   const plan=[]; const modeRows=[];
-  const MODESET=['lks','kotp','heist','race','hotpie'];
+  const MODESET=['lks','kotp','heist','race','hotpie','flags'];
   if(mode==='quick'){ personas.forEach((p,i)=>plan.push({persona:p,map:maps[i%maps.length],diff:'spicy'})); maps.forEach(m=>plan.push({persona:'idle',map:m,diff:'spicy',humans:0})); MODESET.forEach((md,i)=>plan.push({persona:'rusher',map:maps[i],diff:'spicy',mode:md})); }
   else if(mode==='modes'){ for(const md of MODESET) for(const m of maps){ plan.push({persona:'idle',map:m,diff:'spicy',mode:md,humans:0}); plan.push({persona:'rusher',map:m,diff:'spicy',mode:md}); plan.push({persona:'collector',map:m,diff:'brutal',mode:md}); } }
   else { for(const m of maps){ plan.push({persona:'idle',map:m,diff:'spicy',humans:0}); for(const p of personas) plan.push({persona:p,map:m,diff:'spicy'}); } for(const p of ['rusher','pro','collector','parrier']) for(let i=0;i<3;i++) plan.push({persona:p,map:maps[i],diff:'brutal'}); for(const p of ['rusher','pro']) for(let i=0;i<2;i++) plan.push({persona:p,map:maps[i+3],diff:'chill'}); plan.push({persona:'pro',map:'frost',diff:'spicy',mode:'teams'}); plan.push({persona:'rusher',map:'factory',diff:'spicy',mode:'teams'}); }

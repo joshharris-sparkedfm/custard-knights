@@ -330,6 +330,7 @@ const MODES={
  kotp:{name:'King of the Pie',desc:'Stand alone on the giant pie to score. It moves every 30 seconds. First to 60.',teams:false},
  heist:{name:'Pie Heist',desc:'Red vs Blue. Steal the enemy pie and carry it home. First to 3.',teams:true},
  race:{name:'Chicken Racing',desc:'Everyone is a chicken. Four laps round the arena. Peck to shove.',teams:false},
+ flags:{name:'Flag Frenzy',desc:'Red vs Blue. Three flags. Stand by one to turn it your colour. Every flag you hold scores. First to 100.',teams:true},
  hotpie:{name:'Hot Pie',desc:'A pie with a lit fuse. Whack someone to pass it on. When it blows, that knight loses a life. Last knight standing wins.',teams:false}
 };
 const LIVES_MODES=new Set(['lks','hotpie']);
@@ -471,6 +472,7 @@ function newGame(demo,setup){
  // mode setup: the pie hill, the two pies, the race gates
  if(LIVES_MODES.has(mode)) G.chaosRate/=2; if(mode==='hotpie') G.hot={holder:null,t:12,max:12,round:0,wait:1.5,passT:-9};
  if(mode==='kotp'){ const c=openSpot(W/2,OY+(H-OY)/2,300); G.hill={x:c.x,y:c.y,r:110,t:30}; }
+ if(mode==='flags'){ const my=OY+(H-OY)/2; G.flags=[[W*.5,my],[W*.27,my],[W*.73,my]].map(([x,y],i)=>{ const f=openSpot(x,y,180,70); return {x:f.x,y:f.y,r:78,cap:0,own:null,name:'ABC'[i],tick:0}; }); G.flags.sort((a,b)=>a.x-b.x); G.flags.forEach((f,i)=>f.name='ABC'[i]); G.teamPts={red:0,blue:0}; }
  if(mode==='heist'){ const mid=pts=>pts.reduce((a,p)=>({x:a.x+p.x/pts.length,y:a.y+p.y/pts.length}),{x:0,y:0}); const rh=nearestFloor(Math.min(...left.map(p=>p.x))+T,mid(left).y), bh=nearestFloor(Math.max(...right.map(p=>p.x))-T,mid(right).y);
   G.pies=[{team:'red',hx:rh.x,hy:rh.y,x:rh.x,y:rh.y,carrier:null,home:true,dropT:0},{team:'blue',hx:bh.x,hy:bh.y,x:bh.x,y:bh.y,carrier:null,home:true,dropT:0}]; }
  if(mode==='race'){ G.cps=[nearestFloor(W/2,OY+T*1.5),nearestFloor(W-T*1.5,OY+(H-OY)/2),nearestFloor(W/2,H-T*1.5),nearestFloor(T*1.5,OY+(H-OY)/2)]; }
@@ -658,11 +660,12 @@ function hurt(b,a,dmg,o={}){
  else if(!b.human&&Math.random()<.15) say(b,pick(['Ow!','Rude!','Not the face!','Oof']),1.4);
 }
 function ko(b,a,how){
- const bounty=!!(G.mayhem&&G.mayhem.kind==='bounty'&&G.mayhem.who===b&&a&&!isAlly(a,b)); let pts=(isBoss(b)||bounty)?3:1; if(G.mode==='heist'||G.mode==='race') pts=0; b.deaths++; b.dead=true; b.respawn=1.8; b.falling=0; b.wpn=null; b.stun=0; b.charge=0;
+ const bounty=!!(G.mayhem&&G.mayhem.kind==='bounty'&&G.mayhem.who===b&&a&&!isAlly(a,b)); let pts=(isBoss(b)||bounty)?3:1; if(G.mode==='heist'||G.mode==='race'||G.mode==='flags') pts=0; b.deaths++; b.dead=true; b.respawn=1.8; b.falling=0; b.wpn=null; b.stun=0; b.charge=0;
  if(b.carry) dropPie(b,how==='fell in a pit');
  if(b.hot&&G.hot){ b.hot=false; G.hot.holder=null; G.hot.wait=1.5; }
  if(LIVES_MODES.has(G.mode)&&!b.chick){ b.lives=Math.max(0,b.lives-1); if(b.lives<=0){ b.chick=true; feed(`${b.name} is out. Cluck cluck.`,isMine(b)); if(isMine(b)) G.banner={title:'YOU ARE A CHICKEN',sub:'Out of lives. You can still peck people.',col:PINK,t:2.4,max:2.4}; } }
  G.chaos=Math.min(1,G.chaos+.025); G.shake=Math.max(G.shake,12); sfx('ko');
+ if((a&&isMine(a))||isMine(b)||G.ents.some(h=>isMine(h)&&Math.hypot(h.x-b.x,h.y-b.y)<300)){ G.punch=.28; G.px=b.x; G.py=b.y; }
  b.lastKO={how,src:how==='fell in a pit'?'pit':(b.lastSrc||'sword'),by:a&&a!==b?a.name:null};
  { let ne=1e9; for(const o of G.ents) if(o!==b&&alive(o)&&!isAlly(o,b)) ne=Math.min(ne,Math.hypot(o.x-b.x,o.y-b.y));
    logEv('ko',{v:b.id,vh:hb(b),a:a?a.id:-1,ah:a?hb(a):'-',src:how==='fell in a pit'?'pit':(b.lastSrc||'sword'),how,alive:Math.round((G.clock-(b.spawnAt||0))*10)/10,x:Math.round(b.x),y:Math.round(b.y),map:G.mapKey,ev:G.ev?G.ev.kind:'',mh:G.mayhem?G.mayhem.kind:'',ne:Math.round(ne)}); }
@@ -796,6 +799,9 @@ function botInput(e,dt){
    for(const p of G.proj){ if(p.owner===e||isAlly(p.owner,e))continue; const d=Math.hypot(p.x-e.x,p.y-e.y), toward=(e.x-p.x)*p.vx+(e.y-p.y)*p.vy>0; if(d<200&&toward&&Math.random()<D.block){ai.blockT=.45;ai.blockFace=Math.atan2(p.y-e.y,p.x-e.x);break} }
   }
   if(isChicken(e)) ai.goal=G.mode==='race'?'race':(G.ev&&G.ev.kind==='chicken')?'run':'peck';
+  else if(G.mode==='flags'&&G.flags&&!ai.flee){ const mine=G.flags.filter(f=>f.own===e.team), want=G.flags.filter(f=>f.own!==e.team).sort((a,b)=>Math.hypot(a.x-e.x,a.y-e.y)-Math.hypot(b.x-e.x,b.y-e.y)), guard=e.id%3===0&&mine.length;
+   const f=guard?mine.sort((a,b)=>Math.hypot(a.x-e.x,a.y-e.y)-Math.hypot(b.x-e.x,b.y-e.y))[0]:want[0]||mine[0];
+   if(f){ const d=Math.hypot(f.x-e.x,f.y-e.y), foeNear=best&&Math.hypot(best.x-e.x,best.y-e.y)<110; if(!(d<f.r&&foeNear)){ ai.goal='go'; const a=Math.random()*6.3, rr2=Math.random()*f.r*.5; ai.gx=f.x+Math.cos(a)*rr2; ai.gy=f.y+Math.sin(a)*rr2; } } }
   else if(G.mode==='kotp'&&!ai.flee&&(!e.wpn||Math.random()<.5)){ const h=G.hill, d=Math.hypot(h.x-e.x,h.y-e.y); if(d<640&&Math.random()<(d<h.r?.9:.6)){ ai.goal='go'; const a=Math.random()*6.3, rr2=Math.random()*h.r*.45; ai.gx=h.x+Math.cos(a)*rr2; ai.gy=h.y+Math.sin(a)*rr2; if(d<h.r&&best&&Math.hypot(best.x-e.x,best.y-e.y)<120) ai.goal=null; } }
   else if(G.mode==='heist'){ const own=G.pies.find(q=>q.team===e.team), enemy=G.pies.find(q=>q.team!==e.team), attacker=e.id%2===0;
    if(e.carry){ ai.goal='go'; ai.gx=own.hx; ai.gy=own.hy; }
@@ -871,7 +877,7 @@ function collideTiles(e,rt,bouncy){
  }
 }
 function update(dt){
- G.clock+=dt; G.stats.frames++;
+ G.clock+=dt; G.stats.frames++; if(G.punch>0) G.punch-=dt;
  if(!G.demo){ G.time-=dt; G.chaos=Math.min(1,G.chaos+dt/G.chaosRate);
   const tier=G.chaos>=.66?2:G.chaos>=.33?1:0; if(tier>G.tierShown){ G.tierShown=tier; G.banner={title:tier===2?'CHAOS: UNHINGED':'CHAOS: SILLY',sub:tier===2?'Anything goes now. Chickens, meteors, the lot.':'The crates just got daft.',col:tier===2?CUST:PINK,t:2.2,max:2.2}; sfx('event'); }
   if(G.tipT>0) G.tipT-=dt; else if(G.tips.length){ if(G.tipGap>0) G.tipGap-=dt; else { G.tip=G.tips.shift(); G.tipT=2.6; G.tipGap=6; } } if(G.tipT<=0) G.tip=null; }
@@ -1027,6 +1033,11 @@ function updateMode(dt){
   else { h.t-=dt; if(h.t<=2.5&&Math.floor(h.t*6)!==Math.floor((h.t+dt)*6)) sfx('spike');
    if(h.t<=0){ const e=h.holder; e.hot=false; h.holder=null; h.round++; h.wait=1.8; explode(e.x,e.y,130,null,{how:'was holding the hot pie',src:'hotpie'}); burst(e.x,e.y,50,[CUST,CREAM,TOM],420); G.decals.push({k:'splat',x:e.x,y:e.y+6,r:60,t:10});
     if(alive(e)){ e.hp=0; ko(e,null,'went up with the hot pie'); } } } }
+ else if(m==='flags'&&G.flags){ for(const f of G.flags){ let rc=0,bc=0; for(const e of G.ents){ if(!alive(e)||Math.hypot(e.x-f.x,e.y-f.y)>f.r) continue; if(e.team==='red') rc++; else bc++; }
+   const push=(Math.min(3,rc)-Math.min(3,bc))*.3*dt; f.contested=rc>0&&bc>0; if(push){ const before=f.own; f.cap=clamp(f.cap+push,-1,1); if(f.cap>=1) f.own='red'; else if(f.cap<=-1) f.own='blue'; else if(f.own==='red'&&f.cap<0||f.own==='blue'&&f.cap>0) f.own=null;
+    if(f.own&&f.own!==before){ G.banner={title:(f.own==='red'?'RED':'BLUE')+' TAKES FLAG '+f.name,sub:'',col:f.own==='red'?TOM:'#4DA8FF',t:1.3,max:1.3}; sfx('stack'); fxRing(f.x,f.y,f.r,f.own==='red'?TOM:'#4DA8FF',.6); feed(`${f.own==='red'?'Red':'Blue'} took flag ${f.name}`); } }
+   if(f.own){ f.tick+=dt; if(f.tick>=1){ f.tick-=1; const team=G.ents.filter(e=>e.team===f.own&&alive(e)); const who=team.find(e=>Math.hypot(e.x-f.x,e.y-f.y)<f.r)||pick(team.length?team:G.ents.filter(e=>e.team===f.own)); if(who) who.score++; G.teamPts[f.own]++; } } }
+  if(G.teamPts.red>=100||G.teamPts.blue>=100) endMatch(); }
  else if(m==='kotp'){ const h=G.hill; h.t-=dt; if(h.t<=0){ h.t=30; let p=h; for(let i=0;i<30;i++){ const q=pick(G.floor); if(Math.hypot(q.x-h.x,q.y-h.y)>300&&Math.hypot(q.x-W/2,q.y-440)<420){ p=openSpot(q.x,q.y,120); break; } } h.x=p.x; h.y=p.y; G.banner={title:'THE PIE MOVED',sub:'Get on it, and get on it alone',col:CUST,t:1.6,max:1.6}; sfx('event'); fxRing(h.x,h.y,h.r,CUST,.7); }
   const on=G.ents.filter(e=>alive(e)&&inPlay(e)&&Math.hypot(e.x-h.x,e.y-h.y)<h.r); h.contested=on.length>1; h.king=on.length===1?on[0]:null;
   if(h.king){ const e=h.king; e.hillT+=dt; if(e.hillT>=1){ e.hillT-=1; e.score++; burst(e.x,e.y+8,4,['#C98A1E',CUST],120); if(e.score>=60) endMatch(); } } }
@@ -1503,7 +1514,9 @@ function drawKnight(e){
  const weapon=()=>{ if(e.wpn) drawHeld(e,r); else drawSword(e,r); };
  if(fy<-.25) weapon();
  if(shieldBehind) drawShield(e,r);
- const sq=moving?Math.sin(e.walk*2)*.04:Math.sin(t*4+e.id)*.02;
+ const swp=e.swing>0?Math.sin((1-e.swing/(e.swingDur||.22))*Math.PI):0, won=G.over&&G.winners&&G.winners.includes(e), hop=won?Math.abs(Math.sin(performance.now()/160+e.id))*r*.5:0;
+ if(swp) ctx.rotate(Math.cos(e.face)*swp*.14); if(hop) ctx.translate(0,-hop);
+ const sq=(moving?Math.sin(e.walk*2)*.04:Math.sin(t*4+e.id)*.02)+swp*.07-(e.charge>0?.06:0)+(won?(hop<2?-.08:.05):0);
  ctx.save(); ctx.scale(1+sq,1-sq);
  const capeFront=fy<-.55; if(!capeFront&&!riding) drawCape(e,r,fx,fy,moving);
  drawBody(e,r,fx,fy);
@@ -1644,6 +1657,13 @@ function drawPie(x,y,team,a){ const col=team==='red'?TOM:team==='hot'?'#FF7A2B':
  const bob=Math.sin(G.clock*3+x)*3; ell(x,y+14,22,7,'rgba(20,10,35,.35)'); ctx.translate(x,y-4+bob);
  ctx.fillStyle=lgrad(ctx,0,2,0,18,['#E8B36A','#A86A2A']); ctx.strokeStyle=INK; ctx.lineWidth=3; ctx.beginPath(); ctx.moveTo(-26,2); ctx.lineTo(-21,18); ctx.lineTo(21,18); ctx.lineTo(26,2); ctx.closePath(); ctx.fill(); ctx.stroke();
  ctx.fillStyle=CUST; ctx.beginPath(); ctx.ellipse(0,0,27,11,0,0,7); ctx.fill(); ctx.stroke(); ctx.fillStyle=col; ctx.beginPath(); ctx.moveTo(0,0); ctx.arc(0,0,27,-2.2,-1.0); ctx.closePath(); ctx.fill(); ctx.strokeStyle='rgba(120,70,20,.5)'; ctx.lineWidth=1.5; for(let k=-2;k<=2;k++){ ctx.beginPath(); ctx.moveTo(k*9,-9); ctx.lineTo(k*9,4); ctx.stroke(); } ctx.restore(); }
+function drawFlag(f){ const col=f.own==='red'?TOM:f.own==='blue'?'#4DA8FF':CREAM, capCol=f.cap>0?TOM:'#4DA8FF', t=G.clock; ctx.save();
+ ctx.fillStyle=f.own?rgba(col,.14):'rgba(255,247,224,.08)'; ctx.beginPath(); ctx.ellipse(f.x,f.y+6,f.r,f.r*.62,0,0,7); ctx.fill();
+ ctx.setLineDash([10,8]); ctx.lineDashOffset=-t*20; ctx.strokeStyle=f.contested?CUST:rgba(f.own?col:'#FFF7E0',.8); ctx.lineWidth=3; ctx.stroke(); ctx.setLineDash([]);
+ if(Math.abs(f.cap)>.01&&Math.abs(f.cap)<1){ ctx.strokeStyle=capCol; ctx.lineWidth=7; ctx.lineCap='round'; ctx.beginPath(); ctx.ellipse(f.x,f.y+6,f.r,f.r*.62,0,-Math.PI/2,-Math.PI/2+Math.abs(f.cap)*Math.PI*2); ctx.stroke(); }
+ ell(f.x+3,f.y+4,10,4,'rgba(20,10,35,.35)'); ctx.strokeStyle=INK; ctx.lineWidth=6; ctx.lineCap='round'; ctx.beginPath(); ctx.moveTo(f.x,f.y+2); ctx.lineTo(f.x,f.y-58); ctx.stroke(); ctx.strokeStyle=lgrad(ctx,f.x-3,0,f.x+3,0,['#E0C080','#8A5A2E']); ctx.lineWidth=3.5; ctx.stroke();
+ const w=Math.sin(t*5+f.x)*4; ctx.fillStyle=col; ctx.strokeStyle=INK; ctx.lineWidth=2.5; ctx.lineJoin='round'; ctx.beginPath(); ctx.moveTo(f.x+2,f.y-58); ctx.quadraticCurveTo(f.x+22,f.y-62+w,f.x+42,f.y-50+w); ctx.quadraticCurveTo(f.x+22,f.y-42+w*.5,f.x+2,f.y-36); ctx.closePath(); ctx.fill(); ctx.stroke();
+ circle(f.x,f.y-60,4.5,CUST,INK,2); otext(f.name,f.x+19,f.y-49+w*.6,15,f.own?CREAM:INK); ctx.restore(); }
 function drawHill(h){ ctx.save(); const k=h.king, c=h.contested, col=c?TOM:k?CUST:'#C9B9E6';
  ell(h.x,h.y+8,h.r*1.02,h.r*.62,'rgba(20,10,35,.3)'); ctx.translate(h.x,h.y); const ry=h.r*.58;
  ctx.fillStyle=lgrad(ctx,0,-ry,0,ry+16,['#D9A265','#8E5A22']); ctx.strokeStyle=INK; ctx.lineWidth=4; ctx.beginPath(); ctx.ellipse(0,10,h.r,ry,0,0,Math.PI); ctx.lineTo(-h.r,0); ctx.ellipse(0,0,h.r,ry,0,Math.PI,0,true); ctx.closePath(); ctx.fill(); ctx.stroke();
@@ -1747,7 +1767,7 @@ function drawHUD(){
  if(isTeams(G.mode)){
   let rs=0,bs=0; for(const e of G.ents){ if(e.team==='red')rs+=e.score; else bs+=e.score; }
   plaque(196,8,146,44,12); plaque(938,8,146,44,12);
-  otext('RED '+rs,330,31,28,TOM,'right'); otext(bs+' BLUE',950,31,28,'#4DA8FF','left'); if(G.mode==='heist') otext('first to 3 pies',640,66,13,CREAM);
+  otext('RED '+rs,330,31,28,TOM,'right'); otext(bs+' BLUE',950,31,28,'#4DA8FF','left'); if(G.mode==='heist') otext('first to 3 pies',640,66,13,CREAM); if(G.mode==='flags'&&G.flags){ otext('first to 100',640,66,13,CREAM); G.flags.forEach((f,i)=>{ const x=560+i*80, col=f.own==='red'?TOM:f.own==='blue'?'#4DA8FF':'#6A5A8C'; circle(x,H-22,13,col,INK,3); otext(f.name,x,H-21,14,CREAM); }); }
  } else if(!G.demo){
   const sorted=G.ents.slice().sort((a,b)=>LIVES_MODES.has(G.mode)?((b.chick?0:1)-(a.chick?0:1)||b.lives-a.lives||b.score-a.score):G.mode==='race'?raceRank(a,b):b.score-a.score);
   let rows=sorted.slice(0,3); const me=G.ents.find(isMine); if(me&&sorted.indexOf(me)>2) rows=[sorted[0],sorted[1],me];
@@ -1800,6 +1820,7 @@ function draw(){
  ctx.setTransform(1,0,0,1,0,0); ctx.fillStyle='#1C1330'; ctx.fillRect(0,0,w,h);
  const sx=(Math.random()-.5)*G.shake*SET.shake, sy=(Math.random()-.5)*G.shake*SET.shake;
  ctx.setTransform(dpr*scale,0,0,dpr*scale,dpr*(offX+sx*scale),dpr*(offY+sy*scale));
+ ctx.save(); if(G.punch>0&&SET.shake>0){ const k=1+.045*(G.punch/.28)*SET.shake; ctx.translate(G.px,G.py); ctx.scale(k,k); ctx.translate(-G.px,-G.py); }
  ctx.drawImage(bg,0,0,W,H);
  drawDynamicTiles();
  for(const d of G.decals){ const a=Math.min(1,d.t/2);
@@ -1812,6 +1833,7 @@ function draw(){
  for(const p of G.pads) drawPadItem(p);
  for(const b of G.bananas) drawBanana(b);
  if(G.mode==='kotp'&&G.hill) drawHill(G.hill);
+ if(G.mode==='flags'&&G.flags) G.flags.forEach(drawFlag);
  if(G.mode==='race'&&G.cps) G.cps.forEach((c,i)=>drawGate(c,i));
  if(G.mode==='heist'&&G.pies) for(const pie of G.pies){ if(!pie.carrier) drawPie(pie.x,pie.y,pie.team,1); drawPie(pie.hx,pie.hy,pie.team,pie.home?0:.35); }
  for(const m of G.mines) drawMine(m);
@@ -1880,6 +1902,7 @@ function draw(){
  if(ev==='blackout'){ const holes=[]; for(const e of G.ents) if(alive(e)) holes.push({x:e.x,y:e.y-10,r:e===G.ev.owner?320:isMine(e)?150:95}); for(const p of G.pickups) holes.push({x:p.x,y:p.y,r:55}); for(const p of G.pads) if(p.item) holes.push({x:p.x,y:p.y,r:45}); for(const col of [5,12,19,26]) holes.push({x:col*T+T/2,y:OY+2,r:80}); for(const b of G.bombs) holes.push({x:b.x,y:b.y-b.z,r:60});
   darkness(holes,.93*Math.min(1,(G.ev.max-G.ev.t)*2,G.ev.t*1.5)); }
  { const sp=G.ents.filter(e=>isMine(e)&&e.spot>0&&!e.dead); if(sp.length){ darkness(sp.map(e=>({x:e.x,y:e.y-20,r:150+(2.6-e.spot)*40})),Math.min(1,sp[0].spot*2)*.6,'10,4,24'); for(const e of sp) drawYouBig(e); } }
+ ctx.restore();
  drawHUD();
 }
 
@@ -1989,7 +2012,8 @@ function endMatch(){
  $('againBtn').hidden=NET.role==='client'; $('menuBtn').textContent=NET.role==='host'?'Back to lobby':NET.role==='client'?'Leave':'Menu';
  const m=G.mode, sorted=G.ents.slice().sort((a,b)=>LIVES_MODES.has(m)?((b.chick?0:1)-(a.chick?0:1)||b.lives-a.lives||b.score-a.score||a.deaths-b.deaths):m==='race'?raceRank(a,b):b.score-a.score||a.deaths-b.deaths);
  let title,sub; const me=G.ents.find(isMine), myTeam=me?me.team:null;
- if(isTeams(m)){ let rs=0,bs=0; G.ents.forEach(e=>e.team==='red'?rs+=e.score:bs+=e.score); const unit=m==='heist'?'pies':'KOs'; title=rs===bs?'Dead heat!':(rs>bs?'Red team wins!':'Blue team wins!'); const won=(rs>bs?'red':rs<bs?'blue':null); sub=`Red ${rs}, Blue ${bs} ${unit} on ${G.map.name}.`+(won&&myTeam?(won===myTeam?' Your side takes the pie.':' Not your side this time.'):''); }
+ if(isTeams(m)){ let rs=0,bs=0; G.ents.forEach(e=>e.team==='red'?rs+=e.score:bs+=e.score); G.winners=rs===bs?[]:G.ents.filter(e=>e.team===(rs>bs?'red':'blue')); } else G.winners=[sorted[0]];
+ if(isTeams(m)){ let rs=0,bs=0; G.ents.forEach(e=>e.team==='red'?rs+=e.score:bs+=e.score); const unit=m==='heist'?'pies':m==='flags'?'points':'KOs'; title=rs===bs?'Dead heat!':(rs>bs?'Red team wins!':'Blue team wins!'); const won=(rs>bs?'red':rs<bs?'blue':null); sub=`Red ${rs}, Blue ${bs} ${unit} on ${G.map.name}.`+(won&&myTeam?(won===myTeam?' Your side takes the pie.':' Not your side this time.'):''); }
  else { const w=sorted[0]; title=isMine(w)?'You win!':w.name+' wins!'; if(LIVES_MODES.has(m)) title=isMine(w)?(m==='hotpie'?'You dodged the hot pie!':'You are the last knight standing!'):w.name+(m==='hotpie'?' survived the hot pie!':' is the last knight standing!'); if(m==='race') title=isMine(w)?'You win the race!':w.name+' wins the race!';
   sub=me?(LIVES_MODES.has(m)?`You finished #${sorted.indexOf(me)+1} with ${me.score} KOs.`:m==='kotp'?`You finished #${sorted.indexOf(me)+1} with ${me.score} points on the pie.`:m==='race'?`You finished #${sorted.indexOf(me)+1}, ${me.finished?'over the line':me.laps+' laps done'}.`:`You finished #${sorted.indexOf(me)+1} with ${me.score} KOs on ${G.map.name}.`):''; }
  if(NET.role==='client') sub+=' Waiting for the host to start a rematch.';
@@ -2114,7 +2138,7 @@ const r1=v=>Math.round(v*10)/10;
 function snapshot(){
  return {t:'s',
   e:G.ents.map(e=>[r1(e.x),r1(e.y),r1(e.vx),r1(e.vy),Math.round(e.face*100)/100,e.hp,e.dead?1:0,r1(e.falling),Math.round(e.swing*1000)/1000,e.blocking?1:0,Math.round(e.dashT*100)/100,r1(e.inv),Math.round(e.flash*100)/100,r1(e.slip),e.score,e.deaths,Object.keys(e.fx).join(','),e.wpn?[e.wpn.kind,e.wpn.lvl,e.wpn.ammo]:0,r1(e.walk),e.name,e.human,e.netId||0,e.swingKind,Math.round(e.charge*100)/100,r1(e.protect),r1(e.stun),r1(e.guard),e.lives,e.chick?1:0,e.laps,e.cp,e.carry||0,e.finished?1:0,e.dead&&e.lastKO?[e.lastKO.how,e.lastKO.src,e.lastKO.by||0]:0,(e.lvl&&e.lvl.big)||0]),
-  md:G.mode==='hotpie'&&G.hot?{hot:[G.hot.holder?G.hot.holder.id:-1,r1(G.hot.t),G.hot.max]}:G.mode==='kotp'?{hill:[r1(G.hill.x),r1(G.hill.y),G.hill.r,r1(G.hill.t),G.hill.contested?1:0,G.hill.king?G.hill.king.id:-1]}:G.mode==='heist'?{pies:G.pies.map(q=>[q.team,r1(q.x),r1(q.y),q.home?1:0,q.carrier?q.carrier.id:-1])}:0,
+  md:G.mode==='flags'&&G.flags?{flags:G.flags.map(f=>[Math.round(f.cap*100)/100,f.own?(f.own==='red'?1:2):0,f.contested?1:0])}:G.mode==='hotpie'&&G.hot?{hot:[G.hot.holder?G.hot.holder.id:-1,r1(G.hot.t),G.hot.max]}:G.mode==='kotp'?{hill:[r1(G.hill.x),r1(G.hill.y),G.hill.r,r1(G.hill.t),G.hill.contested?1:0,G.hill.king?G.hill.king.id:-1]}:G.mode==='heist'?{pies:G.pies.map(q=>[q.team,r1(q.x),r1(q.y),q.home?1:0,q.carrier?q.carrier.id:-1])}:0,
   pk:G.pickups.map(p=>[p.x,p.y,p.kind,p.tier,r1(p.t)]),
   pr:G.proj.map(p=>[r1(p.x),r1(p.y),r1(p.vx),r1(p.vy),p.k,p.r]),
   bo:G.bombs.map(b=>[r1(b.x),r1(b.y),r1(b.z),Math.round(b.t*100)/100,b.fl,b.fuse,b.lvl,b.meteor?1:0,r1(b.tx),r1(b.ty)]),
@@ -2165,6 +2189,7 @@ function applySnap(s){
   e.wpn=a[17]?{kind:a[17][0],lvl:a[17][1],ammo:a[17][2]}:null; e.walk=a[18]; e.name=String(a[19]); e.human=a[20]; e.netId=a[21]||null;
   e.swingKind=SWINGS[a[22]]?a[22]:'light'; e.swingDur=SWINGS[e.swingKind].dur; e.charge=a[23]||0; e.protect=a[24]||0; e.stun=a[25]||0; e.guard=a[26]!==undefined?a[26]:1.5;
   e.lives=a[27]||0; e.chick=!!a[28]; e.laps=a[29]||0; e.cp=a[30]||0; e.carry=a[31]||null; e.finished=a[32]||0; if(a[33]) e.lastKO={how:String(a[33][0]),src:String(a[33][1]),by:a[33][2]?String(a[33][2]):null}; e.lvl={big:a[34]||0}; });
+ if(s.md&&s.md.flags&&G.flags) s.md.flags.forEach((q,i)=>{ const f=G.flags[i]; if(!f) return; f.cap=q[0]; f.own=q[1]===1?'red':q[1]===2?'blue':null; f.contested=!!q[2]; });
  if(s.md&&s.md.hot&&G.hot){ const h=s.md.hot; G.ents.forEach(e=>e.hot=false); G.hot.holder=h[0]>=0?G.ents[h[0]]:null; if(G.hot.holder) G.hot.holder.hot=true; G.hot.t=h[1]; G.hot.max=h[2]; }
  if(s.md&&s.md.hill&&G.hill){ const h=s.md.hill; G.hill.x=h[0]; G.hill.y=h[1]; G.hill.r=h[2]; G.hill.t=h[3]; G.hill.contested=!!h[4]; G.hill.king=h[5]>=0?G.ents[h[5]]:null; }
  if(s.md&&s.md.pies&&G.pies){ s.md.pies.forEach((q,i)=>{ const pie=G.pies[i]; if(!pie) return; pie.x=q[1]; pie.y=q[2]; pie.home=!!q[3]; pie.carrier=q[4]>=0?G.ents[q[4]]:null; }); }
@@ -2186,7 +2211,7 @@ function applySnap(s){
  G.bubbles=(s.bu||[]).map(b=>({e:G.ents[b[0]],text:String(b[1]),t:b[2],max:b[3]})).filter(b=>b.e);
  for(const f of s.fx||[]){ const fn=FXF[f[0]]; if(fn&&Array.isArray(f[1])) try{ fn(...f[1]); }catch(e){} }
 }
-function clientTick(dt){
+function clientTick(dt){ if(G.punch>0) G.punch-=dt;
  dt*=G.ts||1; G.clock+=dt; const k=Math.min(1,dt*16);
  for(const e of G.ents){ if(e.spot>0)e.spot-=dt; if(e.protect>0)e.protect-=dt; if(e.stun>0)e.stun-=dt; if(e.tx===undefined) continue; e.tx+=e.vx*dt; e.ty+=e.vy*dt; e.x+=(e.tx-e.x)*k; e.y+=(e.ty-e.y)*k; if(e.swing>0)e.swing-=dt; if(e.flash>0)e.flash-=dt; if(e.inv>0)e.inv-=dt; }
  for(const c of G.flock) c.x+=c.vx*dt;

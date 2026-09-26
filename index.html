@@ -805,6 +805,10 @@ function botInput(e,dt){
  const ahead=tileAt(e.x+mx*50,e.y+my*50);
  if(ahead==='^'&&spikeState()!=='down'){ mx*=-.4; my*=-.4; }
  if((ahead==='o'||ahead==='L')&&!e.fx.ghost){ mx*=.2; my*=.2; }
+ // pit repulsion: never steer into a pit or lava edge, and lean away from any within a tile and a half
+ if(!e.fx.ghost&&!e.fx.steve&&e.dashT<=0){ let rx=0,ry=0; const c0=tcol(e.x),r0=trow(e.y);
+  for(let dr=-2;dr<=2;dr++)for(let dc=-2;dc<=2;dc++){ const cc=c0+dc,r2=r0+dr; if(cc<0||r2<0||cc>=COLS||r2>=ROWS)continue; const t=G.grid[r2][cc]; if(t!=='o'&&t!=='L')continue; const x0=cc*T,y0=OY+r2*T; const nx=clamp(e.x,x0,x0+T),ny=clamp(e.y,y0,y0+T); const ddx=e.x-nx,ddy=e.y-ny,d=Math.hypot(ddx,ddy)||1; if(d>64)continue; const w=(64-d)/64; rx+=ddx/d*w; ry+=ddy/d*w; }
+  if(rx||ry){ const rl=Math.hypot(rx,ry)||1, ux=rx/rl, uy=ry/rl, dot=mx*ux+my*uy; if(dot<0){ mx-=ux*dot; my-=uy*dot; } mx+=ux*Math.min(1,rl)*.6; my+=uy*Math.min(1,rl)*.6; } }
  e.sayCd-=dt; if(e.sayCd<=0){ e.sayCd=rand(7,16); if(Math.random()<.4&&!isChicken(e)) say(e,pick(CHATTER)); }
  return {mx,my,atk,dash,block:ai.blockT>0,faceTo};
 }
@@ -1994,7 +1998,7 @@ function netSetup(){ return {mapKey:G.mapKey,mode:G.mode,ents:G.ents.map(e=>({na
 const r1=v=>Math.round(v*10)/10;
 function snapshot(){
  return {t:'s',
-  e:G.ents.map(e=>[r1(e.x),r1(e.y),r1(e.vx),r1(e.vy),Math.round(e.face*100)/100,e.hp,e.dead?1:0,r1(e.falling),Math.round(e.swing*1000)/1000,e.blocking?1:0,Math.round(e.dashT*100)/100,r1(e.inv),Math.round(e.flash*100)/100,r1(e.slip),e.score,e.deaths,Object.keys(e.fx).join(','),e.wpn?[e.wpn.kind,e.wpn.lvl,e.wpn.ammo]:0,r1(e.walk),e.name,e.human,e.netId||0,e.swingKind,Math.round(e.charge*100)/100,r1(e.protect),r1(e.stun),r1(e.guard),e.lives,e.chick?1:0,e.laps,e.cp,e.carry||0,e.finished?1:0]),
+  e:G.ents.map(e=>[r1(e.x),r1(e.y),r1(e.vx),r1(e.vy),Math.round(e.face*100)/100,e.hp,e.dead?1:0,r1(e.falling),Math.round(e.swing*1000)/1000,e.blocking?1:0,Math.round(e.dashT*100)/100,r1(e.inv),Math.round(e.flash*100)/100,r1(e.slip),e.score,e.deaths,Object.keys(e.fx).join(','),e.wpn?[e.wpn.kind,e.wpn.lvl,e.wpn.ammo]:0,r1(e.walk),e.name,e.human,e.netId||0,e.swingKind,Math.round(e.charge*100)/100,r1(e.protect),r1(e.stun),r1(e.guard),e.lives,e.chick?1:0,e.laps,e.cp,e.carry||0,e.finished?1:0,e.dead&&e.lastKO?[e.lastKO.how,e.lastKO.src,e.lastKO.by||0]:0]),
   md:G.mode==='kotp'?{hill:[r1(G.hill.x),r1(G.hill.y),G.hill.r,r1(G.hill.t),G.hill.contested?1:0,G.hill.king?G.hill.king.id:-1]}:G.mode==='heist'?{pies:G.pies.map(q=>[q.team,r1(q.x),r1(q.y),q.home?1:0,q.carrier?q.carrier.id:-1])}:0,
   pk:G.pickups.map(p=>[p.x,p.y,p.kind,p.tier,r1(p.t)]),
   pr:G.proj.map(p=>[r1(p.x),r1(p.y),r1(p.vx),r1(p.vy),p.k,p.r]),
@@ -2045,7 +2049,7 @@ function applySnap(s){
   e.fx={}; if(a[16]) for(const k of String(a[16]).split(',')) e.fx[k]=1;
   e.wpn=a[17]?{kind:a[17][0],lvl:a[17][1],ammo:a[17][2]}:null; e.walk=a[18]; e.name=String(a[19]); e.human=a[20]; e.netId=a[21]||null;
   e.swingKind=SWINGS[a[22]]?a[22]:'light'; e.swingDur=SWINGS[e.swingKind].dur; e.charge=a[23]||0; e.protect=a[24]||0; e.stun=a[25]||0; e.guard=a[26]!==undefined?a[26]:1.5;
-  e.lives=a[27]||0; e.chick=!!a[28]; e.laps=a[29]||0; e.cp=a[30]||0; e.carry=a[31]||null; e.finished=a[32]||0; });
+  e.lives=a[27]||0; e.chick=!!a[28]; e.laps=a[29]||0; e.cp=a[30]||0; e.carry=a[31]||null; e.finished=a[32]||0; if(a[33]) e.lastKO={how:String(a[33][0]),src:String(a[33][1]),by:a[33][2]?String(a[33][2]):null}; });
  if(s.md&&s.md.hill&&G.hill){ const h=s.md.hill; G.hill.x=h[0]; G.hill.y=h[1]; G.hill.r=h[2]; G.hill.t=h[3]; G.hill.contested=!!h[4]; G.hill.king=h[5]>=0?G.ents[h[5]]:null; }
  if(s.md&&s.md.pies&&G.pies){ s.md.pies.forEach((q,i)=>{ const pie=G.pies[i]; if(!pie) return; pie.x=q[1]; pie.y=q[2]; pie.home=!!q[3]; pie.carrier=q[4]>=0?G.ents[q[4]]:null; }); }
  G.pickups=(s.pk||[]).map(p=>({x:p[0],y:p[1],kind:p[2],tier:p[3],t:p[4]}));

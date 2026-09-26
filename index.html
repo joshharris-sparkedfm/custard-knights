@@ -74,6 +74,11 @@ kbd{font-family:Nunito,sans-serif;font-weight:900;font-size:11px;background:var(
 #bBlock{right:100px;bottom:92px;width:62px;height:62px;background:#C9B9E6;font-size:13px}
 #bShout{right:22px;bottom:128px;width:58px;height:58px;background:var(--pink);font-size:12px}
 .panel.wide{width:min(1000px,100%)}
+.hero{position:relative;display:inline-block} .hero .logo{animation:wob 3.2s ease-in-out infinite}
+.drip{position:absolute;left:38%;bottom:-14px;width:12px;height:22px;background:var(--custard);border:3px solid var(--ink);border-radius:0 0 10px 10px;animation:drip 2.8s ease-in infinite;transform-origin:top}
+@keyframes wob{0%,100%{transform:rotate(-3deg)}50%{transform:rotate(-1deg)}} @keyframes drip{0%{transform:scaleY(.2);opacity:1}70%{transform:scaleY(1);opacity:1}100%{transform:scaleY(1.2) translateY(14px);opacity:0}}
+#heroCv{width:100%;height:auto;display:block;border-radius:16px;border:3px solid var(--ink);background:linear-gradient(180deg,#6FBF5E,#5FA84E)}
+@media (prefers-reduced-motion:reduce){.hero .logo,.drip{animation:none}}
 .head{display:flex;justify-content:space-between;align-items:center;gap:10px} .head .btn{flex:0 0 auto}
 .logo.sm{font-size:34px;transform:none;line-height:1}
 .tiles{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
@@ -118,7 +123,8 @@ kbd{font-family:Nunito,sans-serif;font-weight:900;font-size:11px;background:var(
 
   <div id="menu" class="overlay">
     <div class="panel">
-      <h1 class="logo">Custard <span>Knights</span></h1>
+      <div class="hero"><h1 class="logo">Custard <span>Knights</span></h1><span class="drip" aria-hidden="true"></span></div>
+      <canvas id="heroCv" width="920" height="300" aria-hidden="true"></canvas>
       <p class="tag">Eight knights, one arena, and power-ups that start sensible and end with everyone as chickens.</p>
       <div class="tiles">
         <button class="tile" id="tQuick" type="button"><b>Quick brawl</b><span>You against seven bots. One click.</span></button>
@@ -280,7 +286,7 @@ const NAMES=['Sir Loin','Lady Bug','Sir Prize','Dame Crumpet','Baron Von Bap','L
 const SHOUTS=["Oi!","Sorry!","Get 'em!","GG"];
 const CHATTER=["Have at thee!","Tis but a scratch","Not the face!","Custard in me boots","Come here, you!","Run away!","That's MY pie","Mind the pit!","Who ordered chaos?","Mind the bananas","Stop hitting me!","For the pie!"];
 const KO_LINES=["Bonk!","Sit down!","Too easy","Next!","Pie for me","Yoink"];
-const DIFFS={chill:{react:.5,aggro:.5,dash:.25,speed:.84,block:.15,tokens:1,parry:0,heavy:0,punish:0,tell:.35},spicy:{react:.26,aggro:.8,dash:.55,speed:.95,block:.3,tokens:2,parry:.3,heavy:.1,punish:.3,tell:0},brutal:{react:.12,aggro:.96,dash:.95,speed:1.0,block:.55,tokens:3,parry:.6,heavy:.3,punish:.9,tell:0}};
+const DIFFS={chill:{react:.5,aggro:.5,dash:.25,speed:.84,block:.15,tokens:1,parry:0,heavy:0,punish:0,tell:.35},spicy:{react:.26,aggro:.8,dash:.55,speed:.95,block:.3,tokens:2,parry:.3,heavy:.1,punish:.3,tell:0},brutal:{react:.12,aggro:.96,dash:.95,speed:1.04,block:.55,tokens:3,parry:.6,heavy:.3,punish:.9,tell:0,dodge:.55}};
 // every kind of melee: how long it lasts, the arc it sweeps, reach multiplier, damage, knockback, cooldown on a whiff and on a hit
 const SWINGS={light:{dur:.22,arc:2.8,a0:-1.4,reachM:1,dmg:1,kb:420,cd:.55,hitCd:.36,lunge:150},heavy:{dur:.3,arc:2.8,a0:-1.4,reachM:1.15,dmg:1,kb:820,cd:.7,hitCd:.5,lunge:240,guardBreak:true},stab:{dur:.18,arc:1.2,a0:-.6,reachM:1.5,dmg:1,kb:600,cd:.55,hitCd:.4,lunge:320},bash:{dur:.18,arc:1.0,a0:-.5,reachM:1.05,dmg:0,kb:650,cd:.5,hitCd:.5,lunge:200,guardBreak:true}};
 const VERBS=['bonked','clonked','walloped','yeeted','custarded','flattened'];
@@ -824,6 +830,8 @@ function botInput(e,dt){
    if(d<want+80) faceTo=Math.atan2(dy,dx);
    const fresh=Tg.human&&G.clock-(Tg.spawnAt||0)<2.5&&D.tell>0;
    if(!ai.hold&&!fresh&&d<reach(e)+Tg.r*sizeMul(Tg)+4&&e.atkCd<=0&&ai.blockT<=0){ ai.react-=dt; if(ai.react<=0){atk=Math.random()<D.aggro; ai.react=D.react*rand(.6,1.5)} }
+   // sidestep a masher's swing on Brutal: dash across their arc the moment it starts
+   if(D.dodge&&!ai.hold&&Tg.swing>0&&Tg.swing>Tg.swingDur-.06&&d<reach(Tg)+50&&e.dashCd<=0&&Math.random()<D.dodge){ dash=true; mx=-uy*ai.strafe; my=ux*ai.strafe; }
    // punish a whiffed swing: step in and hit before they recover
    if(!ai.hold&&Tg.whiffT>0&&d<reach(e)+60&&e.atkCd<=0&&Math.random()<D.punish){ atk=true; if(d>reach(e)&&e.dashCd<=0) dash=true; }
   }
@@ -1186,6 +1194,14 @@ function drawBg(){
  const w2=wl.getContext('2d'); w2.setTransform(1,0,0,1,0,0); w2.clearRect(0,0,wl.width,wl.height); w2.lineJoin='round';
  for(let r=0;r<ROWS;r++){ w2.setTransform(2,0,0,2,0,2*(r*WB-(OY+r*T-HH)));
   for(let cc=0;cc<COLS;cc++){ const t=g[r][cc]; if(t==='#'||t==='h') drawWall(w2,cc,r,t,at,P,R,th); }
+  if(r===0){ const y0=OY-HH+6; for(const col of [8,15,22]){ const x=col*T+T/2;
+   if(th==='grass'){ w2.strokeStyle='#3E8C3A'; w2.lineWidth=3; for(let k=-1;k<=1;k++){ w2.beginPath(); w2.moveTo(x+k*9,y0-2); w2.quadraticCurveTo(x+k*12+3,y0+14,x+k*9+2,y0+26+Math.abs(k)*6); w2.stroke(); } w2.fillStyle='#5DB050'; for(let k=0;k<5;k++){ w2.beginPath(); w2.ellipse(x-10+k*5,y0+8+(k%2)*9,4,2.6,k*.6,0,7); w2.fill(); } }
+   else if(th==='ice'){ w2.fillStyle='#FFFFFF'; w2.strokeStyle='rgba(100,140,190,.7)'; w2.lineWidth=1.2; w2.beginPath(); w2.moveTo(x-16,y0-2); w2.quadraticCurveTo(x,y0+6,x+16,y0-2); w2.lineTo(x+16,y0-6); w2.lineTo(x-16,y0-6); w2.closePath(); w2.fill(); w2.stroke(); }
+   else if(th==='factory'){ w2.fillStyle=lgrad(w2,x-14,0,x+14,0,['#8C97AB','#5A6479']); w2.strokeStyle=INK; w2.lineWidth=2.5; rr(w2,x-14,y0+4,28,12,4); w2.fill(); w2.stroke(); w2.fillStyle='#4A5266'; w2.beginPath(); w2.arc(x,y0+22,9,0,7); w2.fill(); w2.stroke(); w2.strokeStyle='#C9D0DD'; w2.lineWidth=2; for(let k=0;k<6;k++){ const a=k*Math.PI/3; w2.beginPath(); w2.moveTo(x+Math.cos(a)*5,y0+22+Math.sin(a)*5); w2.lineTo(x+Math.cos(a)*9,y0+22+Math.sin(a)*9); w2.stroke(); } }
+   else if(th==='dungeon'){ w2.strokeStyle=INK; w2.lineWidth=3; w2.beginPath(); w2.moveTo(x,y0+2); w2.lineTo(x,y0+30); w2.stroke(); w2.fillStyle='#E8E2D0'; w2.beginPath(); w2.arc(x,y0+10,7,0,7); w2.fill(); w2.lineWidth=2; w2.stroke(); w2.fillStyle=INK; w2.beginPath(); w2.arc(x-2.5,y0+9,1.8,0,7); w2.arc(x+2.5,y0+9,1.8,0,7); w2.fill(); w2.fillRect(x-3,y0+14,6,3); }
+   else if(th==='roof'){ w2.fillStyle=lgrad(w2,x-8,0,x+8,0,['#A86A4A','#6E4030']); w2.strokeStyle=INK; w2.lineWidth=2.5; rr(w2,x-8,y0-6,16,26,3); w2.fill(); w2.stroke(); w2.fillStyle='#7E4A36'; rr(w2,x-11,y0-9,22,6,2); w2.fill(); w2.stroke(); w2.fillStyle='rgba(255,255,255,.35)'; for(let k=0;k<3;k++){ w2.beginPath(); w2.arc(x+k*4-4,y0-16-k*7,4+k*2,0,7); w2.fill(); } }
+   else if(th==='bog'){ w2.strokeStyle='#3E6B34'; w2.lineWidth=2.5; for(let k=-1;k<=1;k++){ w2.beginPath(); w2.moveTo(x+k*8,y0+30); w2.lineTo(x+k*8+k*2,y0+2); w2.stroke(); w2.fillStyle='#6B4430'; rr(w2,x+k*8+k*2-3,y0-4,6,12,3); w2.fill(); } } }
+  }
   if(r===0) for(const col of [5,12,19,26]){ const x=col*T+T/2,y=OY+4; w2.fillStyle=lgrad(w2,x-5,y,x+5,y,['#7A6A9C','#3A2A55']); rr(w2,x-5,y,10,16,3); w2.fill(); w2.strokeStyle=INK; w2.lineWidth=2.5; w2.stroke(); w2.fillStyle=lgrad(w2,0,y-2,0,y+3,['#E8C77A','#8A6A2A']); rr(w2,x-7,y-2,14,5,2); w2.fill(); w2.stroke(); }
   if(r===1){ const bc=[TOM,TEAL,CUST,TEAL,TOM]; [100,360,640,920,1180].forEach((bx,i)=>{ const y0=OY+T-HH+3, L=34, w=24, col=bc[i];
    w2.fillStyle='rgba(20,10,35,.3)'; w2.fillRect(bx-w/2+3,y0+3,w,L-6);
@@ -1878,7 +1894,7 @@ function frame(now){
  pollPads(); padEdges();
  if(NET.role==='client'&&G&&!G.demo){ if(!G.over){ clientTick(dt); clientSend(now); } }
  else if(!paused&&!G.over){ acc+=dt; let n=0; while(acc>=1/60&&n<5){ if(G.hitstop>0){ G.hitstop-=1/60; acc-=1/60; n++; continue; } update((1/60)*(G.ts||1)); acc-=1/60; n++; if(NET.role==='host'&&!G.demo&&!G.over&&++NET.tick%3===0) broadcast(snapshot()); } if(n===5)acc=0; }
- draw(); drawWardrobe(); requestAnimationFrame(frame);
+ draw(); drawWardrobe(); drawHero(); requestAnimationFrame(frame);
 }
 
 /* ---------- UI ---------- */
@@ -1942,6 +1958,10 @@ function syncWardrobe(){ const pr=loadProfile(wardWho); document.querySelectorAl
  let n=''; try{ n=localStorage.getItem(wardWho===1?'ck-name':'ck-name2')||''; }catch(e){} $('wardName').value=n; $('wardName').placeholder=wardWho===1?"Your knight's name":"Player 2's name"; }
 function openWardrobe(){ if(!$('wardrobe').dataset.built){ buildWardrobe(); $('wardrobe').dataset.built='1'; } syncWardrobe(); showScreen('wardrobe'); }
 const wardEnt={id:9,name:'',team:null,human:0,netId:null,x:100,y:112,vx:0,vy:0,r:22,hp:3,face:.6,atkCd:0,swing:0,swingKind:'light',swingDur:.22,hitSet:[],crateHit:true,hitDone:true,dashCd:0,dashT:0,fireCd:0,wpn:null,blocking:false,falling:0,lastHit:null,dead:false,respawn:0,inv:0,protect:0,score:0,deaths:0,walk:0,flash:0,slip:0,fx:{},bananaT:0,bawkCd:0,sayCd:9,stun:0,charge:0,guard:1.5,spot:0,ai:{}};
+const heroEnts=[[{helm:'great',plume:'feather',metal:'steel'},'star','#FF5A4E'],[{helm:'kettle',plume:'brush',metal:'gold'},'pie','#2EC4B6'],[{helm:'barbute',plume:'flame',metal:'dark'},'skull','#FF8FB1']].map(([kit,emblem,color],i)=>({id:20+i,name:'',team:null,human:0,netId:null,x:0,y:0,vx:0,vy:0,r:22,hp:3,face:.5,atkCd:0,swing:0,swingKind:'light',swingDur:.22,hitSet:[],crateHit:true,dashCd:0,dashT:0,fireCd:0,wpn:null,blocking:false,falling:0,lastHit:null,dead:false,respawn:0,inv:0,protect:0,score:0,deaths:0,walk:0,flash:0,slip:0,fx:{},bananaT:0,bawkCd:0,sayCd:9,stun:0,charge:0,guard:1.5,spot:0,ai:{},kit,emblem,color,plume:color===CUST?PINK:CUST,cape:['plain','chevron','stars'][i],blade:['steel','baguette','fish'][i]}));
+function drawHero(){ const c=$('heroCv'); if(!c||$('menu').hidden||!G) return; const px=c.getContext('2d'); px.setTransform(1,0,0,1,0,0); px.clearRect(0,0,c.width,c.height); px.fillStyle='rgba(0,0,0,.07)'; for(let i=0;i<12;i++)for(let j=0;j<4;j++) if((i+j)%2) px.fillRect(i*77,j*75,77,75);
+ px.setTransform(2.6,0,0,2.6,0,0); const t=G.clock; const keep=ctx; ctx=px;
+ try{ heroEnts.forEach((e,i)=>{ e.x=62+i*118; e.y=78; e.face=.35+Math.sin(t*.5+i*2)*.5; const ph=(t+i*1.7)%5.5; if(ph<.22&&e.swing<=0){ e.swing=.22; e.hitSet=[]; } if(e.swing>0) e.swing-=1/60; e.walk+=.02; e.blocking=i===2&&(t%7)>5; drawKnight(e); }); }finally{ ctx=keep; } }
 function drawWardrobe(){ const c=$('wardCv'); if(!c||$('wardrobe').hidden||!G) return; const pr=loadProfile(wardWho), px=c.getContext('2d'); px.setTransform(1,0,0,1,0,0); px.fillStyle='#5FA84E'; px.fillRect(0,0,600,600);
  px.fillStyle='rgba(0,0,0,.08)'; for(let i=0;i<8;i++)for(let j=0;j<8;j++) if((i+j)%2) px.fillRect(i*75,j*75,75,75);
  px.setTransform(3,0,0,3,0,0); const e=wardEnt; e.kit={helm:pr.helm,plume:pr.plume,metal:pr.metal}; e.emblem=pr.emblem; e.color=pr.color; e.cape=pr.cape; e.blade=pr.blade; e.chickSkin=pr.chick; e.chick=(G.clock%14)>11; e.plume=pr.color===CUST?PINK:CUST; e.face=G.clock*.7; const ph=G.clock%5; if(ph<.22&&e.swing<=0){ e.swing=.22; e.hitSet=[]; e.swingKind='light'; e.swingDur=.22; } if(e.swing>0) e.swing-=1/60; e.walk+=.05; e.vx=Math.cos(e.face)*40; e.vy=Math.sin(e.face)*40;

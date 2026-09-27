@@ -177,6 +177,21 @@ body[data-input=pad] :is(button,.card,.tile,input,select):focus{outline:4px soli
 @media (max-height:520px){.mgrid .mrow .btn{font-size:13px;padding:4px 6px;line-height:1.1}}
 @media (max-width:760px){.mgrid .mrow .btn{font-size:14px}}
 
+
+/* couch party */
+.seats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin:6px 0 14px}
+.seat{position:relative;display:flex;flex-direction:column;align-items:center;gap:6px;padding:10px;border:4px solid var(--ink);border-radius:18px;background:rgba(0,0,0,.18);box-shadow:0 5px 0 var(--ink);min-height:230px;justify-content:center;text-align:center}
+.seat.on{background:var(--plum3)}
+.seat canvas{width:150px;height:150px;border-radius:14px;border:3px solid var(--ink);background:#5FA84E}
+.seat b{font-family:"Lilita One",Impact,sans-serif;font-weight:400;font-size:24px;color:var(--custard);line-height:1}
+.seat small{font-size:12.5px;font-weight:800;color:var(--muted)}
+.seat .join{font-family:"Lilita One",Impact,sans-serif;font-size:26px;color:var(--cream);opacity:.85;animation:pulse 1.6s ease-in-out infinite}
+.seat .leave{position:absolute;top:6px;right:6px;font:inherit;font-weight:900;font-size:12px;border:2px solid var(--ink);border-radius:9px;background:var(--plum2,#3A2A55);color:var(--cream);padding:2px 7px;cursor:pointer}
+@keyframes pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.07)}}
+@media (prefers-reduced-motion:reduce){.seat .join{animation:none}}
+.mchips.wrap{flex-wrap:wrap;overflow:visible} .seg.wrap{flex-wrap:wrap}
+.partygo{display:flex;align-items:center;gap:14px;flex-wrap:wrap;margin-top:6px}
+@media (max-width:760px){.seats{grid-template-columns:repeat(2,minmax(0,1fr))} .seat{min-height:180px} .seat canvas{width:110px;height:110px}}
 </style>
 </head>
 <body>
@@ -198,6 +213,19 @@ body[data-input=pad] :is(button,.card,.tile,input,select):focus{outline:4px soli
     <button class="tb" id="bSwing" type="button">SWING</button>
   </div>
 
+  <div id="party" class="overlay" hidden>
+    <div class="panel wide">
+      <div class="head"><h2 class="logo sm">Couch party</h2><button class="btn" type="button" data-back>Back</button></div>
+      <p class="note">Everyone on one screen, great on a TV. <strong>Press A</strong> on a controller to join, <strong>B</strong> to leave, <strong>Start</strong> to begin. On a keyboard, <kbd>F</kbd> joins with WASD and <kbd>J</kbd> joins with the arrows.</p>
+      <div class="seats" id="seats"></div>
+      <div class="field"><span class="lab">How you play</span>
+        <div class="seg" data-p="style"><button type="button" data-v="together">Together vs bots</button><button type="button" data-v="versus">Against each other</button></div></div>
+      <div class="field"><span class="lab">Mode</span><div class="mchips wrap" id="partyModes"></div></div>
+      <div class="field"><span class="lab">Arena</span><div class="seg wrap" data-p="map" id="partyMaps"></div></div>
+      <div class="partygo"><button class="btn big" id="partyGo" type="button">Start the brawl</button><span class="note" id="partyMsg"></span></div>
+    </div>
+  </div>
+
   <div id="menu" class="overlay home-ov">
     <div class="keyart" aria-hidden="true"></div>
     <div class="home">
@@ -210,8 +238,9 @@ body[data-input=pad] :is(button,.card,.tile,input,select):focus{outline:4px soli
             <button class="mbtn" id="tCustom" type="button"><i><svg viewBox="0 0 24 24"><path d="M4 7h10M18 7h2M4 17h2M10 17h10" stroke="currentColor" stroke-width="3" stroke-linecap="round"/><circle cx="16" cy="7" r="2.6" fill="none" stroke="currentColor" stroke-width="2.6"/><circle cx="8" cy="17" r="2.6" fill="none" stroke="currentColor" stroke-width="2.6"/></svg></i><span><b>Modes &amp; arenas</b><small>8 modes, 6 arenas, bots, up to 4 on one screen</small></span></button>
             <button class="mbtn" id="tOnline" type="button"><i><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5" fill="none" stroke="currentColor" stroke-width="2.6"/><path d="M3.5 12h17M12 3.5c3 3 3 14 0 17M12 3.5c-3 3-3 14 0 17" fill="none" stroke="currentColor" stroke-width="2.2"/></svg></i><span><b>Online</b><small>Host a room, send friends a link</small></span></button>
             <button class="mbtn" id="tWardrobe" type="button"><i><svg viewBox="0 0 24 24"><path d="M6 20V11a6 6 0 0 1 12 0v9Z" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linejoin="round"/><path d="M8 12h8" stroke="currentColor" stroke-width="3" stroke-linecap="round"/><path d="M12 5V2" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"/></svg></i><span><b>Wardrobe</b><small>Helms, plumes, capes, blades, chickens</small></span></button>
-            <div class="mrow"><button class="btn" id="tHowto" type="button">How to play</button><button class="btn" id="tSettings" type="button">Settings</button></div>
+            <button class="mbtn" id="tParty" type="button"><i><svg viewBox="0 0 24 24"><path d="M7 8h10a4 4 0 0 1 4 4v3a3 3 0 0 1-5.4 1.8L14.5 15h-5l-1.1 1.8A3 3 0 0 1 3 15v-3a4 4 0 0 1 4-4Z" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linejoin="round"/><path d="M8 10.5v3M6.5 12h3" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/><circle cx="16" cy="11" r="1.2" fill="currentColor"/><circle cx="18" cy="13.2" r="1.2" fill="currentColor"/></svg></i><span><b>Couch party</b><small id="partyPads">2 to 4 players on one screen</small></span></button>
           </div>
+          <div class="mrow"><button class="btn" id="tHowto" type="button">How to play</button><button class="btn" id="tSettings" type="button">Settings</button></div>
           <div class="mstrip"><span class="lab">Jump into a mode</span><div class="mchips" id="modeChips"></div></div>
         </nav>
         <p class="note" id="menuHint">Keyboard, touch or a pad. Press any button on a pad and it just works.</p>
@@ -268,7 +297,7 @@ body[data-input=pad] :is(button,.card,.tile,input,select):focus{outline:4px soli
       <div class="ward">
         <div><canvas id="wardCv" width="600" height="600" aria-label="Your knight"></canvas><p class="note">Turns on its own. Everything here is saved on this device and travels with you into online rooms.</p></div>
         <div class="field" style="gap:10px">
-          <div class="seg" data-w="who"><button type="button" data-v="1" aria-pressed="true">Player 1</button><button type="button" data-v="2" aria-pressed="false">Player 2</button></div>
+          <div class="seg" data-w="who"><button type="button" data-v="1" aria-pressed="true">Player 1</button><button type="button" data-v="2" aria-pressed="false">Player 2</button><button type="button" data-v="3" aria-pressed="false">Player 3</button><button type="button" data-v="4" aria-pressed="false">Player 4</button></div>
           <div class="row"><input id="wardName" class="txt" type="text" maxlength="14" placeholder="Knight's name" autocomplete="off" aria-label="Knight's name"><button class="btn" id="wardRand" type="button">Randomise</button></div>
           <div class="field"><span class="lab">Helm</span><div class="seg" data-w="helm"></div></div>
           <div class="field"><span class="lab">Plume</span><div class="seg" data-w="plume"></div></div>
@@ -551,7 +580,7 @@ function newGame(demo,setup){
   const team=isTeams(mode)?(i<4?'red':'blue'):null;
   const color=isTeams(mode)?(team==='red'?RED_COLS[i%4]:BLUE_COLS[i%4]):FFA_COLS[i];
   const hn=slotHuman[i], human=hn||0, rp=hn>cfg.players?remote[hn-1-cfg.players]:null;
-  const name=rp?rp.name:human?(NET.role==='host'?(hn===1?myName():'Player '+human):(humans===1?'You':'Player '+human)):names[i];
+  const name=rp?rp.name:human?(NET.role==='host'?(hn===1?myName():'Player '+human):(humans===1?'You':(localName(human)||'Player '+human))):names[i];
   const sp=order[i%order.length];
   ents.push({id:i,name,color,team,human,netId:rp?rp.id:null,kit:{helm:kits[i][0],plume:kits[i][1],metal:kits[i][2]},emblem:embs[i],cape:Math.random()<.5?'plain':pick(CAPES),blade:Math.random()<.6?'steel':pick(BLADES),chickSkin:Math.random()<.5?'hen':pick(CHICKS),spot:0,portalCd:0,springCd:0,plume:isTeams(mode)?(team==='red'?'#FFD1C9':'#CFE6FF'):(color===CUST?PINK:CUST),
    x:sp.x,y:sp.y,vx:0,vy:0,r:22,hp:3,face:sp.x<W/2?0:Math.PI,atkCd:0,swing:0,hitDone:true,dashCd:0,dashT:0,fireCd:0,wpn:null,blocking:false,falling:0,lastHit:null,
@@ -853,11 +882,22 @@ addEventListener('keydown',()=>setInput('kbm'),true);
 // gamepads: standard mapping. Left stick or d-pad moves, A or RT swings, B or LB dashes, X, RB or LT blocks, Y shouts, Start pauses, right stick aims.
 let PADS=[]; const padPrev={};
 function pollPads(){ try{ PADS=navigator.getGamepads?Array.from(navigator.getGamepads()).filter(Boolean):[]; }catch(e){ PADS=[]; }
- for(const gp of PADS){ if(gp.buttons.some(b=>b&&b.pressed)||gp.axes.some(v=>Math.abs(v)>.5)){ setInput('pad'); break; } } }
+ for(const gp of PADS){ if(gp.buttons.some(b=>b&&b.pressed)||gp.axes.some(v=>Math.abs(v)>.5)){ setInput('pad'); break; } }
+ if(PADS.length!==pollPads.n){ pollPads.n=PADS.length; const el=document.getElementById('partyPads'); if(el) el.textContent=PADS.length>=2?PADS.length+' controllers ready':'2 to 4 players on one screen'; if(typeof partyOpen==='function'&&partyOpen()) renderParty(); } }
 function padState(i){ const gp=PADS[i]; if(!gp) return null; const dz=v=>Math.abs(v)<.22?0:v, b=j=>!!(gp.buttons[j]&&gp.buttons[j].pressed), ax=dz(gp.axes[0]||0), ay=dz(gp.axes[1]||0), rx=dz(gp.axes[2]||0), ry=dz(gp.axes[3]||0);
  return {mx:ax+(b(15)?1:0)-(b(14)?1:0),my:ay+(b(13)?1:0)-(b(12)?1:0),atk:b(0)||b(7),dash:b(1)||b(4),block:b(2)||b(5)||b(6),shout:b(3),pause:b(9),up:b(12)||ay<-.5,down:b(13)||ay>.5,left:b(14)||ax<-.5,right:b(15)||ax>.5,a:b(0),back:b(1),aim:Math.hypot(rx,ry)>.5?Math.atan2(ry,rx):null}; }
 const anyPad=()=>PADS.length>0;
+// Couch party seats: SEATS[n-1] is the device player n joined with ({dev:'pad',idx:gamepad.index} | {dev:'kb1'} | {dev:'kb2'}).
+// Only set for matches started from the Couch party screen; other flows keep the classic mapping (pad n = player n).
+let SEATS=null, partyGo=false;
+function padStateIdx(idx){ const i=PADS.findIndex(g=>g.index===idx); return i<0?null:padState(i); }
+function seatInput(st){ const o={mx:0,my:0,atk:false,dash:false,block:false,faceTo:null}, k=keys;
+ if(st.dev==='pad'){ const pd=padStateIdx(st.idx); if(pd){ o.mx=pd.mx; o.my=pd.my; o.atk=pd.atk; o.dash=pd.dash; o.block=pd.block; if(pd.aim!==null) o.faceTo=pd.aim; } }
+ else if(st.dev==='kb1'){ const solo=!SEATS.some(x=>x.dev==='kb2'); o.mx=(k.KeyD?1:0)-(k.KeyA?1:0); o.my=(k.KeyS?1:0)-(k.KeyW?1:0); o.atk=k.KeyF||(solo&&k.Space); o.dash=k.KeyG||(solo&&(k.ShiftLeft||k.ShiftRight)); o.block=k.KeyH||(solo&&k.KeyE); }
+ else if(st.dev==='kb2'){ o.mx=(k.ArrowRight?1:0)-(k.ArrowLeft?1:0); o.my=(k.ArrowDown?1:0)-(k.ArrowUp?1:0); o.atk=k.KeyJ; o.dash=k.KeyK; o.block=k.KeyL; }
+ return o; }
 function humanInput(n,ent){
+ if(SEATS&&SEATS[n-1]&&!(ent&&ent.netId)&&NET.role!=='client') return seatInput(SEATS[n-1]);
  if(ent&&ent.netId){ const i=NET.inputs[ent.netId]||[0,0,0,0,0], L=NET.latch[ent.netId]||{}; const out={mx:i[0],my:i[1],atk:!!i[2]||!!L.a,dash:!!i[3]||!!L.d,block:!!i[4],faceTo:null}; L.a=L.d=0; return out; }
  const k=keys,two=NET.role!=='client'&&G.ents.filter(e=>e.human&&!e.netId).length>1; let mx=0,my=0,atk=false,dash=false,block=false,faceTo=null;
  if(n===1){
@@ -2174,7 +2214,7 @@ function frame(now){
  pollPads(); padEdges();
  if(NET.role==='client'&&G&&!G.demo){ if(!G.over){ clientTick(dt); clientSend(now); } }
  else if(!paused&&!G.over){ acc+=dt; let n=0; while(acc>=1/60&&n<5){ if(G.hitstop>0){ G.hitstop-=1/60; acc-=1/60; n++; continue; } update((1/60)*(G.ts||1)); acc-=1/60; n++; if(NET.role==='host'&&!G.demo&&!G.over&&++NET.tick%3===0) broadcast(snapshot()); } if(n===5)acc=0; }
- draw(); drawWardrobe(); drawHero(); requestAnimationFrame(frame);
+ draw(); drawWardrobe(); drawHero(); drawParty(); requestAnimationFrame(frame);
 }
 
 /* ---------- UI ---------- */
@@ -2195,7 +2235,8 @@ const parseV=v=>v==='true'?true:v==='false'?false:(/^-?\d+$/.test(v)?+v:v);
 document.querySelectorAll('.seg[data-k]').forEach(seg=>{ seg.addEventListener('click',ev=>{ const b=ev.target.closest('button'); if(!b)return; seg.querySelectorAll('button').forEach(x=>x.setAttribute('aria-pressed',String(x===b))); cfg[seg.dataset.k]=parseV(b.dataset.v); saveCfg(); refreshSetup(); }); });
 function syncSegs(){ document.querySelectorAll('.seg[data-k]').forEach(seg=>{ const k=seg.dataset.k; seg.querySelectorAll('button').forEach(x=>x.setAttribute('aria-pressed',String(parseV(x.dataset.v)===cfg[k]))); }); }
 /* ---------- screens ---------- */
-const SCREENS=['menu','setup','online','lobby','wardrobe','howto','settings','pause','end'];
+const SCREENS=['menu','setup','online','lobby','wardrobe','howto','settings','pause','end','party'];
+const esc=t=>String(t).replace(/[&<>]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;'}[c]));
 function showScreen(id){ SCREENS.forEach(k=>{ const el=$(k); if(el) el.hidden=(k!==id); }); if(id){ const el=$(id); const f=el.querySelector('.tile,button.big,button'); if(f) setTimeout(()=>f.focus(),0); } }
 document.querySelectorAll('[data-back]').forEach(b=>b.addEventListener('click',()=>{ if(NET.role==='client'){ leaveOnline(); return; } if(NET.role==='host'&&$('setup')&&!$('setup').hidden){ showLobby(); return; } showScreen('menu'); }));
 let thumbs={};
@@ -2232,6 +2273,46 @@ function refreshSetup(){
 }
 $('tQuick').onclick=()=>{ cfg.players=1; let played=0; try{ played=+localStorage.getItem('ck-played')||0; }catch(e){} if(played<2){ cfg.diff='chill'; } if(!MODES[cfg.mode]||cfg.mode!=='ffa'&&cfg.mode!=='teams'){ cfg.mode='ffa'; } saveCfg(); start(); };
 $('tCustom').onclick=()=>{ buildSetup(); showScreen('setup'); };
+// ---------- couch party: join with a controller or a keyboard half, pick together/versus, mode and arena, go
+const PARTY={seats:[],style:'together',mode:'teams',map:'random',ents:[0,1,2,3].map(i=>mkKnight({id:60+i,hero:1}))};
+const TEAM_MODES=Object.keys(MODES).filter(k=>MODES[k].teams);
+const partyOpen=()=>!$('party').hidden;
+function devLabel(d){ return d.dev==='pad'?`Controller ${d.idx+1}`:d.dev==='kb1'?'Keyboard: WASD, F G H':'Keyboard: arrows, J K L'; }
+function partyJoin(d){ if(PARTY.seats.length>=4||PARTY.seats.some(x=>x.dev===d.dev&&x.idx===d.idx)) return; PARTY.seats.push(d); sfx('pickup'); renderParty(); }
+function partyLeave(i){ PARTY.seats.splice(i,1); sfx('guard'); renderParty(); }
+function partyLeavePad(idx){ const i=PARTY.seats.findIndex(x=>x.dev==='pad'&&x.idx===idx); if(i>=0) partyLeave(i); }
+function partyPad(idx,e){ const i=PARTY.seats.findIndex(x=>x.dev==='pad'&&x.idx===idx);
+ if(i<0){ if(e.a||e.pause) partyJoin({dev:'pad',idx}); else if(e.back&&!PARTY.seats.length) menuBack(); return; }
+ if(e.back){ partyLeave(i); return; } if(e.pause){ partyStart(); return; }
+ if(e.up) menuNav(0,-1); if(e.down) menuNav(0,1); if(e.left) menuNav(-1,0); if(e.right) menuNav(1,0); if(e.a) menuActivate(); }
+function partyModes(){ return PARTY.style==='together'?TEAM_MODES:Object.keys(MODES); }
+function renderParty(){
+ const box=$('seats'); box.innerHTML='';
+ for(let i=0;i<4;i++){ const d=PARTY.seats[i], el=document.createElement('div'); el.className='seat'+(d?' on':'');
+  if(d){ const pr=seatLook(i); el.style.borderColor=pr.color; el.innerHTML=`<canvas width="300" height="300"></canvas><b>${esc(localName(i+1)||'Player '+(i+1))}</b><small>${devLabel(d)}</small><button class="leave" type="button">Leave</button>`; el.querySelector('.leave').onclick=()=>partyLeave(i); }
+  else el.innerHTML=`<span class="join">${i===PARTY.seats.length?'Press A to join':'Waiting'}</span><small>Player ${i+1}</small>`;
+  box.appendChild(el); }
+ document.querySelectorAll('.seg[data-p="style"] button').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.v===PARTY.style)));
+ const ms=partyModes(); if(!ms.includes(PARTY.mode)) PARTY.mode=ms[0];
+ const mb=$('partyModes'); mb.innerHTML=''; for(const k of ms){ const b=document.createElement('button'); b.type='button'; b.className='chip'; b.title=MODES[k].desc; b.setAttribute('aria-pressed',String(k===PARTY.mode)); b.appendChild(modeIcon(k)); const t=document.createElement('b'); t.textContent=MODES[k].name; b.appendChild(t); b.onclick=()=>{ PARTY.mode=k; renderParty(); const f=$('partyModes').querySelector(`[title="${CSS.escape(MODES[k].desc)}"]`); if(f) f.focus(); }; mb.appendChild(b); }
+ const pm=$('partyMaps'); if(!pm.childElementCount){ for(const k of ['random',...Object.keys(MAPS)]){ const b=document.createElement('button'); b.type='button'; b.dataset.v=k; b.textContent=k==='random'?'Surprise me':MAPS[k].name; b.onclick=()=>{ PARTY.map=k; renderParty(); }; pm.appendChild(b); } }
+ pm.querySelectorAll('button').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.v===PARTY.map)));
+ const n=PARTY.seats.length; $('partyGo').disabled=!n;
+ $('partyMsg').textContent=!n?'Nobody has joined yet.':PARTY.style==='together'?`${n} on the same team against bots.`:`${n} knight${n>1?'s':''} against each other, bots fill the rest.`;
+ const pads=PADS.length; $('partyPads').textContent=pads>=2?`${pads} controllers ready`:'2 to 4 players on one screen'; }
+function partyStart(){ const n=PARTY.seats.length; if(!n||NET.role==='client') return;
+ cfg.players=n; cfg.mode=PARTY.mode; cfg.map=PARTY.map; cfg.teamSplit=PARTY.style==='versus'&&n>1; saveCfg();
+ SEATS=PARTY.seats.map(d=>Object.assign({},d)); partyGo=true; start(); }
+function seatLook(i){ const pr=Object.assign({},loadProfile(i+1)); if(i>0&&[...Array(i).keys()].some(j=>loadProfile(j+1).color===pr.color)) pr.color=FFA_COLS[(i*3)%FFA_COLS.length]; return pr; }
+function drawParty(){ if(!partyOpen()||!G) return; const cvs=[...$('seats').querySelectorAll('canvas')];
+ cvs.forEach((c,i)=>{ const e=PARTY.ents[i], pr=seatLook(i), px=c.getContext('2d'); px.setTransform(1,0,0,1,0,0); px.fillStyle='#5FA84E'; px.fillRect(0,0,300,300);
+  px.setTransform(3.1,0,0,3.1,0,0); e.x=48.4; e.y=61; e.kit={helm:pr.helm,plume:pr.plume,metal:pr.metal}; e.emblem=pr.emblem; e.color=pr.color; e.cape=pr.cape; e.blade=pr.blade; e.plume=pr.color===CUST?PINK:CUST; e.face=Math.PI/2+Math.sin(G.clock*.8+i)*.6; e.vx=e.vy=0;
+  const keep=ctx; ctx=px; try{ drawKnight(e); }finally{ ctx=keep; } }); }
+function openParty(){ PARTY.seats=PARTY.seats.filter(d=>d.dev!=='pad'||PADS.some(g=>g.index===d.idx)); renderParty(); showScreen('party'); setTimeout(()=>{ const b=$('partyGo'); if(b&&!b.disabled) b.focus(); },60); }
+$('tParty').onclick=()=>openParty();
+$('partyGo').onclick=()=>partyStart();
+document.querySelector('.seg[data-p="style"]').addEventListener('click',ev=>{ const b=ev.target.closest('button'); if(!b) return; PARTY.style=b.dataset.v; renderParty(); });
+addEventListener('keydown',ev=>{ if(!partyOpen()||ev.repeat) return; if(ev.code==='KeyF') partyJoin({dev:'kb1'}); else if(ev.code==='KeyJ') partyJoin({dev:'kb2'}); });
 function buildChips(){ const box=$('modeChips'); if(!box||box.childElementCount) return;
  for(const k in MODES){ const b=document.createElement('button'); b.type='button'; b.className='chip'; b.dataset.mode=k; b.title=MODES[k].desc; b.appendChild(modeIcon(k)); const t=document.createElement('b'); t.textContent=MODES[k].name; b.appendChild(t);
   b.onclick=()=>{ cfg.mode=k; saveCfg(); buildSetup(); showScreen('setup'); refreshSetup(); setTimeout(()=>{ const sb=$('startBtn'); if(sb) sb.focus(); },60); }; box.appendChild(b); } }
@@ -2258,12 +2339,13 @@ function buildWardrobe(){ const lists={helm:HELMS,plume:PLUMES,metal:METAL_KEYS,
  for(const k in lists){ const seg=document.querySelector(`.seg[data-w="${k}"]`); seg.innerHTML=''; for(const v of lists[k]){ const b=document.createElement('button'); b.type='button'; b.dataset.v=v; if(k==='color'){ b.className='sw'; b.style.background=v; b.title=COLOR_NAMES[v]||v; b.setAttribute('aria-label',COLOR_NAMES[v]||v); } else b.textContent=NICE[v]||v; b.onclick=()=>{ if(!owned(k,v)) return; const pr=loadProfile(wardWho); pr[k]=v; saveProfile(wardWho,pr); syncWardrobe(); }; seg.appendChild(b); } }
  document.querySelector('.seg[data-w="who"]').addEventListener('click',ev=>{ const b=ev.target.closest('button'); if(!b) return; wardWho=+b.dataset.v; syncWardrobe(); });
  $('wardRand').onclick=()=>{ saveProfile(wardWho,{helm:pick(HELMS),plume:pick(PLUMES),metal:pick(METAL_KEYS),emblem:pick(EMBLEMS),color:pick(FFA_COLS)}); syncWardrobe(); };
- $('wardName').addEventListener('input',()=>{ if(wardWho===1){ $('nameIn').value=$('wardName').value; try{ localStorage.setItem('ck-name',$('wardName').value.trim().slice(0,14)); }catch(e){} } else { try{ localStorage.setItem('ck-name2',$('wardName').value.trim().slice(0,14)); }catch(e){} } });
+ $('wardName').addEventListener('input',()=>{ if(wardWho===1){ $('nameIn').value=$('wardName').value; try{ localStorage.setItem('ck-name',$('wardName').value.trim().slice(0,14)); }catch(e){} } else { try{ localStorage.setItem('ck-name'+wardWho,$('wardName').value.trim().slice(0,14)); }catch(e){} } });
 }
 function syncWardrobe(){ const pr=loadProfile(wardWho); document.querySelectorAll('.seg[data-w]').forEach(seg=>{ const k=seg.dataset.w; seg.querySelectorAll('button').forEach(b=>{ const v=b.dataset.v, ok=k==='who'||owned(k,v); b.setAttribute('aria-pressed',String(k==='who'?+b.dataset.v===wardWho:v===pr[k])); b.classList.toggle('locked',!ok); if(k!=='who'){ const base=k==='color'?(COLOR_NAMES[v]||v):(NICE[v]||v); if(k==='color'){ b.title=ok?base:base+' (unlocks at '+lockText(k,v)+')'; } else b.textContent=ok?base:base+' · '+lockText(k,v); } }); });
  const t=tierOf(), next=t<TRACK.length?TIER_COST*(t+1)-PROG.earned:0; $('wardProg').textContent=`Custard Coins earned: ${PROG.earned}. Tier ${t} of ${TRACK.length}.`+(next?` ${next} more coins unlock ${NICE[TRACK[t][1]]||COLOR_NAMES[TRACK[t][1]]||TRACK[t][1]} (${TRACK[t][0]}).`:' Everything on the track is yours.');
  $('wardCh').textContent='Challenges: '+Object.entries(CHALLENGES).map(([k,c])=>`${c.text} (${Math.min(c.goal,PROG.ch[k]||0)}/${c.goal})`).join(' · ');
- let n=''; try{ n=localStorage.getItem(wardWho===1?'ck-name':'ck-name2')||''; }catch(e){} $('wardName').value=n; $('wardName').placeholder=wardWho===1?"Your knight's name":"Player 2's name"; }
+ let n=''; try{ n=localStorage.getItem(wardWho===1?'ck-name':'ck-name'+wardWho)||''; }catch(e){} $('wardName').value=n; $('wardName').placeholder=wardWho===1?"Your knight's name":`Player ${wardWho}'s name`; }
+function localName(n){ try{ return (localStorage.getItem(n===1?'ck-name':'ck-name'+n)||'').trim().slice(0,14); }catch(e){ return ''; } }
 function openWardrobe(){ if(!$('wardrobe').dataset.built){ buildWardrobe(); $('wardrobe').dataset.built='1'; } syncWardrobe(); showScreen('wardrobe'); }
 const wardEnt={id:9,hero:1,name:'',team:null,human:0,netId:null,x:100,y:112,vx:0,vy:0,r:22,hp:3,face:.6,atkCd:0,swing:0,swingKind:'light',swingDur:.22,hitSet:[],crateHit:true,hitDone:true,dashCd:0,dashT:0,fireCd:0,wpn:null,blocking:false,falling:0,lastHit:null,dead:false,respawn:0,inv:0,protect:0,score:0,deaths:0,walk:0,flash:0,slip:0,fx:{},bananaT:0,bawkCd:0,sayCd:9,stun:0,charge:0,guard:1.5,spot:0,ai:{}};
 function mkKnight(o={}){ return Object.assign({id:30,name:'',team:null,human:0,netId:null,x:0,y:0,vx:0,vy:0,r:22,hp:3,face:Math.PI/2,atkCd:0,swing:0,swingKind:'light',swingDur:.22,hitSet:[],crateHit:true,dashCd:0,dashT:0,fireCd:0,wpn:null,blocking:false,falling:0,lastHit:null,dead:false,respawn:0,inv:0,protect:0,score:0,deaths:0,walk:0,flash:0,slip:0,fx:{},bananaT:0,bawkCd:0,sayCd:9,stun:0,charge:0,guard:1.5,spot:0,ai:{},kit:{helm:'great',plume:'feather',metal:'steel'},emblem:'star',color:'#FF5A4E',plume:CUST,cape:'plain',blade:'steel',chickSkin:'hen'},o); }
@@ -2295,7 +2377,7 @@ function menuMusic(on){
 // browsers only allow sound after the first click or key press
 const kick=()=>{ if(musicWant&&!muted&&music.paused) menuMusic(true); };
 addEventListener('pointerdown',kick,{once:true}); addEventListener('keydown',kick,{once:true});
-function start(){ if(NET.role==='client') return; phoneFullscreen(); audio(); menuMusic(false); newGame(false); showScreen(null); paused=false; $('pauseBtn').hidden=false; showTouch(true); try{ localStorage.setItem('ck-played',String((+localStorage.getItem('ck-played')||0)+1)); }catch(e){}
+function start(){ if(NET.role==='client') return; if(!partyGo) SEATS=null; partyGo=false; phoneFullscreen(); audio(); menuMusic(false); newGame(false); showScreen(null); paused=false; $('pauseBtn').hidden=false; showTouch(true); try{ localStorage.setItem('ck-played',String((+localStorage.getItem('ck-played')||0)+1)); }catch(e){}
  G.banner={title:G.mode==='race'?'RACE!':'FIGHT!',sub:G.map.name+'. '+(MODES[G.mode]?MODES[G.mode].name:'')+(G.mode==='ffa'?'. Every knight for themselves.':'.'),col:CUST,t:2,max:2}; sfx('event');
  for(const e of G.ents) if(isMine(e)) e.spot=2.6;
  if(NET.role==='host'){ $('pauseBtn').hidden=true; broadcast({t:'start',setup:netSetup()}); } }
@@ -2349,10 +2431,12 @@ function padEdges(){
  PADS.forEach((gp,i)=>{ const pd=padState(i); if(!pd) return; const pv=padPrev[i]||(padPrev[i]={});
   const rose=k=>{ const r=pd[k]&&!pv[k]; pv[k]=pd[k]; return r; };
   const pause=rose('pause'), sh=rose('shout'), up=rose('up'), down=rose('down'), left=rose('left'), right=rose('right'), a=rose('a'), back=rose('back');
-  if(playing){ if(pause) setPause(!paused); if(sh) shout(i+1,Math.floor(Math.random()*4)); if(paused&&a) setPause(false); }
+  if(playing){ const who=SEATS?SEATS.findIndex(x=>x.dev==='pad'&&x.idx===gp.index)+1:i+1; if(pause) setPause(!paused); if(sh&&who>0) shout(who,Math.floor(Math.random()*4)); if(paused&&a) setPause(false); }
+  else if(partyOpen()){ partyPad(gp.index,{a,back,pause,up,down,left,right}); }
   else { if(up) menuNav(0,-1); if(down) menuNav(0,1); if(left) menuNav(-1,0); if(right) menuNav(1,0); if(a) menuActivate(); if(back) menuBack(); }
  });
 }
+addEventListener('gamepaddisconnected',ev=>{ if(G&&!G.demo&&!G.over&&SEATS&&SEATS.some(x=>x.dev==='pad'&&x.idx===ev.gamepad.index)){ setPause(true); feed('A controller disconnected. Plug it back in and press A.'); } if(partyOpen()){ partyLeavePad(ev.gamepad.index); } });
 function visibleScreen(){ return [...document.querySelectorAll('.overlay')].find(o=>!o.hidden); }
 function menuNav(dx,dy){ const sc=visibleScreen(); if(!sc) return; const els=[...sc.querySelectorAll('button,input,select,[tabindex="0"]')].filter(el=>!el.hidden&&el.offsetParent!==null&&!el.disabled); if(!els.length) return;
  let cur=document.activeElement; if(!els.includes(cur)){ els[0].focus(); return; }

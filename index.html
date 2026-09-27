@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
 <title>Custard Knights</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lilita+One&family=Nunito:wght@600;800;900&display=swap">
@@ -19,6 +19,10 @@ body{background:var(--plum);color:var(--cream);font-family:Nunito,"Trebuchet MS"
 #wrap{height:100%;padding-block:8px;padding-inline:16px;box-sizing:border-box}
 #stage{position:relative;height:100%;width:100%}
 #game{position:absolute;left:0;top:0;width:100%;height:100%;display:block;touch-action:none}
+/* no double-tap zoom, text selection or long-press callout while mashing the touch buttons */
+html,body{touch-action:manipulation;-webkit-text-size-adjust:100%}
+#stage{touch-action:manipulation}
+#touch,#touch *{-webkit-user-select:none;user-select:none;-webkit-touch-callout:none;-webkit-tap-highlight-color:transparent}
 .overlay{position:absolute;inset:0;display:grid;place-items:center;background:rgba(34,23,51,.55);overflow:auto;padding-block:12px}
 .panel{background:linear-gradient(180deg,#4B3666,#2A1D40);border:4px solid var(--ink);border-radius:24px;box-shadow:0 8px 0 var(--ink),inset 0 0 0 2px rgba(255,210,63,.35),inset 0 2px 0 3px rgba(255,255,255,.06);padding:22px 22px 20px;width:min(500px,100%);box-sizing:border-box;display:flex;flex-direction:column;gap:14px}
 .logo{font-family:"Lilita One",Impact,sans-serif;font-weight:400;font-size:clamp(44px,11vw,64px);line-height:.9;margin:0;color:var(--custard);letter-spacing:.5px;transform:rotate(-3deg);text-wrap:balance;
@@ -2367,6 +2371,13 @@ joyEl.addEventListener('pointerup',endJoy); joyEl.addEventListener('pointercance
 function moveJoy(ev){ const r=joyEl.getBoundingClientRect(); let dx=ev.clientX-(r.left+r.width/2), dy=ev.clientY-(r.top+r.height/2); const d=Math.hypot(dx,dy),m=48; if(d>m){dx=dx/d*m;dy=dy/d*m} joy.mx=dx/m; joy.my=dy/m; knob.style.transform=`translate(${dx}px,${dy}px)`; }
 function hold(el,key){ el.addEventListener('pointerdown',ev=>{ev.preventDefault();touch[key]=true;audio()}); ['pointerup','pointercancel','pointerleave'].forEach(t=>el.addEventListener(t,()=>touch[key]=false)); }
 hold($('bSwing'),'atk'); hold($('bDash'),'dash'); hold($('bBlock'),'block');
+// Phones: fast taps on the touch controls must never zoom the page (iOS ignores touch-action on quick double taps).
+// The controls are driven by pointer events, so cancelling the browser's own touch gestures on them is safe.
+for(const el of [joyEl,$('bSwing'),$('bDash'),$('bBlock'),$('bShout')]){ for(const t of ['touchstart','touchend','touchmove']) el.addEventListener(t,ev=>{ if(ev.cancelable) ev.preventDefault(); },{passive:false}); }
+{ let lastTap=0; const inMatch=()=>G&&!G.demo&&!G.over;
+  document.addEventListener('touchend',ev=>{ const now=performance.now(); if(inMatch()&&now-lastTap<350&&!ev.target.closest('input,textarea,select')&&ev.cancelable) ev.preventDefault(); lastTap=now; },{passive:false});
+  document.addEventListener('dblclick',ev=>{ if(inMatch()) ev.preventDefault(); },{passive:false});
+  for(const t of ['gesturestart','gesturechange']) document.addEventListener(t,ev=>{ if(inMatch()) ev.preventDefault(); },{passive:false}); }
 $('bShout').addEventListener('pointerdown',ev=>{ev.preventDefault(); shout(1,Math.floor(Math.random()*4));});
 
 /* ---------- online play ---------- */

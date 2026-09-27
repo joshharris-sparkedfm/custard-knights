@@ -66,6 +66,13 @@ kbd{font-family:Nunito,sans-serif;font-weight:900;font-size:11px;background:var(
 #board .ko{font-family:"Lilita One",Impact,sans-serif;font-size:20px}
 #board .dd{font-size:12px;opacity:.75}
 #touch{position:absolute;inset:0;pointer-events:none;z-index:2}
+#rotate{position:absolute;inset:0;z-index:40;display:grid;place-items:center;background:rgba(20,10,35,.86);padding:16px}
+#rotate[hidden]{display:none}
+.rot-card{display:grid;justify-items:center;gap:10px;text-align:center;color:var(--cream);max-width:300px}
+.rot-card svg{width:88px;height:88px;color:var(--custard);animation:rot 2.4s ease-in-out infinite}
+.rot-card b{font-family:"Lilita One",Impact,sans-serif;font-weight:400;font-size:30px;color:var(--custard);text-shadow:0 3px 0 var(--ink)}
+@keyframes rot{0%,30%{transform:rotate(0)}60%,100%{transform:rotate(-90deg)}}
+@media (prefers-reduced-motion:reduce){.rot-card svg{animation:none}}
 #joy{position:absolute;left:10px;bottom:14px;width:130px;height:130px;border-radius:50%;background:rgba(255,247,224,.12);border:3px solid rgba(255,247,224,.35);pointer-events:auto;touch-action:none}
 #knob{position:absolute;left:50%;top:50%;width:56px;height:56px;margin:-28px 0 0 -28px;border-radius:50%;background:var(--custard);border:3px solid var(--ink)}
 .tb{position:absolute;pointer-events:auto;touch-action:none;border-radius:50%;border:3px solid var(--ink);font-family:"Lilita One",Impact,sans-serif;font-size:17px;color:var(--ink);box-shadow:0 5px 0 var(--ink)}
@@ -78,7 +85,22 @@ kbd{font-family:Nunito,sans-serif;font-weight:900;font-size:11px;background:var(
 .drip{position:absolute;left:38%;bottom:-14px;width:12px;height:22px;background:var(--custard);border:3px solid var(--ink);border-radius:0 0 10px 10px;animation:drip 2.8s ease-in infinite;transform-origin:top}
 @keyframes wob{0%,100%{transform:rotate(-3deg)}50%{transform:rotate(-1deg)}} @keyframes drip{0%{transform:scaleY(.2);opacity:1}70%{transform:scaleY(1);opacity:1}100%{transform:scaleY(1.2) translateY(14px);opacity:0}}
 /* home screen */
-.home-ov{background:radial-gradient(ellipse at 65% 55%,rgba(34,23,51,.25),rgba(20,12,34,.86) 75%)}
+.home-ov{background:#1C1330}
+.keyart{position:absolute;inset:0;background:url(art/keyart/home.webp) 72% 40%/cover no-repeat}
+.keyart::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(20,12,34,.9) 0%,rgba(20,12,34,.72) 34%,rgba(20,12,34,.12) 58%,rgba(20,12,34,0) 70%),linear-gradient(0deg,rgba(20,12,34,.55),rgba(20,12,34,0) 30%)}
+.home{position:relative}
+.mgrid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.mgrid .mbtn{padding:9px 12px;gap:10px} .mgrid .mbtn i{flex-basis:38px;height:38px} .mgrid .mbtn i svg{width:22px;height:22px} .mgrid .mbtn b{font-size:21px} .mgrid .mbtn small{font-size:12px}
+.mgrid .mrow{align-self:stretch} .mgrid .mrow .btn{padding:6px 8px}
+.mgrid .mbtn:hover,.mgrid .mbtn:focus-visible{transform:translateY(-3px)}
+.mstrip{display:flex;flex-direction:column;gap:6px}
+.mstrip .lab{font-size:12px;font-weight:900;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.mchips{display:flex;gap:8px;overflow-x:auto;padding:2px 2px 8px;scrollbar-width:thin}
+.chip{font:inherit;cursor:pointer;flex:0 0 auto;display:flex;flex-direction:column;align-items:center;gap:3px;width:92px;padding:5px 5px 7px;border:3px solid var(--ink);border-radius:14px;background:var(--plum3);color:var(--cream);box-shadow:0 4px 0 var(--ink);transition:transform .12s,background .12s}
+.chip canvas{width:78px;height:41px;border-radius:8px;border:2px solid var(--ink);background:#5FA84E}
+.chip b{font-size:11.5px;font-weight:900;line-height:1.1;text-align:center}
+.chip:hover,.chip:focus-visible{transform:translateY(-3px);background:#6A4F90}
+
 .home{display:grid;grid-template-columns:minmax(300px,460px) minmax(260px,520px);gap:34px;align-items:center;width:min(1080px,100%);padding:10px}
 .home-left{display:flex;flex-direction:column;gap:16px}
 .logo.xl{font-size:clamp(56px,8vw,96px)}
@@ -107,6 +129,10 @@ kbd{font-family:Nunito,sans-serif;font-weight:900;font-size:11px;background:var(
 .tiles{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
 .tile{font:inherit;cursor:pointer;border:3px solid var(--ink);border-radius:18px;background:var(--plum3);color:var(--cream);padding:14px 12px;box-shadow:0 5px 0 var(--ink);text-align:left;display:flex;flex-direction:column;gap:4px;transition:transform .08s}
 .tile b{font-family:"Lilita One",Impact,sans-serif;font-weight:400;font-size:22px;color:var(--custard)} .tile span{font-size:12px;color:var(--muted);font-weight:700;line-height:1.35}
+.ctl{display:flex;flex-direction:column;gap:8px}
+.ctlrow{border:3px solid transparent;border-radius:12px;padding:8px 10px;background:rgba(0,0,0,.12)}
+body[data-input=kbm] .ctlrow[data-in=kbm],body[data-input=pad] .ctlrow[data-in=pad],body[data-input=touch] .ctlrow[data-in=touch]{order:-1;border-color:var(--custard);background:rgba(255,210,63,.1)}
+body[data-input=pad] :is(button,.card,.tile,input,select):focus{outline:4px solid var(--custard);outline-offset:3px}
 .tile:hover,.tile:focus-visible{background:#6A4F90} .tile:active{transform:translateY(3px);box-shadow:0 2px 0 var(--ink)}
 .cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(148px,1fr));gap:8px}
 .card{font:inherit;cursor:pointer;border:3px solid var(--ink);border-radius:14px;background:var(--plum3);color:var(--cream);padding:8px;box-shadow:0 4px 0 var(--ink);text-align:left;display:flex;flex-direction:column;gap:4px;font-weight:800;font-size:14px}
@@ -124,6 +150,29 @@ kbd{font-family:Nunito,sans-serif;font-weight:900;font-size:11px;background:var(
 .invite{text-align:center} .invite .code{font-size:44px}
 @media (max-width:440px){.tiers{grid-template-columns:1fr}}
 @media (prefers-reduced-motion:reduce){.logo{transform:none}}
+/* phones held upright: art at the top, knights, then the menu */
+@media (max-width:760px){
+ .keyart{background-position:62% 0;background-size:auto 46vh}
+ .keyart::after{background:linear-gradient(180deg,rgba(20,12,34,0) 18vh,rgba(20,12,34,.85) 40vh,#1C1330 48vh)}
+ .home{gap:6px;grid-template-columns:minmax(0,1fr)!important} .home-left{gap:10px} .logo.xl{font-size:clamp(40px,12vw,58px)} .tag{display:none}
+ .home-right .plate{display:none}
+}
+/* short screens (phones on their side, small laptops): everything on one screen, no scrolling */
+@media (max-height:520px){
+ .home{grid-template-columns:minmax(300px,1.1fr) minmax(200px,.9fr);gap:12px;align-items:start;padding:8px 12px}
+ .home-left{gap:8px} .logo.xl{font-size:clamp(30px,6.5vh,42px)} .tag,.note,.drip{display:none}
+ .mbtn{padding:7px 12px;border-width:3px;box-shadow:0 4px 0 var(--ink)} .mbtn i{flex-basis:34px;height:34px} .mbtn b{font-size:19px} .mbtn small{display:none}
+ .mgrid .mbtn b{font-size:16px} .mgrid .mbtn i{flex-basis:28px;height:28px} .mgrid .mbtn i svg{width:17px;height:17px}
+ .chip{width:74px;padding:3px 3px 5px} .chip canvas{width:62px;height:33px} .chip b{font-size:10px}
+ .home-right{align-self:end} .home-right .plate{display:none} #heroCv{max-width:min(46vw,92vh)!important}
+ .keyart{background-position:72% 30%}
+}
+/* the mode strip scrolls inside its column instead of widening the page */
+.home-left,.mm,.mstrip{min-width:0} .home{grid-template-columns:minmax(0,460px) minmax(260px,520px)}
+@media (min-height:860px) and (min-width:761px){.mchips{flex-wrap:wrap;overflow:visible} .chip{width:104px}}
+@media (max-height:520px){.mgrid .mrow .btn{font-size:13px;padding:4px 6px;line-height:1.1}}
+@media (max-width:760px){.mgrid .mrow .btn{font-size:14px}}
+
 </style>
 </head>
 <body>
@@ -136,6 +185,7 @@ kbd{font-family:Nunito,sans-serif;font-weight:900;font-size:11px;background:var(
     <button id="pauseBtn" type="button" hidden>Pause</button>
   </div>
 
+  <div id="rotate" hidden role="status"><div class="rot-card"><svg viewBox="0 0 64 64" aria-hidden="true"><rect x="20" y="8" width="24" height="44" rx="5" fill="none" stroke="currentColor" stroke-width="4"/><path d="M50 40a18 18 0 0 1-18 18" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round"/><path d="M28 56l4 4 4-4" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg><b>Turn your phone sideways</b><span>The arena needs the long side. The brawl waits for you.</span></div></div>
   <div id="touch" hidden>
     <div id="joy"><div id="knob"></div></div>
     <button class="tb" id="bShout" type="button">OI!</button>
@@ -145,16 +195,20 @@ kbd{font-family:Nunito,sans-serif;font-weight:900;font-size:11px;background:var(
   </div>
 
   <div id="menu" class="overlay home-ov">
+    <div class="keyart" aria-hidden="true"></div>
     <div class="home">
       <div class="home-left">
         <div class="hero"><h1 class="logo xl">Custard <span>Knights</span></h1><span class="drip" aria-hidden="true"></span><span class="drip d2" aria-hidden="true"></span></div>
         <p class="tag">Eight knights, one arena, and power-ups that start sensible and end with everyone as chickens.</p>
         <nav class="mm" aria-label="Main menu">
           <button class="mbtn primary" id="tQuick" type="button"><i><svg viewBox="0 0 24 24"><path d="M4 20 L14 10 M12 4 L20 4 L20 12 M9 15 L5 19" stroke="currentColor" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></i><span><b>Quick brawl</b><small>You against seven bots. One click.</small></span></button>
-          <button class="mbtn" id="tCustom" type="button"><i><svg viewBox="0 0 24 24"><path d="M4 7h10M18 7h2M4 17h2M10 17h10" stroke="currentColor" stroke-width="3" stroke-linecap="round"/><circle cx="16" cy="7" r="2.6" fill="none" stroke="currentColor" stroke-width="2.6"/><circle cx="8" cy="17" r="2.6" fill="none" stroke="currentColor" stroke-width="2.6"/></svg></i><span><b>Custom brawl</b><small>8 modes, 6 arenas, up to 4 on one PC</small></span></button>
-          <button class="mbtn" id="tOnline" type="button"><i><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5" fill="none" stroke="currentColor" stroke-width="2.6"/><path d="M3.5 12h17M12 3.5c3 3 3 14 0 17M12 3.5c-3 3-3 14 0 17" fill="none" stroke="currentColor" stroke-width="2.2"/></svg></i><span><b>Online</b><small>Host a room and send friends a link</small></span></button>
-          <button class="mbtn" id="tWardrobe" type="button"><i><svg viewBox="0 0 24 24"><path d="M6 20V11a6 6 0 0 1 12 0v9Z" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linejoin="round"/><path d="M8 12h8" stroke="currentColor" stroke-width="3" stroke-linecap="round"/><path d="M12 5V2" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"/></svg></i><span><b>Wardrobe</b><small>Earn capes, blades and chickens by playing</small></span></button>
-          <div class="mrow"><button class="btn" id="tHowto" type="button">How to play</button><button class="btn" id="tSettings" type="button">Settings</button></div>
+          <div class="mgrid">
+            <button class="mbtn" id="tCustom" type="button"><i><svg viewBox="0 0 24 24"><path d="M4 7h10M18 7h2M4 17h2M10 17h10" stroke="currentColor" stroke-width="3" stroke-linecap="round"/><circle cx="16" cy="7" r="2.6" fill="none" stroke="currentColor" stroke-width="2.6"/><circle cx="8" cy="17" r="2.6" fill="none" stroke="currentColor" stroke-width="2.6"/></svg></i><span><b>Modes &amp; arenas</b><small>8 modes, 6 arenas, bots, up to 4 on one screen</small></span></button>
+            <button class="mbtn" id="tOnline" type="button"><i><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5" fill="none" stroke="currentColor" stroke-width="2.6"/><path d="M3.5 12h17M12 3.5c3 3 3 14 0 17M12 3.5c-3 3-3 14 0 17" fill="none" stroke="currentColor" stroke-width="2.2"/></svg></i><span><b>Online</b><small>Host a room, send friends a link</small></span></button>
+            <button class="mbtn" id="tWardrobe" type="button"><i><svg viewBox="0 0 24 24"><path d="M6 20V11a6 6 0 0 1 12 0v9Z" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linejoin="round"/><path d="M8 12h8" stroke="currentColor" stroke-width="3" stroke-linecap="round"/><path d="M12 5V2" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"/></svg></i><span><b>Wardrobe</b><small>Helms, plumes, capes, blades, chickens</small></span></button>
+            <div class="mrow"><button class="btn" id="tHowto" type="button">How to play</button><button class="btn" id="tSettings" type="button">Settings</button></div>
+          </div>
+          <div class="mstrip"><span class="lab">Jump into a mode</span><div class="mchips" id="modeChips"></div></div>
         </nav>
         <p class="note" id="menuHint">Keyboard, touch or a pad. Press any button on a pad and it just works.</p>
       </div>
@@ -236,10 +290,11 @@ kbd{font-family:Nunito,sans-serif;font-weight:900;font-size:11px;background:var(
         <div class="how"><b>Weapons</b>Weapon pads hand out a <strong>Bow</strong>, a <strong>Bomb Bag</strong> or the <strong>Custard Cannon</strong>. Grab the same one again to level it up. Crates break and sometimes hide a power-up. Watch for pits, spike traps, ice, conveyor belts, lava, mud, springs and portals.</div>
         <div class="how"><b>Chaos</b>The Chaos Meter fills with time and knockouts and unlocks sillier power-ups: <strong>Sensible</strong> (Zoomy Boots, Bubble Shield, Long Sword, Pork Pie, Magnet Mitts, Prickly Armour), <strong>Silly</strong> (Giant Head, Bouncy Arms, Swap-o-matic, Banana Trail, Ghost, Bee Swarm, Pie Traps) and <strong>Unhinged</strong> (Chicken Party, Custard Flood, Boss Mode, Disco Fever, Tiny Town, Meteor Shower, Lights Out, Jelly Arena). Every half a minute the arena itself kicks off: trapdoors, a pie catapult, a chicken stampede, gales, slow-mo, bounties, supply drops. Once a match Steve's golden egg drops. Now and then a shepherd's pie appears: eat it and feel the power of Norr.</div>
       </div>
-      <p class="ctl"><strong>Just me:</strong> move <kbd>WASD</kbd>/<kbd>Arrows</kbd>, swing <kbd>Space</kbd>, dash <kbd>Shift</kbd>, block <kbd>E</kbd>, shout <kbd>1</kbd>–<kbd>4</kbd><br>
-      <strong>Player 1:</strong> <kbd>WASD</kbd>, swing <kbd>F</kbd>, dash <kbd>G</kbd>, block <kbd>H</kbd> &nbsp; <strong>Player 2:</strong> <kbd>Arrows</kbd>, swing <kbd>J</kbd>, dash <kbd>K</kbd>, block <kbd>L</kbd>, shout <kbd>7</kbd>–<kbd>0</kbd><br>
-      <strong>Pad:</strong> left stick moves, right stick aims, <kbd>A</kbd> swings, <kbd>B</kbd> dashes, <kbd>X</kbd> blocks, <kbd>Y</kbd> shouts, <kbd>Start</kbd> pauses. Pads 1 to 4 are players 1 to 4.<br>
-      <strong>Touch:</strong> stick on the left, Swing, Dash and Block on the right. &nbsp; <strong>Pause:</strong> <kbd>P</kbd> or <kbd>Esc</kbd></p>
+      <div class="ctl">
+        <div class="ctlrow" data-in="kbm"><strong>Keyboard, just me:</strong> move <kbd>WASD</kbd>/<kbd>Arrows</kbd>, swing <kbd>Space</kbd>, dash <kbd>Shift</kbd>, block <kbd>E</kbd>, shout <kbd>1</kbd>&ndash;<kbd>4</kbd>, pause <kbd>P</kbd> or <kbd>Esc</kbd>.<br><strong>Two on one keyboard:</strong> P1 <kbd>WASD</kbd>, swing <kbd>F</kbd>, dash <kbd>G</kbd>, block <kbd>H</kbd>. P2 <kbd>Arrows</kbd>, swing <kbd>J</kbd>, dash <kbd>K</kbd>, block <kbd>L</kbd>, shout <kbd>7</kbd>&ndash;<kbd>0</kbd>.</div>
+        <div class="ctlrow" data-in="pad"><strong>Controller:</strong> left stick moves, right stick aims, <kbd>A</kbd> swings, <kbd>B</kbd> dashes, <kbd>X</kbd> blocks, <kbd>Y</kbd> shouts, <kbd>Start</kbd> pauses. Pads 1 to 4 are players 1 to 4. In menus the stick moves, <kbd>A</kbd> picks and <kbd>B</kbd> goes back.</div>
+        <div class="ctlrow" data-in="touch"><strong>Touch:</strong> the stick on the left moves; Swing, Dash, Block and OI! are on the right. Hold Swing for a heavy. Play with the phone sideways; small screens follow your knight (Settings can show the whole arena instead).</div>
+      </div>
     </div>
   </div>
 
@@ -251,6 +306,7 @@ kbd{font-family:Nunito,sans-serif;font-weight:900;font-size:11px;background:var(
       <label class="slider">Screen shake <input type="range" id="sShake" min="0" max="100"><output id="oShake"></output></label>
       <label class="check"><input type="checkbox" id="cFlash"> Reduce flashing (Disco Fever, explosions)</label>
       <label class="check"><input type="checkbox" id="cSprites"> Classic knights (the original hand-drawn look)</label>
+      <label class="check"><input type="checkbox" id="cWhole"> Always show the whole arena (small screens zoom in on your knight otherwise)</label>
       <label class="check"><input type="checkbox" id="cNames"> Show every knight's name (not just those near you)</label>
       <div class="row"><button class="btn" id="tipsReset" type="button">Show the beginner tips again</button></div>
       <p class="note">This game has flashing lights and screen shake. Both can be turned down here.</p>
@@ -402,7 +458,7 @@ const cx=x=>clamp(x,T*1.5,W-T*1.5), cy=y=>clamp(y,OY+T*1.5,H-T*1.5);
 
 let cfg={mode:'ffa',players:1,diff:'spicy',map:'random',chaosPlus:false,chaosSpeed:'normal',length:180,teamSplit:false}, showHit=false;
 try{ Object.assign(cfg,JSON.parse(localStorage.getItem('ck-cfg')||'{}')); }catch(e){} function saveCfg(){ try{ localStorage.setItem('ck-cfg',JSON.stringify(cfg)); }catch(e){} }
-const SET={music:.55,sfx:1,shake:1,flash:true,names:'near',classic:false};
+const SET={music:.55,sfx:1,shake:1,flash:true,names:'near',classic:false,whole:false};
 try{ Object.assign(SET,JSON.parse(localStorage.getItem('ck-settings')||'{}')); }catch(e){} function saveSet(){ try{ localStorage.setItem('ck-settings',JSON.stringify(SET)); }catch(e){} }
 // what a first-timer has already been taught, so tips show once
 const TAUGHT=new Set(); try{ (JSON.parse(localStorage.getItem('ck-taught')||'[]')).forEach(k=>TAUGHT.add(k)); }catch(e){}
@@ -782,9 +838,18 @@ function startFall(e){ e.falling=.7; e.vx*=.15; e.vy*=.15; e.swing=0; if(e.human
 /* ---------- input ---------- */
 const keys={};
 const joy={id:null,mx:0,my:0}, touch={atk:false,dash:false,block:false};
+// which device the player is using right now: 'touch', 'pad' or 'kbm'. It follows the last thing they pressed, so a
+// phone with a pad plugged in, or a touchscreen laptop, shows the right controls and hints at every moment.
+let INPUT=matchMedia('(pointer:coarse)').matches?'touch':'kbm', touchWanted=false;
+function setInput(m){ if(INPUT===m) return; INPUT=m; document.body.dataset.input=m; if(typeof inputChanged==='function') inputChanged(); }
+document.body.dataset.input=INPUT;
+addEventListener('pointerdown',e=>setInput(e.pointerType==='mouse'?'kbm':'touch'),true);
+addEventListener('pointermove',e=>{ if(e.pointerType==='mouse'&&(Math.abs(e.movementX)+Math.abs(e.movementY))>6) setInput('kbm'); },true);
+addEventListener('keydown',()=>setInput('kbm'),true);
 // gamepads: standard mapping. Left stick or d-pad moves, A or RT swings, B or LB dashes, X, RB or LT blocks, Y shouts, Start pauses, right stick aims.
 let PADS=[]; const padPrev={};
-function pollPads(){ try{ PADS=navigator.getGamepads?Array.from(navigator.getGamepads()).filter(Boolean):[]; }catch(e){ PADS=[]; } }
+function pollPads(){ try{ PADS=navigator.getGamepads?Array.from(navigator.getGamepads()).filter(Boolean):[]; }catch(e){ PADS=[]; }
+ for(const gp of PADS){ if(gp.buttons.some(b=>b&&b.pressed)||gp.axes.some(v=>Math.abs(v)>.5)){ setInput('pad'); break; } } }
 function padState(i){ const gp=PADS[i]; if(!gp) return null; const dz=v=>Math.abs(v)<.22?0:v, b=j=>!!(gp.buttons[j]&&gp.buttons[j].pressed), ax=dz(gp.axes[0]||0), ay=dz(gp.axes[1]||0), rx=dz(gp.axes[2]||0), ry=dz(gp.axes[3]||0);
  return {mx:ax+(b(15)?1:0)-(b(14)?1:0),my:ay+(b(13)?1:0)-(b(12)?1:0),atk:b(0)||b(7),dash:b(1)||b(4),block:b(2)||b(5)||b(6),shout:b(3),pause:b(9),up:b(12)||ay<-.5,down:b(13)||ay>.5,left:b(14)||ax<-.5,right:b(15)||ax>.5,a:b(0),back:b(1),aim:Math.hypot(rx,ry)>.5?Math.atan2(ry,rx):null}; }
 const anyPad=()=>PADS.length>0;
@@ -1965,7 +2030,8 @@ function drawHUD(){
 function card(lines,col=CUST,y=H-108){ ctx.save(); ctx.font=`800 15px ${NUN}`; const w=Math.max(...lines.map(l=>ctx.measureText(l).width))+44, h=lines.length*22+18; plaque(640-w/2,y-h/2,w,h,14,true);
  lines.forEach((l,i)=>{ ctx.font=(i?'700 14px ':'900 15px ')+NUN; ctx.textAlign='center'; ctx.textBaseline='middle'; ctx.lineWidth=3; ctx.strokeStyle=INK; ctx.strokeText(l,640,y-h/2+20+i*22); ctx.fillStyle=i?CREAM:col; ctx.fillText(l,640,y-h/2+20+i*22); }); ctx.restore(); }
 function controlLine(n){ const two=G.ents.filter(e=>e.human&&!e.netId).length>1;
- if(anyPad()&&n<=PADS.length) return `Move: left stick   Swing: A   Dash: B   Block: X   Pause: Start`;
+ if(n===1&&!two&&INPUT==='touch') return 'Stick moves   SWING bonks (hold for a heavy)   DASH hops   BLOCK parries';
+ if(anyPad()&&n<=PADS.length&&(INPUT==='pad'||two)) return `Move: left stick   Swing: A   Dash: B   Block: X   Pause: Start`;
  if(n===2) return 'P2   Move: Arrows   Swing: J   Dash: K   Block: L';
  return two?'P1   Move: WASD   Swing: F   Dash: G   Block: H':'Move: WASD or Arrows   Swing: Space   Dash: Shift   Block: E'; }
 function drawCards(){
@@ -1995,7 +2061,7 @@ function drawParts(){
 function draw(){
  const w=cv.width,h=cv.height;
  ctx.setTransform(1,0,0,1,0,0); ctx.fillStyle='#1C1330'; ctx.fillRect(0,0,w,h);
- const sx=(Math.random()-.5)*G.shake*SET.shake, sy=(Math.random()-.5)*G.shake*SET.shake;
+ updateCamera(); const sx=(Math.random()-.5)*G.shake*SET.shake, sy=(Math.random()-.5)*G.shake*SET.shake;
  ctx.setTransform(dpr*scale,0,0,dpr*scale,dpr*(offX+sx*scale),dpr*(offY+sy*scale));
  ctx.save(); if(G.punch>0&&SET.shake>0){ const k=1+.045*(G.punch/.28)*SET.shake; ctx.translate(G.px,G.py); ctx.scale(k,k); ctx.translate(-G.px,-G.py); }
  ctx.drawImage(bg,0,0,W,H);
@@ -2079,12 +2145,23 @@ function draw(){
   darkness(holes,.93*Math.min(1,(G.ev.max-G.ev.t)*2,G.ev.t*1.5)); }
  { const sp=G.ents.filter(e=>isMine(e)&&e.spot>0&&!e.dead); if(sp.length){ darkness(sp.map(e=>({x:e.x,y:e.y-20,r:150+(2.6-e.spot)*40})),Math.min(1,sp[0].spot*2)*.6,'10,4,24'); for(const e of sp) drawYouBig(e); } }
  ctx.restore();
+ if(cam.on) ctx.setTransform(dpr*fitS,0,0,dpr*fitS,dpr*fitX,dpr*fitY); // the HUD stays on the screen, not in the arena
  drawHUD();
 }
 
 /* ---------- sizing & loop ---------- */
-let scale=1,offX=0,offY=0,dpr=1;
-function resize(){ const r=document.getElementById('stage').getBoundingClientRect(); dpr=Math.min(2,window.devicePixelRatio||1); cv.width=Math.max(1,Math.round(r.width*dpr)); cv.height=Math.max(1,Math.round(r.height*dpr)); scale=Math.min(r.width/W,r.height/H); offX=(r.width-W*scale)/2; offY=(r.height-H*scale)/2; }
+let scale=1,offX=0,offY=0,dpr=1,fitS=1,fitX=0,fitY=0,stW=1280,stH=800; const cam={on:false,x:640,y:400};
+function resize(){ const r=document.getElementById('stage').getBoundingClientRect(); dpr=Math.min(2,window.devicePixelRatio||1); cv.width=Math.max(1,Math.round(r.width*dpr)); cv.height=Math.max(1,Math.round(r.height*dpr)); stW=r.width; stH=r.height; fitS=Math.min(r.width/W,r.height/H); fitX=(r.width-W*fitS)/2; fitY=(r.height-H*fitS)/2; scale=fitS; offX=fitX; offY=fitY; }
+// Follow camera: when the whole arena would make knights too small to read (phones), zoom to CAM_S and follow the one
+// local knight, clamped to the arena. Couch play with 2+ local knights, demos and 'Always show the whole arena' keep the fit.
+const CAM_S=.8;
+function updateCamera(){ const mine=G&&!G.demo&&!G.over?G.ents.filter(e=>e.human&&!e.netId):[], me=mine.length===1?mine[0]:null;
+ const want=!!me&&!SET.whole&&fitS<CAM_S*.9;
+ if(!want){ cam.on=false; scale=fitS; offX=fitX; offY=fitY; return; }
+ const s=CAM_S, hw=stW/2/s, hh=stH/2/s, tx=me.dead?cam.x:me.x, ty=me.dead?cam.y:me.y-30;
+ if(!cam.on){ cam.x=tx; cam.y=ty; cam.on=true; } else { cam.x+=(tx-cam.x)*.12; cam.y+=(ty-cam.y)*.12; }
+ const cx=W<=hw*2?W/2:clamp(cam.x,hw,W-hw), cy=H<=hh*2?H/2:clamp(cam.y,hh,H-hh);
+ scale=s; offX=stW/2-cx*s; offY=stH/2-cy*s; }
 addEventListener('resize',resize); resize();
 try{ new ResizeObserver(resize).observe(document.getElementById('stage')); }catch(e){}
 let paused=false,last=performance.now(),acc=0;
@@ -2099,7 +2176,17 @@ function frame(now){
 /* ---------- UI ---------- */
 const $=id=>document.getElementById(id);
 const isTouch=matchMedia('(pointer:coarse)').matches;
-function showTouch(on){ $('touch').hidden=!(on&&isTouch); }
+function showTouch(on){ touchWanted=on; $('touch').hidden=!(on&&INPUT==='touch'); checkRotate(); }
+function inputChanged(){ $('touch').hidden=!(touchWanted&&INPUT==='touch'); menuHintText(); checkRotate(); if(typeof refreshSetup==='function') refreshSetup(); }
+function menuHintText(){ const h=$('menuHint'); if(!h) return;
+ h.textContent=INPUT==='touch'?'Touch: stick on the left, buttons on the right. Turn your phone sideways to play.':INPUT==='pad'?'Controller: the stick or d-pad moves between buttons, A picks, B goes back. Pads 1 to 4 are players 1 to 4.':'Keyboard and mouse, a controller or touch. Plug in a pad and press any button to use it.'; }
+// phones in portrait: the arena needs the long side, so matches ask to turn the phone and wait until it is turned
+let rotPaused=false;
+function checkRotate(){ const el=$('rotate'); if(!el) return; const need=touchWanted&&INPUT==='touch'&&innerHeight>innerWidth*1.05&&!!G&&!G.demo&&!G.over;
+ el.hidden=!need; if(need&&!NET.role&&!paused){ paused=true; rotPaused=true; } if(!need&&rotPaused){ rotPaused=false; if($('pause').hidden) paused=false; } }
+addEventListener('resize',()=>checkRotate()); addEventListener('orientationchange',()=>setTimeout(checkRotate,200));
+// on a phone, a match goes full screen and asks the browser to hold landscape (browsers that refuse just carry on)
+function phoneFullscreen(){ if(INPUT!=='touch') return; try{ const d=document.documentElement, p=d.requestFullscreen?d.requestFullscreen({navigationUI:'hide'}):null; if(p&&p.then) p.then(()=>{ try{ if(screen.orientation&&screen.orientation.lock) screen.orientation.lock('landscape').catch(()=>{}); }catch(e){} }).catch(()=>{}); }catch(e){} }
 const parseV=v=>v==='true'?true:v==='false'?false:(/^-?\d+$/.test(v)?+v:v);
 document.querySelectorAll('.seg[data-k]').forEach(seg=>{ seg.addEventListener('click',ev=>{ const b=ev.target.closest('button'); if(!b)return; seg.querySelectorAll('button').forEach(x=>x.setAttribute('aria-pressed',String(x===b))); cfg[seg.dataset.k]=parseV(b.dataset.v); saveCfg(); refreshSetup(); }); });
 function syncSegs(){ document.querySelectorAll('.seg[data-k]').forEach(seg=>{ const k=seg.dataset.k; seg.querySelectorAll('button').forEach(x=>x.setAttribute('aria-pressed',String(parseV(x.dataset.v)===cfg[k]))); }); }
@@ -2133,7 +2220,7 @@ function refreshSetup(){
  document.querySelectorAll('#arenaCards .card').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.map===cfg.map)));
  $('teamField').hidden=!(isTeams(cfg.mode)&&cfg.players>1);
  const n=cfg.players, pads=PADS.length; let t='';
- if(n===1) t='You: WASD or Arrows, Space swings, Shift dashes, E blocks. Or any pad.';
+ if(n===1) t=INPUT==='touch'?'You: the stick on the left moves, Swing, Dash and Block are on the right. Hold Swing for a heavy.':INPUT==='pad'?'You: left stick moves, A swings, B dashes, X blocks, Start pauses.':'You: WASD or Arrows, Space swings, Shift dashes, E blocks. Or any pad.';
  else { t='P1: WASD, F swings, G dashes, H blocks (or pad 1). P2: Arrows, J swings, K dashes, L blocks (or pad 2).'; if(n>=3) t+=' P3 and P4 need pads 3 and 4.'; }
  t+=pads?` ${pads} pad${pads>1?'s':''} connected.`:' No pad connected yet; press any button on one.';
  $('setupControls').textContent=t;
@@ -2141,19 +2228,23 @@ function refreshSetup(){
 }
 $('tQuick').onclick=()=>{ cfg.players=1; let played=0; try{ played=+localStorage.getItem('ck-played')||0; }catch(e){} if(played<2){ cfg.diff='chill'; } if(!MODES[cfg.mode]||cfg.mode!=='ffa'&&cfg.mode!=='teams'){ cfg.mode='ffa'; } saveCfg(); start(); };
 $('tCustom').onclick=()=>{ buildSetup(); showScreen('setup'); };
+function buildChips(){ const box=$('modeChips'); if(!box||box.childElementCount) return;
+ for(const k in MODES){ const b=document.createElement('button'); b.type='button'; b.className='chip'; b.dataset.mode=k; b.title=MODES[k].desc; b.appendChild(modeIcon(k)); const t=document.createElement('b'); t.textContent=MODES[k].name; b.appendChild(t);
+  b.onclick=()=>{ cfg.mode=k; saveCfg(); buildSetup(); showScreen('setup'); refreshSetup(); setTimeout(()=>{ const sb=$('startBtn'); if(sb) sb.focus(); },60); }; box.appendChild(b); } }
 $('tOnline').onclick=()=>{ showScreen('online'); $('inviteCard').hidden=true; $('inviteAlt').hidden=true; $('hostBlock').hidden=false; };
 $('tWardrobe').onclick=()=>{ openWardrobe(); };
 $('tHowto').onclick=()=>showScreen('howto');
 $('tSettings').onclick=()=>{ syncSettings(); showScreen('settings'); };
 $('setupBtn').onclick=()=>{ if(NET.role==='client') return; newGame(true); paused=false; $('pauseBtn').hidden=true; showTouch(false); menuMusic(true); buildSetup(); showScreen('setup'); };
 /* ---------- settings ---------- */
-function syncSettings(){ $('sMusic').value=Math.round(SET.music*100); $('sSfx').value=Math.round(SET.sfx*100); $('sShake').value=Math.round(SET.shake*100); $('cFlash').checked=!SET.flash; $('cNames').checked=SET.names==='all'; $('cSprites').checked=!!SET.classic; ['Music','Sfx','Shake'].forEach(k=>$('o'+k).value=$('s'+k).value+'%'); }
+function syncSettings(){ $('sMusic').value=Math.round(SET.music*100); $('sSfx').value=Math.round(SET.sfx*100); $('sShake').value=Math.round(SET.shake*100); $('cFlash').checked=!SET.flash; $('cNames').checked=SET.names==='all'; $('cSprites').checked=!!SET.classic; $('cWhole').checked=!!SET.whole; ['Music','Sfx','Shake'].forEach(k=>$('o'+k).value=$('s'+k).value+'%'); }
 $('sMusic').oninput=e=>{ SET.music=+e.target.value/100; $('oMusic').value=e.target.value+'%'; if(!music.paused) music.volume=SET.music; saveSet(); };
 $('sSfx').oninput=e=>{ SET.sfx=+e.target.value/100; $('oSfx').value=e.target.value+'%'; saveSet(); };
 $('sShake').oninput=e=>{ SET.shake=+e.target.value/100; $('oShake').value=e.target.value+'%'; saveSet(); };
 $('cFlash').onchange=e=>{ SET.flash=!e.target.checked; saveSet(); };
 $('cNames').onchange=e=>{ SET.names=e.target.checked?'all':'near'; saveSet(); };
 $('cSprites').onchange=e=>{ SET.classic=e.target.checked; saveSet(); };
+$('cWhole').onchange=e=>{ SET.whole=e.target.checked; saveSet(); };
 $('tipsReset').onclick=()=>{ TAUGHT.clear(); try{ localStorage.removeItem('ck-taught'); localStorage.setItem('ck-hits','0'); }catch(e){} hitsLanded=0; $('tipsReset').textContent='Tips are back on'; };
 /* ---------- wardrobe ---------- */
 let wardWho=1;
@@ -2200,7 +2291,7 @@ function menuMusic(on){
 // browsers only allow sound after the first click or key press
 const kick=()=>{ if(musicWant&&!muted&&music.paused) menuMusic(true); };
 addEventListener('pointerdown',kick,{once:true}); addEventListener('keydown',kick,{once:true});
-function start(){ if(NET.role==='client') return; audio(); menuMusic(false); newGame(false); showScreen(null); paused=false; $('pauseBtn').hidden=false; showTouch(true); try{ localStorage.setItem('ck-played',String((+localStorage.getItem('ck-played')||0)+1)); }catch(e){}
+function start(){ if(NET.role==='client') return; phoneFullscreen(); audio(); menuMusic(false); newGame(false); showScreen(null); paused=false; $('pauseBtn').hidden=false; showTouch(true); try{ localStorage.setItem('ck-played',String((+localStorage.getItem('ck-played')||0)+1)); }catch(e){}
  G.banner={title:G.mode==='race'?'RACE!':'FIGHT!',sub:G.map.name+'. '+(MODES[G.mode]?MODES[G.mode].name:'')+(G.mode==='ffa'?'. Every knight for themselves.':'.'),col:CUST,t:2,max:2}; sfx('event');
  for(const e of G.ents) if(isMine(e)) e.spot=2.6;
  if(NET.role==='host'){ $('pauseBtn').hidden=true; broadcast({t:'start',setup:netSetup()}); } }
@@ -2435,14 +2526,15 @@ $('lobbyStart').onclick=start; $('lobbySetupBtn').onclick=()=>{ buildSetup(); sh
 $('lobbyLeave').onclick=()=>leaveOnline();
 $('lobbyCopy').onclick=()=>{ const u=inviteUrl(); (navigator.clipboard?navigator.clipboard.writeText(u):Promise.reject()).then(()=>lobbyMsg('Invite link copied. Send it to your friends.'),()=>lobbyMsg('Copy this link: '+u)); };
 { const qj=new URLSearchParams(location.search).get('join'); if(qj){ const code=qj.toUpperCase().replace(/[^A-Z0-9]/g,'').slice(0,5); $('codeIn').value=code; $('inviteCode').textContent=code; $('inviteCard').hidden=false; $('inviteAlt').hidden=false; $('hostBlock').hidden=true; showScreen('online'); setTimeout(()=>$('nameIn').focus(),50); } }
-syncSegs();
+syncSegs(); menuHintText();
+(function waitChips(n){ if(sprReady||n>40) buildChips(); else setTimeout(()=>waitChips(n+1),100); })(0); // icons use the baked knights once they have decoded
 
 newGame(true);
 if(new URLSearchParams(location.search).get('qa')){
  window.CK={G:()=>G,cfg,keys,touch,update,newGame,start,loadProfile,saveProfile,drawKnight:e=>drawKnight(e),sprites:v=>{ SET.classic=!v; },spritesReady:()=>sprReady,sprLoadAll:()=>{ if(!SPR) return Promise.resolve(0); const ent=(pre,o)=>Object.entries(o||{}).map(([q,u])=>[pre+q,u]); const L=[...Object.entries(SPR.helms).flatMap(([h,H])=>ent(h+'.',H)),...ent('plume.',SPR.plumes),...ent('blade.',SPR.blades),...ent('pat.',SPR.pats),...ent('emb.',SPR.embs),...(SPR.cape?[['cape',SPR.cape]]:[])]; return Promise.all(L.map(([k,u])=>{ sprImg(k,u); const im=sprImgs[k]; return im.ok?1:new Promise(r=>{ im.addEventListener('load',()=>setTimeout(r,0)); im.addEventListener('error',r); }); })).then(v=>v.length); },mkKnight:o=>mkKnight(o),withCtx:(c,fn)=>{ const k=ctx; ctx=c; try{ fn(); }finally{ ctx=k; } },startEvent,startMayhem,applyPU,giveWeapon,spawnPickup,MAYHEM,PU,MAPS,WEAPONS,
   adv:n=>{for(let i=0;i<n;i++)update(1/60)},freeze:v=>{paused=v},
   begin:(o={})=>{ Object.assign(cfg,o); if(o.humans!==undefined) cfg.players=o.humans; $('menu').hidden=true; audio(); menuMusic(false); newGame(false); paused=true; $('pauseBtn').hidden=true; G.banner=null; return G; },
-  zoom:(s,gx,gy)=>{ const r=document.getElementById('stage').getBoundingClientRect(); scale=s; offX=r.width/2-gx*s; offY=r.height/2-gy*s; }};
+  zoom:(s,gx,gy)=>{ const r=document.getElementById('stage').getBoundingClientRect(); fitS=s; fitX=r.width/2-gx*s; fitY=r.height/2-gy*s; scale=s; offX=fitX; offY=fitY; }};
 }
 requestAnimationFrame(frame);
 })();

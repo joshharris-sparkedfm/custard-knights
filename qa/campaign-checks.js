@@ -67,6 +67,9 @@
  const reloaded=C.create();check(reloaded.save.checkpoint.phase===1,'A new campaign instance resumes the persisted checkpoint');
  launch('rind',true);check(A.campaign.run.phase===1&&A.campaign.run.boss.hp===4,'Resume rebuilds the second boss phase without stale timers');
  A.open();check(A.campaign.save.results.steve.spoons[0]&&!document.getElementById('campaignMap').hidden,'Completed spoons and chapter map survive return from a battle');
+ check(document.querySelector('#campaignMap .campaign-brief').textContent.includes('Continue: Shield wall'),'Map names the saved boss phase before continuing');
+ A.ui.brief('rind',true);check(document.getElementById('campaignStory').textContent.includes('Continue at Shield wall. Health is restored'),'Resume story explains the checkpoint and restored health');
+ g=launch('rind',true);CK.hurt(g.ents[0],g.ents[1],99,{src:'sword',kb:0,force:true});check(document.getElementById('campaignResult').textContent.includes('Retry: Shield wall'),'Checkpoint failure offers a specifically named retry');
  CK.start();CK.freeze(true);check(!CK.G().campaign&&A.campaign.run===null&&document.getElementById('campaignMap').hidden,'Quick brawl exit clears campaign runtime and overlays');
  clearKeys();return {passed,method:'Scripted engine integration QA: real combat, projectile and crate collision hooks; teleports and direct damage used as deterministic setup. No human playtest or duration validation claimed.'};
 })()

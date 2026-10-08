@@ -1,10 +1,10 @@
 # Custard Knights: master build plan
 
-8 October 2026 · Proposed implementation plan
+8 October 2026 · Design and implementation plan
 
 **Build a funny, readable arena brawler with a solo dessert-war campaign, a compelling party Cup and cosmetics earned entirely through play.**
 
-This is the implementation entry point. It consolidates the research and the subsequent story/cosmetic decisions. Where earlier documents suggest different sequencing, use this plan. Nothing described as new work here has been implemented by the planning exercise.
+This is the implementation entry point. It consolidates the research and the subsequent story/cosmetic decisions. Where earlier documents suggest different sequencing, use this plan. The planning exercise itself made no runtime changes. Subsequent implementation delivered the first campaign chapter, Custard Cup, earned collection and Windows package; consult [launch status](release/LAUNCH-STATUS.md) for current evidence. Remaining proposals are not automatically shipped features.
 
 ## 1. Product decisions
 

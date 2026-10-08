@@ -46,6 +46,6 @@ let encoder,ws;process.on('exit',()=>{chrome.kill();if(encoder)encoder.kill();})
   if(scene.after)await run(scene.after+';0');console.log('Captured '+scene.name+' ('+scene.seconds+'s)');
  }
  encoder.stdin.end();await ended;encoder=null;
- fs.writeFileSync(path.join(OUT,'CAPTURE-NOTES.json'),JSON.stringify({created:new Date().toISOString(),width:1920,height:1080,fps:30,seconds,scenes,source:'actual game viewport; automated bots and scripted keyboard; deterministic 60Hz simulation, rendered 30fps',audio:'owner-confirmed existing Suno menu theme; no synthetic gameplay sound added',limitations:'QA candidate footage for review; not a human playtest, online demonstration or performance benchmark'},null,2));
+ fs.writeFileSync(path.join(OUT,'CAPTURE-NOTES.json'),JSON.stringify({created:new Date().toISOString(),version:JSON.parse(fs.readFileSync(path.join(ROOT,'package.json'),'utf8')).version,indexSha256:require('crypto').createHash('sha256').update(fs.readFileSync(path.join(ROOT,'index.html'))).digest('hex'),width:1920,height:1080,fps:30,seconds,scenes,source:'actual game viewport; automated bots and scripted keyboard; deterministic 60Hz simulation, rendered 30fps',audio:'owner-confirmed existing Suno menu theme; no synthetic gameplay sound added',limitations:'QA candidate footage for review; not a human playtest, online demonstration or performance benchmark'},null,2));
  console.log(output);ws.close();chrome.kill();
 })().catch(error=>{console.error(error);if(ws)ws.close();chrome.kill();if(encoder)encoder.kill();process.exitCode=1;});

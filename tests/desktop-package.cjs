@@ -23,7 +23,7 @@ const hash=value=>createHash('sha256').update(value).digest('hex');
  files.sort((a,b)=>a.file.localeCompare(b.file));
  const pkg=JSON.parse(fs.readFileSync(path.join(root,'package.json')));
  const record={checkedAt:new Date().toISOString(),version:pkg.version,publisher:pkg.author,
-  archiveSha256:hash(fs.readFileSync(archive)),runtimeSourceSha256:hash(JSON.stringify(files)),files};
+  archiveSha256:hash(fs.readFileSync(archive)),executableSha256:hash(fs.readFileSync(path.join(root,'dist','Custard Knights-win32-x64','Custard Knights.exe'))),runtimeSourceSha256:hash(JSON.stringify(files)),files};
  fs.mkdirSync(path.join(root,'build'),{recursive:true});fs.writeFileSync(path.join(root,'build','desktop-evidence.json'),JSON.stringify(record,null,2)+'\n');
  console.log('DESKTOP_PACKAGE_PASS '+JSON.stringify({version:record.version,files:files.length,archiveSha256:record.archiveSha256,runtimeSourceSha256:record.runtimeSourceSha256}));
 })().catch(error=>{console.error(error);process.exitCode=1;});

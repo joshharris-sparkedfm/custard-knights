@@ -4,7 +4,7 @@ Updated 8 October 2026. Developer/publisher: **Sparked FM Ltd**. Recommended bas
 
 ## Required release and current implementation
 
-The earlier arena-only cutline is superseded. The release includes the existing eight arena modes and six arenas, the first eight encounters of **The Great Pudding War**, the three-round **Custard Cup**, and six additional earned cosmetic rewards. All three new systems are integrated and packaged; acceptance evidence is tracked in `LAUNCH-STATUS.md`. The old 0.1.0 downloadable ZIP is an arena-only test candidate. Use the new 0.2.0 candidate only after its accompanying BUILD-INFO identifies the completed source revision.
+The earlier arena-only cutline is superseded. The release includes the existing eight arena modes and six arenas, the first eight encounters of **The Great Pudding War**, the three-round **Custard Cup**, and six additional earned cosmetic rewards. All three new systems are integrated and packaged; acceptance evidence is tracked in `LAUNCH-STATUS.md`. Version 0.2.1 adds the animation, gameplay clarity and desktop journey refinements described in `GAMEPLAY-REVIEW.md`. Use the 0.2.1 candidate with its accompanying BUILD-INFO source revision and hash. The old 0.1.0 archive is arena-only; 0.2.0 is the prior expanded baseline.
 
 The Great Pudding War contains seven main-path encounters and an optional Biscuit Toll, a winding map, story exchanges, independent spoon goals, checkpoints, assistance, Steve's rescue, a two-phase boss and a playable final rescue. Later kingdoms appear in the lore but are not playable chapters in this release. Do not advertise the untested 20–30 minute design target as measured playtime.
 

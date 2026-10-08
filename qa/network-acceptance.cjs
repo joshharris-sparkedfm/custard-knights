@@ -25,22 +25,29 @@ async function browser(name){
  const host=await browser('Host'),guest=await browser('Guest'),late=await browser('Late');
  await late.run("CK.joinOnline('bad');0");check(await late.run("CK.NET.role===null&&document.getElementById('menuMsg').textContent.includes('5 letters')"),'Invalid code rejected without a connection');
  await host.run('CK.cfg.players=7;CK.hostOnline()');await host.wait('CK.NET.peer&&CK.NET.peer.open','signaling ready');const code=await host.run('CK.NET.code');
+ await guest.run("CK.saveProfile(1,{...CK.loadProfile(1),visor:'open'});0");
  await guest.run(`CK.joinOnline(${JSON.stringify(code)})`);await host.wait('CK.NET.players.length===2','guest joins');
  await late.run(`CK.joinOnline(${JSON.stringify(code)})`);await late.wait("CK.NET.role===null&&document.getElementById('menuMsg').textContent.includes('full')",'full-room rejection');
  check(await host.run('CK.NET.players.length===2&&CK.NET.conns.size===1'),'Capacity includes host couch seats and rejects ninth knight');
  await host.run('CK.cfg.players=1;CK.start();CK.freeze(true);0');await guest.wait('!CK.G().demo&&!CK.G().over','round begins');
+ check(await host.run("CK.G().ents.find(e=>e.name==='Guest').kit.visor==='open'")&&await guest.run("CK.G().ents[CK.NET.me].kit.visor==='open'"),'Guest visor choice propagates through hello and authoritative round setup');
+ await guest.run("CK.NET.conn.send({t:'kit',kit:{...CK.loadProfile(1),visor:'invalid'}});0");await host.wait("CK.NET.players.find(p=>p.name==='Guest').kit.visor==='closed'",'invalid remote visor sanitized');check(true,'Malformed remote visor sanitizes to closed');
+ await late.run("CK.saveProfile(1,{...CK.loadProfile(1),visor:'open'});0");
  await late.run(`CK.joinOnline(${JSON.stringify(code)})`);await host.wait('CK.NET.players.length===3','late guest registered');await late.wait('CK.NET.waiting','late join waits');
  check(await late.run('CK.G().demo&&CK.PROG.matches===0'),'Join during match waits safely for the next round');
  await host.run('CK.G().ents.find(e=>e.netId).parries=10;CK.endMatch();0');await guest.wait('CK.G().over','first round results');
  check(await late.run('CK.G().demo&&CK.PROG.matches===0'),'Waiting guest receives no current-round award');
  check(await guest.run('CK.PROG.matches===1&&CK.PROG.ch.parry10===10'),'Active guest receives authoritative reward');
  await guest.run("[...document.querySelectorAll('#end button')].find(b=>b.textContent==='Choose Tea Towel').click();0");await host.wait("CK.NET.players.some(p=>p.name==='Guest'&&p.kit.cape==='teaTowel')",'guest equipped kit propagation');
+ await guest.run("CK.saveProfile(1,{...CK.loadProfile(1),visor:'closed'});0");await host.wait("CK.NET.players.some(p=>p.name==='Guest'&&p.kit.visor==='closed')",'updated visor propagation');
  check(await host.run("CK.G().ents.find(e=>e.name==='Guest').cape!=='teaTowel'"),'Result equip queues guest costume for next round without changing the ended knight');
  for(let i=0;i<3;i++){
   await host.run('CK.rematch();CK.freeze(true);0');const round=await host.run('CK.G().roundId');
   await guest.wait(`CK.G().roundId===${JSON.stringify(round)}&&!CK.G().over`,'rematch guest');await late.wait(`CK.G().roundId===${JSON.stringify(round)}&&!CK.G().over`,'rematch late guest');
   check(await late.run('CK.NET.me>=0&&CK.G().ents[CK.NET.me].netId===CK.NET.peer.id'),'Rematch '+(i+1)+' assigns the late guest its knight');
   if(i===0)check(await host.run("CK.G().ents.find(e=>e.name==='Guest').cape==='teaTowel'")&&await guest.run("CK.G().ents[CK.NET.me].cape==='teaTowel'"),'Guest first-reward equip appears on both peers in the next rematch');
+  if(i===0)check(await host.run("CK.G().ents.find(e=>e.name==='Late').kit.visor==='open'")&&await late.run("CK.G().ents[CK.NET.me].kit.visor==='open'")&&await guest.run("CK.G().ents.find(e=>e.name==='Late').kit.visor==='open'"),'Late join visor survives waiting and appears consistently on all three peers');
+  if(i===0)check(await host.run("CK.G().ents.find(e=>e.name==='Guest').kit.visor==='closed'")&&await guest.run("CK.G().ents[CK.NET.me].kit.visor==='closed'"),'Changed guest visor appears on both peers at rematch');
   await host.run('CK.endMatch();0');await guest.wait('CK.G().over','rematch award');await late.wait('CK.G().over','late rematch award');
  }
  check(await guest.run('CK.PROG.matches===4')&&await late.run('CK.PROG.matches===3'),'Three rematches count once for each participating guest');

@@ -4,7 +4,7 @@ The expanded release and requested animation/gameplay refinements are implemente
 
 The 0.1.0 ZIP is the earlier arena-only test candidate. Version 0.2.1 is the refined expanded candidate; its BUILD-INFO records the final source revision and package hash. A working candidate is not Steam approval or public release.
 
-The subsequent character-model quality request is still in design review. Commit 48f0393 adds an independent editable Blender prototype and model audit, with a comparison in the outputs Model-review folder. The new model is not installed in 0.2.1. Side-view facial readability, full animation, recolour/cosmetic layers and attachment integration remain unfinished; the owner's direction feedback is pending. Model prototype renders must not be used as screenshots of shipped gameplay.
+The owner selected the existing rounded character style and improved sword grip/motion. The independent blockier prototype and subsequent large exposed-eye face are superseded. The outputs Face-review page now offers actual closed-visor and small recessed-eye proofs; the owner requested both as saved wardrobe options, and complete open/closed families are being prepared. The attached shoulder/elbow/wrist renderer is saved and pilot-tested for 0.2.2, but its matching production assets and package are not ready. Version 0.2.1 remains the tested downloadable baseline. See FACE-AND-GRIP-REVIEW.md. Controlled model/pose reviews must not be described as shipped gameplay or human playtests.
 
 | Area | Implemented | Evidence / remaining work |
 |---|---|---|

@@ -1,0 +1,30 @@
+const passed=[],check=(v,s)=>{if(!v)throw Error(s);passed.push(s);};
+await CK.sprLoadAll();
+const K=window.CK_QA_VISOR==='open'?CK_SPRITES.knightOpen:CK_SPRITES.knight;check(K.rig?.version===1&&K.helms.great.armfreeBase,'Real optional arm-free atlas and sockets are present');
+CK.begin({humans:0});CK.sprites(true);CK.G().clock=1;CK.G().over=false;
+const cv=document.createElement('canvas');cv.width=cv.height=400;const c=cv.getContext('2d');
+const original=CanvasRenderingContext2D.prototype.drawImage;let seen=new Set();CanvasRenderingContext2D.prototype.drawImage=function(im,...args){if(im instanceof HTMLImageElement)seen.add(im.src);return original.call(this,im,...args);};
+const make=(face,patch={})=>CK.mkKnight({id:42,face,kit:{visor:window.CK_QA_VISOR||'closed',helm:'great',metal:'steel',plume:'feather'},blade:'steel',...patch});
+const render=e=>{seen.clear();c.resetTransform();c.clearRect(0,0,400,400);const before=JSON.stringify(e);CK.withCtx(c,()=>{c.save();c.translate(200,240);CK.drawKnight(e);c.restore();});check(JSON.stringify(e)===before,'Render preserves entity '+e.face.toFixed(2)+' '+(e.wpn?.kind||e.blade)+' '+(e.swing>0?e.swingKind:e.charge>0?'charge':'idle'));check(c.getTransform().isIdentity&&c.globalAlpha===1&&c.globalCompositeOperation==='source-over','Renderer restores canvas state');return new Set(seen);};
+try{
+const states=[['idle',{}],['charge',{charge:.35}],['light',{swingKind:'light',swingDur:.22,swing:.135}],['heavy',{swingKind:'heavy',swingDur:.3,swing:.215,heavyReach:true}],['stab',{swingKind:'stab',swingDur:.18,swing:.095}],['bash',{swingKind:'bash',swingDur:.18,swing:.095}],['recovery',{swingKind:'light',swingDur:.22,swing:.025}]];
+for(const face of [Math.PI/2,Math.PI/4,0,-Math.PI/4,-Math.PI/2,-Math.PI*.75,Math.PI,Math.PI*.75])for(const [label,patch] of states){const used=render(make(face,patch));check(used.has(K.helms.great.armfreeBase.u)&&!used.has(K.helms.great.base.u),'One arm-free body selected '+face.toFixed(2)+' '+label);check(!Object.values(K.blades).some(L=>used.has(L.u)),'No duplicate baked weapon '+face.toFixed(2)+' '+label);}
+for(const blade of ['goldenWhisk','spoon','fish'])for(const face of [Math.PI/2,0,-Math.PI/2,Math.PI])render(make(face,{blade,swingKind:'stab',swingDur:.18,swing:.095}));
+for(const kind of ['bow','bombs','cannon'])for(const face of [Math.PI/2,0,-Math.PI/2,Math.PI]){const used=render(make(face,{wpn:{kind,lvl:1,ammo:3}}));check(used.has(K.helms.great.base.u)&&!used.has(K.helms.great.armfreeBase.u),'Held '+kind+' retains complete body fallback');}
+const great=K.helms.great;for(const key of ['armfreeBase','armfreeMask','armfreeMetal']){const value=great[key];try{delete great[key];const used=render(make(0));check(used.has(great.base.u),'Missing '+key+' atomically keeps complete fallback body');}finally{great[key]=value;}}
+const rig=K.rig;try{K.rig={version:1,weaponArm:[]};const used=render(make(0));check(used.has(great.base.u),'Missing frame sockets keep complete fallback body');}finally{K.rig=rig;}
+const H=window.CK_QA_VISOR==='open'?CK_SPRITES.heroOpen:CK_SPRITES.hero;if(H?.rig&&H.helms.great.armfreeBase){let used;for(let i=0;i<80;i++){used=render({...make(Math.PI/4),hero:true});if(used.has(H.helms.great.armfreeBase.u))break;await new Promise(r=>setTimeout(r,50));}check(used.has(H.helms.great.armfreeBase.u),'High-resolution hero arm-free atlas decodes and renders');}
+if(window.CK_FULL_RIG){
+ const H=window.CK_QA_VISOR==='open'?CK_SPRITES.heroOpen:CK_SPRITES.hero,helms=Object.keys(K.helms);check(helms.length===6,'All six authored baked helmets are present');check(H?.cell===384&&H.rig?.version===1,'Final high-resolution hero uses 384px cells and real sockets');
+ for(const helm of helms){
+  const KH=K.helms[helm],HH=H.helms[helm];check(['armfreeBase','armfreeMask','armfreeMetal'].every(k=>KH[k]?.r.length===85&&HH?.[k]?.r.length===6),'Complete gameplay and hero arm-free frame sets: '+helm);
+  for(const metal of ['steel','gold','dark'])for(const face of [Math.PI/2,Math.PI/4,0,-Math.PI/4,-Math.PI/2])for(const [label,patch] of states){const used=render(make(face,{kit:{visor:window.CK_QA_VISOR||'closed',helm,metal,plume:'feather'},...patch}));check(used.has(KH.armfreeBase.u)&&!used.has(KH.base.u),'Gameplay '+helm+' '+metal+' '+label+' selects the matching arm-free body');if(metal!=='steel')check(used.has(KH.armfreeMetal.u),'Gameplay metal recolour uses matching arm-free mask');}
+  let used;for(let i=0;i<80;i++){used=render(make(Math.PI/4,{hero:1,kit:{visor:window.CK_QA_VISOR||'closed',helm,metal:'gold',plume:'feather'}}));if(used.has(HH.armfreeBase.u)&&used.has(HH.armfreeMetal.u))break;await new Promise(r=>setTimeout(r,50));}check(used.has(HH.armfreeBase.u)&&used.has(HH.armfreeMetal.u),'Hero '+helm+' optional images decode and select atomically');
+  for(const metal of ['steel','gold','dark'])for(const face of [Math.PI/2,Math.PI/4,0,-Math.PI/4,-Math.PI/2]){const e=make(face,{hero:1,kit:{visor:window.CK_QA_VISOR||'closed',helm,metal,plume:'feather'}}),used=render(e);check(used.has(HH.armfreeBase.u)&&!used.has(HH.base.u),'Hero '+helm+' '+metal+' keeps only one weapon arm');CK.G().over=true;CK.G().winners=[e];try{const win=render(e);check(win.has(HH.armfreeBase.u),'Hero victory retains arm-free '+helm);}finally{CK.G().over=false;CK.G().winners=[];}}
+ }
+ for(const helm of ['roosterCrown','riceGuard'])for(const hero of [0,1]){const used=render(make(Math.PI/4,{hero,blade:'goldenWhisk',kit:{visor:window.CK_QA_VISOR||'closed',helm,metal:'gold',plume:'feather'}}));check(used.has((hero?H:K).helms.great.armfreeBase.u),'Earned '+helm+' overlays the single mounted arm at '+(hero?'hero':'gameplay')+' scale');}
+ for(const face of [Math.PI/2,Math.PI/4,0,-Math.PI/4,-Math.PI/2,Math.PI]){const used=render(make(face,{fx:{steve:10},swingKind:'light',swingDur:.22,swing:.135}));check(used.has(K.helms.great.armfreeBase.u),'Steve mount carries matching arm-free rider');}
+}
+check(K.cell===160,'Canonical160px gameplay scale remains unchanged');
+return {passed,checks:passed.length};
+}finally{CanvasRenderingContext2D.prototype.drawImage=original;CK.freeze(true);}

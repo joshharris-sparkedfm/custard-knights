@@ -18,7 +18,7 @@ const hash=value=>createHash('sha256').update(value).digest('hex');
   }else if(hash(fs.readFileSync(path.join(root,name)))!==digest)throw Error('Source changed since packaging: '+name);
   files.push({file:name,sha256:digest,bytes:data.length});
  }
- for(const required of ['desktop/icon.png','desktop/assets.cjs','game/campaign.js','game/collection.js','game/cup.js','vendor/lilita-one-LICENSE.txt','vendor/peerjs-LICENSE.txt'])
+ for(const required of ['desktop/icon.png','desktop/assets.cjs','game/campaign.js','game/collection.js','game/cup.js','sprites/knight-open.js','sprites/hero-open.js','vendor/lilita-one-LICENSE.txt','vendor/peerjs-LICENSE.txt'])
   if(!files.some(row=>row.file===required))throw Error('Required runtime file absent: '+required);
  files.sort((a,b)=>a.file.localeCompare(b.file));
  const pkg=JSON.parse(fs.readFileSync(path.join(root,'package.json')));

@@ -20,6 +20,7 @@ let encoder,ws;process.on('exit',()=>{chrome.kill();if(encoder)encoder.kill();})
  await send('Page.navigate',{url:'file:///'+path.join(ROOT,'index.html').replace(/\\/g,'/')+'?qa=1'});
  for(let i=0;i<80;i++){await sleep(100);if(await run('!!window.CK'))break;}
  await run('CK.freeze(true);CK.sprLoadAll()');
+ if(!await run("CK.saveProfile(1,{...CK.loadProfile(1),visor:'open'});CK.sprLoadVisors()"))throw Error('Complete open visor assets are required for this capture');
  const scenes=[
  {name:'courtyard-brawl',seconds:5,setup:"CK.begin({map:'courtyard',mode:'ffa',humans:0});CK.adv(480)"},
  {name:'pie-heist',seconds:5,setup:"CK.begin({map:'factory',mode:'heist',humans:0});CK.adv(720)"},
@@ -46,6 +47,6 @@ let encoder,ws;process.on('exit',()=>{chrome.kill();if(encoder)encoder.kill();})
   if(scene.after)await run(scene.after+';0');console.log('Captured '+scene.name+' ('+scene.seconds+'s)');
  }
  encoder.stdin.end();await ended;encoder=null;
- fs.writeFileSync(path.join(OUT,'CAPTURE-NOTES.json'),JSON.stringify({created:new Date().toISOString(),version:JSON.parse(fs.readFileSync(path.join(ROOT,'package.json'),'utf8')).version,indexSha256:require('crypto').createHash('sha256').update(fs.readFileSync(path.join(ROOT,'index.html'))).digest('hex'),width:1920,height:1080,fps:30,seconds,scenes,source:'actual game viewport; automated bots and scripted keyboard; deterministic 60Hz simulation, rendered 30fps',audio:'owner-confirmed existing Suno menu theme; no synthetic gameplay sound added',limitations:'QA candidate footage for review; not a human playtest, online demonstration or performance benchmark'},null,2));
+ fs.writeFileSync(path.join(OUT,'CAPTURE-NOTES.json'),JSON.stringify({created:new Date().toISOString(),version:JSON.parse(fs.readFileSync(path.join(ROOT,'package.json'),'utf8')).version,indexSha256:require('crypto').createHash('sha256').update(fs.readFileSync(path.join(ROOT,'index.html'))).digest('hex'),spriteSha256:Object.fromEntries(['knight','hero','knight-open','hero-open','chicken'].map(name=>[name,require('crypto').createHash('sha256').update(fs.readFileSync(path.join(ROOT,'sprites',name+'.js'))).digest('hex')])),width:1920,height:1080,fps:30,seconds,scenes,source:'actual game viewport; automated bots and scripted keyboard; deterministic 60Hz simulation, rendered 30fps',audio:'owner-confirmed existing Suno menu theme; no synthetic gameplay sound added',limitations:'QA candidate footage for review; not a human playtest, online demonstration or performance benchmark'},null,2));
  console.log(output);ws.close();chrome.kill();
 })().catch(error=>{console.error(error);if(ws)ws.close();chrome.kill();if(encoder)encoder.kill();process.exitCode=1;});

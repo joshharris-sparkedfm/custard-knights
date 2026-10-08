@@ -57,9 +57,11 @@ process.on('exit',()=>{ try{chrome.kill()}catch(e){} });
  const results=[];
  const run=async(o)=>{ const r=await evalJs(`QA.runMatch(${JSON.stringify(o)})`); results.push(r); fs.writeFileSync(path.join(OUT,'raw.json'),JSON.stringify(results)); const me=r.ents.find(e=>e.human===1); console.log(`${o.map.padEnd(9)} ${String(o.persona||'bots').padEnd(9)} ${o.diff.padEnd(6)} ${(r.simMs/1000).toFixed(1)}s  human ${me?me.score+'/'+me.deaths:'-'}  errors ${r.errors.length}`); return r; };
  if(mode==='perf'){
-  for(const map of maps){ await evalJs(`CK.begin({map:'${map}',diff:'spicy',humans:0}); CK.freeze(false); 0`); await sleep(1500);
+  const visorMix=process.env.CK_PERF_VISORS==='1';
+  if(visorMix&&!await evalJs('CK.sprLoadVisors()',true))throw Error('Mixed-visor performance check requires both complete open families');
+  for(const map of maps){ await evalJs(`CK.begin({map:'${map}',diff:'spicy',humans:0});${visorMix?"CK.G().ents.forEach((e,i)=>{e.kit.visor=i%2?'open':'closed';e.kit.helm=['great','sallet','horned','crest','kettle','barbute'][i%6]});":''} CK.freeze(false); 0`); await sleep(1500);
    const fps=await evalJs(`new Promise(res=>{let n=0,t0=performance.now();const f=()=>{n++; if(performance.now()-t0>4000) res(n/((performance.now()-t0)/1000)); else requestAnimationFrame(f)}; requestAnimationFrame(f)})`,true);
-   console.log(map.padEnd(9),'fps',fps.toFixed(1)); results.push({map,fps}); await evalJs('CK.freeze(true);0'); }
+   console.log(map.padEnd(9),'fps',fps.toFixed(1)); results.push({map,fps,visorMix}); await evalJs('CK.freeze(true);0'); }
  } else {
   const plan=[]; const modeRows=[];
   const MODESET=['lks','kotp','heist','race','hotpie','flags'];
@@ -70,7 +72,7 @@ process.on('exit',()=>{ try{chrome.kill()}catch(e){} });
  }
  fs.writeFileSync(path.join(OUT,'raw.json'),JSON.stringify(results));
  if(mode!=='perf') fs.writeFileSync(path.join(OUT,'summary.md'),summarise(results));
- else fs.writeFileSync(path.join(OUT,'summary.md'),'# Frame rate\n\n'+results.map(r=>`- ${r.map}: ${r.fps.toFixed(1)} fps`).join('\n')+'\n');
+ else fs.writeFileSync(path.join(OUT,'summary.md'),'# Frame rate\n\n'+(results[0]?.visorMix?'All six helmets; open and closed visor families mixed in each arena.\n\n':'')+results.map(r=>`- ${r.map}: ${r.fps.toFixed(1)} fps`).join('\n')+'\n');
  console.log('\nwrote',OUT); ws.close(); chrome.kill(); process.exit(mode!=='perf'&&results.some(r=>r.errors.length||!r.over)?1:0);
 })().catch(e=>{ console.error(e); chrome.kill(); process.exit(1); });
 

@@ -34,6 +34,8 @@ async function run({app,win,options}) {
    const assert=(ok,label)=>{if(!ok)throw Error(label);};
    await document.fonts.ready;await CK.sprLoadAll();
    assert(CK.spritesReady(),'Sprites unavailable offline');
+   assert(await CK.sprLoadVisors(),'Open visor sprite families unavailable offline');
+   assert(CK.visorAssets().knightReady&&CK.visorAssets().heroReady,'Both open visor resolutions must decode');
    assert(document.fonts.check('16px "Lilita One"'),'Font unavailable offline');
    assert(typeof require==='undefined'&&typeof process==='undefined','Renderer Node access');
    for(const url of ['desktop/main.cjs','package.json','custard://other/index.html']){
@@ -55,8 +57,8 @@ async function run({app,win,options}) {
     CK.G().ents.find(e=>e.human).parries=10;CK.G().time=0.01;CK.adv(2);
     assert(CK.G().over&&CK.PROG.matches===1,'Match award absent');
     assert(CK.PROG.unlocked.includes('cape:checker'),'Earned challenge unlock absent');
-    CK.saveProfile(1,{...CK.loadProfile(1),cape:'checker'});
-    CK.saveProfile(2,{...CK.loadProfile(2),cape:'checker'});
+    CK.saveProfile(1,{...CK.loadProfile(1),cape:'checker',visor:'open'});
+    CK.saveProfile(2,{...CK.loadProfile(2),cape:'checker',visor:'closed'});
     const choice=[...document.querySelectorAll('#end button')].find(button=>button.textContent==='Choose Burnt Toast');
     assert(!!choice,'First collection reward choice absent');choice.click();
     assert(CK.loadProfile(1).cape==='burntToast'&&CK.owned('cape','burntToast'),'Collection reward was not earned/equipped');
@@ -83,8 +85,10 @@ async function run({app,win,options}) {
     const expected=JSON.parse(localStorage.getItem('desktop-acceptance-expected'));
     assert(expected&&JSON.stringify(snapshot())===JSON.stringify(expected),'Earned progress, equipped cosmetic or settings changed after restart: '+JSON.stringify({expected,actual:snapshot()}));
     assert(CK.loadProfile(1).cape==='burntToast'&&CK.loadProfile(2).cape==='checker','Equipped legacy/collection reward lost');
+    assert(CK.loadProfile(1).visor==='open'&&CK.loadProfile(2).visor==='closed','Independent visor choices lost');
     assert(CK.collection().pinned==='golden-whisk'&&CK.collection().progress['golden-whisk']===1,'Pinned partial goal lost');
     assert(CK.collection().presets[0].cape==='burntToast','Saved outfit preset lost');
+    assert(CK.collection().presets[0].visor==='open','Saved visor preset lost');
     assert(CK.adventure.campaign.save.assist&&CK.adventure.campaign.unlocked('puddings'),'Campaign spoons/unlock/assistance lost');
     document.getElementById('tSettings').click();
     assert(document.getElementById('sMusic').value==='23','Saved music volume not restored into controls');

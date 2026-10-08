@@ -1,7 +1,7 @@
 // Actual renderer contact sheets and combat presentation acceptance.
 // Usage: node qa/animation-review.cjs refined [classic]
 const fs=require('fs'),path=require('path'),os=require('os'),{spawn}=require('child_process');
-const ROOT=path.resolve(__dirname,'..'),CHROME=process.env.CHROME||'C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe';
+const ROOT=path.resolve(process.env.CK_RUNTIME_ROOT||path.join(__dirname,'..')),CHROME=process.env.CHROME||'C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe';
 const sleep=ms=>new Promise(r=>setTimeout(r,ms)),browsers=[],passed=[];
 const OUT=path.join(__dirname,'results',new Date().toISOString().replace(/[:.]/g,'-').slice(0,19)+'-animation-'+(process.argv[2]||'review')+'-'+(process.argv[3]||'sprite'));fs.mkdirSync(OUT,{recursive:true});
 const check=(ok,label)=>{if(!ok)throw Error(label);passed.push(label);console.log('PASS: '+label);};

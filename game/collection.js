@@ -10,8 +10,8 @@
  {id:'steve-strut',kind:'pose',value:'steveStrut',name:'Steve Strut',goal:4,milestones:['steve-rescue','cup-complete'],description:'An extremely dignified chicken strut on the results podium.'}
  ];
  const ids=items.map(x=>x.id),count=n=>Number.isSafeInteger(n)&&n>=0?Math.min(n,1e8):0;
- const profileKeys=['helm','plume','metal','emblem','color','cape','blade','chick','pose'];
- const cleanOutfit=p=>p&&typeof p==='object'&&!Array.isArray(p)?Object.fromEntries(profileKeys.filter(k=>typeof p[k]==='string'&&p[k].length<50&&/^[\w#-]+$/.test(p[k])).map(k=>[k,p[k]])):null;
+ const profileKeys=['helm','plume','metal','emblem','color','cape','blade','chick','pose','visor'];
+ const cleanOutfit=p=>p&&typeof p==='object'&&!Array.isArray(p)?Object.fromEntries(profileKeys.filter(k=>typeof p[k]==='string'&&p[k].length<50&&/^[\w#-]+$/.test(p[k])).map(k=>[k,k==='visor'?(p[k]==='open'?'open':'closed'):p[k]])):null;
  function normalize(raw){const r=raw&&typeof raw==='object'&&!Array.isArray(raw)?raw:{};return {version:1,completed:count(r.completed),choice:ids.slice(0,2).includes(r.choice)?r.choice:null,pinned:ids.includes(r.pinned)?r.pinned:null,progress:Object.fromEntries(items.map(i=>[i.id,Math.min(i.goal,count(r.progress&&r.progress[i.id]))])),owned:[...new Set((Array.isArray(r.owned)?r.owned:[]).filter(x=>ids.includes(x)))],receipts:[...new Set((Array.isArray(r.receipts)?r.receipts:[]).filter(x=>typeof x==='string'&&x.length>0&&x.length<=100))].slice(-512),milestones:[...new Set((Array.isArray(r.milestones)?r.milestones:[]).filter(x=>['rice-chapter','steve-rescue','cup-complete'].includes(x)))],presets:Array.from({length:3},(_,i)=>cleanOutfit(r.presets&&r.presets[i]))};}
  function owns(raw,kind,value){const item=items.find(x=>x.kind===kind&&x.value===value);return !!item&&normalize(raw).owned.includes(item.id);}
  function pin(raw,id){const s=normalize(raw);if(ids.includes(id)&&!s.owned.includes(id))s.pinned=id;return s;}

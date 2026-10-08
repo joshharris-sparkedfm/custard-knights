@@ -36,6 +36,9 @@ if(!process.argv.includes('--electron-journey')){
   await run(`for(const id of ['cFlash']){const e=document.getElementById(id);e.checked=true;e.dispatchEvent(new Event('change',{bubbles:true}));}const s=document.getElementById('sShake');s.value='0';s.dispatchEvent(new Event('input',{bubbles:true}));CK.toMenu();document.getElementById('tParty').click()`);await pad(0);await screen('party-joined-800');await pad(9);
   report.findings.controllerParty=await run(`({seats:CK.seats(),humans:CK.G().ents.filter(e=>e.human).length,demo:CK.G().demo})`);
   await run(`CK.toMenu();CK.openWardrobe()`);await screen('wardrobe-top-800');
+  await run(`document.querySelector('[data-w="visor"] [data-v="closed"]').focus()`);await pad(15);await pad(0);
+  report.findings.visorController=await run(`(async()=>({value:CK.loadProfile(1).visor,focus:document.activeElement.dataset.v,assets:await CK.sprLoadVisors()}))()`);
+  await screen('wardrobe-open-visor-800');
   await run(`const b=document.querySelector('#collectionGoals .ck-presets button');b.focus();b.scrollIntoView({block:'center'})`);await screen('wardrobe-presets-800');await pad(0);
   report.findings.wardrobeFocus=await run(`({active:document.activeElement.tagName,inside:document.getElementById('wardrobe').contains(document.activeElement),scroll:document.getElementById('wardrobe').scrollTop})`);await pad(13);await screen('wardrobe-after-save-controller-down-800');
   await run(`CK.toMenu();CK.adventure.ui.open('banquet')`);await screen('campaign-map-800');
@@ -46,6 +49,7 @@ if(!process.argv.includes('--electron-journey')){
   fs.writeFileSync(path.join(dest,'report.json'),JSON.stringify(report,null,2));console.log(JSON.stringify(report,null,2));
   if(process.argv.includes('--assert-ux')){
    const checks=[['Controller checkbox',report.findings.controllerCheckbox.checked],['Controller range',Number(report.findings.controllerRange.after)<Number(report.findings.controllerRange.before)&&report.findings.controllerRange.focused==='sShake'],['Wardrobe focus',report.findings.wardrobeFocus.inside],['Small menu overflow',report.screens['menu-800'].horizontal[0]<=report.screens['menu-800'].horizontal[1]+1],['Controller party',report.findings.controllerParty.humans===1&&!report.findings.controllerParty.demo],['Cup ready focus',report.findings.cupFocus.dataset==='local:1-ready']];
+   checks.push(['Controller visor',report.findings.visorController.value==='open'&&report.findings.visorController.focus==='open'],['Offline visor assets',report.findings.visorController.assets]);
    const failed=checks.filter(([,ok])=>!ok);if(failed.length)throw Error('Journey regression: '+failed.map(([label])=>label).join(', '));console.log('DESKTOP_JOURNEY_PASS '+checks.length);
   }
   win.close();app.quit();

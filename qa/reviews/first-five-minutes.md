@@ -1,5 +1,7 @@
 # Custard Knights: first five minutes, playtest review
 
+> Historical code/screenshot review from 26 September 2026, not a human playtest. Gamepads, teaching, menus and other features have since changed. Use the [master build plan](../../BUILD-PLAN.md) for current priorities.
+
 Reviewer: playtest lead agent, 26 Sep 2026. Built from the code, README and screenshots; the agent did not run the game.
 
 Numbers that shape everything below: a match lasts 180s. Chaos fills at `dt/115` plus 0.025 per knockout, so Silly arrives at about 0:35 and Unhinged at about 1:10. Bots default to Spicy and the arena to "Surprise me". There is no gamepad support anywhere in the file.

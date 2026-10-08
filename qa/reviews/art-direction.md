@@ -1,5 +1,7 @@
 # Custard Knights: art direction review
 
+> Historical review from 26 September 2026. Character rendering and other features have since changed. Preserve this as evidence of that review; use the [master build plan](../../BUILD-PLAN.md) for current graphics work and the [cosmetic specification](../../COSMETIC-PROGRESSION.md) for the current no-microtransactions requirement.
+
 Reviewer: art direction agent, 26 Sep 2026, from screenshots and the drawing code.
 
 ## 1. Character models

@@ -1,5 +1,7 @@
 # Custard Knights combat review
 
+> Historical review from 26 September 2026. Several proposed mechanics and fixes are now implemented. Findings and numeric targets describe that review, not a fresh test of the current build. Use the [master build plan](../../BUILD-PLAN.md) for current priorities.
+
 Reviewer: combat design agent, 26 Sep 2026, based on the code and the QA run 2026-09-26T08-09-52.
 
 ## 1. What's wrong, ranked by impact

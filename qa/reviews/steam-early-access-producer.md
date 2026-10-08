@@ -1,5 +1,7 @@
 # Custard Knights: Steam Early Access readiness review
 
+> Historical review from 26 September 2026. Its schedule and scope are superseded by the [master build plan](../../BUILD-PLAN.md). This report does not verify a current Steam release or production readiness.
+
 Reviewer: producer agent, 26 Sep 2026. Read the README, all of index.html, qa/run.js, qa/agents.js and the 26 Sep QA summary.
 
 ## 1. Gaps for a credible Early Access launch

@@ -1,8 +1,10 @@
 # Custard Knights
 
+**Development plan:** [Master build plan](BUILD-PLAN.md), covering gameplay feel, graphics and animation, the solo campaign, party Cups, earned cosmetics and validation. This is the current planning entry point; its proposed features are not yet implemented.
+
 A cartoon top-down arena brawler for 8 knights. You fight bots, a friend on the same keyboard, friends online, or all of them at once. The power-ups start sensible and get sillier as the match goes on.
 
-This is a browser prototype built to test the feel before a proper build (Godot 4, online play, proximity voice).
+This is a playable browser prototype with local and online play. The current plan builds on it to validate combat, presentation, a solo campaign and party Cups before deciding on production packaging or an engine change.
 
 ![Castle Courtyard](docs/m_courtyard.png)
 
@@ -26,7 +28,7 @@ To host it for free, turn on **GitHub Pages** (Settings → Pages → Deploy fro
 - **Modes:** Free-for-all, Red vs Blue (humans on the same team or split up), Last Knight Standing (three lives, then you are a chicken who can still peck), King of the Pie (stand alone on a giant pie that moves every 30 seconds, first to 60), Pie Heist (Red vs Blue, steal the enemy pie and carry it home, first to 3) Chicken Racing (everyone is a chicken, four laps round the arena, peck to shove) Flag Frenzy (Red vs Blue over three flags; stand by one to turn it your colour, held flags score, first to 100) and Hot Pie (a pie with a lit fuse, whack someone to pass it, boom costs a life, last knight standing wins). Team modes mark each side's base on the floor.
 - **Combat:** light swings, a charged heavy that breaks blocks, dash with i-frames and a dash-attack stab, a parry window when you block just as they swing (with a riposte), a guard meter, shield bash, ring-out knockback that grows as you get hurt, hitstun, and two seconds of real spawn protection that ends the moment you attack
 - **Bots:** Chill telegraphs every swing with a "!", Spicy fights fair, Brutal punishes whiffs, parries mashers and charges heavies. Only so many bots press a human at once.
-- **Menu:** Quick brawl, Custom brawl with mode and arena cards, chaos speed and match length, an online screen with an invite landing card, a Wardrobe with a live knight preview (helm, plume, metal, emblem, colour, name, for two local players), How to play, and Settings (music, sounds, screen shake, reduce flashing, show every name)
+- **Menu:** Quick brawl, Custom brawl with mode and arena cards, chaos speed and match length, an online screen with an invite landing card, a Wardrobe with a live knight preview (helm, plume, metal, emblem, colour, name, for four local players), How to play, and Settings (music, sounds, screen shake, reduce flashing, show every name)
 - **Earn everything:** matches pay out Custard Coins (3 for playing, 1 per KO, 5 for a win, plus mode bonuses). An 18-tier track unlocks cape patterns, blade skins (wooden, baguette, fish, candy cane, spoon), extra colours and chicken skins for when you are a chicken, and six challenges unlock specific items early. Everything is cosmetic. There is no shop, no currency to buy and nothing that changes how you fight.
 - **Stacking:** power-ups stack. A second Long Sword makes it longer still (three levels), Zoomy Boots get zoomier, Bubble Shield holds up to three bubbles, and durations add up. The Custard Potion gives a heart now and one every six seconds for a while.
 - **Pads:** up to four gamepads. Left stick moves, right stick aims, A swings, B dashes, X blocks, Y shouts, Start pauses. The menus work from the d-pad.
@@ -34,7 +36,7 @@ To host it for free, turn on **GitHub Pages** (Settings → Pages → Deploy fro
 - **Bots:** Chill, Spicy or Brutal. They find their way through the mazes, grab weapons, block and dodge spikes.
 - **Shouts:** speech bubbles fade with distance, standing in for proximity chat
 - **Online play:** one player hosts a room and gets a 5-letter code and invite link. Up to 8 knights join from their own browsers and bots fill the empty spots. The host's browser runs the match. Players connect directly through [PeerJS](https://peerjs.com/), so there's no server to run.
-- **The Power of Steve:** once a match, an announcer drops a golden egg. Whoever grabs it rides Steve, a giant cockerel, for 14 seconds: faster, bigger, flies over pits and tramples everyone.
+- **The Power of Steve:** once a match, an announcer drops a golden egg. Whoever grabs it rides Steve, a giant cockerel, for 10 seconds: faster, bigger, flies over pits and tramples everyone.
 - **The Power of Norr:** now and then a shepherd's pie appears somewhere in the arena. Eat it and you let out a NORRRRRRRR that blasts everyone nearby across the map, then for 12 seconds you are bigger, faster, hit for double and roar again every couple of seconds. Bots panic and run.
 - **Finding yourself:** your knight has a YOU tag (P1 and P2 on a shared keyboard), a coloured ring at its feet, and a spotlight with a big "THIS IS YOU" pointer at the start of the match and every time you respawn
 - **Knights:** each knight has a flowing cape, a heraldic emblem on tabard and shield, glowing eyes that glare when swinging and squint when blocking, and one of six helmets (great helm, sallet, horned, crested, kettle hat, barbute) with feather, twin, mohawk, flame or brush plumes
@@ -46,7 +48,7 @@ To host it for free, turn on **GitHub Pages** (Settings → Pages → Deploy fro
 |---|---|---|---|---|---|
 | Just me | WASD or Arrows | Space / J | Shift / K | E / L | 1–4 |
 | Player 1 | WASD | F | G | H | 1–4 |
-| Player 2 | Arrows | K | L | J | 7–0 |
+| Player 2 | Arrows | J | K | L | 7–0 |
 
 Touch devices get an on-screen stick plus Swing, Dash and Block buttons. Pause with P or Esc. Dashing carries you over pits.
 
@@ -62,12 +64,15 @@ Touch devices get an on-screen stick plus Swing, Dash and Block buttons. Pause w
 
 ## QA agents
 
-`node qa/run.js` plays full matches in headless Chrome with scripted player personas (rusher, camper, collector, pacifist, fuzzer, idle, parrier, pro) and writes a summary of pace, hazard deaths, spawn deaths, what kills people, combat feel and every mode ending cleanly. See `qa/README.md`. Five reviewer reports (combat, level design, art direction, Steam Early Access readiness, first five minutes) are in `qa/reviews/`.
+`node qa/run.js` plays full matches in headless Chrome with scripted player personas (rusher, camper, collector, pacifist, fuzzer, idle, parrier, pro) and writes a summary of pace, hazard deaths, spawn deaths, what kills people, combat feel and every mode ending cleanly. See [QA documentation](qa/README.md). Five historical reviewer reports (combat, level design, art direction, Steam Early Access readiness, first five minutes) are in `qa/reviews/`; several of their proposed fixes are already implemented. Use the master build plan for current priorities.
 
-## Ideas for next
+## Planned development
 
-- Proximity voice for online matches
-- Desktop build for Steam (Electron plus Steamworks), bundled fonts, Steam lobbies
-- Taunts and victory poses in the Wardrobe
-- More weapons
-- Wire the power of Norr up to a proper roar recording
+These documents describe proposed work, not released features:
+
+- [Master build plan](BUILD-PLAN.md): gameplay and graphics improvements, delivery sequence, 24 work items and acceptance checks.
+- [Player-behaviour roadmap](PLAYER-BEHAVIOUR-ROADMAP.md): research, retention hypotheses, experiments and measurement.
+- [The Great Pudding War](THE-GREAT-PUDDING-WAR.md): dessert kingdoms, story map, first chapter and bosses.
+- [Cosmetic progression](COSMETIC-PROGRESSION.md): desirable gameplay-earned rewards, previews and collection goals. No microtransactions or combat advantages.
+
+First fix session/reward reliability, then improve combat/readability, validate the campaign and Cup slices, and add the initial cosmetic collection. Additional kingdoms, recording features and Steam packaging follow the plan's evidence and capacity gates. Proximity voice and a speculative engine rewrite are deferred.

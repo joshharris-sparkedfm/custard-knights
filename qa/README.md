@@ -1,5 +1,7 @@
 # QA agents
 
+For current implementation and verification priorities, start with the [master build plan](../BUILD-PLAN.md). Reports in `reviews/` and dated results in `results/` are historical evidence, not a current defect list or proof of a fresh test run. Automated personas cannot establish human enjoyment, sharing or retention; the [player-behaviour roadmap](../PLAYER-BEHAVIOUR-ROADMAP.md) defines the proposed human research.
+
 Automated playtesters for Custard Knights. They run the real game in headless Chrome, drive the human knight through the real key state with scripted personas, and measure what happened.
 
 ```

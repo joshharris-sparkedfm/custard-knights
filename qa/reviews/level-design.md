@@ -1,5 +1,7 @@
 # Custard Knights: level and spawn design review
 
+> Historical review from 26 September 2026. Recheck its map and spawn findings against current code before acting. Use the [master build plan](../../BUILD-PLAN.md) for current priorities and verification requirements.
+
 Reviewer: level design agent, 26 Sep 2026. Every proposed quadrant was checked with a script against the real mirroring: each has 8 spawns, every floor tile can be reached, spawns are at least 7.6 tiles apart, and no spawn is within 3 tiles of a pit or lava. The moat map was checked in both bridge phases.
 
 ## Three code problems that cause spawn deaths

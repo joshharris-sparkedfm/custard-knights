@@ -46,8 +46,9 @@ process.on('exit',()=>{ try{chrome.kill()}catch(e){} });
   }
   console.log('Gameplay screenshots: '+OUT);ws.close();chrome.kill();return;
  }
- if(mode==='regression'){
-  const result=await evalJs(fs.readFileSync(path.join(__dirname,'release-checks.js'),'utf8'),true);
+ if(mode==='regression'||mode==='cup'||mode==='campaign'){
+  const result=await evalJs(fs.readFileSync(path.join(__dirname,mode==='campaign'?'campaign-checks.js':mode==='cup'?'cup-checks.js':'release-checks.js'),'utf8'),true);
+  fs.writeFileSync(path.join(OUT,'raw.json'),JSON.stringify(result,null,2));
   fs.writeFileSync(path.join(OUT,'summary.md'),'# Release regressions\n\n'+result.passed.map(x=>'- PASS: '+x).join('\n')+'\n');
   console.log(JSON.stringify(result,null,2));ws.close();chrome.kill();return;
  }

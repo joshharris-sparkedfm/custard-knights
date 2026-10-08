@@ -11,10 +11,13 @@
    unlocked:[...new Set((Array.isArray(p.unlocked)?p.unlocked:[]).filter(x=>Object.values(items).includes(x)))],
    receipts:[...new Set((Array.isArray(p.receipts)?p.receipts:[]).filter(x=>typeof x==='string'&&x.length<=100))].slice(-128)};
  }
+ function validRows(rows){
+  return Array.isArray(rows)&&rows.length>0&&rows.length<=8&&new Set(rows.map(r=>r&&r.id)).size===rows.length&&rows.every(r=>r&&Number.isInteger(r.id)&&r.id>=0&&r.id<8&&Number.isInteger(r.coins)&&r.coins>=0&&r.coins<=10000&&typeof r.won==='boolean'&&['ffa','teams','lks','kotp','heist','race','flags','hotpie'].includes(r.mode)&&r.mode===rows[0].mode&&['parries','lava','ringouts'].every(k=>r[k]===undefined||Number.isSafeInteger(r[k])&&r[k]>=0));
+ }
  function apply(raw,id,rows){
   const p=normalize(raw), got=[];
   if(typeof id!=='string'||!id||id.length>100||p.receipts.includes(id)||!Array.isArray(rows)||!rows.length) return {progress:p,applied:false,coins:0,got};
-  if(rows.some(r=>!r||!Number.isInteger(r.coins)||r.coins<0||r.coins>10000||typeof r.won!=='boolean'||!['ffa','teams','lks','kotp','heist','race','flags','hotpie'].includes(r.mode))) return {progress:p,applied:false,coins:0,got};
+  if(!validRows(rows)) return {progress:p,applied:false,coins:0,got};
   // One completion and the best coin award per household; all local knights contribute challenges.
   const coins=Math.max(...rows.map(r=>r.coins)), before=Math.min(18,Math.floor(p.earned/25));
   p.earned+=coins;p.matches++;if(rows.some(r=>r.won))p.wins++;p.receipts.push(id);p.receipts=p.receipts.slice(-128);
@@ -28,5 +31,5 @@
   for(const k of Object.keys(goals))if(p.ch[k]>=goals[k]&&!p.unlocked.includes(items[k])){p.unlocked.push(items[k]);got.push(items[k].split(':'));}
   return {progress:p,applied:true,coins,got,before,after:Math.min(18,Math.floor(p.earned/25))};
  }
- return {normalize,apply};
+ return {normalize,apply,validRows};
 });

@@ -1,0 +1,102 @@
+{
+  "publisher": "Sparked FM Ltd",
+  "checked": "2026-10-08",
+  "sourceMasters": [
+    {
+      "file": "landscape.png",
+      "width": 1672,
+      "height": 941
+    },
+    {
+      "file": "portrait.png",
+      "width": 1024,
+      "height": 1536
+    },
+    {
+      "file": "hero.png",
+      "width": 2206,
+      "height": 713
+    },
+    {
+      "file": "icon.png",
+      "width": 1254,
+      "height": 1254
+    }
+  ],
+  "assets": [
+    {
+      "file": "header-capsule.png",
+      "width": 920,
+      "height": 430,
+      "sha256": "4c767cff3f8c4df20371b97c85b909a41ea3b78ffe7c321e9eb38bfced9dbdc7"
+    },
+    {
+      "file": "library-header.png",
+      "width": 920,
+      "height": 430,
+      "sha256": "4c767cff3f8c4df20371b97c85b909a41ea3b78ffe7c321e9eb38bfced9dbdc7"
+    },
+    {
+      "file": "main-capsule.png",
+      "width": 1232,
+      "height": 706,
+      "sha256": "ddb05b9e1588442ab84d6da60b9839357436fb269e0636e110793fb248be1897"
+    },
+    {
+      "file": "vertical-capsule.png",
+      "width": 748,
+      "height": 896,
+      "sha256": "20b613754fc7ddeee334ffc4daec17ee2bc55dd0335cdd852221f430b86146af"
+    },
+    {
+      "file": "library-capsule.png",
+      "width": 600,
+      "height": 900,
+      "sha256": "088afce139660070d392d4bb90c931bca58e0a395d09341751704846f45c897b"
+    },
+    {
+      "file": "library-hero.png",
+      "width": 3840,
+      "height": 1240,
+      "sha256": "16390cf371bc7fee5c5593ef2823b9af9c18cab49538f123717808824927eed7"
+    },
+    {
+      "file": "small-capsule.png",
+      "width": 462,
+      "height": 174,
+      "sha256": "4dffca32430f59390ad0a18c10ab468f517a6f6fe1ab96137ea6d45d3561e242"
+    },
+    {
+      "file": "library-logo.png",
+      "width": 1280,
+      "height": 720,
+      "transparent": true,
+      "sha256": "c8cbb82e6245adbd49b7822b29b7e1f7a24423243a1f2dd83b5f6451b9809fcf"
+    },
+    {
+      "file": "shortcut-icon.png",
+      "width": 256,
+      "height": 256,
+      "sha256": "83cd7f608fbb128b4717410174fd7ec9caa10e9b45857d2c3ba1e7e396779911"
+    },
+    {
+      "file": "app-icon.jpg",
+      "width": 184,
+      "height": 184,
+      "sha256": "284335f8e92d25ee1d4b459020a4dfc360df2414fb996e19962ae09fd207a5b5"
+    },
+    {
+      "file": "app.ico",
+      "frames": [
+        16,
+        24,
+        32,
+        48,
+        64,
+        128,
+        256
+      ],
+      "sha256": "41c5319e18b0170dbfaba56b6f7ba0223449fb5fd1319f5e317d313825c94577"
+    }
+  ]
+}

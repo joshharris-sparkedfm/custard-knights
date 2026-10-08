@@ -235,7 +235,7 @@ body[data-input=pad] :is(button,.card,.tile,input,select):focus{outline:4px soli
           <button class="mbtn primary" id="tQuick" type="button"><i><svg viewBox="0 0 24 24"><path d="M4 20 L14 10 M12 4 L20 4 L20 12 M9 15 L5 19" stroke="currentColor" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></i><span><b>Quick brawl</b><small>You against seven bots. One click.</small></span></button>
           <div class="mgrid">
             <button class="mbtn" id="tCustom" type="button"><i><svg viewBox="0 0 24 24"><path d="M4 7h10M18 7h2M4 17h2M10 17h10" stroke="currentColor" stroke-width="3" stroke-linecap="round"/><circle cx="16" cy="7" r="2.6" fill="none" stroke="currentColor" stroke-width="2.6"/><circle cx="8" cy="17" r="2.6" fill="none" stroke="currentColor" stroke-width="2.6"/></svg></i><span><b>Modes &amp; arenas</b><small>8 modes, 6 arenas, bots, up to 4 on one screen</small></span></button>
-            <button class="mbtn" id="tOnline" type="button"><i><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5" fill="none" stroke="currentColor" stroke-width="2.6"/><path d="M3.5 12h17M12 3.5c3 3 3 14 0 17M12 3.5c-3 3-3 14 0 17" fill="none" stroke="currentColor" stroke-width="2.2"/></svg></i><span><b>Online</b><small>Host a room, send friends a link</small></span></button>
+            <button class="mbtn" id="tOnline" type="button"><i><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5" fill="none" stroke="currentColor" stroke-width="2.6"/><path d="M3.5 12h17M12 3.5c3 3 3 14 0 17M12 3.5c-3 3-3 14 0 17" fill="none" stroke="currentColor" stroke-width="2.2"/></svg></i><span><b>Online</b><small>Host a room. Invite your friends.</small></span></button>
             <button class="mbtn" id="tWardrobe" type="button"><i><svg viewBox="0 0 24 24"><path d="M6 20V11a6 6 0 0 1 12 0v9Z" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linejoin="round"/><path d="M8 12h8" stroke="currentColor" stroke-width="3" stroke-linecap="round"/><path d="M12 5V2" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"/></svg></i><span><b>Wardrobe</b><small>Helms, plumes, capes, blades, chickens</small></span></button>
             <button class="mbtn" id="tParty" type="button"><i><svg viewBox="0 0 24 24"><path d="M7 8h10a4 4 0 0 1 4 4v3a3 3 0 0 1-5.4 1.8L14.5 15h-5l-1.1 1.8A3 3 0 0 1 3 15v-3a4 4 0 0 1 4-4Z" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linejoin="round"/><path d="M8 10.5v3M6.5 12h3" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/><circle cx="16" cy="11" r="1.2" fill="currentColor"/><circle cx="18" cy="13.2" r="1.2" fill="currentColor"/></svg></i><span><b>Couch party</b><small id="partyPads">2 to 4 players on one screen</small></span></button>
           </div>
@@ -380,6 +380,15 @@ body[data-input=pad] :is(button,.card,.tile,input,select):focus{outline:4px soli
 <script src="sprites/knight.js"></script>
 <script src="sprites/chicken.js"></script>
 <script src="game/progression.js"></script>
+<script src="game/collection.js"></script>
+<script src="game/collection-art.js"></script>
+<script src="game/collection-ui.js"></script>
+<script src="game/campaign.js"></script>
+<script src="game/campaign-ui.js"></script>
+<script src="game/campaign-integration.js"></script>
+<script src="game/preferences.js"></script>
+<script src="game/cup.js"></script>
+<script src="game/cup-ui.js"></script>
 <script src="audio/soundtrack.js"></script>
 <script>
 (()=>{
@@ -460,26 +469,28 @@ const isTeams=m=>!!(MODES[m]&&MODES[m].teams); const RACE_LAPS=4;
 const raceRank=(a,b)=>((b.finished?1:0)-(a.finished?1:0))||(a.finished&&b.finished?a.finished-b.finished:0)||(b.laps-a.laps)||(b.cp-a.cp);
 const CHAOS_PLUS=['mirror','swapparty'];
 const byTier=t=>Object.keys(PU).filter(k=>PU[k].t===t&&(cfg.chaosPlus||!CHAOS_PLUS.includes(k)));
-const HELMS=['great','sallet','horned','crest','kettle','barbute'], PLUMES=['feather','twin','mohawk','flame','brush'], METAL_KEYS=['steel','gold','dark'];
+const HELMS=['great','sallet','horned','crest','kettle','barbute','roosterCrown','riceGuard'], PLUMES=['feather','twin','mohawk','flame','brush'], METAL_KEYS=['steel','gold','dark'];
 // Cosmetics are earned by playing. Nothing here changes how a knight fights: capes, blades, colours and chicken skins are drawing only.
-const CAPES=['plain','stripes','chevron','checker','stars','trim'], BLADES=['steel','wooden','baguette','fish','candy','spoon'], CHICKS=['hen','rooster','rubber','knight','golden','custard'];
+const CAPES=['plain','stripes','chevron','checker','stars','trim','teaTowel','burntToast'], BLADES=['steel','wooden','baguette','fish','candy','spoon','goldenWhisk'], CHICKS=['hen','rooster','rubber','knight','golden','custard'];
 const EXTRA_COLS=['#C9B9E6','#8FF0C8','#C98A4B'], PLAYER_COLS=FFA_COLS.concat(EXTRA_COLS);
 const TIER_COST=25, TRACK=[['cape','stripes'],['blade','wooden'],['chick','rooster'],['color','#C9B9E6'],['cape','chevron'],['blade','baguette'],['chick','rubber'],['cape','checker'],['blade','fish'],['color','#8FF0C8'],['chick','knight'],['cape','stars'],['blade','candy'],['chick','golden'],['cape','trim'],['blade','spoon'],['color','#C98A4B'],['chick','custard']];
 const CHALLENGES={firstWin:{text:'Win any match',item:['blade','wooden'],goal:1},parry10:{text:'Parry 10 swings',item:['cape','checker'],goal:10},ringout3:{text:'Knock 3 knights into pits in one match',item:['blade','fish'],goal:3},raceWin:{text:'Win a Chicken Race',item:['chick','golden'],goal:1},lksWin:{text:'Be the last knight standing',item:['cape','stars'],goal:1},lava5:{text:'Send 5 knights into lava',item:['blade','candy'],goal:5}};
+let COLLECTION=CKCollection.normalize();try{COLLECTION=CKCollection.normalize(JSON.parse(localStorage.getItem('ck-collection')||'null'));}catch(e){}
+function saveCollection(s){COLLECTION=CKCollection.normalize(s);try{localStorage.setItem('ck-collection',JSON.stringify(COLLECTION));}catch(e){} }
 const PROG=CKProgress.normalize(null);
 try{ Object.assign(PROG,CKProgress.normalize(JSON.parse(localStorage.getItem('ck-progress')||'{}'))); }catch(e){} function saveProg(){ try{ localStorage.setItem('ck-progress',JSON.stringify(PROG)); }catch(e){} }
 const tierOf=()=>Math.min(TRACK.length,Math.floor(PROG.earned/TIER_COST));
-function owned(kind,v){ if(kind==='cape'&&v==='plain'||kind==='blade'&&v==='steel'||kind==='chick'&&v==='hen'||kind==='color'&&FFA_COLS.includes(v)) return true; if(!['cape','blade','chick','color'].includes(kind)) return true;
+function owned(kind,v){ if(CKCollection.items.some(i=>i.kind===kind&&i.value===v))return CKCollection.owns(COLLECTION,kind,v); if(kind==='cape'&&v==='plain'||kind==='blade'&&v==='steel'||kind==='chick'&&v==='hen'||kind==='color'&&FFA_COLS.includes(v)) return true; if(!['cape','blade','chick','color'].includes(kind)) return true;
  const i=TRACK.findIndex(t=>t[0]===kind&&t[1]===v); if(i>=0&&i<tierOf()) return true; return PROG.unlocked.includes(kind+':'+v); }
-function lockText(kind,v){ const i=TRACK.findIndex(t=>t[0]===kind&&t[1]===v); const ch=Object.values(CHALLENGES).find(c=>c.item[0]===kind&&c.item[1]===v); const parts=[]; if(i>=0) parts.push('tier '+(i+1)); if(ch) parts.push(ch.text); return parts.join(' or '); }
-const DEFAULT_PROFILE={helm:'great',plume:'feather',metal:'steel',emblem:'star',color:'#FF5A4E',cape:'plain',blade:'steel',chick:'hen'};
-function cleanKit(k,strict){ k=k&&typeof k==='object'?k:{}; const o={helm:HELMS.includes(k.helm)?k.helm:DEFAULT_PROFILE.helm,plume:PLUMES.includes(k.plume)?k.plume:DEFAULT_PROFILE.plume,metal:METAL_KEYS.includes(k.metal)?k.metal:DEFAULT_PROFILE.metal,emblem:EMBLEMS.includes(k.emblem)?k.emblem:DEFAULT_PROFILE.emblem,color:PLAYER_COLS.includes(k.color)?k.color:DEFAULT_PROFILE.color,cape:CAPES.includes(k.cape)?k.cape:'plain',blade:BLADES.includes(k.blade)?k.blade:'steel',chick:CHICKS.includes(k.chick)?k.chick:'hen'};
- if(strict){ if(!owned('cape',o.cape)) o.cape='plain'; if(!owned('blade',o.blade)) o.blade='steel'; if(!owned('chick',o.chick)) o.chick='hen'; if(!owned('color',o.color)) o.color=DEFAULT_PROFILE.color; } return o; }
+function lockText(kind,v){ const item=CKCollection.items.find(i=>i.kind===kind&&i.value===v);if(item)return item.goal+' completions with this goal pinned'; const i=TRACK.findIndex(t=>t[0]===kind&&t[1]===v); const ch=Object.values(CHALLENGES).find(c=>c.item[0]===kind&&c.item[1]===v); const parts=[]; if(i>=0) parts.push('tier '+(i+1)); if(ch) parts.push(ch.text); return parts.join(' or '); }
+const DEFAULT_PROFILE={helm:'great',plume:'feather',metal:'steel',emblem:'star',color:'#FF5A4E',cape:'plain',blade:'steel',chick:'hen',pose:'plain'};
+function cleanKit(k,strict){ k=k&&typeof k==='object'?k:{}; const o={helm:HELMS.includes(k.helm)?k.helm:DEFAULT_PROFILE.helm,plume:PLUMES.includes(k.plume)?k.plume:DEFAULT_PROFILE.plume,metal:METAL_KEYS.includes(k.metal)?k.metal:DEFAULT_PROFILE.metal,emblem:EMBLEMS.includes(k.emblem)?k.emblem:DEFAULT_PROFILE.emblem,color:PLAYER_COLS.includes(k.color)?k.color:DEFAULT_PROFILE.color,cape:CAPES.includes(k.cape)?k.cape:'plain',blade:BLADES.includes(k.blade)?k.blade:'steel',chick:CHICKS.includes(k.chick)?k.chick:'hen',pose:k.pose==='steveStrut'?'steveStrut':'plain'};
+ if(strict){ if(!owned('helm',o.helm))o.helm='great';if(!owned('pose',o.pose))o.pose='plain'; if(!owned('cape',o.cape)) o.cape='plain'; if(!owned('blade',o.blade)) o.blade='steel'; if(!owned('chick',o.chick)) o.chick='hen'; if(!owned('color',o.color)) o.color=DEFAULT_PROFILE.color; } return o; }
 const PROFILES=[null,null,null];
 function loadProfile(n){ if(!PROFILES[n]){ let k=null; try{ k=JSON.parse(localStorage.getItem('ck-profile'+(n>1?n:''))||'null'); }catch(e){} PROFILES[n]=cleanKit(k,true); } return PROFILES[n]; }
-function saveProfile(n,k){ PROFILES[n]=cleanKit(k); try{ localStorage.setItem('ck-profile'+(n>1?n:''),JSON.stringify(PROFILES[n])); }catch(e){} return PROFILES[n]; }
+function saveProfile(n,k){ PROFILES[n]=cleanKit(k,true); try{ localStorage.setItem('ck-profile'+(n>1?n:''),JSON.stringify(PROFILES[n])); }catch(e){} if(n===1&&NET.role==='client'&&NET.conn&&NET.conn.open)try{NET.conn.send({t:'kit',kit:PROFILES[n]});}catch(e){} return PROFILES[n]; }
 // give a knight a chosen look; in free-for-all it also takes the chosen colour and hands its old one to whoever had it
-function applyKit(e,k,ents,mode){ k=cleanKit(k); e.kit={helm:k.helm,plume:k.plume,metal:k.metal}; e.emblem=k.emblem; e.cape=k.cape; e.blade=k.blade; e.chickSkin=k.chick;
+function applyKit(e,k,ents,mode){ k=cleanKit(k); e.kit={helm:k.helm,plume:k.plume,metal:k.metal}; e.emblem=k.emblem; e.cape=k.cape; e.blade=k.blade; e.chickSkin=k.chick;e.pose=k.pose;
  if(!isTeams(mode)){ const o=ents.find(x=>x!==e&&x.color===k.color); if(o){ o.color=e.color; o.plume=o.color===CUST?PINK:CUST; } e.color=k.color; e.plume=e.color===CUST?PINK:CUST; } }
 const SOLID=new Set(['#','h','w','x']);
 
@@ -491,9 +502,9 @@ const norm=(x,y)=>{const d=Math.hypot(x,y)||1;return{x:x/d,y:y/d}};
 const cx=x=>clamp(x,T*1.5,W-T*1.5), cy=y=>clamp(y,OY+T*1.5,H-T*1.5);
 
 let cfg={mode:'ffa',players:1,diff:'spicy',map:'random',chaosPlus:false,chaosSpeed:'normal',length:180,teamSplit:false}, showHit=false;
-try{ Object.assign(cfg,JSON.parse(localStorage.getItem('ck-cfg')||'{}')); }catch(e){} function saveCfg(){ try{ localStorage.setItem('ck-cfg',JSON.stringify(cfg)); }catch(e){} }
+try{ Object.assign(cfg,CKPreferences.config(JSON.parse(localStorage.getItem('ck-cfg')||'{}'),Object.keys(MODES),Object.keys(MAPS))); }catch(e){} function saveCfg(){ try{ localStorage.setItem('ck-cfg',JSON.stringify(cfg)); }catch(e){} }
 const SET={music:.55,sfx:1,shake:1,flash:true,names:'near',classic:false,whole:false};
-try{ Object.assign(SET,JSON.parse(localStorage.getItem('ck-settings')||'{}')); }catch(e){} function saveSet(){ try{ localStorage.setItem('ck-settings',JSON.stringify(SET)); }catch(e){} }
+try{ Object.assign(SET,CKPreferences.settings(JSON.parse(localStorage.getItem('ck-settings')||'{}'))); }catch(e){} function saveSet(){ try{ localStorage.setItem('ck-settings',JSON.stringify(SET)); }catch(e){} }
 // what a first-timer has already been taught, so tips show once
 const TAUGHT=new Set(); try{ (JSON.parse(localStorage.getItem('ck-taught')||'[]')).forEach(k=>TAUGHT.add(k)); }catch(e){}
 function taught(k){ TAUGHT.add(k); try{ localStorage.setItem('ck-taught',JSON.stringify([...TAUGHT])); }catch(e){} }
@@ -502,7 +513,7 @@ const NET={role:null,peer:null,conn:null,conns:new Map(),code:'',players:[],me:-
 // the host records every sound and effect so joined players can replay them
 function netfx(name,args){ if(NET.role==='host'&&G&&!G.demo) NET.fxq.push([name,Array.from(args)]); }
 const isMine=e=>NET.role==='client'?e.id===NET.me:(!!e.human&&!e.netId);
-let G=null, muted=false, AC=null;
+let G=null, ADVENTURE=null, muted=false, AC=null;
 
 /* ---------- audio ---------- */
 function audio(){ if(!AC){ try{AC=new (window.AudioContext||window.webkitAudioContext)()}catch(e){} } if(AC&&AC.state==='suspended')AC.resume(); }
@@ -563,7 +574,7 @@ function spikeState(){ const p=G.clock%3.4; return p>=2.8?'up':p>=2.25?'warn':'d
 
 /* ---------- setup ---------- */
 function newGame(demo,setup){
- const remote=(!demo&&!setup&&NET.role==='host')?NET.players.slice(1):[];
+ const remote=(!demo&&!setup&&NET.role==='host')?NET.players.slice(1).filter(p=>cupAllowsPeer(p.id)):[];
  const mode=setup?setup.mode:demo?'ffa':cfg.mode, humans=(demo||setup)?0:Math.min(8,Math.max(0,cfg.players)+remote.length), names=shuffle(NAMES), ents=[];
  const mapKey=setup?setup.mapKey:(demo||cfg.map==='random')?pick(Object.keys(MAPS)):cfg.map, map=MAPS[mapKey];
  const grid=buildGrid(map.q), spawns=[], pads=[], floor=[], crateHp={}, portals=[];
@@ -602,7 +613,7 @@ function newGame(demo,setup){
  if(mode==='heist'){ const mid=pts=>pts.reduce((a,p)=>({x:a.x+p.x/pts.length,y:a.y+p.y/pts.length}),{x:0,y:0}); const rh=nearestFloor(Math.min(...left.map(p=>p.x))+T,mid(left).y), bh=nearestFloor(Math.max(...right.map(p=>p.x))-T,mid(right).y);
   G.pies=[{team:'red',hx:rh.x,hy:rh.y,x:rh.x,y:rh.y,carrier:null,home:true,dropT:0},{team:'blue',hx:bh.x,hy:bh.y,x:bh.x,y:bh.y,carrier:null,home:true,dropT:0}]; }
  if(mode==='race'){ G.cps=[nearestFloor(W/2,OY+T*1.5),nearestFloor(W-T*1.5,OY+(H-OY)/2),nearestFloor(W/2,H-T*1.5),nearestFloor(T*1.5,OY+(H-OY)/2)]; }
- else for(const e of ents){ if(!e.human) continue; if(e.netId){ const rp=remote.find(p=>p.id===e.netId); if(rp&&rp.kit) applyKit(e,rp.kit,ents,mode); } else applyKit(e,loadProfile(e.human),ents,mode); }
+ else if(!setup) for(const e of ents){ if(!e.human) continue; if(e.netId){ const rp=remote.find(p=>p.id===e.netId); if(rp&&rp.kit) applyKit(e,rp.kit,ents,mode); } else applyKit(e,loadProfile(e.human),ents,mode); }
  for(let i=0;i<46;i++) G.amb.push({x:Math.random()*W,y:OY+Math.random()*(H-OY),s:rand(1.5,3.5),p:Math.random()*6});
  drawBg();
 }
@@ -610,8 +621,8 @@ function newGame(demo,setup){
 /* ---------- helpers ---------- */
 const isBoss=e=>G.ev&&G.ev.kind==='boss'&&G.ev.owner===e;
 const isChicken=e=>!!((G.ev&&G.ev.kind==='chicken'&&G.ev.owner!==e)||e.chick);
-const isAlly=(a,b)=>a===b||(isTeams(G.mode)&&a.team===b.team);
-const maxHp=e=>isBoss(e)?8:3;
+const isAlly=(a,b)=>a===b||((isTeams(G.mode)||G.campaign)&&a.team===b.team);
+const maxHp=e=>e.campaignMaxHp||(isBoss(e)?8:3);
 const inPlay=e=>!e.chick;
 const alive=e=>!e.dead&&e.falling<=0;
 function sizeMul(e){let s=1; if(e.fx.steve)s*=1.3; if(e.fx.norr)s*=1.3; if(e.fx.giant)s*=1.65; if(isBoss(e))s*=1.9; if(G.ev&&G.ev.kind==='tiny'&&G.ev.owner!==e)s*=.6; return s}
@@ -623,7 +634,7 @@ function feed(text,mine){ G.feed.unshift({text,t:5,mine:!!mine}); G.feed.length=
 // one-off teaching tips for the local player, queued so they never pile up
 function tip(key,text){ if(G.demo||NET.role==='client'&&false) return; if(TAUGHT.has(key)) return; taught(key); G.tips.push(text); }
 const nm=(e,mid)=>e.name==='You'&&mid?'you':e.name;
-function logEv(k,d){ if(G.demo||G.log.length>=20000) return; d.k=k; d.t=Math.round(G.clock*100)/100; G.log.push(d); }
+function logEv(k,d){ if(G.campaign&&ADVENTURE)ADVENTURE.event(k,d); if(G.demo||G.log.length>=20000) return; d.k=k; d.t=Math.round(G.clock*100)/100; G.log.push(d); }
 const hb=e=>e.human?'h':'b';
 function burst(x,y,n,cols,spd=260,kind='conf'){ netfx('burst',arguments); for(let i=0;i<n;i++){const a=Math.random()*Math.PI*2,s=rand(.3,1)*spd; G.parts.push({x,y,vx:Math.cos(a)*s,vy:Math.sin(a)*s,life:rand(.5,1.1),max:1.1,col:pick(cols),size:rand(4,8),kind,rot:Math.random()*6,vr:rand(-12,12)})} }
 function dust(x,y,n=6,col='rgba(255,247,224,.7)'){ netfx('dust',arguments); for(let i=0;i<n;i++)G.parts.push({x:x+rand(-8,8),y:y+rand(-4,4),vx:rand(-60,60),vy:rand(-60,20),life:rand(.3,.6),max:.6,col,size:rand(5,10),kind:'puff'}) }
@@ -778,6 +789,7 @@ function hurt(b,a,dmg,o={}){
  if(b.fx.shield){ b.shieldN=Math.max(0,(b.shieldN||1)-1); if(b.shieldN<=0) delete b.fx.shield; b.inv=.3; sfx('shield'); burst(b.x,b.y-10,18,[TEAL,CREAM],240); floater(b.x,b.y-50,'BLOCKED',TEAL); return; }
  if(isChicken(b)&&a) dmg=99;
  const nearH=(a&&a.human)||b.human?1:G.ents.some(h=>h.human&&alive(h)&&Math.hypot(h.x-b.x,h.y-b.y)<400)?.5:0;
+ if(G.campaign&&ADVENTURE)ADVENTURE.event("hit",{v:b.id,a:a?a.id:-1,damage:dmg,src:o.src||"sword"});
  b.hp-=dmg; b.flash=.15; b.inv=.3; if(nearH) G.hitstop=Math.max(G.hitstop||0,(o.src==='heavy'?.11:.07)*nearH); G.shake=Math.max(G.shake,(a&&a.human)||b.human?8:4);
  if(dmg>0) sfx('hit',a&&a!==b?a.combo:0); else sfx('bash');
  burst(b.x,b.y-12,8,[CREAM,b.color],200); fxStar(b.x,b.y-18,26); sparks(b.x,b.y-14,7,[CREAM,CUST],380);
@@ -813,7 +825,7 @@ function startSwing(e,kind){ const S=SWINGS[kind]; e.swingKind=kind; (e.swings||
  if(e.protect>0){ e.protect=0; e.inv=Math.min(e.inv,.3); } delete e.fx.ghost;
  G.stats.swings[hb(e)]++; if(kind==='heavy')G.stats.heavies++; else if(kind==='stab')G.stats.stabs++; else if(kind==='bash')G.stats.bashes++;
  if(e.human||kind!=='light') sfx(kind==='bash'?'bash':'swing'); }
-function clang(b,x,y){ sfx('clang'); G.stats.blocks++; burst(x,y-12,10,[CUST,CREAM],260); sparks(x,y-12,14,[CUST,CREAM,'#FFFFFF'],480); fxStar(x,y-12,20); floater(b.x,b.y-50,'CLANG',CREAM); }
+function clang(b,x,y){ if(G.campaign&&ADVENTURE)ADVENTURE.event("block",{id:b.id}); sfx('clang'); G.stats.blocks++; burst(x,y-12,10,[CUST,CREAM],260); sparks(x,y-12,14,[CUST,CREAM,'#FFFFFF'],480); fxStar(x,y-12,20); floater(b.x,b.y-50,'CLANG',CREAM); }
 const swingArc=(a,el)=>{ const S=SWINGS[a.swingKind]||SWINGS.light, p=clamp(el/(a.swingDur||S.dur),0,1), a0=a.face+S.a0; return [a0,a0+S.arc*(1-Math.pow(1-p,3))]; };
 function doHit(a,el){
  const S=SWINGS[a.swingKind]||SWINGS.light, R=reach(a)*S.reachM*(a.swingKind==='heavy'&&a.heavyReach?1.3:1), ar=a.r*sizeMul(a), [a0,a1]=swingArc(a,el);
@@ -829,7 +841,7 @@ function doHit(a,el){
   if(blockedFrom(b,a.x,a.y)){
    const n=norm(dx,dy);
    if(S.guardBreak){ b.guardLock=.8; b.guard=0; b.blocking=false; G.stats.guardBreaks++; floater(b.x,b.y-50,'GUARD BROKEN',TOM); sfx('guard'); }
-   else if(parryOk(b)){ a.stun=.5; a.swing=0; a.charge=0; a.atkCd=.6; a.vx-=n.x*260; a.vy-=n.y*260; b.riposte=1.5; b.guard=Math.min(1.5,b.guard+.5); G.stats.parries++; b.parries=(b.parries||0)+1; if(isMine(b)) G.stats.myParries=(G.stats.myParries||0)+1; sfx('parry'); burst((a.x+b.x)/2,(a.y+b.y)/2-12,16,[CUST,CREAM,'#FFFFFF'],320); sparks((a.x+b.x)/2,(a.y+b.y)/2-12,20,[CUST,'#FFFFFF'],520); fxStar((a.x+b.x)/2,(a.y+b.y)/2-12,30); floater(b.x,b.y-50,'PARRY!',CUST); if(b.human||a.human) G.hitstop=Math.max(G.hitstop||0,.11); return; }
+   else if(parryOk(b)){ a.stun=.5; a.swing=0; a.charge=0; a.atkCd=.6; a.vx-=n.x*260; a.vy-=n.y*260; b.riposte=1.5; b.guard=Math.min(1.5,b.guard+.5); G.stats.parries++; if(G.campaign&&ADVENTURE)ADVENTURE.event("parry",{id:b.id}); b.parries=(b.parries||0)+1; if(isMine(b)) G.stats.myParries=(G.stats.myParries||0)+1; sfx('parry'); burst((a.x+b.x)/2,(a.y+b.y)/2-12,16,[CUST,CREAM,'#FFFFFF'],320); sparks((a.x+b.x)/2,(a.y+b.y)/2-12,20,[CUST,'#FFFFFF'],520); fxStar((a.x+b.x)/2,(a.y+b.y)/2-12,30); floater(b.x,b.y-50,'PARRY!',CUST); if(b.human||a.human) G.hitstop=Math.max(G.hitstop||0,.11); return; }
    else { a.vx-=n.x*200; a.vy-=n.y*200; b.vx+=n.x*100; b.vy+=n.y*100; a.atkCd=.6; a.swing=Math.min(a.swing,.04); b.guard=Math.max(0,b.guard-.35); clang(b,(a.x+b.x)/2,(a.y+b.y)/2); return; }
   }
   let dmg=S.dmg; if(dmg>0&&(a.fx.giant||isBoss(a)||a.fx.norr)) dmg=2;
@@ -851,6 +863,7 @@ function hitCrate(c,r,d){
  const k=r*COLS+c; G.crateHp[k]-=d; const p=centerOf(c,r); sfx('crate');
  burst(p.x,p.y-10,8,['#C98A4B','#8A5A2E',CREAM],200);
  if(G.crateHp[k]<=0){ G.grid[r][c]='.'; G.flows.clear(); burst(p.x,p.y-10,22,['#C98A4B','#8A5A2E','#E0B07A'],300); if(Math.random()<.4) spawnPickup(p); }
+ if(G.campaign&&ADVENTURE)ADVENTURE.event("crate",{c,r,destroyed:G.crateHp[k]<=0});
  return true;
 }
 function fire(e){
@@ -919,6 +932,7 @@ function humanInput(n,ent){
 
 /* ---------- bots ---------- */
 function botInput(e,dt){
+ if(G.campaign&&ADVENTURE){const input=ADVENTURE.input(e,dt);if(input)return input;}
  const ai=e.ai, D=G.diff; let mx=0,my=0,atk=false,dash=false,faceTo=null;
  ai.think-=dt; ai.flee-=dt; ai.blockT-=dt; if(ai.blockT<=0) ai.blockFace=null;
  if(ai.think<=0){
@@ -1146,7 +1160,7 @@ function update(dt){
   for(const b of G.ents){
    if(b===p.owner||!alive(b)||b.inv>0||b.dashT>.06||b.protect>0||isAlly(p.owner,b)||(p.hit&&p.hit.includes(b.id))) continue;
    const br=b.r*sizeMul(b); if(Math.hypot(b.x-p.x,b.y-p.y)>br+p.r) continue;
-   if(blockedFrom(b,p.x-p.vx,p.y-p.vy)){ p.vx=-p.vx; p.vy=-p.vy; p.owner=b; p.life=Math.max(p.life,.8); p.x+=p.vx*.03; p.y+=p.vy*.03; clang(b,p.x,p.y); break; }
+   if(blockedFrom(b,p.x-p.vx,p.y-p.vy)){ p.vx=-p.vx; p.vy=-p.vy; p.owner=b; if(G.campaign&&ADVENTURE)ADVENTURE.event("reflect",{id:b.id}); p.life=Math.max(p.life,.8); p.x+=p.vx*.03; p.y+=p.vy*.03; clang(b,p.x,p.y); break; }
    const n=norm(p.vx,p.vy);
    if(p.k==='blob'){ hurt(b,p.owner,1,{dx:n.x,dy:n.y,kb:760+p.lvl*120,src:'cannon'}); b.goo=2.5; if(p.owner&&alive(p.owner)) G.stats.shotHits[hb(p.owner)]++; if(alive(b)){b.slip=.6+p.lvl*.15;} G.decals.push({k:'splat',x:b.x,y:b.y+6,r:p.r*1.8,t:8}); burst(p.x,p.y,16,[CUST,CREAM],260); }
    else { hurt(b,p.owner,1,{dx:n.x,dy:n.y,kb:420,src:'bow'}); if(p.owner&&alive(p.owner)) G.stats.shotHits[hb(p.owner)]++; }
@@ -1165,13 +1179,14 @@ function update(dt){
  for(const f of G.floaters){f.t-=dt;f.y-=dt*40} G.floaters=G.floaters.filter(f=>f.t>0);
  for(const f of G.feed) f.t-=dt; G.feed=G.feed.filter(f=>f.t>0);
  G.shake*=Math.pow(.02,dt);
- updateMode(dt);
- if(!G.demo&&G.time<=0&&!G.over) endMatch();
+ if(G.campaign&&ADVENTURE)ADVENTURE.tick(dt);else updateMode(dt);
+ if(!G.campaign&&!G.demo&&G.time<=0&&!G.over) endMatch();
 }
 
 /* ---------- game modes ---------- */
 function dropPie(e,toHome){ const pie=G.pies&&G.pies.find(q=>q.carrier===e); if(!pie) return; pie.carrier=null; e.carry=null; if(toHome){ pie.home=true; pie.x=pie.hx; pie.y=pie.hy; feed(`The ${pie.team} pie went home`); } else { pie.home=false; pie.x=e.x; pie.y=e.y; pie.dropT=8; feed(`${e.name} dropped the ${pie.team} pie`,isMine(e)); } }
 function updateMode(dt){
+ if(G.campaign)return;
  if(G.demo||G.over) return; const m=G.mode;
  if(LIVES_MODES.has(m)){ const left=G.ents.filter(inPlay); if(left.length<=1) endMatch(); }
  if(m==='hotpie'&&G.hot){ const h=G.hot;
@@ -1405,6 +1420,7 @@ function drawEmblem(k,x,y,s,col,lw=1.5){ ctx.save(); ctx.translate(x,y); ctx.fil
  else { ctx.beginPath(); ctx.arc(0,0,s*.55,0,7); ctx.fill(); ctx.stroke(); ctx.lineWidth=lw+.5; ctx.strokeStyle=col; for(let i=0;i<8;i++){ const a=i*Math.PI/4; ctx.beginPath(); ctx.moveTo(Math.cos(a)*s*.72,Math.sin(a)*s*.72); ctx.lineTo(Math.cos(a)*s,Math.sin(a)*s); ctx.stroke(); } }
  ctx.restore(); }
 function drawCape(e,r,fx,fy,moving){
+ if(CKCollectionArt.isCape(e.cape))return;
  const t=G.clock, back=-fx, sp=Math.hypot(e.vx,e.vy), lift=Math.min(1,sp/300), top=-r*.36, L=r*(1.2+lift*.45), w=r*.6;
  const fl=k=>Math.sin(t*9+k*1.7+e.id)*r*.07*(.4+lift), ex=back*r*(.35+lift*.9), ey=r*.15+lift*r*.1;
  const p=new Path2D(); p.moveTo(-w,top); p.lineTo(w,top); p.quadraticCurveTo(w+ex*.6,top+L*.5,w*.9+ex+fl(1),top+L+ey); p.quadraticCurveTo(ex*.8,top+L*1.12+ey+fl(2),-w*.9+ex+fl(3),top+L+ey); p.quadraticCurveTo(-w+ex*.6,top+L*.5,-w,top); p.closePath();
@@ -1433,6 +1449,7 @@ function drawSword(e,r){
  ctx.save(); ctx.translate(hx,hy); ctx.rotate(a); ctx.lineJoin='round'; ctx.strokeStyle=INK;
  ctx.fillStyle='#6B4430'; ctx.lineWidth=2.5; rr(ctx,-r*.36,-w*.32,r*.4,w*.64,2); ctx.fill(); ctx.stroke();
  ctx.fillStyle=e.color; ctx.lineWidth=2; ctx.beginPath(); ctx.arc(-r*.4,0,w*.42,0,7); ctx.fill(); ctx.stroke();
+ if(CKCollectionArt.isBlade(e.blade)){CKCollectionArt.drawWhisk(ctx,L,w);gauntlet(e,-r*.16,0,r);ctx.restore();return;}
  const bk=e.blade||'steel', bl=new Path2D();
  if(bk==='fish'){ bl.moveTo(r*.1,-w*.3); bl.quadraticCurveTo(L*.55,-w*1.1,L-4,0); bl.quadraticCurveTo(L*.55,w*1.1,r*.1,w*.3); bl.lineTo(r*.02,w*.9); bl.lineTo(r*.02,-w*.9); bl.closePath(); }
  else if(bk==='spoon'){ bl.moveTo(r*.1,-w*.3); bl.lineTo(L*.62,-w*.3); bl.quadraticCurveTo(L*.62,-w*1.1,L*.82,-w*1.1); bl.quadraticCurveTo(L+4,-w*1.1,L+4,0); bl.quadraticCurveTo(L+4,w*1.1,L*.82,w*1.1); bl.quadraticCurveTo(L*.62,w*1.1,L*.62,w*.3); bl.lineTo(r*.1,w*.3); bl.closePath(); }
@@ -1569,7 +1586,7 @@ function eyes(x,y,hr,e){
   ctx.fillStyle='#FFFFFF'; ctx.beginPath(); ctx.arc(ex+sd*w*.3-w*.2,y-eh*.25,w*.22,0,7); ctx.fill();
   if(angry){ ctx.fillStyle='#160E26'; ctx.beginPath(); ctx.moveTo(ex-w*1.3,y-eh*1.3); ctx.lineTo(ex+w*1.3,y-eh*1.3); ctx.lineTo(ex-sx*w*1.3,y-eh*.1); ctx.lineTo(ex+sx*w*1.3,y-eh*.85); ctx.closePath(); ctx.fill(); }
   ctx.restore(); } }
-function drawPlume(e,hy,hr,fx,moving){
+function drawPlume(e,hy,hr,fx,moving){ if(CKCollectionArt.isHelm(e.kit.helm))return;
  const K=e.kit, pc=plumeCols(e), t=G.clock, back=-fx, by=hy-hr*.8; hr*=1.3; const sway=Math.sin(t*5+e.id*2)*hr*.12+(moving?back*hr*.24:0);
  if(K.plume==='feather'){ for(const k of [-1,1,0]) leaf(k*hr*.12,by,back*hr*1.0+k*hr*.45+sway,by-hr*1.25+Math.abs(k)*hr*.25,hr*.55,pc,k*hr*.2-back*hr*.25); }
  else if(K.plume==='twin'){ for(const k of [-1,1]) leaf(k*hr*.5,by+hr*.3,k*hr*1.0+back*hr*.35+sway,by-hr*.95,hr*.5,pc,-k*hr*.2); }
@@ -1665,12 +1682,15 @@ function drawKnight(e){
   let alpha=1; if(e.fx.ghost)alpha=.28; if(e.inv>0&&Math.floor(t*14)%2)alpha*=.5; ctx.globalAlpha=alpha;
  }
  if(isChicken(e)){ if(!(useSprites()&&drawChickenSprite(e,r,moving,bob))) drawChicken(e,r,bob); ctx.restore(); return; }
+ CKCollectionArt.pose(ctx,e,r,G.clock,G.over||e.collectionPreview);CKCollectionArt.drawBack(ctx,e,r,G.clock);
  if(useSprites()){ const ride=!!e.fx.steve, lift=ride?r*1.55:0;
   if(ride) drawSteve(e,r,fx,moving);
   ctx.save(); ctx.translate(0,-lift); const ok=drawKnightSprite(e,r,moving&&!ride,bob); ctx.restore();
   if(ok){ // a knight riding Steve stands on his back; the boss wears its crown on top of the baked helm
    if(isBoss(e)) drawCrown(r,sprTop(r)-lift+r*.55);
    if(e.wpn){ ctx.save(); ctx.translate(0,-bob-r*.3-lift); drawHeld(e,r); ctx.restore(); }
+   if(!e.wpn&&CKCollectionArt.isBlade(e.blade)){ctx.save();ctx.translate(0,-bob-r*.3-lift);drawSword(e,r);ctx.restore();}
+   CKCollectionArt.drawFront(ctx,e,r,G.clock,{results:G.over,preview:e.collectionPreview,headY:sprTop(r)+r*.65-lift});
    knightFx(e,r,t,fx,fy,moving); ctx.restore(); return; }
   if(ride){ ctx.restore(); return; } }
  const ph=moving?Math.sin(e.walk):0, m=e.kit.metal;
@@ -1703,6 +1723,7 @@ function drawKnight(e){
  ctx.restore();
  if(!shieldBehind) drawShield(e,r);
  if(fy>=-.25) weapon();
+ CKCollectionArt.drawFront(ctx,e,r,G.clock,{results:G.over,preview:e.collectionPreview,headY:-r*1.15});
  knightFx(e,r,t,fx,fy,moving);
  ctx.restore();
 }
@@ -1758,13 +1779,13 @@ function sprCompose(e,i,SH=SPR){ // returns the scratch canvas holding frame i o
  const mc=SPR_METAL[K.metal]; if(mc&&H.metal){ const mm=I(h+'.metal',H.metal); if(mm) tint(H.metal,mm,mc); }
  a.globalCompositeOperation='destination-in'; sprBlit(a,H.base,base,i); a.globalCompositeOperation='source-over';
  const ci=I('cape',SH.cape); // cape in team colour, then its pattern on top of it
- if(ci&&grey(SH.cape,ci,e.color)){ const pk=e.cape, PL=SH.pats&&SH.pats[pk], pi2=PL&&I('pat.'+pk,PL);
+ if(ci&&!CKCollectionArt.isCape(e.cape)&&grey(SH.cape,ci,e.color)){ const pk=e.cape, PL=SH.pats&&SH.pats[pk], pi2=PL&&I('pat.'+pk,PL);
   if(pi2){ const [col,al]=SPR_PAT[pk]||['#FFF7E0',.55]; clr(c); sprBlit(c,PL,pi2,i); c.globalCompositeOperation='source-in'; c.fillStyle=col; c.fillRect(0,0,cell,cell); b.globalCompositeOperation='source-atop'; b.globalAlpha=al; b.drawImage(S3,0,0); b.globalAlpha=1; b.globalCompositeOperation='source-over'; }
   a.drawImage(S2,0,0); }
  const ek=SH.embs&&SH.embs[e.emblem]?e.emblem:'star', EL=SH.embs&&SH.embs[ek], ei=EL&&I('emb.'+ek,EL); if(ei) sprBlit(a,EL,ei,i);
- if(!e.wpn){ const bk=SH.blades&&SH.blades[e.blade]?e.blade:'steel', BL=SH.blades&&SH.blades[bk], bi=BL&&I('blade.'+bk,BL); if(bi) sprBlit(a,BL,bi,i); }
+ if(!e.wpn&&!CKCollectionArt.isBlade(e.blade)){ const bk=SH.blades&&SH.blades[e.blade]?e.blade:'steel', BL=SH.blades&&SH.blades[bk], bi=BL&&I('blade.'+bk,BL); if(bi) sprBlit(a,BL,bi,i); }
  const pu=SH.plumes[K.plume]?K.plume:'feather', PU=SH.plumes[pu], pi=I('plume.'+pu,PU);
- if(pi&&grey(PU,pi,plumeCols(e)[0])) a.drawImage(S2,0,0);
+ if(pi&&!CKCollectionArt.isHelm(K.helm)&&grey(PU,pi,plumeCols(e)[0])) a.drawImage(S2,0,0);
  return S1; }
 function drawKnightSprite(e,r,moving,bob){ const f=sprFrame(e,moving);
  let SH=SPR, img=null; if(e.hero&&SPRH&&(f.an==='idle'||f.an==='win')){ img=sprCompose(e,f.an==='win'?5:f.di,SPRH); if(img) SH=SPRH; }
@@ -2043,6 +2064,7 @@ function drawHUD(){
  else if(!G.demo&&G.mode==='race'){ const me=G.ents.find(isMine), pos=me?G.ents.slice().sort(raceRank).indexOf(me)+1:0; plaque(540,2,200,40,12,true); otext(me?`LAP ${Math.min(RACE_LAPS,me.laps+1)}/${RACE_LAPS}  ${pos}${pos===1?'st':pos===2?'nd':pos===3?'rd':'th'}`:`${mm}:${ss}`,640,23,24,CREAM); }
  else if(!G.demo){ plaque(580,2,120,40,12,true); otext(`${mm}:${ss}`,640,23,31,G.time<15&&Math.floor(G.clock*4)%2?TOM:CREAM); }
  else { const nm=G.map.name.toUpperCase(); ctx.font=`26px ${LIL}`; const tw=ctx.measureText(nm).width+44; plaque(640-tw/2,2,tw,40,12,true); otext(nm,640,23,26,CUST); }
+ if(!G.campaign){
  const bw=360,bx=640-bw/2,by=48,bh=14;
  ctx.fillStyle=INK; rr(ctx,bx-4,by-4,bw+8,bh+8,11); ctx.fill();
  ctx.fillStyle='#2A1D40'; rr(ctx,bx,by,bw,bh,7); ctx.fill();
@@ -2055,11 +2077,12 @@ function drawHUD(){
  ctx.strokeStyle=INK; ctx.lineWidth=3; for(const f of [1/3,2/3]){ctx.beginPath();ctx.moveTo(bx+bw*f,by);ctx.lineTo(bx+bw*f,by+bh);ctx.stroke()}
  const tier=G.chaos>=.66?'UNHINGED':G.chaos>=.33?'SILLY':'SENSIBLE', tc=G.chaos>=.66?CUST:G.chaos>=.33?PINK:TEAL;
  otext('CHAOS',bx-12,by+bh/2+1,15,CREAM,'right'); otext(tier,bx+bw+12,by+bh/2+1,15,tc,'left');
+ }
  if(isTeams(G.mode)){
   let rs=0,bs=0; for(const e of G.ents){ if(e.team==='red')rs+=e.score; else bs+=e.score; }
   plaque(196,8,146,44,12); plaque(938,8,146,44,12);
   otext('RED '+rs,330,31,28,TOM,'right'); otext(bs+' BLUE',950,31,28,'#4DA8FF','left'); if(G.mode==='heist') otext('first to 3 pies',640,66,13,CREAM); if(G.mode==='flags'&&G.flags){ otext('first to 100',640,66,13,CREAM); G.flags.forEach((f,i)=>{ const x=560+i*80, col=f.own==='red'?TOM:f.own==='blue'?'#4DA8FF':'#6A5A8C'; circle(x,H-22,13,col,INK,3); otext(f.name,x,H-21,14,CREAM); }); }
- } else if(!G.demo){
+ } else if(!G.demo&&!G.campaign){
   const sorted=G.ents.slice().sort((a,b)=>LIVES_MODES.has(G.mode)?((b.chick?0:1)-(a.chick?0:1)||b.lives-a.lives||b.score-a.score):G.mode==='race'?raceRank(a,b):b.score-a.score);
   let rows=sorted.slice(0,3); const me=G.ents.find(isMine); if(me&&sorted.indexOf(me)>2) rows=[sorted[0],sorted[1],me];
   plaque(4,1,250,72,12);
@@ -2115,6 +2138,7 @@ function draw(){
  ctx.save(); if(G.punch>0&&SET.shake>0){ const k=1+.045*(G.punch/.28)*SET.shake; ctx.translate(G.px,G.py); ctx.scale(k,k); ctx.translate(-G.px,-G.py); }
  ctx.drawImage(bg,0,0,W,H);
  drawDynamicTiles();
+ if(G.campaign&&ADVENTURE)ADVENTURE.draw(ctx);
  for(const d of G.decals){ const a=Math.min(1,d.t/2);
   if(d.k==='scorch'){ ctx.globalAlpha=a*.6; const sg=ctx.createRadialGradient(d.x,d.y,2,d.x,d.y,d.r); sg.addColorStop(0,'#140A0A'); sg.addColorStop(.7,'rgba(40,20,20,.7)'); sg.addColorStop(1,'rgba(40,20,20,0)'); ctx.fillStyle=sg; ctx.beginPath(); ctx.ellipse(d.x,d.y,d.r,d.r*.75,0,0,7); ctx.fill(); }
   else { ctx.globalAlpha=1; custardPuddle(d.x,d.y,d.r*.85,d.x*.37+d.y*.11,a*.95); } }
@@ -2219,7 +2243,7 @@ function frame(now){
  pollPads(); padEdges();
  if(NET.role==='client'&&G&&!G.demo){ if(!G.over){ clientTick(dt); clientSend(now); } }
  else if(!paused&&!G.over){ acc+=dt; let n=0; while(acc>=1/60&&n<5){ if(G.hitstop>0){ G.hitstop-=1/60; acc-=1/60; n++; continue; } update((1/60)*(G.ts||1)); acc-=1/60; n++; if(NET.role==='host'&&!G.demo&&!G.over&&++NET.tick%3===0) broadcast(snapshot()); } if(n===5)acc=0; }
- draw(); drawWardrobe(); drawHero(); drawParty(); requestAnimationFrame(frame);
+ draw();drawCollectionPodiums(); drawWardrobe(); drawHero(); drawParty(); requestAnimationFrame(frame);
 }
 
 /* ---------- UI ---------- */
@@ -2240,7 +2264,7 @@ const parseV=v=>v==='true'?true:v==='false'?false:(/^-?\d+$/.test(v)?+v:v);
 document.querySelectorAll('.seg[data-k]').forEach(seg=>{ seg.addEventListener('click',ev=>{ const b=ev.target.closest('button'); if(!b)return; seg.querySelectorAll('button').forEach(x=>x.setAttribute('aria-pressed',String(x===b))); cfg[seg.dataset.k]=parseV(b.dataset.v); saveCfg(); refreshSetup(); }); });
 function syncSegs(){ document.querySelectorAll('.seg[data-k]').forEach(seg=>{ const k=seg.dataset.k; seg.querySelectorAll('button').forEach(x=>x.setAttribute('aria-pressed',String(parseV(x.dataset.v)===cfg[k]))); }); }
 /* ---------- screens ---------- */
-const SCREENS=['menu','setup','online','lobby','wardrobe','howto','settings','pause','end','party'];
+const SCREENS=['menu','setup','online','lobby','wardrobe','howto','settings','pause','end','party','cupResults'];
 const esc=t=>String(t).replace(/[&<>]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;'}[c]));
 function showScreen(id){ if(id)cueMusic(id==='wardrobe'?'wardrobe':'menu'); SCREENS.forEach(k=>{ const el=$(k); if(el) el.hidden=(k!==id); }); if(id){ const el=$(id); const f=el.querySelector('.tile,button.big,button'); if(f) setTimeout(()=>f.focus(),0); } }
 document.querySelectorAll('[data-back]').forEach(b=>b.addEventListener('click',()=>{ if(NET.role==='client'){ leaveOnline(); return; } if(NET.role==='host'&&$('setup')&&!$('setup').hidden){ showLobby(); return; } showScreen('menu'); }));
@@ -2307,11 +2331,11 @@ function renderParty(){
  const pads=PADS.length; $('partyPads').textContent=pads>=2?`${pads} controllers ready`:'2 to 4 players on one screen'; }
 function partyStart(){ const n=PARTY.seats.length; if(!n||NET.role==='client') return;
  cfg.players=n; cfg.mode=PARTY.mode; cfg.map=PARTY.map; cfg.teamSplit=PARTY.style==='versus'&&n>1; saveCfg();
- SEATS=PARTY.seats.map(d=>Object.assign({},d)); partyGo=true; start(); }
+ SEATS=PARTY.seats.map(d=>Object.assign({},d)); partyGo=true; if(partyCupRequested){partyCupRequested=false;startCup();}else start(); }
 function seatLook(i){ const pr=Object.assign({},loadProfile(i+1)); if(i>0&&[...Array(i).keys()].some(j=>loadProfile(j+1).color===pr.color)) pr.color=FFA_COLS[(i*3)%FFA_COLS.length]; return pr; }
 function drawParty(){ if(!partyOpen()||!G) return; const cvs=[...$('seats').querySelectorAll('canvas')];
  cvs.forEach((c,i)=>{ const e=PARTY.ents[i], pr=seatLook(i), px=c.getContext('2d'); px.setTransform(1,0,0,1,0,0); px.fillStyle='#5FA84E'; px.fillRect(0,0,300,300);
-  px.setTransform(3.1,0,0,3.1,0,0); e.x=48.4; e.y=61; e.kit={helm:pr.helm,plume:pr.plume,metal:pr.metal}; e.emblem=pr.emblem; e.color=pr.color; e.cape=pr.cape; e.blade=pr.blade; e.plume=pr.color===CUST?PINK:CUST; e.face=Math.PI/2+Math.sin(G.clock*.8+i)*.6; e.vx=e.vy=0;
+  px.setTransform(3.1,0,0,3.1,0,0); e.x=48.4; e.y=61; e.kit={helm:pr.helm,plume:pr.plume,metal:pr.metal}; e.emblem=pr.emblem; e.color=pr.color; e.cape=pr.cape; e.blade=pr.blade;e.pose=pr.pose; e.plume=pr.color===CUST?PINK:CUST; e.face=Math.PI/2+Math.sin(G.clock*.8+i)*.6; e.vx=e.vy=0;
   const keep=ctx; ctx=px; try{ drawKnight(e); }finally{ ctx=keep; } }); }
 function openParty(){ PARTY.seats=PARTY.seats.filter(d=>d.dev!=='pad'||PADS.some(g=>g.index===d.idx)); renderParty(); showScreen('party'); setTimeout(()=>{ const b=$('partyGo'); if(b&&!b.disabled) b.focus(); },60); }
 $('tParty').onclick=()=>openParty();
@@ -2325,7 +2349,7 @@ $('tOnline').onclick=()=>{ showScreen('online'); $('inviteCard').hidden=true; $(
 $('tWardrobe').onclick=()=>{ openWardrobe(); };
 $('tHowto').onclick=()=>showScreen('howto');
 $('tSettings').onclick=()=>{ syncSettings(); showScreen('settings'); };
-$('setupBtn').onclick=()=>{ if(NET.role==='client') return; newGame(true); paused=false; $('pauseBtn').hidden=true; showTouch(false); menuMusic(true); buildSetup(); showScreen('setup'); };
+$('setupBtn').onclick=()=>{ if(NET.role==='client') return; if(ADVENTURE)ADVENTURE.stop();cancelCup();newGame(true); paused=false; $('pauseBtn').hidden=true; showTouch(false); menuMusic(true); buildSetup(); showScreen('setup'); };
 /* ---------- settings ---------- */
 function syncSettings(){ $('sMusic').value=Math.round(SET.music*100); $('sSfx').value=Math.round(SET.sfx*100); $('sShake').value=Math.round(SET.shake*100); $('cFlash').checked=!SET.flash; $('cNames').checked=SET.names==='all'; $('cSprites').checked=!!SET.classic; $('cWhole').checked=!!SET.whole; ['Music','Sfx','Shake'].forEach(k=>$('o'+k).value=$('s'+k).value+'%'); }
 $('sMusic').oninput=e=>{ SET.music=+e.target.value/100; $('oMusic').value=e.target.value+'%'; if(!music.paused) music.volume=SET.music; saveSet(); };
@@ -2336,22 +2360,34 @@ $('cNames').onchange=e=>{ SET.names=e.target.checked?'all':'near'; saveSet(); };
 $('cSprites').onchange=e=>{ SET.classic=e.target.checked; saveSet(); };
 $('cWhole').onchange=e=>{ SET.whole=e.target.checked; saveSet(); };
 $('tipsReset').onclick=()=>{ TAUGHT.clear(); try{ localStorage.removeItem('ck-taught'); localStorage.setItem('ck-hits','0'); }catch(e){} hitsLanded=0; $('tipsReset').textContent='Tips are back on'; };
+/* ---------- shared household collection and costume previews ---------- */
+let collectionUI=null,collectionUnlocks=[];
+function reloadWardrobeSaves(){Object.assign(PROG,CKProgress.normalize(JSON.parse(localStorage.getItem('ck-progress')||'null')));COLLECTION=CKCollection.normalize(JSON.parse(localStorage.getItem('ck-collection')||'null'));PROFILES.fill(null);if(ADVENTURE){const campaignSave=localStorage.getItem(CKCampaign.KEY);if(campaignSave)ADVENTURE.campaign.restore(JSON.parse(campaignSave));}syncWardrobe();}
+function collectionAdapters(){return {getState:()=>COLLECTION,setState:saveCollection,getProfile:()=>loadProfile(wardWho),saveProfile:p=>saveProfile(wardWho,p),onChange:syncWardrobe,onImport:reloadWardrobeSaves,drawPreview:drawCollectionPreview};}
+function ensureCollectionUI(){if(!collectionUI){const box=document.createElement('section');box.id='collectionGoals';$('wardrobe').querySelector('.panel').append(box);collectionUI=CKCollectionUI.mount(box,collectionAdapters());}else collectionUI.refresh();}
+function drawCollectionPreview(canvas,p,{gameplay=false,time=0,pose=false,face}={}){const x=canvas.getContext('2d'),e=mkKnight({id:42,hero:gameplay?0:1,collectionPreview:pose,kit:{helm:p.helm,plume:p.plume,metal:p.metal},color:p.color,emblem:p.emblem,cape:p.cape,blade:p.blade,pose:p.pose||'plain',chickSkin:p.chick,face:face===undefined?time*.7:face});const old=ctx,oldG=G;
+ try{G={...G,clock:time,demo:true,over:false,ev:null,mode:'ffa'};ctx=x;x.setTransform(1,0,0,1,0,0);x.fillStyle='#426351';x.fillRect(0,0,canvas.width,canvas.height);const sc=gameplay?1:Math.min(canvas.width/200,canvas.height/185);x.translate(canvas.width/2,canvas.height*.44);x.scale(sc,sc);drawKnight(e);}finally{ctx=old;G=oldG;}}
+function awardCollection(roundId,milestones=[]){const r=CKCollection.apply(COLLECTION,{roundId,participated:true,milestones});if(r.applied){saveCollection(r.state);collectionUnlocks=r.unlocked;}return r;}
+function campaignCollectionReward(result,save){if(!result.won)return;const milestones=[];if(result.id==='steve')milestones.push('steve-rescue');if(CKCampaign.nodes.filter(n=>!n.optional).every(n=>save.results[n.id]&&save.results[n.id].spoons[0]))milestones.push('rice-chapter');awardCollection(G.roundId+':encounter',milestones);}
+function showCollectionReward(panel){if(!panel)return;let box=panel.querySelector('.collectionReward');if(!box){box=document.createElement('div');box.className='collectionReward';panel.append(box);}const adapters={...collectionAdapters(),getProfile:()=>loadProfile(1),saveProfile:p=>saveProfile(1,p)};CKCollectionUI.reward(box,adapters,collectionUnlocks);let podium=panel.querySelector('.collectionPodium');if(!podium){podium=document.createElement('canvas');podium.width=180;podium.height=150;podium.className='collectionPodium';podium.setAttribute('aria-label','Your result costume and victory pose');panel.append(podium);} }
+function drawCollectionPodiums(){for(const c of document.querySelectorAll('.collectionPodium'))if(c.getClientRects().length)drawCollectionPreview(c,loadProfile(1),{time:performance.now()/1000,pose:true});}
+
 /* ---------- wardrobe ---------- */
 let wardWho=1;
 const COLOR_NAMES={'#FF5A4E':'Tomato','#2EC4B6':'Teal','#FFD23F':'Custard','#FF8FB1':'Pink','#9B7BFF':'Violet','#9BE564':'Lime','#FF9F43':'Orange','#4DA8FF':'Sky','#C9B9E6':'Lilac','#8FF0C8':'Mint','#C98A4B':'Bronze'};
-const NICE={plain:'Plain',stripes:'Stripes',chevron:'Chevron',checker:'Checker',stars:'Stars',trim:'Gold trim',steel:'Steel',wooden:'Wooden',baguette:'Baguette',fish:'Fish',candy:'Candy cane',spoon:'Spoon',hen:'Hen',rooster:'Rooster',rubber:'Rubber chicken',knight:'Knight chicken',golden:'Golden',custard:'Custard',great:'Great helm',sallet:'Sallet',horned:'Horned',crest:'Crested',kettle:'Kettle hat',barbute:'Barbute',feather:'Feathers',twin:'Twin plumes',mohawk:'Mohawk',flame:'Flame',brush:'Brush',steel:'Steel',gold:'Gold',dark:'Dark iron',star:'Star',heart:'Heart',crown:'Crown',skull:'Skull',bolt:'Bolt',moon:'Moon',pie:'Pie',sun:'Sun'};
+const NICE={teaTowel:'Tea Towel',burntToast:'Burnt Toast',goldenWhisk:'Golden Whisk',roosterCrown:'Rooster Crown',riceGuard:'Rice Guard',steveStrut:'Steve Strut',plain:'Plain',stripes:'Stripes',chevron:'Chevron',checker:'Checker',stars:'Stars',trim:'Gold trim',steel:'Steel',wooden:'Wooden',baguette:'Baguette',fish:'Fish',candy:'Candy cane',spoon:'Spoon',hen:'Hen',rooster:'Rooster',rubber:'Rubber chicken',knight:'Knight chicken',golden:'Golden',custard:'Custard',great:'Great helm',sallet:'Sallet',horned:'Horned',crest:'Crested',kettle:'Kettle hat',barbute:'Barbute',feather:'Feathers',twin:'Twin plumes',mohawk:'Mohawk',flame:'Flame',brush:'Brush',steel:'Steel',gold:'Gold',dark:'Dark iron',star:'Star',heart:'Heart',crown:'Crown',skull:'Skull',bolt:'Bolt',moon:'Moon',pie:'Pie',sun:'Sun'};
 function buildWardrobe(){ const lists={helm:HELMS,plume:PLUMES,metal:METAL_KEYS,emblem:EMBLEMS,color:PLAYER_COLS,cape:CAPES,blade:BLADES,chick:CHICKS};
  for(const k in lists){ const seg=document.querySelector(`.seg[data-w="${k}"]`); seg.innerHTML=''; for(const v of lists[k]){ const b=document.createElement('button'); b.type='button'; b.dataset.v=v; if(k==='color'){ b.className='sw'; b.style.background=v; b.title=COLOR_NAMES[v]||v; b.setAttribute('aria-label',COLOR_NAMES[v]||v); } else b.textContent=NICE[v]||v; b.onclick=()=>{ if(!owned(k,v)) return; const pr=loadProfile(wardWho); pr[k]=v; saveProfile(wardWho,pr); syncWardrobe(); }; seg.appendChild(b); } }
  document.querySelector('.seg[data-w="who"]').addEventListener('click',ev=>{ const b=ev.target.closest('button'); if(!b) return; wardWho=+b.dataset.v; syncWardrobe(); });
  $('wardRand').onclick=()=>{ saveProfile(wardWho,{helm:pick(HELMS),plume:pick(PLUMES),metal:pick(METAL_KEYS),emblem:pick(EMBLEMS),color:pick(FFA_COLS)}); syncWardrobe(); };
  $('wardName').addEventListener('input',()=>{ if(wardWho===1){ $('nameIn').value=$('wardName').value; try{ localStorage.setItem('ck-name',$('wardName').value.trim().slice(0,14)); }catch(e){} } else { try{ localStorage.setItem('ck-name'+wardWho,$('wardName').value.trim().slice(0,14)); }catch(e){} } });
 }
-function syncWardrobe(){ const pr=loadProfile(wardWho); document.querySelectorAll('.seg[data-w]').forEach(seg=>{ const k=seg.dataset.w; seg.querySelectorAll('button').forEach(b=>{ const v=b.dataset.v, ok=k==='who'||owned(k,v); b.setAttribute('aria-pressed',String(k==='who'?+b.dataset.v===wardWho:v===pr[k])); b.classList.toggle('locked',!ok); if(k!=='who'){ const base=k==='color'?(COLOR_NAMES[v]||v):(NICE[v]||v); if(k==='color'){ b.title=ok?base:base+' (unlocks at '+lockText(k,v)+')'; } else b.textContent=ok?base:base+' · '+lockText(k,v); } }); });
+function syncWardrobe(){ if(collectionUI)collectionUI.refresh();const pr=loadProfile(wardWho); document.querySelectorAll('.seg[data-w]').forEach(seg=>{ const k=seg.dataset.w; seg.querySelectorAll('button').forEach(b=>{ const v=b.dataset.v, ok=k==='who'||owned(k,v); b.setAttribute('aria-pressed',String(k==='who'?+b.dataset.v===wardWho:v===pr[k])); b.classList.toggle('locked',!ok); if(k!=='who'){ const base=k==='color'?(COLOR_NAMES[v]||v):(NICE[v]||v); if(k==='color'){ b.title=ok?base:base+' (unlocks at '+lockText(k,v)+')'; } else b.textContent=ok?base:base+' · '+lockText(k,v); } }); });
  const t=tierOf(), next=t<TRACK.length?TIER_COST*(t+1)-PROG.earned:0; $('wardProg').textContent=`Custard Coins earned: ${PROG.earned}. Tier ${t} of ${TRACK.length}.`+(next?` ${next} more coins unlock ${NICE[TRACK[t][1]]||COLOR_NAMES[TRACK[t][1]]||TRACK[t][1]} (${TRACK[t][0]}).`:' Everything on the track is yours.');
  $('wardCh').textContent='Challenges: '+Object.entries(CHALLENGES).map(([k,c])=>`${c.text} (${Math.min(c.goal,PROG.ch[k]||0)}/${c.goal})`).join(' · ');
  let n=''; try{ n=localStorage.getItem(wardWho===1?'ck-name':'ck-name'+wardWho)||''; }catch(e){} $('wardName').value=n; $('wardName').placeholder=wardWho===1?"Your knight's name":`Player ${wardWho}'s name`; }
 function localName(n){ try{ return (localStorage.getItem(n===1?'ck-name':'ck-name'+n)||'').trim().slice(0,14); }catch(e){ return ''; } }
-function openWardrobe(){ if(!$('wardrobe').dataset.built){ buildWardrobe(); $('wardrobe').dataset.built='1'; } syncWardrobe(); showScreen('wardrobe'); }
+function openWardrobe(){ if(!$('wardrobe').dataset.built){ buildWardrobe(); $('wardrobe').dataset.built='1'; } syncWardrobe(); showScreen('wardrobe');ensureCollectionUI(); }
 const wardEnt={id:9,hero:1,name:'',team:null,human:0,netId:null,x:100,y:112,vx:0,vy:0,r:22,hp:3,face:.6,atkCd:0,swing:0,swingKind:'light',swingDur:.22,hitSet:[],crateHit:true,hitDone:true,dashCd:0,dashT:0,fireCd:0,wpn:null,blocking:false,falling:0,lastHit:null,dead:false,respawn:0,inv:0,protect:0,score:0,deaths:0,walk:0,flash:0,slip:0,fx:{},bananaT:0,bawkCd:0,sayCd:9,stun:0,charge:0,guard:1.5,spot:0,ai:{}};
 function mkKnight(o={}){ return Object.assign({id:30,name:'',team:null,human:0,netId:null,x:0,y:0,vx:0,vy:0,r:22,hp:3,face:Math.PI/2,atkCd:0,swing:0,swingKind:'light',swingDur:.22,hitSet:[],crateHit:true,dashCd:0,dashT:0,fireCd:0,wpn:null,blocking:false,falling:0,lastHit:null,dead:false,respawn:0,inv:0,protect:0,score:0,deaths:0,walk:0,flash:0,slip:0,fx:{},bananaT:0,bawkCd:0,sayCd:9,stun:0,charge:0,guard:1.5,spot:0,ai:{},kit:{helm:'great',plume:'feather',metal:'steel'},emblem:'star',color:'#FF5A4E',plume:CUST,cape:'plain',blade:'steel',chickSkin:'hen'},o); }
 const heroMain=mkKnight({id:31,hero:1}), heroL=mkKnight({id:32,hero:1,kit:{helm:'kettle',plume:'brush',metal:'gold'},emblem:'pie',color:'#2EC4B6',cape:'chevron',blade:'baguette'}), heroR=mkKnight({id:33,hero:1,kit:{helm:'horned',plume:'flame',metal:'dark'},emblem:'skull',color:'#9B7BFF',cape:'stars',blade:'fish'});
@@ -2359,7 +2395,7 @@ let heroFrame=0;
 function drawHero(){ const c=$('heroCv'); if(!c||$('menu').hidden||!G) return; const px=c.getContext('2d'), S=c.width, t=G.clock; px.setTransform(1,0,0,1,0,0); px.clearRect(0,0,S,S);
  const g=px.createRadialGradient(S*.5,S*.66,10,S*.5,S*.62,S*.5); g.addColorStop(0,'rgba(255,214,120,.42)'); g.addColorStop(1,'rgba(255,214,120,0)'); px.fillStyle=g; px.fillRect(0,0,S,S);
  px.save(); px.globalCompositeOperation='lighter'; for(let i=0;i<5;i++){ const a=-Math.PI/2+(i-2)*.22+Math.sin(t*.4+i)*.03; px.fillStyle='rgba(255,230,160,.06)'; px.beginPath(); px.moveTo(S*.5,0); px.lineTo(S*.5+Math.cos(a-.05)*S*1.1,Math.sin(a-.05)*S*-1.1+S); px.lineTo(S*.5+Math.cos(a+.05)*S*1.1,Math.sin(a+.05)*S*-1.1+S); px.closePath(); px.fill(); } px.restore();
- const pr=loadProfile(1); Object.assign(heroMain,{kit:{helm:pr.helm,plume:pr.plume,metal:pr.metal},emblem:pr.emblem,color:pr.color,plume:pr.color===CUST?PINK:CUST,cape:pr.cape,blade:pr.blade});
+ const pr=loadProfile(1); Object.assign(heroMain,{kit:{helm:pr.helm,plume:pr.plume,metal:pr.metal},emblem:pr.emblem,color:pr.color,plume:pr.color===CUST?PINK:CUST,cape:pr.cape,blade:pr.blade,pose:pr.pose});
  const keep=ctx; ctx=px;
  try{
   const step=e=>{ if(e.swing>0) e.swing-=1/60; e.walk+=.02; };
@@ -2370,7 +2406,7 @@ function drawHero(){ const c=$('heroCv'); if(!c||$('menu').hidden||!G) return; c
  if(++heroFrame%30===0){ let n=''; try{ n=localStorage.getItem('ck-name')||''; }catch(e){} $('plateName').textContent=n||'Your knight'; const tr=tierOf(), nxt=tr<TRACK.length?(PROG.earned-tr*TIER_COST)/TIER_COST:1; $('plateTier').textContent=`Tier ${tr} of ${TRACK.length} · ${PROG.earned} Custard Coins`; $('plateBar').style.width=Math.round(nxt*100)+'%'; } }
 function drawWardrobe(){ const c=$('wardCv'); if(!c||$('wardrobe').hidden||!G) return; const pr=loadProfile(wardWho), px=c.getContext('2d'); px.setTransform(1,0,0,1,0,0); px.fillStyle='#5FA84E'; px.fillRect(0,0,600,600);
  px.fillStyle='rgba(0,0,0,.08)'; for(let i=0;i<8;i++)for(let j=0;j<8;j++) if((i+j)%2) px.fillRect(i*75,j*75,75,75);
- px.setTransform(6.2,0,0,6.2,0,0); const e=wardEnt; e.x=48.4; e.y=61; e.kit={helm:pr.helm,plume:pr.plume,metal:pr.metal}; e.emblem=pr.emblem; e.color=pr.color; e.cape=pr.cape; e.blade=pr.blade; e.chickSkin=pr.chick; e.chick=(G.clock%14)>11; e.plume=pr.color===CUST?PINK:CUST; e.face=G.clock*.7; const ph=G.clock%5; if(ph<.22&&e.swing<=0){ e.swing=.22; e.hitSet=[]; e.swingKind='light'; e.swingDur=.22; } if(e.swing>0) e.swing-=1/60; e.vx=0; e.vy=0; // turns in place so the preview uses the sharp menu art
+ px.setTransform(6.2,0,0,6.2,0,0); const e=wardEnt; e.x=48.4; e.y=61; e.kit={helm:pr.helm,plume:pr.plume,metal:pr.metal}; e.emblem=pr.emblem; e.color=pr.color; e.cape=pr.cape; e.blade=pr.blade;e.pose=pr.pose; e.chickSkin=pr.chick; e.chick=(G.clock%14)>11; e.plume=pr.color===CUST?PINK:CUST; e.face=G.clock*.7; const ph=G.clock%5; if(ph<.22&&e.swing<=0){ e.swing=.22; e.hitSet=[]; e.swingKind='light'; e.swingDur=.22; } if(e.swing>0) e.swing-=1/60; e.vx=0; e.vy=0; // turns in place so the preview uses the sharp menu art
  const keep=ctx; ctx=px; try{ drawKnight(e); }finally{ ctx=keep; } }
 const music=new Audio('menu-theme.mp3'); music.loop=true; music.preload='auto';
 let musicWant=true, fadeT=null, musicCue='menu';
@@ -2390,11 +2426,11 @@ function fadeMusic(on){
 // browsers only allow sound after the first click or key press
 const kick=()=>{ if(musicWant&&!muted&&music.paused) cueMusic(musicCue); };
 addEventListener('pointerdown',kick,{once:true}); addEventListener('keydown',kick,{once:true});
-function start(){ if(NET.role==='client') return; if(!partyGo) SEATS=null; partyGo=false; phoneFullscreen(); audio(); menuMusic(false); newGame(false); matchMusic(); showScreen(null); paused=false; $('pauseBtn').hidden=false; showTouch(true); try{ localStorage.setItem('ck-played',String((+localStorage.getItem('ck-played')||0)+1)); }catch(e){}
+function start(){ if(ADVENTURE)ADVENTURE.stop(); if(NET.role==='client') return; if(!cupStarting)CUP=null;cupUI.hide(); if(NET.role==='host'&&cfg.players+NET.players.length-1>8){ showLobby(); lobbyMsg('Too many knights. Reduce local players in Settings before starting.'); return; } if(NET.role==='host'){ NET.inputs={};NET.latch={};NET.fxq=[];NET.tick=0; } if(!partyGo) SEATS=null; partyGo=false; phoneFullscreen(); audio(); menuMusic(false); newGame(false); matchMusic(); showScreen(null); paused=false; $('pauseBtn').hidden=false; showTouch(true); try{ localStorage.setItem('ck-played',String((+localStorage.getItem('ck-played')||0)+1)); }catch(e){}
  G.banner={title:G.mode==='race'?'RACE!':'FIGHT!',sub:G.map.name+'. '+(MODES[G.mode]?MODES[G.mode].name:'')+(G.mode==='ffa'?'. Every knight for themselves.':'.'),col:CUST,t:2,max:2}; sfx('event');
  for(const e of G.ents) if(isMine(e)) e.spot=2.6;
  if(NET.role==='host'){ $('pauseBtn').hidden=true; broadcast({t:'start',setup:netSetup()}); } }
-function toMenu(){ if(NET.role==='host'){ newGame(true); showLobby(); menuMusic(true); broadcast({t:'tolobby'}); return; } if(NET.role==='client'){ leaveOnline(); return; } menuMusic(true); newGame(true); paused=false; showScreen('menu'); $('pauseBtn').hidden=true; showTouch(false); }
+function toMenu(){ if(ADVENTURE)ADVENTURE.stop(); cancelCup(); if(NET.role==='host'){ newGame(true); showLobby(); menuMusic(true); broadcast({t:'tolobby'}); return; } if(NET.role==='client'){ leaveOnline(); return; } menuMusic(true); newGame(true); paused=false; showScreen('menu'); $('pauseBtn').hidden=true; showTouch(false); }
 function setPause(p){ if(!G||G.demo||G.over||NET.role)return; paused=p; $('pause').hidden=!p; if(p){ const b=$('resumeBtn'); if(b) b.focus(); } }
 addEventListener('keydown',ev=>{ if(ev.code==='Escape'&&!(G&&!G.demo&&!G.over)){ const sc=visibleScreen(); if(sc&&sc.id!=='menu') menuBack(); } });
 function finalResults(sorted){
@@ -2406,6 +2442,8 @@ function finalResults(sorted){
  });
 }
 function endMatch(remoteResults){
+ if(G.campaign)return;
+ if(!G||G.demo||G.over) return;
  G.over=true; $('pauseBtn').hidden=true; showTouch(false);
  $('againBtn').hidden=NET.role==='client'; $('menuBtn').textContent=NET.role==='host'?'Back to lobby':NET.role==='client'?'Leave':'Menu';
  const m=G.mode, sorted=G.ents.slice().sort((a,b)=>LIVES_MODES.has(m)?((b.chick?0:1)-(a.chick?0:1)||b.lives-a.lives||b.score-a.score||a.deaths-b.deaths):m==='race'?raceRank(a,b):b.score-a.score||a.deaths-b.deaths);
@@ -2421,7 +2459,7 @@ function endMatch(remoteResults){
  const award=CKProgress.apply(PROG,G.roundId,(Array.isArray(results)?results:[]).filter(r=>r&&G.ents[r.id]&&isMine(G.ents[r.id])));
  $('endReward').hidden=true; if(award.applied&&!G.rewarded){G.rewarded=true;Object.assign(PROG,award.progress);const coins=award.coins,got=award.got;
   for(let i=award.before;i<award.after;i++)if(!got.some(it=>it.join(':')===TRACK[i].join(':')))got.push(TRACK[i]);
-  saveProg(); const nm2=it=>it[0]==='color'?(COLOR_NAMES[it[1]]||it[1])+' colour':(NICE[it[1]]||it[1])+' '+(it[0]==='chick'?'chicken':it[0]);
+  saveProg();awardCollection(G.roundId,CUP&&CUP.round===2?['cup-complete']:[]); const nm2=it=>it[0]==='color'?(COLOR_NAMES[it[1]]||it[1])+' colour':(NICE[it[1]]||it[1])+' '+(it[0]==='chick'?'chicken':it[0]);
   $('endReward').textContent=`+${coins} Custard Coins (tier ${tierOf()} of ${TRACK.length}).`+(got.length?' Unlocked: '+got.map(nm2).join(', ')+'. See the Wardrobe.':''); $('endReward').hidden=false; if(got.length){ const keep=G.demo; G.demo=false; try{ sfx('unlock'); }catch(e){} G.demo=keep; } }
  const ol=$('board'); ol.innerHTML='';
  sorted.forEach((e,i)=>{ const li=document.createElement('li'); if(isMine(e))li.className='me';
@@ -2430,12 +2468,13 @@ function endMatch(remoteResults){
   li.children[2].textContent=e.name; ol.appendChild(li); });
  cueMusic(G.winners.some(isMine)?'victory':'defeat');
  $('end').hidden=false;
+ finishCupRound();if(!CUP)showCollectionReward($('end').querySelector('.panel'));
 }
 function rematch(){partyGo=!!SEATS;start();}
-$('startBtn').onclick=start; $('againBtn').onclick=rematch; $('menuBtn').onclick=toMenu; $('quitBtn').onclick=toMenu;
+$('startBtn').onclick=()=>{if(NET.role==='host'){showLobby();sendLobby();}else start();}; $('againBtn').onclick=rematch; $('menuBtn').onclick=toMenu; $('quitBtn').onclick=toMenu;
 $('resumeBtn').onclick=()=>setPause(false); $('pauseBtn').onclick=()=>setPause(!paused);
 $('muteBtn').onclick=()=>{ muted=!muted; $('muteBtn').textContent='Sound: '+(muted?'off':'on'); if(muted){ clearInterval(fadeT); music.pause(); } else if(musicWant) cueMusic(musicCue); };
-function shout(n,i){ if(!G||G.demo)return; if(NET.role==='client'){ if(n===1&&NET.conn&&NET.conn.open) NET.conn.send({t:'shout',i}); return; } const e=G.ents.find(x=>x.human===n); if(e&&alive(e)){ say(e,isChicken(e)?'BAWK!':SHOUTS[i],1.8); sfx('shout'); } }
+function shout(n,i){ if(!G||G.demo)return; if(NET.role==='client'){ if(n===1&&NET.conn&&NET.conn.open) NET.conn.send({t:'shout',roundId:G.roundId,i}); return; } const e=G.ents.find(x=>x.human===n); if(e&&alive(e)){ say(e,isChicken(e)?'BAWK!':SHOUTS[i],1.8); sfx('shout'); } }
 addEventListener('keydown',ev=>{
  const playing=G&&!G.demo&&!G.over;
  if(playing&&['ArrowUp','ArrowDown','ArrowLeft','ArrowRight','Space'].includes(ev.code)) ev.preventDefault();
@@ -2504,12 +2543,12 @@ function renderLobby(){
  $('lobbyShare').textContent=host&&NET.code?inviteUrl():'';
  const ol=$('lobbyList'); ol.innerHTML='';
  NET.players.forEach((p,i)=>{ const li=document.createElement('li'); li.textContent=p.name; if(i===0) li.className='host'; ol.appendChild(li); });
- $('lobbyStart').hidden=!host; $('lobbyCopy').hidden=!(host&&NET.code); $('lobbySetupBtn').hidden=!host;
+ $('lobbyStart').hidden=!host;if($('lobbyCup'))$('lobbyCup').hidden=!host; $('lobbyCopy').hidden=!(host&&NET.code); $('lobbySetupBtn').hidden=!host;
  $('lobbySetup').textContent=host?`${MODES[cfg.mode]?MODES[cfg.mode].name:'Free-for-all'} on ${cfg.map==='random'?'a surprise arena':MAPS[cfg.map].name}, ${cfg.diff} bots, ${cfg.length===90?'90 seconds':cfg.length===300?'5 minutes':'3 minutes'}.`:'';
  $('lobbyCtl').textContent='Move: WASD or Arrows. Swing: Space. Dash: Shift. Block: E. Or a pad: left stick, A, B, X.';
- if(host) lobbyMsg(NET.peer&&NET.peer.open?`${NET.players.length} of 8 knights. Bots fill the empty spots. Arena, mode and bots come from the main menu.`:'Opening the room…');
+ if(host) lobbyMsg(NET.peer&&NET.peer.open?`${NET.players.length-1+cfg.players} of 8 knights. Bots fill the empty spots. Arena, mode and bots come from the main menu.`:'Opening the room…');
 }
-function netReset(){ try{ if(NET.peer) NET.peer.destroy(); }catch(e){} Object.assign(NET,{role:null,peer:null,conn:null,conns:new Map(),code:'',players:[],me:-1,inputs:{},latch:{},fxq:[],lastIn:'',an:0,dn:0,pa:false,pd:false}); }
+function netReset(){ CUP=null;cupUI.hide();const peer=NET.peer; Object.assign(NET,{role:null,peer:null,conn:null,conns:new Map(),code:'',players:[],me:-1,inputs:{},latch:{},fxq:[],lastIn:'',lastInT:0,an:0,dn:0,pa:false,pd:false,waiting:false}); try{ if(peer) peer.destroy(); }catch(e){} }
 function leaveOnline(msg){ netReset(); $('lobby').hidden=true; toMenu(); $('menuMsg').textContent=msg||''; }
 function broadcast(m){ for(const c of NET.conns.values()) if(c.open) try{ c.send(m); }catch(e){} }
 function sendLobby(){ broadcast({t:'lobby',code:NET.code,players:NET.players.map(p=>({name:p.name}))}); renderLobby(); }
@@ -2519,33 +2558,37 @@ async function hostOnline(){
  try{ await loadPeer(); }catch(e){ $('menuMsg').textContent='Could not load online play. Check your internet connection.'; return; }
  netReset(); NET.role='host'; NET.players=[{id:'host',name:myName(),kit:loadProfile(1)}];
  const open=()=>{ NET.code=roomCode(); const peer=new Peer(PEER_PREFIX+NET.code); NET.peer=peer; renderLobby();
-  peer.on('open',()=>renderLobby());
+  peer.on('open',()=>{if(NET.peer===peer)renderLobby();});
   peer.on('error',err=>{ if(NET.peer!==peer) return; if(err.type==='unavailable-id'){ peer.destroy(); open(); } else lobbyMsg('Connection problem ('+err.type+'). Leave and host again.'); });
   peer.on('connection',conn=>{
-   conn.on('open',()=>{ const inMatch=G&&!G.demo&&!G.over;
+   conn.on('open',()=>{ if(NET.peer!==peer){conn.close();return;} const inMatch=G&&!G.demo&&!G.over;
     if(NET.players.length+cfg.players>8){ try{ conn.send({t:'full',why:'That room is full.'}); }catch(e){} setTimeout(()=>conn.close(),500); return; }
     NET.conns.set(conn.peer,conn); if(inMatch) try{ conn.send({t:'wait'}); }catch(e){} });
-   conn.on('data',d=>hostRecv(conn,d));
-   conn.on('close',()=>hostDrop(conn.peer));
+   conn.on('data',d=>{if(NET.peer===peer)hostRecv(conn,d);});
+   conn.on('close',()=>{if(NET.peer===peer&&NET.conns.get(conn.peer)===conn)hostDrop(conn.peer);});
+   conn.on('error',()=>{if(NET.peer===peer&&NET.conns.get(conn.peer)===conn)hostDrop(conn.peer);});
   }); };
  open(); showLobby();
 }
 function hostRecv(conn,d){
- if(!d||typeof d!=='object'||!NET.conns.has(conn.peer)) return;
- if(d.t==='hello'){ if(NET.players.some(p=>p.id===conn.peer)) return; if(NET.players.length+cfg.players>8){conn.send({t:'full',why:'That room is full.'});return;} NET.players.push({id:conn.peer,name:String(d.name||'Knight').slice(0,14),kit:cleanKit(d.kit)}); sendLobby(); }
- else if(d.t==='in'&&Array.isArray(d.i)){ const i=d.i, L=NET.latch[conn.peer]||(NET.latch[conn.peer]={an:0,dn:0}); NET.inputs[conn.peer]=[clamp(+i[0]||0,-1,1),clamp(+i[1]||0,-1,1),i[2]?1:0,i[3]?1:0,i[4]?1:0]; const an=+i[5]||0, dn=+i[6]||0; if(an>L.an){L.a=1} if(dn>L.dn){L.d=1} L.an=an; L.dn=dn; }
- else if(d.t==='shout'&&G&&!G.demo){ const e=G.ents.find(x=>x.netId===conn.peer); if(e&&alive(e)){ say(e,isChicken(e)?'BAWK!':SHOUTS[Math.abs(d.i|0)%4],1.8); sfx('shout'); } }
+ if(!d||typeof d!=='object'||NET.role!=='host'||NET.conns.get(conn.peer)!==conn) return;
+ if(d.t==='kit'){const player=NET.players.find(p=>p.id===conn.peer);if(player&&d.kit&&typeof d.kit==='object'&&!Array.isArray(d.kit))player.kit=cleanKit(d.kit);return;}
+ if(d.t==='cup-ready'){if(CUP&&d.cupId===CUP.id&&d.round===CUP.round&&typeof d.ready==='boolean'){CKCup.ready(CUP,'peer:'+conn.peer,d.choice,d.ready);syncCup();}return;}
+ if(d.t==='hello'){ if(NET.players.some(p=>p.id===conn.peer)) return; if(NET.players.length+cfg.players>8){NET.conns.delete(conn.peer);conn.send({t:'full',why:'That room is full.'});setTimeout(()=>conn.close(),500);return;} NET.players.push({id:conn.peer,name:String(d.name||'Knight').slice(0,14),kit:cleanKit(d.kit)}); sendLobby(); if(G&&!G.demo)conn.send({t:'wait'}); }
+ else if(d.t==='in'&&G&&!G.demo&&!G.over&&d.roundId===G.roundId&&G.ents.some(e=>e.netId===conn.peer)&&Array.isArray(d.i)&&d.i.length===7&&d.i.every(Number.isFinite)){ const i=d.i, L=NET.latch[conn.peer]||(NET.latch[conn.peer]={an:0,dn:0}); NET.inputs[conn.peer]=[clamp(+i[0]||0,-1,1),clamp(+i[1]||0,-1,1),i[2]?1:0,i[3]?1:0,i[4]?1:0]; const an=+i[5]||0, dn=+i[6]||0; if(an>L.an){L.a=1} if(dn>L.dn){L.d=1} L.an=an; L.dn=dn; }
+ else if(d.t==='shout'&&G&&!G.demo&&!G.over&&d.roundId===G.roundId){ const e=G.ents.find(x=>x.netId===conn.peer); if(e&&alive(e)){ say(e,isChicken(e)?'BAWK!':SHOUTS[Math.abs(d.i|0)%4],1.8); sfx('shout'); } }
 }
 function hostDrop(id){
- if(!NET.conns.has(id)) return; NET.conns.delete(id); delete NET.inputs[id];
+ if(CUP){CKCup.disconnect(CUP,'peer:'+id);syncCup();}
+ if(!NET.conns.has(id)) return; NET.conns.delete(id); delete NET.inputs[id]; delete NET.latch[id];
  const p=NET.players.find(x=>x.id===id); NET.players=NET.players.filter(x=>x.id!==id);
  if(G&&!G.demo){ const e=G.ents.find(x=>x.netId===id); if(e){ e.netId=null; e.human=0; e.name=e.name.slice(0,14)+' (bot)'; feed(`${p?p.name:'A knight'} left. A bot takes over.`); } }
  sendLobby();
 }
-function netSetup(){ return {roundId:G.roundId,mapKey:G.mapKey,mode:G.mode,ents:G.ents.map(e=>({name:e.name,color:e.color,plume:e.plume,team:e.team,kit:e.kit,emblem:e.emblem,cape:e.cape,blade:e.blade,chickSkin:e.chickSkin,human:e.human,netId:e.netId||null}))}; }
+function netSetup(){ return {cup:CUP,roundId:G.roundId,mapKey:G.mapKey,mode:G.mode,ents:G.ents.map(e=>({name:e.name,color:e.color,plume:e.plume,team:e.team,kit:e.kit,emblem:e.emblem,cape:e.cape,blade:e.blade,pose:e.pose||'plain',chickSkin:e.chickSkin,human:e.human,netId:e.netId||null}))}; }
 const r1=v=>Math.round(v*10)/10;
 function snapshot(){
- return {t:'s',
+ return {t:'s',roundId:G.roundId,
   e:G.ents.map(e=>[r1(e.x),r1(e.y),r1(e.vx),r1(e.vy),Math.round(e.face*100)/100,e.hp,e.dead?1:0,r1(e.falling),Math.round(e.swing*1000)/1000,e.blocking?1:0,Math.round(e.dashT*100)/100,r1(e.inv),Math.round(e.flash*100)/100,r1(e.slip),e.score,e.deaths,Object.keys(e.fx).join(','),e.wpn?[e.wpn.kind,e.wpn.lvl,e.wpn.ammo]:0,r1(e.walk),e.name,e.human,e.netId||0,e.swingKind,Math.round(e.charge*100)/100,r1(e.protect),r1(e.stun),r1(e.guard),e.lives,e.chick?1:0,e.laps,e.cp,e.carry||0,e.finished?1:0,e.dead&&e.lastKO?[e.lastKO.how,e.lastKO.src,e.lastKO.by||0]:0,(e.lvl&&e.lvl.big)||0]),
   md:G.mode==='flags'&&G.flags?{flags:G.flags.map(f=>[Math.round(f.cap*100)/100,f.own?(f.own==='red'?1:2):0,f.contested?1:0])}:G.mode==='hotpie'&&G.hot?{hot:[G.hot.holder?G.hot.holder.id:-1,r1(G.hot.t),G.hot.max]}:G.mode==='kotp'?{hill:[r1(G.hill.x),r1(G.hill.y),G.hill.r,r1(G.hill.t),G.hill.contested?1:0,G.hill.king?G.hill.king.id:-1]}:G.mode==='heist'?{pies:G.pies.map(q=>[q.team,r1(q.x),r1(q.y),q.home?1:0,q.carrier?q.carrier.id:-1])}:0,
   pk:G.pickups.map(p=>[p.x,p.y,p.kind,p.tier,r1(p.t)]),
@@ -2573,22 +2616,28 @@ async function joinOnline(raw){
  const peer=new Peer(); NET.peer=peer;
  const fail=setTimeout(()=>{ if(NET.peer===peer&&!(NET.conn&&NET.conn.open)) leaveOnline('Could not reach room '+code+'. Check the code and try again.'); },15000);
  peer.on('open',()=>{
+  if(NET.peer!==peer)return;
   const conn=peer.connect(PEER_PREFIX+code,{serialization:'json',reliable:true}); NET.conn=conn;
-  conn.on('open',()=>{ clearTimeout(fail); conn.send({t:'hello',name:myName(),kit:loadProfile(1)}); lobbyMsg('Connected. Waiting for the host to start.'); });
-  conn.on('data',clientRecv);
+  conn.on('open',()=>{ if(NET.peer!==peer){conn.close();return;} clearTimeout(fail); conn.send({t:'hello',name:myName(),kit:loadProfile(1)}); lobbyMsg('Connected. Waiting for the host to start.'); });
+  conn.on('data',d=>{if(NET.peer===peer&&NET.conn===conn)clientRecv(d);});
+  conn.on('error',()=>{if(NET.peer===peer)leaveOnline('Connection to the host was lost.');});
   conn.on('close',()=>{ if(NET.peer===peer) leaveOnline('The host left the game.'); });
  });
  peer.on('error',err=>{ if(NET.peer!==peer) return; clearTimeout(fail); leaveOnline(err.type==='peer-unavailable'?'There is no room with the code '+code+'.':'Connection problem ('+err.type+').'); });
 }
+function validNetSetupShape(s){ return s&&typeof s.roundId==='string'&&s.roundId.length>0&&s.roundId.length<=100&&Object.hasOwn(MAPS,s.mapKey)&&Object.hasOwn(MODES,s.mode)&&Array.isArray(s.ents)&&s.ents.length===8&&s.ents.every(e=>e&&typeof e==='object'&&Number.isInteger(e.human)&&e.human>=0&&e.human<=8)&&(!s.cup||CKCup.validState(s.cup)); }
+function validNetSetup(s){return validNetSetupShape(s)&&s.ents.filter(e=>e.netId===NET.peer.id).length===1;}
 function clientRecv(d){
- if(!d||typeof d!=='object') return;
+ if(NET.role!=='client'||!d||typeof d!=='object') return;
+ if(d.t==='cup'){receiveCup(d.state);return;}
  if(d.t==='lobby'){ NET.code=String(d.code||NET.code); NET.players=(Array.isArray(d.players)?d.players:[]).map(p=>({name:String(p&&p.name||'Knight').slice(0,14)})); renderLobby(); }
  else if(d.t==='full') leaveOnline(String(d.why||'That room is full.'));
- else if(d.t==='wait') lobbyMsg('A match is on right now. You are in for the next round; hang tight.');
- else if(d.t==='start'&&d.setup&&MAPS[d.setup.mapKey]){ newGame(false,d.setup); NET.me=d.setup.ents.findIndex(x=>x.netId===NET.peer.id); if(G.ents[NET.me]) G.ents[NET.me].spot=2.6; matchMusic(); ['menu','end','pause','lobby'].forEach(k=>$(k).hidden=true); $('pauseBtn').hidden=true; showTouch(true); }
- else if(d.t==='s'&&G&&!G.demo) applySnap(d);
- else if(d.t==='end'&&G&&!G.demo&&!G.over&&d.roundId===G.roundId&&Array.isArray(d.results)) endMatch(d.results);
- else if(d.t==='tolobby'){ newGame(true); showLobby(); menuMusic(true); lobbyMsg('Connected. Waiting for the host to start.'); }
+ else if(d.t==='wait'){ NET.waiting=true;lobbyMsg('You are in for the next round. Waiting for the host; hang tight.'); }
+ else if(d.t==='start'&&validNetSetupShape(d.setup)&&d.setup.cup&&!d.setup.ents.some(e=>e.netId===NET.peer.id)){receiveCup(d.setup.cup);NET.waiting=true;lobbyMsg('This Cup has started. You can enter the next Cup.');}
+ else if(d.t==='start'&&validNetSetup(d.setup)&&d.setup.roundId!==G.roundId&&!PROG.receipts.includes(d.setup.roundId)){ NET.waiting=false;NET.lastIn='';NET.lastInT=0;NET.an=NET.dn=0;NET.pa=NET.pd=false;CUP=d.setup.cup||null;cupUI.hide();newGame(false,d.setup); NET.me=d.setup.ents.findIndex(x=>x.netId===NET.peer.id); if(G.ents[NET.me]) G.ents[NET.me].spot=2.6; matchMusic(); ['menu','end','pause','lobby'].forEach(k=>$(k).hidden=true); $('pauseBtn').hidden=true; showTouch(true); }
+ else if(d.t==='s'&&G&&!G.demo&&!G.over&&d.roundId===G.roundId) applySnap(d);
+ else if(d.t==='end'&&G&&!G.demo&&!G.over&&d.roundId===G.roundId&&CKProgress.validRows(d.results)&&d.results.every(r=>r.mode===G.mode&&G.ents[r.id]&&G.ents[r.id].human)&&d.results.some(r=>r.id===NET.me)) endMatch(d.results);
+ else if(d.t==='tolobby'){ NET.waiting=false;newGame(true); showLobby(); menuMusic(true); lobbyMsg('Connected. Waiting for the host to start.'); }
 }
 function applySnap(s){
  (s.e||[]).forEach((a,i)=>{ const e=G.ents[i]; if(!e) return; const jump=e.dead!==!!a[6]||Math.hypot(a[0]-e.x,a[1]-e.y)>140; if(e.dead&&!a[6]&&i===NET.me) e.spot=1.6;
@@ -2634,7 +2683,7 @@ function clientTick(dt){ if(G.punch>0) G.punch-=dt;
 function clientSend(now){
  if(!NET.conn||!NET.conn.open) return;
  const i=humanInput(1); if(i.atk&&!NET.pa) NET.an++; if(i.dash&&!NET.pd) NET.dn++; NET.pa=i.atk; NET.pd=i.dash; const mv=[r1(clamp(i.mx,-1,1)),r1(clamp(i.my,-1,1)),i.atk?1:0,i.dash?1:0,i.block?1:0,NET.an,NET.dn], key=mv.join();
- if(key!==NET.lastIn||now-NET.lastInT>250){ NET.lastIn=key; NET.lastInT=now; try{ NET.conn.send({t:'in',i:mv}); }catch(e){} }
+ if(key!==NET.lastIn||now-NET.lastInT>250){ NET.lastIn=key; NET.lastInT=now; try{ NET.conn.send({t:'in',roundId:G.roundId,i:mv}); }catch(e){} }
 }
 $('hostBtn').onclick=hostOnline;
 $('joinBtn').onclick=()=>joinOnline($('codeIn').value);
@@ -2646,9 +2695,56 @@ $('lobbyCopy').onclick=()=>{ const u=inviteUrl(),label=webInvite()?'invite link'
 syncSegs(); menuHintText();
 (function waitChips(n){ if(sprReady||n>40) buildChips(); else setTimeout(()=>waitChips(n+1),100); })(0); // icons use the baked knights once they have decoded
 
+/* ---------- three-round Custard Cup ---------- */
+let CUP=null,cupStarting=false,partyCupRequested=false;
+const cupKey=e=>e.netId?'peer:'+e.netId:'local:'+e.human;
+const cupLocalKeys=()=>NET.role==='client'?['peer:'+NET.peer.id]:(CUP?CUP.players.filter(p=>!p.peer).map(p=>p.key):[]);
+function cupAllowsPeer(id){return !CUP||CUP.players.some(p=>p.peer===id&&p.connected);}
+const cupUI=CKCupUI.mount({root:$('stage'),localKeys:cupLocalKeys,isHost:()=>NET.role!=='client',onReady:cupReady,onNext:nextCupRound,onReplay:startCup,onExit:toMenu,mapName:k=>MAPS[k].name});
+function showCup(){if(!CUP||CUP.status==='playing')return;$('end').hidden=true;const resultCue=musicCue;showScreen('cupResults');cueMusic(CUP.status==='complete'?(CKCup.winners(CUP).some(k=>cupLocalKeys().includes(k))?'victory':'defeat'):resultCue);cupUI.render(CUP);if(cupLocalKeys().some(k=>CUP.players.some(p=>p.key===k&&p.connected)))showCollectionReward($('cupResults').querySelector('.panel'));}
+function syncCup(){if(NET.role==='host')broadcast({t:'cup',state:CUP});showCup();}
+function receiveCup(state){
+ if(NET.role!=='client')return;
+ if(!state){CUP=null;cupUI.hide();return;}
+ if(!CKCup.validState(state))return;
+ if(CUP&&(state.id!==CUP.id||state.round<CUP.round||state.history.length<CUP.history.length))return;
+ CUP=state;showCup();
+}
+function startCup(){
+ if(NET.role==='client')return;
+ const players=[];for(let seat=1;seat<=Math.max(1,cfg.players);seat++)players.push({key:'local:'+seat,name:localName(seat)||'Player '+seat,seat});
+ if(NET.role==='host')for(const p of NET.players.slice(1))players.push({key:'peer:'+p.id,name:p.name,peer:p.id});
+ if(players.length>8){lobbyMsg('A Cup supports up to eight human knights. Reduce couch seats first.');return;}
+ CUP=CKCup.create(crypto.randomUUID(),players);cfg.players=Math.max(1,cfg.players);runCupRound();
+}
+function runCupRound(){Object.assign(cfg,CKCup.config(CUP));partyGo=partyGo||!!SEATS;cupStarting=true;try{start();}finally{cupStarting=false;}syncCup();}
+function finishCupRound(){
+ if(!CUP||CUP.status!=='playing'||NET.role==='client')return;
+ const rows=G.ents.filter(e=>e.human).map(e=>({key:cupKey(e),score:e.score,deaths:e.deaths,lives:e.lives,chick:e.chick,parries:e.parries||0,ringouts:G.log.filter(l=>l.k==='ko'&&l.src==='pit'&&l.a===e.id).length,pickups:G.log.filter(l=>l.k==='pickup'&&l.id===e.id).length}));
+ if(CKCup.finish(CUP,G.roundId,rows))syncCup();
+}
+function cupReady(key,choice,ready){if(!CUP)return;if(NET.role==='client'){if(NET.conn&&NET.conn.open)NET.conn.send({t:'cup-ready',cupId:CUP.id,round:CUP.round,choice,ready});}else{CKCup.ready(CUP,key,choice,ready);syncCup();}}
+function nextCupRound(){if(NET.role!=='client'&&CUP&&CKCup.advance(CUP))runCupRound();}
+function cancelCup(){if(!CUP)return;CUP=null;cupUI.hide();if(NET.role==='host')broadcast({t:'cup',state:null});}
+const cupMenu=document.createElement('button');cupMenu.type='button';cupMenu.className='mbtn';cupMenu.id='tCup';cupMenu.innerHTML='<span><b>Custard Cup</b><small>Three rounds. One trophy. Local or online.</small></span>';cupMenu.onclick=()=>{cfg.players=1;SEATS=null;startCup();};document.querySelector('.mgrid').append(cupMenu);
+const cupParty=document.createElement('button');cupParty.type='button';cupParty.className='btn';cupParty.id='partyCup';cupParty.textContent='Play a Custard Cup';cupParty.onclick=()=>{if(!PARTY.seats.length){$('partyMsg').textContent='Join a seat first.';return;}partyCupRequested=true;partyStart();};$('partyGo').after(cupParty);
+const cupLobby=document.createElement('button');cupLobby.type='button';cupLobby.className='btn';cupLobby.id='lobbyCup';cupLobby.textContent='Host a Custard Cup';cupLobby.onclick=startCup;$('lobbyStart').after(cupLobby);
+
+/* ---------- Great Pudding War ---------- */
+const adventureMenu=document.createElement('button');adventureMenu.type='button';adventureMenu.className='mbtn';adventureMenu.id='tAdventure';adventureMenu.innerHTML='<span><b>The Great Pudding War</b><small>Story adventure · Eight encounters</small></span>';document.querySelector('.mgrid').append(adventureMenu);
+ADVENTURE=CKCampaignIntegration.connect({
+ makeKnight:mkKnight,steer,hurt,redraw:drawBg,
+ boot:map=>{collectionUnlocks=[];cancelCup();SEATS=null;partyGo=false;const saved={...cfg};Object.assign(cfg,{players:1,map,mode:'ffa',diff:'chill',length:360,chaosPlus:false,chaosSpeed:'normal'});audio();menuMusic(false);newGame(false);Object.assign(cfg,saved);return G;},
+ play:()=>{showScreen(null);paused=false;$('pauseBtn').hidden=false;showTouch(true);matchMusic();},
+ finished:r=>{if(r.won)campaignCollectionReward(r,ADVENTURE.campaign.save);else collectionUnlocks=[];queueMicrotask(()=>showCollectionReward($('campaignResult').querySelector('.panel')));paused=false;$('pauseBtn').hidden=true;showTouch(false);cueMusic(r.won?'victory':'defeat');},
+ mapOpened:()=>{if(NET.role)return;cancelCup();if(G&&!G.demo)G.over=true;showScreen(null);$('pauseBtn').hidden=true;showTouch(false);menuMusic(true);},
+ menu:toMenu
+},{onReward:campaignCollectionReward});
+SCREENS.push(...ADVENTURE.ui.screens);
+adventureMenu.onclick=()=>{if(!NET.role)ADVENTURE.open();};
 newGame(true);
 if(new URLSearchParams(location.search).get('qa')){
- window.CK={musicState:()=>({cue:musicCue,wanted:musicWant,src:music.getAttribute('src')}),cueMusic,audioStats:()=>({active:audioVoices,max:MAX_AUDIO_VOICES}),sfx,hostOnline,joinOnline,leaveOnline,G:()=>G,PROG,NET,clientRecv,endMatch,netSetup,rematch,seats:()=>SEATS,setSeats:v=>{SEATS=v;partyGo=true;},cfg,keys,touch,update,newGame,start,loadProfile,saveProfile,drawKnight:e=>drawKnight(e),sprites:v=>{ SET.classic=!v; },spritesReady:()=>sprReady,sprLoadAll:()=>{ if(!SPR) return Promise.resolve(0); const ent=(pre,o)=>Object.entries(o||{}).map(([q,u])=>[pre+q,u]); const L=[...Object.entries(SPR.helms).flatMap(([h,H])=>ent(h+'.',H)),...ent('plume.',SPR.plumes),...ent('blade.',SPR.blades),...ent('pat.',SPR.pats),...ent('emb.',SPR.embs),...(SPR.cape?[['cape',SPR.cape]]:[])]; return Promise.all(L.map(([k,u])=>{ sprImg(k,u); const im=sprImgs[k]; return im.ok?1:new Promise(r=>{ im.addEventListener('load',()=>setTimeout(r,0)); im.addEventListener('error',r); }); })).then(v=>v.length); },mkKnight:o=>mkKnight(o),withCtx:(c,fn)=>{ const k=ctx; ctx=c; try{ fn(); }finally{ ctx=k; } },startEvent,startMayhem,applyPU,giveWeapon,spawnPickup,MAYHEM,PU,MAPS,WEAPONS,
+ window.CK={collection:()=>COLLECTION,setCollection:saveCollection,awardCollection,campaignCollectionReward,reloadWardrobeSaves,drawCollectionPreview,openWardrobe,owned,cleanKit,collectionUI:()=>collectionUI,adventure:ADVENTURE,hurt,startSwing,hitCrate,clang,doHit,fire,draw,toMenu,cup:()=>CUP,startCup,cupReady,nextCupRound,cancelCup,musicState:()=>({cue:musicCue,wanted:musicWant,src:music.getAttribute('src')}),cueMusic,audioStats:()=>({active:audioVoices,max:MAX_AUDIO_VOICES}),sfx,hostOnline,joinOnline,leaveOnline,G:()=>G,PROG,NET,clientRecv,hostRecv,hostDrop,snapshot,humanInput,endMatch,netSetup,rematch,seats:()=>SEATS,setSeats:v=>{SEATS=v;partyGo=true;},cfg,keys,touch,update,newGame,start,loadProfile,saveProfile,drawKnight:e=>drawKnight(e),sprites:v=>{ SET.classic=!v; },spritesReady:()=>sprReady,sprLoadAll:()=>{ if(!SPR) return Promise.resolve(0); const ent=(pre,o)=>Object.entries(o||{}).map(([q,u])=>[pre+q,u]); const L=[...Object.entries(SPR.helms).flatMap(([h,H])=>ent(h+'.',H)),...ent('plume.',SPR.plumes),...ent('blade.',SPR.blades),...ent('pat.',SPR.pats),...ent('emb.',SPR.embs),...(SPR.cape?[['cape',SPR.cape]]:[])]; return Promise.all(L.map(([k,u])=>{ sprImg(k,u); const im=sprImgs[k]; return im.ok?1:new Promise(r=>{ im.addEventListener('load',()=>setTimeout(r,0)); im.addEventListener('error',r); }); })).then(v=>v.length); },mkKnight:o=>mkKnight(o),withCtx:(c,fn)=>{ const k=ctx; ctx=c; try{ fn(); }finally{ ctx=k; } },startEvent,startMayhem,applyPU,giveWeapon,spawnPickup,MAYHEM,PU,MAPS,WEAPONS,
   adv:n=>{for(let i=0;i<n;i++)update(1/60)},freeze:v=>{paused=v},
   begin:(o={})=>{ Object.assign(cfg,o); if(o.humans!==undefined) cfg.players=o.humans; $('menu').hidden=true; audio(); menuMusic(false); newGame(false); paused=true; $('pauseBtn').hidden=true; G.banner=null; return G; },
   zoom:(s,gx,gy)=>{ const r=document.getElementById('stage').getBoundingClientRect(); fitS=s; fitX=r.width/2-gx*s; fitY=r.height/2-gy*s; scale=s; offX=fitX; offY=fitY; }};

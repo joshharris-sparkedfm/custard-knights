@@ -1,9 +1,9 @@
 {
   "name": "custard-knights",
   "productName": "Custard Knights",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "private": true,
-  "author": "Custard Knights project",
+  "author": "Sparked FM Ltd",
   "license": "UNLICENSED",
   "description": "Custard Knights Windows release candidate",
   "main": "desktop/main.cjs",

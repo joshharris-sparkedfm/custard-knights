@@ -1,88 +1,84 @@
 # Custard Knights — Steam preparation handoff
 
-Updated 8 October 2026. This branch is a Windows candidate for testing and Steam preparation. It is not an approved commercial release. Joshua is starting Steamworks onboarding.
+Updated 8 October 2026. Developer/publisher: **Sparked FM Ltd**. Recommended base price: **£7.99 / US$9.99**, subject to the owner's final storefront decision. No price has been submitted. This is a Windows candidate for testing and Steam preparation, not an approved public release.
 
-## Candidate scope
+## Required release and current implementation
 
-Windows x64 desktop wrapper for the existing game, six arenas, eight modes, bots, local party play and PeerJS room-code multiplayer. Runtime assets, fonts and the PeerJS client are bundled locally. Online signaling still needs the internet and uses PeerJS infrastructure; this build does not implement Steam lobbies or a guaranteed relay service.
+The earlier arena-only cutline is superseded. The release includes the existing eight arena modes and six arenas, the first eight encounters of **The Great Pudding War**, the three-round **Custard Cup**, and six additional earned cosmetic rewards. All three new systems are implemented; integrated acceptance and final packaging are tracked in `LAUNCH-STATUS.md`. The old 0.1.0 downloadable ZIP is an arena-only test candidate. Use the new 0.2.0 candidate only after its accompanying BUILD-INFO identifies the completed source revision.
 
-The campaign, Cups, new progression roadmap, Steam achievements, Steam Cloud, Deck verification and twelve completed songs are not included. Store copy must not present them as shipped features.
+The Great Pudding War contains seven main-path encounters and an optional Biscuit Toll, a winding map, story exchanges, independent spoon goals, checkpoints, assistance, Steve's rescue, a two-phase boss and a playable final rescue. Later kingdoms appear in the lore but are not playable chapters in this release. Do not advertise the untested 20–30 minute design target as measured playtime.
 
-## Build and run
+Custard Cup links three arena rounds with human standings, tied placements, arena votes, ready-up and awards based on recorded events. A knight joining mid-Cup waits for the next Cup. Disconnected knights cannot block ready-up or score through replacement bots.
 
-Use a current Node.js runtime supporting the pinned packaging tools. Run `npm ci`, `npm run vendor`, `npm run music`, `npm test`, then `npm run package:win`. If the environment suppresses dependency install scripts, run `node node_modules/electron/install.js` once before launching Electron.
+The new wardrobe collection adds Tea Towel, Burnt Toast, Golden Whisk, Rooster Crown, Rice Guard and Steve Strut. It uses pinned goals, retained partial progress, first-reward choice and presets while preserving all existing tiers and challenge ownership. Cosmetic geometry does not change combat values.
 
-The resulting folder is `dist/Custard Knights-win32-x64`. Launch `Custard Knights.exe` with its sibling files intact; do not distribute the EXE by itself. F11 toggles fullscreen. The candidate is unsigned and currently uses Electron's generic application icon. Replace it with approved branded artwork before the public build.
+## Desktop build and saves
 
-Normal desktop saves and settings live under `%APPDATA%/Custard Knights`, independently of the installation folder.
+Run `npm ci`, `npm run vendor`, `npm run music`, `npm test`, and `npm run package:win`. If dependency install scripts were suppressed, run `node node_modules/electron/install.js` once before launching Electron. The package is `dist/Custard Knights-win32-x64`. Launch `Custard Knights.exe` with all sibling files intact. F11 toggles fullscreen. The candidate is unsigned.
 
-Developer checks: `node qa/run.js regression`, `node qa/run.js full`, `node qa/run.js modes`, `node qa/run.js perf`, `npm run smoke:desktop`, `npx electron . --online-smoke`. The same `--smoke-test` and `--online-smoke` switches work on the packaged executable and use temporary save profiles.
+Normal saves live under `%APPDATA%/Custard Knights`, independently of the installation directory. Browser and desktop origins differ; browser saves do not automatically migrate. The backup UI provides validated export/import of wardrobe, shared progression and campaign saves. Import merges earned ownership and spoons while preserving an existing campaign checkpoint. Settings are not part of this backup.
 
-## Changes and save policy
+The renderer has no Node access, runs sandboxed with context isolation, serves only allowed bundled assets, and blocks external navigation. Fonts, sprites, audio and the PeerJS client are local. Online signaling still requires internet access and PeerJS infrastructure; this is not Steam matchmaking or a guaranteed relay service. Updated protocol rooms are separate from old builds.
 
-- Party rematches retain seat assignments, including controllers joined in a different order from device indices. Starting a new quick-play session clears the old party assignments.
-- The host sends a round ID and final results, including per-knight combat feats. Guests apply only their own knight's award. Stale round results and repeated end packets cannot repeatedly grant awards during normal play.
-- Local couch progression is one shared household save: one completed match and the highest local coin award per round. All local seats can contribute cumulative challenges. The three-ringout challenge must still be achieved by one knight within a match.
-- Progress is normalized and versioned, preserving valid legacy earned coins and challenge unlocks. The most recent 128 awarded round IDs are retained. Browser saves are not automatically migrated to the desktop app because they have a different origin.
-- Sound effects have a 64-voice ceiling and disconnect their graphs when finished. This addresses unbounded allocation found during accelerated testing. The earlier renderer crash remains recorded; a passing accelerated rerun does not replace a long real-time soak.
-- The desktop shares room codes. Web builds share web links. Protocol v2 rooms are intentionally separate from older v1 builds; host and guest must use the updated build.
-- Music has twelve named slots. Only the existing menu theme is supplied today; see `SUNO-SOUNDTRACK.md` for prompts, filenames and routing.
+The desktop wrapper uses a single instance for normal play. Automated acceptance uses explicitly marked temporary profiles and verifies a genuine process restart, settings/earned rewards/equipped kit, a second-instance launch, relocated installation, offline assets and fullscreen repeat handling.
 
-## Evidence from this preparation
+## Verification commands and evidence
 
-- Seven progression unit tests passed: legacy saves, malformed saves, duplicate awards, guest feats, shared couch progression, mode-specific wins and invalid results.
-- Fourteen browser release checks passed, including five rematches, stale/duplicate guest results, second-seat contributions, audio allocation/cleanup and soundtrack routing.
-- Twenty quick matches passed. The 108-match mode sweep passed. An initial longer run crashed the Chrome renderer; after bounding and cleaning up audio, all 72 full-suite matches completed without reported errors.
-- A short headless frame-rate sample measured approximately 60 FPS on all six arenas on this machine. This is a diagnostic, not a minimum-spec claim.
-- Two isolated desktop profiles connected through live PeerJS, completed three rounds, delivered guest parry rewards, and recovered to the menu when the host left. This tests one machine/network, not different households or difficult NAT configurations.
-- The packaged executable loaded its sprites and fonts, completed a match, and kept progress through a page reload with external HTTP/WebSocket traffic blocked. Renderer Node access was unavailable as intended.
-- Six unedited 1920×1080 gameplay captures were produced from the running game for store screenshot review. They use bot matches and contain the actual in-game UI.
+- `npm test`: progression, campaign objectives/checkpoints, Cup scoring/readiness, collection ownership/backups, settings recovery, desktop asset routing, staging and Steam configuration.
+- `node qa/run.js regression`: seat continuity, stale/duplicate results, input lifecycle, volume/voice behavior and runtime integration.
+- `node qa/run.js campaign`: all eight objectives plus actual combat, shield, projectile and crate collisions, failure/retry, save/checkpoint reload and mode exits.
+- `node qa/run.js cup`: three-round scoring, human-only standings, ready-up, tied placement and lobby flow.
+- `node qa/network-acceptance.cjs`: three isolated profiles using live PeerJS signaling and data channels. Includes capacity, invalid room code, late joins, drops, rematches and a complete Cup.
+- `node tests/desktop-acceptance.cjs` or append the packaged EXE path: real process restart, offline assets and relocation checks.
+- `node qa/run.js full`, `modes`, `perf`, `soak`: broader arena simulation and real-time renderer/audio stability. Scripted simulation is not human playtesting.
+
+Evidence is saved under `qa/results` and copied into the output QA folder. The one-hour baseline soak began before the expanded features landed; its result must not be presented as certification of the campaign, Cup or collection. Physical pads, a second PC and different-network online play require actual device/network tests.
+
+## Music and provenance
+
+Joshua confirmed ownership of existing artwork and repository material, and commercial-use rights for the existing Suno menu theme. Retain the source and subscription/creation records. Third-party font and code notices remain bundled.
+
+Twelve soundtrack slots, filenames, cue routing and full Suno production prompts are prepared in `SUNO-SOUNDTRACK.md`. Only the existing menu theme recording has been supplied. Missing tracks fall back to available music; prompts are not twelve shipped songs. New exported recordings must be added, the manifest regenerated, and their loops/transitions auditioned before claiming the complete soundtrack.
+
+Record AI-generated music and any generated promotional art accurately in Steam's content survey. Ownership and disclosure are separate questions.
 
 ## Steam upload preparation
 
-After Steam assigns the real App ID and Windows depot ID, run `node scripts/steam-config.cjs APP_ID DEPOT_ID`. The script creates VDFs under `build/steam`, with Preview set to 1 and SetLive empty. It does not upload anything. Configure the Windows launch executable as `Custard Knights.exe` with no launch arguments and the installation root as working directory. Include the complete packaged folder in the Windows depot.
+When Steam supplies the App ID and Windows depot ID, run `node scripts/steam-config.cjs APP_ID DEPOT_ID`. It generates preview VDFs under `build/steam` with Preview=1 and no live branch. It does not upload. Configure `Custard Knights.exe`, no launch arguments, installation root as working directory, and the full packaged directory in the depot.
 
-Use the Steamworks SDK's SteamCMD workflow with your authorized build account. First inspect the preview manifest; then change Preview to 0 for the actual upload. Assign the uploaded build to a password-protected test branch and test installation through Steam before selecting a release build. The exact upload and launch workflow is documented by [Valve](https://partner.steamgames.com/doc/sdk/uploading).
+Use Valve's authorized SteamCMD workflow to review a preview manifest, upload a build and test it on a private branch before public selection. See [Valve's upload guide](https://partner.steamgames.com/doc/sdk/uploading). Steam achievements, Cloud, verified Deck support and Steam lobbies have not been implemented or certified; do not enable those badges.
 
-## Still required before submission/release
+## Remaining external release gates
 
-| Item | Status / next action |
+| Gate | Required evidence |
 |---|---|
-| Steam account, fee, bank/tax verification, App ID and depot | User starts onboarding and provides IDs when issued. |
-| Store capsule, library art and application icon | Produce approved branded exports in Steam's required sizes; six gameplay screenshot candidates are ready for selection. |
-| Trailer | Record actual current gameplay and assemble a short trailer; campaign/Cups must not appear as shipped features. |
-| Audio provenance | Existing Suno theme: commercial rights confirmed by Joshua. Keep creation/subscription evidence with release records. New tracks have prompts only. |
-| Other asset provenance and AI content survey | Confirm origins and rights for existing key art and shipped sprites; answer the survey from that record. Do not infer all art is cleared from the music confirmation. |
-| Hardware controller check | Test two to four physical pads, reversed join order, five rematches, unplug/replug, keyboard/pad mixing and Steam Input. Automated seat checks passed; hardware has not been verified. |
-| Clean installation and persistence | Install via Steam on a second PC; verify exit/relaunch, updates, settings, earned items, fullscreen/Alt-Tab and uninstallation behavior. |
-| Online acceptance | Two PCs on different networks; repeated rematches, joining during a match, guests leaving, host leaving, capacity limit and rejected/invalid codes. Same-machine live connection passed. |
-| Real-time stability | Run at least a 60-minute session with sound and sprites, multiple rematches and chaotic modes; record crashes, frame time and audio behavior. |
-| System requirements | Measure the minimum supported PC. Do not convert this machine's headless FPS result into a public GPU/RAM claim. |
-| Pricing, release model and support contact | User decisions needed before store submission. |
-| Steam approvals | Store and build review, public Coming Soon period and applicable fee wait remain external gates. |
+| Steam onboarding | Fee, bank/tax verification and real App/depot IDs. |
+| Steam installation | Install the private branch on a second PC; verify updates, saves, Alt-Tab/fullscreen and relaunch. |
+| Controllers | Two to four physical pads, reversed join order, five rematches, unplug/replug, keyboard/pad mixing and Steam Input. |
+| Online across households | Two PCs on different networks; repeat joins/rematches, late join, guest departure, host departure and capacity rejection. |
+| Minimum specifications | Measure a supported low-end PC; do not derive public minimum specs from headless FPS here. |
+| Additional music | Actual Suno exports for the remaining recordings, followed by listening/loop checks. |
+| Store administration | Support contact, final price approval, accurate content survey, asset selection, store/build review. |
 
-Valve's current [onboarding documentation](https://partner.steamgames.com/doc/gettingstarted/onboarding) specifies a 21-day fee wait for initial releases and a public Coming Soon period of at least two weeks. The [review process](https://partner.steamgames.com/doc/store/review_process) needs additional lead time. The achievable immediate milestone is a tested candidate plus submission materials, while onboarding runs.
+[Valve's onboarding documentation](https://partner.steamgames.com/doc/gettingstarted/onboarding) specifies a 21-day fee wait for initial releases and at least two weeks of public Coming Soon visibility. [Store/build review](https://partner.steamgames.com/doc/store/review_process) adds lead time. Since onboarding has not begun, preparation this weekend is feasible; public Steam release this weekend is not.
 
-## Draft store text
+## Draft store copy
 
 **Short description:**
 
-Armoured knights. Flying pies. Absolute nonsense. Brawl across six hazardous arenas in eight modes, fight bots or friends, and earn ridiculous cosmetic rewards as every match descends into custard-fuelled chaos.
+Armoured knights. Flying pies. Absolute nonsense. Brawl through six hazardous arenas, compete in a three-round Custard Cup, or rescue a dessert kingdom in The Great Pudding War. Earn ridiculous outfits as every battle descends into custard-fuelled chaos.
 
 **About this game:**
 
 Welcome to a tournament where a noble duel can end with a custard cannon, a lava bath or a very angry chicken.
 
-Custard Knights is a colourful top-down arena brawler for up to eight knights. Learn to swing, dash, block and parry, then keep your composure as power-ups and arena events make the fight increasingly ridiculous.
+Swing, dash, block and parry in colourful top-down battles for up to eight knights. Learn the swordplay, then keep your composure as power-ups and arena events make the fight increasingly ridiculous.
 
-- Six arenas: a castle courtyard, frozen keep, pie factory, lava-filled larder, treacherous rooftops and a sticky bog.
-- Eight modes, from free-for-all and team battles to Pie Heist, King of the Pie, Chicken Racing and Hot Pie.
-- Bots with three difficulty levels, local party play, and online rooms shared by code.
-- Earn cape patterns, blade skins, colours and chicken cosmetics through matches and challenges. No paid currency or combat advantages.
-- Adjustable music, sound, screen shake and flashing settings.
+- **Eight arena modes, six arenas.** Fight over pies and flags, race chickens, and try to survive Hot Pie across a courtyard, frozen keep, pie factory, lava larder, rooftops and sticky bog.
+- **The Great Pudding War.** Play an eight-encounter story chapter with pudding defence, shield duels, a flan bridge, Steve's rescue and a rice fortress boss. Revisit encounters for three independent spoon goals and enable assistance when you want it.
+- **Custard Cup.** Three rounds, cumulative human standings, arena votes, ready-up and awards for the mischief you actually caused.
+- **Bots, couch seats and room-code play.** Three bot difficulties and shared local progression. Online play requires an internet connection; confirm hardware/network acceptance before publishing support badges.
+- **Earn your ridiculous wardrobe.** Keep existing tier and challenge rewards, pin goals for six extra cosmetics, preview items and save outfits. No paid currency or combat advantages.
+- **Adjust the commotion.** Music, sound, screen shake, flash controls and campaign assistance.
 
-This description reflects implemented systems. Verify multiplayer and controller claims against the acceptance checks before publishing. Do not select full controller support, Steam Cloud, achievements, Steam lobbies, Steam Deck compatibility or other unverified feature badges.
-
-## Next autonomous work
-
-Finish remaining store artwork and trailer preparations; run and record the real-time stability session; inspect release regressions if anything fails. When the user's Suno exports arrive, add the named files, regenerate the manifest, audition transitions and loops, rebuild and retest. When Steam IDs arrive, generate the actual upload configuration. Do not repeatedly prompt for dependencies that have already been explained.
+Remove internal verification instructions from public copy after the corresponding claims have passed acceptance. Store media must show the implemented chapter and actual gameplay, not concepts for later kingdoms. The recommended price assumes this complete feature set.

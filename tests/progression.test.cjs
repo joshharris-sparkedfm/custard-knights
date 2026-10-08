@@ -30,3 +30,11 @@ test('mode wins unlock the matching challenge only',()=>{
 test('empty and malformed results cannot count as matches',()=>{
  for(const rows of [[],null,[null],[row({coins:Infinity})],[row({coins:-1})],[row({mode:'unknown'})]])assert.equal(P.apply({},'bad',rows).applied,false);
 });
+
+test('duplicate knight results cannot multiply challenges',()=>{
+ assert.equal(P.apply({},'duplicate',[row({parries:5}),row({parries:5})]).applied,false);
+});
+test('invalid knight identities and combat counters reject the whole award',()=>{
+ for(const extra of [{id:-1},{id:8},{id:'0'},{parries:Infinity},{parries:-1},{ringouts:1.5},{lava:'5'}])assert.equal(P.apply({},'invalid',[row(extra)]).applied,false);
+ assert.equal(P.apply({},'mixed',[row(),row({id:1,mode:'race'})]).applied,false);
+});

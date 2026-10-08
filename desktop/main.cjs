@@ -1,30 +1,34 @@
 const {app,BrowserWindow,protocol,net,session}=require('electron');
-const path=require('node:path'),{pathToFileURL}=require('node:url'),fs=require('node:fs');
+const path=require('node:path'),fs=require('node:fs');
+const acceptance=require('./acceptance.cjs').options(process.argv,app.getPath('temp'));
 const onlineSmoke=process.argv.includes('--online-smoke');
-const smoke=process.argv.includes('--smoke-test')||onlineSmoke;
+const smoke=process.argv.includes('--smoke-test')||onlineSmoke||!!acceptance;
 app.setName('Custard Knights');
-if(smoke)app.setPath('userData',fs.mkdtempSync(path.join(app.getPath('temp'),'custard-smoke-')));
-else app.setPath('userData',path.join(app.getPath('appData'),'Custard Knights'));
+const userData=acceptance?acceptance.profile:smoke?fs.mkdtempSync(path.join(app.getPath('temp'),'custard-smoke-')):path.join(app.getPath('appData'),'Custard Knights');
+fs.mkdirSync(userData,{recursive:true});app.setPath('userData',userData);
+const useLock=!smoke||acceptance&&['launcher','duplicate'].includes(acceptance.phase);
+const primary=!useLock||app.requestSingleInstanceLock();
+if(!primary){if(acceptance)console.log('DESKTOP_DUPLICATE_EXIT');app.quit();}
 protocol.registerSchemesAsPrivileged([{scheme:'custard',privileges:{standard:true,secure:true,supportFetchAPI:true,stream:true}}]);
 let win;
+app.on('second-instance',()=>{if(win&&!win.isDestroyed()){if(win.isMinimized())win.restore();win.focus();}});
 app.whenReady().then(async()=>{
+ if(!primary)return;
  const root=path.resolve(__dirname,'..');
- const serve=request=>{
-  const url=new URL(request.url);
-  let file;try{file=path.resolve(root,'.'+decodeURIComponent(url.pathname));}catch{return new Response('Bad path',{status:400});}
-  if(url.host!=='game'||!file.startsWith(root+path.sep))return new Response('Forbidden',{status:403});
-  return net.fetch(pathToFileURL(file).href);
- };
+ const serve=require('./assets.cjs').createAssetHandler(root,net);
  protocol.handle('custard',serve);
  session.defaultSession.setPermissionRequestHandler((_wc,_permission,callback)=>callback(false));
  session.defaultSession.setPermissionCheckHandler(()=>false);
  if(smoke&&!onlineSmoke)session.defaultSession.webRequest.onBeforeRequest({urls:['http://*/*','https://*/*','ws://*/*','wss://*/*']},(_details,callback)=>callback({cancel:true}));
- win=new BrowserWindow({width:1280,height:800,minWidth:800,minHeight:600,backgroundColor:'#201b2b',show:!smoke,autoHideMenuBar:true,
+ win=new BrowserWindow({width:1280,height:800,minWidth:800,minHeight:600,backgroundColor:'#201b2b',show:!smoke,autoHideMenuBar:true,icon:path.join(root,'desktop','icon.png'),
   webPreferences:{contextIsolation:true,nodeIntegration:false,sandbox:true,webSecurity:true,backgroundThrottling:false}});
  win.webContents.setWindowOpenHandler(()=>({action:'deny'}));
  win.webContents.on('will-navigate',event=>event.preventDefault());
- win.webContents.on('before-input-event',(event,input)=>{if(input.type==='keyDown'&&input.key==='F11'){win.setFullScreen(!win.isFullScreen());event.preventDefault();}});
+ win.webContents.on('will-redirect',event=>event.preventDefault());
+ win.webContents.on('before-input-event',(event,input)=>{if(input.type==='keyDown'&&input.key==='F11'&&!input.isAutoRepeat){win.setFullScreen(!win.isFullScreen());event.preventDefault();}});
+ win.on('close',()=>win.webContents.session.flushStorageData());
  await win.loadURL('custard://game/index.html'+(smoke?'?qa=1':''));
+ if(acceptance){await require('./acceptance.cjs').run({app,win,options:acceptance});return;}
  if(onlineSmoke){await require('./online-smoke.cjs')({app,BrowserWindow,session,serve,host:win});return;}
  if(smoke){
   const watchdog=setTimeout(()=>{console.error('Desktop smoke timed out');app.exit(1);},45000);

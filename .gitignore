@@ -6,3 +6,4 @@ node_modules/
 dist/
 build/
 qa/results/*/*.png
+qa/results/*/soak-status.json

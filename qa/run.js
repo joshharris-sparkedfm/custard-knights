@@ -3,6 +3,7 @@
 //   node qa/run.js                 full matrix (every arena x every persona, plus bots-only)
 //   node qa/run.js quick           one arena per persona
 //   node qa/run.js perf            real-time frame-rate sample on each arena
+//   node qa/run.js soak            one-hour real-time rendering/audio/rematch soak
 // Output: qa/results/<stamp>/raw.json and summary.md
 const fs=require('fs'), path=require('path'), {spawn}=require('child_process');
 const ROOT=path.resolve(__dirname,'..'), mode=process.argv[2]||'full';
@@ -31,6 +32,10 @@ process.on('exit',()=>{ try{chrome.kill()}catch(e){} });
  await send('Page.navigate',{url:'file:///'+path.join(ROOT,'index.html').replace(/\\/g,'/')+'?qa=1'+(process.env.CKQ||'')});
  for(let i=0;i<40;i++){ await sleep(250); if(await evalJs('!!window.CK')) break; }
  if(!await evalJs('!!window.CK'))throw Error('Game failed to initialize');
+ if(mode==='soak'){
+  await require('./soak.cjs')({evalJs,OUT,sleep,chromePid:chrome.pid});
+  ws.close();chrome.kill();return;
+ }
  if(mode==='screenshots'){
   await send('Emulation.setDeviceMetricsOverride',{width:1920,height:1080,deviceScaleFactor:1,mobile:false});
   await evalJs('CK.sprLoadAll()',true);

@@ -1,0 +1,14 @@
+[
+ {"id":"menu","title":"Custard Knights","file":"01-custard-knights.mp3"},
+ {"id":"courtyard","title":"A Very Noble Food Fight","file":"02-a-very-noble-food-fight.mp3"},
+ {"id":"frost","title":"Slippery When Knighted","file":"03-slippery-when-knighted.mp3"},
+ {"id":"factory","title":"The Pie Production Line","file":"04-the-pie-production-line.mp3"},
+ {"id":"dungeon","title":"Too Hot for Armour","file":"05-too-hot-for-armour.mp3"},
+ {"id":"roof","title":"Mind the Battlements","file":"06-mind-the-battlements.mp3"},
+ {"id":"bog","title":"Bog Standard Heroics","file":"07-bog-standard-heroics.mp3"},
+ {"id":"race","title":"Run, Little Chicken, Run","file":"08-run-little-chicken-run.mp3"},
+ {"id":"hotpie","title":"Pass the Pie","file":"09-pass-the-pie.mp3"},
+ {"id":"wardrobe","title":"Dressed to Spill","file":"10-dressed-to-spill.mp3"},
+ {"id":"victory","title":"The Golden Spoon","file":"11-the-golden-spoon.mp3"},
+ {"id":"defeat","title":"Another Helping","file":"12-another-helping.mp3"}
+]

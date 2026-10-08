@@ -4,13 +4,15 @@
 
 A cartoon top-down arena brawler for 8 knights. You fight bots, a friend on the same keyboard, friends online, or all of them at once. The power-ups start sensible and get sillier as the match goes on.
 
-This is a playable browser prototype with local and online play. The current plan builds on it to validate combat, presentation, a solo campaign and party Cups before deciding on production packaging or an engine change.
+This is a playable browser game with local and online play, plus a Windows candidate under preparation for Steam. See the [release handoff](release/STEAM-HANDOFF.md) for build commands, verified checks and remaining release gates. The campaign and party Cups remain planned work.
 
 ![Castle Courtyard](docs/m_courtyard.png)
 
 ## Play
 
 Open `index.html` in any modern browser. Nothing to install.
+
+For the Windows build, run `npm ci`, `npm run package:win`, then launch `dist/Custard Knights-win32-x64/Custard Knights.exe`. Keep the whole output folder together. F11 toggles fullscreen. See the [twelve-track Suno brief](release/SUNO-SOUNDTRACK.md) for the soundtrack prompts and export filenames; only the existing menu theme is included until more recordings are added.
 
 To host it for free, turn on **GitHub Pages** (Settings → Pages → Deploy from branch → `main` / root). The game is then live at `https://<your-username>.github.io/<repo-name>/`.
 

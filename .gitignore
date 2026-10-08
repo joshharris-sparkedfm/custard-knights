@@ -2,3 +2,7 @@ qa/results/*/raw.json
 art/concepts/*/
 art/lab/*.png
 art/_compare.png
+node_modules/
+dist/
+build/
+qa/results/*/*.png

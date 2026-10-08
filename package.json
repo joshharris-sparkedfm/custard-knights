@@ -1,0 +1,26 @@
+{
+  "name": "custard-knights",
+  "productName": "Custard Knights",
+  "version": "0.1.0",
+  "private": true,
+  "author": "Custard Knights project",
+  "license": "UNLICENSED",
+  "description": "Custard Knights Windows release candidate",
+  "main": "desktop/main.cjs",
+  "scripts": {
+    "start": "electron .",
+    "vendor": "node scripts/vendor.cjs",
+    "music": "node scripts/music.cjs",
+    "test": "node --test tests/*.test.cjs",
+    "qa:quick": "node qa/run.js quick",
+    "package:win": "node scripts/package.cjs",
+    "smoke:desktop": "electron . --smoke-test"
+  },
+  "devDependencies": {
+    "@electron/packager": "20.3.0",
+    "@fontsource/lilita-one": "5.3.0",
+    "@fontsource/nunito": "5.3.0",
+    "electron": "44.7.0",
+    "peerjs": "1.5.4"
+  }
+}

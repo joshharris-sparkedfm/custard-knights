@@ -21,6 +21,7 @@ To host it for free, turn on **GitHub Pages** (Settings → Pages → Deploy fro
 - **The Great Pudding War:** eight authored story encounters, optional spoon goals, checkpoints, assistance, Steve rescue and a two-phase boss.
 - **Custard Cup:** three linked rounds, human standings, arena votes, ready-up and event-backed awards.
 - **Earned collection:** six extra cosmetics, first reward choice, pinned goals, retained partial progress, previews, three outfits and validated progression/campaign backups.
+- **Visor choice:** free closed and open options for every helmet, saved with outfits and shown online. Closed is the default; open keeps small eyes recessed inside the helmet.
 - **6 arenas:** Castle Courtyard (hedge maze, well, spike traps), Frosty Keep (ice and a chasm with bridges), Pie Factory (conveyor belts that carry you into pits), Dragon's Larder (lava pools and a lava river), Rooftop Rumble (rooftops split by drops, with springs to bounce across), Custard Bog (a mud river that slows you down, and portals)
 - **Hazards:** pits, spike traps that pop on a timer, ice, conveyor belts, lava that burns and shoves you back, mud, springs that launch you the way you are moving, portals that drop you at a random other portal, breakable crates that sometimes hide a power-up
 - **Weapon pads:** Bow, Bomb Bag and Custard Cannon. Picking up the same weapon again levels it up.

@@ -1,4 +1,4 @@
-# Player review for candidate 0.2.1
+# Player review for candidate 0.2.2
 
 This is an unperformed acceptance session, not a claim that people have tested the game. Use the candidate identified by BUILD-INFO.txt. Record the build, PC, controller models, Steam Input setting and actual completion times. Use a fresh profile or an exported save backup, without deleting existing progress.
 
@@ -6,11 +6,11 @@ This is an unperformed acceptance session, not a claim that people have tested t
 
 Let someone unfamiliar with the game start without coaching. Record observations before explaining a control. Duration is a session budget, not an advertised story length.
 
-1. From the menu, find the controls and start a courtyard match. Ask them to show a light attack, heavy attack, block and dash. Observe whether wind-up, contact and recovery read as different states.
+1. From the menu, find the controls and start a courtyard match. Ask them to show a light attack, heavy attack, block and dash. Observe whether wind-up, contact and recovery read as different states, whether the hand appears attached to the sword, and whether either visor becomes distracting at normal game scale.
 2. Ask what happened after a blocked attack, guard break, knockout and respawn. Record their own explanation and any mismatch with the rules. Do not ask whether a cue was "clear" before observing their response.
 3. Play the campaign from the banquet through the first objectives. Observe whether they identify the destination, understand a contested objective and know how to retry. Record repeated wrong actions and the screen visible when they occurred.
 4. In a separate prepared QA profile, try Marshal Rind. Ask what the warning predicts and when they think he is vulnerable. Observe at least five attack cycles. Check whether the spoon impact, recovery countdown and checkpoint wording support their decisions.
-5. After a result, find an earned reward, pin a goal and save an outfit. Return to play and confirm the selected outfit. Ask what they expect to earn next.
+5. After a result, find an earned reward, pin a goal and save an outfit. Switch the visor open and closed, save an outfit, return to play and confirm the selected outfit. Restart and check that each local player retains their own visor choice. Ask what they expect to earn next.
 6. Enable reduced flashing and repeat a short fight. Record whether important hit and guard-break information remains understandable. This is not a medical accessibility assessment.
 
 Treat failure to start/retry, invisible important cues, misunderstanding that persists across repeated cycles, lost rewards or inability to operate a required control as defects to investigate. Prioritize observed blockers over requests for extra content. Do not retune damage or boss health from one player's win/loss result alone.

@@ -2,6 +2,14 @@
 
 This review combines the repository's current build plan, inspected gameplay captures, actual engine tests and automated input policies. It is not a human playtest. The shipped candidate scope is tracked separately in LAUNCH-STATUS.md.
 
+## Completed 0.2.2 character refinements
+
+The original rounded model style is retained. Every helmet has a closed visor (default, no visible eyes) and an open option with small recessed eyes. Both are free wardrobe choices, retained in local profiles, outfits, backups and online appearance. The connected shoulder/elbow/wrist renderer removes the duplicate melee arm/hand; charge, contact and recovery are smoothed, victory raises the blade, and the floating shield-side glove is corrected. Combat rules remain unchanged.
+
+Both complete sprite families were rebuilt together with matching arm-free, tint and occluded companion layers. Actual in-game review covered all six helmets, metal tints, eight facings, attacks, earned headgear, cape patterns, Steve and victory poses. Closed/open grip checks passed 3,225/3,207 assertions; 31 visor/controller/save/reload/asset checks passed, along with 41 actual-sprite animation checks. Source acceptance also passed 59 unit tests, 24 regressions, 25 live PeerJS checks and 41 classic-renderer animation checks. No new soak was necessary; the prior completed soaks remain correctly scoped below.
+
+Mixed closed/open knights measured 60.0–60.2 FPS across six short arena samples on the QA host, after render jobs stopped. This is not a minimum-spec claim. Packaged offline/online/restart/relocation checks and eight controller/window journey checks passed. All 35 runtime payloads match source byte-for-byte; generated package metadata matches field-by-field. Four sprite roots have a combined unique RGBA pixel budget of 206.86 MiB; this excludes browser/GPU overhead and is not resident-memory measurement. Human enjoyment and hardware/network acceptance remain unperformed.
+
 ## Baseline findings
 
 The expanded-source 72-match suite completed 216 simulated minutes with no reported errors. Human scripted sword contacts landed 50% of 4,243 swings; bots landed 49% of 23,946. An aggressive rusher averaged 39.2 KOs/23.8 deaths, while the more defensive pro averaged 33.8/18.8. Those results show an offence/survival tradeoff in these policies, but cannot establish human readability or balance. No blanket damage, cooldown or bot-difficulty retuning is justified by these automated policies alone.

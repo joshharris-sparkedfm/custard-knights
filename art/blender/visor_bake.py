@@ -24,6 +24,18 @@ def replace_once(old,new):
         raise RuntimeError('Original generator changed; staging patch requires review: '+old[:80])
     source=source.replace(old,new,1)
 
+replace_once(
+    'm.levels = sub; m.render_levels = sub',
+    '''m.levels = sub; m.render_levels = sub; m.use_limit_surface = False
+        # Freeze finite subdivision once, before the ink shell.
+        # Re-evaluating OpenSubdiv for every frame crashes Blender on this scene.
+        bpy.ops.object.select_all(action='DESELECT')
+        ob.select_set(True)
+        bpy.context.view_layer.objects.active = ob
+        for modifier in tuple(ob.modifiers):
+            if modifier.type in ('BEVEL', 'SOLIDIFY', 'SUBSURF'):
+                bpy.ops.object.modifier_apply(modifier=modifier.name)'''
+)
 replace_once('show(DEFAULT)\n', 'show(DEFAULT)\nfrom visor_review import apply_all_visors as apply_all_faces\napply_all_faces(globals(), os.environ.get("CK_VISOR_STYLE", "closed"))\n')
 replace_once("else ('base', 'mask', 'metal')", "else ('base', 'mask', 'metal', 'armfreeBase', 'armfreeMask', 'armfreeMetal')")
 replace_once('    def at(name, x, y, z): bpy.data.objects[name].location = (x, y, z)', '''    def at(name, x, y, z):
@@ -40,9 +52,11 @@ replace_once('        for idx, (di, dn, an, k) in enumerate(frames):', '''      
         selected_frames = {int(v) for v in selected_frames.split(',') if v.strip()} if selected_frames else None
         if selected_frames is not None and any(v < 0 or v >= len(frames) for v in selected_frames):
             raise ValueError('CK_FRAME_FILTER contains an out-of-range absolute frame index')
-        for idx, (di, dn, an, k) in enumerate(frames):''')
+        for idx, (di, dn, an, k) in enumerate(frames):
+            if selected_frames is not None and idx not in selected_frames:
+                continue''')
 replace_once('    def render_all(prefix, layers, solo=()):', '''    from bpy_extras.object_utils import world_to_camera_view
-    weapon_arm_sockets = []
+    weapon_arm_sockets = [None] * len(frames)
     def projected_socket(point):
         v = world_to_camera_view(sc, co, point)
         return [round(v.x * CELL, 4), round((1 - v.y) * CELL, 4)]
@@ -50,24 +64,43 @@ replace_once('    def render_all(prefix, layers, solo=()):', '''    from bpy_ext
         obj = bpy.data.objects[name]
         center = sum((Vector(p) for p in obj.bound_box), Vector()) / 8
         return obj.matrix_world @ center
+    def complete_weapon_arm_sockets():
+        if all(entry is not None for entry in weapon_arm_sockets):
+            return weapon_arm_sockets
+        canonical_path = os.environ.get('CK_CANONICAL_RIG_PATH')
+        if not canonical_path or not os.path.isfile(canonical_path):
+            raise ValueError('Filtered render requires CK_CANONICAL_RIG_PATH with a full rig')
+        canonical = json.load(open(canonical_path, encoding='utf-8'))['rig']['weaponArm']
+        if len(canonical) != len(frames):
+            raise ValueError('Canonical rig has wrong frame count')
+        for index, current in enumerate(weapon_arm_sockets):
+            if current is None:
+                weapon_arm_sockets[index] = canonical[index]
+                continue
+            prior = canonical[index]
+            if current['behind'] != prior['behind'] or any(
+                abs(current[name][axis] - prior[name][axis]) > .025
+                for name in ('shoulder', 'elbow', 'grip') for axis in (0, 1)
+            ):
+                raise ValueError('Selected frame socket differs from canonical rig: '+str(index))
+        print('CANONICAL_RIG_OK', len(frames), flush=True)
+        return weapon_arm_sockets
     def render_all(prefix, layers, solo=()):''')
 replace_once("            CP.rotation_euler = (CAPE[an][k], 0, 0)\n            for fname, kind in layers:", '''            CP.rotation_euler = (CAPE[an][k], 0, 0)
             bpy.context.view_layer.update()
-            if idx >= len(weapon_arm_sockets):
-                weapon_arm_sockets.append({
+            if weapon_arm_sockets[idx] is None:
+                weapon_arm_sockets[idx] = {
                     'shoulder': projected_socket(ROOT.matrix_world @ Vector((-.47, 0, 1.0))),
                     'elbow': projected_socket(object_center('arm-1')),
                     'grip': projected_socket(object_center('glove-1')),
-                    'behind': di in (3, 4)})
-            if selected_frames is not None and idx not in selected_frames:
-                continue
+                    'behind': di in (3, 4)}
             for fname, kind in layers:
                 armfree = kind.startswith('armfree')
                 for arm_name in ('arm-1', 'cuff-1', 'glove-1'):
                     bpy.data.objects[arm_name].hide_render = armfree
                 kind = {'armfreeBase': 'base', 'armfreeMask': 'mask', 'armfreeMetal': 'metal'}.get(kind, kind)''')
 replace_once("                set_layer(kind, solo); sc.render.filepath = os.path.join(OUT, f'{prefix}_{fname}_{idx:03d}.png'); bpy.ops.render.render(write_still=True)", "                set_layer(kind, solo); sc.render.filepath = os.path.join(OUT, f'{prefix}_{fname}_{idx:03d}.png'); bpy.ops.render.render(write_still=True)\n                for arm_name in ('arm-1', 'cuff-1', 'glove-1'): bpy.data.objects[arm_name].hide_render = False")
-replace_once("'frames': [[di, an, k] for di, dn, an, k in frames]", "'frames': [[di, an, k] for di, dn, an, k in frames], 'faceRevision': 'visor-v1-all-six', 'visorStyle': os.environ.get('CK_VISOR_STYLE', 'closed'), 'rig': {'version': 1, 'weaponArm': weapon_arm_sockets}")
+replace_once("'frames': [[di, an, k] for di, dn, an, k in frames]", "'frames': [[di, an, k] for di, dn, an, k in frames], 'faceRevision': 'visor-v1-all-six', 'visorStyle': os.environ.get('CK_VISOR_STYLE', 'closed'), 'rig': {'version': 1, 'weaponArm': complete_weapon_arm_sockets()}")
 
 namespace={'__name__':'knight_face_bake','__file__':ORIGINAL}
 exec(compile(source,ORIGINAL+' [face staging]', 'exec'),namespace)

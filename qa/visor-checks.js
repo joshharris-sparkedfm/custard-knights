@@ -15,8 +15,8 @@
  const before=JSON.stringify(CK.G().ents.map(e=>({hp:e.hp,r:e.r,swingDur:e.swingDur,atkCd:e.atkCd})));CK.saveProfile(1,{...CK.loadProfile(1),visor:'closed'});check(JSON.stringify(CK.G().ents.map(e=>({hp:e.hp,r:e.r,swingDur:e.swingDur,atkCd:e.atkCd})))===before,'Changing visor does not mutate current combat entities');CK.saveProfile(1,{...CK.loadProfile(1),visor:'open'});
  const canvas=document.createElement('canvas');canvas.width=canvas.height=220;const ctx=canvas.getContext('2d'),draw=(visor,hero=0)=>{ctx.clearRect(0,0,220,220);const e=CK.mkKnight({hero,face:Math.PI/4,kit:{helm:'great',plume:'feather',metal:'steel',visor}}),before=JSON.stringify(e);CK.withCtx(ctx,()=>{ctx.save();ctx.translate(110,135);CK.drawKnight(e);ctx.restore();});check(JSON.stringify(e)===before,'Visor rendering preserves entity state');return canvas.toDataURL();};
  CK.sprites(false);check(draw('closed')!==draw('open'),'Classic fallback renders visibly different open and closed visors');CK.sprites(true);
- const closed=draw('closed');draw('open');const ready=await CK.sprLoadVisors();
+ const closed=draw('closed');draw('open');const loadStart=performance.now(),ready=await CK.sprLoadVisors(),openDecodeWaitMs=Math.round(performance.now()-loadStart);
  if(window.CK_REQUIRE_VISOR_ASSETS){check(ready&&CK.visorAssets().knightReady&&CK.visorAssets().heroReady,'Both complete open atlas roots decode');check(draw('open')!==closed,'Actual open and closed gameplay faces differ');check(draw('open',1)!==draw('closed',1),'Actual open and closed hero faces differ');}
  else if(!ready)check(draw('open')===closed,'Missing optional open assets preserve the entire closed render as atomic fallback');
- return {passed,assetsReady:ready};
+ return {passed,assetsReady:ready,openDecodeWaitMs};
 })()

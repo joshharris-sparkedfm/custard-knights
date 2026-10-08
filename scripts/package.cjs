@@ -31,8 +31,9 @@ async function packageWindows(){
   const {packager}=require('@electron/packager');
   const paths=await packager({dir:stage,out:path.join(root,'dist'),name:'Custard Knights',platform:'win32',arch:'x64',
    electronVersion:pkg.devDependencies.electron,overwrite:true,asar:true,prune:true,appVersion:pkg.version,
+   appCopyright:'Copyright © 2026 Sparked FM Ltd',
    icon:path.join(root,'art','store','exports','app.ico'),
-   win32metadata:{ProductName:'Custard Knights',FileDescription:'Custard Knights',CompanyName:'Sparked FM Ltd',LegalCopyright:'Copyright © 2026 Sparked FM Ltd'}});
+   win32metadata:{ProductName:'Custard Knights',FileDescription:'Custard Knights',CompanyName:'Sparked FM Ltd'}});
   console.log(paths.join('\n'));
  }finally{fs.rmSync(stage,{recursive:true,force:true,maxRetries:5,retryDelay:200});}
 }

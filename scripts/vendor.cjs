@@ -8,7 +8,7 @@ for(const pkg of ['@msgpack/msgpack','eventemitter3','peerjs-js-binarypack','web
  const license=fs.readdirSync(dir).find(f=>/^licen[cs]e(\..*)?$/i.test(f));if(!license)throw Error('Missing license: '+pkg);
  notices+=`\n--- ${pkg} ${meta.version} ---\n`+fs.readFileSync(path.join(dir,license),'utf8')+'\n';
 }
-fs.writeFileSync(path.join(out,'peerjs-THIRD-PARTY-NOTICES.txt'),notices);
+fs.writeFileSync(path.join(out,'peerjs-THIRD-PARTY-NOTICES.txt'),notices.trimEnd()+'\n');
 let css='/* Local fonts: licenses included alongside these files. */\n';
 for(const [family,name,weights] of [['lilita-one','Lilita One',[400]],['nunito','Nunito',[600,800,900]]]){
  copy(`@fontsource/${family}/LICENSE`,`${family}-LICENSE.txt`);

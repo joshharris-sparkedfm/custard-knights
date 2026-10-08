@@ -4,6 +4,8 @@ The expanded release and requested animation/gameplay refinements are implemente
 
 The 0.1.0 ZIP is the earlier arena-only test candidate. Version 0.2.1 is the refined expanded candidate; its BUILD-INFO records the final source revision and package hash. A working candidate is not Steam approval or public release.
 
+The subsequent character-model quality request is still in design review. Commit 48f0393 adds an independent editable Blender prototype and model audit, with a comparison in the outputs Model-review folder. The new model is not installed in 0.2.1. Side-view facial readability, full animation, recolour/cosmetic layers and attachment integration remain unfinished; the owner's direction feedback is pending. Model prototype renders must not be used as screenshots of shipped gameplay.
+
 | Area | Implemented | Evidence / remaining work |
 |---|---|---|
 | Existing arenas/combat | Eight modes, six arenas, existing swordplay, bots, hazards and power-ups preserved; audio voices bounded and released | Latest expanded-source 72-match full suite completed without errors. Original 108-mode sweep passed. Expanded-source ten-minute real-time soak passed with four completed matches. The separate arena baseline hour passed with 27 completed matches. Refined-source performance is 60.1–60.2 FPS across all six arenas on the documented QA host. |

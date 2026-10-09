@@ -1,0 +1,409 @@
+{
+  "checks": [
+    {
+      "name": "courtyard initial eight spawns are finite, distinct, on safe terrain and within arena",
+      "pass": true
+    },
+    {
+      "name": "courtyard actual KO respawns safely with protection",
+      "pass": true
+    },
+    {
+      "name": "frost initial eight spawns are finite, distinct, on safe terrain and within arena",
+      "pass": true
+    },
+    {
+      "name": "frost actual KO respawns safely with protection",
+      "pass": true
+    },
+    {
+      "name": "factory initial eight spawns are finite, distinct, on safe terrain and within arena",
+      "pass": true
+    },
+    {
+      "name": "factory actual KO respawns safely with protection",
+      "pass": true
+    },
+    {
+      "name": "dungeon initial eight spawns are finite, distinct, on safe terrain and within arena",
+      "pass": true
+    },
+    {
+      "name": "dungeon actual KO respawns safely with protection",
+      "pass": true
+    },
+    {
+      "name": "roof initial eight spawns are finite, distinct, on safe terrain and within arena",
+      "pass": true
+    },
+    {
+      "name": "roof actual KO respawns safely with protection",
+      "pass": true
+    },
+    {
+      "name": "bog initial eight spawns are finite, distinct, on safe terrain and within arena",
+      "pass": true
+    },
+    {
+      "name": "bog actual KO respawns safely with protection",
+      "pass": true
+    },
+    {
+      "name": "Actual trapdoor mayhem cannot turn a cached candidate into a pit respawn",
+      "pass": false
+    }
+  ],
+  "errors": [],
+  "sourceHash": "fb4cee753c138b4f9f5a07905fe57cfe05ef89994c7b21ea248c246b7e0cffd1",
+  "limitations": "Headless Chromium synthetic keyboard events in a fresh profile; no physical-device acceptance.",
+  "audit": [
+    {
+      "name": "courtyard initial eight spawns are finite, distinct, on safe terrain and within arena",
+      "pass": true,
+      "spawns": [
+        {
+          "x": 60,
+          "y": 140,
+          "tile": "S"
+        },
+        {
+          "x": 1220,
+          "y": 740,
+          "tile": "S"
+        },
+        {
+          "x": 380,
+          "y": 740,
+          "tile": "S"
+        },
+        {
+          "x": 380,
+          "y": 140,
+          "tile": "S"
+        },
+        {
+          "x": 1220,
+          "y": 140,
+          "tile": "S"
+        },
+        {
+          "x": 900,
+          "y": 140,
+          "tile": "S"
+        },
+        {
+          "x": 900,
+          "y": 740,
+          "tile": "S"
+        },
+        {
+          "x": 60,
+          "y": 740,
+          "tile": "S"
+        }
+      ]
+    },
+    {
+      "name": "courtyard actual KO respawns safely with protection",
+      "pass": true,
+      "point": {
+        "x": 900,
+        "y": 540,
+        "tile": "."
+      }
+    },
+    {
+      "name": "frost initial eight spawns are finite, distinct, on safe terrain and within arena",
+      "pass": true,
+      "spawns": [
+        {
+          "x": 380,
+          "y": 740,
+          "tile": "S"
+        },
+        {
+          "x": 60,
+          "y": 140,
+          "tile": "S"
+        },
+        {
+          "x": 1220,
+          "y": 140,
+          "tile": "S"
+        },
+        {
+          "x": 1220,
+          "y": 740,
+          "tile": "S"
+        },
+        {
+          "x": 380,
+          "y": 140,
+          "tile": "S"
+        },
+        {
+          "x": 60,
+          "y": 740,
+          "tile": "S"
+        },
+        {
+          "x": 900,
+          "y": 740,
+          "tile": "S"
+        },
+        {
+          "x": 900,
+          "y": 140,
+          "tile": "S"
+        }
+      ]
+    },
+    {
+      "name": "frost actual KO respawns safely with protection",
+      "pass": true,
+      "point": {
+        "x": 340,
+        "y": 700,
+        "tile": "."
+      }
+    },
+    {
+      "name": "factory initial eight spawns are finite, distinct, on safe terrain and within arena",
+      "pass": true,
+      "spawns": [
+        {
+          "x": 60,
+          "y": 740,
+          "tile": "S"
+        },
+        {
+          "x": 940,
+          "y": 620,
+          "tile": "S"
+        },
+        {
+          "x": 340,
+          "y": 620,
+          "tile": "S"
+        },
+        {
+          "x": 1220,
+          "y": 740,
+          "tile": "S"
+        },
+        {
+          "x": 60,
+          "y": 140,
+          "tile": "S"
+        },
+        {
+          "x": 1220,
+          "y": 140,
+          "tile": "S"
+        },
+        {
+          "x": 340,
+          "y": 260,
+          "tile": "S"
+        },
+        {
+          "x": 940,
+          "y": 260,
+          "tile": "S"
+        }
+      ]
+    },
+    {
+      "name": "factory actual KO respawns safely with protection",
+      "pass": true,
+      "point": {
+        "x": 60,
+        "y": 140,
+        "tile": "S"
+      }
+    },
+    {
+      "name": "dungeon initial eight spawns are finite, distinct, on safe terrain and within arena",
+      "pass": true,
+      "spawns": [
+        {
+          "x": 60,
+          "y": 740,
+          "tile": "S"
+        },
+        {
+          "x": 380,
+          "y": 740,
+          "tile": "S"
+        },
+        {
+          "x": 900,
+          "y": 140,
+          "tile": "S"
+        },
+        {
+          "x": 60,
+          "y": 140,
+          "tile": "S"
+        },
+        {
+          "x": 1220,
+          "y": 740,
+          "tile": "S"
+        },
+        {
+          "x": 900,
+          "y": 740,
+          "tile": "S"
+        },
+        {
+          "x": 380,
+          "y": 140,
+          "tile": "S"
+        },
+        {
+          "x": 1220,
+          "y": 140,
+          "tile": "S"
+        }
+      ]
+    },
+    {
+      "name": "dungeon actual KO respawns safely with protection",
+      "pass": true,
+      "point": {
+        "x": 60,
+        "y": 140,
+        "tile": "S"
+      }
+    },
+    {
+      "name": "roof initial eight spawns are finite, distinct, on safe terrain and within arena",
+      "pass": true,
+      "spawns": [
+        {
+          "x": 900,
+          "y": 140,
+          "tile": "S"
+        },
+        {
+          "x": 1220,
+          "y": 740,
+          "tile": "S"
+        },
+        {
+          "x": 60,
+          "y": 740,
+          "tile": "S"
+        },
+        {
+          "x": 900,
+          "y": 740,
+          "tile": "S"
+        },
+        {
+          "x": 60,
+          "y": 140,
+          "tile": "S"
+        },
+        {
+          "x": 380,
+          "y": 140,
+          "tile": "S"
+        },
+        {
+          "x": 1220,
+          "y": 140,
+          "tile": "S"
+        },
+        {
+          "x": 380,
+          "y": 740,
+          "tile": "S"
+        }
+      ]
+    },
+    {
+      "name": "roof actual KO respawns safely with protection",
+      "pass": true,
+      "point": {
+        "x": 900,
+        "y": 140,
+        "tile": "S"
+      }
+    },
+    {
+      "name": "bog initial eight spawns are finite, distinct, on safe terrain and within arena",
+      "pass": true,
+      "spawns": [
+        {
+          "x": 380,
+          "y": 140,
+          "tile": "S"
+        },
+        {
+          "x": 900,
+          "y": 740,
+          "tile": "S"
+        },
+        {
+          "x": 60,
+          "y": 740,
+          "tile": "S"
+        },
+        {
+          "x": 1220,
+          "y": 740,
+          "tile": "S"
+        },
+        {
+          "x": 380,
+          "y": 740,
+          "tile": "S"
+        },
+        {
+          "x": 900,
+          "y": 140,
+          "tile": "S"
+        },
+        {
+          "x": 1220,
+          "y": 140,
+          "tile": "S"
+        },
+        {
+          "x": 60,
+          "y": 140,
+          "tile": "S"
+        }
+      ]
+    },
+    {
+      "name": "bog actual KO respawns safely with protection",
+      "pass": true,
+      "point": {
+        "x": 100,
+        "y": 660,
+        "tile": "."
+      }
+    },
+    {
+      "name": "Actual trapdoor mayhem cannot turn a cached candidate into a pit respawn",
+      "pass": false,
+      "repro": {
+        "seed": 3,
+        "hole": {
+          "x": 100,
+          "y": 580
+        },
+        "point": {
+          "x": 100,
+          "y": 580,
+          "tile": "o"
+        },
+        "dead": false,
+        "protect": 2
+      }
+    }
+  ]
+}

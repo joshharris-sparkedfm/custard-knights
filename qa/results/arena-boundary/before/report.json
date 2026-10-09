@@ -1,0 +1,1158 @@
+{
+  "cases": [
+    {
+      "map": "courtyard",
+      "edge": "left",
+      "empowered": false,
+      "before": {
+        "x": 57.6,
+        "y": 140,
+        "dashT": 0.04333333333333336
+      },
+      "impulse": {
+        "vx": -820,
+        "vy": 0
+      },
+      "escaped": false,
+      "firstEscape": null,
+      "final": {
+        "x": 57.6,
+        "y": 140,
+        "dead": false,
+        "falling": 0
+      }
+    },
+    {
+      "map": "courtyard",
+      "edge": "left",
+      "empowered": true,
+      "before": {
+        "x": 111.99999999999999,
+        "y": 140,
+        "dashT": 0.04333333333333336
+      },
+      "impulse": {
+        "vx": -7355.0599999999995,
+        "vy": 0
+      },
+      "escaped": true,
+      "firstEscape": {
+        "frame": 0,
+        "x": -17.6,
+        "y": 122.4
+      },
+      "final": {
+        "x": -99.86750388857115,
+        "y": -2257.6,
+        "dead": false,
+        "falling": 0
+      }
+    },
+    {
+      "map": "courtyard",
+      "edge": "right",
+      "empowered": false,
+      "before": {
+        "x": 1222.4,
+        "y": 140,
+        "dashT": 0.04333333333333336
+      },
+      "impulse": {
+        "vx": 820,
+        "vy": 0
+      },
+      "escaped": false,
+      "firstEscape": null,
+      "final": {
+        "x": 1222.4,
+        "y": 140,
+        "dead": false,
+        "falling": 0
+      }
+    },
+    {
+      "map": "courtyard",
+      "edge": "right",
+      "empowered": true,
+      "before": {
+        "x": 1168.0000000000005,
+        "y": 140,
+        "dashT": 0.04333333333333336
+      },
+      "impulse": {
+        "vx": 7355.0599999999995,
+        "vy": 0
+      },
+      "escaped": true,
+      "firstEscape": {
+        "frame": 0,
+        "x": 1297.6,
+        "y": 122.4
+      },
+      "final": {
+        "x": 1379.0064802407976,
+        "y": -2275.2,
+        "dead": false,
+        "falling": 0
+      }
+    },
+    {
+      "map": "courtyard",
+      "edge": "top",
+      "empowered": false,
+      "before": {
+        "x": 60,
+        "y": 137.6,
+        "dashT": 0.04333333333333336
+      },
+      "impulse": {
+        "vx": 0,
+        "vy": -820
+      },
+      "escaped": false,
+      "firstEscape": null,
+      "final": {
+        "x": 60,
+        "y": 137.6,
+        "dead": false,
+        "falling": 0
+      }
+    },
+    {
+      "map": "courtyard",
+      "edge": "top",
+      "empowered": true,
+      "before": {
+        "x": 60,
+        "y": 191.99999999999997,
+        "dashT": 0.04333333333333336
+      },
+      "impulse": {
+        "vx": 0,
+        "vy": -7355.0599999999995
+      },
+      "escaped": true,
+      "firstEscape": {
+        "frame": 0,
+        "x": 60,
+        "y": 51.81566666666665
+      },
+      "final": {
+        "x": 60,
+        "y": -2715.2,
+        "dead": false,
+        "falling": 0
+      }
+    },
+    {
+      "map": "courtyard",
+      "edge": "bottom",
+      "empowered": false,
+      "before": {
+        "x": 60,
+        "y": 742.4,
+        "dashT": 0.04333333333333336
+      },
+      "impulse": {
+        "vx": 0,
+        "vy": 820
+      },
+      "escaped": false,
+      "firstEscape": null,
+      "final": {
+        "x": 60,
+        "y": 742.4,
+        "dead": false,
+        "falling": 0
+      }
+    },
+    {
+      "map": "courtyard",
+      "edge": "bottom",
+      "empowered": true,
+      "before": {
+        "x": 60,
+        "y": 687.9999999999997,
+        "dashT": 0.04333333333333336
+      },
+      "impulse": {
+        "vx": 0,
+        "vy": 7355.0599999999995
+      },
+      "escaped": true,
+      "firstEscape": {
+        "frame": 0,
+        "x": 60,
+        "y": 800
+      },
+      "final": {
+        "x": 60,
+        "y": -2280,
+        "dead": false,
+        "falling": 0
+      }
+    },
+    {
+      "map": "frost",
+      "edge": "left",
+      "empowered": false,
+      "before": {
+        "x": 57.6,
+        "y": 140,
+        "dashT": 0.04333333333333336
+      },
+      "impulse": {
+        "vx": -820,
+        "vy": 0
+      },
+      "escaped": false,
+      "firstEscape": null,
+      "final": {
+        "x": 57.6,
+        "y": 140,
+        "dead": false,
+        "falling": 0
+      }
+    },
+    {
+      "map": "frost",
+      "edge": "left",
+      "empowered": true,
+      "before": {
+        "x": 111.99999999999999,
+        "y": 140,
+        "dashT": 0.04333333333333336
+      },
+      "impulse": {
+        "vx": -7355.0599999999995,
+        "vy": 0
+      },
+      "escaped": true,
+      "firstEscape": {
+        "frame": 0,
+        "x": -17.6,
+        "y": 122.4
+      },
+      "final": {
+        "x": -99.86750388857115,
+        "y": -2257.6,
+        "dead": false,
+        "falling": 0
+      }
+    },
+    {
+      "map": "frost",
+      "edge": "right",
+      "empowered": false,
+      "before": {
+        "x": 1222.4,
+        "y": 140,
+        "dashT": 0.04333333333333336
+      },
+      "impulse": {
+        "vx": 820,
+        "vy": 0
+      },
+      "escaped": false,
+      "firstEscape": null,
+      "final": {
+        "x": 1222.4,
+        "y": 140,
+        "dead": false,
+        "falling": 0
+      }
+    },
+    {
+      "map": "frost",
+      "edge": "right",
+      "empowered": true,
+      "before": {
+        "x": 1168.0000000000005,
+        "y": 140,
+        "dashT": 0.04333333333333336
+      },
+      "impulse": {
+        "vx": 7355.0599999999995,
+        "vy": 0
+      },
+      "escaped": true,
+      "firstEscape": {
+        "frame": 0,
+        "x": 1297.6,
+        "y": 122.4
+      },
+      "final": {
+        "x": 1379.0064802407976,
+        "y": -2275.2,
+        "dead": false,
+        "falling": 0
+      }
+    },
+    {
+      "map": "frost",
+      "edge": "top",
+      "empowered": false,
+      "before": {
+        "x": 60,
+        "y": 137.6,
+        "dashT": 0.04333333333333336
+      },
+      "impulse": {
+        "vx": 0,
+        "vy": -820
+      },
+      "escaped": false,
+      "firstEscape": null,
+      "final": {
+        "x": 60,
+        "y": 137.6,
+        "dead": false,
+        "falling": 0
+      }
+    },
+    {
+      "map": "frost",
+      "edge": "top",
+      "empowered": true,
+      "before": {
+        "x": 60,
+        "y": 191.99999999999997,
+        "dashT": 0.04333333333333336
+      },
+      "impulse": {
+        "vx": 0,
+        "vy": -7355.0599999999995
+      },
+      "escaped": true,
+      "firstEscape": {
+        "frame": 0,
+        "x": 60,
+        "y": 51.81566666666665
+      },
+      "final": {
+        "x": 60,
+        "y": -2715.2,
+        "dead": false,
+        "falling": 0
+      }
+    },
+    {
+      "map": "frost",
+      "edge": "bottom",
+      "empowered": false,
+      "before": {
+        "x": 60,
+        "y": 742.4,
+        "dashT": 0.04333333333333336
+      },
+      "impulse": {
+        "vx": 0,
+        "vy": 820
+      },
+      "escaped": false,
+      "firstEscape": null,
+      "final": {
+        "x": 60,
+        "y": 742.4,
+        "dead": false,
+        "falling": 0
+      }
+    },
+    {
+      "map": "frost",
+      "edge": "bottom",
+      "empowered": true,
+      "before": {
+        "x": 60,
+        "y": 687.9999999999997,
+        "dashT": 0.04333333333333336
+      },
+      "impulse": {
+        "vx": 0,
+        "vy": 7355.0599999999995
+      },
+      "escaped": true,
+      "firstEscape": {
+        "frame": 0,
+        "x": 60,
+        "y": 800
+      },
+      "final": {
+        "x": 60,
+        "y": -2280,
+        "dead": false,
+        "falling": 0
+      }
+    },
+    {
+      "map": "factory",
+      "edge": "left",
+      "empowered": false,
+      "before": {
+        "x": 57.6,
+        "y": 140,
+        "dashT": 0.04333333333333336
+      },
+      "impulse": {
+        "vx": -820,
+        "vy": 0
+      },
+      "escaped": false,
+      "firstEscape": null,
+      "final": {
+        "x": 57.6,
+        "y": 140,
+        "dead": false,
+        "falling": 0
+      }
+    },
+    {
+      "map": "factory",
+      "edge": "left",
+      "empowered": true,
+      "before": {
+        "x": 111.99999999999999,
+        "y": 140,
+        "dashT": 0.04333333333333336
+      },
+      "impulse": {
+        "vx": -7355.0599999999995,
+        "vy": 0
+      },
+      "escaped": true,
+      "firstEscape": {
+        "frame": 0,
+        "x": -17.6,
+        "y": 122.4
+      },
+      "final": {
+        "x": -99.86750388857115,
+        "y": -2257.6,
+        "dead": false,
+        "falling": 0
+      }
+    },
+    {
+      "map": "factory",
+      "edge": "right",
+      "empowered": false,
+      "before": {
+        "x": 1222.4,
+        "y": 140,
+        "dashT": 0.04333333333333336
+      },
+      "impulse": {
+        "vx": 820,
+        "vy": 0
+      },
+      "escaped": false,
+      "firstEscape": null,
+      "final": {
+        "x": 1222.4,
+        "y": 140,
+        "dead": false,
+        "falling": 0
+      }
+    },
+    {
+      "map": "factory",
+      "edge": "right",
+      "empowered": true,
+      "before": {
+        "x": 1168.0000000000005,
+        "y": 140,
+        "dashT": 0.04333333333333336
+      },
+      "impulse": {
+        "vx": 7355.0599999999995,
+        "vy": 0
+      },
+      "escaped": true,
+      "firstEscape": {
+        "frame": 0,
+        "x": 1297.6,
+        "y": 122.4
+      },
+      "final": {
+        "x": 1379.0064802407976,
+        "y": -2275.2,
+        "dead": false,
+        "falling": 0
+      }
+    },
+    {
+      "map": "factory",
+      "edge": "top",
+      "empowered": false,
+      "before": {
+        "x": 60,
+        "y": 137.6,
+        "dashT": 0.04333333333333336
+      },
+      "impulse": {
+        "vx": 0,
+        "vy": -820
+      },
+      "escaped": false,
+      "firstEscape": null,
+      "final": {
+        "x": 60,
+        "y": 137.6,
+        "dead": false,
+        "falling": 0
+      }
+    },
+    {
+      "map": "factory",
+      "edge": "top",
+      "empowered": true,
+      "before": {
+        "x": 60,
+        "y": 191.99999999999997,
+        "dashT": 0.04333333333333336
+      },
+      "impulse": {
+        "vx": 0,
+        "vy": -7355.0599999999995
+      },
+      "escaped": true,
+      "firstEscape": {
+        "frame": 0,
+        "x": 60,
+        "y": 51.81566666666665
+      },
+      "final": {
+        "x": 60,
+        "y": -2715.2,
+        "dead": false,
+        "falling": 0
+      }
+    },
+    {
+      "map": "factory",
+      "edge": "bottom",
+      "empowered": false,
+      "before": {
+        "x": 60,
+        "y": 742.4,
+        "dashT": 0.04333333333333336
+      },
+      "impulse": {
+        "vx": 0,
+        "vy": 820
+      },
+      "escaped": false,
+      "firstEscape": null,
+      "final": {
+        "x": 60,
+        "y": 742.4,
+        "dead": false,
+        "falling": 0
+      }
+    },
+    {
+      "map": "factory",
+      "edge": "bottom",
+      "empowered": true,
+      "before": {
+        "x": 60,
+        "y": 687.9999999999997,
+        "dashT": 0.04333333333333336
+      },
+      "impulse": {
+        "vx": 0,
+        "vy": 7355.0599999999995
+      },
+      "escaped": true,
+      "firstEscape": {
+        "frame": 0,
+        "x": 60,
+        "y": 800
+      },
+      "final": {
+        "x": 60,
+        "y": -2280,
+        "dead": false,
+        "falling": 0
+      }
+    },
+    {
+      "map": "dungeon",
+      "edge": "left",
+      "empowered": false,
+      "before": {
+        "x": 57.6,
+        "y": 140,
+        "dashT": 0.04333333333333336
+      },
+      "impulse": {
+        "vx": -820,
+        "vy": 0
+      },
+      "escaped": false,
+      "firstEscape": null,
+      "final": {
+        "x": 57.6,
+        "y": 140,
+        "dead": false,
+        "falling": 0
+      }
+    },
+    {
+      "map": "dungeon",
+      "edge": "left",
+      "empowered": true,
+      "before": {
+        "x": 111.99999999999999,
+        "y": 140,
+        "dashT": 0.04333333333333336
+      },
+      "impulse": {
+        "vx": -7355.0599999999995,
+        "vy": 0
+      },
+      "escaped": true,
+      "firstEscape": {
+        "frame": 0,
+        "x": -17.6,
+        "y": 122.4
+      },
+      "final": {
+        "x": -99.86750388857115,
+        "y": -2257.6,
+        "dead": false,
+        "falling": 0
+      }
+    },
+    {
+      "map": "dungeon",
+      "edge": "right",
+      "empowered": false,
+      "before": {
+        "x": 1222.4,
+        "y": 140,
+        "dashT": 0.04333333333333336
+      },
+      "impulse": {
+        "vx": 820,
+        "vy": 0
+      },
+      "escaped": false,
+      "firstEscape": null,
+      "final": {
+        "x": 1222.4,
+        "y": 140,
+        "dead": false,
+        "falling": 0
+      }
+    },
+    {
+      "map": "dungeon",
+      "edge": "right",
+      "empowered": true,
+      "before": {
+        "x": 1168.0000000000005,
+        "y": 140,
+        "dashT": 0.04333333333333336
+      },
+      "impulse": {
+        "vx": 7355.0599999999995,
+        "vy": 0
+      },
+      "escaped": true,
+      "firstEscape": {
+        "frame": 0,
+        "x": 1297.6,
+        "y": 122.4
+      },
+      "final": {
+        "x": 1379.0064802407976,
+        "y": -2275.2,
+        "dead": false,
+        "falling": 0
+      }
+    },
+    {
+      "map": "dungeon",
+      "edge": "top",
+      "empowered": false,
+      "before": {
+        "x": 60,
+        "y": 137.6,
+        "dashT": 0.04333333333333336
+      },
+      "impulse": {
+        "vx": 0,
+        "vy": -820
+      },
+      "escaped": false,
+      "firstEscape": null,
+      "final": {
+        "x": 60,
+        "y": 137.6,
+        "dead": false,
+        "falling": 0
+      }
+    },
+    {
+      "map": "dungeon",
+      "edge": "top",
+      "empowered": true,
+      "before": {
+        "x": 60,
+        "y": 191.99999999999997,
+        "dashT": 0.04333333333333336
+      },
+      "impulse": {
+        "vx": 0,
+        "vy": -7355.0599999999995
+      },
+      "escaped": true,
+      "firstEscape": {
+        "frame": 0,
+        "x": 60,
+        "y": 51.81566666666665
+      },
+      "final": {
+        "x": 60,
+        "y": -2715.2,
+        "dead": false,
+        "falling": 0
+      }
+    },
+    {
+      "map": "dungeon",
+      "edge": "bottom",
+      "empowered": false,
+      "before": {
+        "x": 60,
+        "y": 742.4,
+        "dashT": 0.04333333333333336
+      },
+      "impulse": {
+        "vx": 0,
+        "vy": 820
+      },
+      "escaped": false,
+      "firstEscape": null,
+      "final": {
+        "x": 60,
+        "y": 742.4,
+        "dead": false,
+        "falling": 0
+      }
+    },
+    {
+      "map": "dungeon",
+      "edge": "bottom",
+      "empowered": true,
+      "before": {
+        "x": 60,
+        "y": 687.9999999999997,
+        "dashT": 0.04333333333333336
+      },
+      "impulse": {
+        "vx": 0,
+        "vy": 7355.0599999999995
+      },
+      "escaped": true,
+      "firstEscape": {
+        "frame": 0,
+        "x": 60,
+        "y": 800
+      },
+      "final": {
+        "x": 60,
+        "y": -2280,
+        "dead": false,
+        "falling": 0
+      }
+    },
+    {
+      "map": "roof",
+      "edge": "left",
+      "empowered": false,
+      "before": {
+        "x": 57.6,
+        "y": 140,
+        "dashT": 0.04333333333333336
+      },
+      "impulse": {
+        "vx": -820,
+        "vy": 0
+      },
+      "escaped": false,
+      "firstEscape": null,
+      "final": {
+        "x": 57.6,
+        "y": 140,
+        "dead": false,
+        "falling": 0
+      }
+    },
+    {
+      "map": "roof",
+      "edge": "left",
+      "empowered": true,
+      "before": {
+        "x": 111.99999999999999,
+        "y": 140,
+        "dashT": 0.04333333333333336
+      },
+      "impulse": {
+        "vx": -7355.0599999999995,
+        "vy": 0
+      },
+      "escaped": true,
+      "firstEscape": {
+        "frame": 0,
+        "x": -17.6,
+        "y": 122.4
+      },
+      "final": {
+        "x": -99.86750388857115,
+        "y": -2257.6,
+        "dead": false,
+        "falling": 0
+      }
+    },
+    {
+      "map": "roof",
+      "edge": "right",
+      "empowered": false,
+      "before": {
+        "x": 1222.4,
+        "y": 140,
+        "dashT": 0.04333333333333336
+      },
+      "impulse": {
+        "vx": 820,
+        "vy": 0
+      },
+      "escaped": false,
+      "firstEscape": null,
+      "final": {
+        "x": 1222.4,
+        "y": 140,
+        "dead": false,
+        "falling": 0
+      }
+    },
+    {
+      "map": "roof",
+      "edge": "right",
+      "empowered": true,
+      "before": {
+        "x": 1168.0000000000005,
+        "y": 140,
+        "dashT": 0.04333333333333336
+      },
+      "impulse": {
+        "vx": 7355.0599999999995,
+        "vy": 0
+      },
+      "escaped": true,
+      "firstEscape": {
+        "frame": 0,
+        "x": 1297.6,
+        "y": 122.4
+      },
+      "final": {
+        "x": 1379.0064802407976,
+        "y": -2275.2,
+        "dead": false,
+        "falling": 0
+      }
+    },
+    {
+      "map": "roof",
+      "edge": "top",
+      "empowered": false,
+      "before": {
+        "x": 60,
+        "y": 137.6,
+        "dashT": 0.04333333333333336
+      },
+      "impulse": {
+        "vx": 0,
+        "vy": -820
+      },
+      "escaped": false,
+      "firstEscape": null,
+      "final": {
+        "x": 60,
+        "y": 137.6,
+        "dead": false,
+        "falling": 0
+      }
+    },
+    {
+      "map": "roof",
+      "edge": "top",
+      "empowered": true,
+      "before": {
+        "x": 60,
+        "y": 191.99999999999997,
+        "dashT": 0.04333333333333336
+      },
+      "impulse": {
+        "vx": 0,
+        "vy": -7355.0599999999995
+      },
+      "escaped": true,
+      "firstEscape": {
+        "frame": 0,
+        "x": 60,
+        "y": 51.81566666666665
+      },
+      "final": {
+        "x": 60,
+        "y": -2715.2,
+        "dead": false,
+        "falling": 0
+      }
+    },
+    {
+      "map": "roof",
+      "edge": "bottom",
+      "empowered": false,
+      "before": {
+        "x": 60,
+        "y": 742.4,
+        "dashT": 0.04333333333333336
+      },
+      "impulse": {
+        "vx": 0,
+        "vy": 820
+      },
+      "escaped": false,
+      "firstEscape": null,
+      "final": {
+        "x": 60,
+        "y": 742.4,
+        "dead": false,
+        "falling": 0
+      }
+    },
+    {
+      "map": "roof",
+      "edge": "bottom",
+      "empowered": true,
+      "before": {
+        "x": 60,
+        "y": 687.9999999999997,
+        "dashT": 0.04333333333333336
+      },
+      "impulse": {
+        "vx": 0,
+        "vy": 7355.0599999999995
+      },
+      "escaped": true,
+      "firstEscape": {
+        "frame": 0,
+        "x": 60,
+        "y": 800
+      },
+      "final": {
+        "x": 60,
+        "y": -2280,
+        "dead": false,
+        "falling": 0
+      }
+    },
+    {
+      "map": "bog",
+      "edge": "left",
+      "empowered": false,
+      "before": {
+        "x": 57.6,
+        "y": 140,
+        "dashT": 0.04333333333333336
+      },
+      "impulse": {
+        "vx": -820,
+        "vy": 0
+      },
+      "escaped": false,
+      "firstEscape": null,
+      "final": {
+        "x": 57.6,
+        "y": 140,
+        "dead": false,
+        "falling": 0
+      }
+    },
+    {
+      "map": "bog",
+      "edge": "left",
+      "empowered": true,
+      "before": {
+        "x": 111.99999999999999,
+        "y": 140,
+        "dashT": 0.04333333333333336
+      },
+      "impulse": {
+        "vx": -7355.0599999999995,
+        "vy": 0
+      },
+      "escaped": true,
+      "firstEscape": {
+        "frame": 0,
+        "x": -17.6,
+        "y": 122.4
+      },
+      "final": {
+        "x": -99.86750388857115,
+        "y": -2257.6,
+        "dead": false,
+        "falling": 0
+      }
+    },
+    {
+      "map": "bog",
+      "edge": "right",
+      "empowered": false,
+      "before": {
+        "x": 1222.4,
+        "y": 140,
+        "dashT": 0.04333333333333336
+      },
+      "impulse": {
+        "vx": 820,
+        "vy": 0
+      },
+      "escaped": false,
+      "firstEscape": null,
+      "final": {
+        "x": 1222.4,
+        "y": 140,
+        "dead": false,
+        "falling": 0
+      }
+    },
+    {
+      "map": "bog",
+      "edge": "right",
+      "empowered": true,
+      "before": {
+        "x": 1168.0000000000005,
+        "y": 140,
+        "dashT": 0.04333333333333336
+      },
+      "impulse": {
+        "vx": 7355.0599999999995,
+        "vy": 0
+      },
+      "escaped": true,
+      "firstEscape": {
+        "frame": 0,
+        "x": 1297.6,
+        "y": 122.4
+      },
+      "final": {
+        "x": 1379.0064802407976,
+        "y": -2275.2,
+        "dead": false,
+        "falling": 0
+      }
+    },
+    {
+      "map": "bog",
+      "edge": "top",
+      "empowered": false,
+      "before": {
+        "x": 60,
+        "y": 137.6,
+        "dashT": 0.04333333333333336
+      },
+      "impulse": {
+        "vx": 0,
+        "vy": -820
+      },
+      "escaped": false,
+      "firstEscape": null,
+      "final": {
+        "x": 60,
+        "y": 137.6,
+        "dead": false,
+        "falling": 0
+      }
+    },
+    {
+      "map": "bog",
+      "edge": "top",
+      "empowered": true,
+      "before": {
+        "x": 60,
+        "y": 191.99999999999997,
+        "dashT": 0.04333333333333336
+      },
+      "impulse": {
+        "vx": 0,
+        "vy": -7355.0599999999995
+      },
+      "escaped": true,
+      "firstEscape": {
+        "frame": 0,
+        "x": 60,
+        "y": 51.81566666666665
+      },
+      "final": {
+        "x": 60,
+        "y": -2715.2,
+        "dead": false,
+        "falling": 0
+      }
+    },
+    {
+      "map": "bog",
+      "edge": "bottom",
+      "empowered": false,
+      "before": {
+        "x": 60,
+        "y": 742.4,
+        "dashT": 0.04333333333333336
+      },
+      "impulse": {
+        "vx": 0,
+        "vy": 820
+      },
+      "escaped": false,
+      "firstEscape": null,
+      "final": {
+        "x": 60,
+        "y": 742.4,
+        "dead": false,
+        "falling": 0
+      }
+    },
+    {
+      "map": "bog",
+      "edge": "bottom",
+      "empowered": true,
+      "before": {
+        "x": 60,
+        "y": 687.9999999999997,
+        "dashT": 0.04333333333333336
+      },
+      "impulse": {
+        "vx": 0,
+        "vy": 7355.0599999999995
+      },
+      "escaped": true,
+      "firstEscape": {
+        "frame": 0,
+        "x": 60,
+        "y": 800
+      },
+      "final": {
+        "x": 60,
+        "y": -2280,
+        "dead": false,
+        "falling": 0
+      }
+    }
+  ],
+  "browserErrors": [],
+  "indexSha256": "fb4cee753c138b4f9f5a07905fe57cfe05ef89994c7b21ea248c246b7e0cffd1"
+}

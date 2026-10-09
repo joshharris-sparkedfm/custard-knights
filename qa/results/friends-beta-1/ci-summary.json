@@ -1,0 +1,460 @@
+{
+  "schema": 1,
+  "repository": "joshharris-sparkedfm/custard-knights",
+  "sourceCommit": "94edfde47f5b15fdc4b3b729e1a510c3b7c790ea",
+  "collectedAtUtc": "2026-10-09T17:50:03.3175081Z",
+  "evidenceSource": "GitHub Actions REST API",
+  "allRunsSuccessful": true,
+  "note": "Read-only observation of push-triggered CI. No test reruns or workflow dispatches. Artifact metadata retained; artifact contents not downloaded or independently hashed for this summary.",
+  "runs": [
+    {
+      "id": 37968700858,
+      "name": "Battle core portability",
+      "event": "push",
+      "head_sha": "94edfde47f5b15fdc4b3b729e1a510c3b7c790ea",
+      "head_branch": "codex/friends-beta-1",
+      "run_attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "html_url": "https://github.com/joshharris-sparkedfm/custard-knights/actions/runs/37968700858",
+      "created_at": "2026-10-09T17:47:03Z",
+      "updated_at": "2026-10-09T17:48:56Z",
+      "jobs": [
+        {
+          "id": 113949490940,
+          "name": "server (windows-latest)",
+          "status": "completed",
+          "conclusion": "success",
+          "html_url": "https://github.com/joshharris-sparkedfm/custard-knights/actions/runs/37968700858/job/113949490940",
+          "started_at": "2026-10-09T17:47:05Z",
+          "completed_at": "2026-10-09T17:48:55Z",
+          "steps": [
+            {
+              "number": 1,
+              "name": "Set up job",
+              "status": "completed",
+              "conclusion": "success"
+            },
+            {
+              "number": 2,
+              "name": "Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262",
+              "status": "completed",
+              "conclusion": "success"
+            },
+            {
+              "number": 3,
+              "name": "Run actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020",
+              "status": "completed",
+              "conclusion": "success"
+            },
+            {
+              "number": 4,
+              "name": "Install server dependency only",
+              "status": "completed",
+              "conclusion": "success"
+            },
+            {
+              "number": 5,
+              "name": "Run full unit suite",
+              "status": "completed",
+              "conclusion": "success"
+            },
+            {
+              "number": 6,
+              "name": "Exercise 100 active loopback clients for 60 seconds",
+              "status": "completed",
+              "conclusion": "success"
+            },
+            {
+              "number": 7,
+              "name": "Recover journal after an abrupt process exit",
+              "status": "completed",
+              "conclusion": "success"
+            },
+            {
+              "number": 8,
+              "name": "Retain passes and failures",
+              "status": "completed",
+              "conclusion": "success"
+            },
+            {
+              "number": 15,
+              "name": "Post Run actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020",
+              "status": "completed",
+              "conclusion": "success"
+            },
+            {
+              "number": 16,
+              "name": "Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262",
+              "status": "completed",
+              "conclusion": "success"
+            },
+            {
+              "number": 17,
+              "name": "Complete job",
+              "status": "completed",
+              "conclusion": "success"
+            }
+          ]
+        },
+        {
+          "id": 113949491198,
+          "name": "core (windows-latest, 24)",
+          "status": "completed",
+          "conclusion": "success",
+          "html_url": "https://github.com/joshharris-sparkedfm/custard-knights/actions/runs/37968700858/job/113949491198",
+          "started_at": "2026-10-09T17:47:05Z",
+          "completed_at": "2026-10-09T17:47:36Z",
+          "steps": [
+            {
+              "number": 1,
+              "name": "Set up job",
+              "status": "completed",
+              "conclusion": "success"
+            },
+            {
+              "number": 2,
+              "name": "Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262",
+              "status": "completed",
+              "conclusion": "success"
+            },
+            {
+              "number": 3,
+              "name": "Run actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020",
+              "status": "completed",
+              "conclusion": "success"
+            },
+            {
+              "number": 4,
+              "name": "Run dependency-free shared simulation assertions",
+              "status": "completed",
+              "conclusion": "success"
+            },
+            {
+              "number": 5,
+              "name": "Retain passes and failures",
+              "status": "completed",
+              "conclusion": "success"
+            },
+            {
+              "number": 9,
+              "name": "Post Run actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020",
+              "status": "completed",
+              "conclusion": "success"
+            },
+            {
+              "number": 10,
+              "name": "Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262",
+              "status": "completed",
+              "conclusion": "success"
+            },
+            {
+              "number": 11,
+              "name": "Complete job",
+              "status": "completed",
+              "conclusion": "success"
+            }
+          ]
+        },
+        {
+          "id": 113949491259,
+          "name": "server (ubuntu-latest)",
+          "status": "completed",
+          "conclusion": "success",
+          "html_url": "https://github.com/joshharris-sparkedfm/custard-knights/actions/runs/37968700858/job/113949491259",
+          "started_at": "2026-10-09T17:47:06Z",
+          "completed_at": "2026-10-09T17:48:39Z",
+          "steps": [
+            {
+              "number": 1,
+              "name": "Set up job",
+              "status": "completed",
+              "conclusion": "success"
+            },
+            {
+              "number": 2,
+              "name": "Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262",
+              "status": "completed",
+              "conclusion": "success"
+            },
+            {
+              "number": 3,
+              "name": "Run actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020",
+              "status": "completed",
+              "conclusion": "success"
+            },
+            {
+              "number": 4,
+              "name": "Install server dependency only",
+              "status": "completed",
+              "conclusion": "success"
+            },
+            {
+              "number": 5,
+              "name": "Run full unit suite",
+              "status": "completed",
+              "conclusion": "success"
+            },
+            {
+              "number": 6,
+              "name": "Exercise 100 active loopback clients for 60 seconds",
+              "status": "completed",
+              "conclusion": "success"
+            },
+            {
+              "number": 7,
+              "name": "Recover journal after an abrupt process exit",
+              "status": "completed",
+              "conclusion": "success"
+            },
+            {
+              "number": 8,
+              "name": "Retain passes and failures",
+              "status": "completed",
+              "conclusion": "success"
+            },
+            {
+              "number": 15,
+              "name": "Post Run actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020",
+              "status": "completed",
+              "conclusion": "success"
+            },
+            {
+              "number": 16,
+              "name": "Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262",
+              "status": "completed",
+              "conclusion": "success"
+            },
+            {
+              "number": 17,
+              "name": "Complete job",
+              "status": "completed",
+              "conclusion": "success"
+            }
+          ]
+        },
+        {
+          "id": 113949491276,
+          "name": "core (ubuntu-latest, 22)",
+          "status": "completed",
+          "conclusion": "success",
+          "html_url": "https://github.com/joshharris-sparkedfm/custard-knights/actions/runs/37968700858/job/113949491276",
+          "started_at": "2026-10-09T17:47:06Z",
+          "completed_at": "2026-10-09T17:47:35Z",
+          "steps": [
+            {
+              "number": 1,
+              "name": "Set up job",
+              "status": "completed",
+              "conclusion": "success"
+            },
+            {
+              "number": 2,
+              "name": "Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262",
+              "status": "completed",
+              "conclusion": "success"
+            },
+            {
+              "number": 3,
+              "name": "Run actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020",
+              "status": "completed",
+              "conclusion": "success"
+            },
+            {
+              "number": 4,
+              "name": "Run dependency-free shared simulation assertions",
+              "status": "completed",
+              "conclusion": "success"
+            },
+            {
+              "number": 5,
+              "name": "Retain passes and failures",
+              "status": "completed",
+              "conclusion": "success"
+            },
+            {
+              "number": 9,
+              "name": "Post Run actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020",
+              "status": "completed",
+              "conclusion": "success"
+            },
+            {
+              "number": 10,
+              "name": "Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262",
+              "status": "completed",
+              "conclusion": "success"
+            },
+            {
+              "number": 11,
+              "name": "Complete job",
+              "status": "completed",
+              "conclusion": "success"
+            }
+          ]
+        },
+        {
+          "id": 113949491302,
+          "name": "core (windows-latest, 22)",
+          "status": "completed",
+          "conclusion": "success",
+          "html_url": "https://github.com/joshharris-sparkedfm/custard-knights/actions/runs/37968700858/job/113949491302",
+          "started_at": "2026-10-09T17:47:05Z",
+          "completed_at": "2026-10-09T17:47:41Z",
+          "steps": [
+            {
+              "number": 1,
+              "name": "Set up job",
+              "status": "completed",
+              "conclusion": "success"
+            },
+            {
+              "number": 2,
+              "name": "Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262",
+              "status": "completed",
+              "conclusion": "success"
+            },
+            {
+              "number": 3,
+              "name": "Run actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020",
+              "status": "completed",
+              "conclusion": "success"
+            },
+            {
+              "number": 4,
+              "name": "Run dependency-free shared simulation assertions",
+              "status": "completed",
+              "conclusion": "success"
+            },
+            {
+              "number": 5,
+              "name": "Retain passes and failures",
+              "status": "completed",
+              "conclusion": "success"
+            },
+            {
+              "number": 9,
+              "name": "Post Run actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020",
+              "status": "completed",
+              "conclusion": "success"
+            },
+            {
+              "number": 10,
+              "name": "Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262",
+              "status": "completed",
+              "conclusion": "success"
+            },
+            {
+              "number": 11,
+              "name": "Complete job",
+              "status": "completed",
+              "conclusion": "success"
+            }
+          ]
+        },
+        {
+          "id": 113949491317,
+          "name": "core (ubuntu-latest, 24)",
+          "status": "completed",
+          "conclusion": "success",
+          "html_url": "https://github.com/joshharris-sparkedfm/custard-knights/actions/runs/37968700858/job/113949491317",
+          "started_at": "2026-10-09T17:47:06Z",
+          "completed_at": "2026-10-09T17:47:25Z",
+          "steps": [
+            {
+              "number": 1,
+              "name": "Set up job",
+              "status": "completed",
+              "conclusion": "success"
+            },
+            {
+              "number": 2,
+              "name": "Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262",
+              "status": "completed",
+              "conclusion": "success"
+            },
+            {
+              "number": 3,
+              "name": "Run actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020",
+              "status": "completed",
+              "conclusion": "success"
+            },
+            {
+              "number": 4,
+              "name": "Run dependency-free shared simulation assertions",
+              "status": "completed",
+              "conclusion": "success"
+            },
+            {
+              "number": 5,
+              "name": "Retain passes and failures",
+              "status": "completed",
+              "conclusion": "success"
+            },
+            {
+              "number": 9,
+              "name": "Post Run actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020",
+              "status": "completed",
+              "conclusion": "success"
+            },
+            {
+              "number": 10,
+              "name": "Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262",
+              "status": "completed",
+              "conclusion": "success"
+            },
+            {
+              "number": 11,
+              "name": "Complete job",
+              "status": "completed",
+              "conclusion": "success"
+            }
+          ]
+        }
+      ],
+      "artifacts": [
+        {
+          "id": 11635105077,
+          "name": "core-windows-latest-node24",
+          "size_in_bytes": 1889,
+          "digest": "sha256:80d4a35d9c6f76afa9b5f9c4f2807bb7af3cb3562cb4aec7d43e1e9f7e9b72fb",
+          "expired": false
+        },
+        {
+          "id": 11634721326,
+          "name": "server-windows-latest",
+          "size_in_bytes": 10394,
+          "digest": "sha256:c37171bed3a0185566c0a6a38ddc2eb18eb2b5fc2254733b58826551c34ffbca",
+          "expired": false
+        },
+        {
+          "id": 11634294395,
+          "name": "core-ubuntu-latest-node24",
+          "size_in_bytes": 1937,
+          "digest": "sha256:9c648c57266001e7838063fe56f6387d9b62ad171f9c193ca21de3610dd6a012",
+          "expired": false
+        },
+        {
+          "id": 11633899403,
+          "name": "core-windows-latest-node22",
+          "size_in_bytes": 1898,
+          "digest": "sha256:33a560e31e731ca477a3eb40f92a3d1d5453c316dd819fc10a82adf69a6d0fe1",
+          "expired": false
+        },
+        {
+          "id": 11633864580,
+          "name": "server-ubuntu-latest",
+          "size_in_bytes": 10669,
+          "digest": "sha256:5f6b9b87a753ecd5e55eb420034f684c7c95bd6ffbda83f7f64a6eacce01f7b7",
+          "expired": false
+        },
+        {
+          "id": 11633859380,
+          "name": "core-ubuntu-latest-node22",
+          "size_in_bytes": 1946,
+          "digest": "sha256:88b192dd423bb0aa961ebbadb94da752474313ea7be79fb7ccdc76ad73135d0a",
+          "expired": false
+        }
+      ]
+    }
+  ]
+}

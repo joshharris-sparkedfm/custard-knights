@@ -1,0 +1,102 @@
+[
+  {
+    "name": "(idle) :-1",
+    "ms": 7801.517
+  },
+  {
+    "name": "drawImage :-1",
+    "ms": 1115.604
+  },
+  {
+    "name": "(program) :-1",
+    "ms": 255.045
+  },
+  {
+    "name": "draw mass-battle-ui.js:112",
+    "ms": 72.339
+  },
+  {
+    "name": "(garbage collector) :-1",
+    "ms": 47.915
+  },
+  {
+    "name": "save :-1",
+    "ms": 46.803
+  },
+  {
+    "name": "fill :-1",
+    "ms": 41.539
+  },
+  {
+    "name": "botInput mass-battle.js:216",
+    "ms": 38.477
+  },
+  {
+    "name": "drawMountedWeapon index.html?qa=1:1846",
+    "ms": 36.221
+  },
+  {
+    "name": "fillRect :-1",
+    "ms": 30.299
+  },
+  {
+    "name": "drawBladeShape index.html?qa=1:1499",
+    "ms": 28.917
+  },
+  {
+    "name": "grey index.html?qa=1:1876",
+    "ms": 27.978
+  },
+  {
+    "name": "drawKnight index.html?qa=1:1723",
+    "ms": 25.892
+  },
+  {
+    "name": "stroke :-1",
+    "ms": 25.438
+  },
+  {
+    "name": "ellipse :-1",
+    "ms": 23.799
+  },
+  {
+    "name": "crescent index.html?qa=1:1420",
+    "ms": 23.041
+  },
+  {
+    "name": "getContext :-1",
+    "ms": 22.913
+  },
+  {
+    "name": "renderKnight index.html?qa=1:2869",
+    "ms": 19.834
+  },
+  {
+    "name": "drawKnightSprite index.html?qa=1:1890",
+    "ms": 19.485
+  },
+  {
+    "name": "step mass-battle.js:426",
+    "ms": 17.757
+  },
+  {
+    "name": "restore :-1",
+    "ms": 17.461
+  },
+  {
+    "name": "fillText :-1",
+    "ms": 16.858
+  },
+  {
+    "name": "tint index.html?qa=1:1875",
+    "ms": 13.91
+  },
+  {
+    "name": "sprImg index.html?qa=1:1807",
+    "ms": 13.194
+  },
+  {
+    "name": "addPath :-1",
+    "ms": 12.224
+  }
+]

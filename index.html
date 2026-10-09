@@ -1805,7 +1805,13 @@ function knightFx(e,r,t,fx,fy,moving){
    Atlases decode lazily the first time a kit needs them. West-facing directions are mirrors. */
 const SPR=(window.CK_SPRITES&&window.CK_SPRITES.knight)||null;
 let sprReady=false; const sprImgs={};
-function sprImg(key,L){ if(!L||typeof L.u!=='string') return null; let im=sprImgs[key]; if(!im){ im=sprImgs[key]=new Image(); im.onload=()=>{ im.ok=true; if(key==='great.base'||key==='great.mask') sprReady=!!(sprImgs['great.base'].ok&&sprImgs['great.mask'].ok); }; im.onerror=()=>{im.failed=true;}; im.src=L.u; } return im.ok?im:null; }
+// Faction crowds share many identical kit/frame combinations. Keep finished pixels,
+// not the mutable scratch canvases; evict by actual RGBA size and invalidate on decode.
+const sprFactionCache=new Map(),sprFactionCacheLimit=32*1024*1024;
+let sprFactionCacheEnabled=true;
+let sprFactionCacheBytes=0,sprFactionCacheHits=0,sprFactionCacheMisses=0;
+function clearFactionSprites(){sprFactionCache.clear();sprFactionCacheBytes=0;}
+function sprImg(key,L){ if(!L||typeof L.u!=='string') return null; let im=sprImgs[key]; if(!im){ im=sprImgs[key]=new Image(); im.onload=()=>{ im.ok=true; clearFactionSprites(); if(key==='great.base'||key==='great.mask') sprReady=!!(sprImgs['great.base'].ok&&sprImgs['great.mask'].ok); }; im.onerror=()=>{im.failed=true;}; im.src=L.u; } return im.ok?im:null; }
 if(SPR&&SPR.helms&&SPR.helms.great){ sprImg('great.base',SPR.helms.great.base); sprImg('great.mask',SPR.helms.great.mask); }
 const R_MODE=new URLSearchParams(location.search).get('r'); // ?r=sprite or ?r=classic forces a renderer (QA)
 const useSprites=()=>sprReady&&(R_MODE==='sprite'||(R_MODE!=='classic'&&!SET.classic));
@@ -1871,6 +1877,8 @@ function sprCompose(e,i,SH=SPR){ // returns the scratch canvas holding frame i o
  let base=I(h+'.base',H.base), mask=I(h+'.mask',H.mask);
  if(!base||!mask){ h='great'; H=SH.helms.great; base=I('great.base',H.base); mask=I('great.mask',H.mask); if(!base||!mask) return null; }
  const mounted=spriteArm(e,h,i,SH);if(mounted){H={...H,base:H.armfreeBase,mask:H.armfreeMask,metal:H.armfreeMetal};base=mounted.base;mask=mounted.mask;}
+ const plumeColor=plumeCols(e)[0],cacheKey=e.factionSpriteCache&&sprFactionCacheEnabled?JSON.stringify([q,i,h,K.helm,K.metal,K.plume,e.color,plumeColor,e.cape,e.emblem,e.blade,!!e.wpn,!!mounted,proceduralBlade(e)]):null;
+ if(cacheKey){const cached=sprFactionCache.get(cacheKey);if(cached){sprFactionCacheHits++;sprFactionCache.delete(cacheKey);sprFactionCache.set(cacheKey,cached);return {image:cached,arm:mounted};}sprFactionCacheMisses++;}
  const [S1,S2,S3]=sprScratch(SH.cell), cell=SH.cell, a=S1.getContext('2d'), b=S2.getContext('2d'), c=S3.getContext('2d');
  const clr=x=>{ x.globalCompositeOperation='source-over'; x.globalAlpha=1; x.clearRect(0,0,cell,cell); };
  const tint=(L,img,col)=>{ clr(b); sprBlit(b,L,img,i); b.globalCompositeOperation='source-in'; b.fillStyle=col; b.fillRect(0,0,cell,cell); a.globalCompositeOperation='multiply'; a.drawImage(S2,0,0); };
@@ -1886,7 +1894,8 @@ function sprCompose(e,i,SH=SPR){ // returns the scratch canvas holding frame i o
  const ek=SH.embs&&SH.embs[e.emblem]?e.emblem:'star', EL=SH.embs&&SH.embs[ek], ei=EL&&I('emb.'+ek,EL); if(ei) sprBlit(a,EL,ei,i);
  if(!e.wpn&&!mounted&&!proceduralBlade(e)){ const bk=SH.blades&&SH.blades[e.blade]?e.blade:'steel', BL=SH.blades&&SH.blades[bk], bi=BL&&I('blade.'+bk,BL); if(bi) sprBlit(a,BL,bi,i); }
  const pu=SH.plumes[K.plume]?K.plume:'feather', PU=SH.plumes[pu], pi=I('plume.'+pu,PU);
- if(pi&&!CKCollectionArt.isHelm(K.helm)&&grey(PU,pi,plumeCols(e)[0])) a.drawImage(S2,0,0);
+ if(pi&&!CKCollectionArt.isHelm(K.helm)&&grey(PU,pi,plumeColor)) a.drawImage(S2,0,0);
+ if(cacheKey){const bytes=cell*cell*4;while(sprFactionCacheBytes+bytes>sprFactionCacheLimit&&sprFactionCache.size){const first=sprFactionCache.keys().next().value,old=sprFactionCache.get(first);sprFactionCacheBytes-=old.width*old.height*4;sprFactionCache.delete(first);}if(bytes<=sprFactionCacheLimit){const saved=document.createElement('canvas');saved.width=saved.height=cell;saved.getContext('2d').drawImage(S1,0,0);sprFactionCache.set(cacheKey,saved);sprFactionCacheBytes+=bytes;return {image:saved,arm:mounted};}}
  return {image:S1,arm:mounted}; }
 function drawKnightSprite(e,r,moving,bob,weapon){ const f=sprFrame(e,moving);
  const open=e.kit?.visor==='open';if(open)loadOpenVisors();const body=open&&SPR_OPEN.knightReady?SPR_OPEN.knight:SPR,hero=open?(SPR_OPEN.heroReady?SPR_OPEN.hero:null):SPRH;
@@ -2860,13 +2869,13 @@ if(window.CKMassBattle&&window.CKMassBattleUI){
  massBattleUI=CKMassBattleUI.connect({
   reducedFlash:()=>!SET.flash,
   profile:()=>loadProfile(1),
-  onEnter:()=>{massBattleWalk.clear();if(NET.role)leaveOnline();paused=true;for(const k of Object.keys(keys))delete keys[k];['menu','end','pause'].forEach(id=>$(id).hidden=true);audio();cueMusic('courtyard');sprLoadSet(SPR);},
+  onEnter:()=>{massBattleWalk.clear();clearFactionSprites();if(NET.role)leaveOnline();paused=true;for(const k of Object.keys(keys))delete keys[k];['menu','end','pause'].forEach(id=>$(id).hidden=true);audio();cueMusic('courtyard');sprLoadSet(SPR);},
   onEffect:(effect,meta)=>{
    const sound={hit:'hit',parry:'parry',defeat:'ko',bash:'bash',blast:'boom',heal:'potion',repair:'clang',siege:'bash',capture:'pickup'}[effect.kind];
    if(!sound)return;const demo=G.demo,level=SET.sfx;
    try{G.demo=false;SET.sfx=level*meta.volume;sfx(sound);}finally{G.demo=demo;SET.sfx=level;}
   },
-  onExit:()=>{massBattleWalk.clear();for(const k of Object.keys(keys))delete keys[k];toMenu();},
+  onExit:()=>{massBattleWalk.clear();clearFactionSprites();for(const k of Object.keys(keys))delete keys[k];toMenu();},
   renderKnight:(battleCtx,p)=>{
    const oldCtx=ctx,oldClock=G.clock,oldOver=G.over,oldMode=G.mode;
    const kind=p.attack&&SWINGS[p.attack.kind]?p.attack.kind:'light',duration=SWINGS[kind].dur;
@@ -2875,7 +2884,7 @@ if(window.CKMassBattle&&window.CKMassBattleUI){
    const profile=p.appearance||(p.local?loadProfile(1):{}),role=p.role||'vanguard';
    const elapsed=p.elapsed||0,previous=massBattleWalk.get(p.id),walk=previous&&elapsed>=previous.time?previous.walk+Math.hypot(p.vx||0,p.vy||0)*Math.min(.1,elapsed-previous.time)*.055:0;
    massBattleWalk.set(p.id,{time:elapsed,walk});
-   const e=mkKnight({id:Number(String(p.id).split('-').pop())||0,color:p.teamColor,team:p.team==='custardia'?'red':'blue',human:p.local?1:0,
+   const e=mkKnight({factionSpriteCache:true,id:Number(String(p.id).split('-').pop())||0,color:p.teamColor,team:p.team==='custardia'?'red':'blue',human:p.local?1:0,
     face:attack?attack.angle:p.angle||0,vx:p.vx||0,vy:p.vy||0,walk,
     kit:{helm:profile.helm||(role==='engineer'?'kettle':role==='support'?'sallet':'great'),plume:profile.plume||'feather',metal:profile.metal||'steel',visor:p.visor||profile.visor||'closed'},
     cape:profile.cape||'plain',blade:profile.blade||'steel',emblem:profile.emblem||'star',
@@ -2891,7 +2900,7 @@ if(window.CKMassBattle&&window.CKMassBattleUI){
  if(new URLSearchParams(location.search).get('battle')==='1')massBattleUI.open();
 }
 if(new URLSearchParams(location.search).get('qa')){
- window.CK={botInput,DIFFS,speedOf,MODES,massBattle:()=>massBattleUI,menuNav,menuActivate,combatBeat,bladeSweep,swingArc,sprFrame,headTop,applySnap,clientTick,presentationSettings:o=>Object.assign(SET,o),collection:()=>COLLECTION,setCollection:saveCollection,awardCollection,campaignCollectionReward,reloadWardrobeSaves,drawCollectionPreview,openWardrobe,owned,cleanKit,collectionUI:()=>collectionUI,adventure:ADVENTURE,hurt,startSwing,hitCrate,clang,doHit,fire,draw,toMenu,cup:()=>CUP,startCup,cupReady,nextCupRound,cancelCup,musicState:()=>({cue:musicCue,wanted:musicWant,src:music.getAttribute('src')}),cueMusic,audioStats:()=>({active:audioVoices,max:MAX_AUDIO_VOICES}),sfx,hostOnline,joinOnline,leaveOnline,G:()=>G,PROG,NET,clientRecv,hostRecv,hostDrop,snapshot,humanInput,endMatch,netSetup,rematch,seats:()=>SEATS,setSeats:v=>{SEATS=v;partyGo=true;},cfg,keys,touch,update,newGame,start,loadProfile,saveProfile,drawKnight:e=>drawKnight(e),sprites:v=>{ SET.classic=!v; },spritesReady:()=>sprReady,sprLoadAll:()=>sprLoadSet(SPR),sprLoadVisors:loadOpenVisors,visorAssets:()=>({requested:!!SPR_OPEN.promise,knightReady:SPR_OPEN.knightReady,heroReady:SPR_OPEN.heroReady}),mkKnight:o=>mkKnight(o),withCtx:(c,fn)=>{ const k=ctx; ctx=c; try{ fn(); }finally{ ctx=k; } },startEvent,startMayhem,applyPU,giveWeapon,spawnPickup,MAYHEM,PU,MAPS,WEAPONS,
+ window.CK={spriteCacheEnabled:value=>{if(value!==undefined){sprFactionCacheEnabled=!!value;clearFactionSprites();}return sprFactionCacheEnabled;},spriteCompose: (e,i,open=false)=>sprCompose(e,i,open?SPR_OPEN.knight:SPR),spriteFrameCount:()=>SPR.per*5,spriteCache:()=>({entries:sprFactionCache.size,bytes:sprFactionCacheBytes,limit:sprFactionCacheLimit,hits:sprFactionCacheHits,misses:sprFactionCacheMisses}),clearFactionSprites,botInput,DIFFS,speedOf,MODES,massBattle:()=>massBattleUI,menuNav,menuActivate,combatBeat,bladeSweep,swingArc,sprFrame,headTop,applySnap,clientTick,presentationSettings:o=>Object.assign(SET,o),collection:()=>COLLECTION,setCollection:saveCollection,awardCollection,campaignCollectionReward,reloadWardrobeSaves,drawCollectionPreview,openWardrobe,owned,cleanKit,collectionUI:()=>collectionUI,adventure:ADVENTURE,hurt,startSwing,hitCrate,clang,doHit,fire,draw,toMenu,cup:()=>CUP,startCup,cupReady,nextCupRound,cancelCup,musicState:()=>({cue:musicCue,wanted:musicWant,src:music.getAttribute('src')}),cueMusic,audioStats:()=>({active:audioVoices,max:MAX_AUDIO_VOICES}),sfx,hostOnline,joinOnline,leaveOnline,G:()=>G,PROG,NET,clientRecv,hostRecv,hostDrop,snapshot,humanInput,endMatch,netSetup,rematch,seats:()=>SEATS,setSeats:v=>{SEATS=v;partyGo=true;},cfg,keys,touch,update,newGame,start,loadProfile,saveProfile,drawKnight:e=>drawKnight(e),sprites:v=>{ SET.classic=!v; },spritesReady:()=>sprReady,sprLoadAll:()=>sprLoadSet(SPR),sprLoadVisors:loadOpenVisors,visorAssets:()=>({requested:!!SPR_OPEN.promise,knightReady:SPR_OPEN.knightReady,heroReady:SPR_OPEN.heroReady}),mkKnight:o=>mkKnight(o),withCtx:(c,fn)=>{ const k=ctx; ctx=c; try{ fn(); }finally{ ctx=k; } },startEvent,startMayhem,applyPU,giveWeapon,spawnPickup,MAYHEM,PU,MAPS,WEAPONS,
   adv:n=>{for(let i=0;i<n;i++)update(1/60)},freeze:v=>{paused=v},
   begin:(o={})=>{ Object.assign(cfg,o); if(o.humans!==undefined) cfg.players=o.humans; $('menu').hidden=true; audio(); menuMusic(false); newGame(false); paused=true; $('pauseBtn').hidden=true; G.banner=null; return G; },
   zoom:(s,gx,gy)=>{ const r=document.getElementById('stage').getBoundingClientRect(); fitS=s; fitX=r.width/2-gx*s; fitY=r.height/2-gy*s; scale=s; offX=fitX; offY=fitY; }};

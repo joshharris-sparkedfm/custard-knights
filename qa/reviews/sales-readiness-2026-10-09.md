@@ -33,6 +33,8 @@ Alpha.3 matched 42 packaged entries to source/generated metadata. The actual Ele
 
 ## Still required for sale
 
+The local native failure was also tested with a freshly downloaded official Node24.21.0 executable, verified against Node's SHA256 manifest; the installed Node24.19.0 executable separately matches its own official checksum. The fresh runtime still lost the core-test subprocess to `0xC0000005` (parent TAP: 88 passed, one failed subprocess; many child cases did not report). The source passed all121 hosted tests. This narrows away an on-disk executable checksum mismatch but does not identify the runtime/host cause, establish hardware failure or close the issue. See `runtime-verification.json` and `local-node2421-full.tap`; no system settings or PATH were changed.
+
 The native Node failures and a prior microprofile mismatch remain unresolved observations; subsequent browser/hosted successes do not identify their cause. Faction bandwidth remains substantial and hosted-worker tail timing is unaccepted. No public server, authenticated persistent ranking, Steam configuration/approval, actual controller/WAN/second-PC acceptance, minimum-spec measurement or novice playtest is supplied by these checks. Eleven requested soundtrack recordings and the public support contact remain outstanding. Release documents now distinguish current implemented scope from historical acceptance and unperformed checks.
 
 ## Independent final checks

@@ -1,0 +1,550 @@
+TAP version 13
+# Subtest: all story difficulties preserve health, objectives, checkpoints and legacy spoons
+ok 1 - all story difficulties preserve health, objectives, checkpoints and legacy spoons
+  ---
+  duration_ms: 17.6048
+  type: 'test'
+  ...
+# Subtest: story STEVE keeps readable fixed boss tells and punish windows; Easy gives longer windows
+ok 2 - story STEVE keeps readable fixed boss tells and punish windows; Easy gives longer windows
+  ---
+  duration_ms: 2.0992
+  type: 'test'
+  ...
+# Subtest: main route skips biscuit toll, locked nodes reject launch
+ok 3 - main route skips biscuit toll, locked nodes reject launch
+  ---
+  duration_ms: 0.4665
+  type: 'test'
+  ...
+# Subtest: spoons merge across replays and duplicate receipts never pay twice
+ok 4 - spoons merge across replays and duplicate receipts never pay twice
+  ---
+  duration_ms: 0.1356
+  type: 'test'
+  ...
+# Subtest: save normalization tolerates corruption, malformed spoons and missing versions
+ok 5 - save normalization tolerates corruption, malformed spoons and missing versions
+  ---
+  duration_ms: 0.2234
+  type: 'test'
+  ...
+# Subtest: banquet requires guards AND the exit, rather than KO score
+ok 6 - banquet requires guards AND the exit, rather than KO score
+  ---
+  duration_ms: 0.477
+  type: 'test'
+  ...
+# Subtest: pudding attackers warn and damage stands; bonking all wave enemies is needed
+ok 7 - pudding attackers warn and damage stands; bonking all wave enemies is needed
+  ---
+  duration_ms: 0.3446
+  type: 'test'
+  ...
+# Subtest: destroying every pudding stand fails without awarding completion
+ok 8 - destroying every pudding stand fails without awarding completion
+  ---
+  duration_ms: 0.1809
+  type: 'test'
+  ...
+# Subtest: arrow trial counts actual reflections, grants extra-feat window, keeps archer alive
+ok 9 - arrow trial counts actual reflections, grants extra-feat window, keeps archer alive
+  ---
+  duration_ms: 0.3899
+  type: 'test'
+  ...
+# Subtest: bridge sequential checkpoints survive falls; third fall fails
+ok 10 - bridge sequential checkpoints survive falls; third fall fails
+  ---
+  duration_ms: 0.4883
+  type: 'test'
+  ...
+# Subtest: bridge cannot finish by skipping gates; dash feat requires crossing the whole gap
+ok 11 - bridge cannot finish by skipping gates; dash feat requires crossing the whole gap
+  ---
+  duration_ms: 0.4145
+  type: 'test'
+  ...
+# Subtest: Stirling advances only on actual blocks, then counter, then uncontested pie hold
+ok 12 - Stirling advances only on actual blocks, then counter, then uncontested pie hold
+  ---
+  duration_ms: 0.5316
+  type: 'test'
+  ...
+# Subtest: Steve cage opens only at the actual crate; egg and route are required
+ok 13 - Steve cage opens only at the actual crate; egg and route are required
+  ---
+  duration_ms: 0.4741
+  type: 'test'
+  ...
+# Subtest: Rind telegraphs fixed target, provides punish window and sweep hurts allies
+ok 14 - Rind telegraphs fixed target, provides punish window and sweep hurts allies
+  ---
+  duration_ms: 0.5275
+  type: 'test'
+  ...
+# Subtest: Rind defeat leads to playable rescue, not immediate success
+ok 15 - Rind defeat leads to playable rescue, not immediate success
+  ---
+  duration_ms: 0.5608
+  type: 'test'
+  ...
+# Subtest: boss and exam checkpoint resume reset scripts and cannot earn full-run flawless spoon
+ok 16 - boss and exam checkpoint resume reset scripts and cannot earn full-run flawless spoon
+  ---
+  duration_ms: 0.5717
+  type: 'test'
+  ...
+# Subtest: rescue checkpoint resumes with marked living skin and no boss replay
+ok 17 - rescue checkpoint resumes with marked living skin and no boss replay
+  ---
+  duration_ms: 0.289
+  type: 'test'
+  ...
+# Subtest: assistance modifies only campaign health and authored timing
+ok 18 - assistance modifies only campaign health and authored timing
+  ---
+  duration_ms: 0.3981
+  type: 'test'
+  ...
+# Subtest: replaying another node never erases an unfinished boss checkpoint
+ok 19 - replaying another node never erases an unfinished boss checkpoint
+  ---
+  duration_ms: 0.3286
+  type: 'test'
+  ...
+# Subtest: campaign backup merge preserves independent spoons and completed chapter ownership
+ok 20 - campaign backup merge preserves independent spoons and completed chapter ownership
+  ---
+  duration_ms: 0.1849
+  type: 'test'
+  ...
+# Subtest: displacing a pudding raider cancels its attack; returning starts a complete fresh warning
+ok 21 - displacing a pudding raider cancels its attack; returning starts a complete fresh warning
+  ---
+  duration_ms: 0.4216
+  type: 'test'
+  ...
+# Subtest: destroyed pudding target cannot transfer an almost-ready hit to another stand
+ok 22 - destroyed pudding target cannot transfer an almost-ready hit to another stand
+  ---
+  duration_ms: 0.2435
+  type: 'test'
+  ...
+# Subtest: contested pie status explains stalled progress and clears with the threat
+ok 23 - contested pie status explains stalled progress and clears with the threat
+  ---
+  duration_ms: 0.3728
+  type: 'test'
+  ...
+# Subtest: Rind timing cues match normal and assisted attack windows without changing target
+ok 24 - Rind timing cues match normal and assisted attack windows without changing target
+  ---
+  duration_ms: 1.4812
+  type: 'test'
+  ...
+# Subtest: visor choice survives presets without adding combat fields or altering legacy outfits
+ok 25 - visor choice survives presets without adding combat fields or altering legacy outfits
+  ---
+  duration_ms: 2.4156
+  type: 'test'
+  ...
+# Subtest: backups preserve independent visor choices for all four local players
+ok 26 - backups preserve independent visor choices for all four local players
+  ---
+  duration_ms: 0.3724
+  type: 'test'
+  ...
+# Subtest: six concrete signature items with a deterministic route each
+ok 27 - six concrete signature items with a deterministic route each
+  ---
+  duration_ms: 0.1267
+  type: 'test'
+  ...
+# Subtest: first completion offers one choice; duplicate seats/results cannot advance twice
+ok 28 - first completion offers one choice; duplicate seats/results cannot advance twice
+  ---
+  duration_ms: 0.2344
+  type: 'test'
+  ...
+# Subtest: goal switches preserve partial progress without awarding past rounds retroactively
+ok 29 - goal switches preserve partial progress without awarding past rounds retroactively
+  ---
+  duration_ms: 0.2005
+  type: 'test'
+  ...
+# Subtest: published story milestones unlock without pinning or duplicate awards
+ok 30 - published story milestones unlock without pinning or duplicate awards
+  ---
+  duration_ms: 0.1021
+  type: 'test'
+  ...
+# Subtest: pure collection awards do not touch legacy ownership or combat properties
+ok 31 - pure collection awards do not touch legacy ownership or combat properties
+  ---
+  duration_ms: 0.1739
+  type: 'test'
+  ...
+# Subtest: three presets persist only appearance fields, never combat
+ok 32 - three presets persist only appearance fields, never combat
+  ---
+  duration_ms: 0.1507
+  type: 'test'
+  ...
+# Subtest: backup restores goals and outfits while retaining existing legacy earned items
+ok 33 - backup restores goals and outfits while retaining existing legacy earned items
+  ---
+  duration_ms: 0.3333
+  type: 'test'
+  ...
+# Subtest: malformed backup validates every section before writing
+ok 34 - malformed backup validates every section before writing
+  ---
+  duration_ms: 0.3236
+  type: 'test'
+  ...
+# Subtest: all goals unlock in their published round counts
+ok 35 - all goals unlock in their published round counts
+  ---
+  duration_ms: 0.8122
+  type: 'test'
+  ...
+# Subtest: costume drawing and strut transform never mutate combat entities
+ok 36 - costume drawing and strut transform never mutate combat entities
+  ---
+  duration_ms: 1.4347
+  type: 'test'
+  ...
+# Subtest: progress backup merges campaign spoons and checkpoint without losing either device progress
+ok 37 - progress backup merges campaign spoons and checkpoint without losing either device progress
+  ---
+  duration_ms: 1.9286
+  type: 'test'
+  ...
+# Subtest: Cup score excludes bots and grants equal points for tied performances
+ok 38 - Cup score excludes bots and grants equal points for tied performances
+  ---
+  duration_ms: 7.0685
+  type: 'test'
+  ...
+# Subtest: three rounds preserve scores, require all humans ready and declare a shared trophy on a tie
+ok 39 - three rounds preserve scores, require all humans ready and declare a shared trophy on a tie
+  ---
+  duration_ms: 0.4267
+  type: 'test'
+  ...
+# Subtest: a departure cannot block ready-up or earn new points through its replacement bot
+ok 40 - a departure cannot block ready-up or earn new points through its replacement bot
+  ---
+  duration_ms: 0.1979
+  type: 'test'
+  ...
+# Subtest: late or unknown players cannot ready, vote or score in the current Cup
+ok 41 - late or unknown players cannot ready, vote or score in the current Cup
+  ---
+  duration_ms: 0.5826
+  type: 'test'
+  ...
+# Subtest: Mischief awards describe recorded events and omit absent achievements
+ok 42 - Mischief awards describe recorded events and omit absent achievements
+  ---
+  duration_ms: 0.1554
+  type: 'test'
+  ...
+# Subtest: network Cup state validator accepts complete lifecycle and rejects malformed rendering fields
+ok 43 - network Cup state validator accepts complete lifecycle and rejects malformed rendering fields
+  ---
+  duration_ms: 0.4662
+  type: 'test'
+  ...
+# Subtest: custom protocol serves bundled assets but denies shell internals, foreign origins and Windows paths
+ok 44 - custom protocol serves bundled assets but denies shell internals, foreign origins and Windows paths
+  ---
+  duration_ms: 5.9424
+  type: 'test'
+  ...
+# Subtest: missing assets and failed native fetches return controlled errors
+ok 45 - missing assets and failed native fetches return controlled errors
+  ---
+  duration_ms: 16.7198
+  type: 'test'
+  ...
+# Subtest: acceptance profile flags cannot redirect checks into the normal save folder
+ok 46 - acceptance profile flags cannot redirect checks into the normal save folder
+  ---
+  duration_ms: 0.8973
+  type: 'test'
+  ...
+# Subtest: release staging includes future game modules and licenses, excludes scratch/developer files
+ok 47 - release staging includes future game modules and licenses, excludes scratch/developer files
+  ---
+  duration_ms: 29.7624
+  type: 'test'
+  ...
+# Subtest: failed staging removes its partial build instead of retaining release input
+ok 48 - failed staging removes its partial build instead of retaining release input
+  ---
+  duration_ms: 1.8122
+  type: 'test'
+  ...
+# Subtest: Steam configuration rejects invalid IDs and incomplete EXE-only packages
+ok 49 - Steam configuration rejects invalid IDs and incomplete EXE-only packages
+  ---
+  duration_ms: 1.6373
+  type: 'test'
+  ...
+# Subtest: Steam VDF uses current version, maps the complete folder, and defaults to preview without publishing
+ok 50 - Steam VDF uses current version, maps the complete folder, and defaults to preview without publishing
+  ---
+  duration_ms: 8.0386
+  type: 'test'
+  ...
+# Subtest: input validator rejects non-finite/invalid types and strips client authority
+ok 51 - input validator rejects non-finite/invalid types and strips client authority
+  ---
+  duration_ms: 0.626
+  type: 'test'
+  ...
+# Subtest: real socket join, authoritative snapshots, malformed input, stale-input timeout and bot refill
+ok 52 - real socket join, authoritative snapshots, malformed input, stale-input timeout and bot refill
+  ---
+  duration_ms: 664.958
+  type: 'test'
+  ...
+# Subtest: session resumption replaces old connection without duplicate humans
+ok 53 - session resumption replaces old connection without duplicate humans
+  ---
+  duration_ms: 85.7281
+  type: 'test'
+  ...
+# Subtest: mode/room validation, human team balance, eight-human room capacity
+ok 54 - mode/room validation, human team balance, eight-human room capacity
+  ---
+  duration_ms: 84.4747
+  type: 'test'
+  ...
+# Subtest: 40- and 100-combatant bot-filled rooms run with real client snapshots
+ok 55 - 40- and 100-combatant bot-filled rooms run with real client snapshots
+  ---
+  duration_ms: 514.8653
+  type: 'test'
+  ...
+# Subtest: message rate and oversized payload enforcement close real connections
+ok 56 - message rate and oversized payload enforcement close real connections
+  ---
+  duration_ms: 7.5892
+  type: 'test'
+  ...
+# Subtest: 100 real local sockets fill 50v50, reject overflow, and refill disconnected slots
+ok 57 - 100 real local sockets fill 50v50, reject overflow, and refill disconnected slots
+  ---
+  duration_ms: 248.5015
+  type: 'test'
+  ...
+# Subtest: browser origin policy and connection ceiling reject upgrade
+ok 58 - browser origin policy and connection ceiling reject upgrade
+  ---
+  duration_ms: 4.6045
+  type: 'test'
+  ...
+# Subtest: desktop custom origin is accepted exactly and explicit origin lists still override defaults
+ok 59 - desktop custom origin is accepted exactly and explicit origin lists still override defaults
+  ---
+  duration_ms: 5.9893
+  type: 'test'
+  ...
+# Subtest: negotiated deltas preserve two visor choices, detect gaps and resync over real sockets
+ok 60 - negotiated deltas preserve two visor choices, detect gaps and resync over real sockets
+  ---
+  duration_ms: 297.1166
+  type: 'test'
+  ...
+# Subtest: room bot difficulty is fixed at creation and cannot be changed by a joining client
+ok 61 - room bot difficulty is fixed at creation and cannot be changed by a joining client
+  ---
+  duration_ms: 3.7581
+  type: 'test'
+  ...
+# Subtest: empty rooms expire, and bot matches do not earn ladder wins or score
+ok 62 - empty rooms expire, and bot matches do not earn ladder wins or score
+  ---
+  duration_ms: 400.1515
+  type: 'test'
+  ...
+# Subtest: wire deltas reconstruct exact core snapshots across all modes, roles and periodic baselines
+ok 63 - wire deltas reconstruct exact core snapshots across all modes, roles and periodic baselines
+  ---
+  duration_ms: 786.6349
+  type: 'test'
+  ...
+# Subtest: new joins/reconnects use canonical full baseline then ordered roster deltas
+ok 64 - new joins/reconnects use canonical full baseline then ordered roster deltas
+  ---
+  duration_ms: 1.0959
+  type: 'test'
+  ...
+# Subtest: missing, duplicate and malformed deltas preserve baseline until explicit full recovery
+ok 65 - missing, duplicate and malformed deltas preserve baseline until explicit full recovery
+  ---
+  duration_ms: 0.6929
+  type: 'test'
+  ...
+# Subtest: unsupported/full malformed state fails closed, legacy full snapshots remain readable
+ok 66 - unsupported/full malformed state fails closed, legacy full snapshots remain readable
+  ---
+  duration_ms: 0.2516
+  type: 'test'
+  ...
+# Subtest: decoder copies every mutable snapshot branch and isolates caller and packet changes
+ok 67 - decoder copies every mutable snapshot branch and isolates caller and packet changes
+  ---
+  duration_ms: 0.5589
+  type: 'test'
+  ...
+# Subtest: decoder retains JSON optional-field and signed-zero compatibility
+ok 68 - decoder retains JSON optional-field and signed-zero compatibility
+  ---
+  duration_ms: 0.2609
+  type: 'test'
+  ...
+# Subtest: invalid final patch fields cannot mutate an earlier valid baseline branch
+ok 69 - invalid final patch fields cannot mutate an earlier valid baseline branch
+  ---
+  duration_ms: 0.3979
+  type: 'test'
+  ...
+# Subtest: tests\\mass-battle.test.cjs
+not ok 7 - tests\\mass-battle.test.cjs
+  ---
+  duration_ms: 1119.3181
+  type: 'test'
+  location: 'C:\\Users\\Joshua\\Documents\\Codex\\2026-10-08\\rea\\work\\custard-knights\\tests\\mass-battle.test.cjs:1:1'
+  failureType: 'testCodeFailure'
+  exitCode: 3221225477
+  signal: ~
+  error: 'test failed'
+  code: 'ERR_TEST_FAILURE'
+  ...
+# Subtest: arena: paused controller can select Quit instead of always resuming
+ok 71 - arena: paused controller can select Quit instead of always resuming
+  ---
+  duration_ms: 1.1015
+  type: 'test'
+  ...
+# Subtest: story: paused controller can select Quit instead of always resuming
+ok 72 - story: paused controller can select Quit instead of always resuming
+  ---
+  duration_ms: 0.4255
+  type: 'test'
+  ...
+# Subtest: cup: paused controller can select Quit instead of always resuming
+ok 73 - cup: paused controller can select Quit instead of always resuming
+  ---
+  duration_ms: 0.9606
+  type: 'test'
+  ...
+# Subtest: paused A activates Resume; B and Menu resume without activating Quit
+ok 74 - paused A activates Resume; B and Menu resume without activating Quit
+  ---
+  duration_ms: 1.0775
+  type: 'test'
+  ...
+# Subtest: all pause navigation directions reach menus and paused shouts stay suppressed
+ok 75 - all pause navigation directions reach menus and paused shouts stay suppressed
+  ---
+  duration_ms: 0.8751
+  type: 'test'
+  ...
+# Subtest: active match retains assigned-seat shouts and does not treat attack/movement as menu actions
+ok 76 - active match retains assigned-seat shouts and does not treat attack/movement as menu actions
+  ---
+  duration_ms: 0.4486
+  type: 'test'
+  ...
+# Subtest: main menu and couch party routing remain available
+ok 77 - main menu and couch party routing remain available
+  ---
+  duration_ms: 0.4958
+  type: 'test'
+  ...
+# Subtest: old bot settings migrate without losing mode or seats and all four new levels persist
+ok 78 - old bot settings migrate without losing mode or seats and all four new levels persist
+  ---
+  duration_ms: 0.5443
+  type: 'test'
+  ...
+# Subtest: damaged settings cannot pass invalid volume values into browser audio
+ok 79 - damaged settings cannot pass invalid volume values into browser audio
+  ---
+  duration_ms: 0.4871
+  type: 'test'
+  ...
+# Subtest: unknown saved mode/arena and invalid seat counts recover to playable defaults
+ok 80 - unknown saved mode/arena and invalid seat counts recover to playable defaults
+  ---
+  duration_ms: 0.096
+  type: 'test'
+  ...
+# Subtest: migrates a valid legacy save without removing earned rewards
+ok 81 - migrates a valid legacy save without removing earned rewards
+  ---
+  duration_ms: 0.8548
+  type: 'test'
+  ...
+# Subtest: malformed saves normalize safely
+ok 82 - malformed saves normalize safely
+  ---
+  duration_ms: 0.172
+  type: 'test'
+  ...
+# Subtest: same round cannot grant coins or challenges twice after save reload
+ok 83 - same round cannot grant coins or challenges twice after save reload
+  ---
+  duration_ms: 0.2866
+  type: 'test'
+  ...
+# Subtest: guest result grants the combat feats only recorded by host
+ok 84 - guest result grants the combat feats only recorded by host
+  ---
+  duration_ms: 0.5418
+  type: 'test'
+  ...
+# Subtest: shared couch save grants one completion and best coins with each seat contributing
+ok 85 - shared couch save grants one completion and best coins with each seat contributing
+  ---
+  duration_ms: 0.1291
+  type: 'test'
+  ...
+# Subtest: mode wins unlock the matching challenge only
+ok 86 - mode wins unlock the matching challenge only
+  ---
+  duration_ms: 0.0942
+  type: 'test'
+  ...
+# Subtest: empty and malformed results cannot count as matches
+ok 87 - empty and malformed results cannot count as matches
+  ---
+  duration_ms: 0.1009
+  type: 'test'
+  ...
+# Subtest: duplicate knight results cannot multiply challenges
+ok 88 - duplicate knight results cannot multiply challenges
+  ---
+  duration_ms: 0.0574
+  type: 'test'
+  ...
+# Subtest: invalid knight identities and combat counters reject the whole award
+ok 89 - invalid knight identities and combat counters reject the whole award
+  ---
+  duration_ms: 0.1237
+  type: 'test'
+  ...
+1..89
+# tests 89
+# suites 0
+# pass 88
+# fail 1
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 2424.8221

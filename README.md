@@ -1,5 +1,7 @@
 # Custard Knights
 
+**Current development preview: 0.3.0-alpha.1.** Faction battles and four difficulty levels are in progress. Read [the cross-machine checkpoint](release/RESUME-CHECKPOINT.md) for setup, evidence and known test failures before continuing work or making release claims.
+
 **Development plan:** [Master build plan](BUILD-PLAN.md), covering gameplay feel, graphics and animation, the solo campaign, party Cups, earned cosmetics and validation. The [launch status](release/LAUNCH-STATUS.md) records what is implemented and tested; the plan also contains future work.
 
 A cartoon top-down arena brawler for 8 knights. You fight bots, a friend on the same keyboard, friends online, or all of them at once. The power-ups start sensible and get sillier as the match goes on.

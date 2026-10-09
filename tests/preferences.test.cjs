@@ -1,4 +1,11 @@
 const {test}=require('node:test'),a=require('node:assert/strict'),P=require('../game/preferences.js');
+test('old bot settings migrate without losing mode or seats and all four new levels persist',()=>{
+ for(const [old,current] of [['chill','easy'],['spicy','medium'],['brutal','hard'],['steve','steve']]){
+  const c=P.config({mode:'ffa',players:4,diff:old},['ffa'],[]);a.equal(c.diff,current);a.equal(c.players,4);
+ }
+ for(const diff of ['easy','medium','hard','steve'])a.equal(P.config({diff},[],[]).diff,diff);
+ a.equal(P.difficulty('__proto__'),'medium');
+});
 test('damaged settings cannot pass invalid volume values into browser audio',()=>{
  const s=P.settings({music:99,sfx:-10,shake:'loud',flash:'false',whole:1,names:'other'});a.deepEqual(s,{music:1,sfx:0,shake:1,flash:true,names:'near',classic:false,whole:false});
  for(const raw of [null,[],4,'bad',{music:NaN,sfx:Infinity}])a.equal(P.settings(raw).music,.55);

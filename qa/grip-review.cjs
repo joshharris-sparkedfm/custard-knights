@@ -3,7 +3,7 @@
 const fs=require('fs'),path=require('path'),os=require('os'),{spawn}=require('child_process');
 const ROOT=path.resolve(process.argv[2]||path.join(__dirname,'..')),CHROME=process.env.CHROME||'C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe';
 const sleep=ms=>new Promise(r=>setTimeout(r,ms)),browsers=[],passed=[];
-const OUT=path.join(__dirname,'results',new Date().toISOString().replace(/[:.]/g,'-').slice(0,19)+'-grip-review');fs.mkdirSync(OUT,{recursive:true});
+const OUT=path.join(__dirname,'results',new Date().toISOString().replace(/[:.]/g,'-').slice(0,19)+'-grip-review-'+(process.argv.includes('--open')?'open':'closed'));fs.mkdirSync(OUT,{recursive:true});
 const check=(ok,label)=>{if(!ok)throw Error(label);passed.push(label);console.log('PASS: '+label);};
 async function browser(name){
  const profile=fs.mkdtempSync(path.join(os.tmpdir(),'ck-network-'));

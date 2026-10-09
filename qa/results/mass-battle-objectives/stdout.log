@@ -1,0 +1,20 @@
+{"started":{"node":"v24.19.0","executable":"C:\\Users\\Joshua\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\node\\bin\\node.exe","pid":16964,"sourceSHA256":"796475c3d6c29406f96e8b1e103465b95621bf96e788843c4f0371e3038f6d3a","startedAt":"2026-10-09T04:58:44.515Z","samples":[],"note":"Accelerated deterministic simulation only; no rendering, network, human play, or minimum-hardware claim."}}
+{"startingSample":{"mode":"brawl","seed":123}}
+{"mode":"brawl","seed":123,"participants":100,"steps":7735,"wallMs":234.665,"meanStepMs":0.03034,"elapsed":128.917,"status":"finished","winner":"rice","finishReason":"score","scores":{"custardia":379,"rice":401},"castles":[{"team":"custardia","hp":2400},{"team":"rice","hp":2400}],"snapshotBytes":54703}
+{"startingSample":{"mode":"brawl","seed":987}}
+{"mode":"brawl","seed":987,"participants":100,"steps":7444,"wallMs":186.249,"meanStepMs":0.02502,"elapsed":124.067,"status":"finished","winner":"rice","finishReason":"score","scores":{"custardia":356,"rice":400},"castles":[{"team":"custardia","hp":2400},{"team":"rice","hp":2400}],"snapshotBytes":51067}
+{"startingSample":{"mode":"brawl","seed":456}}
+{"mode":"brawl","seed":456,"participants":100,"steps":7890,"wallMs":178.668,"meanStepMs":0.02264,"elapsed":131.5,"status":"finished","winner":"rice","finishReason":"score","scores":{"custardia":378,"rice":400},"castles":[{"team":"custardia","hp":2400},{"team":"rice","hp":2400}],"snapshotBytes":50605}
+{"startingSample":{"mode":"ctf","seed":123}}
+{"mode":"ctf","seed":123,"participants":100,"steps":7574,"wallMs":207.855,"meanStepMs":0.02744,"elapsed":126.233,"status":"finished","winner":"rice","finishReason":"flags","scores":{"custardia":2,"rice":3},"castles":[{"team":"custardia","hp":2400},{"team":"rice","hp":2400}],"snapshotBytes":48308}
+{"startingSample":{"mode":"ctf","seed":987}}
+{"mode":"ctf","seed":987,"participants":100,"steps":10290,"wallMs":262.075,"meanStepMs":0.02547,"elapsed":171.5,"status":"finished","winner":"rice","finishReason":"flags","scores":{"custardia":2,"rice":3},"castles":[{"team":"custardia","hp":2400},{"team":"rice","hp":2400}],"snapshotBytes":42904}
+{"startingSample":{"mode":"ctf","seed":456}}
+{"mode":"ctf","seed":456,"participants":100,"steps":17023,"wallMs":418.117,"meanStepMs":0.02456,"elapsed":283.717,"status":"finished","winner":"custardia","finishReason":"flags","scores":{"custardia":3,"rice":2},"castles":[{"team":"custardia","hp":2400},{"team":"rice","hp":2400}],"snapshotBytes":52449}
+{"startingSample":{"mode":"siege","seed":123}}
+{"mode":"siege","seed":123,"participants":100,"steps":10858,"wallMs":270.468,"meanStepMs":0.02491,"elapsed":180.967,"status":"finished","winner":"custardia","finishReason":"castle","scores":{"custardia":462,"rice":447},"castles":[{"team":"custardia","hp":1357.6},{"team":"rice","hp":0}],"snapshotBytes":51074}
+{"startingSample":{"mode":"siege","seed":987}}
+{"mode":"siege","seed":987,"participants":100,"steps":36001,"wallMs":775.474,"meanStepMs":0.02154,"elapsed":600,"status":"finished","winner":"rice","finishReason":"time","scores":{"custardia":1518,"rice":1561},"castles":[{"team":"custardia","hp":1599.6},{"team":"rice","hp":1974.1}],"snapshotBytes":48522}
+{"startingSample":{"mode":"siege","seed":456}}
+{"mode":"siege","seed":456,"participants":100,"steps":5643,"wallMs":123.37,"meanStepMs":0.02186,"elapsed":94.05,"status":"finished","winner":"custardia","finishReason":"castle","scores":{"custardia":247,"rice":210},"castles":[{"team":"custardia","hp":1606},{"team":"rice","hp":0}],"snapshotBytes":51014}
+{"complete":true,"samples":9}

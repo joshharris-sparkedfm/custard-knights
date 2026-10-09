@@ -1,4 +1,22 @@
 const test=require('node:test'),assert=require('node:assert/strict'),C=require('../game/campaign.js');
+test('all story difficulties preserve health, objectives, checkpoints and legacy spoons',()=>{
+ for(const difficulty of Object.keys(C.difficulties))for(const node of C.nodes){
+  const h=harness(node.id),before=h.c.save.results;h.c.difficulty(difficulty);
+  const g={roundId:'difficulty',ents:[h.api.makeKnight({id:0,human:1})],flows:new Map()};h.c.begin(node.id,g,h.api);
+  assert.equal(h.c.run.difficulty,difficulty);assert.equal(g.ents[0].hp,3);assert.deepEqual(h.c.save.results,before);
+  for(let k=0;k<180;k++){h.c.tick(1/60);for(const e of g.ents.slice(1)){const i=h.c.input(e,1/60);assert.ok(Number.isFinite(i.mx)&&Number.isFinite(i.my));}}
+  assert.ok(h.c.objective().length>0);const restored=C.normalize(JSON.parse(h.storage.data));assert.equal(restored.difficulty,difficulty);
+ }
+ assert.equal(C.normalize({difficulty:'__proto__'}).difficulty,'medium');
+});
+test('story STEVE keeps readable fixed boss tells and punish windows; Easy gives longer windows',()=>{
+ const windows=[];
+ for(const difficulty of ['easy','medium','hard','steve']){
+  const h=harness('rind');h.c.difficulty(difficulty);h.c.begin('rind',h.g,h.api);h.c.tick(2.5);const b=h.c.run.boss,target={...b.target};
+  windows.push(b.timer);assert.ok(b.timer>=.8);h.p.x=100;h.p.y=100;h.c.tick(b.timer+.01);assert.deepEqual(b.target,target);assert.equal(b.step,'exhausted');assert.ok(b.timer>=2);assert.equal(b.hp,8);
+ }
+ assert.ok(windows.every((v,i)=>i===0||v<windows[i-1]));
+});
 function unlockedSave(){const s=C.normalize({});for(const n of C.nodes)s.results[n.id]={spoons:[true,false,false],attempts:1,best:100,assisted:false};return s;}
 function harness(id='banquet',options={}){
  const storage={data:null,getItem(){return this.data;},setItem(k,v){this.data=v;}};let finished=[];const c=C.create({storage,onFinish:r=>finished.push(r)});c.restore(unlockedSave());

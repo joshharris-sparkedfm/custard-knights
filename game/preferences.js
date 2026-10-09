@@ -6,11 +6,13 @@
   for(const k of ['flash','classic','whole'])if(typeof v[k]==='boolean')r[k]=v[k];
   if(['near','all'].includes(v.names))r.names=v.names;return r;
  }
- function config(raw,modes,maps){const v=record(raw),r={mode:'ffa',players:1,diff:'spicy',map:'random',chaosPlus:false,chaosSpeed:'normal',length:180,teamSplit:false};
+ const legacyDifficulty={chill:'easy',spicy:'medium',brutal:'hard'};
+ const difficulty=v=>(Object.hasOwn(legacyDifficulty,v)?legacyDifficulty[v]:['easy','medium','hard','steve'].includes(v)?v:'medium');
+ function config(raw,modes,maps){const v=record(raw),r={mode:'ffa',players:1,diff:difficulty(v.diff),map:'random',chaosPlus:false,chaosSpeed:'normal',length:180,teamSplit:false};
   if(modes.includes(v.mode))r.mode=v.mode;if(maps.includes(v.map)||v.map==='random')r.map=v.map;
   if(Number.isInteger(v.players)&&v.players>=1&&v.players<=4)r.players=v.players;
-  if(['chill','spicy','brutal'].includes(v.diff))r.diff=v.diff;if(['normal','fast','unhinged'].includes(v.chaosSpeed))r.chaosSpeed=v.chaosSpeed;
+  if(['normal','fast','unhinged'].includes(v.chaosSpeed))r.chaosSpeed=v.chaosSpeed;
   if([90,180,300].includes(v.length))r.length=v.length;for(const k of ['chaosPlus','teamSplit'])if(typeof v[k]==='boolean')r[k]=v[k];return r;
  }
- return {settings,config};
+ return {settings,config,difficulty};
 });

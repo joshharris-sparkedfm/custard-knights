@@ -1,0 +1,33 @@
+{
+  "checks": [
+    {
+      "name": "Private ladder enabled in non-root container",
+      "pass": true
+    },
+    {
+      "name": "Container launches eight distinct authenticated humans",
+      "pass": true
+    },
+    {
+      "name": "Full snapshot has zero bots",
+      "pass": true
+    },
+    {
+      "name": "Service returns after restart",
+      "pass": true
+    },
+    {
+      "name": "Host-issued identity survives container restart",
+      "pass": true
+    },
+    {
+      "name": "Aborted match does not award rating",
+      "pass": true
+    },
+    {
+      "name": "Revoked key rejected after restart",
+      "pass": true
+    }
+  ],
+  "limitations": "Private CI container, loopback scripted clients, no TLS/WAN/human or Steam acceptance. Keys stay in process memory and are never printed."
+}

@@ -31,7 +31,9 @@ Queues are independent for each mode and army size. Players initially search wit
 
 Each queue starts an account at 1000. Team expected outcome uses average team ratings; completed eligible matches apply a fixed K=32 update, with ratings bounded between 500 and 2500. A profile is marked provisional for its first ten rated matches. Provisional is an explicit match-count label, not a calibrated statistical confidence estimate. Ratings are separate across mode and army size.
 
-Only the server records a result. Client-supplied ratings, winners and scores cannot award ladder changes. Result IDs are unique and transactional; an identical retry does not pay twice, and conflicting reuse is rejected. The database retains result and participant history. A disconnect makes that match ineligible: bot-assisted continuation never awards ratings. This deliberately conservative test rule can be exploited to avoid a loss; reconnect grace, leaver penalties, sanctions and anti-collusion work remain requirements for a public competitive season. Never advertise this private ladder as cheat-proof or a finished Steam ranked service.
+Only the server records a result. Client-supplied ratings, winners and scores cannot award ladder changes. Result IDs are unique and transactional; an identical retry does not pay twice, and conflicting reuse is rejected. The database retains result and participant history.
+
+A ranked disconnect pauses the authoritative battle and reserves the original human slot, health, position and team. No bot takes over. The player can choose **Reconnect to battle** using the key already held in memory. Each account has a total 20-second absence budget per match; reconnecting does not replenish it. If a budget expires, that player's faction forfeits and the full original roster receives the result. The earliest expiry decides if opposing players disappear. Deliberately leaving follows the same policy, so leaving cannot cancel an ordinary losing result. Administrative server shutdown remains an unrated abort; no live battle survives a server restart. Sanctions, party support, anti-collusion and human calibration still require further work before a public competitive season.
 
 ## Keys, storage and recovery
 
@@ -45,7 +47,16 @@ node scripts/player-admin.cjs --db data/players.sqlite leaderboard brawl-4
 
 For a backup, stop the server cleanly and close every administration process, then copy the entire database directory, including any WAL/SHM companions. Keep it private and outside the live directory. Restore only while all database users are stopped, keep the previous directory as a rollback copy, then start the server and verify known profiles. Do not copy only a live SQLite main file, and do not use Compose `down -v` for ordinary maintenance. The named volume preserves results across container replacement; losing that volume loses identities and the ladder. Match simulations and queues remain in memory; a server crash/restart does not resume a live battle.
 
-Store errors do not produce a success message or award speculative ratings. Writes retry three times with the same immutable result. Exhausted results remain in memory and are counted by health pendingRankedResults; an embedded host can call app.retryRankedResults(), and clean shutdown retries once more. They are not a crash-recovery journal, so a subsequent process crash can lose an uncommitted result. Investigate the health state, preserve the database and record the affected match before restarting. A successful commit followed by a profile-read failure is reported as saved with the profile temporarily unavailable. Local native-runtime failures documented in the release checkpoint remain unresolved; this feature does not establish their cause or repair them.
+Completed results are first staged to a durable pending journal. Ratings, history and removal of the pending record then commit together. On startup, the server replays pending results before accepting ranked games; identical replays cannot award twice. Recovery failures disable ranked admission and appear in health instead of reporting success. Writes retry three times with the same immutable result. An embedded host can also call `app.retryRankedResults()` after restoring storage access.
+
+For stopped-server maintenance, back up the complete database directory first, then inspect or retry the journal:
+
+```powershell
+node scripts/player-admin.cjs --db data/players.sqlite pending
+node scripts/player-admin.cjs --db data/players.sqlite retry-pending
+```
+
+`pending` lists a count and match IDs, without keys. Recovery only covers terminal results that reached the journal: a disk failure before staging or a crash before the match ends cannot be recovered. A successful commit followed by a profile-read failure is reported as saved with the profile temporarily unavailable. Local native-runtime failures documented in the release checkpoint remain unresolved; this feature does not establish their cause or repair them.
 
 ## Steam integration boundary
 

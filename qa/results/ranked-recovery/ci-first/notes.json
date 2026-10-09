@@ -1,0 +1,35 @@
+{
+  "failedRun": 37925028651,
+  "job": 113801792101,
+  "artifact": 11613561895,
+  "sourceCommit": "06e6c596c08e470202b75950231fc8b6ca24d75e",
+  "originalResult": {
+    "failed": 1,
+    "tests": 176,
+    "passed": 175
+  },
+  "failure": "The legacy 100-socket test assumed the close handshake completed within 150 ms; expected 90 humans, actual 100. Replaced that delay with a bounded authoritative 90-human/10-bot snapshot wait. No runtime change.",
+  "localAfterFix": {
+    "failed": 0,
+    "tests": 179,
+    "scope": "An unplanned full local run, including three new music-catalog tests. This single native pass does not establish that prior native crashes are fixed.",
+    "passed": 179
+  },
+  "independentRecheck": {
+    "sourceCommit": "f776baf63f33e374f930bbb46e2ea9c3cac4bae8",
+    "run": 37925748486,
+    "outcome": "All six jobs passed; Windows and Linux each passed 176/176. See ../ci-final/."
+  },
+  "files": [
+    {
+      "name": "windows-full-tests.tap",
+      "sha256": "2cdb2160c16a0d2f9928f5025029cde68dcdaae22101dff777a0c8eb77f8d8fc",
+      "provenance": "Exact original full-tests.tap ZIP entry."
+    },
+    {
+      "name": "local-full-after-test-fix.tap",
+      "sha256": "6074ef41456e670e1da4eac615b8d4d172c9becb9df4305a1ccc4c754829ef71",
+      "provenance": "Exact preserved temporary TAP from the previously completed local run; no new test run."
+    }
+  ]
+}

@@ -1,0 +1,340 @@
+TAP version 13
+# Subtest: private key is masked, required for ladder, sent only over secure remote transport and never in URLs
+ok 1 - private key is masked, required for ladder, sent only over secure remote transport and never in URLs
+  ---
+  duration_ms: 2.7102
+  type: 'test'
+  ...
+# Subtest: accepted queue clears join timeout, pings while waiting, and cancellation rejects late messages
+ok 2 - accepted queue clears join timeout, pings while waiting, and cancellation rejects late messages
+  ---
+  duration_ms: 2.0318
+  type: 'test'
+  ...
+# Subtest: queue liveness failure and changing playlist both release the connection
+ok 3 - queue liveness failure and changing playlist both release the connection
+  ---
+  duration_ms: 0.68
+  type: 'test'
+  ...
+# Subtest: ranked welcome gates snapshots and displays scoped profile, rating confirmation and leaderboard
+ok 4 - ranked welcome gates snapshots and displays scoped profile, rating confirmation and leaderboard
+  ---
+  duration_ms: 2.7048
+  type: 'test'
+  ...
+# Subtest: blocked authentication and an unranked server response cannot silently enter a ladder game
+ok 5 - blocked authentication and an unranked server response cannot silently enter a ladder game
+  ---
+  duration_ms: 0.7316
+  type: 'test'
+  ...
+# Subtest: late rating and save-error messages from another room cannot overwrite the current match
+ok 6 - late rating and save-error messages from another room cannot overwrite the current match
+  ---
+  duration_ms: 1.469
+  type: 'test'
+  ...
+# Subtest: a saved result with unavailable profile keeps its confirmed change and clears stale profile details
+ok 7 - a saved result with unavailable profile keeps its confirmed change and clears stale profile details
+  ---
+  duration_ms: 1.4526
+  type: 'test'
+  ...
+# Subtest: ranked pause and resume notices are scoped to the active room and reset after leaving
+ok 8 - ranked pause and resume notices are scoped to the active room and reset after leaving
+  ---
+  duration_ms: 1.058
+  type: 'test'
+  ...
+# Subtest: manual reconnect uses the original private account and match settings without sending a deliberate leave
+ok 9 - manual reconnect uses the original private account and match settings without sending a deliberate leave
+  ---
+  duration_ms: 1.2859
+  type: 'test'
+  ...
+# Subtest: expired recovery never enters a new queue or silently joins a different match
+ok 10 - expired recovery never enters a new queue or silently joins a different match
+  ---
+  duration_ms: 2.9672
+  type: 'test'
+  ...
+# Subtest: deliberate exit clears recovery and ignores the old socket close callback
+ok 11 - deliberate exit clears recovery and ignores the old socket close callback
+  ---
+  duration_ms: 1.704
+  type: 'test'
+  ...
+# Subtest: finished results explain reconnect forfeits and retain ordinary completion copy
+ok 12 - finished results explain reconnect forfeits and retain ordinary completion copy
+  ---
+  duration_ms: 2.0989
+  type: 'test'
+  ...
+# Subtest: host-issued credentials persist, contain 256 bits, are hashed and can be revoked
+ok 13 - host-issued credentials persist, contain 256 bits, are hashed and can be revoked
+  ---
+  duration_ms: 41.8581
+  type: 'test'
+  ...
+# Subtest: equal teams receive symmetric Elo updates and queue-specific durable statistics
+ok 14 - equal teams receive symmetric Elo updates and queue-specific durable statistics
+  ---
+  duration_ms: 20.2748
+  type: 'test'
+  ...
+# Subtest: draws count, equal draws do not change ratings, provisional ends after ten
+ok 15 - draws count, equal draws do not change ratings, provisional ends after ten
+  ---
+  duration_ms: 22.3383
+  type: 'test'
+  ...
+# Subtest: identical retries are idempotent across reopen and conflicting results fail
+ok 16 - identical retries are idempotent across reopen and conflicting results fail
+  ---
+  duration_ms: 17.8405
+  type: 'test'
+  ...
+# Subtest: bot and abandoned results persist without ladder awards
+ok 17 - bot and abandoned results persist without ladder awards
+  ---
+  duration_ms: 28.1996
+  type: 'test'
+  ...
+# Subtest: malformed or forged identities, settings and rosters fail before changing ratings
+ok 18 - malformed or forged identities, settings and rosters fail before changing ratings
+  ---
+  duration_ms: 16.1661
+  type: 'test'
+  ...
+# Subtest: a mid-write SQLite failure rolls back both history and every rating
+ok 19 - a mid-write SQLite failure rolls back both history and every rating
+  ---
+  duration_ms: 32.7803
+  type: 'test'
+  ...
+# Subtest: terminal journal survives reopening without awards, strips extras and returns immutable canonical inputs
+ok 20 - terminal journal survives reopening without awards, strips extras and returns immutable canonical inputs
+  ---
+  duration_ms: 24.9609
+  type: 'test'
+  ...
+# Subtest: staged and committed payload conflicts reject without replacing terminal outcomes
+ok 21 - staged and committed payload conflicts reject without replacing terminal outcomes
+  ---
+  duration_ms: 17.6227
+  type: 'test'
+  ...
+# Subtest: failure deleting pending result rolls back all awards; completed replay cleans matching leftover journal
+ok 22 - failure deleting pending result rolls back all awards; completed replay cleans matching leftover journal
+  ---
+  duration_ms: 34.6932
+  type: 'test'
+  ...
+# Subtest: eligibility is frozen at staging, while revoked new results still fail validation
+ok 23 - eligibility is frozen at staging, while revoked new results still fail validation
+  ---
+  duration_ms: 30.0625
+  type: 'test'
+  ...
+# Subtest: pending journal rejects malformed persisted payloads instead of recovering forged data
+ok 24 - pending journal rejects malformed persisted payloads instead of recovering forged data
+  ---
+  duration_ms: 25.8717
+  type: 'test'
+  ...
+# Subtest: larger complete teams are supported and repeated wins remain bounded
+ok 25 - larger complete teams are supported and repeated wins remain bounded
+  ---
+  duration_ms: 274.7164
+  type: 'test'
+  ...
+# Subtest: operator CLI requires explicit database, issues once, profiles and revokes
+ok 26 - operator CLI requires explicit database, issues once, profiles and revokes
+  ---
+  duration_ms: 190.2619
+  type: 'test'
+  ...
+# Subtest: operator pending commands list IDs only and retry durable terminal records exactly once
+ok 27 - operator pending commands list IDs only and retry durable terminal records exactly once
+  ---
+  duration_ms: 222.7191
+  type: 'test'
+  ...
+# Subtest: private queue requires credentials, strips claimed rank, accepts no inputs or bots, and cancels
+ok 28 - private queue requires credentials, strips claimed rank, accepts no inputs or bots, and cancels
+  ---
+  duration_ms: 172.0816
+  type: 'test'
+  ...
+# Subtest: one connection per account includes authenticated casual play and never steals a session
+ok 29 - one connection per account includes authenticated casual play and never steals a session
+  ---
+  duration_ms: 69.619
+  type: 'test'
+  ...
+# Subtest: queues partition by mode and capacity; revoked queued accounts cannot launch
+ok 30 - queues partition by mode and capacity; revoked queued accounts cannot launch
+  ---
+  duration_ms: 299.0723
+  type: 'test'
+  ...
+# Subtest: eight authenticated humans launch balanced using stored ratings; finished host fixture persists roster once
+ok 31 - eight authenticated humans launch balanced using stored ratings; finished host fixture persists roster once
+  ---
+  duration_ms: 250.1692
+  type: 'test'
+  ...
+# Subtest: disconnect freezes human slots then records one eligible forfeit for the original roster
+ok 32 - disconnect freezes human slots then records one eligible forfeit for the original roster
+  ---
+  duration_ms: 270.0282
+  type: 'test'
+  ...
+# Subtest: storage failure never reports rating success and does not stop simulation
+ok 33 - storage failure never reports rating success and does not stop simulation
+  ---
+  duration_ms: 797.2105
+  type: 'test'
+  ...
+# Subtest: casual blank rooms automatically route around full and finished rooms while explicit codes stay strict
+ok 34 - casual blank rooms automatically route around full and finished rooms while explicit codes stay strict
+  ---
+  duration_ms: 189.9071
+  type: 'test'
+  ...
+# Subtest: matchmaking expands rating gaps by wait with a hard bound
+ok 35 - matchmaking expands rating gaps by wait with a hard bound
+  ---
+  duration_ms: 0.2373
+  type: 'test'
+  ...
+# Subtest: simultaneous authenticated casual joins reserve only one connection
+ok 36 - simultaneous authenticated casual joins reserve only one connection
+  ---
+  duration_ms: 129.2589
+  type: 'test'
+  ...
+# Subtest: revocation after launch remains ineligible; whole-roster abandonment records a forfeit
+ok 37 - revocation after launch remains ineligible; whole-roster abandonment records a forfeit
+  ---
+  duration_ms: 313.8115
+  type: 'test'
+  ...
+# Subtest: SQLite-backed terminal fixture persists ratings across store restart and scoped leaderboard
+ok 38 - SQLite-backed terminal fixture persists ratings across store restart and scoped leaderboard
+  ---
+  duration_ms: 89.1848
+  type: 'test'
+  ...
+# Subtest: ranked 20v20 waits for every human slot before launch
+ok 39 - ranked 20v20 waits for every human slot before launch
+  ---
+  duration_ms: 660.2684
+  type: 'test'
+  ...
+# Subtest: ranked 50v50 waits for every human slot before launch
+ok 40 - ranked 50v50 waits for every human slot before launch
+  ---
+  duration_ms: 1718.3257
+  type: 'test'
+  ...
+# Subtest: rating publication waits for durable recordMatch completion
+ok 41 - rating publication waits for durable recordMatch completion
+  ---
+  duration_ms: 118.3911
+  type: 'test'
+  ...
+# Subtest: a fresh middle-rated entrant does not block an eligible older roster
+ok 42 - a fresh middle-rated entrant does not block an eligible older roster
+  ---
+  duration_ms: 0.2238
+  type: 'test'
+  ...
+# Subtest: transient write failures retry immutable payload and preserve ambiguous committed outcomes idempotently
+ok 43 - transient write failures retry immutable payload and preserve ambiguous committed outcomes idempotently
+  ---
+  duration_ms: 366.7978
+  type: 'test'
+  ...
+# Subtest: exhausted writes retain the failed room after disconnect and host can retry it
+ok 44 - exhausted writes retain the failed room after disconnect and host can retry it
+  ---
+  duration_ms: 557.8164
+  type: 'test'
+  ...
+# Subtest: profile read failure after commit reports saved result with scoped profile error
+ok 45 - profile read failure after commit reports saved result with scoped profile error
+  ---
+  duration_ms: 62.9685
+  type: 'test'
+  ...
+# Subtest: authenticated casual rooms use stored skill for human and bot balance without awarding rank
+ok 46 - authenticated casual rooms use stored skill for human and bot balance without awarding rank
+  ---
+  duration_ms: 93.856
+  type: 'test'
+  ...
+# Subtest: ranked reconnect preserves slot, position, health and paused elapsed with a fresh wire baseline
+ok 47 - ranked reconnect preserves slot, position, health and paused elapsed with a fresh wire baseline
+  ---
+  duration_ms: 250.134
+  type: 'test'
+  ...
+# Subtest: explicit cancel reserves a ranked identity and repeated outages spend a finite grace budget
+ok 48 - explicit cancel reserves a ranked identity and repeated outages spend a finite grace budget
+  ---
+  duration_ms: 314.2254
+  type: 'test'
+  ...
+# Subtest: opposite-team departures forfeit the first exhausted grace; a returned player is no longer missing
+ok 49 - opposite-team departures forfeit the first exhausted grace; a returned player is no longer missing
+  ---
+  duration_ms: 354.0552
+  type: 'test'
+  ...
+# Subtest: both teams staying absent forfeit the initial departing faction once
+ok 50 - both teams staying absent forfeit the initial departing faction once
+  ---
+  duration_ms: 252.1886
+  type: 'test'
+  ...
+# Subtest: revoked credentials cannot restore a reserved slot or receive an eligible forfeit
+ok 51 - revoked credentials cannot restore a reserved slot or receive an eligible forfeit
+  ---
+  duration_ms: 248.6144
+  type: 'test'
+  ...
+# Subtest: stage failure cannot award ratings, and host retry stages before committing
+ok 52 - stage failure cannot award ratings, and host retry stages before committing
+  ---
+  duration_ms: 397.9693
+  type: 'test'
+  ...
+# Subtest: startup replays a durable SQLite terminal fixture once before accepting ranked joins
+ok 53 - startup replays a durable SQLite terminal fixture once before accepting ranked joins
+  ---
+  duration_ms: 1834.6587
+  type: 'test'
+  ...
+# Subtest: failed startup recovery degrades health and blocks rank admission until successful retry
+ok 54 - failed startup recovery degrades health and blocks rank admission until successful retry
+  ---
+  duration_ms: 348.488
+  type: 'test'
+  ...
+# Subtest: administrative shutdown remains ineligible instead of a disconnect forfeit
+ok 55 - administrative shutdown remains ineligible instead of a disconnect forfeit
+  ---
+  duration_ms: 33.5062
+  type: 'test'
+  ...
+1..55
+# tests 55
+# suites 0
+# pass 55
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 10266.1204

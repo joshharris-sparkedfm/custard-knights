@@ -1,0 +1,11 @@
+{
+  "stage": "friends bundle",
+  "executable": "C:\\Users\\Joshua\\AppData\\Local\\hermes\\hermes-agent\\venv\\Scripts\\python.exe",
+  "version": "Python 3.11.15",
+  "exitCode": -1073741819,
+  "hexExit": "0xC0000005",
+  "partial": "C:\\Users\\Joshua\\Documents\\Codex\\2026-10-08\\rea\\outputs\\tmpiilnkay8.partial",
+  "partialBytes": 155481468,
+  "finishedZipCreated": false,
+  "diagnosis": "Unresolved native process failure; no successful-build claim for this attempt"
+}

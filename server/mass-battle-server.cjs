@@ -41,6 +41,8 @@ function createBattleServer(options = {}) {
   const maxConnections = clamp(Number(options.maxConnections) || 128, 1, 512);
   const idleMs = options.roomIdleMs ?? 60_000;
   const sessionTtlMs = options.sessionTtlMs ?? 60 * 60_000;
+  const rankedReconnectMs = options.rankedReconnectMs ?? 20_000;
+  if (!Number.isFinite(rankedReconnectMs) || rankedReconnectMs < 0) throw new Error('Invalid ranked reconnect grace');
   const allowedOrigins = options.allowedOrigins ?? (process.env.CK_BATTLE_ORIGINS || '').split(',').map(x => x.trim()).filter(Boolean);
   const rooms = new Map();
   const sessions = new Map();
@@ -48,6 +50,9 @@ function createBattleServer(options = {}) {
   const accounts = new Map();
   const queues = new Map();
   const pendingResults = new Set();
+  const recoveredResults = new Map();
+  const rankedReservations = new Map();
+  let recoveryFailure = false;
   let playerStore = options.playerStore || null;
   let ownsStore = false, storeFailure = false, matchmakingBusy = false;
   let lastMatchmakeAt = -Infinity;
@@ -84,7 +89,38 @@ function createBattleServer(options = {}) {
   function counts(room) {
     let humans = 0;
     for (const c of connections) if (c.room === room.id) humans++;
+    if (room.ranked) return { humans: room.roster.length, bots: 0, connected: humans, capacity: room.teamSize * 2 };
     return { humans, bots: room.teamSize * 2 - humans, capacity: room.teamSize * 2 };
+  }
+  function unresolvedResults() {
+    return [...rooms.values(), ...recoveredResults.values()].filter(r => r.ranked && r.terminal && !r.recorded);
+  }
+  function privateRankedAvailable() {
+    return !!(playerStore || databasePath) && !storeFailure && !recoveryFailure && !unresolvedResults().some(r => r.persistenceError);
+  }
+  function firstMissing(room) {
+    return [...room.missing.values()].sort((a, b) => a.expiresAt - b.expiresAt || a.departedAt - b.departedAt)[0];
+  }
+  function pauseStatus(room, force = false) {
+    if (!room.ranked) return;
+    const first = firstMissing(room), paused = !!first && room.state.status !== 'finished';
+    const remainingSeconds = paused ? Math.max(0, Math.ceil((first.expiresAt - performance.now()) / 1000)) : 0;
+    const status = { type: 'ranked_pause', room: room.id, paused, remainingSeconds, missingCount: paused ? room.missing.size : 0 };
+    const key = JSON.stringify(status);
+    if (!force && room.lastPauseStatus === key) return;
+    room.lastPauseStatus = key;
+    for (const c of connections) if (c.room === room.id) send(c.ws, status);
+  }
+  function expireGrace(room, now = performance.now()) {
+    const first = firstMissing(room);
+    if (!first || room.state.status === 'finished' || now < first.expiresAt) return false;
+    room.state.status = 'finished';
+    room.state.winner = first.team === 'custardia' ? 'rice' : 'custardia';
+    room.state.finishReason = 'forfeit';
+    room.finalSnapshot = Battle.snapshot(room.state);
+    pauseStatus(room, true);
+    recordRanked(room, 'forfeit');
+    return true;
   }
   function queueStatus(key) {
     const entries = queues.get(key) || [];
@@ -100,15 +136,27 @@ function createBattleServer(options = {}) {
     }
     const room = rooms.get(c.room);
     if (room && c.session) {
-      if (room.ranked && !room.terminal) { room.eligible = false; room.ineligibleReason ||= reason; }
-      Battle.leave(room.state, c.session.id);
-      room.inputs.delete(c.session.id);
+      if (room.ranked) {
+        const participant = room.roster.find(p => p.session.id === c.session.id);
+        if (participant && !room.terminal && room.state.status !== 'finished' && !room.missing.has(participant.accountId)) {
+          const departedAt = performance.now();
+          room.missing.set(participant.accountId, { accountId: participant.accountId, team: participant.team, departedAt, expiresAt: departedAt + participant.graceRemainingMs, reason });
+          for (const id of room.inputs.keys()) room.inputs.set(id, neutral());
+        }
+        // A ranked slot remains human-owned. Freeze the match during grace;
+        // never respawn or substitute a bot for a departed ranked participant.
+        room.inputs.set(c.session.id, neutral());
+      } else {
+        Battle.leave(room.state, c.session.id);
+        room.inputs.delete(c.session.id);
+      }
       room.lastActive = performance.now();
     }
     c.room = null;
     c.input = neutral();
     c.lastSeq = -1;
     if (c.session) { c.session.lastSeen = Date.now(); if (c.session.connection === c) c.session.connection = null; }
+    if (room?.ranked) pauseStatus(room, true);
     void matchmake();
   }
   async function authenticate(c, token) {
@@ -126,7 +174,7 @@ function createBattleServer(options = {}) {
     c.account = account; c.accessToken = token; accounts.set(account.id, c);
   }
   function welcome(c, room, result, profile) {
-    send(c.ws, { type: 'welcome', protocol: 1, wire: c.wire ? 1 : 0, snapshotHz, sessionId: c.session.id, resumeToken: c.session.token, room: room.id, playerId: result.id || c.session.id, slot: result.slot, team: result.team, ranked: !!room.ranked, rankingLabel: room.ranked ? 'Private test ladder' : 'Unranked — anonymous session', ...(profile ? { profile } : {}) });
+    send(c.ws, { type: 'welcome', protocol: 1, wire: c.wire ? 1 : 0, snapshotHz, sessionId: c.session.id, resumeToken: c.session.token, room: room.id, mode: room.mode, teamSize: room.teamSize, playerId: result.id || c.session.id, slot: result.slot, team: result.team, ranked: !!room.ranked, rankingLabel: room.ranked ? 'Private test ladder' : 'Unranked — anonymous session', ...(profile ? { profile } : {}) });
     if (c.wire) {
       const full = room.encoder.full() || room.encoder.encode(Battle.snapshot(room.state));
       send(c.ws, { ...full, room: room.id, ...counts(room) });
@@ -158,8 +206,14 @@ function createBattleServer(options = {}) {
             room.resultPayload = Object.freeze({ ...room.frozenResult, eligible, reason: resultReason });
           }
           // Every retry uses exactly the same match ID and immutable payload.
+          if (!room.resultStaged) {
+            await store().stageMatchResult(room.resultPayload);
+            room.resultStaged = true;
+          }
           result = await store().recordMatch(room.resultPayload);
           room.recorded = true; room.persistenceError = false;
+          for (const p of room.roster) if (rankedReservations.get(p.accountId)?.participant === p) rankedReservations.delete(p.accountId);
+          recoveredResults.delete(room.id);
           break;
         } catch {
           room.persistenceError = true;
@@ -185,8 +239,20 @@ function createBattleServer(options = {}) {
     pendingResults.add(task); task.finally(() => pendingResults.delete(task));
     return task;
   }
+  async function recoverRankedResults() {
+    if (!playerStore && !databasePath) return;
+    try {
+      const pending = await store().pendingResults();
+      for (const payload of pending) {
+        if (rooms.has(payload.id) || recoveredResults.has(payload.id)) continue;
+        recoveredResults.set(payload.id, { id: payload.id, ranked: true, terminal: true, recorded: false, resultStaged: true, resultPayload: payload, queueKey: payload.queueKey, roster: [] });
+      }
+      recoveryFailure = false;
+      await Promise.allSettled([...recoveredResults.values()].map(room => recordRanked(room, undefined, true)));
+    } catch { recoveryFailure = true; }
+  }
   async function matchmake() {
-    if (matchmakingBusy || stopped) return;
+    if (matchmakingBusy || stopped || !privateRankedAvailable()) return;
     matchmakingBusy = true;
     lastMatchmakeAt = performance.now();
     try {
@@ -208,7 +274,7 @@ function createBattleServer(options = {}) {
           }
           if (stopped || !valid || selected.some(e => e.c.queued !== e)) break;
           const { mode, teamSize } = selected[0];
-          const room = { id: `ranked-${crypto.randomUUID()}`, mode, teamSize, difficulty: 'medium', state: Battle.create({ mode, teamSize, difficulty: 'medium', seed: crypto.randomBytes(4).readUInt32LE(0) }), inputs: new Map(), lastActive: performance.now(), recorded: false, humanOnly: true, encoder: Wire.createEncoder(), ranked: true, eligible: true, queueKey: key, roster: [] };
+          const room = { id: `ranked-${crypto.randomUUID()}`, mode, teamSize, difficulty: 'medium', state: Battle.create({ mode, teamSize, difficulty: 'medium', seed: crypto.randomBytes(4).readUInt32LE(0) }), inputs: new Map(), lastActive: performance.now(), recorded: false, humanOnly: true, encoder: Wire.createEncoder(), ranked: true, eligible: true, queueKey: key, roster: [], missing: new Map() };
           const joined = [];
           // All slots become human synchronously before the room is visible to tick.
           for (const e of selected) {
@@ -217,7 +283,9 @@ function createBattleServer(options = {}) {
             if (!result.ok) throw new Error('Unable to fill ranked roster');
             c.queued = null; c.room = room.id; c.team = result.team; c.lastInputAt = performance.now();
             room.inputs.set(c.session.id, neutral());
-            room.roster.push({ accountId: c.account.id, team: result.team, c });
+            const participant = { accountId: c.account.id, team: result.team, slot: result.slot, session: c.session, graceRemainingMs: rankedReconnectMs, c };
+            room.roster.push(participant);
+            rankedReservations.set(participant.accountId, { room, participant });
             joined.push({ c, result, profile: e.profile });
           }
           const remaining = (queues.get(key) || []).filter(e => !selected.includes(e));
@@ -230,6 +298,36 @@ function createBattleServer(options = {}) {
     } catch { storeFailure = true; }
     finally { matchmakingBusy = false; }
   }
+  async function reconnectRanked(c, msg, account, reservation) {
+    const { room, participant } = reservation;
+    if (room.terminal || expireGrace(room)) { error(c.ws, 'RANKED_RESULT_PENDING', 'Your previous ranked match has ended. Its result is being saved.'); return; }
+    if (!room.missing.has(account.id)) { error(c.ws, 'ALREADY_JOINED', 'You are already in this ranked match.'); return; }
+    let profile;
+    try { profile = await store().profile(account.id, room.queueKey); }
+    catch { error(c.ws, 'RANKED_UNAVAILABLE', 'Your ranked profile is temporarily unavailable.'); return; }
+    if (stopped || c.ws.readyState !== WebSocket.OPEN) return;
+    if (accounts.has(account.id) && accounts.get(account.id) !== c) { error(c.ws, 'ACCOUNT_ACTIVE', 'This account is already connected.'); return; }
+    if (room.terminal || expireGrace(room)) { error(c.ws, 'RANKED_RESULT_PENDING', 'Your previous ranked match has ended. Its result is being saved.'); return; }
+    if (!room.missing.has(account.id)) { error(c.ws, 'ACCOUNT_ACTIVE', 'This ranked slot is already connected.'); return; }
+    detach(c);
+    bindAccount(c, account, msg.accessToken ?? c.accessToken);
+    c.session = participant.session;
+    sessions.set(c.session.token, c.session);
+    c.session.connection = c; c.session.lastSeen = Date.now();
+    c.room = room.id; c.team = participant.team; c.wire = msg.wire === 1; c.lastSeq = -1; c.lastInputAt = performance.now();
+    participant.c = c;
+    room.inputs.set(c.session.id, neutral());
+    participant.graceRemainingMs = Math.max(0, participant.graceRemainingMs - (performance.now() - room.missing.get(account.id).departedAt));
+    room.missing.delete(account.id);
+    room.lastActive = performance.now();
+    // The slot and simulation state already exist. Battle.join would respawn it.
+    // Advance the shared wire baseline for existing clients before giving the
+    // returning client a full, current frame; this avoids a stale paused view.
+    const frame = room.encoder.encode(Battle.snapshot(room.state));
+    for (const other of connections) if (other !== c && other.room === room.id && other.wire) send(other.ws, { ...frame, room: room.id, ...counts(room) });
+    welcome(c, room, { id: c.session.id, slot: participant.slot, team: participant.team }, profile);
+    pauseStatus(room, true);
+  }
   async function join(c, msg) {
     const now = performance.now();
     if (now - c.joinWindow > 60_000) { c.joinWindow = now; c.joins = 0; }
@@ -240,6 +338,7 @@ function createBattleServer(options = {}) {
     if (!MODES.has(mode) || !TEAM_SIZES.has(teamSize)) { error(c.ws, 'BAD_MODE', 'Choose brawl, ctf or siege and 4, 20 or 50 players per team.'); return; }
     if (msg.role !== undefined && !ROLES.has(msg.role)) { error(c.ws, 'BAD_ROLE', 'Unknown battle role.'); return; }
     if (msg.ranked !== undefined && typeof msg.ranked !== 'boolean') { error(c.ws, 'BAD_RANKED', 'Ranked must be true or false.'); return; }
+    if (msg.resumeRoom !== undefined && (msg.ranked !== true || typeof msg.resumeRoom !== 'string' || !/^ranked-[a-f0-9-]{36}$/.test(msg.resumeRoom))) { error(c.ws, 'BAD_ROOM', 'A ranked reconnect requires its original ranked room.'); return; }
     if (msg.room !== undefined && (typeof msg.room !== 'string' || (msg.room !== '' && !/^[a-zA-Z0-9_-]{1,32}$/.test(msg.room)))) { error(c.ws, 'BAD_ROOM', 'Room codes use 1–32 letters, numbers, dashes or underscores.'); return; }
     if (msg.room?.toLowerCase().startsWith('ranked-') || (msg.ranked && msg.room)) { error(c.ws, 'RANKED_QUEUE_ONLY', 'Private ladder games can only be entered through matchmaking.'); return; }
     let account = null;
@@ -247,6 +346,13 @@ function createBattleServer(options = {}) {
       account = await authenticate(c, msg.accessToken ?? c.accessToken);
       if (!account || c.ws.readyState !== WebSocket.OPEN) return;
     }
+    const reservation = account && rankedReservations.get(account.id);
+    if (msg.resumeRoom && reservation?.room.id !== msg.resumeRoom) { error(c.ws, 'RECONNECT_EXPIRED', 'Your ranked match is no longer available to reconnect.'); return; }
+    if (reservation) {
+      if (!msg.ranked) { error(c.ws, 'RANKED_MATCH_RESERVED', 'Reconnect to your current ranked match before joining another game.'); return; }
+      return reconnectRanked(c, msg, account, reservation);
+    }
+    if (msg.ranked && !privateRankedAvailable()) { error(c.ws, 'RANKED_UNAVAILABLE', 'Private ladder recovery or storage is unavailable. Please try again later.'); return; }
     if (c.room && rooms.get(c.room)?.ranked && !rooms.get(c.room).terminal) { error(c.ws, 'ALREADY_JOINED', 'Leave your current match before joining again.'); return; }
     const compatible = !msg.room && !msg.ranked ? [...rooms.values()].find(r => !r.ranked && r.mode === mode && r.teamSize === teamSize && r.difficulty === (msg.difficulty || 'medium') && r.state.status !== 'finished' && counts(r).humans < teamSize * 2 && r.id !== c.room) : null;
     const defaultId = `${mode}-${teamSize}`;
@@ -349,8 +455,9 @@ function createBattleServer(options = {}) {
       if (input.seq <= c.lastSeq) return;
       c.lastSeq = input.seq;
       c.lastInputAt = now;
-      c.input = input;
-      rooms.get(c.room)?.inputs.set(c.session.id, input);
+      const room = rooms.get(c.room);
+      c.input = room?.ranked && room.missing.size ? neutral() : input;
+      room?.inputs.set(c.session.id, c.input);
       return;
     }
     if (msg.type === 'leave' || msg.type === 'cancel') { detach(c); send(c.ws, { type: 'left' }); return; }
@@ -384,11 +491,16 @@ function createBattleServer(options = {}) {
     }
     for (const room of rooms.values()) {
       const present = [...connections].filter(c => c.room === room.id);
-      if (!present.length) { if (now - room.lastActive > idleMs) { if (room.ranked) recordRanked(room, 'room_abandoned'); if (!room.ranked || room.recorded) rooms.delete(room.id); } continue; }
+      if (room.ranked) {
+        expireGrace(room, now);
+        pauseStatus(room);
+        if (room.state.status === 'finished' && !room.terminal) { room.finalSnapshot = Battle.snapshot(room.state); recordRanked(room, room.state.finishReason || 'completed'); }
+        if (!present.length) { if (room.recorded && now - room.lastActive > idleMs) rooms.delete(room.id); continue; }
+      } else if (!present.length) { if (now - room.lastActive > idleMs) rooms.delete(room.id); continue; }
       room.lastActive = now;
       if (room.state.status !== 'finished') {
-        if (present.length !== room.teamSize * 2) room.humanOnly = false;
-        Battle.step(room.state, dt, Object.fromEntries(room.inputs));
+        if (!room.ranked && present.length !== room.teamSize * 2) room.humanOnly = false;
+        if (!room.ranked || !room.missing.size) Battle.step(room.state, dt, Object.fromEntries(room.inputs));
       }
       if (room.state.status === 'finished' && !room.recorded) {
         room.finalSnapshot = Battle.snapshot(room.state);
@@ -428,8 +540,7 @@ function createBattleServer(options = {}) {
     res.setHeader('X-Content-Type-Options', 'nosniff');
     if (req.method === 'GET' && req.url === '/health') {
       res.writeHead(200, { 'Content-Type': 'application/json' });
-      const unresolvedResults = [...rooms.values()].filter(r => r.ranked && r.terminal && !r.recorded);
-      res.end(JSON.stringify({ ok: true, protocol: 1, ranked: false, privateRanked: !!(playerStore || databasePath) && !storeFailure && !unresolvedResults.some(r => r.persistenceError), pendingRankedResults: unresolvedResults.length, rooms: rooms.size, connections: connections.size, maxRooms, maxConnections, stepHz, snapshotHz }));
+      res.end(JSON.stringify({ ok: true, protocol: 1, ranked: false, privateRanked: privateRankedAvailable(), pendingRankedResults: unresolvedResults().length, rooms: rooms.size, connections: connections.size, maxRooms, maxConnections, stepHz, snapshotHz }));
     } else { res.writeHead(404); res.end('Not found'); }
   });
   server.requestTimeout = 10_000;
@@ -456,10 +567,13 @@ function createBattleServer(options = {}) {
     server, rooms, metrics,
     // Host integration can retry retained failures after restoring database access.
     async retryRankedResults() {
+      await recoverRankedResults();
       await Promise.allSettled([...rooms.values()].filter(r => r.ranked && r.terminal && !r.recorded).map(r => recordRanked(r, undefined, true)));
     },
     address: () => server.address(),
     async listen() {
+      // Replay durable terminal outcomes before any client can enter a queue.
+      await recoverRankedResults();
       await new Promise((resolve, reject) => { server.once('error', reject); server.listen(port, host, () => { server.removeListener('error', reject); resolve(); }); });
       lastTick = performance.now();
       timer = setInterval(tick, 1000 / stepHz);
@@ -477,6 +591,7 @@ function createBattleServer(options = {}) {
       await new Promise(resolve => wss.close(resolve));
       await new Promise(resolve => server.close(resolve));
       await Promise.allSettled([...pendingResults]);
+      await recoverRankedResults();
       if (ownsStore) playerStore.close();
     },
   };

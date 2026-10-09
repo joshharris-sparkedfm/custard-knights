@@ -1,0 +1,2 @@
+NAME                              IMAGE                           COMMAND                  SERVICE   CREATED         STATUS                                     PORTS
+custard-knights-battle-battle-1   custard-knights-battle-battle   "docker-entrypoint.s…"   battle    9 seconds ago   Up Less than a second (health: starting)   127.0.0.1:8787->8787/tcp

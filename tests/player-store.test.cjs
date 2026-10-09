@@ -113,7 +113,11 @@ test('malformed or forged identities, settings and rosters fail before changing 
     { participants: [{ accountId: 'forged', team: 'custardia' }, ...f.participants.slice(1)] },
     { participants: [{ ...f.participants[0], team: '__proto__' }, ...f.participants.slice(1)] }
   ];
-  for (const change of invalid) assert.throws(() => f.store.recordMatch(result(f, change)));
+  for (const change of invalid) {
+    assert.throws(() => f.store.recordMatch(result(f, change)));
+    assert.throws(() => f.store.stageMatchResult(result(f, change)));
+  }
+  assert.deepEqual(f.store.pendingResults(), []);
   assert.equal(f.store.profile(f.accounts[0].accountId, 'brawl-4').matches, 0);
   assert.throws(() => f.store.issue('<script>'));
   assert.throws(() => f.store.profile('missing', 'brawl-4'));
@@ -126,15 +130,108 @@ test('malformed or forged identities, settings and rosters fail before changing 
 
 test('a mid-write SQLite failure rolls back both history and every rating', t => {
   const f = fixture(t);
+  f.store.stageMatchResult(result(f));
   const inspect = new DatabaseSync(f.filename);
   // Fail after the first roster insert to exercise a partially executed transaction.
   inspect.exec(`CREATE TRIGGER injected_failure BEFORE INSERT ON match_players
     WHEN (SELECT COUNT(*) FROM match_players) >= 1 BEGIN SELECT RAISE(ABORT, 'injected write failure'); END;`);
   assert.throws(() => f.store.recordMatch(result(f)), /injected write failure/);
   for (const table of ['matches', 'match_players', 'ratings']) assert.equal(inspect.prepare(`SELECT COUNT(*) AS n FROM ${table}`).get().n, 0);
+  assert.equal(inspect.prepare('SELECT COUNT(*) AS n FROM pending_results').get().n, 1);
   inspect.exec('DROP TRIGGER injected_failure');
   inspect.close();
-  assert.equal(f.store.recordMatch(result(f)).recorded, true);
+  f.reopen();
+  assert.equal(f.store.recordMatch(f.store.pendingResults()[0]).recorded, true);
+  assert.deepEqual(f.store.pendingResults(), []);
+  assert.equal(f.store.recordMatch(result(f)).recorded, false);
+});
+
+test('terminal journal survives reopening without awards, strips extras and returns immutable canonical inputs', t => {
+  const f = fixture(t);
+  const input = result(f, { winner: 'draw', accessToken: f.accounts[0].token, rating: 2500 });
+  assert.deepEqual(f.store.stageMatchResult(input), { staged: true, recorded: false });
+  assert.deepEqual(f.store.stageMatchResult({ ...input, winner: null, participants: [...f.participants].reverse() }), { staged: false, recorded: false });
+  input.winner = 'rice';
+  f.reopen();
+  const pending = f.store.pendingResults();
+  assert.equal(pending.length, 1);
+  assert.equal(pending[0].winner, null);
+  assert.equal(pending[0].reason, null);
+  assert.equal('accessToken' in pending[0], false);
+  assert.equal('rating' in pending[0], false);
+  assert.equal(f.store.profile(f.accounts[0].accountId, 'brawl-4').matches, 0);
+  assert.deepEqual(f.store.leaderboard('brawl-4'), []);
+  assert.throws(() => pending.push(input), TypeError);
+  assert.throws(() => { pending[0].winner = 'rice'; }, TypeError);
+  assert.throws(() => pending[0].participants.pop(), TypeError);
+  assert.throws(() => { pending[0].participants[0].team = 'rice'; }, TypeError);
+  const inspect = new DatabaseSync(f.filename);
+  assert.equal(inspect.prepare('SELECT payload FROM pending_results').get().payload.includes(f.accounts[0].token), false);
+  inspect.close();
+  const applied = f.store.recordMatch(pending[0]);
+  assert.equal(applied.recorded, true);
+  assert.equal(applied.changes.length, 8);
+  assert.equal(f.store.profile(f.accounts[0].accountId, 'brawl-4').draws, 1);
+  assert.deepEqual(f.store.pendingResults(), []);
+  assert.deepEqual(f.store.stageMatchResult(pending[0]), { staged: false, recorded: true });
+  assert.equal(f.store.recordMatch(pending[0]).recorded, false);
+});
+
+test('staged and committed payload conflicts reject without replacing terminal outcomes', t => {
+  const f = fixture(t), original = result(f), conflicting = result(f, { winner: 'rice' });
+  f.store.stageMatchResult(original);
+  assert.throws(() => f.store.stageMatchResult(conflicting), /conflicting/);
+  assert.throws(() => f.store.recordMatch(conflicting), /conflicting/);
+  assert.equal(f.store.pendingResults()[0].winner, 'custardia');
+  assert.equal(f.store.profile(f.accounts[0].accountId, 'brawl-4').matches, 0);
+  f.store.recordMatch(original);
+  assert.throws(() => f.store.stageMatchResult(conflicting), /conflicting/);
+  assert.throws(() => f.store.recordMatch(conflicting), /conflicting/);
+  assert.equal(f.store.profile(f.accounts[0].accountId, 'brawl-4').matches, 1);
+});
+
+test('failure deleting pending result rolls back all awards; completed replay cleans matching leftover journal', t => {
+  const f = fixture(t), input = result(f);
+  f.store.stageMatchResult(input);
+  const inspect = new DatabaseSync(f.filename);
+  const payload = inspect.prepare('SELECT payload FROM pending_results').get().payload;
+  inspect.exec("CREATE TRIGGER fail_pending_delete BEFORE DELETE ON pending_results BEGIN SELECT RAISE(ABORT, 'pending delete failed'); END;");
+  assert.throws(() => f.store.recordMatch(input), /pending delete failed/);
+  for (const table of ['matches', 'match_players', 'ratings']) assert.equal(inspect.prepare(`SELECT COUNT(*) AS n FROM ${table}`).get().n, 0);
+  assert.equal(f.store.pendingResults().length, 1);
+  inspect.exec('DROP TRIGGER fail_pending_delete');
+  f.store.recordMatch(input);
+  // Defensive compatibility: an already committed matching result is safe to replay.
+  inspect.prepare('INSERT INTO pending_results VALUES (?, ?, ?)').run(input.id, payload, Date.now());
+  assert.equal(f.store.recordMatch(input).recorded, false);
+  assert.deepEqual(f.store.pendingResults(), []);
+  assert.equal(f.store.profile(f.accounts[0].accountId, 'brawl-4').matches, 1);
+  inspect.close();
+});
+
+test('eligibility is frozen at staging, while revoked new results still fail validation', t => {
+  const f = fixture(t);
+  f.store.stageMatchResult(result(f));
+  f.store.revoke(f.accounts[0].accountId);
+  f.reopen();
+  assert.throws(() => f.store.stageMatchResult(result(f, { id: 'new-result' })), /Revoked/);
+  assert.throws(() => f.store.recordMatch(result(f, { id: 'new-result' })), /Revoked/);
+  assert.equal(f.store.recordMatch(f.store.pendingResults()[0]).eligible, true);
+  assert.equal(f.store.profile(f.accounts[0].accountId, 'brawl-4').matches, 1);
+  const ineligible = result(f, { id: 'abandoned', eligible: false, reason: 'participant_left' });
+  f.store.stageMatchResult(ineligible);
+  f.reopen();
+  assert.equal(f.store.recordMatch(f.store.pendingResults()[0]).eligible, false);
+  assert.equal(f.store.profile(f.accounts[0].accountId, 'brawl-4').matches, 1);
+});
+
+test('pending journal rejects malformed persisted payloads instead of recovering forged data', t => {
+  const f = fixture(t);
+  const inspect = new DatabaseSync(f.filename);
+  inspect.prepare('INSERT INTO pending_results VALUES (?, ?, ?)').run('bad-pending', JSON.stringify(result(f)), Date.now());
+  assert.throws(() => f.store.pendingResults(), /Invalid pending/);
+  inspect.close();
+  assert.equal(f.store.profile(f.accounts[0].accountId, 'brawl-4').matches, 0);
 });
 
 test('larger complete teams are supported and repeated wins remain bounded', t => {
@@ -165,4 +262,37 @@ test('operator CLI requires explicit database, issues once, profiles and revokes
   assert.equal(profile.stdout.includes(user.token), false);
   assert.equal(JSON.parse(run(['--db', f.filename, 'revoke', user.accountId]).stdout).revoked, true);
   assert.equal(f.store.authenticate(user.token), null);
+});
+
+test('operator pending commands list IDs only and retry durable terminal records exactly once', t => {
+  const f = fixture(t);
+  f.store.stageMatchResult(result(f));
+  f.store.stageMatchResult(result(f, { id: 'second-match', eligible: false, reason: 'participant_left' }));
+  const cli = path.join(__dirname, '..', 'scripts', 'player-admin.cjs');
+  const run = command => spawnSync(process.execPath, [cli, '--db', f.filename, command], { encoding: 'utf8' });
+  const pending = run('pending');
+  assert.equal(pending.status, 0, pending.stderr);
+  assert.deepEqual(JSON.parse(pending.stdout), { count: 2, ids: ['match-1', 'second-match'] });
+  for (const user of f.accounts) {
+    assert.equal(pending.stdout.includes(user.token), false);
+    assert.equal(pending.stdout.includes(user.accountId), false);
+  }
+  const inspect = new DatabaseSync(f.filename);
+  inspect.exec("CREATE TRIGGER fail_cli_retry BEFORE INSERT ON ratings BEGIN SELECT RAISE(ABORT, 'retry denied'); END;");
+  const failed = run('retry-pending');
+  assert.equal(failed.status, 1);
+  assert.match(failed.stderr, /retry denied/);
+  assert.equal(f.store.pendingResults().length, 2);
+  assert.equal(f.store.profile(f.accounts[0].accountId, 'brawl-4').matches, 0);
+  inspect.exec('DROP TRIGGER fail_cli_retry');
+  inspect.close();
+  const retried = run('retry-pending');
+  assert.equal(retried.status, 0, retried.stderr);
+  assert.deepEqual(JSON.parse(retried.stdout), { count: 2, results: [
+    { id: 'match-1', recorded: true, eligible: true },
+    { id: 'second-match', recorded: true, eligible: false }
+  ] });
+  assert.equal(f.store.profile(f.accounts[0].accountId, 'brawl-4').matches, 1);
+  assert.deepEqual(JSON.parse(run('retry-pending').stdout), { count: 0, results: [] });
+  assert.deepEqual(JSON.parse(run('pending').stdout), { count: 0, ids: [] });
 });

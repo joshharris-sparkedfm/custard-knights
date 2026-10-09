@@ -32,14 +32,14 @@ function harness(){
  const context={document,CKMassBattle:Core,WebSocket:Socket,URL,console,innerWidth:1280,innerHeight:800,performance:{now:()=>now},location:{protocol:'file:',search:''},addEventListener(){},removeEventListener(){},requestAnimationFrame:()=>1,cancelAnimationFrame(){},setTimeout:(fn,delay)=>{const id=++nextTimer;timers.set(id,{fn,delay});return id;},clearTimeout:id=>timers.delete(id),setInterval:(fn,delay)=>{const id=++nextTimer;timers.set(id,{fn,delay,interval:true});return id;},clearInterval:id=>timers.delete(id)};
  vm.runInNewContext(source,context);const api=context.CKMassBattleUI.connect();api.open();
  const find=predicate=>{const result=nodes.find(predicate);assert.ok(result,'UI element exists');return result;};
- const button=text=>find(n=>n.tagName==='BUTTON'&&n.textContent===text);
+ const button=text=>{const result=[...nodes].reverse().find(n=>n.tagName==='BUTTON'&&n.textContent===text);assert.ok(result,'Button exists: '+text);return result;};
  const field=label=>find(n=>n.attributes['aria-label']===label);
  const status=()=>find(n=>n.className==='ck-battle-status').textContent;
  const playlist=field('Online playlist'),key=field('Player access key'),url=field('Battle server WebSocket address');
  const chooseRanked=()=>{playlist.value='ranked';playlist.onchange();};
  const join=()=>{button(playlist.value==='ranked'?'Find private ladder match':'Join online battle').onclick();return sockets.at(-1);};
  const snapshot=()=>{const state=Core.create({mode:'ctf',teamSize:20});Core.join(state,{id:'player',name:'Knight'});return Core.snapshot(state);};
- return {api,nodes,sockets,timers,button,field,status,playlist,key,url,chooseRanked,join,snapshot,setNow:value=>now=value,setup:find(n=>n.className==='ck-battle-setup'),modal:find(n=>n.className==='ck-battle-modal')};
+ return {api,nodes,sockets,timers,button,field,status,playlist,key,url,chooseRanked,join,snapshot,setNow:value=>now=value,setup:find(n=>n.className==='ck-battle-setup'),modal:find(n=>n.className==='ck-battle-modal'),pauseBanner:find(n=>n.className==='ck-battle-ranked-pause')};
 }
 
 test('private key is masked, required for ladder, sent only over secure remote transport and never in URLs',()=>{
@@ -91,4 +91,44 @@ test('a saved result with unavailable profile keeps its confirmed change and cle
  const h=harness();h.chooseRanked();h.key.value='key';const ws=h.join();ws.open();ws.message({type:'welcome',protocol:1,ranked:true,room:'current-room',sessionId:'player',profile:{rating:1000,matches:4}});ws.message({type:'snapshot',state:h.snapshot()});h.button('Scoreboard').onclick();
  ws.message({type:'rating',ranked:true,room:'current-room',eligible:true,changes:{before:1000,after:1012,delta:12},profile:null});assert.match(h.modal.textContent,/Rating saved: 1000 → 1012/);assert.doesNotMatch(h.modal.textContent,/1000 rating|4 matches/);
  ws.message({type:'error',code:'RATING_PROFILE_UNAVAILABLE',room:'current-room',message:'The result was saved, but your updated profile is temporarily unavailable.'});assert.match(h.modal.textContent,/Rating saved: 1000 → 1012/);assert.match(h.modal.textContent,/updated profile is temporarily unavailable/);assert.doesNotMatch(h.modal.textContent,/No rating awarded/);assert.equal(ws.readyState,1);
+});
+
+function enterRanked(h){h.chooseRanked();h.key.value='original-key';const ws=h.join();ws.open();ws.message({type:'welcome',protocol:1,ranked:true,room:'reserved-room',sessionId:'player',profile:{rating:1000,matches:0}});ws.message({type:'snapshot',state:h.snapshot()});return ws;}
+
+test('ranked pause and resume notices are scoped to the active room and reset after leaving',()=>{
+ const h=harness(),ws=enterRanked(h);const before=JSON.stringify(h.api.snapshot());
+ ws.message({type:'ranked_pause',room:'old-room',paused:true,remainingSeconds:20,missingCount:1});assert.equal(h.pauseBanner.hidden,true);
+ ws.message({type:'ranked_pause',room:'reserved-room',paused:true,remainingSeconds:20,missingCount:1});assert.equal(h.pauseBanner.hidden,false);assert.match(h.pauseBanner.textContent,/1 player reconnecting · 20s grace/);assert.equal(JSON.stringify(h.api.snapshot()),before);
+ h.button('Menu').onclick();assert.match(h.modal.textContent,/pauses during reconnect grace/);assert.match(h.modal.textContent,/20s grace/);
+ ws.message({type:'ranked_pause',room:'reserved-room',paused:false,remainingSeconds:0,missingCount:0});assert.match(h.pauseBanner.textContent,/battle resumed/);
+ h.button('Choose another battle').onclick();assert.equal(h.pauseBanner.hidden,true);assert.equal(ws.sent.at(-1).type,'leave');
+});
+
+test('manual reconnect uses the original private account and match settings without sending a deliberate leave',()=>{
+ const h=harness(),ws=enterRanked(h),initial=ws.sent[0],late=ws.onmessage,before=JSON.stringify(h.api.snapshot());ws.onclose();
+ assert.equal(h.sockets.length,1,'transport drop never automatically reconnects');assert.equal(ws.sent.some(m=>m.type==='leave'),false);assert.match(h.modal.textContent,/Reconnect to battle/);
+ h.url.value='ws://untrusted.example';h.key.value='different-key';h.nodes.find(n=>n.tagName==='LABEL'&&n.text.startsWith('Your role')).children[0].value='support';
+ h.button('Reconnect to battle').onclick();const retry=h.sockets.at(-1);assert.equal(retry.url,ws.url);assert.equal(h.button('Reconnect to battle').disabled,true);retry.open();assert.deepEqual(retry.sent[0],{...initial,resumeRoom:'reserved-room'});
+ late({data:JSON.stringify({type:'ranked_pause',room:'reserved-room',paused:true,remainingSeconds:20,missingCount:1})});assert.equal(h.pauseBanner.hidden,true);
+ retry.message({type:'welcome',protocol:1,ranked:true,room:'reserved-room',sessionId:'player',profile:{rating:1000,matches:0}});retry.message({type:'snapshot',state:JSON.parse(before)});assert.equal(h.modal.hidden,true);assert.equal(h.setup.hidden,true);assert.equal(JSON.stringify(h.api.snapshot()),before);
+ h.api.close();assert.equal(h.key.value,'');assert.equal(retry.sent.at(-1).type,'leave');late({data:JSON.stringify({type:'welcome',protocol:1,ranked:true,room:'reserved-room',sessionId:'player'})});assert.equal(h.sockets.length,2);assert.equal(h.api.active(),false);
+});
+
+test('expired recovery never enters a new queue or silently joins a different match',()=>{
+ for(const message of [{type:'error',code:'RECONNECT_EXPIRED',message:'Your reconnect reservation expired.'},{type:'queue',ranked:true,mode:'ctf',teamSize:20,waiting:1,required:40},{type:'welcome',protocol:1,ranked:true,room:'another-room',sessionId:'player'}]){
+  const h=harness(),ws=enterRanked(h);ws.onclose();h.button('Reconnect to battle').onclick();const retry=h.sockets.at(-1);retry.open();retry.message(message);assert.equal(retry.readyState,3);assert.equal(h.modal.hidden,false);assert.doesNotMatch(h.modal.textContent,/Reconnect to battle/);assert.equal(h.sockets.length,2);assert.equal(h.timers.size,0);
+ }
+});
+
+test('deliberate exit clears recovery and ignores the old socket close callback',()=>{
+ const h=harness(),ws=enterRanked(h),lateClose=ws.onclose;h.button('Menu').onclick();h.button('Choose another battle').onclick();lateClose();assert.equal(h.sockets.length,1);assert.equal(h.setup.hidden,false);assert.equal(h.modal.hidden,true);assert.equal(ws.sent.at(-1).type,'leave');assert.equal(h.timers.size,0);
+ const casual=harness(),casualSocket=casual.join();casualSocket.open();casualSocket.message({type:'welcome',protocol:1,ranked:false,sessionId:'player',room:'casual'});casualSocket.message({type:'snapshot',state:casual.snapshot()});casualSocket.onclose();assert.doesNotMatch(casual.modal.textContent,/Reconnect to battle/);
+});
+
+test('finished results explain reconnect forfeits and retain ordinary completion copy',()=>{
+ for(const reason of ['forfeit','time']){
+  const h=harness(),ws=enterRanked(h),state=h.snapshot();state.status='finished';state.winner='custardia';state.finishReason=reason;ws.message({type:'snapshot',state});h.button('Menu').onclick();
+  if(reason==='forfeit'){assert.match(h.modal.textContent,/ended by forfeit/);assert.match(h.modal.textContent,/a player did not return before their reconnect grace expired/);assert.doesNotMatch(h.modal.textContent,/The battle is complete\./);}
+  else{assert.match(h.modal.textContent,/The battle is complete\. Start another to change role, mode or army size\./);assert.doesNotMatch(h.modal.textContent,/ended by forfeit/);}
+ }
 });

@@ -7,12 +7,14 @@ const { selectMatch, permittedGap } = require('../server/matchmaking.cjs');
 const delay = ms => new Promise(resolve => setTimeout(resolve, ms));
 
 function fakeStore() {
-  const revoked = new Set(), records = [], ratings = new Map();
+  const revoked = new Set(), records = [], ratings = new Map(), pending = new Map();
   return {
     revoked, records, ratings,
     authenticate(token) { return /^token-\d+$/.test(token) && !revoked.has(token) ? { id: token.slice(6), name: `Host ${token.slice(6)}` } : null; },
     profile(id) { return { id, name: `Host ${id}`, rating: ratings.get(id) || 1000, matches: 0, wins: 0, losses: 0, draws: 0, provisional: true }; },
-    recordMatch(result) { records.push(result); return { recorded: true, eligible: result.eligible, reason: result.reason, changes: result.eligible ? result.participants.map(p => ({ accountId: p.accountId, before: 1000, after: p.team === result.winner ? 1016 : 984, delta: p.team === result.winner ? 16 : -16 })) : [] }; },
+    stageMatchResult(result) { pending.set(result.id, result); return { staged: true, recorded: false }; },
+    pendingResults() { return [...pending.values()]; },
+    recordMatch(result) { records.push(result); pending.delete(result.id); return { recorded: true, eligible: result.eligible, reason: result.reason, changes: result.eligible ? result.participants.map(p => ({ accountId: p.accountId, before: 1000, after: p.team === result.winner ? 1016 : 984, delta: p.team === result.winner ? 16 : -16 })) : [] }; },
     leaderboard() { return []; }, close() {},
   };
 }
@@ -109,15 +111,15 @@ test('eight authenticated humans launch balanced using stored ratings; finished 
   await delay(100); assert.equal(store.records.length, 1); assert.equal(store.records[0].participants.length, 8);
 });
 
-test('disconnect permanently disqualifies full roster despite bot refill; abandoned rooms record once', async t => {
-  const { app, connect, store } = await setup(t, { roomIdleMs: 20 });
+test('disconnect freezes human slots then records one eligible forfeit for the original roster', async t => {
+  const { app, connect, store } = await setup(t, { roomIdleMs: 20, rankedReconnectMs: 100 });
   const { clients, welcomes } = await launch(connect);
   const room = app.rooms.get(welcomes[0].room);
   clients[0].ws.close(); await delay(60);
-  assert.equal(room.state.players.filter(p => p.bot).length, 1);
-  room.state.status = 'finished'; room.state.winner = 'rice';
+  assert.equal(room.state.players.filter(p => p.bot).length, 0);
   const result = await clients[1].read('rating');
-  assert.equal(result.eligible, false); assert.equal(result.reason, 'participant_disconnected'); assert.equal(result.changes, null);
+  assert.equal(result.eligible, true); assert.equal(room.state.finishReason, 'forfeit'); assert.ok(result.changes);
+  assert.notEqual(room.state.winner, welcomes[0].team);
   assert.equal(store.records[0].participants.length, 8);
   for (const c of clients.slice(1)) c.ws.close();
   await delay(100); assert.equal(store.records.length, 1); assert.equal(app.rooms.size, 0);
@@ -165,8 +167,8 @@ test('simultaneous authenticated casual joins reserve only one connection', asyn
   assert.equal(results.filter(m => m.code === 'ACCOUNT_ACTIVE').length, 1);
 });
 
-test('revocation after launch records an ineligible terminal audit; abandoning active game also records', async t => {
-  const { app, connect, store } = await setup(t, { roomIdleMs: 20 });
+test('revocation after launch remains ineligible; whole-roster abandonment records a forfeit', async t => {
+  const { app, connect, store } = await setup(t, { roomIdleMs: 20, rankedReconnectMs: 40 });
   const { clients, welcomes } = await launch(connect);
   store.revoked.add('token-0');
   const room = app.rooms.get(welcomes[0].room); room.state.status = 'finished'; room.state.winner = 'rice';
@@ -179,7 +181,7 @@ test('revocation after launch records an ineligible terminal audit; abandoning a
   for (const c of again.clients) c.ws.close();
   await delay(120);
   assert.equal(store.records.length, 2);
-  assert.equal(store.records[1].eligible, false);
+  assert.equal(store.records[1].eligible, true);
   assert.equal(store.records[1].participants.length, 8);
 });
 
@@ -306,4 +308,150 @@ test('authenticated casual rooms use stored skill for human and bot balance with
   assert.ok(room.state.players.filter(p => p.bot).every(p => p.rating === 1800));
   room.state.status = 'finished'; room.state.winner = 'rice';
   await delay(70); assert.equal(store.records.length, 0);
+});
+
+test('ranked reconnect preserves slot, position, health and paused elapsed with a fresh wire baseline', async t => {
+  const { app, connect } = await setup(t, { rankedReconnectMs: 1000 });
+  const { clients, welcomes } = await launch(connect, { wire: 1 });
+  const room = app.rooms.get(welcomes[0].room), original = welcomes[0];
+  const player = room.state.players.find(p => p.humanId === original.sessionId);
+  player.x = 900; player.y = 800; player.hp = 57;
+  clients[0].send({ type: 'input', seq: 100, moveX: 0, moveY: 0, aimX: 1, aimY: 0 });
+  clients[0].ws.close();
+  await clients[1].read('ranked_pause', m => m.paused);
+  const elapsed = room.state.elapsed, position = { x: player.x, y: player.y, hp: player.hp };
+  await delay(100);
+  assert.equal(room.state.elapsed, elapsed); assert.equal(room.state.players.some(p => p.bot), false);
+  const returned = await connect(); join(returned, 0, { resumeRoom: room.id, mode: 'ctf', teamSize: 20, role: 'ranger', wire: 1 });
+  const welcome = await returned.read('welcome');
+  assert.equal(welcome.sessionId, original.sessionId); assert.equal(welcome.slot, original.slot); assert.equal(welcome.team, original.team);
+  assert.equal(welcome.room, original.room); assert.equal(welcome.mode, 'brawl'); assert.equal(welcome.teamSize, 4);
+  const Wire = require('../game/mass-battle-wire.js'), decoder = Wire.createDecoder();
+  const message = await returned.read('snapshot'), state = decoder.apply(message);
+  const restored = state.players.find(p => p.humanId === original.sessionId);
+  assert.deepEqual({ x: restored.x, y: restored.y, hp: restored.hp }, position);
+  assert.equal(message.humans, 8); assert.equal(message.bots, 0); assert.equal(message.connected, 8);
+  await clients[1].read('ranked_pause', m => !m.paused);
+  returned.send({ type: 'input', seq: 0, moveX: 1, moveY: 0, aimX: 1, aimY: 0 });
+  await delay(80); assert.ok(player.x > position.x); assert.ok(room.state.elapsed > elapsed);
+});
+
+test('explicit cancel reserves a ranked identity and repeated outages spend a finite grace budget', async t => {
+  const { app, connect, store } = await setup(t, { rankedReconnectMs: 240 });
+  const { clients, welcomes } = await launch(connect);
+  const room = app.rooms.get(welcomes[0].room);
+  clients[0].send({ type: 'cancel' }); await clients[0].read('left');
+  await clients[1].read('ranked_pause', m => m.paused);
+  await delay(100);
+  join(clients[0], 0, { resumeRoom: room.id });
+  assert.equal((await clients[0].read('welcome')).sessionId, welcomes[0].sessionId);
+  clients[0].send({ type: 'leave' }); await clients[0].read('left');
+  await clients[1].read('ranked_pause', m => m.paused);
+  const missing = room.missing.get('0');
+  assert.ok(missing.expiresAt - missing.departedAt < 150);
+  const result = await clients[1].read('rating');
+  assert.equal(result.eligible, true); assert.equal(store.records.length, 1); assert.equal(room.state.finishReason, 'forfeit');
+  assert.notEqual(room.state.winner, welcomes[0].team);
+  clients[0].messages.length = 0;
+  join(clients[0], 0, { resumeRoom: room.id });
+  assert.equal((await clients[0].read('error')).code, 'RECONNECT_EXPIRED');
+  assert.equal(clients[0].messages.some(m => m.type === 'queue'), false);
+});
+
+test('opposite-team departures forfeit the first exhausted grace; a returned player is no longer missing', async t => {
+  const { app, connect } = await setup(t, { rankedReconnectMs: 240 });
+  const { clients, welcomes } = await launch(connect);
+  const room = app.rooms.get(welcomes[0].room), secondIndex = welcomes.findIndex(w => w.team !== welcomes[0].team);
+  clients[0].ws.close(); await clients[2].read('ranked_pause', m => m.paused);
+  await delay(40); clients[secondIndex].ws.close();
+  const observer = clients.find((c, i) => i !== 0 && i !== secondIndex);
+  await observer.read('ranked_pause', m => m.missingCount === 2);
+  const returned = await connect(); join(returned, 0, { resumeRoom: room.id }); await returned.read('welcome');
+  assert.equal(room.missing.size, 1);
+  await observer.read('rating');
+  assert.notEqual(room.state.winner, welcomes[secondIndex].team);
+  assert.equal(room.state.winner, welcomes[0].team);
+});
+
+test('both teams staying absent forfeit the initial departing faction once', async t => {
+  const { app, connect, store } = await setup(t, { rankedReconnectMs: 140 });
+  const { clients, welcomes } = await launch(connect);
+  const room = app.rooms.get(welcomes[0].room), secondIndex = welcomes.findIndex(w => w.team !== welcomes[0].team);
+  const observer = clients.find((c, i) => i !== 0 && i !== secondIndex);
+  clients[0].ws.close(); await observer.read('ranked_pause', m => m.paused);
+  await delay(25); clients[secondIndex].ws.close();
+  await observer.read('rating'); await delay(50);
+  assert.notEqual(room.state.winner, welcomes[0].team); assert.equal(store.records.length, 1);
+  assert.equal(room.state.players.filter(p => p.bot).length, 0);
+});
+
+test('revoked credentials cannot restore a reserved slot or receive an eligible forfeit', async t => {
+  const { app, connect, store } = await setup(t, { rankedReconnectMs: 180 });
+  const { clients, welcomes } = await launch(connect);
+  const room = app.rooms.get(welcomes[0].room);
+  clients[0].ws.close(); await clients[1].read('ranked_pause', m => m.paused);
+  store.revoked.add('token-0');
+  const returned = await connect(); join(returned, 0, { resumeRoom: room.id, resumeToken: welcomes[0].resumeToken });
+  assert.equal((await returned.read('error')).code, 'AUTH_REQUIRED');
+  const result = await clients[1].read('rating');
+  assert.equal(result.eligible, false); assert.equal(result.reason, 'credential_revoked');
+});
+
+test('stage failure cannot award ratings, and host retry stages before committing', async t => {
+  const { app, connect, store } = await setup(t);
+  const { clients, welcomes } = await launch(connect);
+  const originalStage = store.stageMatchResult;
+  store.stageMatchResult = () => { throw new Error('journal unavailable'); };
+  const room = app.rooms.get(welcomes[0].room); room.state.status = 'finished'; room.state.winner = 'rice';
+  assert.equal((await clients[0].read('error')).code, 'RATING_UNAVAILABLE');
+  assert.equal(store.records.length, 0); assert.equal(store.pendingResults().length, 0);
+  assert.equal(clients[0].messages.some(m => m.type === 'rating'), false);
+  store.stageMatchResult = originalStage;
+  const originalRecord = store.recordMatch;
+  store.recordMatch = input => { assert.equal(store.pendingResults()[0].id, input.id); return originalRecord(input); };
+  await app.retryRankedResults();
+  assert.equal((await clients[0].read('rating')).eligible, true);
+  assert.equal(store.pendingResults().length, 0);
+});
+
+test('startup replays a durable SQLite terminal fixture once before accepting ranked joins', async t => {
+  const fs = require('node:fs'), os = require('node:os'), path = require('node:path');
+  const { createPlayerStore } = require('../server/player-store.cjs');
+  const directory = fs.mkdtempSync(path.join(os.tmpdir(), 'ck-ranked-recovery-')), filename = path.join(directory, 'players.sqlite');
+  let disk = createPlayerStore({ filename });
+  const issued = Array.from({ length: 8 }, (_, i) => disk.issue(`Recovery ${i}`));
+  // A host terminal fixture, staged durably and reopened to simulate process loss.
+  disk.stageMatchResult({ id: 'recovery-fixture', queueKey: 'brawl-4', mode: 'brawl', teamSize: 4, winner: 'rice', eligible: true, reason: 'fixture', participants: issued.map((p, i) => ({ accountId: p.accountId, team: i < 4 ? 'custardia' : 'rice' })) });
+  disk.close();
+  const { app, connect } = await setup(t, { playerStore: null, playerDb: filename });
+  disk = createPlayerStore({ filename });
+  t.after(() => { disk.close(); fs.rmSync(directory, { recursive: true, force: true }); });
+  assert.equal(disk.pendingResults().length, 0); assert.equal(disk.profile(issued[0].accountId, 'brawl-4').matches, 1);
+  await app.retryRankedResults();
+  assert.equal(disk.profile(issued[0].accountId, 'brawl-4').matches, 1);
+  const c = await connect(); join(c, 0, { accessToken: issued[0].token });
+  assert.equal((await c.read('queue')).waiting, 1);
+});
+
+test('failed startup recovery degrades health and blocks rank admission until successful retry', async t => {
+  const store = fakeStore();
+  store.stageMatchResult({ id: 'pending-fixture', queueKey: 'brawl-4', mode: 'brawl', teamSize: 4, winner: 'rice', eligible: true, reason: 'fixture', participants: Array.from({ length: 8 }, (_, i) => ({ accountId: String(i), team: i < 4 ? 'custardia' : 'rice' })) });
+  const original = store.recordMatch;
+  store.recordMatch = () => { throw new Error('SQLITE_BUSY'); };
+  const { app, connect, address } = await setup(t, { playerStore: store });
+  const health = await (await fetch(`http://127.0.0.1:${address.port}/health`)).json();
+  assert.equal(health.privateRanked, false); assert.equal(health.pendingRankedResults, 1);
+  const c = await connect(); join(c, 0);
+  assert.equal((await c.read('error')).code, 'RANKED_UNAVAILABLE');
+  assert.equal(c.messages.some(m => m.type === 'rating' || m.type === 'queue'), false);
+  store.recordMatch = original;
+  await app.retryRankedResults(); assert.equal(store.records.length, 1);
+  join(c, 0); assert.equal((await c.read('queue')).waiting, 1);
+});
+
+test('administrative shutdown remains ineligible instead of a disconnect forfeit', async t => {
+  const { app, connect, store } = await setup(t, { rankedReconnectMs: 20 });
+  await launch(connect);
+  await app.close();
+  assert.equal(store.records.length, 1); assert.equal(store.records[0].eligible, false); assert.equal(store.records[0].reason, 'server_shutdown');
 });

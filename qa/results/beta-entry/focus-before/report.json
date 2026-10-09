@@ -1,0 +1,22 @@
+{
+  "checks": [
+    {
+      "name": "Fresh player enters setup on the offline Play with bots action",
+      "pass": true
+    },
+    {
+      "name": "Shift+Tab from the first select wraps to the last visible setup control",
+      "pass": false
+    }
+  ],
+  "errors": [],
+  "sourceHash": "a687b12566a5f93147dc91f339cd0a597b8194a9e22b5027ef3bf496a1ad33db",
+  "limitations": "Headless Chromium synthetic keyboard events in a fresh profile; no physical-device acceptance.",
+  "backwardFocus": {
+    "tag": "CANVAS",
+    "id": "",
+    "text": "",
+    "inSetup": false
+  },
+  "failure": "Error: Shift+Tab from the first select wraps to the last visible setup control\n    at check (C:\\Users\\Joshua\\Documents\\Codex\\2026-10-08\\rea\\work\\custard-knights\\qa\\faction-entry-focus.cjs:14:82)\n    at C:\\Users\\Joshua\\Documents\\Codex\\2026-10-08\\rea\\work\\custard-knights\\qa\\faction-entry-focus.cjs:21:2"
+}

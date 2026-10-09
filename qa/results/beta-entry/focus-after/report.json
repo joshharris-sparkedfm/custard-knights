@@ -1,0 +1,22 @@
+{
+  "checks": [
+    {
+      "name": "Fresh player enters setup on the offline Play with bots action",
+      "pass": true
+    },
+    {
+      "name": "Shift+Tab from the first select wraps to the last visible setup control",
+      "pass": false
+    }
+  ],
+  "errors": [],
+  "sourceHash": "c103618dd350178e75eec039b4fa78ca3920e561b7dc32ccb484a8ea07f01603",
+  "limitations": "Headless Chromium synthetic keyboard events in a fresh profile; no physical-device acceptance.",
+  "backwardFocus": {
+    "tag": "SELECT",
+    "id": "",
+    "text": "Faction brawlCapture the flagCastle siege",
+    "inSetup": true
+  },
+  "failure": "Error: Shift+Tab from the first select wraps to the last visible setup control\n    at check (C:\\Users\\Joshua\\Documents\\Codex\\2026-10-08\\rea\\work\\custard-knights\\qa\\faction-entry-focus.cjs:14:82)\n    at C:\\Users\\Joshua\\Documents\\Codex\\2026-10-08\\rea\\work\\custard-knights\\qa\\faction-entry-focus.cjs:21:2"
+}

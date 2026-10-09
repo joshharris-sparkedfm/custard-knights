@@ -1,0 +1,103 @@
+{
+  "checks": [
+    {
+      "name": "Fresh player enters setup on the offline Play with bots action",
+      "pass": true
+    },
+    {
+      "name": "Shift+Tab from the first select wraps to the last visible setup control",
+      "pass": true
+    },
+    {
+      "name": "Tab from the last visible setup control wraps to the first select",
+      "pass": true
+    },
+    {
+      "name": "Controller down skips collapsed online fields and wraps to the first visible control",
+      "pass": true
+    },
+    {
+      "name": "Controller up wraps to the visible online summary, not its hidden fields",
+      "pass": true
+    },
+    {
+      "name": "Expanded online fields remain inside the same focus boundary",
+      "pass": true
+    },
+    {
+      "name": "Expanded setup wraps forward to the first select",
+      "pass": true
+    },
+    {
+      "name": "Tab within an editable name field keeps its ordinary next-control behavior",
+      "pass": true
+    },
+    {
+      "name": "Escape from an input exits setup, restores menu focus and clears the private key",
+      "pass": true
+    },
+    {
+      "name": "No browser exceptions",
+      "pass": true
+    }
+  ],
+  "errors": [],
+  "sourceHash": "745722960094f0d84dd9abd2a798c7a314da26bc067aff9e27385f65dc20ed0b",
+  "limitations": "Headless Chromium synthetic keyboard events in a fresh profile; no physical-device acceptance.",
+  "controls": [
+    {
+      "tag": "SELECT",
+      "text": "Faction brawlCapture the flagCastle siege",
+      "visible": true,
+      "closedDetails": false
+    },
+    {
+      "tag": "SELECT",
+      "text": "4 vs 4 · skirmish20 vs 20 · warband50 vs 50 · gran",
+      "visible": true,
+      "closedDetails": false
+    },
+    {
+      "tag": "SELECT",
+      "text": "VanguardRangerEngineerSupport",
+      "visible": true,
+      "closedDetails": false
+    },
+    {
+      "tag": "SELECT",
+      "text": "EasyMediumHardSTEVE (insane)",
+      "visible": true,
+      "closedDetails": false
+    },
+    {
+      "tag": "INPUT",
+      "text": "",
+      "visible": true,
+      "closedDetails": false
+    },
+    {
+      "tag": "BUTTON",
+      "text": "Play with bots",
+      "visible": true,
+      "closedDetails": false
+    },
+    {
+      "tag": "BUTTON",
+      "text": "Back to main menu",
+      "visible": true,
+      "closedDetails": false
+    },
+    {
+      "tag": "SUMMARY",
+      "text": "Play online · experimental",
+      "visible": true,
+      "closedDetails": true
+    }
+  ],
+  "backwardFocus": {
+    "tag": "SUMMARY",
+    "id": "",
+    "text": "Play online · experimental",
+    "inSetup": true
+  }
+}

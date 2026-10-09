@@ -1,0 +1,14 @@
+{
+  "version": "0.3.0-beta.1",
+  "sourceCommit": "9caeea061030c76bd0784a972459c9d3aa49fa9e",
+  "command": "node tests/desktop-acceptance.cjs dist/Custard Knights-win32-x64/Custard Knights.exe",
+  "exitCode": 0,
+  "phases": ["write", "read", "launcher", "relocated read"],
+  "assertions": ["installed version title", "offline bundled assets", "earned legacy and collection rewards", "independent saved visors", "partial pinned goal", "outfit preset", "campaign spoons and unlock", "settings", "fullscreen", "single-instance launcher"],
+  "profile": "isolated temporary profile, not the player's save",
+  "friendsZipSha256": "e8b79c0044ee1ee4651b4b923c2299a9e7236c35af2920bee8e38ec926fa53a4",
+  "friendsZipBytes": 530996339,
+  "gameFiles": 73,
+  "zipIntegrity": "passed for preview and friends kit",
+  "limits": "No physical-controller, WAN, other-PC or human gameplay acceptance claimed. Earlier package records in parent directory predate movement fixes."
+}

@@ -1,4 +1,17 @@
-# Local playable preview — 0.3.0-alpha.6
+# Private friends beta — 0.3.0-beta.1
+
+Frozen runtime is merged source `9caeea061030c76bd0784a972459c9d3aa49fa9e` (PR #12). This fixes permanent off-screen dash/knockback escape and unsafe trapdoor respawns, Faction menu focus, and adds the installed version to the desktop window title. New weapons and rare chaos events are not included yet.
+
+- Ready-to-run folder: `outputs/Custard-Knights-Windows-0.3.0-beta.1-preview`.
+- Friends ZIP: `outputs/Custard-Knights-Friends-0.3.0-beta.1.zip`, 530996339 bytes, SHA256 `e8b79c0044ee1ee4651b4b923c2299a9e7236c35af2920bee8e38ec926fa53a4`.
+- Preview ZIP: `outputs/Custard-Knights-Windows-0.3.0-beta.1-preview.zip`, 531000716 bytes, SHA256 `12a780b356fa85a934869e872df0ddf2c4b730199f2c24eaa2f8b6fd0ff3fb1a`.
+- Application archive SHA256: `d2a90da4cdaebffc75c448cbc4138600068ff0ae67270aa90cf0a26793735cc1`.
+
+All 53 packaged runtime/metadata entries match source; all 73 files are carried into the friends kit with hashes. Both ZIP integrity checks passed. Actual beta.1 EXE acceptance passed offline assets, version title, earned progress/settings/visors/preset and campaign save persistence, restart, single-instance launcher and relocation using isolated profiles. Source checks passed 408 boundary cases and 149 spawn/movement cases. Evidence: `qa/results/friends-beta-1/final-package/`, `qa/results/arena-boundary/final/`, `qa/results/arena-spawns/all-modes-final/`.
+
+Friends extract the entire ZIP, then open `Game/Custard Knights.exe`. Close the older game normally first: versions share one running-game lock. The kit contains the start guide and offline feedback form. It has not been sent to anyone or uploaded as a public release. Physical controllers, WAN play and human balance/fun review remain unperformed. Alpha.6 and earlier exports remain preserved, but beta.1 contains the reported movement fix.
+
+# Historical local playable preview — 0.3.0-alpha.6
 
 Exported 9 October 2026 from full source checkpoint `d15c4b66f66b489241343f9c4e282f4e58b46868`. The tested alpha.6 desktop build was frozen before export. All 12 soundtrack slots are enabled: 11 new WAV recordings and the retained original menu MP3. Later evidence/docs changes do not alter these exports.
 

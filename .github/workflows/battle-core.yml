@@ -4,6 +4,11 @@ on:
     paths:
       - 'game/mass-battle.js'
       - 'tests/mass-battle.test.cjs'
+      - 'game/mass-battle-wire.js'
+      - 'server/**'
+      - 'tests/**'
+      - 'qa/mass-battle-load.cjs'
+      - 'package-lock.json'
       - '.github/workflows/battle-core.yml'
   workflow_dispatch:
 permissions:
@@ -31,5 +36,34 @@ jobs:
         with:
           name: core-${{ matrix.os }}-node${{ matrix.node }}
           path: core-tests.tap
+          if-no-files-found: warn
+          retention-days: 14
+  server:
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, windows-latest]
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 6
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4
+        with:
+          node-version: 24
+      - name: Install server dependency only
+        run: npm ci --omit=dev --ignore-scripts
+      - name: Run full unit suite
+        shell: bash
+        run: node --test --test-reporter=tap tests/*.test.cjs > full-tests.tap
+      - name: Exercise 100 active loopback clients for 60 seconds
+        run: node qa/mass-battle-load.cjs 60 battle-load.json
+      - name: Retain passes and failures
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        with:
+          name: server-${{ matrix.os }}
+          path: |
+            full-tests.tap
+            battle-load.json
           if-no-files-found: warn
           retention-days: 14

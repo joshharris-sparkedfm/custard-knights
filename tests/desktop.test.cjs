@@ -34,10 +34,10 @@ test('release staging includes future game modules and licenses, excludes scratc
  const root=fixture(t);
  for(const name of ['index.html','menu-theme.mp3','art/keyart/home.webp','desktop/main.cjs','desktop/assets.cjs',
   'desktop/acceptance.cjs','desktop/online-smoke.cjs','desktop/faction-smoke.cjs','desktop/icon.png','sprites/hero.js','vendor/peerjs-LICENSE.txt','game/campaign.js',
-  'game/cups.js','audio/new-song.mp3','audio/.secret.json','audio/draft.psd','desktop/developer-tool.cjs'])write(root,name);
+  'game/cups.js','audio/new-song.mp3','audio/new-song.wav','audio/.secret.json','audio/draft.psd','desktop/developer-tool.cjs'])write(root,name);
  write(root,'package.json',JSON.stringify({name:'test',productName:'Custard Knights',version:'0.2.0',main:'desktop/main.cjs',devDependencies:{electron:'44.7.0'}}));
  const {stage}=createStage(root);
- for(const file of ['game/campaign.js','game/cups.js','audio/new-song.mp3','vendor/peerjs-LICENSE.txt','desktop/faction-smoke.cjs'])assert.ok(fs.existsSync(path.join(stage,file)),file);
+ for(const file of ['game/campaign.js','game/cups.js','audio/new-song.mp3','audio/new-song.wav','vendor/peerjs-LICENSE.txt','desktop/faction-smoke.cjs'])assert.ok(fs.existsSync(path.join(stage,file)),file);
  for(const file of ['audio/.secret.json','audio/draft.psd','desktop/developer-tool.cjs'])assert.ok(!fs.existsSync(path.join(stage,file)),file);
  assert.equal(JSON.parse(fs.readFileSync(path.join(stage,'package.json'))).devDependencies,undefined);
 });

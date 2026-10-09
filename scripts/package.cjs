@@ -25,7 +25,7 @@ function createStage(project=root){
 }
 
 async function packageWindows(){
- require('./vendor.cjs');require('./music.cjs');
+ require('./vendor.cjs');require('./music.cjs').writeCatalog();
  const {stage,pkg}=createStage();
  try{
   const {packager}=require('@electron/packager');

@@ -1,0 +1,342 @@
+{
+  "checks": [
+    "ffa/easy selected",
+    "ffa/easy finite simulation",
+    "ffa/easy bots navigate",
+    "teams/easy selected",
+    "teams/easy finite simulation",
+    "teams/easy bots navigate",
+    "lks/easy selected",
+    "lks/easy finite simulation",
+    "lks/easy bots navigate",
+    "kotp/easy selected",
+    "kotp/easy finite simulation",
+    "kotp/easy bots navigate",
+    "heist/easy selected",
+    "heist/easy finite simulation",
+    "heist/easy bots navigate",
+    "race/easy selected",
+    "race/easy finite simulation",
+    "race/easy bots navigate",
+    "flags/easy selected",
+    "flags/easy finite simulation",
+    "flags/easy bots navigate",
+    "hotpie/easy selected",
+    "hotpie/easy finite simulation",
+    "hotpie/easy bots navigate",
+    "ffa/medium selected",
+    "ffa/medium finite simulation",
+    "ffa/medium bots navigate",
+    "teams/medium selected",
+    "teams/medium finite simulation",
+    "teams/medium bots navigate",
+    "lks/medium selected",
+    "lks/medium finite simulation",
+    "lks/medium bots navigate",
+    "kotp/medium selected",
+    "kotp/medium finite simulation",
+    "kotp/medium bots navigate",
+    "heist/medium selected",
+    "heist/medium finite simulation",
+    "heist/medium bots navigate",
+    "race/medium selected",
+    "race/medium finite simulation",
+    "race/medium bots navigate",
+    "flags/medium selected",
+    "flags/medium finite simulation",
+    "flags/medium bots navigate",
+    "hotpie/medium selected",
+    "hotpie/medium finite simulation",
+    "hotpie/medium bots navigate",
+    "ffa/hard selected",
+    "ffa/hard finite simulation",
+    "ffa/hard bots navigate",
+    "teams/hard selected",
+    "teams/hard finite simulation",
+    "teams/hard bots navigate",
+    "lks/hard selected",
+    "lks/hard finite simulation",
+    "lks/hard bots navigate",
+    "kotp/hard selected",
+    "kotp/hard finite simulation",
+    "kotp/hard bots navigate",
+    "heist/hard selected",
+    "heist/hard finite simulation",
+    "heist/hard bots navigate",
+    "race/hard selected",
+    "race/hard finite simulation",
+    "race/hard bots navigate",
+    "flags/hard selected",
+    "flags/hard finite simulation",
+    "flags/hard bots navigate",
+    "hotpie/hard selected",
+    "hotpie/hard finite simulation",
+    "hotpie/hard bots navigate",
+    "ffa/steve selected",
+    "ffa/steve finite simulation",
+    "ffa/steve bots navigate",
+    "teams/steve selected",
+    "teams/steve finite simulation",
+    "teams/steve bots navigate",
+    "lks/steve selected",
+    "lks/steve finite simulation",
+    "lks/steve bots navigate",
+    "kotp/steve selected",
+    "kotp/steve finite simulation",
+    "kotp/steve bots navigate",
+    "heist/steve selected",
+    "heist/steve finite simulation",
+    "heist/steve bots navigate",
+    "race/steve selected",
+    "race/steve finite simulation",
+    "race/steve bots navigate",
+    "flags/steve selected",
+    "flags/steve finite simulation",
+    "flags/steve bots navigate",
+    "hotpie/steve selected",
+    "hotpie/steve finite simulation",
+    "hotpie/steve bots navigate",
+    "easy equal movement speed",
+    "easy respects stun",
+    "medium equal movement speed",
+    "medium respects stun",
+    "hard equal movement speed",
+    "hard respects stun",
+    "steve equal movement speed",
+    "steve respects stun",
+    "objective runner can attack a nearby enemy",
+    "STEVE chooses bash against guarded opponent",
+    "STEVE spends earned riposte",
+    "four arena difficulty buttons",
+    "four story difficulty buttons"
+  ],
+  "samples": [
+    {
+      "mode": "ffa",
+      "diff": "easy",
+      "bots": 7,
+      "dashes": 0,
+      "clock": 5.999999999999984
+    },
+    {
+      "mode": "teams",
+      "diff": "easy",
+      "bots": 7,
+      "dashes": 0,
+      "clock": 5.999999999999984
+    },
+    {
+      "mode": "lks",
+      "diff": "easy",
+      "bots": 7,
+      "dashes": 0,
+      "clock": 5.999999999999984
+    },
+    {
+      "mode": "kotp",
+      "diff": "easy",
+      "bots": 7,
+      "dashes": 0,
+      "clock": 5.999999999999984
+    },
+    {
+      "mode": "heist",
+      "diff": "easy",
+      "bots": 7,
+      "dashes": 4,
+      "clock": 5.999999999999984
+    },
+    {
+      "mode": "race",
+      "diff": "easy",
+      "bots": 7,
+      "dashes": 7,
+      "clock": 5.999999999999984
+    },
+    {
+      "mode": "flags",
+      "diff": "easy",
+      "bots": 7,
+      "dashes": 1,
+      "clock": 5.999999999999984
+    },
+    {
+      "mode": "hotpie",
+      "diff": "easy",
+      "bots": 7,
+      "dashes": 1,
+      "clock": 5.999999999999984
+    },
+    {
+      "mode": "ffa",
+      "diff": "medium",
+      "bots": 7,
+      "dashes": 3,
+      "clock": 5.999999999999984
+    },
+    {
+      "mode": "teams",
+      "diff": "medium",
+      "bots": 7,
+      "dashes": 4,
+      "clock": 5.999999999999984
+    },
+    {
+      "mode": "lks",
+      "diff": "medium",
+      "bots": 7,
+      "dashes": 4,
+      "clock": 5.999999999999984
+    },
+    {
+      "mode": "kotp",
+      "diff": "medium",
+      "bots": 7,
+      "dashes": 3,
+      "clock": 5.999999999999984
+    },
+    {
+      "mode": "heist",
+      "diff": "medium",
+      "bots": 7,
+      "dashes": 6,
+      "clock": 5.999999999999984
+    },
+    {
+      "mode": "race",
+      "diff": "medium",
+      "bots": 7,
+      "dashes": 10,
+      "clock": 5.999999999999984
+    },
+    {
+      "mode": "flags",
+      "diff": "medium",
+      "bots": 7,
+      "dashes": 3,
+      "clock": 5.999999999999984
+    },
+    {
+      "mode": "hotpie",
+      "diff": "medium",
+      "bots": 7,
+      "dashes": 1,
+      "clock": 5.999999999999984
+    },
+    {
+      "mode": "ffa",
+      "diff": "hard",
+      "bots": 7,
+      "dashes": 6,
+      "clock": 5.999999999999984
+    },
+    {
+      "mode": "teams",
+      "diff": "hard",
+      "bots": 7,
+      "dashes": 5,
+      "clock": 5.999999999999984
+    },
+    {
+      "mode": "lks",
+      "diff": "hard",
+      "bots": 7,
+      "dashes": 6,
+      "clock": 5.999999999999984
+    },
+    {
+      "mode": "kotp",
+      "diff": "hard",
+      "bots": 7,
+      "dashes": 7,
+      "clock": 5.999999999999984
+    },
+    {
+      "mode": "heist",
+      "diff": "hard",
+      "bots": 7,
+      "dashes": 7,
+      "clock": 5.999999999999984
+    },
+    {
+      "mode": "race",
+      "diff": "hard",
+      "bots": 7,
+      "dashes": 11,
+      "clock": 5.999999999999984
+    },
+    {
+      "mode": "flags",
+      "diff": "hard",
+      "bots": 7,
+      "dashes": 2,
+      "clock": 5.999999999999984
+    },
+    {
+      "mode": "hotpie",
+      "diff": "hard",
+      "bots": 7,
+      "dashes": 4,
+      "clock": 5.999999999999984
+    },
+    {
+      "mode": "ffa",
+      "diff": "steve",
+      "bots": 7,
+      "dashes": 4,
+      "clock": 5.999999999999984
+    },
+    {
+      "mode": "teams",
+      "diff": "steve",
+      "bots": 7,
+      "dashes": 10,
+      "clock": 5.999999999999984
+    },
+    {
+      "mode": "lks",
+      "diff": "steve",
+      "bots": 7,
+      "dashes": 8,
+      "clock": 5.999999999999984
+    },
+    {
+      "mode": "kotp",
+      "diff": "steve",
+      "bots": 7,
+      "dashes": 8,
+      "clock": 5.999999999999984
+    },
+    {
+      "mode": "heist",
+      "diff": "steve",
+      "bots": 7,
+      "dashes": 8,
+      "clock": 5.999999999999984
+    },
+    {
+      "mode": "race",
+      "diff": "steve",
+      "bots": 7,
+      "dashes": 14,
+      "clock": 5.999999999999984
+    },
+    {
+      "mode": "flags",
+      "diff": "steve",
+      "bots": 7,
+      "dashes": 8,
+      "clock": 5.999999999999984
+    },
+    {
+      "mode": "hotpie",
+      "diff": "steve",
+      "bots": 7,
+      "dashes": 8,
+      "clock": 5.999999999999984
+    }
+  ],
+  "limitations": "Six simulated seconds per arena mode/profile; targeted mechanics assertions. Not human difficulty calibration or exhaustive emergent-behaviour acceptance.",
+  "sourceCommit": "cb6882ded98e4560b9ed2af7d24f4034970f87a1",
+  "indexSha256": "4a9a2aaf615f5155969423c6dd47d2b26825816bc8caa665343b6b38ca6f40ba"
+}

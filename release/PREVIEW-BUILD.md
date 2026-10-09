@@ -1,4 +1,16 @@
-# Private friends beta — 0.3.0-beta.1
+# Private friends beta — 0.3.0-beta.2
+
+Frozen source `944305e1f336e4dccb37700659ac89154047ff7e` adds Crossbow and Returning Croissant to beta.1's movement/spawn fixes. Later QA/docs commits do not change the runtime. All 54 packaged entries match source; actual EXE save/restart/launcher/relocation checks and both ZIP integrity checks pass. Six module tests, 30 browser weapon checks and all six hosted CI jobs passed (run 37970655784).
+
+- Friends ZIP: `outputs/Custard-Knights-Friends-0.3.0-beta.2.zip`, 530998941 bytes, SHA256 `41f7200ac56f44fc2904dc6c4fa69d1472677b79f2b844aefab2dde16cc9dc95`.
+- Preview folder: `outputs/Custard-Knights-Windows-0.3.0-beta.2-preview`.
+- Preview ZIP: `outputs/Custard-Knights-Windows-0.3.0-beta.2-preview.zip`, 531003850 bytes, SHA256 `b11a238327f1768e2709432932e400ced251602d77e037680c5ab8438e36f9ea`.
+- ASAR SHA256: `c196508dc044a43b27123375678f66d4ca395140af368e76316a660c67f7d7a0`.
+- Friends kit contains 73 hashed game files, guide and offline feedback form. No public upload or sending performed.
+
+Known pending correction: during a long interruption in host snapshots, original-arena guests continue extrapolating and can drift off-screen until another packet arrives. This is separate from the corrected host/solo movement bug. Bounded guest prediction is the next task. Chaos presets, the requested Oh Nae Nae recording and rare AK47/lightning events are not yet included. Offline/couch testing is available now; physical-controller/WAN/human acceptance remains open.
+
+# Historical private friends beta — 0.3.0-beta.1
 
 Frozen runtime is merged source `9caeea061030c76bd0784a972459c9d3aa49fa9e` (PR #12). This fixes permanent off-screen dash/knockback escape and unsafe trapdoor respawns, Faction menu focus, and adds the installed version to the desktop window title. New weapons and rare chaos events are not included yet.
 

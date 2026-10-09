@@ -7,7 +7,7 @@
   let {g,p}=fixture();CK.giveWeapon(p,kind);add(kind+' pickup grants its declared ammunition',p.wpn?.kind===kind&&p.wpn.ammo===ammo&&p.wpn.lvl===1);
   CK.keys.KeyF=true;tick(1);add(kind+' actual attack input fires one projectile and consumes one round',g.proj.length===1&&g.proj[0].k===projectile&&p.wpn.ammo===ammo-1&&Math.abs(p.fireCd-cooldown)<1e-6,{ammo:p.wpn.ammo,fireCd:p.fireCd});
   tick(20);add(kind+' holding attack cannot bypass reload',p.wpn.ammo===ammo-1);clear();tick(50);CK.keys.KeyF=true;tick(1);clear();add(kind+' attack fires again after reload',p.wpn?.ammo===ammo-2);
-  while(p.wpn){p.fireCd=0;CK.fire(p);}add(kind+' final round unequips the exhausted weapon',p.wpn===null);
+  CK.keys.KeyF=true;for(let i=0;i<240&&p.wpn;i++)tick(1);clear();add(kind+' final round unequips the exhausted weapon',p.wpn===null);
   ({g,p}=fixture());CK.giveWeapon(p,kind);CK.giveWeapon(p,kind);add(kind+' duplicate pickup upgrades and refills',p.wpn.lvl===2&&p.wpn.ammo===ammo*2);
   ({g,p}=fixture());p.x=260;p.y=260;CK.giveWeapon(p,kind);const before=g.crateHp[4*32+8];CK.fire(p);tick(20);add(kind+' piercing projectile stops at an actual crate and damages it once',g.proj.length===0&&g.crateHp[4*32+8]===before-1,{before,after:g.crateHp[4*32+8]});
   ({g,p}=fixture());p.x=1180;CK.giveWeapon(p,kind);CK.fire(p);tick(20);add(kind+' projectile stops at outer wall',g.proj.length===0);

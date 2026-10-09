@@ -23,4 +23,4 @@ The 2026-10-08 fresh staged candidate is in `../sprite-build/20261008-153830`: e
 
 Final checks include `qa/grip-review.cjs ROOT --full` and `--full --open`, `qa/visor-run.cjs ROOT --assets`, animation/collision checks, wardrobe/preset/backup/controller checks and live online appearance. `CK_PERF_VISORS=1 node qa/run.js perf` measures mixed open/closed families across all six arenas. Packaged restart/relocation and desktop journey acceptance verify both local visor choices and offline loading of both resolutions. None substitutes for physical-controller, different-network or human playtesting.
 
-The current build status is in `release/LAUNCH-STATUS.md`; the presence of these scripts does not establish that the pending 0.2.2 package passed acceptance.
+The completed 0.2.2 visual, performance and packaged acceptance results are recorded in `release/LAUNCH-STATUS.md` and `release/DESKTOP-ACCEPTANCE.md`. These results cover the local Windows candidate; Steam and physical-device acceptance remain separate release gates.

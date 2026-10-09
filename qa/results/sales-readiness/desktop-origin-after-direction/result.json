@@ -1,0 +1,11 @@
+{
+  "date": "2026-10-09T07:24:34.580Z",
+  "packaged": false,
+  "code": 1,
+  "signal": null,
+  "origins": [
+    "custard://game"
+  ],
+  "stdout": "\r\n",
+  "stderr": "FACTION_DESKTOP_FAIL Error: brawl desktop movement did not reach authoritative server {\"before\":246.37317039305344,\"after\":250.81957941464185,\"key\":\"D\"}\n    at module.exports (C:\\Users\\Joshua\\Documents\\Codex\\2026-10-08\\rea\\work\\custard-knights\\desktop\\faction-smoke.cjs:18:46)\n    at async C:\\Users\\Joshua\\Documents\\Codex\\2026-10-08\\rea\\work\\custard-knights\\desktop\\main.cjs:33:19\n"
+}

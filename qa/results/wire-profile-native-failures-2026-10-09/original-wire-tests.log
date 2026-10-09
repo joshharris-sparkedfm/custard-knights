@@ -1,0 +1,15 @@
+✖ tests\mass-battle-wire.test.cjs (438.7312ms)
+ℹ tests 1
+ℹ suites 0
+ℹ pass 0
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 443.3977
+
+✖ failing tests:
+
+test at tests\mass-battle-wire.test.cjs:1:1
+✖ tests\mass-battle-wire.test.cjs (438.7312ms)
+  'test failed'

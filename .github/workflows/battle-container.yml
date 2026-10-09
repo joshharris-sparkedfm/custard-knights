@@ -1,0 +1,44 @@
+name: Battle container smoke
+on:
+  push:
+    paths:
+      - 'deploy/**'
+      - '.github/workflows/battle-container.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  container:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
+        with:
+          node-version: 24
+      - name: Validate local and staged public configuration
+        run: |
+          docker compose -f deploy/compose.yaml config --quiet
+          BATTLE_DOMAIN=review.invalid docker compose -f deploy/compose.yaml -f deploy/compose.public.yaml config --quiet
+      - name: Build and start loopback-only container
+        run: docker compose -f deploy/compose.yaml up --build --wait --wait-timeout 90 -d
+      - name: Check actual container handshake and state
+        run: |
+          npm ci --omit=dev --ignore-scripts
+          node qa/container-smoke.cjs
+      - name: Retain container evidence
+        if: always()
+        run: |
+          docker compose -f deploy/compose.yaml ps > container-status.txt
+          docker compose -f deploy/compose.yaml logs --no-color > container.log
+      - if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: battle-container
+          path: |
+            container-status.txt
+            container.log
+            container-smoke.json
+          retention-days: 14
+      - if: always()
+        run: docker compose -f deploy/compose.yaml down

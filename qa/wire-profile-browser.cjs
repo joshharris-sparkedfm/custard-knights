@@ -1,0 +1,47 @@
+'use strict';
+// Chrome executes simulation and decoding; Node only drives CDP and preserves evidence.
+const fs = require('node:fs'), path = require('node:path'), os = require('node:os'), crypto = require('node:crypto');
+const { spawn } = require('node:child_process');
+const ROOT = path.resolve(__dirname, '..');
+const baseline = path.resolve(process.argv[2] || path.join(ROOT, 'game/mass-battle-wire.js'));
+const output = path.resolve(process.argv[3] || path.join(__dirname, 'results/wire-profile-browser'));
+const sleep = ms => new Promise(resolve => setTimeout(resolve, ms));
+const source = fs.readFileSync(path.join(ROOT, 'game/mass-battle-wire.js'), 'utf8');
+const original = fs.readFileSync(baseline, 'utf8');
+let child, socket;
+(async () => {
+  fs.mkdirSync(output, { recursive: true });
+  const profileDir = fs.mkdtempSync(path.join(os.tmpdir(), 'ck-wire-'));
+  child = spawn(process.env.CHROME || 'C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe', ['--headless=new', '--remote-debugging-port=0', '--user-data-dir=' + profileDir, 'about:blank'], { stdio: 'ignore', windowsHide: true });
+  let port;
+  for (let i = 0; i < 80; i++) { try { port = Number(fs.readFileSync(path.join(profileDir, 'DevToolsActivePort'), 'utf8').split('\n')[0]); break; } catch { await sleep(200); } }
+  if (!port) throw Error('Chrome did not start');
+  const tab = (await (await fetch(`http://127.0.0.1:${port}/json`)).json()).find(t => t.type === 'page');
+  socket = new WebSocket(tab.webSocketDebuggerUrl);
+  await new Promise((resolve, reject) => { socket.onopen = resolve; socket.onerror = reject; });
+  const pending = new Map(); let id = 0;
+  socket.onmessage = ({ data }) => { const msg = JSON.parse(data), p = pending.get(msg.id); if (p) { clearTimeout(p.timer); pending.delete(msg.id); msg.error ? p.reject(Error(JSON.stringify(msg.error))) : p.resolve(msg.result); } };
+  const send = (method, params = {}) => new Promise((resolve, reject) => { const key = ++id, timer = setTimeout(() => reject(Error('CDP timeout ' + method)), 60000); pending.set(key, { resolve, reject, timer }); socket.send(JSON.stringify({ id: key, method, params })); });
+  const run = async expression => { const r = await send('Runtime.evaluate', { expression, returnByValue: true, awaitPromise: true, timeout: 55000 }); if (r.exceptionDetails) throw Error(JSON.stringify(r.exceptionDetails)); return r.result.value; };
+  await run(fs.readFileSync(path.join(ROOT, 'game/mass-battle.js'), 'utf8'));
+  await run(original + '\nwindow.before=CKMassBattleWire;\n//# sourceURL=wire-before.js');
+  await run(source + '\nwindow.after=CKMassBattleWire;\n//# sourceURL=wire-after.js');
+  await run(fs.readFileSync(path.join(__dirname, 'wire-profile.body.js'), 'utf8'));
+  await run('wireBench.verify()');
+  await run('for(let i=0;i<3;i++){wireBench.run(before);wireBench.run(after);}');
+  await send('Profiler.enable'); await send('Profiler.setSamplingInterval', { interval: 100 }); await send('Profiler.start');
+  await run('for(let i=0;i<6;i++)wireBench.run(before);');
+  const { profile } = await send('Profiler.stop');
+  const nodes = new Map(profile.nodes.map(n => [n.id, n])), costs = new Map();
+  profile.samples.forEach((id, i) => { const c = nodes.get(id).callFrame, key = `${c.functionName || '(anonymous)'} ${c.url}:${c.lineNumber + 1}`; costs.set(key, (costs.get(key) || 0) + profile.timeDeltas[i]); });
+  const result = await run('wireBench.measure()');
+  const packetText = await run('JSON.stringify(wireBench.batches.map(b=>b.packets))');
+  result.browser = await send('Browser.getVersion');
+  result.baselineSha256 = crypto.createHash('sha256').update(original).digest('hex');
+  result.currentSha256 = crypto.createHash('sha256').update(source).digest('hex');
+  result.packetsSha256 = crypto.createHash('sha256').update(packetText).digest('hex');
+  result.profileTopSelfMicroseconds = [...costs].sort((a, b) => b[1] - a[1]).slice(0, 20);
+  result.focusedTests = await run(`(()=>{const results=[];const copy=x=>JSON.parse(JSON.stringify(x));const eq=(a,b)=>JSON.stringify(a)===JSON.stringify(b);const assert={equal:(a,b,m)=>{if(a!==b)throw Error(m||'equal');},deepEqual:(a,b,m)=>{if(!eq(a,b))throw Error(m||'deepEqual');},ok:(v,m)=>{if(!v)throw Error(m||'ok');}};const test=(label,fn)=>{fn();results.push(label);};const Battle=CKMassBattle,Wire=after;${fs.readFileSync(path.join(ROOT,'tests/mass-battle-wire.test.cjs'),'utf8').split('\n').slice(6).join('\n')}return results;})()`);
+  fs.writeFileSync(path.join(output, 'profile.json'), JSON.stringify(result, null, 2));
+  console.log(JSON.stringify(result, null, 2));
+})().catch(e => { console.error(e); process.exitCode = 1; }).finally(() => { socket?.close(); child?.kill(); });

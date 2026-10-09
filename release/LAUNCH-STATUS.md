@@ -1,6 +1,35 @@
-# Required launch scope — 8 October 2026
+# Sales readiness — 9 October 2026
 
-**9 October development update:** source is now 0.3.0-alpha.1 with unfinished faction/difficulty work. This document's 0.2.2 acceptance is historical. See [RESUME-CHECKPOINT.md](RESUME-CHECKPOINT.md) for current failures and continuation instructions; the preview is not cleared for release.
+**Current exported build: 0.3.0-alpha.3 development preview. Public-sale sign-off is pending.** Use [PREVIEW-BUILD.md](PREVIEW-BUILD.md) for its exact runtime commit, archive hash and local launch path. [RESUME-CHECKPOINT.md](RESUME-CHECKPOINT.md) records subsequent development. No Steam submission or public release is recorded. Developer/publisher is Sparked FM Ltd; GBP 7.99 / USD 9.99 remains a proposal, not a submitted price.
+
+## Current scope and acceptance
+
+| Area | Available in the preview | Remaining acceptance |
+|---|---|---|
+| Arena, story and Cup | Eight arena modes, six arenas, eight story encounters, three-round Cup; saved progression and earned cosmetics | Human first-session review, physical pads/Steam Input and final packaged journey on supported hardware |
+| Character and combat presentation | Rounded knights, free saved closed/open visors, connected sword motion, authoritative contact cues | Human readability and responsiveness review; earlier controlled art checks are linked below |
+| Difficulty and bots | Easy, Medium, Hard and STEVE in arena/story/faction; role and objective decisions reviewed | Human difficulty calibration and multi-seed balance; scripted success does not establish fun or fairness |
+| Faction Front | Brawl, capture the flag and castle siege at 4v4, 20v20 and 50v50 total combatants; four roles and bot fill. A real browser plus99 scripted clients passed the local sample | Final timing/bandwidth acceptance, WAN and operating deployment. Anonymous session standings are unranked; persistent authenticated rankings are unfinished |
+| Desktop | Offline assets, saves, Windows x64 folder/ZIP; alpha.3 checked 42 package entries, faction connections, restart/relocation and desktop journey | Private Steam depot installation/update on a second PC; measured minimum specification; unsigned preview remains unsigned |
+| Store and music | Artwork, actual-game captures, 41-second trailer; twelve soundtrack slots/prompts | Final media selection/content survey, support contact, price approval, eleven missing recordings and listening checks |
+
+Alpha.2's faction-only 32 MiB sprite cache improved one fixed-seed ten-second 100-combatant sample from 53.61 to 60.09 FPS. Exact software-canvas comparisons passed 1,044 cases and 34 browser interface/online checks passed. GPU readback has documented 1–2 channel-level rounding differences. These results are specific to the QA host, not minimum specifications. See [render-cache review](../qa/reviews/faction-render-cache-2026-10-09.md).
+
+Independent Windows/Linux CI passed core and server tests; twelve full 100-bot browser matches covered all three faction modes and four profiles. Local native Node crashes remain unresolved. Separate server/client-process loads reached approximately 20 snapshots/sec, but minimum input delivery, receive stalls and 205–212 Mbps aggregate payload leave production timing and hosting acceptance incomplete. See [stability review](../qa/reviews/battle-stability-2026-10-09.md) and [process-load review](../qa/reviews/battle-process-load-2026-10-09.md). None of this is acceptance of a public 100-human service.
+
+## Work required before sales
+
+Alpha.3 fixes controller pause navigation and the packaged faction Origin rejection. Seven focused pause tests, 36 browser pad checks, 1260 exact wire comparisons and both hosted full suites (121 tests each) passed. A deployment container passed isolated CI health/custom-origin/delta checks; the HTTPS overlay is prepared but not deployed or TLS-tested. See [sales preparation review](../qa/reviews/sales-readiness-2026-10-09.md) and [deployment preparation](../deploy/README.md).
+
+1. Close the recorded native-runtime and faction timing investigations, then freeze a candidate and retest only affected behavior plus a packaged launch/save journey. Record exact source/build identity and remaining known issues.
+2. Complete [PLAYER-REVIEW.md](PLAYER-REVIEW.md) on actual people, physical controllers, another PC and separate networks. Fix observed blockers and record retests; measure supported minimum hardware.
+3. Complete the faction service deployment/operating plan and distributed acceptance before promising hosted online faction battles. Finish persistent authenticated ranking if it is included in the launch promise. Bot practice and anonymous session standings do not satisfy those promises.
+4. Supply the remaining soundtrack recordings and support contact; audition music and finalize store copy/media against the frozen candidate. Existing artwork ownership and the existing Suno recording's commercial rights are already confirmed.
+5. Complete Steam onboarding, real App/depot configuration, private-branch installation/update and store/build reviews. [STEAM-HANDOFF.md](STEAM-HANDOFF.md) gives the concrete sequence and current official timing sources. Fee payment, legal declarations, public pricing and publication require the owner's authorization for those final actions.
+
+## Historical acceptance — version 0.2.2, 8–9 October 2026
+
+Everything below records the earlier 0.2.2 candidate. References to "current" in this historical section mean that version's source freeze. These checks remain useful regression evidence but do not certify the later faction/difficulty/cache changes or the alpha.2 package. Detailed records remain in [GAMEPLAY-REVIEW.md](GAMEPLAY-REVIEW.md), [DESKTOP-ACCEPTANCE.md](DESKTOP-ACCEPTANCE.md) and [FACE-AND-GRIP-REVIEW.md](FACE-AND-GRIP-REVIEW.md).
 
 The expanded release and requested animation/gameplay refinements are implemented and packaged in 0.2.2. See GAMEPLAY-REVIEW.md and DESKTOP-ACCEPTANCE.md. Joshua requires the Great Pudding War's first eight encounters, Custard Cup and six additional earned cosmetics alongside the original game; the earlier arena-only cutline is superseded. Developer/publisher: Sparked FM Ltd. Recommended price: £7.99 / US$9.99.
 

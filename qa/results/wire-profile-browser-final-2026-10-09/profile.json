@@ -1,0 +1,151 @@
+{
+  "seed": 612,
+  "teamSize": 50,
+  "packets": 630,
+  "modes": [
+    "brawl",
+    "ctf",
+    "siege"
+  ],
+  "exactSnapshotsCompared": 1260,
+  "measurements": [
+    {
+      "round": 0,
+      "variant": "before",
+      "milliseconds": 94.69999999552965
+    },
+    {
+      "round": 0,
+      "variant": "after",
+      "milliseconds": 85.89999999850988
+    },
+    {
+      "round": 1,
+      "variant": "after",
+      "milliseconds": 84.20000000298023
+    },
+    {
+      "round": 1,
+      "variant": "before",
+      "milliseconds": 93.60000000149012
+    },
+    {
+      "round": 2,
+      "variant": "before",
+      "milliseconds": 93.29999999701977
+    },
+    {
+      "round": 2,
+      "variant": "after",
+      "milliseconds": 84.70000000298023
+    },
+    {
+      "round": 3,
+      "variant": "after",
+      "milliseconds": 86.29999999701977
+    },
+    {
+      "round": 3,
+      "variant": "before",
+      "milliseconds": 97.89999999850988
+    },
+    {
+      "round": 4,
+      "variant": "before",
+      "milliseconds": 100.70000000298023
+    },
+    {
+      "round": 4,
+      "variant": "after",
+      "milliseconds": 87.29999999701977
+    },
+    {
+      "round": 5,
+      "variant": "after",
+      "milliseconds": 90.30000000447035
+    },
+    {
+      "round": 5,
+      "variant": "before",
+      "milliseconds": 111.59999999403954
+    },
+    {
+      "round": 6,
+      "variant": "before",
+      "milliseconds": 143.40000000596046
+    },
+    {
+      "round": 6,
+      "variant": "after",
+      "milliseconds": 155.09999999403954
+    },
+    {
+      "round": 7,
+      "variant": "after",
+      "milliseconds": 133.30000000447035
+    },
+    {
+      "round": 7,
+      "variant": "before",
+      "milliseconds": 160.69999999552965
+    }
+  ],
+  "before": {
+    "medianMs": 99.30000000074506,
+    "medianPerPacketMs": 0.15761904762023024,
+    "minMs": 93.29999999701977,
+    "maxMs": 160.69999999552965
+  },
+  "after": {
+    "medianMs": 86.79999999701977,
+    "medianPerPacketMs": 0.13777777777304726,
+    "minMs": 84.20000000298023,
+    "maxMs": 155.09999999403954
+  },
+  "limitation": "Decode-only fixed immutable packets; excludes parsing, encoding, simulation, rendering and input scheduling. Single-host microbenchmark, not WAN or load acceptance.",
+  "browser": {
+    "protocolVersion": "1.3",
+    "product": "Chrome/154.0.8037.98",
+    "revision": "@b859317bf11f6be47f9b7799ec690a0a42a1fb33",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/154.0.0.0 Safari/537.36",
+    "jsVersion": "15.4.80.20"
+  },
+  "baselineSha256": "e1a2b6ffe63ae8f51004cfbc42baa1fa4f494e0b1a71926d73be51d98360ceef",
+  "currentSha256": "2352b8315e9a675a0387ea780856dd2809d835c82bb144fa5a85d1a6cb96ff22",
+  "packetsSha256": "daeee5cf73949df6b4e000cd547657e9e8149f3295864889a9afadd375e7b8aa",
+  "profileTopSelfMicroseconds": [
+    [
+      "apply wire-before.js:108",
+      423216
+    ],
+    [
+      "validate wire-before.js:28",
+      159540
+    ],
+    [
+      "(program) :0",
+      27198
+    ],
+    [
+      "run :13",
+      17944
+    ],
+    [
+      "(garbage collector) :0",
+      1546
+    ],
+    [
+      "(idle) :0",
+      1192
+    ]
+  ],
+  "focusedTests": [
+    "wire deltas reconstruct exact core snapshots across all modes, roles and periodic baselines",
+    "new joins/reconnects use canonical full baseline then ordered roster deltas",
+    "missing, duplicate and malformed deltas preserve baseline until explicit full recovery",
+    "unsupported/full malformed state fails closed, legacy full snapshots remain readable",
+    "decoder copies every mutable snapshot branch and isolates caller and packet changes",
+    "decoder retains JSON optional-field and signed-zero compatibility",
+    "invalid final patch fields cannot mutate an earlier valid baseline branch"
+  ]
+}

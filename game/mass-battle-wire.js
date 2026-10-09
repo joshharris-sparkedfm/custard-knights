@@ -18,6 +18,30 @@
     effects: ['id', 'kind', 'x', 'y', 'radius', 'team', 'life'],
   };
   const clone = value => JSON.parse(JSON.stringify(value));
+  // Validated wire states contain only bounded JSON records, arrays and scalars.
+  // Copy without an intermediate JSON string; never expose the decoder baseline.
+  function copyRecord(value) {
+    const result = {};
+    for (const key of Object.keys(value)) {
+      const field = value[key];
+      if (field !== undefined) result[key] = field === 0 ? 0 : field;
+    }
+    return result;
+  }
+  function copyValidated(state) {
+    const result = copyRecord(state);
+    result.players = state.players.map(player => {
+      const copy = copyRecord(player);
+      copy.attack = player.attack === null ? null : copyRecord(player.attack);
+      return copy;
+    });
+    result.world = copyRecord(state.world);
+    result.world.obstacles = [];
+    result.scores = copyRecord(state.scores);
+    result.control = copyRecord(state.control);
+    for (const key of ['flags', 'castles', 'projectiles', 'effects']) result[key] = state[key].map(copyRecord);
+    return result;
+  }
   const number = n => typeof n === 'number' && Number.isFinite(n) && Math.abs(n) <= 1e10;
   const team = value => value === 'custardia' || value === 'rice';
   const string = (value, max) => typeof value === 'string' && value.length <= max;
@@ -111,8 +135,8 @@
           if (message.type === 'snapshot') {
             if (message.wire !== undefined && (message.wire !== 1 || !Number.isSafeInteger(message.seq) || message.seq < 1)) return null;
             if (!validate(message.state)) return null;
-            previous = clone(message.state); seq = message.wire === 1 ? message.seq : null;
-            return clone(previous);
+            previous = copyValidated(message.state); seq = message.wire === 1 ? message.seq : null;
+            return copyValidated(previous);
           }
           if (message.type !== 'delta' || message.wire !== 1 || !previous || seq === null || message.base !== seq || message.seq !== seq + 1 || !Number.isSafeInteger(message.seq)) return null;
           const patch = message.patch;
@@ -132,7 +156,7 @@
             seenTop.add(row[0]); const value = unpackTop(TOP[row[0]], row[1]); next[TOP[row[0]]] = value && typeof value === 'object' ? clone(value) : value;
           }
           if (!validate(next)) return null;
-          previous = next; seq = message.seq; return clone(previous);
+          previous = next; seq = message.seq; return copyValidated(previous);
         } catch { return null; }
       },
     };

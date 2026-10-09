@@ -6,7 +6,7 @@ function createStage(project=root){
  const stage=fs.mkdtempSync(path.join(build,'stage-'));
  try{
   for(const file of ['index.html','menu-theme.mp3','art/keyart/home.webp',
-   'desktop/main.cjs','desktop/assets.cjs','desktop/acceptance.cjs','desktop/online-smoke.cjs','desktop/icon.png']){
+   'desktop/main.cjs','desktop/assets.cjs','desktop/acceptance.cjs','desktop/online-smoke.cjs','desktop/faction-smoke.cjs','desktop/icon.png']){
    const target=path.join(stage,file);fs.mkdirSync(path.dirname(target),{recursive:true});
    fs.copyFileSync(path.join(project,file),target);
   }

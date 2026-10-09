@@ -1,0 +1,262 @@
+{
+  "date": "2026-10-09T07:26:24.780Z",
+  "packaged": false,
+  "code": 0,
+  "signal": null,
+  "origins": [
+    "custard://game",
+    "custard://game",
+    "custard://game"
+  ],
+  "stdout": "\r\nFACTION_DESKTOP_PASS {\"checks\":[{\"mode\":\"brawl\",\"players\":8,\"visor\":\"closed\",\"network\":{\"full\":1,\"delta\":24,\"resync\":0},\"origin\":\"custard://game\"},{\"mode\":\"ctf\",\"players\":40,\"visor\":\"open\",\"network\":{\"full\":1,\"delta\":20,\"resync\":0},\"origin\":\"custard://game\"},{\"mode\":\"siege\",\"players\":100,\"visor\":\"closed\",\"network\":{\"full\":1,\"delta\":6,\"resync\":0},\"origin\":\"custard://game\"}],\"temporaryProfile\":true,\"input\":\"synthetic DOM keyboard; physical input untested\"}\n",
+  "stderr": "",
+  "samples": [
+    {
+      "room": "desktop-brawl",
+      "time": 0.06579970000000002,
+      "inputs": [
+        {
+          "x": 0,
+          "y": 0,
+          "seq": 1
+        }
+      ]
+    },
+    {
+      "room": "desktop-brawl",
+      "time": 0.16783490000000004,
+      "inputs": [
+        {
+          "x": 0,
+          "y": 0,
+          "seq": 1
+        }
+      ]
+    },
+    {
+      "room": "desktop-brawl",
+      "time": 0.2679968000000001,
+      "inputs": [
+        {
+          "x": 0,
+          "y": 0,
+          "seq": 1
+        }
+      ]
+    },
+    {
+      "room": "desktop-brawl",
+      "time": 0.37319489999999994,
+      "inputs": [
+        {
+          "x": 0,
+          "y": 0,
+          "seq": 1
+        }
+      ]
+    },
+    {
+      "room": "desktop-brawl",
+      "time": 0.4851223,
+      "inputs": [
+        {
+          "x": 0,
+          "y": 0
+        }
+      ]
+    },
+    {
+      "room": "desktop-brawl",
+      "time": 0.6182906000000005,
+      "inputs": [
+        {
+          "x": 0,
+          "y": 0
+        }
+      ]
+    },
+    {
+      "room": "desktop-brawl",
+      "time": 0.7179595000000005,
+      "inputs": [
+        {
+          "x": 0,
+          "y": 0
+        }
+      ]
+    },
+    {
+      "room": "desktop-brawl",
+      "time": 0.8188673000000009,
+      "inputs": [
+        {
+          "x": 0,
+          "y": 0
+        }
+      ]
+    },
+    {
+      "room": "desktop-brawl",
+      "time": 0.9004908000000011,
+      "inputs": [
+        {
+          "x": 0,
+          "y": 0
+        }
+      ]
+    },
+    {
+      "room": "desktop-brawl",
+      "time": 1.0182955000000016,
+      "inputs": [
+        {
+          "x": 0,
+          "y": 0
+        }
+      ]
+    },
+    {
+      "room": "desktop-brawl",
+      "time": 1.1345898000000012,
+      "inputs": [
+        {
+          "x": 1,
+          "y": 0,
+          "seq": 2
+        }
+      ]
+    },
+    {
+      "room": "desktop-ctf",
+      "time": 0.050780299999999896,
+      "inputs": [
+        {
+          "x": 0,
+          "y": 0
+        }
+      ]
+    },
+    {
+      "room": "desktop-ctf",
+      "time": 0.15119619999999986,
+      "inputs": [
+        {
+          "x": 0,
+          "y": 0
+        }
+      ]
+    },
+    {
+      "room": "desktop-ctf",
+      "time": 0.2338130000000001,
+      "inputs": [
+        {
+          "x": 0,
+          "y": 0
+        }
+      ]
+    },
+    {
+      "room": "desktop-ctf",
+      "time": 0.3514412999999999,
+      "inputs": [
+        {
+          "x": 0,
+          "y": 0
+        }
+      ]
+    },
+    {
+      "room": "desktop-ctf",
+      "time": 0.43493099999999996,
+      "inputs": [
+        {
+          "x": 0,
+          "y": 0
+        }
+      ]
+    },
+    {
+      "room": "desktop-ctf",
+      "time": 0.5663559999999999,
+      "inputs": [
+        {
+          "x": 0,
+          "y": 0
+        }
+      ]
+    },
+    {
+      "room": "desktop-ctf",
+      "time": 0.6509341000000003,
+      "inputs": [
+        {
+          "x": 0,
+          "y": 0
+        }
+      ]
+    },
+    {
+      "room": "desktop-ctf",
+      "time": 0.7661153000000005,
+      "inputs": [
+        {
+          "x": 0,
+          "y": 0
+        }
+      ]
+    },
+    {
+      "room": "desktop-ctf",
+      "time": 0.8674093000000006,
+      "inputs": [
+        {
+          "x": 1,
+          "y": 0,
+          "seq": 3
+        }
+      ]
+    },
+    {
+      "room": "desktop-ctf",
+      "time": 0.983582900000001,
+      "inputs": [
+        {
+          "x": 1,
+          "y": 0,
+          "seq": 3
+        }
+      ]
+    },
+    {
+      "room": "desktop-siege",
+      "time": 0.08258379999999987,
+      "inputs": [
+        {
+          "x": 0,
+          "y": 0
+        }
+      ]
+    },
+    {
+      "room": "desktop-siege",
+      "time": 0.19764539999999983,
+      "inputs": [
+        {
+          "x": 0,
+          "y": 0
+        }
+      ]
+    },
+    {
+      "room": "desktop-siege",
+      "time": 0.26658429999999994,
+      "inputs": [
+        {
+          "x": 0,
+          "y": 0
+        }
+      ]
+    }
+  ]
+}

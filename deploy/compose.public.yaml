@@ -1,0 +1,25 @@
+# Deployment overlay only. Requires an owned DNS name pointed at the chosen server.
+services:
+  proxy:
+    image: caddy:2-alpine
+    restart: unless-stopped
+    environment:
+      BATTLE_DOMAIN: ${BATTLE_DOMAIN:?Set BATTLE_DOMAIN to your owned server hostname}
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./Caddyfile:/etc/caddy/Caddyfile:ro
+      - caddy_data:/data
+      - caddy_config:/config
+    depends_on:
+      battle:
+        condition: service_healthy
+    logging:
+      driver: json-file
+      options:
+        max-size: 10m
+        max-file: "3"
+volumes:
+  caddy_data:
+  caddy_config:

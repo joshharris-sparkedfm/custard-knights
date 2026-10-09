@@ -1,0 +1,153 @@
+{
+  "date": "2026-10-09T07:25:28.250Z",
+  "runtimeRoot": "C:\\Users\\Joshua\\Documents\\Codex\\2026-10-08\\rea\\work\\custard-knights",
+  "indexSha256": "fb4cee753c138b4f9f5a07905fe57cfe05ef89994c7b21ea248c246b7e0cffd1",
+  "checks": [
+    {
+      "name": "Game loads with opt-in QA",
+      "pass": true
+    },
+    {
+      "name": "arena starts a live match",
+      "pass": true
+    },
+    {
+      "name": "arena Menu opens pause and focuses Resume",
+      "pass": true
+    },
+    {
+      "name": "arena pause stops the actual match timer",
+      "pass": true
+    },
+    {
+      "name": "arena A on Resume closes pause",
+      "pass": true
+    },
+    {
+      "name": "arena simulation resumes",
+      "pass": true
+    },
+    {
+      "name": "arena B resumes without quitting",
+      "pass": true
+    },
+    {
+      "name": "arena Menu resumes without quitting",
+      "pass": true
+    },
+    {
+      "name": "arena D-pad right selects Quit",
+      "pass": true
+    },
+    {
+      "name": "arena controller selection has a visible focus outline",
+      "pass": true
+    },
+    {
+      "name": "arena A activates Quit and restores main menu",
+      "pass": true
+    },
+    {
+      "name": "arena leaves no active campaign or Cup",
+      "pass": true
+    },
+    {
+      "name": "story starts a live match",
+      "pass": true
+    },
+    {
+      "name": "story Menu opens pause and focuses Resume",
+      "pass": true
+    },
+    {
+      "name": "story pause stops the actual match timer",
+      "pass": true
+    },
+    {
+      "name": "story A on Resume closes pause",
+      "pass": true
+    },
+    {
+      "name": "story simulation resumes",
+      "pass": true
+    },
+    {
+      "name": "story B resumes without quitting",
+      "pass": true
+    },
+    {
+      "name": "story Menu resumes without quitting",
+      "pass": true
+    },
+    {
+      "name": "story D-pad right selects Quit",
+      "pass": true
+    },
+    {
+      "name": "story controller selection has a visible focus outline",
+      "pass": true
+    },
+    {
+      "name": "story A activates Quit and restores main menu",
+      "pass": true
+    },
+    {
+      "name": "story leaves no active campaign or Cup",
+      "pass": true
+    },
+    {
+      "name": "cup starts a live match",
+      "pass": true
+    },
+    {
+      "name": "cup Menu opens pause and focuses Resume",
+      "pass": true
+    },
+    {
+      "name": "cup pause stops the actual match timer",
+      "pass": true
+    },
+    {
+      "name": "cup A on Resume closes pause",
+      "pass": true
+    },
+    {
+      "name": "cup simulation resumes",
+      "pass": true
+    },
+    {
+      "name": "cup B resumes without quitting",
+      "pass": true
+    },
+    {
+      "name": "cup Menu resumes without quitting",
+      "pass": true
+    },
+    {
+      "name": "cup D-pad right selects Quit",
+      "pass": true
+    },
+    {
+      "name": "cup controller selection has a visible focus outline",
+      "pass": true
+    },
+    {
+      "name": "cup A activates Quit and restores main menu",
+      "pass": true
+    },
+    {
+      "name": "cup leaves no active campaign or Cup",
+      "pass": true
+    },
+    {
+      "name": "No browser runtime exceptions",
+      "pass": true
+    },
+    {
+      "name": "Runtime source stayed unchanged during review",
+      "pass": true
+    }
+  ],
+  "errors": [],
+  "limitations": "Synthetic standard gamepad in headless Chrome; real game loop, focus and actions. Match launches are fixtures; no damage, positions, timers, rules or progress are injected. Not physical hardware or Electron shell acceptance."
+}

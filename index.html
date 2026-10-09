@@ -2610,7 +2610,11 @@ function padEdges(){
  PADS.forEach((gp,i)=>{ const pd=padState(i); if(!pd) return; const pv=padPrev[i]||(padPrev[i]={});
   const rose=k=>{ const r=pd[k]&&!pv[k]; pv[k]=pd[k]; return r; };
   const pause=rose('pause'), sh=rose('shout'), up=rose('up'), down=rose('down'), left=rose('left'), right=rose('right'), a=rose('a'), back=rose('back');
-  if(playing){ const who=SEATS?SEATS.findIndex(x=>x.dev==='pad'&&x.idx===gp.index)+1:i+1; if(pause) setPause(!paused); if(sh&&who>0) shout(who,Math.floor(Math.random()*4)); if(paused&&a) setPause(false); }
+  if(playing){
+   if(pause){setPause(!paused);return;}
+   if(paused){if(up)menuNav(0,-1);if(down)menuNav(0,1);if(left)menuNav(-1,0);if(right)menuNav(1,0);if(a)menuActivate();else if(back)setPause(false);return;}
+   const who=SEATS?SEATS.findIndex(x=>x.dev==='pad'&&x.idx===gp.index)+1:i+1;if(sh&&who>0)shout(who,Math.floor(Math.random()*4));
+  }
   else if(partyOpen()){ partyPad(gp.index,{a,back,pause,up,down,left,right}); }
   else { if(up) menuNav(0,-1); if(down) menuNav(0,1); if(left) menuNav(-1,0); if(right) menuNav(1,0); if(a) menuActivate(); if(back) menuBack(); }
  });

@@ -1,0 +1,12 @@
+{
+  "date": "2026-10-09T07:24:07.865Z",
+  "packaged": false,
+  "code": 1,
+  "signal": null,
+  "origins": [
+    "custard://game",
+    "custard://game"
+  ],
+  "stdout": "\r\n",
+  "stderr": "FACTION_DESKTOP_FAIL Error: ctf desktop movement did not reach authoritative server\n    at module.exports (C:\\Users\\Joshua\\Documents\\Codex\\2026-10-08\\rea\\work\\custard-knights\\desktop\\faction-smoke.cjs:17:34)\n    at async C:\\Users\\Joshua\\Documents\\Codex\\2026-10-08\\rea\\work\\custard-knights\\desktop\\main.cjs:33:19\n"
+}

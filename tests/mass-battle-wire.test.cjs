@@ -78,3 +78,55 @@ test('unsupported/full malformed state fails closed, legacy full snapshots remai
   assert.equal(decoder.apply({ type: 'snapshot', state: { ...state, projectiles: Array(161).fill({}) } }), null);
   assert.equal(decoder.apply({ type: 'snapshot', state: { ...state, world: { width: 1e20, height: 10, obstacles: [] } } }), null);
 });
+
+test('decoder copies every mutable snapshot branch and isolates caller and packet changes', () => {
+  const encoder = Wire.createEncoder(), decoder = Wire.createDecoder();
+  const state = Battle.snapshot(Battle.create({ mode: 'ctf', teamSize: 4 }));
+  state.players[0].attack = { kind: 'light', phase: 'windup', elapsed: 0 };
+  state.projectiles = [{ id: 1, team: 'rice', x: 1, y: 2, angle: 0, kind: 'arrow', radius: 3 }];
+  state.effects = [{ id: 1, kind: 'heal', x: 1, y: 2, radius: 3, team: null, life: 1 }];
+  const full = encoder.encode(state), expected = copy(state), rendered = decoder.apply(full);
+  const corrupt = snapshot => {
+    snapshot.players[0].attack.elapsed = 999;
+    snapshot.players[1].hp = -100;
+    snapshot.world.width = 1;
+    snapshot.world.obstacles.push({ x: 1 });
+    snapshot.scores.rice = 999;
+    snapshot.control.x = -1;
+    snapshot.flags[0].x = -1;
+    snapshot.castles[0].hp = -1;
+    snapshot.projectiles[0].x = -1;
+    snapshot.effects[0].life = -1;
+  };
+  corrupt(rendered); corrupt(full.state);
+  const next = decoder.apply(encoder.encode(state));
+  assert.deepEqual(next, expected);
+  corrupt(next);
+  assert.deepEqual(decoder.apply(encoder.encode(state)), expected);
+});
+
+test('decoder retains JSON optional-field and signed-zero compatibility', () => {
+  const state = Battle.snapshot(Battle.create({ teamSize: 4 }));
+  state.difficulty = undefined;
+  state.players[0].visor = undefined;
+  state.players[0].x = -0;
+  state.players[0].attack = { kind: 'light', phase: 'windup', elapsed: -0, angle: undefined };
+  state.control.progress = -0;
+  const decoder = Wire.createDecoder();
+  const actual = decoder.apply({ type: 'snapshot', state });
+  assert.deepEqual(actual, copy(state));
+  assert.equal(Object.hasOwn(actual, 'difficulty'), false);
+  assert.equal(Object.hasOwn(actual.players[0], 'visor'), false);
+  assert.equal(Object.hasOwn(actual.players[0].attack, 'angle'), false);
+  assert.equal(Object.is(actual.players[0].x, -0), false);
+  assert.equal(Object.is(actual.players[0].attack.elapsed, -0), false);
+});
+
+test('invalid final patch fields cannot mutate an earlier valid baseline branch', () => {
+  const state = Battle.snapshot(Battle.create({ teamSize: 4 })), encoder = Wire.createEncoder(), decoder = Wire.createDecoder();
+  const full = encoder.encode(state); decoder.apply(full);
+  const valid = encoder.encode(state);
+  const malformed = { ...valid, patch: { p: [[0, 25, ['light', 'windup', 0, 0, 0, 0, .1, .1, .2]], [1, 6, Infinity]], t: [] } };
+  assert.equal(decoder.apply(malformed), null);
+  assert.deepEqual(decoder.apply(valid), copy(state));
+});

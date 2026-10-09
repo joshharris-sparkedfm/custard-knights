@@ -1,0 +1,29 @@
+{
+  "scope": "Three real PeerJS connections in isolated Chrome profiles on one machine/network. Not cross-network NAT, public hosting, or physical controller certification.",
+  "fixtures": "QA hooks choose the host rare plan and its recipient deterministically; ordinary host simulation, PeerJS transport, guest input and snapshot handling run live. Bots are disabled and human spawn protection extended to isolate protocol behavior. The recipient disconnects through the normal leave path.",
+  "checks": [
+    {
+      "name": "Three isolated profiles establish real PeerJS connections",
+      "pass": true
+    },
+    {
+      "name": "Simple policy arrives in both guest round setups",
+      "pass": true
+    },
+    {
+      "name": "Simple host rejects a rare event",
+      "pass": true
+    }
+  ],
+  "errors": [],
+  "startedAt": "2026-10-09T18:25:19.772Z",
+  "sourceHashes": {
+    "index.html": "3c27c03c9593b91c03afbf002c03387ae0d83dd32009774d0d40784d8a17df5d",
+    "game/chaos.js": "7775b2f85e2767a30c369a3c21bc62e2e1fab089e6eec9f569abf55890933753",
+    "game/weapons.js": "85b6f00b108896f433f2c1fa67bb3f615d6aa005b4746fc970e0c3e45c186a8a",
+    "game/preferences.js": "4df2518c21b16b776bc6911bdd5e36cb3392cd9d713544243756e682ee634764",
+    "audio/soundtrack.js": "980aa9b350ae77aaba7e9f81ae3d4820588218434a0f23e1fa365fdae01df8fa",
+    "audio/13-oh-nae-nae-whats-your-name.wav": "b0a29f48c7300e2a9e807f0b616b127c237f4436e5929d007c15e1d2655de917"
+  },
+  "failure": "Error: RareHost: {\"exceptionId\":1,\"text\":\"Uncaught\",\"lineNumber\":0,\"columnNumber\":0,\"scriptId\":\"34\",\"exception\":{\"type\":\"object\",\"subtype\":\"error\",\"className\":\"SyntaxError\",\"description\":\"SyntaxError: Identifier 'g' has already been declared\",\"objectId\":\"6278792713535898957.2.2\"}}\n    at b.run (C:\\Users\\Joshua\\Documents\\Codex\\2026-10-08\\rea\\work\\custard-knights\\qa\\rare-network.cjs:24:160)\n    at async C:\\Users\\Joshua\\Documents\\Codex\\2026-10-08\\rea\\work\\custard-knights\\qa\\rare-network.cjs:46:2"
+}

@@ -1,0 +1,78 @@
+[
+  {
+    "conclusion": "success",
+    "status": "completed",
+    "url": "https://github.com/joshharris-sparkedfm/custard-knights/actions/runs/37973139408",
+    "jobs": [
+      {
+        "name": "core (windows-latest, 24)",
+        "status": "completed",
+        "conclusion": "success",
+        "started_at": "2026-10-09T18:25:15Z",
+        "completed_at": "2026-10-09T18:25:50Z"
+      },
+      {
+        "name": "core (ubuntu-latest, 24)",
+        "status": "completed",
+        "conclusion": "success",
+        "started_at": "2026-10-09T18:25:16Z",
+        "completed_at": "2026-10-09T18:25:42Z"
+      },
+      {
+        "name": "core (ubuntu-latest, 22)",
+        "status": "completed",
+        "conclusion": "success",
+        "started_at": "2026-10-09T18:25:16Z",
+        "completed_at": "2026-10-09T18:25:41Z"
+      },
+      {
+        "name": "server (ubuntu-latest)",
+        "status": "completed",
+        "conclusion": "success",
+        "started_at": "2026-10-09T18:25:16Z",
+        "completed_at": "2026-10-09T18:26:54Z"
+      },
+      {
+        "name": "server (windows-latest)",
+        "status": "completed",
+        "conclusion": "success",
+        "started_at": "2026-10-09T18:25:17Z",
+        "completed_at": "2026-10-09T18:27:19Z"
+      },
+      {
+        "name": "core (windows-latest, 22)",
+        "status": "completed",
+        "conclusion": "success",
+        "started_at": "2026-10-09T18:25:16Z",
+        "completed_at": "2026-10-09T18:25:49Z"
+      }
+    ],
+    "id": 37973139408,
+    "source": "6eec04154419dbab0c3cc5f2a5a6936a60ce3f45",
+    "attempt": 1
+  },
+  {
+    "conclusion": "success",
+    "status": "completed",
+    "url": "https://github.com/joshharris-sparkedfm/custard-knights/actions/runs/37973139390",
+    "jobs": [
+      {
+        "name": "soundtrack (windows-latest)",
+        "status": "completed",
+        "conclusion": "success",
+        "started_at": "2026-10-09T18:25:15Z",
+        "completed_at": "2026-10-09T18:25:44Z"
+      },
+      {
+        "name": "soundtrack (ubuntu-latest)",
+        "status": "completed",
+        "conclusion": "success",
+        "started_at": "2026-10-09T18:25:16Z",
+        "completed_at": "2026-10-09T18:25:43Z"
+      }
+    ],
+    "id": 37973139390,
+    "source": "6eec04154419dbab0c3cc5f2a5a6936a60ce3f45",
+    "attempt": 1
+  }
+]

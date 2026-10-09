@@ -1,4 +1,19 @@
-# Private friends beta — 0.3.0-beta.3
+# Private friends beta — 0.3.0-beta.4
+
+Frozen runtime source `6eec04154419dbab0c3cc5f2a5a6936a60ce3f45` adds Simple / Normal / Insane arena chaos and the rare Oh Nae Nae/AK47 and McGinley lightning events. It includes the original native WAV song and retains beta.1–3 movement/spawn, Crossbow/Croissant and bounded guest-prediction corrections. Later QA/docs commits do not change the frozen runtime.
+
+- Friends ZIP: `outputs/Custard-Knights-Friends-0.3.0-beta.4.zip`, 547104027 bytes, SHA256 `fe3f1450e377f36a003bd8843a61befec0a49cd8b401eb06c44f428cc4a13776`.
+- Preview folder: `outputs/Custard-Knights-Windows-0.3.0-beta.4-preview`.
+- Preview ZIP: `outputs/Custard-Knights-Windows-0.3.0-beta.4-preview.zip`, 547102469 bytes, SHA256 `0c29594eed230981d29860d4b87e68525292a53557d15d9a29fa1acbe28dbb80`.
+- ASAR SHA256: `1920f8077f0c15af57d36d346eba84ee6ef6c172838f546e233f3f51caad4a95`.
+
+All 56 packaged entries match source/metadata; the kit carries 73 verified game files. The frozen ASAR passes 85 packaged chaos/native-WAV/isolation checks with zero exceptions/media errors. Both ZIP integrity checks and actual EXE save/restart/launcher/relocation passed. Source checks pass 21 chaos/preferences/weapons tests, 10 catalog/desktop tests, 83 actual-browser checks and 17 live same-network PeerJS checks. Hosted Battle core run37973139408 passed all six jobs, and Soundtrack portability run37973139390 passed both jobs, on the first attempt. Evidence: `qa/results/chaos-events/`, `qa/results/rare-network/third/`; read their README limits and preserved harness iterations.
+
+Extract the complete Friends ZIP, close any older running copy normally, then launch `Game/Custard Knights.exe`. Share that ZIP, not just its EXE. The included start guide describes the new chaos options and rare-event rules, and FEEDBACK.html works offline. Existing older exports remain separate. No public upload or sending has been performed.
+
+Rare events each have a 1% selection chance per eligible Normal/Insane arena round, with at most one selected; a busy or ending round may prevent its appearance. They are off in Simple, races, Story and Faction Front. Human fun/balance, music listening, real controllers, WAN, second PC and minimum hardware still need playtest evidence. This is a private test beta, not Steam or public-sale approval.
+
+# Historical private friends beta — 0.3.0-beta.3
 
 Frozen source `c75f9e0497ee64c0cb71768218caa6dbdd757a6a` adds bounded guest prediction to beta.2's expanded weapons and beta.1's host/solo movement/spawn fixes. A guest now stops predicting after 150 ms without a valid host update and keeps its displayed knight inside arena walls. Host combat state stays authoritative.
 

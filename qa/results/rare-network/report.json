@@ -1,0 +1,8 @@
+{
+  "scope": "Three real PeerJS connections in isolated Chrome profiles on one machine/network. Not cross-network NAT, public hosting, or physical controller certification.",
+  "fixtures": "QA hooks choose the host rare plan and its recipient deterministically; ordinary host simulation, PeerJS transport, guest input and snapshot handling run live. Bots are disabled and human spawn protection extended to isolate protocol behavior. The recipient disconnects through the normal leave path.",
+  "checks": [],
+  "errors": [],
+  "startedAt": "2026-10-09T18:25:07.295Z",
+  "failure": "Error: ENOENT: no such file or directory, open 'C:\\Users\\Joshua\\Documents\\Codex\\2026-10-08\\rea\\work\\custard-knights\\audio\\13-oh-nae-nae.wav'\n    at Object.openSync (node:fs:622:18)\n    at Object.readFileSync (node:fs:488:35)\n    at C:\\Users\\Joshua\\Documents\\Codex\\2026-10-08\\rea\\work\\custard-knights\\qa\\rare-network.cjs:9:91\n    at Array.map (<anonymous>)\n    at hashes (C:\\Users\\Joshua\\Documents\\Codex\\2026-10-08\\rea\\work\\custard-knights\\qa\\rare-network.cjs:9:43)\n    at C:\\Users\\Joshua\\Documents\\Codex\\2026-10-08\\rea\\work\\custard-knights\\qa\\rare-network.cjs:35:64\n    at Object.<anonymous> (C:\\Users\\Joshua\\Documents\\Codex\\2026-10-08\\rea\\work\\custard-knights\\qa\\rare-network.cjs:83:3)\n    at Module._compile (node:internal/modules/cjs/loader:1872:14)\n    at Object..js (node:internal/modules/cjs/loader:2003:10)\n    at Module.load (node:internal/modules/cjs/loader:1594:32)"
+}

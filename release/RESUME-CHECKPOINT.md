@@ -2,11 +2,11 @@
 
 The user selected a downloadable Windows beta for friends tonight and authorizes pushing and merging each completed, checked task before proceeding. No public upload or sending has been performed. Do not use or close the user's normal game/save profile during QA.
 
-## Current work
+## Current checkpoint
 
-Branch `codex/chaos-rare-events` targets **0.3.0-beta.4**. It adds Simple / Normal / Insane arena chaos, bounded rare AK47/song and McGinley lightning events, and the original native WAV “Oh Nae Nae, What's Your Name?”. Source and browser checks are being finalized; use PREVIEW-BUILD.md to identify the latest actually exported kit. Do not describe beta.4 as exported until its hashes are recorded there.
+PR #15 contains **0.3.0-beta.4**. It adds Simple / Normal / Insane arena chaos, bounded rare AK47/song and McGinley lightning events, and the original native WAV “Oh Nae Nae, What's Your Name?”. Frozen runtime source is 6eec04154419dbab0c3cc5f2a5a6936a60ce3f45. Source checks pass 21 chaos/preferences/weapons tests, 10 catalog/desktop tests, 83 real-browser cases and 17 live same-network PeerJS cases. The package matches all 56 entries and passes actual EXE save/restart/launcher/relocation. Frozen exports are recorded in PREVIEW-BUILD.md; use its hashes as the archive identity. Packaged rare-event checks pass 85/85 with zero exceptions/media errors. Hosted Battle core run37973139408 passes all six jobs and Soundtrack run37973139390 passes both jobs. Evidence is under qa/results/chaos-events and qa/results/rare-network/third; all specialist work is complete.
 
-The latest completed export is beta.3, runtime `c75f9e0497ee64c0cb71768218caa6dbdd757a6a`, with 54 package entries and 73 friends files verified, ZIP integrity and actual EXE save/restart/launcher/relocation passing. PR #14 merged at `176a3d3d8f2f678d2fccc8c2a8a0494282956196`. Hosted run37971620380 passed all six jobs. Earlier exports are preserved.
+The latest completed export is beta.4: `outputs/Custard-Knights-Friends-0.3.0-beta.4.zip`, 547104027 bytes, SHA256 `fe3f1450e377f36a003bd8843a61befec0a49cd8b401eb06c44f428cc4a13776`. Runtime source remains 6eec041; later QA/docs changes do not alter it. All 56 package entries and 73 friends files, ZIP integrity and EXE lifecycle pass. PREVIEW-BUILD.md records preview/ASAR hashes. Earlier exports are preserved. PR #14 previously merged at 176a3d3; do not remerge it.
 
 ## Completed gameplay corrections
 

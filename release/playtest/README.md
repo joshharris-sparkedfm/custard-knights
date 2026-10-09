@@ -1,6 +1,6 @@
 # Private friends beta kit
 
-The latest exported kit is **0.3.0-beta.2**, including the reported arena disappearance/trapdoor spawn fixes and two additional weapons. Its exact source, hashes and pending guest-prediction limitation are recorded in [PREVIEW-BUILD.md](../PREVIEW-BUILD.md). It wraps a frozen Windows build with `START-HERE.txt`, a local feedback page and `BUILD-INFO.json`; it has not been sent to friends or publicly uploaded. Later source changes are not in that kit until another versioned export is recorded. It is for private feedback; it does not deploy an online server or certify sale readiness. See [BETA-PLAN.md](../BETA-PLAN.md) for the distribution checkpoint.
+The latest exported kit is **0.3.0-beta.4**, including disappearance/spawn and guest-prediction fixes, two additional ordinary weapons, chaos choices, rare powers and their original song. Its exact source, hashes and acceptance limits are recorded in [PREVIEW-BUILD.md](../PREVIEW-BUILD.md). It wraps a frozen Windows build with `START-HERE.txt`, a local feedback page and `BUILD-INFO.json`; it has not been sent to friends or publicly uploaded. Later source changes are not in that kit until another versioned export is recorded. It is for private feedback; it does not deploy an online server or certify sale readiness. See [BETA-PLAN.md](../BETA-PLAN.md) for the distribution checkpoint.
 
 Send the complete ZIP using a private download link, together with its version, size and SHA256. Friends should download it, use Extract All and launch `Game/Custard Knights.exe`; do not send the EXE alone or ask them to run it inside the ZIP. Keep prior builds and archives separate. No hosting account or recipient list is assumed, and nothing is sent automatically.
 
@@ -8,7 +8,7 @@ The feedback page does not transmit data, collect system information or read gam
 
 ## Build another kit
 
-Use Python 3 (standard library only) and an already verified Windows export ZIP after the source freeze. Supply the hashes and source commit recorded when that export was made, not the current Git HEAD if it has moved. Use `0.3.0-beta.1` only for an export actually built with that version:
+Use Python 3 (standard library only) and an already verified Windows export ZIP after the source freeze. Supply the hashes and source commit recorded when that export was made, not the current Git HEAD if it has moved. Use the version actually built into that export:
 
 ```powershell
 python scripts/playtest-bundle.py SOURCE.zip FRIENDS.zip --sha256 SOURCE_ZIP_SHA256 --version VERSION --source-commit FULL_EXPORT_COMMIT --asar-sha256 APP_ASAR_SHA256
@@ -24,6 +24,6 @@ Invite a few novice and experienced players. Let each begin without coaching; ob
 
 Begin with offline/couch sessions, then test original-arena room codes across households. Faction online needs a separately supplied reachable test endpoint; do not tell players to connect to your localhost. An optional persistent private ladder needs a host-issued key and configured server; no public Steam-ranked service is deployed. Track crashes, lost progress, failed objectives or persistent input delay as blockers, and link each fix to a repeat of the failed task. See `release/PLAYER-REVIEW.md` for the fuller device and mode matrix.
 
-The soundtrack now includes eleven original Suno WAV candidates and the retained menu MP3. Ask about musical fit, volume against gameplay, unintended voices and awkward repeats; these have not been signed off by human listening. Another Helping retains an approximately 1.595-second silent tail. Track links, hashes and inspection limitations are in [music/source-provenance.json](../music/source-provenance.json); the prepared listening bundle is an optional review aid, not a required game download.
+The soundtrack now includes twelve original Suno WAV candidates (including the requested Oh Nae Nae song) and the retained menu MP3. Ask about musical fit, volume against gameplay, unintended voices and awkward repeats; these have not been signed off by human listening. Another Helping retains an approximately 1.595-second silent tail. Track links, hashes and inspection limitations are in [music/source-provenance.json](../music/source-provenance.json); the prepared listening bundle is an optional review aid, not a required game download.
 
 For optional private ranked play, schedule eight distinct accounts for 4v4 before inviting anyone into the queue. Explain the total 20-second absence budget and forfeit behavior. The host must supply a reachable authenticated endpoint and individual credentials privately. Do not publish keys, assume party support, or treat 100 bot slots as an accepted 100-human service. Keep any real endpoint and invitation details out of the reusable public repository materials.

@@ -1,0 +1,38 @@
+{
+  "comparisons": 1044,
+  "maxChannelDelta": 0,
+  "changedChannels": 0,
+  "after": {
+    "entries": 327,
+    "bytes": 33484800,
+    "limit": 33554432,
+    "hits": 1044,
+    "misses": 1044
+  },
+  "evicted": {
+    "entries": 327,
+    "bytes": 33484800,
+    "limit": 33554432,
+    "hits": 1044,
+    "misses": 1444
+  },
+  "cleared": {
+    "entries": 0,
+    "bytes": 0,
+    "limit": 33554432,
+    "hits": 1044,
+    "misses": 1446
+  },
+  "framesPerFamily": 85,
+  "helmets": [
+    "great",
+    "sallet",
+    "horned",
+    "crest",
+    "kettle",
+    "barbute"
+  ],
+  "limitations": "Exact RGBA comparison using software 2D canvases to isolate composition from GPU rounding for sampled frames across both complete visor families and all six helmets, held weapon/swing states, varying colours and cosmetics. Dynamic sword geometry remains outside the cached pixels.",
+  "sourceCommit": "02cf1c870c5a30096f872c1494de9c1effb52131",
+  "indexSha256": "0ff7767ce533418f4a0f8c6e6946d9a86ae6a5f7223465a8c02b65c191acebc4"
+}

@@ -1,0 +1,142 @@
+{
+  "date": "2026-10-09T06:33:45.697Z",
+  "checks": [
+    {
+      "name": "Integrated Faction Front is available",
+      "pass": true
+    },
+    {
+      "name": "Setup receives keyboard focus",
+      "pass": true
+    },
+    {
+      "name": "Four named bot difficulties default to Medium",
+      "pass": true
+    },
+    {
+      "name": "easy bot profile reaches practice without changing role health",
+      "pass": true
+    },
+    {
+      "name": "medium bot profile reaches practice without changing role health",
+      "pass": true
+    },
+    {
+      "name": "hard bot profile reaches practice without changing role health",
+      "pass": true
+    },
+    {
+      "name": "steve bot profile reaches practice without changing role health",
+      "pass": true
+    },
+    {
+      "name": "Both story faction and unranked explanation shown",
+      "pass": true
+    },
+    {
+      "name": "4v4 fills every seat and has one local player",
+      "pass": true
+    },
+    {
+      "name": "20v20 fills every seat and has one local player",
+      "pass": true
+    },
+    {
+      "name": "50v50 fills every seat and has one local player",
+      "pass": true
+    },
+    {
+      "name": "Keyboard movement changes actual player state",
+      "pass": true
+    },
+    {
+      "name": "Attack input reaches the core",
+      "pass": true
+    },
+    {
+      "name": "Offline menu pauses simulation",
+      "pass": true
+    },
+    {
+      "name": "Pause menu focus is on Resume",
+      "pass": true
+    },
+    {
+      "name": "Scoreboard includes every participant and identifies bot practice",
+      "pass": true
+    },
+    {
+      "name": "Selected mode and role reach simulation",
+      "pass": true
+    },
+    {
+      "name": "Standard controller movement reaches simulation",
+      "pass": true
+    },
+    {
+      "name": "Controller Menu opens accessible pause dialog",
+      "pass": true
+    },
+    {
+      "name": "Controller A activates focused Resume",
+      "pass": true
+    },
+    {
+      "name": "Small-window setup has no horizontal overflow",
+      "pass": true
+    },
+    {
+      "name": "Real WebSocket server accepts blank room matchmaking",
+      "pass": true
+    },
+    {
+      "name": "Selected STEVE difficulty reaches authoritative online room",
+      "pass": true
+    },
+    {
+      "name": "Versioned deltas update the real online client",
+      "pass": true
+    },
+    {
+      "name": "Offline capture controls cannot mutate an online match",
+      "pass": true
+    },
+    {
+      "name": "Keyboard movement reaches authoritative online server",
+      "pass": true
+    },
+    {
+      "name": "Online menu leaves remote simulation running",
+      "pass": true
+    },
+    {
+      "name": "Online scoreboard labels actual session results unranked",
+      "pass": true
+    },
+    {
+      "name": "Disconnect presents a recovery menu",
+      "pass": true
+    },
+    {
+      "name": "Incompatible online protocol rejected without starting battle",
+      "pass": true
+    },
+    {
+      "name": "Delta gap requests one resync and accepts replacement full snapshot",
+      "pass": true
+    },
+    {
+      "name": "Remote visor survives decoded state",
+      "pass": true
+    },
+    {
+      "name": "Exit restores the original menu and closes battle lifecycle",
+      "pass": true
+    },
+    {
+      "name": "No runtime exceptions",
+      "pass": true
+    }
+  ],
+  "errors": []
+}

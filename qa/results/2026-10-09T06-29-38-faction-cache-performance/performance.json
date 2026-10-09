@@ -1,0 +1,48 @@
+{
+  "host": "Intel(R) Core(TM) i9-14900K",
+  "viewport": [
+    1600,
+    950
+  ],
+  "seed": 123,
+  "source": {
+    "index.html": "0ff7767ce533418f4a0f8c6e6946d9a86ae6a5f7223465a8c02b65c191acebc4",
+    "game/mass-battle.js": "76acfad4d9104ec70a05e514935c6f728b33cecb2fee393a18fd58e30d24ca4e",
+    "game/mass-battle-ui.js": "d20004ecfb50d70883f23c2548ea3a1c2769deaaa5dd82c0d0219960adda4811"
+  },
+  "results": [
+    {
+      "cached": false,
+      "frames": 537,
+      "wallMs": 10017.60000000149,
+      "fps": 53.60565404886601,
+      "p95FrameMs": 33.30000000000109,
+      "p99FrameMs": 33.40000000000009,
+      "cache": {
+        "entries": 0,
+        "bytes": 0,
+        "limit": 33554432,
+        "hits": 0,
+        "misses": 0
+      },
+      "players": 100
+    },
+    {
+      "cached": true,
+      "frames": 601,
+      "wallMs": 10000.900000004469,
+      "fps": 60.09459148673934,
+      "p95FrameMs": 16.80000000000291,
+      "p99FrameMs": 16.900000000001455,
+      "cache": {
+        "entries": 327,
+        "bytes": 33484800,
+        "limit": 33554432,
+        "hits": 34138,
+        "misses": 427
+      },
+      "players": 100
+    }
+  ],
+  "limitations": "Same seed100-combatant brawl, twenty simulated seconds warmup then one second real rendering warmup; protected stationary central observer. Uncached then cached in one headless Chrome process. Ten-second samples, viewport culling, no WAN or minimum-hardware claim."
+}

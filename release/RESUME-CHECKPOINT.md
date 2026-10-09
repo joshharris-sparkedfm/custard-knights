@@ -1,6 +1,6 @@
 # Development checkpoint — 9 October 2026
 
-Version **0.3.0-alpha.1** is a playable development preview, not a validated Steam release. The user requested all work pushed and merged for cross-machine continuation, then explicitly asked to continue working and keep GitHub current. Automatic work remains active; the earlier pause request was superseded. PR #2 merged at `cb6882ded98e4560b9ed2af7d24f4034970f87a1`. See PREVIEW-BUILD.md for the exported local Windows copy.
+Version **0.3.0-alpha.2** is a playable development preview, not a validated Steam release. The user requested all work pushed and merged for cross-machine continuation, then explicitly asked to continue working and keep GitHub current. Automatic work remains active; the earlier pause request was superseded. See PREVIEW-BUILD.md for the exported local Windows copy.
 
 ## Start on another computer
 
@@ -16,6 +16,8 @@ The main menu contains The Great Pudding War (eight playable encounters), Custar
 - Dedicated authoritative WebSocket server, bounded inputs, bot replacement, resumable sessions, compact full/delta snapshots and explicit resync. Current target is 20 Hz replication. This has not passed final sustained-load acceptance.
 
 ## Evidence and unfinished work
+
+**Latest change, 9 October around 06:35 UTC:** a faction-only 32 MiB sprite composition cache improved a controlled short 100-combatant rendering sample from 53.61 to 60.09 FPS on the QA host. Both visor families and the accepted art/combat rules remain intact. Exact software-canvas pixel comparisons passed 1,044 cases; GPU readback rounding differences are documented rather than hidden. Cache eviction and entry/exit cleanup passed, as did all 34 integrated faction UI/online checks. Alpha.2 Windows packaging passed 41 source/metadata entry checks and offline desktop smoke (sprites, fonts, match completion and save/reload). See `qa/reviews/faction-render-cache-2026-10-09.md`. Next measured work is separate-process server/client load attribution; no repeat of passing objective/soak tests is needed without new changes. The local native Node crashes remain unresolved. The prior evidence below is historical and is not a claim that alpha.2 fixes those failures.
 
 **Latest evidence, 9 October around 06:00 UTC:** independent Windows/Linux CI passed 110/110 unit tests on each host, and 100-client 60-second delta loads completed without disconnects/errors. All four core OS/Node combinations passed. Local native crashes remain unresolved. Twelve complete 100-bot browser matches (three modes × four difficulties) passed functional objectives. Rendering measured ~60 FPS at 8/40 combatants and ~50 FPS at 100 on the QA host. Load delivery averaged 12–12.5 snapshots/sec despite a 20 Hz target; Windows simulation advanced only 54.5 seconds in 60 seconds of shared-process load. See `qa/reviews/battle-stability-2026-10-09.md` and its retained evidence. The older numbered notes below record the checkpoint history; the prior lack of independent full-suite/load evidence is now superseded, not the local failures. Next work is measured rendering optimization and separate-process network load attribution. No gameplay/runtime files or exported ZIP changed in this validation pass.
 

@@ -1,0 +1,31 @@
+{
+  "schemaVersion": 1,
+  "build": {
+    "version": "0.3.0-alpha.3",
+    "sourceCommit": "3a46a2903045d6f2dfe71e08e40a028e3e63e17e",
+    "sourceZipSha256": "ea709da91813a11e0f5beea162d6c17b111aa5afea28f836f97c2802a42d3b23",
+    "appAsarSha256": "94f7e327bb682904212c30b0edc795c2342410711160cba4037bf6d95cb21ca0"
+  },
+  "createdAt": "2026-10-09T09:21:42.550Z",
+  "answers": {
+    "alias": "QA only",
+    "minutes": "20",
+    "experience": "",
+    "difficulty": "",
+    "setup": "",
+    "best": "",
+    "confusing": "",
+    "combat": "",
+    "bots": "",
+    "again": "",
+    "buy": "",
+    "reason": "",
+    "severity": "",
+    "steps": "</textarea><script>window.injected=true</script> & 🐔",
+    "other": "",
+    "modes": [
+      "Story",
+      "Faction CTF"
+    ]
+  }
+}

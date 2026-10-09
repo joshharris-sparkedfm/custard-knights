@@ -1,6 +1,6 @@
 # Custard Knights
 
-**Current development preview: 0.3.0-alpha.1.** Faction battles and four difficulty levels are in progress. Read [the cross-machine checkpoint](release/RESUME-CHECKPOINT.md) for setup, evidence and known test failures before continuing work or making release claims.
+**Current development preview: 0.3.0-alpha.3.** Faction battles and four difficulty levels are in progress. Read [the cross-machine checkpoint](release/RESUME-CHECKPOINT.md) for setup, evidence and known test failures before continuing work or making release claims.
 
 **Development plan:** [Master build plan](BUILD-PLAN.md), covering gameplay feel, graphics and animation, the solo campaign, party Cups, earned cosmetics and validation. The [launch status](release/LAUNCH-STATUS.md) records what is implemented and tested; the plan also contains future work.
 
@@ -18,8 +18,11 @@ For the Windows build, run `npm ci`, `npm run package:win`, then launch `dist/Cu
 
 To host it for free, turn on **GitHub Pages** (Settings → Pages → Deploy from branch → `main` / root). The game is then live at `https://<your-username>.github.io/<repo-name>/`.
 
+For friends: see the [playtest kit guide](release/playtest/README.md). The complete ZIP includes the Windows game, setup instructions and an offline feedback form; do not send the EXE alone.
+
 ## What's in it
 
+- **Faction Front (preview):** Brawl, Capture the Flag and Siege at 4v4, 20v20 or 50v50 total slots, with bot fill and four tactical roles. Bot practice works offline. Online faction rooms need a separate server; no public hosted service or persistent ranked ladder is included.
 - **The Great Pudding War:** eight authored story encounters, optional spoon goals, checkpoints, assistance, Steve rescue and a two-phase boss.
 - **Custard Cup:** three linked rounds, human standings, arena votes, ready-up and event-backed awards.
 - **Earned collection:** six extra cosmetics, first reward choice, pinned goals, retained partial progress, previews, three outfits and validated progression/campaign backups.
@@ -35,19 +38,18 @@ To host it for free, turn on **GitHub Pages** (Settings → Pages → Deploy fro
 - **Arena events:** every half a minute or so the arena itself does something, with a red banner and a countdown: Trapdoors (cracks appear, then the floor opens), Pie Catapult (the castle lobs pies at the leaders), Chicken Stampede (a flock runs across and tramples anyone in the way), Gale Force (everyone is pushed one way), Slow-mo, Bounty (three points to whoever knocks out the leader) and Supply Drop (everyone gets a weapon, power-ups land in the middle)
 - **Modes:** Free-for-all, Red vs Blue (humans on the same team or split up), Last Knight Standing (three lives, then you are a chicken who can still peck), King of the Pie (stand alone on a giant pie that moves every 30 seconds, first to 60), Pie Heist (Red vs Blue, steal the enemy pie and carry it home, first to 3) Chicken Racing (everyone is a chicken, four laps round the arena, peck to shove) Flag Frenzy (Red vs Blue over three flags; stand by one to turn it your colour, held flags score, first to 100) and Hot Pie (a pie with a lit fuse, whack someone to pass it, boom costs a life, last knight standing wins). Team modes mark each side's base on the floor.
 - **Combat:** light swings, a charged heavy that breaks blocks, dash with i-frames and a dash-attack stab, a parry window when you block just as they swing (with a riposte), a guard meter, shield bash, ring-out knockback that grows as you get hurt, hitstun, and two seconds of real spawn protection that ends the moment you attack
-- **Bots:** Chill telegraphs every swing with a "!", Spicy fights fair, Brutal punishes whiffs, parries mashers and charges heavies. Only so many bots press a human at once.
+- **Bots:** Easy, Medium, Hard and STEVE change reactions, accuracy, pressure and defensive decisions. Bots share human base movement speed; human difficulty calibration remains part of playtesting.
 - **Menu:** Quick brawl, Custom brawl with mode and arena cards, chaos speed and match length, an online screen with an invite landing card, a Wardrobe with a live knight preview (helm, plume, metal, emblem, colour, name, for four local players), How to play, and Settings (music, sounds, screen shake, reduce flashing, show every name)
 - **Earn everything:** matches pay out Custard Coins (3 for playing, 1 per KO, 5 for a win, plus mode bonuses). An 18-tier track unlocks cape patterns, blade skins (wooden, baguette, fish, candy cane, spoon), extra colours and chicken skins for when you are a chicken, and six challenges unlock specific items early. Everything is cosmetic. There is no shop, no currency to buy and nothing that changes how you fight.
 - **Stacking:** power-ups stack. A second Long Sword makes it longer still (three levels), Zoomy Boots get zoomier, Bubble Shield holds up to three bubbles, and durations add up. The Custard Potion gives a heart now and one every six seconds for a while.
 - **Pads:** up to four gamepads. Left stick moves, right stick aims, A swings, B dashes, X blocks, Y shouts, Start pauses. The menus work from the d-pad.
 - **Teaching:** a control card at the start until you have landed three hits, a death card that tells you what got you and what to do about it, one-line tips the first time you meet a pit, ice, a bow or a bounty, captions on power-ups, and a banner each time the Chaos Meter changes tier
-- **Bots:** Chill, Spicy or Brutal. They find their way through the mazes, grab weapons, block and dodge spikes.
 - **Shouts:** speech bubbles fade with distance, standing in for proximity chat
 - **Online play:** one player hosts a room and gets a 5-letter code and invite link. Up to 8 knights join from their own browsers and bots fill the empty spots. The host's browser runs the match. Players connect directly through [PeerJS](https://peerjs.com/), so there's no server to run.
 - **The Power of Steve:** once a match, an announcer drops a golden egg. Whoever grabs it rides Steve, a giant cockerel, for 10 seconds: faster, bigger, flies over pits and tramples everyone.
 - **The Power of Norr:** now and then a shepherd's pie appears somewhere in the arena. Eat it and you let out a NORRRRRRRR that blasts everyone nearby across the map, then for 12 seconds you are bigger, faster, hit for double and roar again every couple of seconds. Bots panic and run.
 - **Finding yourself:** your knight has a YOU tag (P1 and P2 on a shared keyboard), a coloured ring at its feet, and a spotlight with a big "THIS IS YOU" pointer at the start of the match and every time you respawn
-- **Knights:** each knight has a flowing cape, a heraldic emblem on tabard and shield, glowing eyes that glare when swinging and squint when blocking, and one of six helmets (great helm, sallet, horned, crested, kettle hat, barbute) with feather, twin, mohawk, flame or brush plumes
+- **Knights:** each knight has a flowing cape, a heraldic emblem on tabard and shield, a choice of a closed visor or small recessed eyes behind an open visor, and one of six helmets (great helm, sallet, horned, crested, kettle hat, barbute) with feather, twin, mohawk, flame or brush plumes
 - **Menu theme:** "Custard Knights" plays on the menu, fades out when the brawl starts, and follows the Sound button
 
 ## Controls

@@ -1,0 +1,304 @@
+{
+  "date": "2026-10-09T07:21:39.971Z",
+  "source": {
+    "index.html": "0ff7767ce533418f4a0f8c6e6946d9a86ae6a5f7223465a8c02b65c191acebc4",
+    "game/mass-battle.js": "76acfad4d9104ec70a05e514935c6f728b33cecb2fee393a18fd58e30d24ca4e",
+    "game/mass-battle-ui.js": "d20004ecfb50d70883f23c2548ea3a1c2769deaaa5dd82c0d0219960adda4811",
+    "game/mass-battle-wire.js": "e1a2b6ffe63ae8f51004cfbc42baa1fa4f494e0b1a71926d73be51d98360ceef",
+    "server/mass-battle-server.cjs": "95bafd499ac70eb92f4eaf710b91cbf5e74250c008808730622e1ebf97fc101f"
+  },
+  "host": {
+    "cpu": "Intel(R) Core(TM) i9-14900K",
+    "node": "v24.19.0"
+  },
+  "browser": {
+    "seconds": 20.059800000004472,
+    "fps": 59.87098575258638,
+    "frameP95Ms": 16.900000000001455,
+    "frameP99Ms": 17,
+    "decodeCalls": 401,
+    "decodeP95Ms": 0.5,
+    "decodeMaxMs": 1.5,
+    "receiveHz": 19.990229214643744,
+    "receiveGapP95Ms": 68.20000000298023,
+    "receiveGapMaxMs": 71.5,
+    "decodeFailures": 0,
+    "network": {
+      "full": 3,
+      "delta": 563,
+      "resync": 0
+    },
+    "humans": 100,
+    "player": {
+      "id": "r-49",
+      "humanId": "51c2e06d-981c-4036-a03f-ac4956af5c81",
+      "name": "Browser QA",
+      "bot": false,
+      "team": "rice",
+      "role": "vanguard",
+      "visor": "closed",
+      "x": 2883.367028913537,
+      "y": 940.5721868948586,
+      "vx": 0,
+      "vy": 0,
+      "angle": 3.141592653589793,
+      "hp": 130,
+      "maxHp": 130,
+      "alive": true,
+      "respawn": 0,
+      "stamina": 100,
+      "stun": 0,
+      "protection": 0,
+      "guarding": false,
+      "dashing": false,
+      "abilityCooldown": 0,
+      "dashCooldown": 0,
+      "kills": 0,
+      "deaths": 1,
+      "score": 0,
+      "attack": {
+        "kind": "light",
+        "phase": "recovery",
+        "phaseProgress": 0.8475586111111119,
+        "progress": 0.9296424358974361,
+        "angle": 3.141592653589793,
+        "elapsed": 0.4834140666666668,
+        "windup": 0.16,
+        "active": 0.12,
+        "recovery": 0.24
+      }
+    },
+    "connectionInterrupted": false
+  },
+  "server": {
+    "type": "result",
+    "seconds": 30.120575199999998,
+    "cpuSeconds": 2.61,
+    "cpuPercentOfOneCore": 8.665173167078164,
+    "eventLoopP95Ms": 19.529727,
+    "eventLoopMaxMs": 25.673727,
+    "rssBytes": 88530944,
+    "simulationSeconds": 30.127854699999634,
+    "humans": 100,
+    "matchStatus": "playing",
+    "scores": {
+      "custardia": 108,
+      "rice": 79
+    },
+    "kills": 184,
+    "tickP95Ms": 3.551399999999944,
+    "tickP99Ms": 4.388500000000931,
+    "metrics": {
+      "steps": 901,
+      "maxStepMs": 5.223200000000361,
+      "totalStepMs": 1705.1579000000156,
+      "maxTickGapMs": 48.30850000000282,
+      "maxSnapshotBytes": 53662,
+      "snapshots": 602,
+      "rejectedInputs": 0,
+      "rateLimited": 0
+    }
+  },
+  "workers": [
+    {
+      "type": "result",
+      "seconds": 30.0006486,
+      "cpuSeconds": 5.767,
+      "cpuPercentOfOneCore": 19.222917733851926,
+      "eventLoopP95Ms": 23.085055,
+      "eventLoopMaxMs": 25.870335,
+      "rssBytes": 201060352,
+      "clients": 25,
+      "inputs": 13700,
+      "packets": 15001,
+      "bytes": 193102702,
+      "fullPackets": 75,
+      "deltaPackets": 14926,
+      "meanDeltaBytes": 12670.847983384698,
+      "maxDeltaBytes": 23801,
+      "maxSnapshotGapMs": 80.19750000000204,
+      "inputIntervalP95Ms": 65.10839999999985,
+      "minClientSnapshotHz": 19.999567609348286,
+      "maxClientSnapshotHz": 20.03290022203053,
+      "minClientInputHz": 18.266271749871432,
+      "errors": [],
+      "unexpectedCloses": []
+    },
+    {
+      "type": "result",
+      "seconds": 30.0009883,
+      "cpuSeconds": 5.922,
+      "cpuPercentOfOneCore": 19.739349720022393,
+      "eventLoopP95Ms": 22.937599,
+      "eventLoopMaxMs": 25.313279,
+      "rssBytes": 201601024,
+      "clients": 25,
+      "inputs": 13675,
+      "packets": 15001,
+      "bytes": 193102702,
+      "fullPackets": 75,
+      "deltaPackets": 14926,
+      "meanDeltaBytes": 12670.847983384698,
+      "maxDeltaBytes": 23801,
+      "maxSnapshotGapMs": 82.81420000000071,
+      "inputIntervalP95Ms": 65.10200000000259,
+      "minClientSnapshotHz": 19.999341155037882,
+      "maxClientSnapshotHz": 20.032673390296278,
+      "minClientInputHz": 18.23273268634287,
+      "errors": [],
+      "unexpectedCloses": []
+    },
+    {
+      "type": "result",
+      "seconds": 30.001191499999997,
+      "cpuSeconds": 6.282,
+      "cpuPercentOfOneCore": 20.93916836602973,
+      "eventLoopP95Ms": 22.839295,
+      "eventLoopMaxMs": 26.787839,
+      "rssBytes": 201248768,
+      "clients": 25,
+      "inputs": 13700,
+      "packets": 15001,
+      "bytes": 193102702,
+      "fullPackets": 75,
+      "deltaPackets": 14926,
+      "meanDeltaBytes": 12670.847983384698,
+      "maxDeltaBytes": 23801,
+      "maxSnapshotGapMs": 80.76390000000174,
+      "inputIntervalP95Ms": 65.10599999999977,
+      "minClientSnapshotHz": 19.99920569821369,
+      "maxClientSnapshotHz": 20.03253770771071,
+      "minClientInputHz": 18.265941204368502,
+      "errors": [],
+      "unexpectedCloses": []
+    },
+    {
+      "type": "result",
+      "seconds": 30.0039821,
+      "cpuSeconds": 6.032,
+      "cpuPercentOfOneCore": 20.103998128968353,
+      "eventLoopP95Ms": 22.642687,
+      "eventLoopMaxMs": 25.657343,
+      "rssBytes": 201453568,
+      "clients": 24,
+      "inputs": 13104,
+      "packets": 14409,
+      "bytes": 185439714,
+      "fullPackets": 72,
+      "deltaPackets": 14337,
+      "meanDeltaBytes": 12668.005440468718,
+      "maxDeltaBytes": 23801,
+      "maxSnapshotGapMs": 76.54570000000001,
+      "inputIntervalP95Ms": 65.2068999999974,
+      "minClientSnapshotHz": 19.997345619000352,
+      "maxClientSnapshotHz": 20.030674528365353,
+      "minClientInputHz": 18.19758451329032,
+      "errors": [],
+      "unexpectedCloses": []
+    }
+  ],
+  "errors": [],
+  "cpuTop": [
+    {
+      "name": "(idle) :-1",
+      "ms": 17725.796
+    },
+    {
+      "name": "(program) :-1",
+      "ms": 1005.728
+    },
+    {
+      "name": "drawImage :-1",
+      "ms": 120.746
+    },
+    {
+      "name": "fillText :-1",
+      "ms": 100.19
+    },
+    {
+      "name": "draw mass-battle-ui.js:112",
+      "ms": 99.487
+    },
+    {
+      "name": "stroke :-1",
+      "ms": 78.475
+    },
+    {
+      "name": "(garbage collector) :-1",
+      "ms": 73.586
+    },
+    {
+      "name": "save :-1",
+      "ms": 71.567
+    },
+    {
+      "name": "clone mass-battle-wire.js:19",
+      "ms": 71.242
+    },
+    {
+      "name": "fill :-1",
+      "ms": 58.549
+    },
+    {
+      "name": "drawMountedWeapon index.html?qa=1:1852",
+      "ms": 39.256
+    },
+    {
+      "name": "drawBladeShape index.html?qa=1:1499",
+      "ms": 34.217
+    },
+    {
+      "name": "sprCompose index.html?qa=1:1874",
+      "ms": 29.202
+    },
+    {
+      "name": "renderKnight index.html?qa=1:2878",
+      "ms": 28.505
+    },
+    {
+      "name": "drawKnight index.html?qa=1:1723",
+      "ms": 25.848
+    },
+    {
+      "name": "apply mass-battle-wire.js:107",
+      "ms": 24.992
+    },
+    {
+      "name": "ellipse :-1",
+      "ms": 22.93
+    },
+    {
+      "name": "crescent index.html?qa=1:1420",
+      "ms": 22.755
+    },
+    {
+      "name": "restore :-1",
+      "ms": 22.246
+    },
+    {
+      "name": "fillRect :-1",
+      "ms": 20.632
+    },
+    {
+      "name": "ws.onmessage mass-battle-ui.js:51",
+      "ms": 19.993
+    },
+    {
+      "name": "clip :-1",
+      "ms": 18.942
+    },
+    {
+      "name": "addPath :-1",
+      "ms": 18.91
+    },
+    {
+      "name": "sprImg index.html?qa=1:1813",
+      "ms": 16.645
+    },
+    {
+      "name": "mkKnight index.html?qa=1:2509",
+      "ms": 14.185
+    }
+  ],
+  "limitations": "One headless Chrome player and 99 scripted clients share the host but use independent server/client processes. Actual renderer at1600x950 with normal camera culling, walking from spawn then holding attack.20-second browser sample within30-second load; CPU profiler adds overhead. No WAN, human play, physical controller or minimum-spec claim."
+}

@@ -1,0 +1,11 @@
+{
+  "date": "2026-10-09T07:23:22.688Z",
+  "packaged": false,
+  "code": 1,
+  "signal": null,
+  "origins": [
+    "custard://game"
+  ],
+  "stdout": "\r\n",
+  "stderr": "FACTION_DESKTOP_FAIL Error: brawl did not receive deltas from packaged origin\n    at wait (C:\\Users\\Joshua\\Documents\\Codex\\2026-10-08\\rea\\work\\custard-knights\\desktop\\faction-smoke.cjs:5:117)\n    at async module.exports (C:\\Users\\Joshua\\Documents\\Codex\\2026-10-08\\rea\\work\\custard-knights\\desktop\\faction-smoke.cjs:13:4)\n    at async C:\\Users\\Joshua\\Documents\\Codex\\2026-10-08\\rea\\work\\custard-knights\\desktop\\main.cjs:33:19\n"
+}

@@ -1,0 +1,22 @@
+{
+  "date": "2026-10-09T07:25:00.787Z",
+  "runtimeRoot": "C:\\Users\\Joshua\\Documents\\Codex\\2026-10-08\\rea\\work\\custard-knights",
+  "indexSha256": "fb4cee753c138b4f9f5a07905fe57cfe05ef89994c7b21ea248c246b7e0cffd1",
+  "checks": [
+    {
+      "name": "Game loads with opt-in QA",
+      "pass": true
+    },
+    {
+      "name": "arena starts a live match",
+      "pass": true
+    },
+    {
+      "name": "arena Menu opens pause and focuses Resume",
+      "pass": false
+    }
+  ],
+  "errors": [],
+  "limitations": "Synthetic standard gamepad in headless Chrome; real game loop, focus and actions. Match launches are fixtures; no damage, positions, timers, rules or progress are injected. Not physical hardware or Electron shell acceptance.",
+  "failure": "Error: arena Menu opens pause and focuses Resume\n    at check (C:\\Users\\Joshua\\Documents\\Codex\\2026-10-08\\rea\\work\\custard-knights\\qa\\pause-controller-browser.cjs:19:82)\n    at main (C:\\Users\\Joshua\\Documents\\Codex\\2026-10-08\\rea\\work\\custard-knights\\qa\\pause-controller-browser.cjs:29:16)"
+}

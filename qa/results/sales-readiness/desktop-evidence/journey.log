@@ -1,0 +1,319 @@
+
+{
+  "version": "0.3.0-alpha.3",
+  "source": false,
+  "archiveSHA256": "94f7e327bb682904212c30b0edc795c2342410711160cba4037bf6d95cb21ca0",
+  "screens": {
+    "menu-1280": {
+      "viewport": [
+        1264,
+        761
+      ],
+      "screen": "menu",
+      "panel": [
+        16,
+        8,
+        1217,
+        745
+      ],
+      "scroll": [
+        0,
+        1011,
+        745
+      ],
+      "horizontal": [
+        1217,
+        1217
+      ],
+      "focus": "Quick brawlYou against seven bots. One click."
+    },
+    "menu-800": {
+      "viewport": [
+        784,
+        561
+      ],
+      "screen": "menu",
+      "panel": [
+        16,
+        8,
+        737,
+        545
+      ],
+      "scroll": [
+        0,
+        961,
+        545
+      ],
+      "horizontal": [
+        737,
+        737
+      ],
+      "focus": "Quick brawlYou against seven bots. One click."
+    },
+    "settings-800": {
+      "viewport": [
+        784,
+        561
+      ],
+      "screen": "settings",
+      "panel": [
+        142,
+        45.796875,
+        500,
+        469.390625
+      ],
+      "scroll": [
+        0,
+        545,
+        545
+      ],
+      "horizontal": [
+        752,
+        752
+      ],
+      "focus": "Done"
+    },
+    "party-joined-800": {
+      "viewport": [
+        784,
+        561
+      ],
+      "screen": "party",
+      "panel": [
+        16,
+        -474,
+        737,
+        1015.421875
+      ],
+      "scroll": [
+        494,
+        1039,
+        545
+      ],
+      "horizontal": [
+        737,
+        737
+      ],
+      "focus": "Start the brawl"
+    },
+    "wardrobe-top-800": {
+      "viewport": [
+        784,
+        561
+      ],
+      "screen": "wardrobe",
+      "panel": [
+        16,
+        20,
+        737,
+        3294.0625
+      ],
+      "scroll": [
+        0,
+        3318,
+        545
+      ],
+      "horizontal": [
+        737,
+        737
+      ],
+      "focus": "Done"
+    },
+    "wardrobe-open-visor-800": {
+      "viewport": [
+        784,
+        561
+      ],
+      "screen": "wardrobe",
+      "panel": [
+        16,
+        20,
+        737,
+        3294.0625
+      ],
+      "scroll": [
+        0,
+        3318,
+        545
+      ],
+      "horizontal": [
+        737,
+        737
+      ],
+      "focus": "Open"
+    },
+    "wardrobe-presets-800": {
+      "viewport": [
+        784,
+        561
+      ],
+      "screen": "wardrobe",
+      "panel": [
+        16,
+        -2753,
+        737,
+        3294.0625
+      ],
+      "scroll": [
+        2773,
+        3318,
+        545
+      ],
+      "horizontal": [
+        737,
+        737
+      ],
+      "focus": "Save"
+    },
+    "wardrobe-after-save-controller-down-800": {
+      "viewport": [
+        784,
+        561
+      ],
+      "screen": "wardrobe",
+      "panel": [
+        16,
+        -2753,
+        737,
+        3294.0625
+      ],
+      "scroll": [
+        2773,
+        3318,
+        545
+      ],
+      "horizontal": [
+        737,
+        737
+      ],
+      "focus": "Export progress backup"
+    },
+    "campaign-map-800": {
+      "viewport": [
+        784,
+        561
+      ],
+      "screen": "campaignMap",
+      "panel": [
+        30.734375,
+        20,
+        707.515625,
+        968.5625
+      ],
+      "scroll": [
+        0,
+        981,
+        545
+      ],
+      "horizontal": [
+        737,
+        737
+      ],
+      "focus": "1Banquet· · ·"
+    },
+    "campaign-results-800": {
+      "viewport": [
+        784,
+        561
+      ],
+      "screen": "campaignResult",
+      "panel": [
+        30.734375,
+        20,
+        707.515625,
+        750.578125
+      ],
+      "scroll": [
+        0,
+        763,
+        545
+      ],
+      "horizontal": [
+        737,
+        737
+      ],
+      "focus": "Read what happens next"
+    },
+    "cup-results-800": {
+      "viewport": [
+        784,
+        561
+      ],
+      "screen": "cupResults",
+      "panel": [
+        16,
+        20,
+        737,
+        660.78125
+      ],
+      "scroll": [
+        0,
+        685,
+        545
+      ],
+      "horizontal": [
+        737,
+        737
+      ],
+      "focus": "Sound: on\n    Pause\n  \n\n  Turn your phone sidewaysThe arena needs the long side. The brawl"
+    },
+    "cup-ready-800": {
+      "viewport": [
+        784,
+        561
+      ],
+      "screen": "cupResults",
+      "panel": [
+        16,
+        20,
+        737,
+        660.78125
+      ],
+      "scroll": [
+        0,
+        685,
+        545
+      ],
+      "horizontal": [
+        737,
+        737
+      ],
+      "focus": "Not ready"
+    }
+  },
+  "findings": {
+    "controllerCheckbox": {
+      "focused": "cFlash",
+      "checked": true
+    },
+    "controllerRange": {
+      "before": "100",
+      "after": "99",
+      "focused": "sShake"
+    },
+    "controllerParty": {
+      "seats": [
+        {
+          "dev": "pad",
+          "idx": 0
+        }
+      ],
+      "humans": 1,
+      "demo": false
+    },
+    "visorController": {
+      "value": "open",
+      "focus": "open",
+      "assets": true
+    },
+    "wardrobeFocus": {
+      "active": "BUTTON",
+      "inside": true,
+      "scroll": 2773
+    },
+    "cupFocus": {
+      "focus": "Not ready",
+      "dataset": "local:1-ready"
+    }
+  }
+}

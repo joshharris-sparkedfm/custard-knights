@@ -214,6 +214,22 @@ test('browser origin policy and connection ceiling reject upgrade', async t => {
   assert.match(fullError.message, /403/);
 });
 
+test('desktop custom origin is accepted exactly and explicit origin lists still override defaults', async t => {
+  const { url } = await start(t);
+  const desktop = new WsClient(url, { origin: 'custard://game' });
+  await once(desktop, 'open'); desktop.close(); await once(desktop, 'close');
+  for (const origin of ['custard://other', 'custard://game.evil.example', 'https://game', 'custard://game:1234']) {
+    const hostile = new WsClient(url, { origin });
+    const [error] = await once(hostile, 'error'); assert.match(error.message, /403/, origin);
+  }
+  const restricted = await start(t, { allowedOrigins: ['https://approved.example'] });
+  const blocked = new WsClient(restricted.url, { origin: 'custard://game' });
+  assert.match((await once(blocked, 'error'))[0].message, /403/);
+  const configured = await start(t, { allowedOrigins: ['custard://game'] });
+  const permitted = new WsClient(configured.url, { origin: 'custard://game' });
+  await once(permitted, 'open'); permitted.close(); await once(permitted, 'close');
+});
+
 test('negotiated deltas preserve two visor choices, detect gaps and resync over real sockets', async t => {
   const { app, url } = await start(t);
   const a = await connect(url), b = await connect(url), decoder = Wire.createDecoder();

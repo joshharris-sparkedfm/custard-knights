@@ -1,0 +1,356 @@
+Stacktrace:
+    ptr1=00000298DDB17029
+    ptr2=0000000000000000
+    ptr3=0000000000000000
+    ptr4=0000000000000000
+    ptr5=0000000000000000
+    ptr6=0000000000000000
+    failure_message_object=000000CB5FFF5C70
+
+==== JS stack trace =========================================
+
+    0: ExitFrame [pc: 00007FF6C432DAFA]
+    1: apply [000001A28E4A8821] [C:\Users\Joshua\Documents\Codex\2026-10-08\rea\work\custard-knights\game\mass-battle-wire.js:~108] [pc=00007FF6A45DFDB2](this=0x01a28e4a8859 <Object map = 0000039362929D91>,0x00e477dbff89 <Object map = 0000025DB7FC13A1>)
+    2: run(aka run) [000001844FD75121] [C:\Users\Joshua\Documents\Codex\2026-10-08\rea\work\custard-knights\qa\wire-profile.cjs:~32] [pc=00007FF6A457E3CA](this=0x0082cfa80069 <undefined>,0x01844fd5e871 <Object map = 000003ED1B8ADB49>,0x0082cfa80069 <undefined>)
+    3: /* anonymous */(aka /* anonymous */) [00000295983D0A71] [C:\Users\Joshua\Documents\Codex\2026-10-08\rea\work\custard-knights\qa\wire-profile.cjs:55] [bytecode=0000020181584079 offset=107](this=0x0082cfa80069 <undefined>)
+    4: /* anonymous */ [000003ED1B8BB9E1] [C:\Users\Joshua\Documents\Codex\2026-10-08\rea\work\custard-knights\qa\wire-profile.cjs:~1] [pc=00007FF6A44F9FB9](this=0x03ed1b8bba21 <Object map = 000002282560E501>,0x03ed1b8bba21 <Object map = 000002282560E501>,0x03ed1b8bba59 <JSFunction require (sfi = 0000037A585F5FD1)>,0x03ed1b8bba99 <Module map = 0000028776B05019>,0x028776b02969 <String[87]: #C:\\Users\\Joshua\\Documents\\Codex\\2026-10-08\\rea\\work\\custard-knights\\qa\\wire-profile.cjs>,0x03ed1b8bbb29 <String[70]: "C:\\Users\\Joshua\\Documents\\Codex\\2026-10-08\\rea\\work\\custard-knights\\qa">)
+    5: _compile [0000022825637889] [node:internal/modules/cjs/loader:1781] [bytecode=0000003A2328CEC9 offset=359](this=0x03ed1b8bba99 <Module map = 0000028776B05019>,0x03ed1b8bbb81 <String[5087]: "...<truncated>>">,0x028776b02969 <String[87]: #C:\\Users\\Joshua\\Documents\\Codex\\2026-10-08\\rea\\work\\custard-knights\\qa\\wire-profile.cjs>,0x017a99f5fb59 <String[8]: #commonjs>)
+    6: .js [0000022825636C49] [node:internal/modules/cjs/loader:1913] [bytecode=0000003A2328D7B9 offset=338](this=0x022825636ae1 <Object map = 0000022825603789>,0x03ed1b8bba99 <Module map = 0000028776B05019>,0x028776b02969 <String[87]: #C:\\Users\\Joshua\\Documents\\Codex\\2026-10-08\\rea\\work\\custard-knights\\qa\\wire-profile.cjs>)
+    7: load [00000228256378F9] [node:internal/modules/cjs/loader:1505] [bytecode=0000003A2328C381 offset=146](this=0x03ed1b8bba99 <Module map = 0000028776B05019>,0x028776b02969 <String[87]: #C:\\Users\\Joshua\\Documents\\Codex\\2026-10-08\\rea\\work\\custard-knights\\qa\\wire-profile.cjs>)
+    8: _load [00000228256373C9] [node:internal/modules/cjs/loader:1309] [bytecode=0000003A2328B319 offset=714](this=0x022825636891 <JSFunction Module (sfi = 00000298DDB07309)>,0x03ed1b8bcfa9 <String[87]: "C:\\Users\\Joshua\\Documents\\Codex\\2026-10-08\\rea\\work\\custard-knights\\qa\\wire-profile.cjs">,0x0082cfa80099 <null>,0x0082cfa80109 <true>,0x0082cfa80069 <undefined>)
+    9: wrapModuleLoad(aka wrapModuleLoad) [0000022825636211] [node:internal/modules/cjs/loader:254] [bytecode=0000003A23287AF9 offset=184](this=0x0082cfa80069 <undefined>,0x03ed1b8bcfa9 <String[87]: "C:\\Users\\Joshua\\Documents\\Codex\\2026-10-08\\rea\\work\\custard-knights\\qa\\wire-profile.cjs">,0x0082cfa80099 <null>,0x0082cfa80109 <true>,0x0082cfa80069 <undefined>)
+   10: runMain(aka executeUserEntryPoint) [000003587F05D8D9] [node:internal/modules/run_main:171] [bytecode=0000003A232967D9 offset=87](this=0x022825636891 <JSFunction Module (sfi = 00000298DDB07309)>,0x03ed1b8bcfa9 <String[87]: "C:\\Users\\Joshua\\Documents\\Codex\\2026-10-08\\rea\\work\\custard-knights\\qa\\wire-profile.cjs">)
+   11: /* anonymous */(aka /* anonymous */) [000003ED1B8BD0B9] [node:internal/main/run_main_module:36] [bytecode=0000020181581141 offset=147](this=0x0082cfa80069 <undefined>,0x022825602969 <process map = 0000022825602721>,0x02c8cdd01c79 <JSFunction requireBuiltin (sfi = 0000007FD9049B01)>,0x02c8cdd01cd1 <JSFunction internalBinding (sfi = 0000007FD9048B21)>,0x002a8b9dee19 <Object map = 0000002A8B9DEDD1>)
+   12: InternalFrame [pc: 00007FF6C428B91C]
+   13: EntryFrame [pc: 00007FF6C428B517]
+
+==== Details ================================================
+
+[0]: ExitFrame [pc: 00007FF6C432DAFA]
+[1]: apply [000001A28E4A8821] [C:\Users\Joshua\Documents\Codex\2026-10-08\rea\work\custard-knights\game\mass-battle-wire.js:~108] [pc=00007FF6A45DFDB2](this=0x01a28e4a8859 <Object map = 0000039362929D91>,0x00e477dbff89 <Object map = 0000025DB7FC13A1>) {
+// optimized frame
+--------- s o u r c e   c o d e ---------
+function apply(message) {\x0a        try {\x0a          if (!plain(message)) return null;\x0a          if (message.type === 'snapshot') {\x0a            if (message.wire !== undefined && (message.wire !== 1 || !Number.isSafeInteger(message.seq) || message.seq < 1)) return null;\x0a            if (!validate(message.state)) retur...
+
+-----------------------------------------
+}
+[2]: run(aka run) [000001844FD75121] [C:\Users\Joshua\Documents\Codex\2026-10-08\rea\work\custard-knights\qa\wire-profile.cjs:~32] [pc=00007FF6A457E3CA](this=0x0082cfa80069 <undefined>,0x01844fd5e871 <Object map = 000003ED1B8ADB49>,0x0082cfa80069 <undefined>) {
+  // expression stack (top to bottom)
+  [26] : 0x01a28e4a8859 <Object map = 0000039362929D91>
+  [25] : 0x00e477dbff89 <Object map = 0000025DB7FC13A1>
+  [24] : 0x0082cfa80069 <undefined>
+  [23] : 0x0082cfa80069 <undefined>
+  [22] : 0x0082cfa80069 <undefined>
+  [21] : 0x0082cfa80069 <undefined>
+  [20] : 0x0082cfa80069 <undefined>
+  [19] : 0x0082cfa80069 <undefined>
+  [18] : 0x00e477dbff89 <Object map = 0000025DB7FC13A1>
+  [17] : 0x03ed1b8bb8c1 <JSArray[210]>
+  [16] : 0x01a28e4a8821 <JSFunction apply (sfi = 0000039362929C11)>
+  [15] : 0x03ed1b8bb7b1 <FunctionContext[18]>
+  [14] : 0x0082cfa80069 <undefined>
+  [13] : 0x0082cfa80069 <undefined>
+  [12] : 0x0082cfa800d9 <false>
+  [11] : 0x01a28e4a8881 <Array Iterator map = 000002F3998A5D49>
+  [10] : 0x02f3998a5dc9 <JSFunction next (sfi = 00000082CFA98929)>
+  [09] : 0x0082cfa80069 <undefined>
+  [08] : 0x034ea07df371 <Object map = 000003936292E591>
+  [07] : 153
+  [06] : 0x01a28e4a8859 <Object map = 0000039362929D91>
+  [05] : 0x0220cfbfc991 <Object map = 000002821FD7EA39>
+  [04] : 0x0082cfa80069 <undefined>
+  [03] : 0x034ea07df431 <HeapNumber 137398>
+  [02] : 0x0220cfbfc991 <Object map = 000002821FD7EA39>
+  [01] : 0x0082cfa800d9 <false>
+  [00] : 0x01844fd5e871 <Object map = 000003ED1B8ADB49>
+--------- s o u r c e   c o d e ---------
+function run(api, verify = false) {\x0a  let sum = 0;\x0a  for (const batch of batches) {\x0a    const decoder = api.createDecoder();\x0a    for (let i = 0; i < batch.packets.length; i++) {\x0a      const result = decoder.apply(batch.packets[i]);\x0a      if (!result) throw Error(`Decode failed ${batch.mode}:${i}`);\x0a      if (ve...
+
+-----------------------------------------
+}
+
+[3]: /* anonymous */(aka /* anonymous */) [00000295983D0A71] [C:\Users\Joshua\Documents\Codex\2026-10-08\rea\work\custard-knights\qa\wire-profile.cjs:55] [bytecode=0000020181584079 offset=107](this=0x0082cfa80069 <undefined>) {
+  // heap-allocated locals
+  var measurements = 0x0082cfa80c69 <the_hole_value>
+  // expression stack (top to bottom)
+  [31] : 0x0082cfa80069 <undefined>
+  [30] : 0x01844fd5e871 <Object map = 000003ED1B8ADB49>
+  [29] : 0x0082cfa80069 <undefined>
+  [28] : 0x0082cfa80069 <undefined>
+  [27] : 0x0082cfa80069 <undefined>
+  [26] : 0x0082cfa80069 <undefined>
+  [25] : 0x0082cfa80069 <undefined>
+  [24] : 0x0082cfa80069 <undefined>
+  [23] : 0x0082cfa80069 <undefined>
+  [22] : 0x0082cfa80069 <undefined>
+  [21] : 0x0082cfa80069 <undefined>
+  [20] : 0x0082cfa80109 <true>
+  [19] : 0x01844fd5e871 <Object map = 000003ED1B8ADB49>
+  [18] : 0x01844fd75121 <JSFunction run (sfi = 0000028776B04091)>
+  [17] : 0x0295983d09f1 <FunctionContext[3]>
+  [16] : 0x03ed1b8bb7b1 <FunctionContext[18]>
+  [15] : 2
+  [14] : 0x0082cfa80069 <undefined>
+  [13] : 0x0082cfa80069 <undefined>
+  [12] : 0x0082cfa80069 <undefined>
+  [11] : 0x0082cfa80069 <undefined>
+  [10] : 0x0082cfa80069 <undefined>
+  [09] : 0x0082cfa80069 <undefined>
+  [08] : 0x0082cfa80069 <undefined>
+  [07] : 0x0082cfa80069 <undefined>
+  [06] : 0x0082cfa80069 <undefined>
+  [05] : 0x0295983d0a19 <JSAsyncFunctionObject>
+  [04] : 0x0082cfa80069 <undefined>
+  [03] : 0x0082cfa80069 <undefined>
+  [02] : 0x0082cfa80069 <undefined>
+  [01] : 0x0082cfa80069 <undefined>
+  [00] : 0x0082cfa80069 <undefined>
+--------- s o u r c e   c o d e ---------
+function async () => {\x0a  run(before, true); run(after, true);\x0a  for (let i = 0; i < 3; i++) { run(before); run(after); }\x0a  await post('Profiler.enable'); await post('Profiler.setSamplingInterval', { interval: 100 }); await post('Profiler.start');\x0a  for (let i = 0; i < 6; i++) run(before);\x0a  const { profile }...
+
+-----------------------------------------
+}
+
+[4]: /* anonymous */ [000003ED1B8BB9E1] [C:\Users\Joshua\Documents\Codex\2026-10-08\rea\work\custard-knights\qa\wire-profile.cjs:~1] [pc=00007FF6A44F9FB9](this=0x03ed1b8bba21 <Object map = 000002282560E501>,0x03ed1b8bba21 <Object map = 000002282560E501>,0x03ed1b8bba59 <JSFunction require (sfi = 0000037A585F5FD1)>,0x03ed1b8bba99 <Module map = 0000028776B05019>,0x028776b02969 <String[87]: #C:\\Users\\Joshua\\Documents\\Codex\\2026-10-08\\rea\\work\\custard-knights\\qa\\wire-profile.cjs>,0x03ed1b8bbb29 <String[70]: "C:\\Users\\Joshua\\Documents\\Codex\\2026-10-08\\rea\\work\\custard-knights\\qa">) {
+  // heap-allocated locals
+  var fs = 0x022825605ee1 <Object map = 0000022825605E99>
+  var path = 0x0228256060a1 <Object map = 0000022825606059>
+  var crypto = 0x01844fd41e89 <Object map = 000003E743A98069>
+  var vm = 0x01844fd43491 <Object map = 000002C8CDD1B619>
+  var performance = 0x0194c72221b9 <Performance map = 000001BD12299F51>
+  var currentPath = 0x01844fd5e559 <String[92]: "C:\\Users\\Joshua\\Documents\\Codex\\2026-10-08\\rea\\work\\custard-knights\\game\\mass-battle-wire.js">
+  var baselinePath = 0x01844fd58b21 <String[77]: "C:\\Users\\Joshua\\Documents\\Codex\\2026-10-08\\rea\\work\\wire-profile-baseline.cjs">
+  var output = 0x01844fd75011 <String[111]: "C:\\Users\\Joshua\\Documents\\Codex\\2026-10-08\\rea\\work\\custard-knights\\qa\\results\\wire-profile-baseline-2026-10-09">
+  var before = 0x01844fd58e49 <Object map = 000003ED1B888789>
+  var after = 0x01844fd5e871 <Object map = 000003ED1B8ADB49>
+  var hash = 0x01844fd75091 <JSFunction hash (sfi = 0000028776B040E9)>
+  var freeze = 0x01844fd750c9 <JSFunction freeze (sfi = 0000028776B04141)>
+  var batches = 0x01844fd75101 <JSArray[3]>
+  var run = 0x01844fd75121 <JSFunction run (sfi = 0000028776B04091)>
+  var session = 0x0295983d33f1 <EventEmitter map = 000002C5D3337611>
+  var post = 0x0295983d3471 <JSFunction post (sfi = 0000028776B04199)>
+  // expression stack (top to bottom)
+  [28] : 0x0082cfa80069 <undefined>
+  [27] : 0x0295983d0aa9 <Object map = 000000CA2D50F161>
+  [26] : 0x02f399888299 <Object map = 000002C8CDD12381>
+  [25] : 0x0295983d0ae9 <String[10093]: "...<truncated>>">
+  [24] : 0x02f399888299 <Object map = 000002C8CDD12381>
+  [23] : 0x02f399888299 <Object map = 000002C8CDD12381>
+  [22] : 0x0295983d3269 <Object map = 000002821FD7EA39>
+  [21] : 0x01844fd75101 <JSArray[3]>
+  [20] : 0x0295983d3299 <Object map = 000002F3998A70B1>
+  [19] : 0x0082cfa80c69 <the_hole_value>
+  [18] : -1
+  [17] : -1
+  [16] : 0x0082cfa80109 <true>
+  [15] : 0x0295983d0a71 <JSFunction (sfi = 0000028776B041F1)>
+  [14] : 0x01844fd6b9b1 <JSFunction connect (sfi = 000003E743A98FB9)>
+  [13] : 0x022825601231 <NativeContext[287]>
+  [12] : 0x0295983d32c1 <Object map = 00000194C723ECF1>
+  [11] : 210
+  [10] : 0x015d26274801 <JSArray[210]>
+  [09] : 0x015d26274821 <JSArray[210]>
+  [08] : 0x015d26274841 <Object map = 000003ED1B8B1A11>
+  [07] : 0x015d26274869 <Object map = 000001844FD7B709>
+  [06] : 0x028776b036b1 <String[5]: #siege>
+  [05] : 0x0082cfa80069 <undefined>
+  [04] : 0x028776b036b1 <String[5]: #siege>
+  [03] : 0x03ed1b8bb909 <JSFunction load (sfi = 0000028776B04039)>
+  [02] : 0x03ed1b8bb6f1 <Object map = 000001BD1229FDF9>
+  [01] : 0x03ed1b8bb949 <JSFunction strict (sfi = 000003E743AA8761)>
+  [00] : 0x03ed1b8bb989 <Object map = 000003E743AA67A1>
+--------- s o u r c e   c o d e ---------
+function 'use strict';\x0a// Fixed packets, immutable inputs, alternating implementation order; excludes core/encoding time.\x0aconst fs = require('node:fs'), path = require('node:path'), crypto = require('node:crypto');\x0aconst vm = require('node:vm'), inspector = require('node:inspector');\x0aconst assert = require('...
+
+-----------------------------------------
+}
+
+[5]: _compile [0000022825637889] [node:internal/modules/cjs/loader:1781] [bytecode=0000003A2328CEC9 offset=359](this=0x03ed1b8bba99 <Module map = 0000028776B05019>,0x03ed1b8bbb81 <String[5087]: "...<truncated>>">,0x028776b02969 <String[87]: #C:\\Users\\Joshua\\Documents\\Codex\\2026-10-08\\rea\\work\\custard-knights\\qa\\wire-profile.cjs>,0x017a99f5fb59 <String[8]: #commonjs>) {
+  // expression stack (top to bottom)
+  [23] : 0x03ed1b8bba21 <Object map = 000002282560E501>
+  [22] : 0x03ed1b8bba21 <Object map = 000002282560E501>
+  [21] : 0x03ed1b8bba59 <JSFunction require (sfi = 0000037A585F5FD1)>
+  [20] : 0x03ed1b8bba99 <Module map = 0000028776B05019>
+  [19] : 0x028776b02969 <String[87]: #C:\\Users\\Joshua\\Documents\\Codex\\2026-10-08\\rea\\work\\custard-knights\\qa\\wire-profile.cjs>
+  [18] : 0x03ed1b8bbb29 <String[70]: "C:\\Users\\Joshua\\Documents\\Codex\\2026-10-08\\rea\\work\\custard-knights\\qa">
+  [17] : 0x0082cfa80069 <undefined>
+  [16] : 0x0082cfa80069 <undefined>
+  [15] : 0x0082cfa80069 <undefined>
+  [14] : 4
+  [13] : 0x03ed1b8bbb49 <JSArray[5]>
+  [12] : 0x03ed1b8bba21 <Object map = 000002282560E501>
+  [11] : 0x03ed1b8bb9e1 <JSFunction (sfi = 0000028776B03FD1)>
+  [10] : 0x02c8cdd01829 <JSFunction apply (sfi = 00000082CFA95279)>
+  [09] : 0x03ed1b8bbb69 <Object map = 0000028776B04A69>
+  [08] : 0x0082cfa80069 <undefined>
+  [07] : 0x03ed1b8bba99 <Module map = 0000028776B05019>
+  [06] : 0x03ed1b8bba21 <Object map = 000002282560E501>
+  [05] : 0x03ed1b8bba21 <Object map = 000002282560E501>
+  [04] : 0x0082cfa80069 <undefined>
+  [03] : 0x03ed1b8bba59 <JSFunction require (sfi = 0000037A585F5FD1)>
+  [02] : 0x03ed1b8bbb29 <String[70]: "C:\\Users\\Joshua\\Documents\\Codex\\2026-10-08\\rea\\work\\custard-knights\\qa">
+  [01] : 0x03ed1b8bb9e1 <JSFunction (sfi = 0000028776B03FD1)>
+  [00] : 0x0082cfa80069 <undefined>
+--------- s o u r c e   c o d e ---------
+function (content, filename, format) {\x0d\x0a  if (format === 'commonjs-typescript' || format === 'module-typescript' || format === 'typescript') {\x0d\x0a    content = stripTypeScriptModuleTypes(content, filename);\x0d\x0a    switch (format) {\x0d\x0a      case 'commonjs-typescript': {\x0d\x0a        format = 'commonjs';\x0d\x0a        break...
+
+-----------------------------------------
+}
+
+[6]: .js [0000022825636C49] [node:internal/modules/cjs/loader:1913] [bytecode=0000003A2328D7B9 offset=338](this=0x022825636ae1 <Object map = 0000022825603789>,0x03ed1b8bba99 <Module map = 0000028776B05019>,0x028776b02969 <String[87]: #C:\\Users\\Joshua\\Documents\\Codex\\2026-10-08\\rea\\work\\custard-knights\\qa\\wire-profile.cjs>) {
+  // expression stack (top to bottom)
+  [16] : 0x03ed1b8bba99 <Module map = 0000028776B05019>
+  [15] : 0x03ed1b8bbb81 <String[5087]: "...<truncated>>">
+  [14] : 0x028776b02969 <String[87]: #C:\\Users\\Joshua\\Documents\\Codex\\2026-10-08\\rea\\work\\custard-knights\\qa\\wire-profile.cjs>
+  [13] : 0x017a99f5fb59 <String[8]: #commonjs>
+  [12] : 0x017a99f5fb59 <String[8]: #commonjs>
+  [11] : 0x028776b02969 <String[87]: #C:\\Users\\Joshua\\Documents\\Codex\\2026-10-08\\rea\\work\\custard-knights\\qa\\wire-profile.cjs>
+  [10] : 0x03ed1b8bbb81 <String[5087]: "...<truncated>>">
+  [09] : 0x03ed1b8bba99 <Module map = 0000028776B05019>
+  [08] : 0x022825637889 <JSFunction (sfi = 00000298DDB09CB9)>
+  [07] : 0x0082cfa80069 <undefined>
+  [06] : 0x0082cfa80069 <undefined>
+  [05] : 0x0082cfa80069 <undefined>
+  [04] : 0x017a99f5fb59 <String[8]: #commonjs>
+  [03] : 0x03ed1b8bbb81 <String[5087]: "...<truncated>>">
+  [02] : 0x0082cfa80109 <true>
+  [01] : 0x0082cfa80069 <undefined>
+  [00] : 0x017a99f5fb59 <String[8]: #commonjs>
+--------- s o u r c e   c o d e ---------
+function (module, filename) {\x0d\x0a  let format, pkg;\x0d\x0a  const tsEnabled = getOptionValue('--experimental-strip-types');\x0d\x0a  if (StringPrototypeEndsWith(filename, '.cjs')) {\x0d\x0a    format = 'commonjs';\x0d\x0a  } else if (StringPrototypeEndsWith(filename, '.mjs')) {\x0d\x0a    format = 'module';\x0d\x0a  } else if (StringPrototypeEn...
+
+-----------------------------------------
+}
+
+[7]: load [00000228256378F9] [node:internal/modules/cjs/loader:1505] [bytecode=0000003A2328C381 offset=146](this=0x03ed1b8bba99 <Module map = 0000028776B05019>,0x028776b02969 <String[87]: #C:\\Users\\Joshua\\Documents\\Codex\\2026-10-08\\rea\\work\\custard-knights\\qa\\wire-profile.cjs>) {
+  // expression stack (top to bottom)
+  [09] : 0x022825636ae1 <Object map = 0000022825603789>
+  [08] : 0x03ed1b8bba99 <Module map = 0000028776B05019>
+  [07] : 0x028776b02969 <String[87]: #C:\\Users\\Joshua\\Documents\\Codex\\2026-10-08\\rea\\work\\custard-knights\\qa\\wire-profile.cjs>
+  [06] : 0x0228256060a1 <Object map = 0000022825606059>
+  [05] : 0x03ed1b8bcf71 <String[70]: "C:\\Users\\Joshua\\Documents\\Codex\\2026-10-08\\rea\\work\\custard-knights\\qa">
+  [04] : 0x022825636891 <JSFunction Module (sfi = 00000298DDB07309)>
+  [03] : 0x022825636ae1 <Object map = 0000022825603789>
+  [02] : 0x022825636c49 <JSFunction (sfi = 00000298DDB0A121)>
+  [01] : 0x0082cfa80069 <undefined>
+  [00] : 0x017a99f428a9 <String[3]: #.js>
+--------- s o u r c e   c o d e ---------
+function (filename) {\x0d\x0a  debug('load %j for module %j', filename, this.id);\x0d\x0a\x0d\x0a  assert(!this.loaded);\x0d\x0a  this.filename ??= filename;\x0d\x0a  this.paths ??= Module._nodeModulePaths(path.dirname(filename));\x0d\x0a\x0d\x0a  // If the format is already overridden by hooks, convert that back to extension.\x0d\x0a  let extension;\x0d\x0a  i...
+
+-----------------------------------------
+}
+
+[8]: _load [00000228256373C9] [node:internal/modules/cjs/loader:1309] [bytecode=0000003A2328B319 offset=714](this=0x022825636891 <JSFunction Module (sfi = 00000298DDB07309)>,0x03ed1b8bcfa9 <String[87]: "C:\\Users\\Joshua\\Documents\\Codex\\2026-10-08\\rea\\work\\custard-knights\\qa\\wire-profile.cjs">,0x0082cfa80099 <null>,0x0082cfa80109 <true>,0x0082cfa80069 <undefined>) {
+  // expression stack (top to bottom)
+  [30] : 0x03ed1b8bba99 <Module map = 0000028776B05019>
+  [29] : 0x028776b02969 <String[87]: #C:\\Users\\Joshua\\Documents\\Codex\\2026-10-08\\rea\\work\\custard-knights\\qa\\wire-profile.cjs>
+  [28] : 0x0082cfa80069 <undefined>
+  [27] : 0x0082cfa80069 <undefined>
+  [26] : 0x0082cfa80069 <undefined>
+  [25] : 0x0228256378f9 <JSFunction (sfi = 00000298DDB09799)>
+  [24] : 0x02282562b879 <FunctionContext[162]>
+  [23] : 0x0298ddb341d1 <Symbol: kFormat>
+  [22] : 0x022825636159 <Object map = 0000022825603789>
+  [21] : 0x0082cfa80069 <undefined>
+  [20] : 0x0082cfa80069 <undefined>
+  [19] : 0x0082cfa80069 <undefined>
+  [18] : 0x0082cfa80069 <undefined>
+  [17] : 0x0082cfa80069 <undefined>
+  [16] : 0x0082cfa80069 <undefined>
+  [15] : 0x0082cfa80069 <undefined>
+  [14] : 0x0082cfa80069 <undefined>
+  [13] : 0x0082cfa80069 <undefined>
+  [12] : 0x0082cfa80109 <true>
+  [11] : 0x03ed1b8bba99 <Module map = 0000028776B05019>
+  [10] : 0x0082cfa80069 <undefined>
+  [09] : 0x0082cfa80069 <undefined>
+  [08] : 0x028776b02969 <String[87]: #C:\\Users\\Joshua\\Documents\\Codex\\2026-10-08\\rea\\work\\custard-knights\\qa\\wire-profile.cjs>
+  [07] : 0x0082cfa80069 <undefined>
+  [06] : 0x0082cfa80069 <undefined>
+  [05] : 0x03ed1b8bcf91 <Object map = 0000022825603789>
+  [04] : 0x0082cfa80069 <undefined>
+  [03] : 0x022825621f59 <Object map = 0000022825621F11>
+  [02] : 0x0082cfa80109 <true>
+  [01] : 0x0082cfa80099 <null>
+  [00] : 0x03ed1b8bcfa9 <String[87]: "C:\\Users\\Joshua\\Documents\\Codex\\2026-10-08\\rea\\work\\custard-knights\\qa\\wire-profile.cjs">
+--------- s o u r c e   c o d e ---------
+function (request, parent, isMain, options = kEmptyObject) {\x0d\x0a  let relResolveCacheIdentifier;\x0d\x0a  if (parent) {\x0d\x0a    debug('Module._load REQUEST %s parent: %s', request, parent.id);\x0d\x0a    // Fast path for (lazy loaded) modules in the same directory. The indirect\x0d\x0a    // caching is required to allow cache inva...
+
+-----------------------------------------
+}
+
+[9]: wrapModuleLoad(aka wrapModuleLoad) [0000022825636211] [node:internal/modules/cjs/loader:254] [bytecode=0000003A23287AF9 offset=184](this=0x0082cfa80069 <undefined>,0x03ed1b8bcfa9 <String[87]: "C:\\Users\\Joshua\\Documents\\Codex\\2026-10-08\\rea\\work\\custard-knights\\qa\\wire-profile.cjs">,0x0082cfa80099 <null>,0x0082cfa80109 <true>,0x0082cfa80069 <undefined>) {
+  // expression stack (top to bottom)
+  [19] : 0x022825636891 <JSFunction Module (sfi = 00000298DDB07309)>
+  [18] : 0x03ed1b8bcfa9 <String[87]: "C:\\Users\\Joshua\\Documents\\Codex\\2026-10-08\\rea\\work\\custard-knights\\qa\\wire-profile.cjs">
+  [17] : 0x0082cfa80099 <null>
+  [16] : 0x0082cfa80109 <true>
+  [15] : 0x0082cfa80069 <undefined>
+  [14] : 0x0082cfa80069 <undefined>
+  [13] : 0x0082cfa80069 <undefined>
+  [12] : 0x0082cfa80069 <undefined>
+  [11] : 0x0082cfa80069 <undefined>
+  [10] : 0x0082cfa80109 <true>
+  [09] : 0x0082cfa80099 <null>
+  [08] : 0x03ed1b8bcfa9 <String[87]: "C:\\Users\\Joshua\\Documents\\Codex\\2026-10-08\\rea\\work\\custard-knights\\qa\\wire-profile.cjs">
+  [07] : 0x022825636891 <JSFunction Module (sfi = 00000298DDB07309)>
+  [06] : 0x0228256373c9 <JSFunction (sfi = 00000298DDB092E9)>
+  [05] : 0x02282562b879 <FunctionContext[162]>
+  [04] : 0x0082cfa80099 <null>
+  [03] : 0x022825635cb9 <JSFunction startTimer (sfi = 0000007FD906AB79)>
+  [02] : 0x03ed1b8bd011 <TracingChannel map = 0000028776B02701>
+  [01] : 0x03ed1b8bd079 <String[98]: c"require('C:\\Users\\Joshua\\Documents\\Codex\\2026-10-08\\rea\\work\\custard-knights\\qa\\wire-profile.cjs')">
+  [00] : 0x03ed1b8bd099 <String[92]: c"[] [C:\\Users\\Joshua\\Documents\\Codex\\2026-10-08\\rea\\work\\custard-knights\\qa\\wire-profile.cjs]">
+--------- s o u r c e   c o d e ---------
+function wrapModuleLoad(request, parent, isMain, options) {\x0d\x0a  const logLabel = `[${parent?.id || ''}] [${request}]`;\x0d\x0a  const traceLabel = `require('${request}')`;\x0d\x0a  const channel = onRequire();\x0d\x0a\x0d\x0a  startTimer(logLabel, traceLabel);\x0d\x0a\x0d\x0a  try {\x0d\x0a    if (channel.hasSubscribers) {\x0d\x0a      return onRequire().traceSync(Modul...
+
+-----------------------------------------
+}
+
+[10]: runMain(aka executeUserEntryPoint) [000003587F05D8D9] [node:internal/modules/run_main:171] [bytecode=0000003A232967D9 offset=87](this=0x022825636891 <JSFunction Module (sfi = 00000298DDB07309)>,0x03ed1b8bcfa9 <String[87]: "C:\\Users\\Joshua\\Documents\\Codex\\2026-10-08\\rea\\work\\custard-knights\\qa\\wire-profile.cjs">) {
+  // expression stack (top to bottom)
+  [14] : 0x0082cfa80069 <undefined>
+  [13] : 0x03ed1b8bcfa9 <String[87]: "C:\\Users\\Joshua\\Documents\\Codex\\2026-10-08\\rea\\work\\custard-knights\\qa\\wire-profile.cjs">
+  [12] : 0x0082cfa80099 <null>
+  [11] : 0x0082cfa80109 <true>
+  [10] : 0x0082cfa80069 <undefined>
+  [09] : 0x0082cfa80109 <true>
+  [08] : 0x0082cfa80099 <null>
+  [07] : 0x03ed1b8bcfa9 <String[87]: "C:\\Users\\Joshua\\Documents\\Codex\\2026-10-08\\rea\\work\\custard-knights\\qa\\wire-profile.cjs">
+  [06] : 0x02c8cdd01c79 <JSFunction requireBuiltin (sfi = 0000007FD9049B01)>
+  [05] : 0x022825636211 <JSFunction wrapModuleLoad (sfi = 00000298DDB06C29)>
+  [04] : 0x03587f05b021 <Object map = 000002F3998AE3B1>
+  [03] : 0x0082cfa80069 <undefined>
+  [02] : 0x028776b02969 <String[87]: #C:\\Users\\Joshua\\Documents\\Codex\\2026-10-08\\rea\\work\\custard-knights\\qa\\wire-profile.cjs>
+  [01] : 0x0082cfa800d9 <false>
+  [00] : 0x03ed1b8bcfa9 <String[87]: "C:\\Users\\Joshua\\Documents\\Codex\\2026-10-08\\rea\\work\\custard-knights\\qa\\wire-profile.cjs">
+--------- s o u r c e   c o d e ---------
+function executeUserEntryPoint(main = process.argv[1]) {\x0d\x0a  let useESMLoader;\x0d\x0a  let resolvedMain;\x0d\x0a  if (getOptionValue('--entry-url')) {\x0d\x0a    useESMLoader = true;\x0d\x0a  } else {\x0d\x0a    resolvedMain = resolveMainPath(main);\x0d\x0a    useESMLoader = shouldUseESMLoader(resolvedMain);\x0d\x0a  }\x0d\x0a  // Unless we know we should use the ESM loader t...
+
+-----------------------------------------
+}
+
+[11]: /* anonymous */(aka /* anonymous */) [000003ED1B8BD0B9] [node:internal/main/run_main_module:36] [bytecode=0000020181581141 offset=147](this=0x0082cfa80069 <undefined>,0x022825602969 <process map = 0000022825602721>,0x02c8cdd01c79 <JSFunction requireBuiltin (sfi = 0000007FD9049B01)>,0x02c8cdd01cd1 <JSFunction internalBinding (sfi = 0000007FD9048B21)>,0x002a8b9dee19 <Object map = 0000002A8B9DEDD1>) {
+  // expression stack (top to bottom)
+  [11] : 0x022825636891 <JSFunction Module (sfi = 00000298DDB07309)>
+  [10] : 0x03ed1b8bcfa9 <String[87]: "C:\\Users\\Joshua\\Documents\\Codex\\2026-10-08\\rea\\work\\custard-knights\\qa\\wire-profile.cjs">
+  [09] : 0x017a99f52d09 <String[27]: #internal/modules/cjs/loader>
+  [08] : 0x022825636891 <JSFunction Module (sfi = 00000298DDB07309)>
+  [07] : 0x03587f05d8d9 <JSFunction executeUserEntryPoint (sfi = 00000298DDB12369)>
+  [06] : 0x03ed1b8bcfa9 <String[87]: "C:\\Users\\Joshua\\Documents\\Codex\\2026-10-08\\rea\\work\\custard-knights\\qa\\wire-profile.cjs">
+  [05] : 0x0082cfa800d9 <false>
+  [04] : 0x03587f07dc11 <JSFunction emitExperimentalWarning (sfi = 0000007FD905BDF9)>
+  [03] : 0x022825604af9 <JSFunction getOptionValue (sfi = 0000007FD905F839)>
+  [02] : 0x03587f05ee01 <JSFunction markBootstrapComplete (sfi = 00000298DDB112E1)>
+  [01] : 0x03587f05ecf9 <JSFunction prepareMainThreadExecution (sfi = 00000298DDB0E3B1)>
+  [00] : 0x02c8cdd017f9 <JSBoundFunction (BoundTargetFunction 000003587F07C189)>
+--------- s o u r c e   c o d e ---------
+function 'use strict';\x0d\x0a\x0d\x0aconst {\x0d\x0a  RegExpPrototypeExec,\x0d\x0a} = primordials;\x0d\x0a\x0d\x0aconst {\x0d\x0a  prepareMainThreadExecution,\x0d\x0a  markBootstrapComplete,\x0d\x0a} = require('internal/process/pre_execution');\x0d\x0aconst { getOptionValue } = require('internal/options');\x0d\x0aconst { emitExperimentalWarning } = require('internal/util'...
+
+-----------------------------------------
+}
+
+[12]: InternalFrame [pc: 00007FF6C428B91C]
+[13]: EntryFrame [pc: 00007FF6C428B517]
+=====================
+

@@ -50,11 +50,12 @@ function createBattleServer(options = {}) {
   const metrics = { steps: 0, maxStepMs: 0, totalStepMs: 0, tickSamplesMs: [], maxTickGapMs: 0, maxSnapshotBytes: 0, snapshots: 0, rejectedInputs: 0, rateLimited: 0 };
 
   function originAllowed(origin) {
-    // Native clients have no Origin. File-based packaged clients send "null".
+    // The desktop's standard custom protocol sends its exact custard://game origin.
+    // Native clients may omit Origin; file-based browser clients send "null".
     // This is a cross-site browser guard, not authentication.
     if (!origin) return true;
     if (allowedOrigins.length) return allowedOrigins.includes(origin);
-    if (origin === 'null') return true;
+    if (origin === 'null' || origin === 'custard://game') return true;
     try { const u = new URL(origin); return ['http:', 'https:'].includes(u.protocol) && ['localhost', '127.0.0.1', '[::1]'].includes(u.hostname); }
     catch { return false; }
   }

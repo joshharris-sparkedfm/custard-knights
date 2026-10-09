@@ -1,0 +1,15 @@
+{
+  "checks": [
+    {
+      "name": "Integrated game loads",
+      "pass": true
+    }
+  ],
+  "errors": [],
+  "sourceHashes": {
+    "index.html": "fb4cee753c138b4f9f5a07905fe57cfe05ef89994c7b21ea248c246b7e0cffd1",
+    "game/mass-battle-ui.js": "e48098926c987e3e065731021ae51b0dd0c1e29263a6492eb3537fe96e301504"
+  },
+  "limitations": "One headless integrated browser plus seven scripted loopback sockets. Terminal server state is set directly to test persistence/result UI; not a human-completed match, WAN, Steam authentication or minimum-hardware acceptance.",
+  "failure": "Error: {\"exceptionId\":1,\"text\":\"Uncaught\",\"lineNumber\":0,\"columnNumber\":131,\"scriptId\":\"26\",\"stackTrace\":{\"callFrames\":[{\"functionName\":\"\",\"scriptId\":\"26\",\"url\":\"\",\"lineNumber\":0,\"columnNumber\":131}]},\"exception\":{\"type\":\"object\",\"subtype\":\"error\",\"className\":\"TypeError\",\"description\":\"TypeError: Cannot read properties of undefined (reading 'click')\\n    at <anonymous>:1:132\",\"objectId\":\"-882404612532201239.2.2\"}}\n    at run (C:\\Users\\Joshua\\Documents\\Codex\\2026-10-08\\rea\\work\\custard-knights\\qa\\private-ladder-browser.cjs:24:148)\n    at async main (C:\\Users\\Joshua\\Documents\\Codex\\2026-10-08\\rea\\work\\custard-knights\\qa\\private-ladder-browser.cjs:32:2)"
+}

@@ -1,0 +1,43 @@
+✔ private key is masked, required for ladder, sent only over secure remote transport and never in URLs (2.6024ms)
+✔ accepted queue clears join timeout, pings while waiting, and cancellation rejects late messages (1.9522ms)
+✔ queue liveness failure and changing playlist both release the connection (0.6403ms)
+✔ ranked welcome gates snapshots and displays scoped profile, rating confirmation and leaderboard (2.5596ms)
+✔ blocked authentication and an unranked server response cannot silently enter a ladder game (0.7654ms)
+✔ late rating and save-error messages from another room cannot overwrite the current match (1.4017ms)
+✔ a saved result with unavailable profile keeps its confirmed change and clears stale profile details (1.4417ms)
+✔ host-issued credentials persist, contain 256 bits, are hashed and can be revoked (38.7376ms)
+✔ equal teams receive symmetric Elo updates and queue-specific durable statistics (19.9083ms)
+✔ draws count, equal draws do not change ratings, provisional ends after ten (20.2157ms)
+✔ identical retries are idempotent across reopen and conflicting results fail (15.7404ms)
+✔ bot and abandoned results persist without ladder awards (26.8868ms)
+✔ malformed or forged identities, settings and rosters fail before changing ratings (13.9246ms)
+✔ a mid-write SQLite failure rolls back both history and every rating (24.6414ms)
+✔ larger complete teams are supported and repeated wins remain bounded (238.9742ms)
+✔ operator CLI requires explicit database, issues once, profiles and revokes (163.9478ms)
+✔ private queue requires credentials, strips claimed rank, accepts no inputs or bots, and cancels (190.42ms)
+✔ one connection per account includes authenticated casual play and never steals a session (61.6719ms)
+✔ queues partition by mode and capacity; revoked queued accounts cannot launch (275.6292ms)
+✔ eight authenticated humans launch balanced using stored ratings; finished host fixture persists roster once (232.1219ms)
+✔ disconnect permanently disqualifies full roster despite bot refill; abandoned rooms record once (229.9566ms)
+✔ storage failure never reports rating success and does not stop simulation (798.6514ms)
+✔ casual blank rooms automatically route around full and finished rooms while explicit codes stay strict (185.4891ms)
+✔ matchmaking expands rating gaps by wait with a hard bound (0.3524ms)
+✔ simultaneous authenticated casual joins reserve only one connection (133.4968ms)
+✔ revocation after launch records an ineligible terminal audit; abandoning active game also records (330.4328ms)
+✔ SQLite-backed terminal fixture persists ratings across store restart and scoped leaderboard (122.6322ms)
+✔ ranked 20v20 waits for every human slot before launch (675.0818ms)
+✔ ranked 50v50 waits for every human slot before launch (1710.1904ms)
+✔ rating publication waits for durable recordMatch completion (128.3098ms)
+✔ a fresh middle-rated entrant does not block an eligible older roster (0.6093ms)
+✔ transient write failures retry immutable payload and preserve ambiguous committed outcomes idempotently (366.0868ms)
+✔ exhausted writes retain the failed room after disconnect and host can retry it (547.1385ms)
+✔ profile read failure after commit reports saved result with scoped profile error (67.8351ms)
+✔ authenticated casual rooms use stored skill for human and bot balance without awarding rank (99.7791ms)
+ℹ tests 35
+ℹ suites 0
+ℹ pass 35
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 6901.5825

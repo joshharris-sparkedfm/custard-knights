@@ -3,6 +3,10 @@ on:
   push:
     paths:
       - 'deploy/**'
+      - 'server/**'
+      - 'scripts/player-admin.cjs'
+      - 'qa/container-smoke.cjs'
+      - 'qa/container-private.cjs'
       - '.github/workflows/battle-container.yml'
   workflow_dispatch:
 permissions:
@@ -20,17 +24,19 @@ jobs:
         run: |
           docker compose -f deploy/compose.yaml config --quiet
           BATTLE_DOMAIN=review.invalid docker compose -f deploy/compose.yaml -f deploy/compose.public.yaml config --quiet
+          docker compose -f deploy/compose.yaml -f deploy/compose.ladder.yaml config --quiet
       - name: Build and start loopback-only container
-        run: docker compose -f deploy/compose.yaml up --build --wait --wait-timeout 90 -d
+        run: docker compose -f deploy/compose.yaml -f deploy/compose.ladder.yaml up --build --wait --wait-timeout 90 -d
       - name: Check actual container handshake and state
         run: |
           npm ci --omit=dev --ignore-scripts
           node qa/container-smoke.cjs
+          node qa/container-private.cjs
       - name: Retain container evidence
         if: always()
         run: |
-          docker compose -f deploy/compose.yaml ps > container-status.txt
-          docker compose -f deploy/compose.yaml logs --no-color > container.log
+          docker compose -f deploy/compose.yaml -f deploy/compose.ladder.yaml ps > container-status.txt
+          docker compose -f deploy/compose.yaml -f deploy/compose.ladder.yaml logs --no-color > container.log
       - if: always()
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
         with:
@@ -39,6 +45,7 @@ jobs:
             container-status.txt
             container.log
             container-smoke.json
+            container-private.json
           retention-days: 14
       - if: always()
-        run: docker compose -f deploy/compose.yaml down
+        run: docker compose -f deploy/compose.yaml -f deploy/compose.ladder.yaml down

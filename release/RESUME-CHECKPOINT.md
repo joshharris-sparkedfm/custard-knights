@@ -1,12 +1,12 @@
 # Development checkpoint — 9 October 2026
 
-Version **0.3.0-alpha.3** is a playable development preview, not a validated Steam release. The user requested all work pushed and merged for cross-machine continuation, then explicitly asked to continue working and keep GitHub current. Automatic work remains active; the earlier pause request was superseded. See PREVIEW-BUILD.md for the exported local Windows copy.
+Version **0.3.0-alpha.4** is a playable development preview, not a validated Steam release. The user requested all work pushed and merged for cross-machine continuation, then explicitly asked to continue working and keep GitHub current. Automatic work remains active; the earlier pause request was superseded. See PREVIEW-BUILD.md for the exported local Windows copy.
 
 ## Start on another computer
 
 Clone the repository, check out `main`, run `npm ci`, then `npm start` for the desktop game. `npm run package:win` builds the Windows folder. For Faction Front online rooms, run `npm run battle:server` separately and use its WebSocket endpoint. The default server is local; no public service has been deployed. Opening `index.html` also supports offline browser play. Downloaded desktop folders must retain all sibling files.
 
-The main menu contains The Great Pudding War (eight playable encounters), Custard Cup, the original arena game, and Faction Front. The latter includes brawl, capture the flag and castle siege at 4v4, 20v20 and 50v50 total combatants with bots filling vacant seats, four tactical roles and balanced human counts. Its session standings are anonymous and unranked; authenticated persistent competitive rankings remain unfinished.
+The main menu contains The Great Pudding War (eight playable encounters), Custard Cup, the original arena game, and Faction Front. The latter includes brawl, capture the flag and castle siege at 4v4, 20v20 and 50v50 total combatants with bots filling vacant seats, four tactical roles and balanced human counts. Casual session standings remain anonymous and unranked. An opt-in private ladder now has host-issued identities, durable ratings and human-only skill queues; Steam identity, public operations and competitive acceptance remain unfinished.
 
 ## Current changes
 
@@ -16,6 +16,10 @@ The main menu contains The Great Pudding War (eight playable encounters), Custar
 - Dedicated authoritative WebSocket server, bounded inputs, bot replacement, resumable sessions, compact full/delta snapshots and explicit resync. Current target is 20 Hz replication. This has not passed final sustained-load acceptance.
 
 ## Evidence and unfinished work
+
+**Private identity and ladder implementation, 9 October:** the user explicitly requested continuing to finish, superseding the prior wait-only approach. Alpha.4 adds host-issued private player keys, SQLite ratings/history, human-only skill queues for each mode/size, cancellation, persistent result UI, and server-owned ratings feeding authenticated casual bot/team balance. See `release/PRIVATE-LADDER.md`. Thirty-five focused tests passed; actual integrated browser and existing 34 faction checks passed, and the Windows package matches all 42 entries. Final hosted CI and export identity are recorded in the newest review when complete. Until PREVIEW-BUILD is refreshed, its alpha.3 links identify the previous frozen export. Do not infer Steam auth or a deployed public service from the private ladder.
+
+Review corrected transient result-write retry, false unsaved claims after committed writes, duplicate authenticated-join ownership checks, stale UI outcome scoping and fresh entrants blocking an otherwise compatible matchmaking group. Exhausted writes remain in process memory for explicit retry/shutdown retry, not a cross-crash journal. A disconnect disqualifies a match; this can be exploited to avoid a loss, so public competitive leaver/anti-collusion policy remains unfinished. These are private-test implementations, not a finished public ranked season.
 
 **Friends distribution kit, 9 October:** the user asked to keep finishing and enable sharing with friends. `outputs/Custard-Knights-Friends-0.3.0-alpha.3.zip` adds a short start guide and offline feedback form around the frozen alpha.3 game. All 73 game files are byte-identical; no runtime update or sale-readiness claim. ZIP SHA256 `a161b968bf26917b679e45b62ad4cca5790569497de680feb03cf3377031b43d`, 178893829 bytes. Eleven real-browser feedback checks and six packaging rejection cases passed. See `release/playtest/README.md` and `qa/reviews/friends-playtest-2026-10-09.md`. Nothing was sent to friends or publicly uploaded. Hosting details remain pending; no repeat of that question is needed.
 

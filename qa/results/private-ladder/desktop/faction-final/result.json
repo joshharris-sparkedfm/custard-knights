@@ -1,0 +1,258 @@
+{
+  "date": "2026-10-09T11:21:51.196Z",
+  "packaged": true,
+  "code": 0,
+  "signal": null,
+  "origins": [
+    "custard://game",
+    "custard://game",
+    "custard://game"
+  ],
+  "stdout": "\r\nFACTION_DESKTOP_PASS {\"checks\":[{\"mode\":\"brawl\",\"players\":8,\"visor\":\"closed\",\"network\":{\"full\":1,\"delta\":12,\"resync\":0},\"origin\":\"custard://game\"},{\"mode\":\"ctf\",\"players\":40,\"visor\":\"open\",\"network\":{\"full\":1,\"delta\":19,\"resync\":0},\"origin\":\"custard://game\"},{\"mode\":\"siege\",\"players\":100,\"visor\":\"closed\",\"network\":{\"full\":1,\"delta\":19,\"resync\":0},\"origin\":\"custard://game\"}],\"temporaryProfile\":true,\"input\":\"synthetic DOM keyboard; physical input untested\"}\n",
+  "stderr": "",
+  "samples": [
+    {
+      "room": "desktop-brawl",
+      "time": 0.0327654,
+      "inputs": [
+        {
+          "x": 0,
+          "y": 0
+        }
+      ]
+    },
+    {
+      "room": "desktop-brawl",
+      "time": 0.13370050000000003,
+      "inputs": [
+        {
+          "x": 0,
+          "y": 0
+        }
+      ]
+    },
+    {
+      "room": "desktop-brawl",
+      "time": 0.2487008999999999,
+      "inputs": [
+        {
+          "x": 0,
+          "y": 0
+        }
+      ]
+    },
+    {
+      "room": "desktop-brawl",
+      "time": 0.31765329999999997,
+      "inputs": [
+        {
+          "x": 0,
+          "y": 0
+        }
+      ]
+    },
+    {
+      "room": "desktop-brawl",
+      "time": 0.4512904999999998,
+      "inputs": [
+        {
+          "x": 0,
+          "y": 0
+        }
+      ]
+    },
+    {
+      "room": "desktop-brawl",
+      "time": 0.5327778999999999,
+      "inputs": [
+        {
+          "x": 1,
+          "y": 0,
+          "seq": 1
+        }
+      ]
+    },
+    {
+      "room": "desktop-ctf",
+      "time": 0.04700599999999986,
+      "inputs": [
+        {
+          "x": 0,
+          "y": 0
+        }
+      ]
+    },
+    {
+      "room": "desktop-ctf",
+      "time": 0.16875849999999992,
+      "inputs": [
+        {
+          "x": 0,
+          "y": 0
+        }
+      ]
+    },
+    {
+      "room": "desktop-ctf",
+      "time": 0.2518305,
+      "inputs": [
+        {
+          "x": 0,
+          "y": 0
+        }
+      ]
+    },
+    {
+      "room": "desktop-ctf",
+      "time": 0.36958969999999997,
+      "inputs": [
+        {
+          "x": 0,
+          "y": 0
+        }
+      ]
+    },
+    {
+      "room": "desktop-ctf",
+      "time": 0.49809869999999973,
+      "inputs": [
+        {
+          "x": 0,
+          "y": 0
+        }
+      ]
+    },
+    {
+      "room": "desktop-ctf",
+      "time": 0.6020345000000002,
+      "inputs": [
+        {
+          "x": 0,
+          "y": 0
+        }
+      ]
+    },
+    {
+      "room": "desktop-ctf",
+      "time": 0.6850879000000003,
+      "inputs": [
+        {
+          "x": 0,
+          "y": 0
+        }
+      ]
+    },
+    {
+      "room": "desktop-ctf",
+      "time": 0.8020891000000008,
+      "inputs": [
+        {
+          "x": 0,
+          "y": 0
+        }
+      ]
+    },
+    {
+      "room": "desktop-ctf",
+      "time": 0.9316177000000011,
+      "inputs": [
+        {
+          "x": 1,
+          "y": 0,
+          "seq": 2
+        }
+      ]
+    },
+    {
+      "room": "desktop-siege",
+      "time": 0.038861799999999676,
+      "inputs": [
+        {
+          "x": 0,
+          "y": 0
+        }
+      ]
+    },
+    {
+      "room": "desktop-siege",
+      "time": 0.15172209999999994,
+      "inputs": [
+        {
+          "x": 0,
+          "y": 0
+        }
+      ]
+    },
+    {
+      "room": "desktop-siege",
+      "time": 0.23245509999999966,
+      "inputs": [
+        {
+          "x": 0,
+          "y": 0
+        }
+      ]
+    },
+    {
+      "room": "desktop-siege",
+      "time": 0.36576659999999994,
+      "inputs": [
+        {
+          "x": 0,
+          "y": 0
+        }
+      ]
+    },
+    {
+      "room": "desktop-siege",
+      "time": 0.47296259999999984,
+      "inputs": [
+        {
+          "x": 0,
+          "y": 0
+        }
+      ]
+    },
+    {
+      "room": "desktop-siege",
+      "time": 0.5626897999999998,
+      "inputs": [
+        {
+          "x": 0,
+          "y": 0
+        }
+      ]
+    },
+    {
+      "room": "desktop-siege",
+      "time": 0.6674977000000004,
+      "inputs": [
+        {
+          "x": 0,
+          "y": 0
+        }
+      ]
+    },
+    {
+      "room": "desktop-siege",
+      "time": 0.7831882000000004,
+      "inputs": [
+        {
+          "x": 0,
+          "y": 0
+        }
+      ]
+    },
+    {
+      "room": "desktop-siege",
+      "time": 0.8553242000000011,
+      "inputs": [
+        {
+          "x": 1,
+          "y": 0,
+          "seq": 3
+        }
+      ]
+    }
+  ]
+}

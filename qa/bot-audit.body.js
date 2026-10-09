@@ -20,6 +20,8 @@
  try{
   Math.random=()=>.01;
   const g=setup('flags','steve'),p=g.ents[0],e=g.ents.find(e=>e.team!==p.team);g.ents=[p,e];
+  // Isolate contact mechanics from courtyard props/line-of-sight blocking.
+  g.grid=g.grid.map((row,r)=>row.map((tile,c)=>r===0||c===0||r===g.grid.length-1||c===row.length-1?'#':'.'));g.flows.clear();
   Object.assign(p,{x:650,y:400,protect:0,inv:0});Object.assign(e,{x:600,y:400,atkCd:0,stun:0,wpn:null,bashCd:0});Object.assign(e.ai,{think:1,target:p,goal:'go',gx:900,gy:400,hold:false,react:0,blockT:0,holdAtk:0,tellT:0});
   check(CK.botInput(e,1/60).atk,'objective runner can attack a nearby enemy');
   e.ai.think=0;p.blocking=true;e.ai.goal=null;e.ai.react=0;const bash=CK.botInput(e,1/60);check(bash.atk&&bash.block,'STEVE chooses bash against guarded opponent');

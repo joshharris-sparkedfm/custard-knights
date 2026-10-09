@@ -1,0 +1,1095 @@
+{
+  "cases": [
+    {
+      "mode": "ffa",
+      "edge": "left",
+      "velocity": 235,
+      "stallSeconds": 3,
+      "before": {
+        "x": 60,
+        "y": 440
+      },
+      "shortPrediction": {
+        "x": 54.773135802469135,
+        "y": 440
+      },
+      "afterStall": {
+        "x": -634.2291666666664,
+        "y": 440,
+        "tx": -644.9999999999997,
+        "ty": 440
+      },
+      "escaped": true,
+      "firstEscape": {
+        "frame": 8,
+        "seconds": 0.13333333333333333,
+        "x": 38.536632925045986,
+        "y": 440,
+        "tx": 28.666666666666682,
+        "ty": 440
+      },
+      "recovered": {
+        "x": 60,
+        "y": 440
+      },
+      "recoveryError": 0
+    },
+    {
+      "mode": "ffa",
+      "edge": "right",
+      "velocity": 235,
+      "stallSeconds": 3,
+      "before": {
+        "x": 1220,
+        "y": 440
+      },
+      "shortPrediction": {
+        "x": 1225.226864197531,
+        "y": 440
+      },
+      "afterStall": {
+        "x": 1914.2291666666804,
+        "y": 440,
+        "tx": 1925.0000000000136,
+        "ty": 440
+      },
+      "escaped": true,
+      "firstEscape": {
+        "frame": 8,
+        "seconds": 0.13333333333333333,
+        "x": 1241.4633670749542,
+        "y": 440,
+        "tx": 1251.333333333334,
+        "ty": 440
+      },
+      "recovered": {
+        "x": 1220,
+        "y": 440
+      },
+      "recoveryError": 0
+    },
+    {
+      "mode": "ffa",
+      "edge": "top",
+      "velocity": 235,
+      "stallSeconds": 3,
+      "before": {
+        "x": 640,
+        "y": 140
+      },
+      "shortPrediction": {
+        "x": 640,
+        "y": 134.77313580246914
+      },
+      "afterStall": {
+        "x": 640,
+        "y": -554.2291666666672,
+        "tx": 640,
+        "ty": -565.0000000000005
+      },
+      "escaped": true,
+      "firstEscape": {
+        "frame": 8,
+        "seconds": 0.13333333333333333,
+        "x": 640,
+        "y": 118.536632925046,
+        "tx": 640,
+        "ty": 108.66666666666667
+      },
+      "recovered": {
+        "x": 640,
+        "y": 140
+      },
+      "recoveryError": 0
+    },
+    {
+      "mode": "ffa",
+      "edge": "bottom",
+      "velocity": 235,
+      "stallSeconds": 3,
+      "before": {
+        "x": 640,
+        "y": 740
+      },
+      "shortPrediction": {
+        "x": 640,
+        "y": 745.2268641975309
+      },
+      "afterStall": {
+        "x": 640,
+        "y": 1434.2291666666722,
+        "tx": 640,
+        "ty": 1445.0000000000055
+      },
+      "escaped": true,
+      "firstEscape": {
+        "frame": 8,
+        "seconds": 0.13333333333333333,
+        "x": 640,
+        "y": 761.4633670749538,
+        "tx": 640,
+        "ty": 771.333333333333
+      },
+      "recovered": {
+        "x": 640,
+        "y": 740
+      },
+      "recoveryError": 0
+    },
+    {
+      "mode": "teams",
+      "edge": "left",
+      "velocity": 235,
+      "stallSeconds": 3,
+      "before": {
+        "x": 60,
+        "y": 440
+      },
+      "shortPrediction": {
+        "x": 54.773135802469135,
+        "y": 440
+      },
+      "afterStall": {
+        "x": -634.2291666666664,
+        "y": 440,
+        "tx": -644.9999999999997,
+        "ty": 440
+      },
+      "escaped": true,
+      "firstEscape": {
+        "frame": 8,
+        "seconds": 0.13333333333333333,
+        "x": 38.536632925045986,
+        "y": 440,
+        "tx": 28.666666666666682,
+        "ty": 440
+      },
+      "recovered": {
+        "x": 60,
+        "y": 440
+      },
+      "recoveryError": 0
+    },
+    {
+      "mode": "teams",
+      "edge": "right",
+      "velocity": 235,
+      "stallSeconds": 3,
+      "before": {
+        "x": 1220,
+        "y": 440
+      },
+      "shortPrediction": {
+        "x": 1225.226864197531,
+        "y": 440
+      },
+      "afterStall": {
+        "x": 1914.2291666666804,
+        "y": 440,
+        "tx": 1925.0000000000136,
+        "ty": 440
+      },
+      "escaped": true,
+      "firstEscape": {
+        "frame": 8,
+        "seconds": 0.13333333333333333,
+        "x": 1241.4633670749542,
+        "y": 440,
+        "tx": 1251.333333333334,
+        "ty": 440
+      },
+      "recovered": {
+        "x": 1220,
+        "y": 440
+      },
+      "recoveryError": 0
+    },
+    {
+      "mode": "teams",
+      "edge": "top",
+      "velocity": 235,
+      "stallSeconds": 3,
+      "before": {
+        "x": 640,
+        "y": 140
+      },
+      "shortPrediction": {
+        "x": 640,
+        "y": 134.77313580246914
+      },
+      "afterStall": {
+        "x": 640,
+        "y": -554.2291666666672,
+        "tx": 640,
+        "ty": -565.0000000000005
+      },
+      "escaped": true,
+      "firstEscape": {
+        "frame": 8,
+        "seconds": 0.13333333333333333,
+        "x": 640,
+        "y": 118.536632925046,
+        "tx": 640,
+        "ty": 108.66666666666667
+      },
+      "recovered": {
+        "x": 640,
+        "y": 140
+      },
+      "recoveryError": 0
+    },
+    {
+      "mode": "teams",
+      "edge": "bottom",
+      "velocity": 235,
+      "stallSeconds": 3,
+      "before": {
+        "x": 640,
+        "y": 740
+      },
+      "shortPrediction": {
+        "x": 640,
+        "y": 745.2268641975309
+      },
+      "afterStall": {
+        "x": 640,
+        "y": 1434.2291666666722,
+        "tx": 640,
+        "ty": 1445.0000000000055
+      },
+      "escaped": true,
+      "firstEscape": {
+        "frame": 8,
+        "seconds": 0.13333333333333333,
+        "x": 640,
+        "y": 761.4633670749538,
+        "tx": 640,
+        "ty": 771.333333333333
+      },
+      "recovered": {
+        "x": 640,
+        "y": 740
+      },
+      "recoveryError": 0
+    },
+    {
+      "mode": "lks",
+      "edge": "left",
+      "velocity": 235,
+      "stallSeconds": 3,
+      "before": {
+        "x": 60,
+        "y": 440
+      },
+      "shortPrediction": {
+        "x": 54.773135802469135,
+        "y": 440
+      },
+      "afterStall": {
+        "x": -634.2291666666664,
+        "y": 440,
+        "tx": -644.9999999999997,
+        "ty": 440
+      },
+      "escaped": true,
+      "firstEscape": {
+        "frame": 8,
+        "seconds": 0.13333333333333333,
+        "x": 38.536632925045986,
+        "y": 440,
+        "tx": 28.666666666666682,
+        "ty": 440
+      },
+      "recovered": {
+        "x": 60,
+        "y": 440
+      },
+      "recoveryError": 0
+    },
+    {
+      "mode": "lks",
+      "edge": "right",
+      "velocity": 235,
+      "stallSeconds": 3,
+      "before": {
+        "x": 1220,
+        "y": 440
+      },
+      "shortPrediction": {
+        "x": 1225.226864197531,
+        "y": 440
+      },
+      "afterStall": {
+        "x": 1914.2291666666804,
+        "y": 440,
+        "tx": 1925.0000000000136,
+        "ty": 440
+      },
+      "escaped": true,
+      "firstEscape": {
+        "frame": 8,
+        "seconds": 0.13333333333333333,
+        "x": 1241.4633670749542,
+        "y": 440,
+        "tx": 1251.333333333334,
+        "ty": 440
+      },
+      "recovered": {
+        "x": 1220,
+        "y": 440
+      },
+      "recoveryError": 0
+    },
+    {
+      "mode": "lks",
+      "edge": "top",
+      "velocity": 235,
+      "stallSeconds": 3,
+      "before": {
+        "x": 640,
+        "y": 140
+      },
+      "shortPrediction": {
+        "x": 640,
+        "y": 134.77313580246914
+      },
+      "afterStall": {
+        "x": 640,
+        "y": -554.2291666666672,
+        "tx": 640,
+        "ty": -565.0000000000005
+      },
+      "escaped": true,
+      "firstEscape": {
+        "frame": 8,
+        "seconds": 0.13333333333333333,
+        "x": 640,
+        "y": 118.536632925046,
+        "tx": 640,
+        "ty": 108.66666666666667
+      },
+      "recovered": {
+        "x": 640,
+        "y": 140
+      },
+      "recoveryError": 0
+    },
+    {
+      "mode": "lks",
+      "edge": "bottom",
+      "velocity": 235,
+      "stallSeconds": 3,
+      "before": {
+        "x": 640,
+        "y": 740
+      },
+      "shortPrediction": {
+        "x": 640,
+        "y": 745.2268641975309
+      },
+      "afterStall": {
+        "x": 640,
+        "y": 1434.2291666666722,
+        "tx": 640,
+        "ty": 1445.0000000000055
+      },
+      "escaped": true,
+      "firstEscape": {
+        "frame": 8,
+        "seconds": 0.13333333333333333,
+        "x": 640,
+        "y": 761.4633670749538,
+        "tx": 640,
+        "ty": 771.333333333333
+      },
+      "recovered": {
+        "x": 640,
+        "y": 740
+      },
+      "recoveryError": 0
+    },
+    {
+      "mode": "kotp",
+      "edge": "left",
+      "velocity": 235,
+      "stallSeconds": 3,
+      "before": {
+        "x": 60,
+        "y": 440
+      },
+      "shortPrediction": {
+        "x": 54.773135802469135,
+        "y": 440
+      },
+      "afterStall": {
+        "x": -634.2291666666664,
+        "y": 440,
+        "tx": -644.9999999999997,
+        "ty": 440
+      },
+      "escaped": true,
+      "firstEscape": {
+        "frame": 8,
+        "seconds": 0.13333333333333333,
+        "x": 38.536632925045986,
+        "y": 440,
+        "tx": 28.666666666666682,
+        "ty": 440
+      },
+      "recovered": {
+        "x": 60,
+        "y": 440
+      },
+      "recoveryError": 0
+    },
+    {
+      "mode": "kotp",
+      "edge": "right",
+      "velocity": 235,
+      "stallSeconds": 3,
+      "before": {
+        "x": 1220,
+        "y": 440
+      },
+      "shortPrediction": {
+        "x": 1225.226864197531,
+        "y": 440
+      },
+      "afterStall": {
+        "x": 1914.2291666666804,
+        "y": 440,
+        "tx": 1925.0000000000136,
+        "ty": 440
+      },
+      "escaped": true,
+      "firstEscape": {
+        "frame": 8,
+        "seconds": 0.13333333333333333,
+        "x": 1241.4633670749542,
+        "y": 440,
+        "tx": 1251.333333333334,
+        "ty": 440
+      },
+      "recovered": {
+        "x": 1220,
+        "y": 440
+      },
+      "recoveryError": 0
+    },
+    {
+      "mode": "kotp",
+      "edge": "top",
+      "velocity": 235,
+      "stallSeconds": 3,
+      "before": {
+        "x": 640,
+        "y": 140
+      },
+      "shortPrediction": {
+        "x": 640,
+        "y": 134.77313580246914
+      },
+      "afterStall": {
+        "x": 640,
+        "y": -554.2291666666672,
+        "tx": 640,
+        "ty": -565.0000000000005
+      },
+      "escaped": true,
+      "firstEscape": {
+        "frame": 8,
+        "seconds": 0.13333333333333333,
+        "x": 640,
+        "y": 118.536632925046,
+        "tx": 640,
+        "ty": 108.66666666666667
+      },
+      "recovered": {
+        "x": 640,
+        "y": 140
+      },
+      "recoveryError": 0
+    },
+    {
+      "mode": "kotp",
+      "edge": "bottom",
+      "velocity": 235,
+      "stallSeconds": 3,
+      "before": {
+        "x": 640,
+        "y": 740
+      },
+      "shortPrediction": {
+        "x": 640,
+        "y": 745.2268641975309
+      },
+      "afterStall": {
+        "x": 640,
+        "y": 1434.2291666666722,
+        "tx": 640,
+        "ty": 1445.0000000000055
+      },
+      "escaped": true,
+      "firstEscape": {
+        "frame": 8,
+        "seconds": 0.13333333333333333,
+        "x": 640,
+        "y": 761.4633670749538,
+        "tx": 640,
+        "ty": 771.333333333333
+      },
+      "recovered": {
+        "x": 640,
+        "y": 740
+      },
+      "recoveryError": 0
+    },
+    {
+      "mode": "heist",
+      "edge": "left",
+      "velocity": 235,
+      "stallSeconds": 3,
+      "before": {
+        "x": 60,
+        "y": 440
+      },
+      "shortPrediction": {
+        "x": 54.773135802469135,
+        "y": 440
+      },
+      "afterStall": {
+        "x": -634.2291666666664,
+        "y": 440,
+        "tx": -644.9999999999997,
+        "ty": 440
+      },
+      "escaped": true,
+      "firstEscape": {
+        "frame": 8,
+        "seconds": 0.13333333333333333,
+        "x": 38.536632925045986,
+        "y": 440,
+        "tx": 28.666666666666682,
+        "ty": 440
+      },
+      "recovered": {
+        "x": 60,
+        "y": 440
+      },
+      "recoveryError": 0
+    },
+    {
+      "mode": "heist",
+      "edge": "right",
+      "velocity": 235,
+      "stallSeconds": 3,
+      "before": {
+        "x": 1220,
+        "y": 440
+      },
+      "shortPrediction": {
+        "x": 1225.226864197531,
+        "y": 440
+      },
+      "afterStall": {
+        "x": 1914.2291666666804,
+        "y": 440,
+        "tx": 1925.0000000000136,
+        "ty": 440
+      },
+      "escaped": true,
+      "firstEscape": {
+        "frame": 8,
+        "seconds": 0.13333333333333333,
+        "x": 1241.4633670749542,
+        "y": 440,
+        "tx": 1251.333333333334,
+        "ty": 440
+      },
+      "recovered": {
+        "x": 1220,
+        "y": 440
+      },
+      "recoveryError": 0
+    },
+    {
+      "mode": "heist",
+      "edge": "top",
+      "velocity": 235,
+      "stallSeconds": 3,
+      "before": {
+        "x": 640,
+        "y": 140
+      },
+      "shortPrediction": {
+        "x": 640,
+        "y": 134.77313580246914
+      },
+      "afterStall": {
+        "x": 640,
+        "y": -554.2291666666672,
+        "tx": 640,
+        "ty": -565.0000000000005
+      },
+      "escaped": true,
+      "firstEscape": {
+        "frame": 8,
+        "seconds": 0.13333333333333333,
+        "x": 640,
+        "y": 118.536632925046,
+        "tx": 640,
+        "ty": 108.66666666666667
+      },
+      "recovered": {
+        "x": 640,
+        "y": 140
+      },
+      "recoveryError": 0
+    },
+    {
+      "mode": "heist",
+      "edge": "bottom",
+      "velocity": 235,
+      "stallSeconds": 3,
+      "before": {
+        "x": 640,
+        "y": 740
+      },
+      "shortPrediction": {
+        "x": 640,
+        "y": 745.2268641975309
+      },
+      "afterStall": {
+        "x": 640,
+        "y": 1434.2291666666722,
+        "tx": 640,
+        "ty": 1445.0000000000055
+      },
+      "escaped": true,
+      "firstEscape": {
+        "frame": 8,
+        "seconds": 0.13333333333333333,
+        "x": 640,
+        "y": 761.4633670749538,
+        "tx": 640,
+        "ty": 771.333333333333
+      },
+      "recovered": {
+        "x": 640,
+        "y": 740
+      },
+      "recoveryError": 0
+    },
+    {
+      "mode": "race",
+      "edge": "left",
+      "velocity": 235,
+      "stallSeconds": 3,
+      "before": {
+        "x": 60,
+        "y": 440
+      },
+      "shortPrediction": {
+        "x": 54.773135802469135,
+        "y": 440
+      },
+      "afterStall": {
+        "x": -634.2291666666664,
+        "y": 440,
+        "tx": -644.9999999999997,
+        "ty": 440
+      },
+      "escaped": true,
+      "firstEscape": {
+        "frame": 8,
+        "seconds": 0.13333333333333333,
+        "x": 38.536632925045986,
+        "y": 440,
+        "tx": 28.666666666666682,
+        "ty": 440
+      },
+      "recovered": {
+        "x": 60,
+        "y": 440
+      },
+      "recoveryError": 0
+    },
+    {
+      "mode": "race",
+      "edge": "right",
+      "velocity": 235,
+      "stallSeconds": 3,
+      "before": {
+        "x": 1220,
+        "y": 440
+      },
+      "shortPrediction": {
+        "x": 1225.226864197531,
+        "y": 440
+      },
+      "afterStall": {
+        "x": 1914.2291666666804,
+        "y": 440,
+        "tx": 1925.0000000000136,
+        "ty": 440
+      },
+      "escaped": true,
+      "firstEscape": {
+        "frame": 8,
+        "seconds": 0.13333333333333333,
+        "x": 1241.4633670749542,
+        "y": 440,
+        "tx": 1251.333333333334,
+        "ty": 440
+      },
+      "recovered": {
+        "x": 1220,
+        "y": 440
+      },
+      "recoveryError": 0
+    },
+    {
+      "mode": "race",
+      "edge": "top",
+      "velocity": 235,
+      "stallSeconds": 3,
+      "before": {
+        "x": 640,
+        "y": 140
+      },
+      "shortPrediction": {
+        "x": 640,
+        "y": 134.77313580246914
+      },
+      "afterStall": {
+        "x": 640,
+        "y": -554.2291666666672,
+        "tx": 640,
+        "ty": -565.0000000000005
+      },
+      "escaped": true,
+      "firstEscape": {
+        "frame": 8,
+        "seconds": 0.13333333333333333,
+        "x": 640,
+        "y": 118.536632925046,
+        "tx": 640,
+        "ty": 108.66666666666667
+      },
+      "recovered": {
+        "x": 640,
+        "y": 140
+      },
+      "recoveryError": 0
+    },
+    {
+      "mode": "race",
+      "edge": "bottom",
+      "velocity": 235,
+      "stallSeconds": 3,
+      "before": {
+        "x": 640,
+        "y": 740
+      },
+      "shortPrediction": {
+        "x": 640,
+        "y": 745.2268641975309
+      },
+      "afterStall": {
+        "x": 640,
+        "y": 1434.2291666666722,
+        "tx": 640,
+        "ty": 1445.0000000000055
+      },
+      "escaped": true,
+      "firstEscape": {
+        "frame": 8,
+        "seconds": 0.13333333333333333,
+        "x": 640,
+        "y": 761.4633670749538,
+        "tx": 640,
+        "ty": 771.333333333333
+      },
+      "recovered": {
+        "x": 640,
+        "y": 740
+      },
+      "recoveryError": 0
+    },
+    {
+      "mode": "flags",
+      "edge": "left",
+      "velocity": 235,
+      "stallSeconds": 3,
+      "before": {
+        "x": 60,
+        "y": 440
+      },
+      "shortPrediction": {
+        "x": 54.773135802469135,
+        "y": 440
+      },
+      "afterStall": {
+        "x": -634.2291666666664,
+        "y": 440,
+        "tx": -644.9999999999997,
+        "ty": 440
+      },
+      "escaped": true,
+      "firstEscape": {
+        "frame": 8,
+        "seconds": 0.13333333333333333,
+        "x": 38.536632925045986,
+        "y": 440,
+        "tx": 28.666666666666682,
+        "ty": 440
+      },
+      "recovered": {
+        "x": 60,
+        "y": 440
+      },
+      "recoveryError": 0
+    },
+    {
+      "mode": "flags",
+      "edge": "right",
+      "velocity": 235,
+      "stallSeconds": 3,
+      "before": {
+        "x": 1220,
+        "y": 440
+      },
+      "shortPrediction": {
+        "x": 1225.226864197531,
+        "y": 440
+      },
+      "afterStall": {
+        "x": 1914.2291666666804,
+        "y": 440,
+        "tx": 1925.0000000000136,
+        "ty": 440
+      },
+      "escaped": true,
+      "firstEscape": {
+        "frame": 8,
+        "seconds": 0.13333333333333333,
+        "x": 1241.4633670749542,
+        "y": 440,
+        "tx": 1251.333333333334,
+        "ty": 440
+      },
+      "recovered": {
+        "x": 1220,
+        "y": 440
+      },
+      "recoveryError": 0
+    },
+    {
+      "mode": "flags",
+      "edge": "top",
+      "velocity": 235,
+      "stallSeconds": 3,
+      "before": {
+        "x": 640,
+        "y": 140
+      },
+      "shortPrediction": {
+        "x": 640,
+        "y": 134.77313580246914
+      },
+      "afterStall": {
+        "x": 640,
+        "y": -554.2291666666672,
+        "tx": 640,
+        "ty": -565.0000000000005
+      },
+      "escaped": true,
+      "firstEscape": {
+        "frame": 8,
+        "seconds": 0.13333333333333333,
+        "x": 640,
+        "y": 118.536632925046,
+        "tx": 640,
+        "ty": 108.66666666666667
+      },
+      "recovered": {
+        "x": 640,
+        "y": 140
+      },
+      "recoveryError": 0
+    },
+    {
+      "mode": "flags",
+      "edge": "bottom",
+      "velocity": 235,
+      "stallSeconds": 3,
+      "before": {
+        "x": 640,
+        "y": 740
+      },
+      "shortPrediction": {
+        "x": 640,
+        "y": 745.2268641975309
+      },
+      "afterStall": {
+        "x": 640,
+        "y": 1434.2291666666722,
+        "tx": 640,
+        "ty": 1445.0000000000055
+      },
+      "escaped": true,
+      "firstEscape": {
+        "frame": 8,
+        "seconds": 0.13333333333333333,
+        "x": 640,
+        "y": 761.4633670749538,
+        "tx": 640,
+        "ty": 771.333333333333
+      },
+      "recovered": {
+        "x": 640,
+        "y": 740
+      },
+      "recoveryError": 0
+    },
+    {
+      "mode": "hotpie",
+      "edge": "left",
+      "velocity": 235,
+      "stallSeconds": 3,
+      "before": {
+        "x": 60,
+        "y": 440
+      },
+      "shortPrediction": {
+        "x": 54.773135802469135,
+        "y": 440
+      },
+      "afterStall": {
+        "x": -634.2291666666664,
+        "y": 440,
+        "tx": -644.9999999999997,
+        "ty": 440
+      },
+      "escaped": true,
+      "firstEscape": {
+        "frame": 8,
+        "seconds": 0.13333333333333333,
+        "x": 38.536632925045986,
+        "y": 440,
+        "tx": 28.666666666666682,
+        "ty": 440
+      },
+      "recovered": {
+        "x": 60,
+        "y": 440
+      },
+      "recoveryError": 0
+    },
+    {
+      "mode": "hotpie",
+      "edge": "right",
+      "velocity": 235,
+      "stallSeconds": 3,
+      "before": {
+        "x": 1220,
+        "y": 440
+      },
+      "shortPrediction": {
+        "x": 1225.226864197531,
+        "y": 440
+      },
+      "afterStall": {
+        "x": 1914.2291666666804,
+        "y": 440,
+        "tx": 1925.0000000000136,
+        "ty": 440
+      },
+      "escaped": true,
+      "firstEscape": {
+        "frame": 8,
+        "seconds": 0.13333333333333333,
+        "x": 1241.4633670749542,
+        "y": 440,
+        "tx": 1251.333333333334,
+        "ty": 440
+      },
+      "recovered": {
+        "x": 1220,
+        "y": 440
+      },
+      "recoveryError": 0
+    },
+    {
+      "mode": "hotpie",
+      "edge": "top",
+      "velocity": 235,
+      "stallSeconds": 3,
+      "before": {
+        "x": 640,
+        "y": 140
+      },
+      "shortPrediction": {
+        "x": 640,
+        "y": 134.77313580246914
+      },
+      "afterStall": {
+        "x": 640,
+        "y": -554.2291666666672,
+        "tx": 640,
+        "ty": -565.0000000000005
+      },
+      "escaped": true,
+      "firstEscape": {
+        "frame": 8,
+        "seconds": 0.13333333333333333,
+        "x": 640,
+        "y": 118.536632925046,
+        "tx": 640,
+        "ty": 108.66666666666667
+      },
+      "recovered": {
+        "x": 640,
+        "y": 140
+      },
+      "recoveryError": 0
+    },
+    {
+      "mode": "hotpie",
+      "edge": "bottom",
+      "velocity": 235,
+      "stallSeconds": 3,
+      "before": {
+        "x": 640,
+        "y": 740
+      },
+      "shortPrediction": {
+        "x": 640,
+        "y": 745.2268641975309
+      },
+      "afterStall": {
+        "x": 640,
+        "y": 1434.2291666666722,
+        "tx": 640,
+        "ty": 1445.0000000000055
+      },
+      "escaped": true,
+      "firstEscape": {
+        "frame": 8,
+        "seconds": 0.13333333333333333,
+        "x": 640,
+        "y": 761.4633670749538,
+        "tx": 640,
+        "ty": 771.333333333333
+      },
+      "recovered": {
+        "x": 640,
+        "y": 740
+      },
+      "recoveryError": 0
+    }
+  ],
+  "method": "Matching-round host snapshot delivered through clientRecv; 180 guest presentation ticks with no subsequent packets; resumed authoritative packet. No peer connection or host simulation fabricated.",
+  "browserErrors": [],
+  "indexSha256": "36c3172ab25657524d731c6aef896557ac857831537ce43331f0bb4934ec70aa"
+}

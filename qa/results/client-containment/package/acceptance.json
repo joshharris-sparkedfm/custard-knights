@@ -1,0 +1,13 @@
+{
+  "version": "0.3.0-beta.3",
+  "sourceCommit": "c75f9e0497ee64c0cb71768218caa6dbdd757a6a",
+  "command": "node tests/desktop-acceptance.cjs dist/Custard Knights-win32-x64/Custard Knights.exe",
+  "exitCode": 0,
+  "phases": ["write", "read", "launcher", "relocated read"],
+  "assertions": ["installed version title", "offline bundled assets", "earned rewards", "independent saved visors", "partial pinned goal", "preset", "campaign spoons/unlock", "settings", "fullscreen", "single-instance launcher"],
+  "profile": "isolated temporary profile; player profile untouched",
+  "packageEntries": 54,
+  "allEntriesMatchSource": true,
+  "appAsarSha256": "24f78f700b8c28aec14bc49daa59f165ae1b94ba36cc5de0a64eb59e9c13077b",
+  "limits": "Prediction checked with actual-browser fixtures and live same-network PeerJS; packaged bytes match. No physical-device, WAN or human balance acceptance claimed."
+}

@@ -1,0 +1,11 @@
+# Guest presentation during interrupted snapshots
+
+After the solo/host boundary correction, a separate actual-browser reproduction found that a guest kept extrapolating a knight's last velocity indefinitely when host snapshots stopped. All 32 mode/edge baseline cases drifted out of the arena. At normal movement speed one case crossed the left playable boundary after 133 ms and reached x=-634 after three seconds. A resumed host packet restored the knight; host simulation itself had not escaped.
+
+The correction limits prediction to 150 ms of real elapsed time after an accepted snapshot. Presentation proxies use tile collision and arena bounds while the actor retains the host's velocity, HP, scores and combat state. Slow motion changes travel distance without extending the prediction budget. A delayed animation frame consumes the remaining budget; after it is exhausted, actor coordinates stop predicting until a valid new packet arrives. Malformed motion/actor counts cannot refresh the budget.
+
+Verification passed 962 containment/recovery cases, including eight modes/six maps, internal walls, high knockback, slow motion, a delayed wall-clock frame, fresh/duplicate/rejected packets and unchanged HP/score/velocity/round identity. Zero escapes or browser exceptions were recorded. Index SHA256: `b74a99b498c033266b7d931a738836b1975fa4ed1bb98f26fdc39c6195643e14`. Independent live same-network PeerJS acceptance passed all 25 checks; see `qa/results/2026-10-09T18-10-14-network/independent-review.md`.
+
+All 26 release regressions passed after changing the audio fixture from a fixed 1500 ms sleep to bounded observation (maximum 5 seconds, still requiring zero voices). The first run hit that fixed deadline while concurrent browser checks ran; its cause is not established. The diagnostic run records 64 voices draining to zero in 981 ms. No audio runtime was changed, and this is not a claim to fix earlier native anomalies. See `qa/results/client-containment/audio-timing-observation.txt` and the retained regression report.
+
+This is a guest-rendering correction, not lag compensation, client-side damage or proof of reliable cross-network connectivity. Same-round duplicate snapshots retain the existing protocol behavior; this does not add out-of-order sequence handling. Weapons and rare-event work remain separately tracked.

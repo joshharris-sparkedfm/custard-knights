@@ -2380,10 +2380,10 @@ addEventListener('resize',resize); resize();
 try{ new ResizeObserver(resize).observe(document.getElementById('stage')); }catch(e){}
 let paused=false,last=performance.now(),acc=0;
 function frame(now){
- const dt=Math.min(.1,(now-last)/1000); last=now;
+ const wallDt=Math.max(0,(now-last)/1000),dt=Math.min(.1,wallDt); last=now;
  if(massBattleUI&&massBattleUI.active()){acc=0;requestAnimationFrame(frame);return;}
  pollPads(); padEdges();
- if(NET.role==='client'&&G&&!G.demo){ if(!G.over){ clientTick(dt); clientSend(now); } }
+ if(NET.role==='client'&&G&&!G.demo){ if(!G.over){ clientTick(dt,wallDt); clientSend(now); } }
  else if(!paused&&!G.over){ acc+=dt; let n=0; while(acc>=1/60&&n<5){ if(G.hitstop>0){ G.hitstop-=1/60; acc-=1/60; n++; continue; } update((1/60)*(G.ts||1)); acc-=1/60; n++; if(NET.role==='host'&&!G.demo&&!G.over&&++NET.tick%3===0) broadcast(snapshot()); } if(n===5)acc=0; }
  draw();drawCollectionPodiums(); drawWardrobe(); drawHero(); drawParty(); requestAnimationFrame(frame);
 }
@@ -2788,7 +2788,11 @@ function clientRecv(d){
  else if(d.t==='end'&&G&&!G.demo&&!G.over&&d.roundId===G.roundId&&CKProgress.validRows(d.results)&&d.results.every(r=>r.mode===G.mode&&G.ents[r.id]&&G.ents[r.id].human)&&d.results.some(r=>r.id===NET.me)) endMatch(d.results);
  else if(d.t==='tolobby'){ NET.waiting=false;newGame(true); showLobby(); menuMusic(true); lobbyMsg('Connected. Waiting for the host to start.'); }
 }
+const GUEST_PREDICTION_SECONDS=.15;
+const guestRadius=e=>Math.min(e.r*sizeMul(e)*.8,T*.48);
 function applySnap(s){
+ // Require the matching actor count and finite motion before refreshing the budget.
+ if(!Array.isArray(s.e)||s.e.length!==G.ents.length||s.e.some(a=>!Array.isArray(a)||![a[0],a[1],a[2],a[3]].every(Number.isFinite)))return;
  (s.e||[]).forEach((a,i)=>{ const e=G.ents[i]; if(!e) return; const jump=e.dead!==!!a[6]||Math.hypot(a[0]-e.x,a[1]-e.y)>140; if(e.dead&&!a[6]&&i===NET.me) e.spot=1.6;
   e.tx=a[0]; e.ty=a[1]; if(jump){ e.x=a[0]; e.y=a[1]; }
   e.vx=a[2]; e.vy=a[3]; e.face=a[4]; e.hp=a[5]; e.dead=!!a[6]; e.falling=a[7]; e.swing=a[8]; e.blocking=!!a[9]; e.dashT=a[10]; e.inv=a[11]; e.flash=a[12]; e.slip=a[13]; e.score=a[14]; e.deaths=a[15];
@@ -2817,10 +2821,32 @@ function applySnap(s){
  G.banner=s.bn&&typeof s.bn==='object'?s.bn:null; G.feed=Array.isArray(s.fd)?s.fd:[]; G.floaters=Array.isArray(s.fl)?s.fl:[];
  G.bubbles=(s.bu||[]).map(b=>({e:G.ents[b[0]],text:String(b[1]),t:b[2],max:b[3]})).filter(b=>b.e);
  for(const f of s.fx||[]){ const fn=FXF[f[0]]; if(fn&&Array.isArray(f[1])) try{ fn(...f[1]); }catch(e){} }
+ G.predictionAge=0;
+ for(const e of G.ents){
+  // Collision response belongs to presentation only; retain host velocities.
+  const rt=guestRadius(e),target={x:e.tx,y:e.ty,vx:e.vx,vy:e.vy},shown={x:e.x,y:e.y,vx:0,vy:0};
+  collideTiles(target,rt,false);collideTiles(shown,rt,false);
+  e.prediction=target;e.tx=target.x;e.ty=target.y;e.x=shown.x;e.y=shown.y;
+ }
 }
-function clientTick(dt){ if(G.punch>0) G.punch-=dt;
+function clientTick(dt,wallDt=dt){ if(G.punch>0) G.punch-=dt;
+ // Use unscaled elapsed time, including a delayed animation frame. Slow-mo
+ // changes travel distance, never how long an old packet remains predictive.
+ wallDt=Number.isFinite(wallDt)?Math.max(0,wallDt):0;
+ const remaining=Math.max(0,GUEST_PREDICTION_SECONDS-(G.predictionAge??GUEST_PREDICTION_SECONDS));
+ const predictionDt=Math.min(wallDt,remaining)*(G.ts||1);
+ G.predictionAge=Math.min(GUEST_PREDICTION_SECONDS,(G.predictionAge??GUEST_PREDICTION_SECONDS)+wallDt);
  dt*=G.ts||1; G.clock+=dt; const k=Math.min(1,dt*16);
- for(const e of G.ents){ if(e.spot>0)e.spot-=dt; if(e.protect>0)e.protect-=dt; if(e.stun>0)e.stun-=dt;for(const t of ['dashT','guardLock','whiffT'])if(e[t]>0)e[t]=Math.max(0,e[t]-dt); if(e.tx===undefined) continue; e.tx+=e.vx*dt; e.ty+=e.vy*dt; e.x+=(e.tx-e.x)*k; e.y+=(e.ty-e.y)*k; if(e.swing>0)e.swing-=dt; if(e.flash>0)e.flash-=dt; if(e.inv>0)e.inv-=dt; }
+ for(const e of G.ents){ if(e.spot>0)e.spot-=dt; if(e.protect>0)e.protect-=dt; if(e.stun>0)e.stun-=dt;for(const t of ['dashT','guardLock','whiffT'])if(e[t]>0)e[t]=Math.max(0,e[t]-dt); if(e.tx===undefined) continue;
+  if(predictionDt>0&&e.prediction){
+   const rt=guestRadius(e),p=e.prediction,bouncy=!!(G.ev&&['custard','jelly'].includes(G.ev.kind))||tileAt(p.x,p.y)==='~';
+   if(!e.dead&&e.falling<=0)moveInArena(p,predictionDt,0,0,rt,bouncy);
+   e.tx=p.x;e.ty=p.y;
+   const shown={x:e.x,y:e.y,vx:e.tx-e.x,vy:e.ty-e.y};
+   moveInArena(shown,wallDt>=remaining?1:k,0,0,rt,false);e.x=shown.x;e.y=shown.y;
+  }
+  if(e.swing>0)e.swing-=dt; if(e.flash>0)e.flash-=dt; if(e.inv>0)e.inv-=dt;
+ }
  for(const c of G.flock) c.x+=c.vx*dt;
  for(const p of G.proj){ p.x+=p.vx*dt; p.y+=p.vy*dt; }
  for(const p of G.pickups) p.t+=dt; for(const p of G.pads) p.t+=dt;

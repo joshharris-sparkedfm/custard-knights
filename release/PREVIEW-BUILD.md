@@ -1,4 +1,17 @@
-# Private friends beta — 0.3.0-beta.2
+# Private friends beta — 0.3.0-beta.3
+
+Frozen source `c75f9e0497ee64c0cb71768218caa6dbdd757a6a` adds bounded guest prediction to beta.2's expanded weapons and beta.1's host/solo movement/spawn fixes. A guest now stops predicting after 150 ms without a valid host update and keeps its displayed knight inside arena walls. Host combat state stays authoritative.
+
+- Friends ZIP: `outputs/Custard-Knights-Friends-0.3.0-beta.3.zip`, 530999751 bytes, SHA256 `443881c93fbd4668f609c026496f115308832e82c7d8563dd883ff466576ff4c`.
+- Preview folder: `outputs/Custard-Knights-Windows-0.3.0-beta.3-preview`.
+- Preview ZIP: `outputs/Custard-Knights-Windows-0.3.0-beta.3-preview.zip`, 531005073 bytes, SHA256 `498030ee732addc69a0dfb65d1044601d880bcd00318250819a78fb833de6e12`.
+- ASAR SHA256: `24f78f700b8c28aec14bc49daa59f165ae1b94ba36cc5de0a64eb59e9c13077b`.
+
+All 54 package entries match source. Both ZIP integrity checks and actual EXE save/restart/launcher/relocation passed; the friends kit contains 73 hashed game files. Source verification passed 962 guest containment/recovery cases, 25 live same-network PeerJS checks and 26 release regressions. All six hosted CI jobs passed run 37971620380. The audio fixture's initial fixed-wait failure and later bounded observations are retained honestly; no audio runtime fix is claimed. Evidence is under `qa/results/client-containment/`.
+
+Extract the full friends ZIP, close any older game normally, then launch `Game/Custard Knights.exe`. The kit contains the start guide and offline feedback form. No upload/sending performed. Physical controllers, WAN, another PC, minimum hardware and human fun/balance acceptance remain open. Simple/Normal/Insane controls and the rare Oh Nae Nae/AK47 and McGinley events are not included yet.
+
+# Historical private friends beta — 0.3.0-beta.2
 
 Frozen source `944305e1f336e4dccb37700659ac89154047ff7e` adds Crossbow and Returning Croissant to beta.1's movement/spawn fixes. Later QA/docs commits do not change the runtime. All 54 packaged entries match source; actual EXE save/restart/launcher/relocation checks and both ZIP integrity checks pass. Six module tests, 30 browser weapon checks and all six hosted CI jobs passed (run 37970655784).
 

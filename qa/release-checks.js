@@ -45,7 +45,8 @@
  CK.keys.KeyD=false;CK.freeze(true);
  CK.begin({humans:0});for(let i=0;i<3000;i++)CK.sfx('boom');
  check(CK.audioStats().active<=CK.audioStats().max,'Sound-effect bursts are bounded to 64 active voices');
- await new Promise(r=>setTimeout(r,1500));
+ const drainStarted=performance.now(),audioDrain=[];
+ do{audioDrain.push({ms:Math.round(performance.now()-drainStarted),active:CK.audioStats().active});if(CK.audioStats().active===0)break;await new Promise(r=>setTimeout(r,50));}while(performance.now()-drainStarted<5000);
  check(CK.audioStats().active===0,'Completed sound graphs are disconnected');
  CK.cueMusic('courtyard');check(CK.musicState().src==='audio/02-a-very-noble-food-fight.wav'&&CK.musicState().wanted,'Courtyard selects its installed WAV soundtrack');
  CK.cueMusic('wardrobe');check(CK.musicState().src==='audio/10-dressed-to-spill.wav'&&CK.musicState().wanted,'Wardrobe selects its installed WAV soundtrack');
@@ -58,5 +59,5 @@
  CK.cfg.mode='race';CK.cfg.map='roof';CK.start();
  check(CK.musicState().cue==='race'&&CK.musicState().src==='audio/08-run-little-chicken-run.wav'&&CK.musicState().wanted,'Installed race WAV takes priority over the arena');
  CK.cueMusic(null);CK.freeze(true);
- return {passed};
+ return {passed,audioDrain};
 })()

@@ -1,0 +1,857 @@
+{
+  "run": {
+    "id": 37971620380,
+    "name": "Battle core portability",
+    "node_id": "WFR_kwLOUq-uDs8AAAAI10jyHA",
+    "head_branch": "codex/guest-prediction-bounds",
+    "head_sha": "c75f9e0497ee64c0cb71768218caa6dbdd757a6a",
+    "path": ".github/workflows/battle-core.yml",
+    "display_title": "Bound guest prediction during interrupted host snapshots",
+    "run_number": 20,
+    "event": "push",
+    "status": "completed",
+    "conclusion": "success",
+    "workflow_id": 379315798,
+    "check_suite_id": 102885458960,
+    "check_suite_node_id": "CS_kwDOUq-uDs8AAAAX9HOEEA",
+    "url": "https://api.github.com/repos/joshharris-sparkedfm/custard-knights/actions/runs/37971620380",
+    "html_url": "https://github.com/joshharris-sparkedfm/custard-knights/actions/runs/37971620380",
+    "pull_requests": [
+      {
+        "url": "https://api.github.com/repos/joshharris-sparkedfm/custard-knights/pulls/14",
+        "id": 4804183788,
+        "number": 14,
+        "head": {
+          "ref": "codex/guest-prediction-bounds",
+          "sha": "c75f9e0497ee64c0cb71768218caa6dbdd757a6a",
+          "repo": {
+            "id": 1387245070,
+            "url": "https://api.github.com/repos/joshharris-sparkedfm/custard-knights",
+            "name": "custard-knights"
+          }
+        },
+        "base": {
+          "ref": "main",
+          "sha": "725fd38a16fbd8813cd5a9a3e33e375205bbcd26",
+          "repo": {
+            "id": 1387245070,
+            "url": "https://api.github.com/repos/joshharris-sparkedfm/custard-knights",
+            "name": "custard-knights"
+          }
+        }
+      }
+    ],
+    "created_at": "2026-10-09T18:12:08Z",
+    "updated_at": "2026-10-09T18:13:57Z",
+    "actor": {
+      "login": "joshharris-sparkedfm",
+      "id": 254564757,
+      "node_id": "U_kgDODyxZlQ",
+      "avatar_url": "https://avatars.githubusercontent.com/u/254564757?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/joshharris-sparkedfm",
+      "html_url": "https://github.com/joshharris-sparkedfm",
+      "followers_url": "https://api.github.com/users/joshharris-sparkedfm/followers",
+      "following_url": "https://api.github.com/users/joshharris-sparkedfm/following{/other_user}",
+      "gists_url": "https://api.github.com/users/joshharris-sparkedfm/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/joshharris-sparkedfm/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/joshharris-sparkedfm/subscriptions",
+      "organizations_url": "https://api.github.com/users/joshharris-sparkedfm/orgs",
+      "repos_url": "https://api.github.com/users/joshharris-sparkedfm/repos",
+      "events_url": "https://api.github.com/users/joshharris-sparkedfm/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/joshharris-sparkedfm/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "run_attempt": 1,
+    "referenced_workflows": [],
+    "run_started_at": "2026-10-09T18:12:08Z",
+    "triggering_actor": {
+      "login": "joshharris-sparkedfm",
+      "id": 254564757,
+      "node_id": "U_kgDODyxZlQ",
+      "avatar_url": "https://avatars.githubusercontent.com/u/254564757?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/joshharris-sparkedfm",
+      "html_url": "https://github.com/joshharris-sparkedfm",
+      "followers_url": "https://api.github.com/users/joshharris-sparkedfm/followers",
+      "following_url": "https://api.github.com/users/joshharris-sparkedfm/following{/other_user}",
+      "gists_url": "https://api.github.com/users/joshharris-sparkedfm/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/joshharris-sparkedfm/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/joshharris-sparkedfm/subscriptions",
+      "organizations_url": "https://api.github.com/users/joshharris-sparkedfm/orgs",
+      "repos_url": "https://api.github.com/users/joshharris-sparkedfm/repos",
+      "events_url": "https://api.github.com/users/joshharris-sparkedfm/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/joshharris-sparkedfm/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "jobs_url": "https://api.github.com/repos/joshharris-sparkedfm/custard-knights/actions/runs/37971620380/jobs",
+    "logs_url": "https://api.github.com/repos/joshharris-sparkedfm/custard-knights/actions/runs/37971620380/logs",
+    "check_suite_url": "https://api.github.com/repos/joshharris-sparkedfm/custard-knights/check-suites/102885458960",
+    "artifacts_url": "https://api.github.com/repos/joshharris-sparkedfm/custard-knights/actions/runs/37971620380/artifacts",
+    "cancel_url": "https://api.github.com/repos/joshharris-sparkedfm/custard-knights/actions/runs/37971620380/cancel",
+    "rerun_url": "https://api.github.com/repos/joshharris-sparkedfm/custard-knights/actions/runs/37971620380/rerun",
+    "previous_attempt_url": null,
+    "workflow_url": "https://api.github.com/repos/joshharris-sparkedfm/custard-knights/actions/workflows/379315798",
+    "head_commit": {
+      "id": "c75f9e0497ee64c0cb71768218caa6dbdd757a6a",
+      "tree_id": "b00b85a7f7cf6fdb7d93e8427c29caca7f25b6dc",
+      "message": "Bound guest prediction during interrupted host snapshots",
+      "timestamp": "2026-10-09T18:12:03Z",
+      "author": {
+        "name": "joshharris-sparkedfm",
+        "email": "josh.harris@thesparkedgroup.com"
+      },
+      "committer": {
+        "name": "joshharris-sparkedfm",
+        "email": "josh.harris@thesparkedgroup.com"
+      }
+    },
+    "repository": {
+      "id": 1387245070,
+      "node_id": "R_kgDOUq-uDg",
+      "name": "custard-knights",
+      "full_name": "joshharris-sparkedfm/custard-knights",
+      "private": false,
+      "owner": {
+        "login": "joshharris-sparkedfm",
+        "id": 254564757,
+        "node_id": "U_kgDODyxZlQ",
+        "avatar_url": "https://avatars.githubusercontent.com/u/254564757?v=4",
+        "gravatar_id": "",
+        "url": "https://api.github.com/users/joshharris-sparkedfm",
+        "html_url": "https://github.com/joshharris-sparkedfm",
+        "followers_url": "https://api.github.com/users/joshharris-sparkedfm/followers",
+        "following_url": "https://api.github.com/users/joshharris-sparkedfm/following{/other_user}",
+        "gists_url": "https://api.github.com/users/joshharris-sparkedfm/gists{/gist_id}",
+        "starred_url": "https://api.github.com/users/joshharris-sparkedfm/starred{/owner}{/repo}",
+        "subscriptions_url": "https://api.github.com/users/joshharris-sparkedfm/subscriptions",
+        "organizations_url": "https://api.github.com/users/joshharris-sparkedfm/orgs",
+        "repos_url": "https://api.github.com/users/joshharris-sparkedfm/repos",
+        "events_url": "https://api.github.com/users/joshharris-sparkedfm/events{/privacy}",
+        "received_events_url": "https://api.github.com/users/joshharris-sparkedfm/received_events",
+        "type": "User",
+        "user_view_type": "public",
+        "site_admin": false
+      },
+      "html_url": "https://github.com/joshharris-sparkedfm/custard-knights",
+      "description": "Cartoon top-down arena brawler for 8 knights. Browser prototype.",
+      "fork": false,
+      "url": "https://api.github.com/repos/joshharris-sparkedfm/custard-knights",
+      "forks_url": "https://api.github.com/repos/joshharris-sparkedfm/custard-knights/forks",
+      "keys_url": "https://api.github.com/repos/joshharris-sparkedfm/custard-knights/keys{/key_id}",
+      "collaborators_url": "https://api.github.com/repos/joshharris-sparkedfm/custard-knights/collaborators{/collaborator}",
+      "teams_url": "https://api.github.com/repos/joshharris-sparkedfm/custard-knights/teams",
+      "hooks_url": "https://api.github.com/repos/joshharris-sparkedfm/custard-knights/hooks",
+      "issue_events_url": "https://api.github.com/repos/joshharris-sparkedfm/custard-knights/issues/events{/number}",
+      "events_url": "https://api.github.com/repos/joshharris-sparkedfm/custard-knights/events",
+      "assignees_url": "https://api.github.com/repos/joshharris-sparkedfm/custard-knights/assignees{/user}",
+      "branches_url": "https://api.github.com/repos/joshharris-sparkedfm/custard-knights/branches{/branch}",
+      "tags_url": "https://api.github.com/repos/joshharris-sparkedfm/custard-knights/tags",
+      "blobs_url": "https://api.github.com/repos/joshharris-sparkedfm/custard-knights/git/blobs{/sha}",
+      "git_tags_url": "https://api.github.com/repos/joshharris-sparkedfm/custard-knights/git/tags{/sha}",
+      "git_refs_url": "https://api.github.com/repos/joshharris-sparkedfm/custard-knights/git/refs{/sha}",
+      "trees_url": "https://api.github.com/repos/joshharris-sparkedfm/custard-knights/git/trees{/sha}",
+      "statuses_url": "https://api.github.com/repos/joshharris-sparkedfm/custard-knights/statuses/{sha}",
+      "languages_url": "https://api.github.com/repos/joshharris-sparkedfm/custard-knights/languages",
+      "stargazers_url": "https://api.github.com/repos/joshharris-sparkedfm/custard-knights/stargazers",
+      "contributors_url": "https://api.github.com/repos/joshharris-sparkedfm/custard-knights/contributors",
+      "subscribers_url": "https://api.github.com/repos/joshharris-sparkedfm/custard-knights/subscribers",
+      "subscription_url": "https://api.github.com/repos/joshharris-sparkedfm/custard-knights/subscription",
+      "commits_url": "https://api.github.com/repos/joshharris-sparkedfm/custard-knights/commits{/sha}",
+      "git_commits_url": "https://api.github.com/repos/joshharris-sparkedfm/custard-knights/git/commits{/sha}",
+      "comments_url": "https://api.github.com/repos/joshharris-sparkedfm/custard-knights/comments{/number}",
+      "issue_comment_url": "https://api.github.com/repos/joshharris-sparkedfm/custard-knights/issues/comments{/number}",
+      "contents_url": "https://api.github.com/repos/joshharris-sparkedfm/custard-knights/contents/{+path}",
+      "compare_url": "https://api.github.com/repos/joshharris-sparkedfm/custard-knights/compare/{base}...{head}",
+      "merges_url": "https://api.github.com/repos/joshharris-sparkedfm/custard-knights/merges",
+      "archive_url": "https://api.github.com/repos/joshharris-sparkedfm/custard-knights/{archive_format}{/ref}",
+      "downloads_url": "https://api.github.com/repos/joshharris-sparkedfm/custard-knights/downloads",
+      "issues_url": "https://api.github.com/repos/joshharris-sparkedfm/custard-knights/issues{/number}",
+      "pulls_url": "https://api.github.com/repos/joshharris-sparkedfm/custard-knights/pulls{/number}",
+      "milestones_url": "https://api.github.com/repos/joshharris-sparkedfm/custard-knights/milestones{/number}",
+      "notifications_url": "https://api.github.com/repos/joshharris-sparkedfm/custard-knights/notifications{?since,all,participating}",
+      "labels_url": "https://api.github.com/repos/joshharris-sparkedfm/custard-knights/labels{/name}",
+      "releases_url": "https://api.github.com/repos/joshharris-sparkedfm/custard-knights/releases{/id}",
+      "deployments_url": "https://api.github.com/repos/joshharris-sparkedfm/custard-knights/deployments"
+    },
+    "head_repository": {
+      "id": 1387245070,
+      "node_id": "R_kgDOUq-uDg",
+      "name": "custard-knights",
+      "full_name": "joshharris-sparkedfm/custard-knights",
+      "private": false,
+      "owner": {
+        "login": "joshharris-sparkedfm",
+        "id": 254564757,
+        "node_id": "U_kgDODyxZlQ",
+        "avatar_url": "https://avatars.githubusercontent.com/u/254564757?v=4",
+        "gravatar_id": "",
+        "url": "https://api.github.com/users/joshharris-sparkedfm",
+        "html_url": "https://github.com/joshharris-sparkedfm",
+        "followers_url": "https://api.github.com/users/joshharris-sparkedfm/followers",
+        "following_url": "https://api.github.com/users/joshharris-sparkedfm/following{/other_user}",
+        "gists_url": "https://api.github.com/users/joshharris-sparkedfm/gists{/gist_id}",
+        "starred_url": "https://api.github.com/users/joshharris-sparkedfm/starred{/owner}{/repo}",
+        "subscriptions_url": "https://api.github.com/users/joshharris-sparkedfm/subscriptions",
+        "organizations_url": "https://api.github.com/users/joshharris-sparkedfm/orgs",
+        "repos_url": "https://api.github.com/users/joshharris-sparkedfm/repos",
+        "events_url": "https://api.github.com/users/joshharris-sparkedfm/events{/privacy}",
+        "received_events_url": "https://api.github.com/users/joshharris-sparkedfm/received_events",
+        "type": "User",
+        "user_view_type": "public",
+        "site_admin": false
+      },
+      "html_url": "https://github.com/joshharris-sparkedfm/custard-knights",
+      "description": "Cartoon top-down arena brawler for 8 knights. Browser prototype.",
+      "fork": false,
+      "url": "https://api.github.com/repos/joshharris-sparkedfm/custard-knights",
+      "forks_url": "https://api.github.com/repos/joshharris-sparkedfm/custard-knights/forks",
+      "keys_url": "https://api.github.com/repos/joshharris-sparkedfm/custard-knights/keys{/key_id}",
+      "collaborators_url": "https://api.github.com/repos/joshharris-sparkedfm/custard-knights/collaborators{/collaborator}",
+      "teams_url": "https://api.github.com/repos/joshharris-sparkedfm/custard-knights/teams",
+      "hooks_url": "https://api.github.com/repos/joshharris-sparkedfm/custard-knights/hooks",
+      "issue_events_url": "https://api.github.com/repos/joshharris-sparkedfm/custard-knights/issues/events{/number}",
+      "events_url": "https://api.github.com/repos/joshharris-sparkedfm/custard-knights/events",
+      "assignees_url": "https://api.github.com/repos/joshharris-sparkedfm/custard-knights/assignees{/user}",
+      "branches_url": "https://api.github.com/repos/joshharris-sparkedfm/custard-knights/branches{/branch}",
+      "tags_url": "https://api.github.com/repos/joshharris-sparkedfm/custard-knights/tags",
+      "blobs_url": "https://api.github.com/repos/joshharris-sparkedfm/custard-knights/git/blobs{/sha}",
+      "git_tags_url": "https://api.github.com/repos/joshharris-sparkedfm/custard-knights/git/tags{/sha}",
+      "git_refs_url": "https://api.github.com/repos/joshharris-sparkedfm/custard-knights/git/refs{/sha}",
+      "trees_url": "https://api.github.com/repos/joshharris-sparkedfm/custard-knights/git/trees{/sha}",
+      "statuses_url": "https://api.github.com/repos/joshharris-sparkedfm/custard-knights/statuses/{sha}",
+      "languages_url": "https://api.github.com/repos/joshharris-sparkedfm/custard-knights/languages",
+      "stargazers_url": "https://api.github.com/repos/joshharris-sparkedfm/custard-knights/stargazers",
+      "contributors_url": "https://api.github.com/repos/joshharris-sparkedfm/custard-knights/contributors",
+      "subscribers_url": "https://api.github.com/repos/joshharris-sparkedfm/custard-knights/subscribers",
+      "subscription_url": "https://api.github.com/repos/joshharris-sparkedfm/custard-knights/subscription",
+      "commits_url": "https://api.github.com/repos/joshharris-sparkedfm/custard-knights/commits{/sha}",
+      "git_commits_url": "https://api.github.com/repos/joshharris-sparkedfm/custard-knights/git/commits{/sha}",
+      "comments_url": "https://api.github.com/repos/joshharris-sparkedfm/custard-knights/comments{/number}",
+      "issue_comment_url": "https://api.github.com/repos/joshharris-sparkedfm/custard-knights/issues/comments{/number}",
+      "contents_url": "https://api.github.com/repos/joshharris-sparkedfm/custard-knights/contents/{+path}",
+      "compare_url": "https://api.github.com/repos/joshharris-sparkedfm/custard-knights/compare/{base}...{head}",
+      "merges_url": "https://api.github.com/repos/joshharris-sparkedfm/custard-knights/merges",
+      "archive_url": "https://api.github.com/repos/joshharris-sparkedfm/custard-knights/{archive_format}{/ref}",
+      "downloads_url": "https://api.github.com/repos/joshharris-sparkedfm/custard-knights/downloads",
+      "issues_url": "https://api.github.com/repos/joshharris-sparkedfm/custard-knights/issues{/number}",
+      "pulls_url": "https://api.github.com/repos/joshharris-sparkedfm/custard-knights/pulls{/number}",
+      "milestones_url": "https://api.github.com/repos/joshharris-sparkedfm/custard-knights/milestones{/number}",
+      "notifications_url": "https://api.github.com/repos/joshharris-sparkedfm/custard-knights/notifications{?since,all,participating}",
+      "labels_url": "https://api.github.com/repos/joshharris-sparkedfm/custard-knights/labels{/name}",
+      "releases_url": "https://api.github.com/repos/joshharris-sparkedfm/custard-knights/releases{/id}",
+      "deployments_url": "https://api.github.com/repos/joshharris-sparkedfm/custard-knights/deployments"
+    }
+  },
+  "collectedAtUtc": "2026-10-09T18:14:39.4837352Z",
+  "jobs": {
+    "total_count": 6,
+    "jobs": [
+      {
+        "id": 113959403555,
+        "run_id": 37971620380,
+        "workflow_name": "Battle core portability",
+        "head_branch": "codex/guest-prediction-bounds",
+        "run_url": "https://api.github.com/repos/joshharris-sparkedfm/custard-knights/actions/runs/37971620380",
+        "run_attempt": 1,
+        "node_id": "CR_kwDOUq-uDs8AAAAaiIKAIw",
+        "head_sha": "c75f9e0497ee64c0cb71768218caa6dbdd757a6a",
+        "url": "https://api.github.com/repos/joshharris-sparkedfm/custard-knights/actions/jobs/113959403555",
+        "html_url": "https://github.com/joshharris-sparkedfm/custard-knights/actions/runs/37971620380/job/113959403555",
+        "status": "completed",
+        "conclusion": "success",
+        "created_at": "2026-10-09T18:12:08Z",
+        "started_at": "2026-10-09T18:12:10Z",
+        "completed_at": "2026-10-09T18:12:29Z",
+        "name": "core (ubuntu-latest, 24)",
+        "steps": [
+          {
+            "name": "Set up job",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 1,
+            "started_at": "2026-10-09T18:12:11Z",
+            "completed_at": "2026-10-09T18:12:12Z"
+          },
+          {
+            "name": "Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 2,
+            "started_at": "2026-10-09T18:12:12Z",
+            "completed_at": "2026-10-09T18:12:23Z"
+          },
+          {
+            "name": "Run actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 3,
+            "started_at": "2026-10-09T18:12:23Z",
+            "completed_at": "2026-10-09T18:12:23Z"
+          },
+          {
+            "name": "Run dependency-free shared simulation assertions",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 4,
+            "started_at": "2026-10-09T18:12:23Z",
+            "completed_at": "2026-10-09T18:12:26Z"
+          },
+          {
+            "name": "Retain passes and failures",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 5,
+            "started_at": "2026-10-09T18:12:26Z",
+            "completed_at": "2026-10-09T18:12:27Z"
+          },
+          {
+            "name": "Post Run actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 9,
+            "started_at": "2026-10-09T18:12:27Z",
+            "completed_at": "2026-10-09T18:12:27Z"
+          },
+          {
+            "name": "Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 10,
+            "started_at": "2026-10-09T18:12:27Z",
+            "completed_at": "2026-10-09T18:12:28Z"
+          },
+          {
+            "name": "Complete job",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 11,
+            "started_at": "2026-10-09T18:12:28Z",
+            "completed_at": "2026-10-09T18:12:28Z"
+          }
+        ],
+        "check_run_url": "https://api.github.com/repos/joshharris-sparkedfm/custard-knights/check-runs/113959403555",
+        "labels": [
+          "ubuntu-latest"
+        ],
+        "runner_id": 1000001571,
+        "runner_name": "GitHub Actions 1000001571",
+        "runner_group_id": 0,
+        "runner_group_name": "GitHub Actions"
+      },
+      {
+        "id": 113959403776,
+        "run_id": 37971620380,
+        "workflow_name": "Battle core portability",
+        "head_branch": "codex/guest-prediction-bounds",
+        "run_url": "https://api.github.com/repos/joshharris-sparkedfm/custard-knights/actions/runs/37971620380",
+        "run_attempt": 1,
+        "node_id": "CR_kwDOUq-uDs8AAAAaiIKBAA",
+        "head_sha": "c75f9e0497ee64c0cb71768218caa6dbdd757a6a",
+        "url": "https://api.github.com/repos/joshharris-sparkedfm/custard-knights/actions/jobs/113959403776",
+        "html_url": "https://github.com/joshharris-sparkedfm/custard-knights/actions/runs/37971620380/job/113959403776",
+        "status": "completed",
+        "conclusion": "success",
+        "created_at": "2026-10-09T18:12:08Z",
+        "started_at": "2026-10-09T18:12:10Z",
+        "completed_at": "2026-10-09T18:13:37Z",
+        "name": "server (ubuntu-latest)",
+        "steps": [
+          {
+            "name": "Set up job",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 1,
+            "started_at": "2026-10-09T18:12:10Z",
+            "completed_at": "2026-10-09T18:12:11Z"
+          },
+          {
+            "name": "Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 2,
+            "started_at": "2026-10-09T18:12:11Z",
+            "completed_at": "2026-10-09T18:12:21Z"
+          },
+          {
+            "name": "Run actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 3,
+            "started_at": "2026-10-09T18:12:21Z",
+            "completed_at": "2026-10-09T18:12:21Z"
+          },
+          {
+            "name": "Install server dependency only",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 4,
+            "started_at": "2026-10-09T18:12:21Z",
+            "completed_at": "2026-10-09T18:12:23Z"
+          },
+          {
+            "name": "Run full unit suite",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 5,
+            "started_at": "2026-10-09T18:12:23Z",
+            "completed_at": "2026-10-09T18:12:33Z"
+          },
+          {
+            "name": "Exercise 100 active loopback clients for 60 seconds",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 6,
+            "started_at": "2026-10-09T18:12:33Z",
+            "completed_at": "2026-10-09T18:13:34Z"
+          },
+          {
+            "name": "Recover journal after an abrupt process exit",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 7,
+            "started_at": "2026-10-09T18:13:34Z",
+            "completed_at": "2026-10-09T18:13:34Z"
+          },
+          {
+            "name": "Retain passes and failures",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 8,
+            "started_at": "2026-10-09T18:13:34Z",
+            "completed_at": "2026-10-09T18:13:35Z"
+          },
+          {
+            "name": "Post Run actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 15,
+            "started_at": "2026-10-09T18:13:35Z",
+            "completed_at": "2026-10-09T18:13:35Z"
+          },
+          {
+            "name": "Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 16,
+            "started_at": "2026-10-09T18:13:35Z",
+            "completed_at": "2026-10-09T18:13:35Z"
+          },
+          {
+            "name": "Complete job",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 17,
+            "started_at": "2026-10-09T18:13:35Z",
+            "completed_at": "2026-10-09T18:13:35Z"
+          }
+        ],
+        "check_run_url": "https://api.github.com/repos/joshharris-sparkedfm/custard-knights/check-runs/113959403776",
+        "labels": [
+          "ubuntu-latest"
+        ],
+        "runner_id": 1000001572,
+        "runner_name": "GitHub Actions 1000001572",
+        "runner_group_id": 0,
+        "runner_group_name": "GitHub Actions"
+      },
+      {
+        "id": 113959403782,
+        "run_id": 37971620380,
+        "workflow_name": "Battle core portability",
+        "head_branch": "codex/guest-prediction-bounds",
+        "run_url": "https://api.github.com/repos/joshharris-sparkedfm/custard-knights/actions/runs/37971620380",
+        "run_attempt": 1,
+        "node_id": "CR_kwDOUq-uDs8AAAAaiIKBBg",
+        "head_sha": "c75f9e0497ee64c0cb71768218caa6dbdd757a6a",
+        "url": "https://api.github.com/repos/joshharris-sparkedfm/custard-knights/actions/jobs/113959403782",
+        "html_url": "https://github.com/joshharris-sparkedfm/custard-knights/actions/runs/37971620380/job/113959403782",
+        "status": "completed",
+        "conclusion": "success",
+        "created_at": "2026-10-09T18:12:08Z",
+        "started_at": "2026-10-09T18:12:10Z",
+        "completed_at": "2026-10-09T18:12:28Z",
+        "name": "core (ubuntu-latest, 22)",
+        "steps": [
+          {
+            "name": "Set up job",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 1,
+            "started_at": "2026-10-09T18:12:10Z",
+            "completed_at": "2026-10-09T18:12:11Z"
+          },
+          {
+            "name": "Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 2,
+            "started_at": "2026-10-09T18:12:11Z",
+            "completed_at": "2026-10-09T18:12:20Z"
+          },
+          {
+            "name": "Run actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 3,
+            "started_at": "2026-10-09T18:12:20Z",
+            "completed_at": "2026-10-09T18:12:21Z"
+          },
+          {
+            "name": "Run dependency-free shared simulation assertions",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 4,
+            "started_at": "2026-10-09T18:12:21Z",
+            "completed_at": "2026-10-09T18:12:25Z"
+          },
+          {
+            "name": "Retain passes and failures",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 5,
+            "started_at": "2026-10-09T18:12:25Z",
+            "completed_at": "2026-10-09T18:12:26Z"
+          },
+          {
+            "name": "Post Run actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 9,
+            "started_at": "2026-10-09T18:12:26Z",
+            "completed_at": "2026-10-09T18:12:26Z"
+          },
+          {
+            "name": "Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 10,
+            "started_at": "2026-10-09T18:12:26Z",
+            "completed_at": "2026-10-09T18:12:27Z"
+          },
+          {
+            "name": "Complete job",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 11,
+            "started_at": "2026-10-09T18:12:27Z",
+            "completed_at": "2026-10-09T18:12:27Z"
+          }
+        ],
+        "check_run_url": "https://api.github.com/repos/joshharris-sparkedfm/custard-knights/check-runs/113959403782",
+        "labels": [
+          "ubuntu-latest"
+        ],
+        "runner_id": 1000001573,
+        "runner_name": "GitHub Actions 1000001573",
+        "runner_group_id": 0,
+        "runner_group_name": "GitHub Actions"
+      },
+      {
+        "id": 113959403815,
+        "run_id": 37971620380,
+        "workflow_name": "Battle core portability",
+        "head_branch": "codex/guest-prediction-bounds",
+        "run_url": "https://api.github.com/repos/joshharris-sparkedfm/custard-knights/actions/runs/37971620380",
+        "run_attempt": 1,
+        "node_id": "CR_kwDOUq-uDs8AAAAaiIKBJw",
+        "head_sha": "c75f9e0497ee64c0cb71768218caa6dbdd757a6a",
+        "url": "https://api.github.com/repos/joshharris-sparkedfm/custard-knights/actions/jobs/113959403815",
+        "html_url": "https://github.com/joshharris-sparkedfm/custard-knights/actions/runs/37971620380/job/113959403815",
+        "status": "completed",
+        "conclusion": "success",
+        "created_at": "2026-10-09T18:12:08Z",
+        "started_at": "2026-10-09T18:12:10Z",
+        "completed_at": "2026-10-09T18:13:56Z",
+        "name": "server (windows-latest)",
+        "steps": [
+          {
+            "name": "Set up job",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 1,
+            "started_at": "2026-10-09T18:12:11Z",
+            "completed_at": "2026-10-09T18:12:12Z"
+          },
+          {
+            "name": "Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 2,
+            "started_at": "2026-10-09T18:12:12Z",
+            "completed_at": "2026-10-09T18:12:26Z"
+          },
+          {
+            "name": "Run actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 3,
+            "started_at": "2026-10-09T18:12:26Z",
+            "completed_at": "2026-10-09T18:12:31Z"
+          },
+          {
+            "name": "Install server dependency only",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 4,
+            "started_at": "2026-10-09T18:12:31Z",
+            "completed_at": "2026-10-09T18:12:35Z"
+          },
+          {
+            "name": "Run full unit suite",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 5,
+            "started_at": "2026-10-09T18:12:35Z",
+            "completed_at": "2026-10-09T18:12:49Z"
+          },
+          {
+            "name": "Exercise 100 active loopback clients for 60 seconds",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 6,
+            "started_at": "2026-10-09T18:12:49Z",
+            "completed_at": "2026-10-09T18:13:51Z"
+          },
+          {
+            "name": "Recover journal after an abrupt process exit",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 7,
+            "started_at": "2026-10-09T18:13:51Z",
+            "completed_at": "2026-10-09T18:13:51Z"
+          },
+          {
+            "name": "Retain passes and failures",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 8,
+            "started_at": "2026-10-09T18:13:51Z",
+            "completed_at": "2026-10-09T18:13:53Z"
+          },
+          {
+            "name": "Post Run actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 15,
+            "started_at": "2026-10-09T18:13:53Z",
+            "completed_at": "2026-10-09T18:13:53Z"
+          },
+          {
+            "name": "Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 16,
+            "started_at": "2026-10-09T18:13:53Z",
+            "completed_at": "2026-10-09T18:13:55Z"
+          },
+          {
+            "name": "Complete job",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 17,
+            "started_at": "2026-10-09T18:13:55Z",
+            "completed_at": "2026-10-09T18:13:55Z"
+          }
+        ],
+        "check_run_url": "https://api.github.com/repos/joshharris-sparkedfm/custard-knights/check-runs/113959403815",
+        "labels": [
+          "windows-latest"
+        ],
+        "runner_id": 1000001575,
+        "runner_name": "GitHub Actions 1000001575",
+        "runner_group_id": 0,
+        "runner_group_name": "GitHub Actions"
+      },
+      {
+        "id": 113959403864,
+        "run_id": 37971620380,
+        "workflow_name": "Battle core portability",
+        "head_branch": "codex/guest-prediction-bounds",
+        "run_url": "https://api.github.com/repos/joshharris-sparkedfm/custard-knights/actions/runs/37971620380",
+        "run_attempt": 1,
+        "node_id": "CR_kwDOUq-uDs8AAAAaiIKBWA",
+        "head_sha": "c75f9e0497ee64c0cb71768218caa6dbdd757a6a",
+        "url": "https://api.github.com/repos/joshharris-sparkedfm/custard-knights/actions/jobs/113959403864",
+        "html_url": "https://github.com/joshharris-sparkedfm/custard-knights/actions/runs/37971620380/job/113959403864",
+        "status": "completed",
+        "conclusion": "success",
+        "created_at": "2026-10-09T18:12:08Z",
+        "started_at": "2026-10-09T18:12:10Z",
+        "completed_at": "2026-10-09T18:12:35Z",
+        "name": "core (windows-latest, 24)",
+        "steps": [
+          {
+            "name": "Set up job",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 1,
+            "started_at": "2026-10-09T18:12:11Z",
+            "completed_at": "2026-10-09T18:12:11Z"
+          },
+          {
+            "name": "Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 2,
+            "started_at": "2026-10-09T18:12:11Z",
+            "completed_at": "2026-10-09T18:12:23Z"
+          },
+          {
+            "name": "Run actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 3,
+            "started_at": "2026-10-09T18:12:23Z",
+            "completed_at": "2026-10-09T18:12:28Z"
+          },
+          {
+            "name": "Run dependency-free shared simulation assertions",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 4,
+            "started_at": "2026-10-09T18:12:28Z",
+            "completed_at": "2026-10-09T18:12:31Z"
+          },
+          {
+            "name": "Retain passes and failures",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 5,
+            "started_at": "2026-10-09T18:12:31Z",
+            "completed_at": "2026-10-09T18:12:32Z"
+          },
+          {
+            "name": "Post Run actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 9,
+            "started_at": "2026-10-09T18:12:32Z",
+            "completed_at": "2026-10-09T18:12:32Z"
+          },
+          {
+            "name": "Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 10,
+            "started_at": "2026-10-09T18:12:32Z",
+            "completed_at": "2026-10-09T18:12:34Z"
+          },
+          {
+            "name": "Complete job",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 11,
+            "started_at": "2026-10-09T18:12:34Z",
+            "completed_at": "2026-10-09T18:12:34Z"
+          }
+        ],
+        "check_run_url": "https://api.github.com/repos/joshharris-sparkedfm/custard-knights/check-runs/113959403864",
+        "labels": [
+          "windows-latest"
+        ],
+        "runner_id": 1000001574,
+        "runner_name": "GitHub Actions 1000001574",
+        "runner_group_id": 0,
+        "runner_group_name": "GitHub Actions"
+      },
+      {
+        "id": 113959403873,
+        "run_id": 37971620380,
+        "workflow_name": "Battle core portability",
+        "head_branch": "codex/guest-prediction-bounds",
+        "run_url": "https://api.github.com/repos/joshharris-sparkedfm/custard-knights/actions/runs/37971620380",
+        "run_attempt": 1,
+        "node_id": "CR_kwDOUq-uDs8AAAAaiIKBYQ",
+        "head_sha": "c75f9e0497ee64c0cb71768218caa6dbdd757a6a",
+        "url": "https://api.github.com/repos/joshharris-sparkedfm/custard-knights/actions/jobs/113959403873",
+        "html_url": "https://github.com/joshharris-sparkedfm/custard-knights/actions/runs/37971620380/job/113959403873",
+        "status": "completed",
+        "conclusion": "success",
+        "created_at": "2026-10-09T18:12:08Z",
+        "started_at": "2026-10-09T18:12:10Z",
+        "completed_at": "2026-10-09T18:12:36Z",
+        "name": "core (windows-latest, 22)",
+        "steps": [
+          {
+            "name": "Set up job",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 1,
+            "started_at": "2026-10-09T18:12:10Z",
+            "completed_at": "2026-10-09T18:12:11Z"
+          },
+          {
+            "name": "Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 2,
+            "started_at": "2026-10-09T18:12:11Z",
+            "completed_at": "2026-10-09T18:12:25Z"
+          },
+          {
+            "name": "Run actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 3,
+            "started_at": "2026-10-09T18:12:25Z",
+            "completed_at": "2026-10-09T18:12:29Z"
+          },
+          {
+            "name": "Run dependency-free shared simulation assertions",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 4,
+            "started_at": "2026-10-09T18:12:29Z",
+            "completed_at": "2026-10-09T18:12:32Z"
+          },
+          {
+            "name": "Retain passes and failures",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 5,
+            "started_at": "2026-10-09T18:12:32Z",
+            "completed_at": "2026-10-09T18:12:33Z"
+          },
+          {
+            "name": "Post Run actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 9,
+            "started_at": "2026-10-09T18:12:33Z",
+            "completed_at": "2026-10-09T18:12:33Z"
+          },
+          {
+            "name": "Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 10,
+            "started_at": "2026-10-09T18:12:33Z",
+            "completed_at": "2026-10-09T18:12:34Z"
+          },
+          {
+            "name": "Complete job",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 11,
+            "started_at": "2026-10-09T18:12:34Z",
+            "completed_at": "2026-10-09T18:12:34Z"
+          }
+        ],
+        "check_run_url": "https://api.github.com/repos/joshharris-sparkedfm/custard-knights/check-runs/113959403873",
+        "labels": [
+          "windows-latest"
+        ],
+        "runner_id": 1000001576,
+        "runner_name": "GitHub Actions 1000001576",
+        "runner_group_id": 0,
+        "runner_group_name": "GitHub Actions"
+      }
+    ]
+  },
+  "note": "Read-only CI observation; later edits QA/docs only"
+}

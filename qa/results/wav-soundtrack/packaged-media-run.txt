@@ -1,0 +1,85 @@
+PASS Integrated game loads with the native music element observed before startup
+PASS Frozen package loads through the real custard protocol with renderer isolation
+PASS Packaged media runner blocks external network
+PASS All 12 soundtrack slots are enabled
+PASS Original menu MP3 remains the menu source
+PASS menu: catalog selects the expected local file
+PASS menu: native media loads and starts playback
+PASS menu: native playback clock advances without overlapping music
+PASS courtyard: catalog selects the expected local file
+PASS courtyard: native media loads and starts playback
+PASS courtyard: native playback clock advances without overlapping music
+PASS courtyard: native WAV decode matches source channels, sample rate and duration
+PASS frost: catalog selects the expected local file
+PASS frost: native media loads and starts playback
+PASS frost: native playback clock advances without overlapping music
+PASS frost: native WAV decode matches source channels, sample rate and duration
+PASS factory: catalog selects the expected local file
+PASS factory: native media loads and starts playback
+PASS factory: native playback clock advances without overlapping music
+PASS factory: native WAV decode matches source channels, sample rate and duration
+PASS dungeon: catalog selects the expected local file
+PASS dungeon: native media loads and starts playback
+PASS dungeon: native playback clock advances without overlapping music
+PASS dungeon: native WAV decode matches source channels, sample rate and duration
+PASS roof: catalog selects the expected local file
+PASS roof: native media loads and starts playback
+PASS roof: native playback clock advances without overlapping music
+PASS roof: native WAV decode matches source channels, sample rate and duration
+PASS bog: catalog selects the expected local file
+PASS bog: native media loads and starts playback
+PASS bog: native playback clock advances without overlapping music
+PASS bog: native WAV decode matches source channels, sample rate and duration
+PASS race: catalog selects the expected local file
+PASS race: native media loads and starts playback
+PASS race: native playback clock advances without overlapping music
+PASS race: native WAV decode matches source channels, sample rate and duration
+PASS hotpie: catalog selects the expected local file
+PASS hotpie: native media loads and starts playback
+PASS hotpie: native playback clock advances without overlapping music
+PASS hotpie: native WAV decode matches source channels, sample rate and duration
+PASS wardrobe: catalog selects the expected local file
+PASS wardrobe: native media loads and starts playback
+PASS wardrobe: native playback clock advances without overlapping music
+PASS wardrobe: native WAV decode matches source channels, sample rate and duration
+PASS victory: catalog selects the expected local file
+PASS victory: native media loads and starts playback
+PASS victory: native playback clock advances without overlapping music
+PASS victory: native WAV decode matches source channels, sample rate and duration
+PASS defeat: catalog selects the expected local file
+PASS defeat: native media loads and starts playback
+PASS defeat: native playback clock advances without overlapping music
+PASS defeat: native WAV decode matches source channels, sample rate and duration
+PASS Music fade obeys the selected 37 percent volume
+PASS Sound mute pauses music
+PASS Muted music clock remains stopped
+PASS Changing scenes while muted does not restart music
+PASS Unmute resumes the current scene at the saved volume
+PASS Zero music volume stays silent
+PASS Live volume changes take effect without a second music instance
+PASS Stopping a cue fades to silence and pauses
+PASS Wardrobe: scene routes to its assigned track
+PASS Menu: scene routes to its assigned track
+PASS Faction Front: scene routes to its assigned track
+PASS Faction exit: scene routes to its assigned track
+PASS Arena race: scene routes to its assigned track
+PASS Arena hot pie: scene routes to its assigned track
+PASS Arena frost: scene routes to its assigned track
+PASS Return to menu: scene routes to its assigned track
+PASS Exactly one native music instance throughout slot and scene changes
+PASS No native media errors or browser exceptions
+PASS Source unchanged during QA: index.html
+PASS Source unchanged during QA: audio/tracks.json
+PASS Source unchanged during QA: audio/soundtrack.js
+PASS Source unchanged during QA: menu-theme.mp3
+PASS Source unchanged during QA: audio/02-a-very-noble-food-fight.wav
+PASS Source unchanged during QA: audio/03-slippery-when-knighted.wav
+PASS Source unchanged during QA: audio/04-the-pie-production-line.wav
+PASS Source unchanged during QA: audio/05-too-hot-for-armour.wav
+PASS Source unchanged during QA: audio/06-mind-the-battlements.wav
+PASS Source unchanged during QA: audio/07-bog-standard-heroics.wav
+PASS Source unchanged during QA: audio/08-run-little-chicken-run.wav
+PASS Source unchanged during QA: audio/09-pass-the-pie.wav
+PASS Source unchanged during QA: audio/10-dressed-to-spill.wav
+PASS Source unchanged during QA: audio/11-the-golden-spoon.wav
+PASS Source unchanged during QA: audio/12-another-helping.wav

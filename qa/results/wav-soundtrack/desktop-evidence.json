@@ -1,0 +1,275 @@
+{
+  "checkedAt": "2026-10-09T11:55:35.525Z",
+  "version": "0.3.0-alpha.6",
+  "publisher": "Sparked FM Ltd",
+  "archiveSha256": "d23dacaf2ebe5464a83a67ba7e50aa5e03211209199524978ad9ef996253cf45",
+  "executableSha256": "5172149dedd8d597546f984fad5dcd69858dae1a721cde148de888a426ec3c04",
+  "runtimeSourceSha256": "cd58c8d0eb08414aa407c646b2b4d08c0d82c3c62d1b78d2bc2bc0a847ea128d",
+  "files": [
+    {
+      "file": "art/keyart/home.webp",
+      "sha256": "ecb779043885a9783a50a9c80914ce7f69547249e0261710dde34c075c88f373",
+      "bytes": 92708
+    },
+    {
+      "file": "audio/02-a-very-noble-food-fight.wav",
+      "sha256": "412bcf0044633a936f9218aa6fecec65e4f58b362ec878bad54b360283aebd65",
+      "bytes": 34520080
+    },
+    {
+      "file": "audio/03-slippery-when-knighted.wav",
+      "sha256": "40682025ebf6d0609f72d8f26e2de2c41e5ec86aa169f3f37ec63e97d8e5b21d",
+      "bytes": 34343440
+    },
+    {
+      "file": "audio/04-the-pie-production-line.wav",
+      "sha256": "5e0804e152dc4c611030e983768be9af599826c87497a3ac9bd95e8dcc881094",
+      "bytes": 34189840
+    },
+    {
+      "file": "audio/05-too-hot-for-armour.wav",
+      "sha256": "3303b7a2c5c22fe15e334a83393a43e060489078e2da514250cec9f09b0bcb0e",
+      "bytes": 34497040
+    },
+    {
+      "file": "audio/06-mind-the-battlements.wav",
+      "sha256": "a9144e7b503d5f51732cd1bebb05b2a75d277fb3a388033ec948aef0ed15bb81",
+      "bytes": 34343440
+    },
+    {
+      "file": "audio/07-bog-standard-heroics.wav",
+      "sha256": "717bad599ade63ba5f5149355b8b369ad6aa9981b2671b47a04b62199df0c95c",
+      "bytes": 34573840
+    },
+    {
+      "file": "audio/08-run-little-chicken-run.wav",
+      "sha256": "06cf39b6b1251d729eb78d446392cdbe82dcb869e9b06d412a6ba68cc8cd15b6",
+      "bytes": 34335760
+    },
+    {
+      "file": "audio/09-pass-the-pie.wav",
+      "sha256": "fb2eba3e6fcf048d02b137acdaa6450a2166b60da3fa45925c081ac31dec3d51",
+      "bytes": 34335760
+    },
+    {
+      "file": "audio/10-dressed-to-spill.wav",
+      "sha256": "3e745235ea44e9b94d50cce911a6461e2bbdf62163c3891f11d2294f5c4725b0",
+      "bytes": 34474000
+    },
+    {
+      "file": "audio/11-the-golden-spoon.wav",
+      "sha256": "9c51c45e0d771554fa6c70805e9b8335d0a26fb78e7b433fed7ecc9f729a1736",
+      "bytes": 34343440
+    },
+    {
+      "file": "audio/12-another-helping.wav",
+      "sha256": "952d75166efa93645bfb5583e04fdeb52e24f000488e2d7d777043524fd86ea0",
+      "bytes": 34305040
+    },
+    {
+      "file": "audio/soundtrack.js",
+      "sha256": "8efa2c0a4d4463b8f6d0041ea261f029fe6538d7e1b14b72adebd171fb541c9b",
+      "bytes": 649
+    },
+    {
+      "file": "audio/tracks.json",
+      "sha256": "c27078f05518510e5be4847386ad35eb4636a4a94753aa11792687ad720ef844",
+      "bytes": 999
+    },
+    {
+      "file": "desktop/acceptance.cjs",
+      "sha256": "a35df1d949f954e7fd3ec102447b361f29105c5b22938a7f66a788c169ddb712",
+      "bytes": 8462
+    },
+    {
+      "file": "desktop/assets.cjs",
+      "sha256": "ee06e7ec10b3b10d73d0c1a24ecb51a3b9587e25dc46e245082852e710ca2597",
+      "bytes": 1856
+    },
+    {
+      "file": "desktop/faction-smoke.cjs",
+      "sha256": "f2d1a9750ff3c11179aa3c2a8b6bf1b542dfa8dd6afac861e067bda5628f7887",
+      "bytes": 3552
+    },
+    {
+      "file": "desktop/icon.png",
+      "sha256": "83cd7f608fbb128b4717410174fd7ec9caa10e9b45857d2c3ba1e7e396779911",
+      "bytes": 142259
+    },
+    {
+      "file": "desktop/main.cjs",
+      "sha256": "669582eca01f8be0ef6e4b343fd476781222da21f8ad285437a0cfef0e80ac30",
+      "bytes": 4279
+    },
+    {
+      "file": "desktop/online-smoke.cjs",
+      "sha256": "45815066ed24125aa92b74678d6b451fde9da420f24524eb4ad7450c1b4587fa",
+      "bytes": 2446
+    },
+    {
+      "file": "game/campaign-integration.js",
+      "sha256": "f78bb1ca4da71f311383513cd67a7c519aa5ca14f109699c176c029f272a62bc",
+      "bytes": 1020
+    },
+    {
+      "file": "game/campaign-ui.js",
+      "sha256": "dbb5e1b8cebc962cb0c4f83c514a3ccfd3b1315b454aae99bf3a980c668468b1",
+      "bytes": 12725
+    },
+    {
+      "file": "game/campaign.js",
+      "sha256": "3dc283203e175dbea25653628124081bd5ed3a089eebb47d96e39fdb93d1e78c",
+      "bytes": 31116
+    },
+    {
+      "file": "game/collection-art.js",
+      "sha256": "cc4c959a07de5aaae96b5a80bb5b4937bd3151b2131d45492c79e1a67588c8e2",
+      "bytes": 6083
+    },
+    {
+      "file": "game/collection-ui.js",
+      "sha256": "2979e911619a5afb5e2e5f46a0d8b00534abd4045415b2f06d61da0cff23c659",
+      "bytes": 8981
+    },
+    {
+      "file": "game/collection.js",
+      "sha256": "4bb53165002857a8040dd6cfb035c880b6a83bf2fc53f202da17371290338713",
+      "bytes": 8151
+    },
+    {
+      "file": "game/cup-ui.js",
+      "sha256": "9aafa69378f79e5f3ac629099b8f9b1b1bc639930b1d32b8a6ad572a2787db9f",
+      "bytes": 3492
+    },
+    {
+      "file": "game/cup.js",
+      "sha256": "790949bce5c2ce54f5a93aa5d13d226fddb735e1426475e9a7c5297987422a12",
+      "bytes": 5804
+    },
+    {
+      "file": "game/difficulty.js",
+      "sha256": "1f9154868a8077efd0214979655816085c95a8e476263e6b68789f18e0d06293",
+      "bytes": 956
+    },
+    {
+      "file": "game/mass-battle-ui.js",
+      "sha256": "a687b12566a5f93147dc91f339cd0a597b8194a9e22b5027ef3bf496a1ad33db",
+      "bytes": 52553
+    },
+    {
+      "file": "game/mass-battle-wire.js",
+      "sha256": "2352b8315e9a675a0387ea780856dd2809d835c82bb144fa5a85d1a6cb96ff22",
+      "bytes": 11133
+    },
+    {
+      "file": "game/mass-battle.css",
+      "sha256": "0bc7f2ffe8c68c4e6fb00db64553131b3e3e0a52ad03e4000ead5c801226f6fc",
+      "bytes": 5711
+    },
+    {
+      "file": "game/mass-battle.js",
+      "sha256": "76acfad4d9104ec70a05e514935c6f728b33cecb2fee393a18fd58e30d24ca4e",
+      "bytes": 32225
+    },
+    {
+      "file": "game/preferences.js",
+      "sha256": "6347b429c27e5353201716004f141fb14966385d17ed6d3ee59846392add03bb",
+      "bytes": 1442
+    },
+    {
+      "file": "game/progression.js",
+      "sha256": "4314c0d1797caa0506ce03174822b960fe57f4812788b5ddcdf39837012e3851",
+      "bytes": 2911
+    },
+    {
+      "file": "index.html",
+      "sha256": "fb4cee753c138b4f9f5a07905fe57cfe05ef89994c7b21ea248c246b7e0cffd1",
+      "bytes": 347163
+    },
+    {
+      "file": "menu-theme.mp3",
+      "sha256": "ddf51a60e33a0bbbf53b8d83f4645258e365dccba91d59cd886489fa07463e58",
+      "bytes": 5865269
+    },
+    {
+      "file": "package.json",
+      "sha256": "605b2fbcb1af1a1cb6e002560090d530b13f68ef88b3ea1d7b2b23ca02ecca33",
+      "bytes": 185
+    },
+    {
+      "file": "sprites/chicken.js",
+      "sha256": "2158fecd13dee40bf4697da38af7a0fb2df098fd1d391c26c7496a7546d4d68e",
+      "bytes": 597853
+    },
+    {
+      "file": "sprites/hero-open.js",
+      "sha256": "aa9efacb420c6b53bd6748f8bc11156b71952160afe67ef1a1d5f16f934b8737",
+      "bytes": 1212487
+    },
+    {
+      "file": "sprites/hero.js",
+      "sha256": "7ae5fcdf0fac4235bfd6de961e645aab8e4f6c7db616288dd7a1f772de2c8ec5",
+      "bytes": 1196357
+    },
+    {
+      "file": "sprites/knight-open.js",
+      "sha256": "6ff34f5b062a9570224471c0fece1ce004a4afd1a6f2621e7051f3106a52b165",
+      "bytes": 4756829
+    },
+    {
+      "file": "sprites/knight.js",
+      "sha256": "c19af9f64503f4b41c9c0b43c93d7c4507cef2b488c07c521f9594c9e910c23a",
+      "bytes": 4735401
+    },
+    {
+      "file": "vendor/fonts.css",
+      "sha256": "1663ead62e96d1c6cc5c98cbd7625bd89ba1b6f29a669a00e725760b39b16eb3",
+      "bytes": 644
+    },
+    {
+      "file": "vendor/lilita-one-latin-400-normal.woff2",
+      "sha256": "d2575d4fa3632580aafcbcdf6978b3b57e144b90cf5bd9c2c98194f28b869704",
+      "bytes": 10672
+    },
+    {
+      "file": "vendor/lilita-one-LICENSE.txt",
+      "sha256": "2db08f46f614cf63e96dc99390112b2a1d2c4171370443f510e2163fd4ad40eb",
+      "bytes": 4397
+    },
+    {
+      "file": "vendor/nunito-latin-600-normal.woff2",
+      "sha256": "45f437de32ff5973eb5616b43c1308bf9fe897442f3d78a603c4cd0a06d66573",
+      "bytes": 16556
+    },
+    {
+      "file": "vendor/nunito-latin-800-normal.woff2",
+      "sha256": "2363d3ed037283ebb961e8c4b4917e40a8bc8853cf9965cf1ea7b4daa1df630a",
+      "bytes": 16520
+    },
+    {
+      "file": "vendor/nunito-latin-900-normal.woff2",
+      "sha256": "9ca32f5d8334579387361096944286df451272a557bb09bd906254a623aba99e",
+      "bytes": 16676
+    },
+    {
+      "file": "vendor/nunito-LICENSE.txt",
+      "sha256": "40991bfa02ac620aae16dc527f3c47765a25e43f270d4c301ee6ab663a8d9015",
+      "bytes": 4491
+    },
+    {
+      "file": "vendor/peerjs-LICENSE.txt",
+      "sha256": "9407807dba7f47a79bfb3ac55759d63d77c9371ebd0616d5a093e97d3e810397",
+      "bytes": 1108
+    },
+    {
+      "file": "vendor/peerjs-THIRD-PARTY-NOTICES.txt",
+      "sha256": "876e475c6816a63e25d444006fa8fd16ed1ba66f7d67123bdfd99648572aac75",
+      "bytes": 5778
+    },
+    {
+      "file": "vendor/peerjs.min.js",
+      "sha256": "ad5d8870d1e389914f9cba8d35be313c4327c69ee0a221e482e9bf7621136fe5",
+      "bytes": 92865
+    }
+  ]
+}

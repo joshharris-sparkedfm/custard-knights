@@ -1,6 +1,6 @@
 # Sales readiness — 9 October 2026
 
-**Current exported build: 0.3.0-alpha.4 development preview. Public-sale sign-off is pending.** Use [PREVIEW-BUILD.md](PREVIEW-BUILD.md) for its exact runtime commit, archive hash and local launch path. [RESUME-CHECKPOINT.md](RESUME-CHECKPOINT.md) records subsequent development. No Steam submission or public release is recorded. Developer/publisher is Sparked FM Ltd; GBP 7.99 / USD 9.99 remains a proposal, not a submitted price.
+**Current development version: 0.3.0-alpha.6. Public-sale sign-off is pending.** Use [PREVIEW-BUILD.md](PREVIEW-BUILD.md) for its exact runtime commit, archive hash and local launch path. [RESUME-CHECKPOINT.md](RESUME-CHECKPOINT.md) records subsequent development. No Steam submission or public release is recorded. Developer/publisher is Sparked FM Ltd; GBP 7.99 / USD 9.99 remains a proposal, not a submitted price.
 
 ## Current scope and acceptance
 
@@ -10,8 +10,8 @@
 | Character and combat presentation | Rounded knights, free saved closed/open visors, connected sword motion, authoritative contact cues | Human readability and responsiveness review; earlier controlled art checks are linked below |
 | Difficulty and bots | Easy, Medium, Hard and STEVE in arena/story/faction; role and objective decisions reviewed | Human difficulty calibration and multi-seed balance; scripted success does not establish fun or fairness |
 | Faction Front | Brawl, capture the flag and castle siege at 4v4, 20v20 and 50v50 total combatants; four roles and bot fill. A real browser plus99 scripted clients passed the local sample | Final timing/bandwidth acceptance, WAN and operating deployment. Anonymous session standings are unranked; private host-issued ratings/queues are implemented, with Steam identity and public competitive acceptance unfinished |
-| Desktop | Offline assets, saves, Windows x64 folder/ZIP; alpha.4 checked 42 package entries, faction connections and restart/relocation; earlier desktop journey is historical | Private Steam depot installation/update on a second PC; measured minimum specification; unsigned preview remains unsigned |
-| Store and music | Artwork, actual-game captures, 41-second trailer; twelve soundtrack slots/prompts | Final media selection/content survey, support contact, price approval, eleven missing recordings and listening checks |
+| Desktop | Offline assets, saves, Windows x64 folder/ZIP; alpha.5 checked 42 package entries, faction connections and restart/relocation; alpha.6 adds the WAV soundtrack; earlier desktop journey is historical | Private Steam depot installation/update on a second PC; measured minimum specification; unsigned preview remains unsigned |
+| Store and music | Artwork, actual-game captures, 41-second trailer; twelve enabled music cues, including eleven new original WAV exports | Final media selection/content survey, support contact, price approval, musical quality, loudness and loop listening checks |
 
 Alpha.2's faction-only 32 MiB sprite cache improved one fixed-seed ten-second 100-combatant sample from 53.61 to 60.09 FPS. Exact software-canvas comparisons passed 1,044 cases and 34 browser interface/online checks passed. GPU readback has documented 1–2 channel-level rounding differences. These results are specific to the QA host, not minimum specifications. See [render-cache review](../qa/reviews/faction-render-cache-2026-10-09.md).
 
@@ -24,7 +24,7 @@ Alpha.3 fixes controller pause navigation and the packaged faction Origin reject
 1. Close the recorded native-runtime and faction timing investigations, then freeze a candidate and retest only affected behavior plus a packaged launch/save journey. Record exact source/build identity and remaining known issues.
 2. Complete [PLAYER-REVIEW.md](PLAYER-REVIEW.md) on actual people, physical controllers, another PC and separate networks. Fix observed blockers and record retests; measure supported minimum hardware.
 3. Complete the faction service deployment/operating plan and distributed acceptance before promising hosted online faction battles. Complete Steam identity and public competitive policies/acceptance beyond the implemented private ladder if ranking remains a launch promise. Bot practice and anonymous session standings do not satisfy those promises.
-4. Supply the remaining soundtrack recordings and support contact; audition music and finalize store copy/media against the frozen candidate. Existing artwork ownership and the existing Suno recording's commercial rights are already confirmed.
+4. Supply the public support contact; audition the installed soundtrack and finalize store copy/media against the frozen candidate. Existing artwork ownership and the existing Suno recording's commercial rights are already confirmed.
 5. Complete Steam onboarding, real App/depot configuration, private-branch installation/update and store/build reviews. [STEAM-HANDOFF.md](STEAM-HANDOFF.md) gives the concrete sequence and current official timing sources. Fee payment, legal declarations, public pricing and publication require the owner's authorization for those final actions.
 
 ## Historical acceptance — version 0.2.2, 8–9 October 2026

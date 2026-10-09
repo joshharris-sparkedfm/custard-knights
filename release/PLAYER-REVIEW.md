@@ -1,8 +1,8 @@
 # Player and device acceptance — 0.3.0 preview
 
-This is an unperformed acceptance session, not a claim that people have tested the game. The current exported build is 0.3.0-alpha.4; use PREVIEW-BUILD.md and its BUILD-INFO for exact identity, or record the identity of a newer frozen candidate. Record the build, PC, controller models, Steam Input setting and actual completion times. Use a fresh profile or an exported save backup, without deleting existing progress. Earlier 0.2.2 automated acceptance does not replace this session.
+This is an unperformed acceptance session, not a claim that people have tested the game. The current exported build is 0.3.0-alpha.6; use PREVIEW-BUILD.md and its BUILD-INFO for exact identity, or record the identity of a newer frozen candidate. Record the build, PC, controller models, Steam Input setting and actual completion times. Use a fresh profile or an exported save backup, without deleting existing progress. Earlier 0.2.2 automated acceptance does not replace this session.
 
-For a shareable Windows ZIP, short player instructions and an offline feedback form, see `release/playtest/README.md`. The friends kit preserves the frozen alpha.4 runtime; it is not a new game version or sale-ready build.
+For a shareable Windows ZIP, short player instructions and an offline feedback form, see `release/playtest/README.md`. The friends kit preserves the frozen alpha.6 runtime; it is not a new game version or sale-ready build.
 
 ## First-time player — approximately 20 minutes
 
@@ -42,3 +42,12 @@ Include these observations in the release decision. A reproducible crash, lost p
 | Pending | | | | | | |
 
 Release sign-off remains pending until the relevant hardware/platform results and human observations are recorded. Automated evidence is in GAMEPLAY-REVIEW.md, DESKTOP-ACCEPTANCE.md and LAUNCH-STATUS.md.
+
+## Soundtrack listening — alpha.6
+
+Eleven new WAVs are installed alongside the existing menu recording. Automated decode/playback checks passed; nobody has yet accepted their musical fit, mix or loop seams. Use the offline listening page in outputs/Soundtrack-WAV/index.html, or generate it with scripts/soundtrack-review.py.
+
+- Listen to each cue at normal game volume, both alone and during play. Record unwanted voices, distracting phrases, distortion and combat sounds masked by music.
+- Let each gameplay track repeat across its end; note gaps, clicks, abrupt musical changes and fatigue. Another Helping has a measured 1.595-second silent tail that needs a deliberate keep/edit decision.
+- Compare menu, wardrobe, arena, victory and defeat loudness on headphones and speakers. Check transitions and the player's music/mute controls with real output devices.
+- Record track title, timestamp and the specific issue; do not mark the music approved from technical playback checks alone.

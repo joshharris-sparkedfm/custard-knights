@@ -5,8 +5,10 @@ const fs=require('node:fs'),path=require('node:path'),os=require('node:os'),http
 const {spawn}=require('node:child_process');
 const ROOT=path.resolve(process.env.CK_RUNTIME_ROOT||path.join(__dirname,'..'));
 const OUT=path.resolve(process.argv[2]||'qa/results/soundtrack-browser');
+const packaged=process.argv.includes('--packaged'),archive=path.join(ROOT,'dist/Custard Knights-win32-x64/resources/app.asar');
 const temporary=fs.mkdtempSync(path.join(os.tmpdir(),'ck-soundtrack-browser-'));
 const report={date:new Date().toISOString(),checks:[],tracks:[],errors:[],sourceHashes:{},limitations:'One headless Chromium instance using native HTMLAudioElement playback and WebAudio decoding over a local HTTP server. Browser output is silenced. Autoplay is explicitly permitted for repeatable functional testing. No auditory-quality, physical-speaker, human listening, loop-seam or packaged Electron acceptance claim.'};
+if(packaged)report.limitations='One hidden Electron QA runner serves the frozen app.asar through its packaged desktop/assets.cjs handler at custard://game, with sandbox/context isolation and external network blocked. Native playback and decoding are used, output silenced and autoplay permitted. This is packaged asset/protocol acceptance; normal packaged EXE lifecycle is tested separately. No auditory-quality, speakers, human listening or loop-seam acceptance claim.';
 fs.mkdirSync(OUT,{recursive:true});
 const sleep=ms=>new Promise(resolve=>setTimeout(resolve,ms));
 let server,chrome,ws;
@@ -37,9 +39,10 @@ function serve(req,res){
 async function main(){
  const tracks=JSON.parse(fs.readFileSync(path.join(ROOT,'audio/tracks.json'),'utf8'));
  for(const file of ['index.html','audio/tracks.json','audio/soundtrack.js','menu-theme.mp3',...tracks.filter(t=>t.id!=='menu').map(t=>'audio/'+t.file)])report.sourceHashes[file]=await hash(path.join(ROOT,file));
- server=http.createServer(serve);await new Promise(resolve=>server.listen(0,'127.0.0.1',resolve));const origin=`http://127.0.0.1:${server.address().port}`;
- chrome=spawn(process.env.CHROME||'C:/Program Files/Google/Chrome/Application/chrome.exe',['--headless=new','--remote-debugging-port=0','--user-data-dir='+path.join(temporary,'chrome'),'--window-size=1280,800','--mute-audio','--autoplay-policy=no-user-gesture-required','about:blank'],{stdio:'ignore',windowsHide:true});
- let port;for(let i=0;i<100;i++){try{port=+fs.readFileSync(path.join(temporary,'chrome','DevToolsActivePort'),'utf8').split('\n')[0];break;}catch{await sleep(100);}}if(!port)throw Error('Chrome did not start');
+ let origin,diagnostics='';if(packaged){origin='custard://game';report.archiveSha256=await hash(archive);report.packagedExecutableSha256=await hash(path.join(ROOT,'dist/Custard Knights-win32-x64/Custard Knights.exe'));const env={...process.env};delete env.ELECTRON_RUN_AS_NODE;chrome=spawn(require('electron'),[path.join(__dirname,'soundtrack-electron.cjs'),'--qa-archive='+archive,'--qa-profile='+path.join(temporary,'chrome'),'--remote-debugging-port=0','--mute-audio','--autoplay-policy=no-user-gesture-required'],{env,stdio:['ignore','ignore','pipe'],windowsHide:true});chrome.stderr.on('data',data=>{diagnostics+=data;report.runnerDiagnostics=diagnostics;});}
+ else{server=http.createServer(serve);await new Promise(resolve=>server.listen(0,'127.0.0.1',resolve));origin=`http://127.0.0.1:${server.address().port}`;chrome=spawn(process.env.CHROME||'C:/Program Files/Google/Chrome/Application/chrome.exe',['--headless=new','--remote-debugging-port=0','--user-data-dir='+path.join(temporary,'chrome'),'--window-size=1280,800','--mute-audio','--autoplay-policy=no-user-gesture-required','about:blank'],{stdio:'ignore',windowsHide:true});}
+ let port;for(let i=0;i<100;i++){try{port=+fs.readFileSync(path.join(temporary,'chrome','DevToolsActivePort'),'utf8').split('\n')[0];break;}catch{const match=/DevTools listening on ws:\/\/127\.0\.0\.1:(\d+)/.exec(diagnostics);if(match){port=+match[1];break;}await sleep(100);}}if(!port)throw Error('Media test browser did not start: '+diagnostics);
+ report.browserVersion=await(await fetch(`http://127.0.0.1:${port}/json/version`)).json();
  const tab=(await(await fetch(`http://127.0.0.1:${port}/json`)).json()).find(t=>t.type==='page');ws=new WebSocket(tab.webSocketDebuggerUrl);let id=0;const pending=new Map();
  ws.onmessage=e=>{const d=JSON.parse(e.data);if(d.method==='Runtime.exceptionThrown')report.errors.push(d.params.exceptionDetails);const task=pending.get(d.id);if(task){pending.delete(d.id);d.error?task.reject(Error(JSON.stringify(d.error))):task.resolve(d.result);}};
  await new Promise((resolve,reject)=>{ws.onopen=resolve;ws.onerror=reject;});
@@ -50,6 +53,7 @@ async function main(){
  await send('Runtime.enable');await send('Page.enable');await send('Page.addScriptToEvaluateOnNewDocument',{source:`(()=>{const NativeAudio=window.Audio;const qa=window.__soundtrackQA={audios:[],errors:[],maxPlaying:0};qa.sample=()=>{qa.maxPlaying=Math.max(qa.maxPlaying,qa.audios.filter(a=>!a.paused&&!a.ended).length);};window.Audio=new Proxy(NativeAudio,{construct(target,args){const a=Reflect.construct(target,args);qa.audios.push(a);a.addEventListener('error',()=>qa.errors.push({src:a.currentSrc,code:a.error&&a.error.code,message:a.error&&a.error.message}));for(const event of ['play','playing','pause','volumechange'])a.addEventListener(event,qa.sample);return a;}});setInterval(qa.sample,25);})();`});
  await send('Page.navigate',{url:origin+'/index.html?qa=1'});
  check('Integrated game loads with the native music element observed before startup',await until('!!(window.CK&&CK.cueMusic&&window.__soundtrackQA&&window.__soundtrackQA.audios.length)',15000));
+ if(packaged){check('Frozen package loads through the real custard protocol with renderer isolation',await run(`location.origin==='custard://game'&&typeof require==='undefined'&&typeof process==='undefined'`));check('Packaged media runner blocks external network',await run(`(async()=>{try{await fetch('https://example.com/');return false;}catch{return true;}})()`));}
  check('All 12 soundtrack slots are enabled',await run('Object.keys(CK_SOUNDTRACK).length===12&&Object.values(CK_SOUNDTRACK).every(s=>typeof s===\'string\'&&s.length>0)'));
  check('Original menu MP3 remains the menu source',await run('CK_SOUNDTRACK.menu===\'menu-theme.mp3\''));
  await run(`document.getElementById('sMusic').value='37';document.getElementById('sMusic').dispatchEvent(new Event('input'));`);

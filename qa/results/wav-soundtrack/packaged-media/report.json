@@ -1,0 +1,762 @@
+{
+  "date": "2026-10-09T11:55:44.910Z",
+  "checks": [
+    {
+      "name": "Integrated game loads with the native music element observed before startup",
+      "pass": true
+    },
+    {
+      "name": "Frozen package loads through the real custard protocol with renderer isolation",
+      "pass": true
+    },
+    {
+      "name": "Packaged media runner blocks external network",
+      "pass": true
+    },
+    {
+      "name": "All 12 soundtrack slots are enabled",
+      "pass": true
+    },
+    {
+      "name": "Original menu MP3 remains the menu source",
+      "pass": true
+    },
+    {
+      "name": "menu: catalog selects the expected local file",
+      "pass": true
+    },
+    {
+      "name": "menu: native media loads and starts playback",
+      "pass": true
+    },
+    {
+      "name": "menu: native playback clock advances without overlapping music",
+      "pass": true
+    },
+    {
+      "name": "courtyard: catalog selects the expected local file",
+      "pass": true
+    },
+    {
+      "name": "courtyard: native media loads and starts playback",
+      "pass": true
+    },
+    {
+      "name": "courtyard: native playback clock advances without overlapping music",
+      "pass": true
+    },
+    {
+      "name": "courtyard: native WAV decode matches source channels, sample rate and duration",
+      "pass": true
+    },
+    {
+      "name": "frost: catalog selects the expected local file",
+      "pass": true
+    },
+    {
+      "name": "frost: native media loads and starts playback",
+      "pass": true
+    },
+    {
+      "name": "frost: native playback clock advances without overlapping music",
+      "pass": true
+    },
+    {
+      "name": "frost: native WAV decode matches source channels, sample rate and duration",
+      "pass": true
+    },
+    {
+      "name": "factory: catalog selects the expected local file",
+      "pass": true
+    },
+    {
+      "name": "factory: native media loads and starts playback",
+      "pass": true
+    },
+    {
+      "name": "factory: native playback clock advances without overlapping music",
+      "pass": true
+    },
+    {
+      "name": "factory: native WAV decode matches source channels, sample rate and duration",
+      "pass": true
+    },
+    {
+      "name": "dungeon: catalog selects the expected local file",
+      "pass": true
+    },
+    {
+      "name": "dungeon: native media loads and starts playback",
+      "pass": true
+    },
+    {
+      "name": "dungeon: native playback clock advances without overlapping music",
+      "pass": true
+    },
+    {
+      "name": "dungeon: native WAV decode matches source channels, sample rate and duration",
+      "pass": true
+    },
+    {
+      "name": "roof: catalog selects the expected local file",
+      "pass": true
+    },
+    {
+      "name": "roof: native media loads and starts playback",
+      "pass": true
+    },
+    {
+      "name": "roof: native playback clock advances without overlapping music",
+      "pass": true
+    },
+    {
+      "name": "roof: native WAV decode matches source channels, sample rate and duration",
+      "pass": true
+    },
+    {
+      "name": "bog: catalog selects the expected local file",
+      "pass": true
+    },
+    {
+      "name": "bog: native media loads and starts playback",
+      "pass": true
+    },
+    {
+      "name": "bog: native playback clock advances without overlapping music",
+      "pass": true
+    },
+    {
+      "name": "bog: native WAV decode matches source channels, sample rate and duration",
+      "pass": true
+    },
+    {
+      "name": "race: catalog selects the expected local file",
+      "pass": true
+    },
+    {
+      "name": "race: native media loads and starts playback",
+      "pass": true
+    },
+    {
+      "name": "race: native playback clock advances without overlapping music",
+      "pass": true
+    },
+    {
+      "name": "race: native WAV decode matches source channels, sample rate and duration",
+      "pass": true
+    },
+    {
+      "name": "hotpie: catalog selects the expected local file",
+      "pass": true
+    },
+    {
+      "name": "hotpie: native media loads and starts playback",
+      "pass": true
+    },
+    {
+      "name": "hotpie: native playback clock advances without overlapping music",
+      "pass": true
+    },
+    {
+      "name": "hotpie: native WAV decode matches source channels, sample rate and duration",
+      "pass": true
+    },
+    {
+      "name": "wardrobe: catalog selects the expected local file",
+      "pass": true
+    },
+    {
+      "name": "wardrobe: native media loads and starts playback",
+      "pass": true
+    },
+    {
+      "name": "wardrobe: native playback clock advances without overlapping music",
+      "pass": true
+    },
+    {
+      "name": "wardrobe: native WAV decode matches source channels, sample rate and duration",
+      "pass": true
+    },
+    {
+      "name": "victory: catalog selects the expected local file",
+      "pass": true
+    },
+    {
+      "name": "victory: native media loads and starts playback",
+      "pass": true
+    },
+    {
+      "name": "victory: native playback clock advances without overlapping music",
+      "pass": true
+    },
+    {
+      "name": "victory: native WAV decode matches source channels, sample rate and duration",
+      "pass": true
+    },
+    {
+      "name": "defeat: catalog selects the expected local file",
+      "pass": true
+    },
+    {
+      "name": "defeat: native media loads and starts playback",
+      "pass": true
+    },
+    {
+      "name": "defeat: native playback clock advances without overlapping music",
+      "pass": true
+    },
+    {
+      "name": "defeat: native WAV decode matches source channels, sample rate and duration",
+      "pass": true
+    },
+    {
+      "name": "Music fade obeys the selected 37 percent volume",
+      "pass": true
+    },
+    {
+      "name": "Sound mute pauses music",
+      "pass": true
+    },
+    {
+      "name": "Muted music clock remains stopped",
+      "pass": true
+    },
+    {
+      "name": "Changing scenes while muted does not restart music",
+      "pass": true
+    },
+    {
+      "name": "Unmute resumes the current scene at the saved volume",
+      "pass": true
+    },
+    {
+      "name": "Zero music volume stays silent",
+      "pass": true
+    },
+    {
+      "name": "Live volume changes take effect without a second music instance",
+      "pass": true
+    },
+    {
+      "name": "Stopping a cue fades to silence and pauses",
+      "pass": true
+    },
+    {
+      "name": "Wardrobe: scene routes to its assigned track",
+      "pass": true
+    },
+    {
+      "name": "Menu: scene routes to its assigned track",
+      "pass": true
+    },
+    {
+      "name": "Faction Front: scene routes to its assigned track",
+      "pass": true
+    },
+    {
+      "name": "Faction exit: scene routes to its assigned track",
+      "pass": true
+    },
+    {
+      "name": "Arena race: scene routes to its assigned track",
+      "pass": true
+    },
+    {
+      "name": "Arena hot pie: scene routes to its assigned track",
+      "pass": true
+    },
+    {
+      "name": "Arena frost: scene routes to its assigned track",
+      "pass": true
+    },
+    {
+      "name": "Return to menu: scene routes to its assigned track",
+      "pass": true
+    },
+    {
+      "name": "Exactly one native music instance throughout slot and scene changes",
+      "pass": true
+    },
+    {
+      "name": "No native media errors or browser exceptions",
+      "pass": true
+    },
+    {
+      "name": "Source unchanged during QA: index.html",
+      "pass": true
+    },
+    {
+      "name": "Source unchanged during QA: audio/tracks.json",
+      "pass": true
+    },
+    {
+      "name": "Source unchanged during QA: audio/soundtrack.js",
+      "pass": true
+    },
+    {
+      "name": "Source unchanged during QA: menu-theme.mp3",
+      "pass": true
+    },
+    {
+      "name": "Source unchanged during QA: audio/02-a-very-noble-food-fight.wav",
+      "pass": true
+    },
+    {
+      "name": "Source unchanged during QA: audio/03-slippery-when-knighted.wav",
+      "pass": true
+    },
+    {
+      "name": "Source unchanged during QA: audio/04-the-pie-production-line.wav",
+      "pass": true
+    },
+    {
+      "name": "Source unchanged during QA: audio/05-too-hot-for-armour.wav",
+      "pass": true
+    },
+    {
+      "name": "Source unchanged during QA: audio/06-mind-the-battlements.wav",
+      "pass": true
+    },
+    {
+      "name": "Source unchanged during QA: audio/07-bog-standard-heroics.wav",
+      "pass": true
+    },
+    {
+      "name": "Source unchanged during QA: audio/08-run-little-chicken-run.wav",
+      "pass": true
+    },
+    {
+      "name": "Source unchanged during QA: audio/09-pass-the-pie.wav",
+      "pass": true
+    },
+    {
+      "name": "Source unchanged during QA: audio/10-dressed-to-spill.wav",
+      "pass": true
+    },
+    {
+      "name": "Source unchanged during QA: audio/11-the-golden-spoon.wav",
+      "pass": true
+    },
+    {
+      "name": "Source unchanged during QA: audio/12-another-helping.wav",
+      "pass": true
+    }
+  ],
+  "tracks": [
+    {
+      "id": "menu",
+      "file": "menu-theme.mp3",
+      "bytes": 5865269,
+      "sha256": "ddf51a60e33a0bbbf53b8d83f4645258e365dccba91d59cd886489fa07463e58",
+      "source": null,
+      "before": 0.021333,
+      "media": {
+        "duration": 293.2,
+        "currentTime": 0.161851,
+        "readyState": 4,
+        "volume": 0.3,
+        "loop": true,
+        "paused": false,
+        "instances": 1,
+        "maxPlaying": 1
+      },
+      "decoded": null
+    },
+    {
+      "id": "courtyard",
+      "file": "audio/02-a-very-noble-food-fight.wav",
+      "bytes": 34520080,
+      "sha256": "412bcf0044633a936f9218aa6fecec65e4f58b362ec878bad54b360283aebd65",
+      "source": {
+        "format": 1,
+        "channels": 2,
+        "sampleRate": 48000,
+        "blockAlign": 4,
+        "bitsPerSample": 16,
+        "dataBytes": 34506240,
+        "frames": 8626560,
+        "duration": 179.72
+      },
+      "before": 0.006177,
+      "media": {
+        "duration": 179.72,
+        "currentTime": 0.155571,
+        "readyState": 4,
+        "volume": 0.15000000000000002,
+        "loop": true,
+        "paused": false,
+        "instances": 1,
+        "maxPlaying": 1
+      },
+      "decoded": {
+        "channels": 2,
+        "sampleRate": 48000,
+        "frames": 8626560,
+        "duration": 179.72
+      }
+    },
+    {
+      "id": "frost",
+      "file": "audio/03-slippery-when-knighted.wav",
+      "bytes": 34343440,
+      "sha256": "40682025ebf6d0609f72d8f26e2de2c41e5ec86aa169f3f37ec63e97d8e5b21d",
+      "source": {
+        "format": 1,
+        "channels": 2,
+        "sampleRate": 48000,
+        "blockAlign": 4,
+        "bitsPerSample": 16,
+        "dataBytes": 34329600,
+        "frames": 8582400,
+        "duration": 178.8
+      },
+      "before": 0.009786,
+      "media": {
+        "duration": 178.8,
+        "currentTime": 0.152433,
+        "readyState": 4,
+        "volume": 0.15000000000000002,
+        "loop": true,
+        "paused": false,
+        "instances": 1,
+        "maxPlaying": 1
+      },
+      "decoded": {
+        "channels": 2,
+        "sampleRate": 48000,
+        "frames": 8582400,
+        "duration": 178.8
+      }
+    },
+    {
+      "id": "factory",
+      "file": "audio/04-the-pie-production-line.wav",
+      "bytes": 34189840,
+      "sha256": "5e0804e152dc4c611030e983768be9af599826c87497a3ac9bd95e8dcc881094",
+      "source": {
+        "format": 1,
+        "channels": 2,
+        "sampleRate": 48000,
+        "blockAlign": 4,
+        "bitsPerSample": 16,
+        "dataBytes": 34176000,
+        "frames": 8544000,
+        "duration": 178
+      },
+      "before": 0.012003,
+      "media": {
+        "duration": 178,
+        "currentTime": 0.166507,
+        "readyState": 4,
+        "volume": 0.15000000000000002,
+        "loop": true,
+        "paused": false,
+        "instances": 1,
+        "maxPlaying": 1
+      },
+      "decoded": {
+        "channels": 2,
+        "sampleRate": 48000,
+        "frames": 8544000,
+        "duration": 178
+      }
+    },
+    {
+      "id": "dungeon",
+      "file": "audio/05-too-hot-for-armour.wav",
+      "bytes": 34497040,
+      "sha256": "3303b7a2c5c22fe15e334a83393a43e060489078e2da514250cec9f09b0bcb0e",
+      "source": {
+        "format": 1,
+        "channels": 2,
+        "sampleRate": 48000,
+        "blockAlign": 4,
+        "bitsPerSample": 16,
+        "dataBytes": 34483200,
+        "frames": 8620800,
+        "duration": 179.6
+      },
+      "before": 0.01258,
+      "media": {
+        "duration": 179.6,
+        "currentTime": 0.15256,
+        "readyState": 4,
+        "volume": 0.15000000000000002,
+        "loop": true,
+        "paused": false,
+        "instances": 1,
+        "maxPlaying": 1
+      },
+      "decoded": {
+        "channels": 2,
+        "sampleRate": 48000,
+        "frames": 8620800,
+        "duration": 179.6
+      }
+    },
+    {
+      "id": "roof",
+      "file": "audio/06-mind-the-battlements.wav",
+      "bytes": 34343440,
+      "sha256": "a9144e7b503d5f51732cd1bebb05b2a75d277fb3a388033ec948aef0ed15bb81",
+      "source": {
+        "format": 1,
+        "channels": 2,
+        "sampleRate": 48000,
+        "blockAlign": 4,
+        "bitsPerSample": 16,
+        "dataBytes": 34329600,
+        "frames": 8582400,
+        "duration": 178.8
+      },
+      "before": 0.019389,
+      "media": {
+        "duration": 178.8,
+        "currentTime": 0.144813,
+        "readyState": 4,
+        "volume": 0.1,
+        "loop": true,
+        "paused": false,
+        "instances": 1,
+        "maxPlaying": 1
+      },
+      "decoded": {
+        "channels": 2,
+        "sampleRate": 48000,
+        "frames": 8582400,
+        "duration": 178.8
+      }
+    },
+    {
+      "id": "bog",
+      "file": "audio/07-bog-standard-heroics.wav",
+      "bytes": 34573840,
+      "sha256": "717bad599ade63ba5f5149355b8b369ad6aa9981b2671b47a04b62199df0c95c",
+      "source": {
+        "format": 1,
+        "channels": 2,
+        "sampleRate": 48000,
+        "blockAlign": 4,
+        "bitsPerSample": 16,
+        "dataBytes": 34560000,
+        "frames": 8640000,
+        "duration": 180
+      },
+      "before": 0.015165,
+      "media": {
+        "duration": 180,
+        "currentTime": 0.152409,
+        "readyState": 4,
+        "volume": 0.15000000000000002,
+        "loop": true,
+        "paused": false,
+        "instances": 1,
+        "maxPlaying": 1
+      },
+      "decoded": {
+        "channels": 2,
+        "sampleRate": 48000,
+        "frames": 8640000,
+        "duration": 180
+      }
+    },
+    {
+      "id": "race",
+      "file": "audio/08-run-little-chicken-run.wav",
+      "bytes": 34335760,
+      "sha256": "06cf39b6b1251d729eb78d446392cdbe82dcb869e9b06d412a6ba68cc8cd15b6",
+      "source": {
+        "format": 1,
+        "channels": 2,
+        "sampleRate": 48000,
+        "blockAlign": 4,
+        "bitsPerSample": 16,
+        "dataBytes": 34321920,
+        "frames": 8580480,
+        "duration": 178.76
+      },
+      "before": 0.000054,
+      "media": {
+        "duration": 178.76,
+        "currentTime": 0.142748,
+        "readyState": 4,
+        "volume": 0.1,
+        "loop": true,
+        "paused": false,
+        "instances": 1,
+        "maxPlaying": 1
+      },
+      "decoded": {
+        "channels": 2,
+        "sampleRate": 48000,
+        "frames": 8580480,
+        "duration": 178.76
+      }
+    },
+    {
+      "id": "hotpie",
+      "file": "audio/09-pass-the-pie.wav",
+      "bytes": 34335760,
+      "sha256": "fb2eba3e6fcf048d02b137acdaa6450a2166b60da3fa45925c081ac31dec3d51",
+      "source": {
+        "format": 1,
+        "channels": 2,
+        "sampleRate": 48000,
+        "blockAlign": 4,
+        "bitsPerSample": 16,
+        "dataBytes": 34321920,
+        "frames": 8580480,
+        "duration": 178.76
+      },
+      "before": 0.010388,
+      "media": {
+        "duration": 178.76,
+        "currentTime": 0.14684,
+        "readyState": 4,
+        "volume": 0.1,
+        "loop": true,
+        "paused": false,
+        "instances": 1,
+        "maxPlaying": 1
+      },
+      "decoded": {
+        "channels": 2,
+        "sampleRate": 48000,
+        "frames": 8580480,
+        "duration": 178.76
+      }
+    },
+    {
+      "id": "wardrobe",
+      "file": "audio/10-dressed-to-spill.wav",
+      "bytes": 34474000,
+      "sha256": "3e745235ea44e9b94d50cce911a6461e2bbdf62163c3891f11d2294f5c4725b0",
+      "source": {
+        "format": 1,
+        "channels": 2,
+        "sampleRate": 48000,
+        "blockAlign": 4,
+        "bitsPerSample": 16,
+        "dataBytes": 34460160,
+        "frames": 8615040,
+        "duration": 179.48
+      },
+      "before": 0.061892,
+      "media": {
+        "duration": 179.48,
+        "currentTime": 0.172576,
+        "readyState": 4,
+        "volume": 0.15000000000000002,
+        "loop": true,
+        "paused": false,
+        "instances": 1,
+        "maxPlaying": 1
+      },
+      "decoded": {
+        "channels": 2,
+        "sampleRate": 48000,
+        "frames": 8615040,
+        "duration": 179.48
+      }
+    },
+    {
+      "id": "victory",
+      "file": "audio/11-the-golden-spoon.wav",
+      "bytes": 34343440,
+      "sha256": "9c51c45e0d771554fa6c70805e9b8335d0a26fb78e7b433fed7ecc9f729a1736",
+      "source": {
+        "format": 1,
+        "channels": 2,
+        "sampleRate": 48000,
+        "blockAlign": 4,
+        "bitsPerSample": 16,
+        "dataBytes": 34329600,
+        "frames": 8582400,
+        "duration": 178.8
+      },
+      "before": 0.008996,
+      "media": {
+        "duration": 178.8,
+        "currentTime": 0.143035,
+        "readyState": 4,
+        "volume": 0.1,
+        "loop": true,
+        "paused": false,
+        "instances": 1,
+        "maxPlaying": 1
+      },
+      "decoded": {
+        "channels": 2,
+        "sampleRate": 48000,
+        "frames": 8582400,
+        "duration": 178.8
+      }
+    },
+    {
+      "id": "defeat",
+      "file": "audio/12-another-helping.wav",
+      "bytes": 34305040,
+      "sha256": "952d75166efa93645bfb5583e04fdeb52e24f000488e2d7d777043524fd86ea0",
+      "source": {
+        "format": 1,
+        "channels": 2,
+        "sampleRate": 48000,
+        "blockAlign": 4,
+        "bitsPerSample": 16,
+        "dataBytes": 34291200,
+        "frames": 8572800,
+        "duration": 178.6
+      },
+      "before": 0.01214,
+      "media": {
+        "duration": 178.6,
+        "currentTime": 0.147781,
+        "readyState": 4,
+        "volume": 0.1,
+        "loop": true,
+        "paused": false,
+        "instances": 1,
+        "maxPlaying": 1
+      },
+      "decoded": {
+        "channels": 2,
+        "sampleRate": 48000,
+        "frames": 8572800,
+        "duration": 178.6
+      }
+    }
+  ],
+  "errors": [],
+  "sourceHashes": {
+    "index.html": "fb4cee753c138b4f9f5a07905fe57cfe05ef89994c7b21ea248c246b7e0cffd1",
+    "audio/tracks.json": "c27078f05518510e5be4847386ad35eb4636a4a94753aa11792687ad720ef844",
+    "audio/soundtrack.js": "8efa2c0a4d4463b8f6d0041ea261f029fe6538d7e1b14b72adebd171fb541c9b",
+    "menu-theme.mp3": "ddf51a60e33a0bbbf53b8d83f4645258e365dccba91d59cd886489fa07463e58",
+    "audio/02-a-very-noble-food-fight.wav": "412bcf0044633a936f9218aa6fecec65e4f58b362ec878bad54b360283aebd65",
+    "audio/03-slippery-when-knighted.wav": "40682025ebf6d0609f72d8f26e2de2c41e5ec86aa169f3f37ec63e97d8e5b21d",
+    "audio/04-the-pie-production-line.wav": "5e0804e152dc4c611030e983768be9af599826c87497a3ac9bd95e8dcc881094",
+    "audio/05-too-hot-for-armour.wav": "3303b7a2c5c22fe15e334a83393a43e060489078e2da514250cec9f09b0bcb0e",
+    "audio/06-mind-the-battlements.wav": "a9144e7b503d5f51732cd1bebb05b2a75d277fb3a388033ec948aef0ed15bb81",
+    "audio/07-bog-standard-heroics.wav": "717bad599ade63ba5f5149355b8b369ad6aa9981b2671b47a04b62199df0c95c",
+    "audio/08-run-little-chicken-run.wav": "06cf39b6b1251d729eb78d446392cdbe82dcb869e9b06d412a6ba68cc8cd15b6",
+    "audio/09-pass-the-pie.wav": "fb2eba3e6fcf048d02b137acdaa6450a2166b60da3fa45925c081ac31dec3d51",
+    "audio/10-dressed-to-spill.wav": "3e745235ea44e9b94d50cce911a6461e2bbdf62163c3891f11d2294f5c4725b0",
+    "audio/11-the-golden-spoon.wav": "9c51c45e0d771554fa6c70805e9b8335d0a26fb78e7b433fed7ecc9f729a1736",
+    "audio/12-another-helping.wav": "952d75166efa93645bfb5583e04fdeb52e24f000488e2d7d777043524fd86ea0"
+  },
+  "limitations": "One hidden Electron QA runner serves the frozen app.asar through its packaged desktop/assets.cjs handler at custard://game, with sandbox/context isolation and external network blocked. Native playback and decoding are used, output silenced and autoplay permitted. This is packaged asset/protocol acceptance; normal packaged EXE lifecycle is tested separately. No auditory-quality, speakers, human listening or loop-seam acceptance claim.",
+  "archiveSha256": "d23dacaf2ebe5464a83a67ba7e50aa5e03211209199524978ad9ef996253cf45",
+  "packagedExecutableSha256": "5172149dedd8d597546f984fad5dcd69858dae1a721cde148de888a426ec3c04",
+  "runnerDiagnostics": "\r\nDevTools listening on ws://127.0.0.1:62077/devtools/browser/c08e71e2-a85a-45a1-8da7-4a8b216cfc93\r\n",
+  "browserVersion": {
+    "Browser": "Chrome/152.0.7977.130",
+    "Protocol-Version": "1.3",
+    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/152.0.7977.130 Electron/44.7.0 Safari/537.36",
+    "V8-Version": "15.2.124.28",
+    "WebKit-Version": "537.36 (@58da080b2b7c38a02e066a911d0b9cd0e9daa70d)",
+    "webSocketDebuggerUrl": "ws://127.0.0.1:62077/devtools/browser/c08e71e2-a85a-45a1-8da7-4a8b216cfc93"
+  },
+  "mediaErrors": [],
+  "musicInstances": 1,
+  "maximumConcurrentMusic": 1
+}

@@ -1,0 +1,189 @@
+{
+  "status": "pass",
+  "date": "2026-10-09T06:56:38.845Z",
+  "durationTarget": 60,
+  "clients": 100,
+  "clientProcesses": 4,
+  "host": {
+    "cpu": "Intel(R) Core(TM) i9-14900K",
+    "logicalCpus": 32,
+    "platform": "win32",
+    "node": "v24.19.0"
+  },
+  "source": {
+    "game/mass-battle.js": "76acfad4d9104ec70a05e514935c6f728b33cecb2fee393a18fd58e30d24ca4e",
+    "game/mass-battle-wire.js": "e1a2b6ffe63ae8f51004cfbc42baa1fa4f494e0b1a71926d73be51d98360ceef",
+    "server/mass-battle-server.cjs": "95bafd499ac70eb92f4eaf710b91cbf5e74250c008808730622e1ebf97fc101f",
+    "qa/mass-battle-process-load.cjs": "4f1b2050dc51082a5719f12e2d75cb2e134dd699f857885c577787eafe834c32"
+  },
+  "limitations": "Server and client workers have independent event loops but share host CPU, memory and loopback. Each client decodes every frame and chases/attacks opponents. Measurement excludes joins; worker windows start on IPC receipt. Random room seed and join ordering differ from earlier shared-process runs, so this is contention attribution, not a controlled gameplay benchmark. Protocol status is separate from timing observations. No browser rendering, WAN, human responsiveness, ranked-service or minimum-spec acceptance.",
+  "workers": [
+    {
+      "type": "result",
+      "seconds": 60.004472,
+      "cpuSeconds": 14.203,
+      "cpuPercentOfOneCore": 23.66990246993591,
+      "eventLoopP95Ms": 22.888447,
+      "eventLoopMaxMs": 38.010879,
+      "rssBytes": 199008256,
+      "clients": 25,
+      "inputs": 28025,
+      "packets": 30000,
+      "bytes": 396721975,
+      "fullPackets": 150,
+      "deltaPackets": 29850,
+      "meanDeltaBytes": 13012.231993299833,
+      "maxDeltaBytes": 24575,
+      "maxSnapshotGapMs": 92.72329999999965,
+      "inputIntervalP95Ms": 65.26260000000184,
+      "minClientSnapshotHz": 19.99850944442941,
+      "maxClientSnapshotHz": 19.99850944442941,
+      "minClientInputHz": 18.681940906004474,
+      "errors": [],
+      "unexpectedCloses": []
+    },
+    {
+      "type": "result",
+      "seconds": 60.004398699999996,
+      "cpuSeconds": 13.453,
+      "cpuPercentOfOneCore": 22.420023017412557,
+      "eventLoopP95Ms": 22.691839,
+      "eventLoopMaxMs": 38.174719,
+      "rssBytes": 198672384,
+      "clients": 25,
+      "inputs": 27875,
+      "packets": 30000,
+      "bytes": 396721975,
+      "fullPackets": 150,
+      "deltaPackets": 29850,
+      "meanDeltaBytes": 13012.231993299833,
+      "maxDeltaBytes": 24575,
+      "maxSnapshotGapMs": 92.84529999999995,
+      "inputIntervalP95Ms": 65.46850000000268,
+      "minClientSnapshotHz": 19.998533874150798,
+      "maxClientSnapshotHz": 19.998533874150798,
+      "minClientInputHz": 18.581971058065115,
+      "errors": [],
+      "unexpectedCloses": []
+    },
+    {
+      "type": "result",
+      "seconds": 60.0036489,
+      "cpuSeconds": 12.844,
+      "cpuPercentOfOneCore": 21.405364899400308,
+      "eventLoopP95Ms": 22.740991,
+      "eventLoopMaxMs": 38.076415,
+      "rssBytes": 197988352,
+      "clients": 25,
+      "inputs": 27975,
+      "packets": 29996,
+      "bytes": 396671651,
+      "fullPackets": 150,
+      "deltaPackets": 29846,
+      "meanDeltaBytes": 13012.289787576225,
+      "maxDeltaBytes": 24575,
+      "maxSnapshotGapMs": 92.6246000000001,
+      "inputIntervalP95Ms": 65.42689999999857,
+      "minClientSnapshotHz": 19.982118120819816,
+      "maxClientSnapshotHz": 19.998783773964785,
+      "minClientInputHz": 18.648865869222163,
+      "errors": [],
+      "unexpectedCloses": []
+    },
+    {
+      "type": "result",
+      "seconds": 60.003003,
+      "cpuSeconds": 13.405,
+      "cpuPercentOfOneCore": 22.34054852221313,
+      "eventLoopP95Ms": 22.822911,
+      "eventLoopMaxMs": 39.845887,
+      "rssBytes": 198430720,
+      "clients": 25,
+      "inputs": 27975,
+      "packets": 29996,
+      "bytes": 396671651,
+      "fullPackets": 150,
+      "deltaPackets": 29846,
+      "meanDeltaBytes": 13012.289787576225,
+      "maxDeltaBytes": 24575,
+      "maxSnapshotGapMs": 92.50640000000021,
+      "inputIntervalP95Ms": 65.41380000000208,
+      "minClientSnapshotHz": 19.982333217555794,
+      "maxClientSnapshotHz": 19.99899905009754,
+      "minClientInputHz": 18.649066614215958,
+      "errors": [],
+      "unexpectedCloses": []
+    }
+  ],
+  "server": {
+    "type": "result",
+    "seconds": 60.0113768,
+    "cpuSeconds": 7.094,
+    "cpuPercentOfOneCore": 11.82109189669516,
+    "eventLoopP95Ms": 19.546111,
+    "eventLoopMaxMs": 33.193983,
+    "rssBytes": 89931776,
+    "simulationSeconds": 59.999984099998336,
+    "humans": 100,
+    "matchStatus": "playing",
+    "scores": {
+      "custardia": 202,
+      "rice": 201
+    },
+    "kills": 395,
+    "tickP95Ms": 7.980600000002596,
+    "tickP99Ms": 9.246299999998882,
+    "metrics": {
+      "steps": 1754,
+      "maxStepMs": 13.46650000000227,
+      "totalStepMs": 5139.291400000148,
+      "maxTickGapMs": 50.60090000000491,
+      "maxSnapshotBytes": 59058,
+      "snapshots": 1200,
+      "rejectedInputs": 0,
+      "rateLimited": 0
+    }
+  },
+  "timing": {
+    "inputHzTarget": 20,
+    "snapshotHzTarget": 20,
+    "minClientSnapshotHz": 19.982118120819816,
+    "minClientInputHz": 18.581971058065115,
+    "serverBroadcastHz": 19.99620845226134,
+    "simulationToWallRatio": 0.9998101576632772,
+    "aggregateReceiveMbps": 211.55795045778626,
+    "withinFivePercent": false
+  },
+  "processExits": [
+    {
+      "role": "--server",
+      "pid": 12028,
+      "code": 0,
+      "signal": null
+    },
+    {
+      "role": "--clients",
+      "pid": 7744,
+      "code": 0,
+      "signal": null
+    },
+    {
+      "role": "--clients",
+      "pid": 3108,
+      "code": 0,
+      "signal": null
+    },
+    {
+      "role": "--clients",
+      "pid": 29732,
+      "code": 0,
+      "signal": null
+    },
+    {
+      "role": "--clients",
+      "pid": 28920,
+      "code": 0,
+      "signal": null
+    }
+  ]
+}

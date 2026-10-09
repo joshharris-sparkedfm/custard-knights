@@ -1,0 +1,117 @@
+{
+  "checks": [
+    {
+      "name": "Integrated game loads",
+      "pass": true
+    },
+    {
+      "name": "Ranked without a key stays on setup with explanation",
+      "pass": true
+    },
+    {
+      "name": "Key is refused over remote plaintext WebSocket",
+      "pass": true
+    },
+    {
+      "name": "One authenticated player enters human-only waiting queue",
+      "pass": true
+    },
+    {
+      "name": "Waiting beyond connection timeout does not disconnect or start bot match",
+      "pass": true
+    },
+    {
+      "name": "Cancel returns to editable setup",
+      "pass": true
+    },
+    {
+      "name": "Can rejoin after cancel",
+      "pass": true
+    },
+    {
+      "name": "Eight authenticated humans launch an actual rendered battle",
+      "pass": true
+    },
+    {
+      "name": "Server independently marks the full-human room ranked",
+      "pass": true
+    },
+    {
+      "name": "Connected browser explains ranked reconnect pause",
+      "pass": true
+    },
+    {
+      "name": "Authoritative battle clock freezes during missing-player grace",
+      "pass": true
+    },
+    {
+      "name": "Missing ranked player never becomes a bot",
+      "pass": true
+    },
+    {
+      "name": "Peer reconnect restores original session",
+      "pass": true
+    },
+    {
+      "name": "Dropped browser offers manual reconnect",
+      "pass": true
+    },
+    {
+      "name": "Manual reconnect returns to the same battle",
+      "pass": true
+    },
+    {
+      "name": "Server retains original browser session without respawning",
+      "pass": true
+    },
+    {
+      "name": "Reconnect key remains memory-only",
+      "pass": true
+    },
+    {
+      "name": "Expired departure forfeits instead of cancelling ratings",
+      "pass": true
+    },
+    {
+      "name": "Final result reaches the real UI",
+      "pass": true
+    },
+    {
+      "name": "Server persisted one real account result",
+      "pass": true
+    },
+    {
+      "name": "Ladder returns all eight persisted profiles",
+      "pass": true
+    },
+    {
+      "name": "Result UI shows stored rating",
+      "pass": true
+    },
+    {
+      "name": "Closing clears the access key",
+      "pass": true
+    },
+    {
+      "name": "Credential never enters local or session storage",
+      "pass": true
+    },
+    {
+      "name": "Rating survives database close/reopen",
+      "pass": true
+    },
+    {
+      "name": "No browser exceptions",
+      "pass": true
+    }
+  ],
+  "errors": [],
+  "sourceHashes": {
+    "index.html": "fb4cee753c138b4f9f5a07905fe57cfe05ef89994c7b21ea248c246b7e0cffd1",
+    "game/mass-battle-ui.js": "d3fe1b3472a6782f3f12d793c4fc651a395e605c384cea1d74a1788edec6b6cc",
+    "game/mass-battle.css": "e35e4c0b80ad5660d774ce293cfe8949fbd4a1167ddb8298a60eb3c1e3a030c1",
+    "server/mass-battle-server.cjs": "cb8beeecd64dd810df61e623191255ee6e1b99759f015ba4d0b83342751e5d60",
+    "server/player-store.cjs": "4aa2d2bc6341567d67756fc5c732c446b0a76b4a97f8cd5ff4ccfbb4108ef0e8"
+  },
+  "limitations": "One headless integrated browser plus seven scripted loopback sockets. Five-second test grace, deliberate socket termination and resulting server forfeit; no human gameplay, WAN, Steam authentication or minimum-hardware acceptance."
+}

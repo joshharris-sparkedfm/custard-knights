@@ -1,0 +1,26 @@
+PASS Integrated game loads
+PASS Ranked without a key stays on setup with explanation
+PASS Key is refused over remote plaintext WebSocket
+PASS One authenticated player enters human-only waiting queue
+PASS Waiting beyond connection timeout does not disconnect or start bot match
+PASS Cancel returns to editable setup
+PASS Can rejoin after cancel
+PASS Eight authenticated humans launch an actual rendered battle
+PASS Server independently marks the full-human room ranked
+PASS Connected browser explains ranked reconnect pause
+PASS Authoritative battle clock freezes during missing-player grace
+PASS Missing ranked player never becomes a bot
+PASS Peer reconnect restores original session
+PASS Dropped browser offers manual reconnect
+PASS Manual reconnect returns to the same battle
+PASS Server retains original browser session without respawning
+PASS Reconnect key remains memory-only
+PASS Expired departure forfeits instead of cancelling ratings
+PASS Final result reaches the real UI
+PASS Server persisted one real account result
+PASS Ladder returns all eight persisted profiles
+PASS Result UI shows stored rating
+PASS Closing clears the access key
+PASS Credential never enters local or session storage
+PASS Rating survives database close/reopen
+PASS No browser exceptions

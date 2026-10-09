@@ -8,6 +8,7 @@ on:
       - 'server/**'
       - 'tests/**'
       - 'qa/mass-battle-load.cjs'
+      - 'qa/ranked-journal-process.cjs'
       - 'package-lock.json'
       - '.github/workflows/battle-core.yml'
   workflow_dispatch:
@@ -57,6 +58,8 @@ jobs:
         run: node --test --test-reporter=tap tests/*.test.cjs > full-tests.tap
       - name: Exercise 100 active loopback clients for 60 seconds
         run: node qa/mass-battle-load.cjs 60 battle-load.json
+      - name: Recover journal after an abrupt process exit
+        run: node qa/ranked-journal-process.cjs ranked-journal-process.json
       - name: Retain passes and failures
         if: always()
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
@@ -65,5 +68,6 @@ jobs:
           path: |
             full-tests.tap
             battle-load.json
+            ranked-journal-process.json
           if-no-files-found: warn
           retention-days: 14

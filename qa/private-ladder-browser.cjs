@@ -5,16 +5,19 @@ const {createBattleServer}=require('../server/mass-battle-server.cjs');
 const {createPlayerStore}=require('../server/player-store.cjs');
 const ROOT=path.resolve(process.env.CK_RUNTIME_ROOT||path.join(__dirname,'..'));
 const OUT=path.resolve(process.argv[2]||'qa/results/private-ladder-browser');
+const recovery=process.argv.includes('--recovery');
 const temporary=fs.mkdtempSync(path.join(os.tmpdir(),'ck-private-ladder-'));
 const filename=path.join(temporary,'players.sqlite');
 const report={checks:[],errors:[],sourceHashes:{},limitations:'One headless integrated browser plus seven scripted loopback sockets. Terminal server state is set directly to test persistence/result UI; not a human-completed match, WAN, Steam authentication or minimum-hardware acceptance.'};
-for(const name of ['index.html','game/mass-battle-ui.js'])report.sourceHashes[name]=crypto.createHash('sha256').update(fs.readFileSync(path.join(ROOT,name))).digest('hex');
+for(const name of ['index.html','game/mass-battle-ui.js','game/mass-battle.css'])report.sourceHashes[name]=crypto.createHash('sha256').update(fs.readFileSync(path.join(ROOT,name))).digest('hex');
+for(const name of ['server/mass-battle-server.cjs','server/player-store.cjs'])report.sourceHashes[name]=crypto.createHash('sha256').update(fs.readFileSync(path.join(__dirname,'..',name))).digest('hex');
+if(recovery)report.limitations='One headless integrated browser plus seven scripted loopback sockets. Five-second test grace, deliberate socket termination and resulting server forfeit; no human gameplay, WAN, Steam authentication or minimum-hardware acceptance.';
 fs.mkdirSync(OUT,{recursive:true});
 const sleep=ms=>new Promise(r=>setTimeout(r,ms));let server,store,chrome,ws;const clients=[];
 const timeout=setTimeout(()=>{chrome?.kill();console.error('Private ladder browser timed out');process.exit(1);},70000);
 async function main(){
  store=createPlayerStore({filename});const accounts=Array.from({length:8},(_,i)=>store.issue('QA Knight '+(i+1)));
- server=createBattleServer({port:0,playerStore:store});const address=await server.listen(),endpoint=`ws://127.0.0.1:${address.port}/battle`;
+ server=createBattleServer({port:0,playerStore:store,...(recovery?{rankedReconnectMs:5000}:{})});const address=await server.listen(),endpoint=`ws://127.0.0.1:${address.port}/battle`;
  chrome=spawn(process.env.CHROME||'C:/Program Files/Google/Chrome/Application/chrome.exe',['--headless=new','--remote-debugging-port=0','--user-data-dir='+path.join(temporary,'chrome'),'--window-size=1280,800','--mute-audio','about:blank'],{stdio:'ignore',windowsHide:true});
  let port;for(let i=0;i<100;i++){try{port=+fs.readFileSync(path.join(temporary,'chrome','DevToolsActivePort'),'utf8').split('\n')[0];break;}catch{await sleep(100);}}if(!port)throw Error('Chrome did not start');
  const tab=(await(await fetch(`http://127.0.0.1:${port}/json`)).json()).find(t=>t.type==='page');ws=new WebSocket(tab.webSocketDebuggerUrl);let id=0;const pending=new Map();
@@ -49,8 +52,31 @@ async function main(){
  }
  check('Eight authenticated humans launch an actual rendered battle',await until(`document.querySelector('.ck-battle-setup').hidden&&CK.massBattle().snapshot()?.players.filter(p=>!p.bot).length===8`));
  const room=[...server.rooms.values()].find(r=>r.ranked&&r.state.players.filter(p=>!p.bot).length===8);check('Server independently marks the full-human room ranked',room);
- // A fixture isolates result bookkeeping/UI; it does not claim a played match.
- room.state.status='finished';room.state.winner='custardia';room.state.finishReason='QA terminal fixture';
+ if(recovery){
+  const peer=room.roster.find(p=>p.accountId===accounts[1].accountId);
+  peer.c.ws.terminate();
+  check('Connected browser explains ranked reconnect pause',await until(`!document.querySelector('.ck-battle-ranked-pause').hidden&&document.querySelector('.ck-battle-ranked-pause').textContent.toLowerCase().includes('paused')`));
+  const frozen=room.state.elapsed;await sleep(300);
+  check('Authoritative battle clock freezes during missing-player grace',room.state.elapsed===frozen);
+  check('Missing ranked player never becomes a bot',room.state.players.every(p=>!p.bot));
+  const returning=new WebSocket(endpoint);clients.push(returning);const messages=[];returning.onmessage=e=>messages.push(JSON.parse(e.data));
+  await new Promise((resolve,reject)=>{returning.onopen=resolve;returning.onerror=reject;});
+  returning.send(JSON.stringify({type:'join',wire:1,ranked:true,accessToken:accounts[1].token,mode:'brawl',teamSize:4,resumeRoom:room.id}));
+  for(let i=0;i<50&&!messages.some(m=>m.type==='welcome');i++)await sleep(50);
+  check('Peer reconnect restores original session',messages.some(m=>m.type==='welcome'&&m.sessionId===peer.session.id));
+  const self=room.roster.find(p=>p.accountId===accounts[0].accountId),sessionId=self.session.id;
+  self.c.ws.terminate();
+  check('Dropped browser offers manual reconnect',await until(`Array.from(document.querySelectorAll('.ck-battle button')).some(b=>b.textContent==='Reconnect to battle'&&b.getClientRects().length)`));
+  await click('Reconnect to battle');
+  check('Manual reconnect returns to the same battle',await until(`document.querySelector('.ck-battle-modal').hidden&&CK.massBattle().snapshot()?.players.some(p=>p.id===${JSON.stringify(sessionId)}||p.humanId===${JSON.stringify(sessionId)})`));
+  check('Server retains original browser session without respawning',self.session.id===sessionId&&self.c.room===room.id&&!room.missing.size);
+  check('Reconnect key remains memory-only',await run(`![...Object.values(localStorage),...Object.values(sessionStorage)].some(v=>v.includes(${JSON.stringify(accounts[0].token)}))`));
+  peer.c.ws.terminate();
+  check('Expired departure forfeits instead of cancelling ratings',await until(`CK.massBattle().snapshot()?.status==='finished'`,8000)&&room.state.finishReason==='forfeit');
+ }else{
+  // A fixture isolates result bookkeeping/UI; it does not claim a played match.
+  room.state.status='finished';room.state.winner='custardia';room.state.finishReason='QA terminal fixture';
+ }
  check('Final result reaches the real UI',await until(`!document.querySelector('.ck-battle-modal').hidden&&document.querySelector('.ck-battle-modal').textContent.includes('Private test ladder')`));
  await sleep(300);
  const current=store.profile(accounts[0].accountId,'brawl-4');

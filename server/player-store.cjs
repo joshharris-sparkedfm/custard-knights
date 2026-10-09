@@ -43,12 +43,17 @@ function createPlayerStore({ filename } = {}) {
         team TEXT NOT NULL, before_rating INTEGER NOT NULL, after_rating INTEGER NOT NULL,
         PRIMARY KEY(match_id, account_id)
       );
+      CREATE TABLE IF NOT EXISTS pending_results (
+        id TEXT PRIMARY KEY, payload TEXT NOT NULL, created_at INTEGER NOT NULL
+      );
     `);
   } catch (error) { db.close(); throw error; }
 
   const account = db.prepare('SELECT id, name, revoked FROM accounts WHERE id = ?');
   const getRating = db.prepare('SELECT rating, matches, wins, losses, draws FROM ratings WHERE account_id = ? AND queue_key = ?');
   const getMatch = db.prepare('SELECT payload, eligible, reason FROM matches WHERE id = ?');
+  const getPending = db.prepare('SELECT payload FROM pending_results WHERE id = ?');
+  const deletePending = db.prepare('DELETE FROM pending_results WHERE id = ?');
   const insertMatch = db.prepare('INSERT INTO matches VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)');
   const insertPlayer = db.prepare('INSERT INTO match_players VALUES (?, ?, ?, ?, ?)');
   const saveRating = db.prepare(`INSERT INTO ratings (account_id, queue_key, rating, matches, wins, losses, draws)
@@ -64,7 +69,7 @@ function createPlayerStore({ filename } = {}) {
     return { id: user.id, name: user.name, ...stats, provisional: stats.matches < 10 };
   }
 
-  function recordMatch(input) {
+  function normalizeMatch(input) {
     if (!input || typeof input !== 'object') throw new Error('Invalid match');
     const { id, queueKey, mode, teamSize, eligible } = input;
     if (typeof id !== 'string' || !/^[a-zA-Z0-9_:.\-]{1,128}$/.test(id)) throw new Error('Invalid match ID');
@@ -84,13 +89,64 @@ function createPlayerStore({ filename } = {}) {
       return { accountId: p.accountId, team: p.team };
     }).sort((a, b) => a.accountId.localeCompare(b.accountId));
     if (eligible && (counts.custardia !== teamSize || counts.rice !== teamSize)) throw new Error('Ladder matches require two complete human teams');
-    const payload = JSON.stringify({ id, queueKey, mode, teamSize, winner, eligible, reason, participants });
+    return { id, queueKey, mode, teamSize, winner, eligible, reason, participants };
+  }
+
+  function matchingPayload(existing, payload) {
+    if (existing && existing.payload !== payload) throw new Error('Match ID already exists with a conflicting result');
+  }
+
+  function stageMatchResult(input) {
+    const canonical = normalizeMatch(input), payload = JSON.stringify(canonical);
+    db.exec('BEGIN IMMEDIATE');
+    try {
+      const existing = getMatch.get(canonical.id), pending = getPending.get(canonical.id);
+      matchingPayload(existing, payload);
+      matchingPayload(pending, payload);
+      if (existing || pending) {
+        if (existing) deletePending.run(canonical.id);
+        db.exec('COMMIT');
+        return { staged: false, recorded: Boolean(existing) };
+      }
+      // Eligibility is validated once, before the terminal result becomes durable.
+      // Later credential revocation cannot erase an already staged result.
+      for (const p of canonical.participants) {
+        const user = account.get(p.accountId);
+        if (!user) throw new Error('Unknown match participant');
+        if (canonical.eligible && user.revoked) throw new Error('Revoked account cannot receive ladder results');
+      }
+      db.prepare('INSERT INTO pending_results VALUES (?, ?, ?)').run(canonical.id, payload, Date.now());
+      db.exec('COMMIT');
+      return { staged: true, recorded: false };
+    } catch (error) { db.exec('ROLLBACK'); throw error; }
+  }
+
+  function pendingResults() {
+    return Object.freeze(db.prepare('SELECT id, payload FROM pending_results ORDER BY created_at, rowid').all().map(row => {
+      const canonical = normalizeMatch(JSON.parse(row.payload));
+      if (canonical.id !== row.id || JSON.stringify(canonical) !== row.payload) throw new Error('Invalid pending match result');
+      for (const p of canonical.participants) {
+        if (!account.get(p.accountId)) throw new Error('Unknown pending match participant');
+        Object.freeze(p);
+      }
+      Object.freeze(canonical.participants);
+      return Object.freeze(canonical);
+    }));
+  }
+
+  function recordMatch(input) {
+    const canonical = normalizeMatch(input);
+    const { id, queueKey, mode, teamSize, winner, eligible, reason, participants } = canonical;
+    const payload = JSON.stringify(canonical);
 
     db.exec('BEGIN IMMEDIATE');
     try {
       const existing = getMatch.get(id);
+      const pending = getPending.get(id);
+      matchingPayload(pending, payload);
       if (existing) {
-        if (existing.payload !== payload) throw new Error('Match ID already exists with a conflicting result');
+        matchingPayload(existing, payload);
+        deletePending.run(id);
         db.exec('COMMIT');
         return { recorded: false, eligible: Boolean(existing.eligible), reason: existing.reason, changes: [] };
       }
@@ -98,7 +154,7 @@ function createPlayerStore({ filename } = {}) {
       const players = participants.map(p => {
         const user = account.get(p.accountId);
         if (!user) throw new Error('Unknown match participant');
-        if (eligible && user.revoked) throw new Error('Revoked account cannot receive ladder results');
+        if (eligible && user.revoked && !pending) throw new Error('Revoked account cannot receive ladder results');
         return { ...p, before: (getRating.get(p.accountId, queueKey) || { rating: 1000 }).rating };
       });
       let delta = 0;
@@ -119,6 +175,7 @@ function createPlayerStore({ filename } = {}) {
           changes.push({ accountId: p.accountId, before: p.before, after, delta: after - p.before });
         }
       }
+      deletePending.run(id);
       db.exec('COMMIT');
       return { recorded: true, eligible, reason, changes };
     } catch (error) { db.exec('ROLLBACK'); throw error; }
@@ -138,6 +195,8 @@ function createPlayerStore({ filename } = {}) {
       return row ? { id: row.id, name: row.name } : null;
     },
     profile,
+    stageMatchResult,
+    pendingResults,
     recordMatch,
     leaderboard(queueKey, limit = 50) {
       validateQueue(queueKey);

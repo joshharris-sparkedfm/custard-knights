@@ -1,6 +1,6 @@
 # Development checkpoint — 9 October 2026
 
-Version **0.3.0-alpha.4** is a playable development preview, not a validated Steam release. The user requested all work pushed and merged for cross-machine continuation, then explicitly asked to continue working and keep GitHub current. Automatic work remains active; the earlier pause request was superseded. See PREVIEW-BUILD.md for the exported local Windows copy.
+Version **0.3.0-alpha.5** is a playable development preview, not a validated Steam release. The user requested all work pushed and merged for cross-machine continuation, then explicitly asked to continue working and keep GitHub current. Automatic work remains active; the earlier pause request was superseded. See PREVIEW-BUILD.md for the exported local Windows copy.
 
 ## Start on another computer
 
@@ -16,6 +16,8 @@ The main menu contains The Great Pudding War (eight playable encounters), Custar
 - Dedicated authoritative WebSocket server, bounded inputs, bot replacement, resumable sessions, compact full/delta snapshots and explicit resync. Current target is 20 Hz replication. This has not passed final sustained-load acceptance.
 
 ## Evidence and unfinished work
+
+**Ranked recovery follow-up:** branch `codex/ranked-recovery` adds durable pending-result staging/replay, reserved-slot reconnect, bounded cumulative disconnect grace and rated forfeits. Alpha.4 exports remain preserved. Current alpha.5 verification/export is in progress; do not infer release acceptance from implementation. See `release/PRIVATE-LADDER.md` for the new policy. The earlier alpha.4 disconnect and memory-only retry limitations below are superseded by this work once verified.
 
 **Private identity and ladder implementation, 9 October:** the user explicitly requested continuing to finish, superseding the prior wait-only approach. Alpha.4 adds host-issued private player keys, SQLite ratings/history, human-only skill queues for each mode/size, cancellation, persistent result UI, and server-owned ratings feeding authenticated casual bot/team balance. See `release/PRIVATE-LADDER.md`. Thirty-five focused tests passed; actual integrated browser and existing 34 faction checks passed, and the Windows package matches all 42 entries. Independent run37923390377 passed156/156 full tests on each Windows/Linux Node24 host plus all four core matrix jobs and both60-second scripted loads. Container run37923390319 passed private identity/restart/revocation checks. PREVIEW-BUILD now identifies the refreshed alpha.4 preview and friends ZIP from9e8ac15; the older alpha.3 artifacts remain preserved. Do not infer Steam auth or a deployed public service from the private ladder.
 

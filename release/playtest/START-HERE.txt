@@ -1,14 +1,20 @@
-CUSTARD KNIGHTS — FRIENDS PLAYTEST
+CUSTARD KNIGHTS — PRIVATE FRIENDS BETA
 Sparked FM Ltd | Build {{VERSION}}
 
 1. Save the ZIP, then use Extract All. Keep the extracted files together.
-2. Open Game, then double-click Custard Knights.exe.
-3. Start with Quick brawl or The Great Pudding War. No Steam account,
+2. Save and close any earlier Custard Knights window before launching this
+   beta. Versions share one running-game lock: opening the new EXE while
+   the old game is open focuses the old window instead of starting this build.
+3. Open Game, then double-click Custard Knights.exe.
+4. Start with Quick brawl or The Great Pudding War. No Steam account,
    developer tools or separate download is needed for offline play.
-4. After playing, open FEEDBACK.html in your browser. Save the report
+5. After playing, open FEEDBACK.html in your browser. Save the report
    and send it back to Joshua using the same conversation as your invitation.
 
-Windows x64 only. This is an unsigned development preview, so Windows may
+Do not launch from inside the ZIP or move the EXE away from its sibling files.
+Keep older builds in separate folders instead of overwriting.
+
+Windows x64 only. This is an unsigned private beta, so Windows may
 show a publisher warning. Only use the copy Joshua sent you; if your PC
 blocks it, report the exact message rather than changing security settings.
 Minimum hardware has not been established. Mac/Linux packages are not included.
@@ -22,6 +28,8 @@ Please try without coaching first. Getting stuck is useful feedback.
 - Try a three-round Custard Cup, or open Faction Front, set Army size to
   4 vs 4, then choose Play with bots.
 - Change your outfit or visor in Wardrobe, restart, and check it stayed saved.
+- Listen to the music in a match and on the results screen. Tell us if it is
+  distracting, too loud against the action, or has an awkward ending/repeat.
 You can explore more afterwards. Start on Easy or Medium; STEVE is the
 hardest setting. All four difficulty levels still need human feedback.
 
@@ -47,6 +55,9 @@ WHAT YOU CAN PLAY
 - Faction Front bot practice: Brawl, Capture the Flag and Siege, with
   4v4, 20v20 or 50v50 total slots. Bots fill empty slots.
 - Wardrobe, earned cosmetics, goals and saved outfits.
+- Eleven new soundtrack candidates plus the existing menu theme. Their
+  musical fit and repeat points are still being reviewed. The defeat cue,
+  Another Helping, currently has about 1.6 seconds of silence at its end.
 
 ONLINE TESTING IS OPTIONAL
 
@@ -55,13 +66,19 @@ host and share the code privately. Try a small room before a longer session.
 Different-household connectivity is not yet verified: report join failures
 and the exact message. Do not change router/firewall settings for this test.
 
-Faction Front online is a separate service. Unless Joshua supplies a test
-server address and room name, use Bot practice. The default localhost address
+Faction Front online is a separate service. Unless Joshua supplies a reachable
+test server address, use Play with bots. Room codes are optional for casual
+faction games. The default localhost address
 connects only to your own PC. There is no public faction service or persistent
 Steam-ranked service. If your host supplies a player access key, the optional
 Private test ladder waits for full human teams and saves ratings on that host.
 Use Casual with bots for mixed battles. Do not share access keys with others.
-Big bot battles do not prove 100-human play.
+For a scheduled private ladder test, start with 4v4: it needs eight separate
+players with host-issued keys; bots do not fill the queue. Larger queues need
+40 or 100 players. A disconnect pauses the match while that player's remaining
+20-second absence budget runs down; returning does not reset the budget.
+Leaving or timing out can forfeit the match. Big bot battles do not prove
+100-human play. No party queue or public matchmaking service is included.
 
 IF SOMETHING GOES WRONG
 
@@ -70,6 +87,8 @@ before it happened. A short clip or screenshot is helpful if you are happy
 to share it. Do not include passwords, private conversations or unrelated files.
 Native crashes occurred in development tests and remain under investigation;
 report any actual game crash, freeze, lost progress or delayed controls.
+For an urgent blocker, send Joshua the build number at the top of this guide,
+the shortest steps that repeat it, and the exact error text before trying again.
 
 Saves stay on your PC under %APPDATA%\Custard Knights. Do not delete that
 folder to troubleshoot. Keep older builds in separate folders; they share
@@ -77,4 +96,5 @@ that save location. This package contains no developer or player save profile.
 
 The feedback page works offline and sends nothing automatically. You choose
 what to include and send. Unzipping this kit does not update the game or install
-a server. This is a private feedback build, not a Steam release or sales promise.
+a server. This private beta is for finding problems together; it is not a
+finished-game, Steam-release or sales promise.

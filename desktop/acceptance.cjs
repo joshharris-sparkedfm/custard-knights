@@ -15,6 +15,7 @@ function options(argv,temp) {
 async function run({app,win,options}) {
  const timer=setTimeout(()=>{console.error('DESKTOP_ACCEPTANCE_FAIL: timed out');app.exit(1);},45000);
  try {
+  if(win.getTitle()!==`Custard Knights — ${app.getVersion()}`)throw Error('Desktop title does not identify the installed build');
   if(options.phase==='duplicate')throw Error('Duplicate launch acquired the same profile lock');
   if(options.phase==='launcher'){
    const {spawn}=require('node:child_process');

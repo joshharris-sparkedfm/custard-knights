@@ -1,6 +1,6 @@
 # Sales readiness — 9 October 2026
 
-**Current development version: 0.3.0-alpha.6. Public-sale sign-off is pending.** Use [PREVIEW-BUILD.md](PREVIEW-BUILD.md) for its exact runtime commit, archive hash and local launch path. [RESUME-CHECKPOINT.md](RESUME-CHECKPOINT.md) records subsequent development. No Steam submission or public release is recorded. Developer/publisher is Sparked FM Ltd; GBP 7.99 / USD 9.99 remains a proposal, not a submitted price.
+**Current development version: 0.3.0-beta.1 for a private Windows friends beta. Public-sale sign-off is pending.** Use [PREVIEW-BUILD.md](PREVIEW-BUILD.md) for its exact runtime commit, archive hash and local launch path. [RESUME-CHECKPOINT.md](RESUME-CHECKPOINT.md) records subsequent development. No Steam submission or public release is recorded. Developer/publisher is Sparked FM Ltd; GBP 7.99 / USD 9.99 remains a proposal, not a submitted price.
 
 ## Current scope and acceptance
 

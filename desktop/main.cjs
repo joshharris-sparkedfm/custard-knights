@@ -21,9 +21,10 @@ app.whenReady().then(async()=>{
  session.defaultSession.setPermissionRequestHandler((_wc,_permission,callback)=>callback(false));
  session.defaultSession.setPermissionCheckHandler(()=>false);
  if(smoke&&!onlineSmoke&&!factionSmoke)session.defaultSession.webRequest.onBeforeRequest({urls:['http://*/*','https://*/*','ws://*/*','wss://*/*']},(_details,callback)=>callback({cancel:true}));
- win=new BrowserWindow({width:1280,height:800,minWidth:800,minHeight:600,backgroundColor:'#201b2b',show:!smoke,autoHideMenuBar:true,icon:path.join(root,'desktop','icon.png'),
+ win=new BrowserWindow({title:`Custard Knights — ${app.getVersion()}`,width:1280,height:800,minWidth:800,minHeight:600,backgroundColor:'#201b2b',show:!smoke,autoHideMenuBar:true,icon:path.join(root,'desktop','icon.png'),
   webPreferences:{contextIsolation:true,nodeIntegration:false,sandbox:true,webSecurity:true,backgroundThrottling:false}});
  win.webContents.setWindowOpenHandler(()=>({action:'deny'}));
+ win.on('page-title-updated',event=>event.preventDefault());
  win.webContents.on('will-navigate',event=>event.preventDefault());
  win.webContents.on('will-redirect',event=>event.preventDefault());
  win.webContents.on('before-input-event',(event,input)=>{if(input.type==='keyDown'&&input.key==='F11'&&!input.isAutoRepeat){win.setFullScreen(!win.isFullScreen());event.preventDefault();}});

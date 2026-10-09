@@ -1,6 +1,6 @@
 # Custard Knights — Steam preparation handoff
 
-Updated 9 October 2026. Developer/publisher: **Sparked FM Ltd**. Proposed base price: **£7.99 / US$9.99**, subject to the owner's final storefront decision. No price has been submitted. The current exported build is **0.3.0-alpha.4**, a Windows development preview; see [PREVIEW-BUILD.md](PREVIEW-BUILD.md) for the latest exported identity. Public-sale acceptance remains pending.
+Updated 9 October 2026. Developer/publisher: **Sparked FM Ltd**. Proposed base price: **£7.99 / US$9.99**, subject to the owner's final storefront decision. No price has been submitted. The latest user-review checkpoint is **0.3.0-alpha.6**; the next distribution target is **0.3.0-beta.1**, a private Windows friends beta. See [BETA-PLAN.md](BETA-PLAN.md) for its scope and [PREVIEW-BUILD.md](PREVIEW-BUILD.md) plus the frozen archive manifest for actual exported identity. A beta target is not evidence that an archive has been exported, and public-sale acceptance remains pending.
 
 ## Required release and current implementation
 
@@ -46,7 +46,9 @@ Evidence is saved under `qa/results` and copied into the output QA folder. The o
 
 Joshua confirmed ownership of existing artwork and repository material, and commercial-use rights for the existing Suno menu theme. Retain the source and subscription/creation records. Third-party font and code notices remain bundled.
 
-Twelve soundtrack slots, filenames, cue routing and full Suno production prompts are prepared in `SUNO-SOUNDTRACK.md`. Only the existing menu theme recording has been supplied. Missing tracks fall back to available music; prompts are not twelve shipped songs. New exported recordings must be added, the manifest regenerated, and their loops/transitions auditioned before claiming the complete soundtrack.
+All twelve music cues now have recordings: **eleven Suno WAV playback candidates plus the retained menu MP3**. The eleven exports were generated on 9 October 2026 in the observed Pro account, copied byte-identically into the game, and enabled in the regenerated catalog. [music/source-provenance.json](music/source-provenance.json) records source links, hashes, generation context and inspection outcomes; [music/evidence](music/evidence) retains portable reports and the generation screenshot. The existing menu was not converted to a purported WAV master.
+
+The first exported variant was selected from each generated pair without an auditory best-of-two judgment. Human musical fit, vocal absence, perceived loudness and seamless-loop acceptance remain pending. Another Helping has an approximately 1.595-second silent tail, retained unchanged for review. Inspection reported no structural file errors or full-scale clipping samples; it also records the initial Hermes Python error and the later complete eleven-file JSON report whose wrapper reported nonzero process completion. Do not present technical file checks or playback checks as musical approval. `SUNO-SOUNDTRACK.md` contains the briefs and export workflow.
 
 Record all shipped player-facing AI-assisted content accurately in Steam's content survey, including relevant music, art and narrative. STORE-FIELDS.md records known provenance facts; it is not a completed declaration. Ownership and disclosure are separate questions.
 
@@ -67,7 +69,7 @@ Use Valve's authorized SteamCMD workflow to review a preview manifest, upload a 
 | Faction service and rankings | Resolve timing/bandwidth acceptance, deploy and operate the intended service, and test actual browser clients over WAN. Private host-issued ratings/queues are implemented; Steam identity, public competitive policies and acceptance remain necessary for a public ranked promise. |
 | Minimum specifications | Measure a supported low-end PC; do not derive public minimum specs from headless FPS here. |
 | Human gameplay | Complete PLAYER-REVIEW.md with novice/experienced players, including sword cues, objectives, all four difficulties and representative large battles; fix observed blockers and retest. |
-| Additional music | Actual Suno exports for the remaining recordings, followed by listening/loop checks. |
+| Music acceptance | Eleven WAV candidates and the menu recording are supplied; complete human listening, mix/transition and loop review, including the defeat cue's silent tail. |
 | Store administration | Support contact, final price approval, accurate content survey, asset selection, store/build review. |
 
 Official documentation checked **9 October 2026**: the live [onboarding page](https://partner.steamgames.com/doc/gettingstarted/onboarding) specifies a 21-day fee wait for initial releases and two weeks of public Coming Soon visibility. Cached search results and the English-query variant still showed 30 days; use the actual app's Steamworks eligibility date rather than promising a date from these conflicting versions. [Store/build review](https://partner.steamgames.com/doc/store/review_process) typically takes 3–5 business days each; Valve asks for at least seven business days of lead time. These gates can overlap but do not disappear when the local build is finished.
@@ -95,4 +97,4 @@ Swing, dash, block and parry in colourful top-down battles. Learn the swordplay,
 - **Earn your ridiculous wardrobe.** Keep existing tier and challenge rewards, pin goals for six extra cosmetics, preview items and save outfits. No paid currency or combat advantages.
 - **Adjust the commotion.** Music, sound, screen shake, flash controls and campaign assistance.
 
-This is draft copy for the implemented game; publishing it remains gated on final acceptance. It intentionally makes no public hosted-faction, ranked-ladder, complete twelve-track soundtrack or measured-story-length claim. Add any such feature only after implementation and acceptance, with accurate access requirements. Store media must show implemented content and actual gameplay. The proposed price has not been submitted.
+This is draft copy for the implemented game; publishing it remains gated on final acceptance. It intentionally makes no public hosted-faction, public ranked-ladder, musically approved soundtrack or measured-story-length claim. All twelve cues have supplied recordings, but musical and loop review remains open. Add public feature claims only after implementation and acceptance, with accurate access requirements. Store media must show implemented content and actual gameplay. The proposed price has not been submitted.

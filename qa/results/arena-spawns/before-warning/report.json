@@ -1,0 +1,816 @@
+{
+  "checks": [
+    {
+      "name": "ffa courtyard initial eight spawns are finite, distinct, on safe terrain and within arena",
+      "pass": true
+    },
+    {
+      "name": "ffa courtyard actual KO respawns safely with protection",
+      "pass": true
+    },
+    {
+      "name": "ffa frost initial eight spawns are finite, distinct, on safe terrain and within arena",
+      "pass": true
+    },
+    {
+      "name": "ffa frost actual KO respawns safely with protection",
+      "pass": true
+    },
+    {
+      "name": "ffa factory initial eight spawns are finite, distinct, on safe terrain and within arena",
+      "pass": true
+    },
+    {
+      "name": "ffa factory actual KO respawns safely with protection",
+      "pass": true
+    },
+    {
+      "name": "ffa dungeon initial eight spawns are finite, distinct, on safe terrain and within arena",
+      "pass": true
+    },
+    {
+      "name": "ffa dungeon actual KO respawns safely with protection",
+      "pass": true
+    },
+    {
+      "name": "ffa roof initial eight spawns are finite, distinct, on safe terrain and within arena",
+      "pass": true
+    },
+    {
+      "name": "ffa roof actual KO respawns safely with protection",
+      "pass": true
+    },
+    {
+      "name": "ffa bog initial eight spawns are finite, distinct, on safe terrain and within arena",
+      "pass": true
+    },
+    {
+      "name": "ffa bog actual KO respawns safely with protection",
+      "pass": true
+    },
+    {
+      "name": "teams courtyard initial eight spawns are finite, distinct, on safe terrain and within arena",
+      "pass": true
+    },
+    {
+      "name": "teams courtyard actual KO respawns safely with protection",
+      "pass": true
+    },
+    {
+      "name": "teams frost initial eight spawns are finite, distinct, on safe terrain and within arena",
+      "pass": true
+    },
+    {
+      "name": "teams frost actual KO respawns safely with protection",
+      "pass": true
+    },
+    {
+      "name": "teams factory initial eight spawns are finite, distinct, on safe terrain and within arena",
+      "pass": true
+    },
+    {
+      "name": "teams factory actual KO respawns safely with protection",
+      "pass": true
+    },
+    {
+      "name": "teams dungeon initial eight spawns are finite, distinct, on safe terrain and within arena",
+      "pass": true
+    },
+    {
+      "name": "teams dungeon actual KO respawns safely with protection",
+      "pass": true
+    },
+    {
+      "name": "teams roof initial eight spawns are finite, distinct, on safe terrain and within arena",
+      "pass": true
+    },
+    {
+      "name": "teams roof actual KO respawns safely with protection",
+      "pass": true
+    },
+    {
+      "name": "teams bog initial eight spawns are finite, distinct, on safe terrain and within arena",
+      "pass": true
+    },
+    {
+      "name": "teams bog actual KO respawns safely with protection",
+      "pass": true
+    },
+    {
+      "name": "Actual trapdoor mayhem cannot turn a cached candidate into a pit respawn",
+      "pass": false
+    },
+    {
+      "name": "Respawn avoids a warning trapdoor that has not opened yet",
+      "pass": false
+    },
+    {
+      "name": "No browser exceptions",
+      "pass": true
+    }
+  ],
+  "errors": [],
+  "sourceHash": "fb4cee753c138b4f9f5a07905fe57cfe05ef89994c7b21ea248c246b7e0cffd1",
+  "limitations": "Headless Chromium in a fresh profile. Real newGame, hurt, update and trapdoor events; controlled entity population and recent-spawn scoring isolate spawn selection. No regular player profile accessed.",
+  "audit": [
+    {
+      "name": "ffa courtyard initial eight spawns are finite, distinct, on safe terrain and within arena",
+      "pass": true,
+      "spawns": [
+        {
+          "x": 60,
+          "y": 140,
+          "tile": "S"
+        },
+        {
+          "x": 1220,
+          "y": 740,
+          "tile": "S"
+        },
+        {
+          "x": 380,
+          "y": 740,
+          "tile": "S"
+        },
+        {
+          "x": 380,
+          "y": 140,
+          "tile": "S"
+        },
+        {
+          "x": 1220,
+          "y": 140,
+          "tile": "S"
+        },
+        {
+          "x": 900,
+          "y": 140,
+          "tile": "S"
+        },
+        {
+          "x": 900,
+          "y": 740,
+          "tile": "S"
+        },
+        {
+          "x": 60,
+          "y": 740,
+          "tile": "S"
+        }
+      ]
+    },
+    {
+      "name": "ffa courtyard actual KO respawns safely with protection",
+      "pass": true,
+      "point": {
+        "x": 900,
+        "y": 540,
+        "tile": "."
+      }
+    },
+    {
+      "name": "ffa frost initial eight spawns are finite, distinct, on safe terrain and within arena",
+      "pass": true,
+      "spawns": [
+        {
+          "x": 380,
+          "y": 740,
+          "tile": "S"
+        },
+        {
+          "x": 60,
+          "y": 140,
+          "tile": "S"
+        },
+        {
+          "x": 1220,
+          "y": 140,
+          "tile": "S"
+        },
+        {
+          "x": 1220,
+          "y": 740,
+          "tile": "S"
+        },
+        {
+          "x": 380,
+          "y": 140,
+          "tile": "S"
+        },
+        {
+          "x": 60,
+          "y": 740,
+          "tile": "S"
+        },
+        {
+          "x": 900,
+          "y": 740,
+          "tile": "S"
+        },
+        {
+          "x": 900,
+          "y": 140,
+          "tile": "S"
+        }
+      ]
+    },
+    {
+      "name": "ffa frost actual KO respawns safely with protection",
+      "pass": true,
+      "point": {
+        "x": 340,
+        "y": 700,
+        "tile": "."
+      }
+    },
+    {
+      "name": "ffa factory initial eight spawns are finite, distinct, on safe terrain and within arena",
+      "pass": true,
+      "spawns": [
+        {
+          "x": 60,
+          "y": 740,
+          "tile": "S"
+        },
+        {
+          "x": 940,
+          "y": 620,
+          "tile": "S"
+        },
+        {
+          "x": 340,
+          "y": 620,
+          "tile": "S"
+        },
+        {
+          "x": 1220,
+          "y": 740,
+          "tile": "S"
+        },
+        {
+          "x": 60,
+          "y": 140,
+          "tile": "S"
+        },
+        {
+          "x": 1220,
+          "y": 140,
+          "tile": "S"
+        },
+        {
+          "x": 340,
+          "y": 260,
+          "tile": "S"
+        },
+        {
+          "x": 940,
+          "y": 260,
+          "tile": "S"
+        }
+      ]
+    },
+    {
+      "name": "ffa factory actual KO respawns safely with protection",
+      "pass": true,
+      "point": {
+        "x": 60,
+        "y": 140,
+        "tile": "S"
+      }
+    },
+    {
+      "name": "ffa dungeon initial eight spawns are finite, distinct, on safe terrain and within arena",
+      "pass": true,
+      "spawns": [
+        {
+          "x": 60,
+          "y": 740,
+          "tile": "S"
+        },
+        {
+          "x": 380,
+          "y": 740,
+          "tile": "S"
+        },
+        {
+          "x": 900,
+          "y": 140,
+          "tile": "S"
+        },
+        {
+          "x": 60,
+          "y": 140,
+          "tile": "S"
+        },
+        {
+          "x": 1220,
+          "y": 740,
+          "tile": "S"
+        },
+        {
+          "x": 900,
+          "y": 740,
+          "tile": "S"
+        },
+        {
+          "x": 380,
+          "y": 140,
+          "tile": "S"
+        },
+        {
+          "x": 1220,
+          "y": 140,
+          "tile": "S"
+        }
+      ]
+    },
+    {
+      "name": "ffa dungeon actual KO respawns safely with protection",
+      "pass": true,
+      "point": {
+        "x": 60,
+        "y": 140,
+        "tile": "S"
+      }
+    },
+    {
+      "name": "ffa roof initial eight spawns are finite, distinct, on safe terrain and within arena",
+      "pass": true,
+      "spawns": [
+        {
+          "x": 900,
+          "y": 140,
+          "tile": "S"
+        },
+        {
+          "x": 1220,
+          "y": 740,
+          "tile": "S"
+        },
+        {
+          "x": 60,
+          "y": 740,
+          "tile": "S"
+        },
+        {
+          "x": 900,
+          "y": 740,
+          "tile": "S"
+        },
+        {
+          "x": 60,
+          "y": 140,
+          "tile": "S"
+        },
+        {
+          "x": 380,
+          "y": 140,
+          "tile": "S"
+        },
+        {
+          "x": 1220,
+          "y": 140,
+          "tile": "S"
+        },
+        {
+          "x": 380,
+          "y": 740,
+          "tile": "S"
+        }
+      ]
+    },
+    {
+      "name": "ffa roof actual KO respawns safely with protection",
+      "pass": true,
+      "point": {
+        "x": 900,
+        "y": 140,
+        "tile": "S"
+      }
+    },
+    {
+      "name": "ffa bog initial eight spawns are finite, distinct, on safe terrain and within arena",
+      "pass": true,
+      "spawns": [
+        {
+          "x": 380,
+          "y": 140,
+          "tile": "S"
+        },
+        {
+          "x": 900,
+          "y": 740,
+          "tile": "S"
+        },
+        {
+          "x": 60,
+          "y": 740,
+          "tile": "S"
+        },
+        {
+          "x": 1220,
+          "y": 740,
+          "tile": "S"
+        },
+        {
+          "x": 380,
+          "y": 740,
+          "tile": "S"
+        },
+        {
+          "x": 900,
+          "y": 140,
+          "tile": "S"
+        },
+        {
+          "x": 1220,
+          "y": 140,
+          "tile": "S"
+        },
+        {
+          "x": 60,
+          "y": 140,
+          "tile": "S"
+        }
+      ]
+    },
+    {
+      "name": "ffa bog actual KO respawns safely with protection",
+      "pass": true,
+      "point": {
+        "x": 100,
+        "y": 660,
+        "tile": "."
+      }
+    },
+    {
+      "name": "teams courtyard initial eight spawns are finite, distinct, on safe terrain and within arena",
+      "pass": true,
+      "spawns": [
+        {
+          "x": 380,
+          "y": 740,
+          "tile": "S"
+        },
+        {
+          "x": 380,
+          "y": 140,
+          "tile": "S"
+        },
+        {
+          "x": 60,
+          "y": 140,
+          "tile": "S"
+        },
+        {
+          "x": 60,
+          "y": 740,
+          "tile": "S"
+        },
+        {
+          "x": 1220,
+          "y": 740,
+          "tile": "S"
+        },
+        {
+          "x": 1220,
+          "y": 140,
+          "tile": "S"
+        },
+        {
+          "x": 900,
+          "y": 740,
+          "tile": "S"
+        },
+        {
+          "x": 900,
+          "y": 140,
+          "tile": "S"
+        }
+      ]
+    },
+    {
+      "name": "teams courtyard actual KO respawns safely with protection",
+      "pass": true,
+      "point": {
+        "x": 380,
+        "y": 140,
+        "tile": "S"
+      }
+    },
+    {
+      "name": "teams frost initial eight spawns are finite, distinct, on safe terrain and within arena",
+      "pass": true,
+      "spawns": [
+        {
+          "x": 60,
+          "y": 140,
+          "tile": "S"
+        },
+        {
+          "x": 60,
+          "y": 740,
+          "tile": "S"
+        },
+        {
+          "x": 380,
+          "y": 740,
+          "tile": "S"
+        },
+        {
+          "x": 380,
+          "y": 140,
+          "tile": "S"
+        },
+        {
+          "x": 1220,
+          "y": 740,
+          "tile": "S"
+        },
+        {
+          "x": 1220,
+          "y": 140,
+          "tile": "S"
+        },
+        {
+          "x": 900,
+          "y": 140,
+          "tile": "S"
+        },
+        {
+          "x": 900,
+          "y": 740,
+          "tile": "S"
+        }
+      ]
+    },
+    {
+      "name": "teams frost actual KO respawns safely with protection",
+      "pass": true,
+      "point": {
+        "x": 60,
+        "y": 740,
+        "tile": "S"
+      }
+    },
+    {
+      "name": "teams factory initial eight spawns are finite, distinct, on safe terrain and within arena",
+      "pass": true,
+      "spawns": [
+        {
+          "x": 340,
+          "y": 620,
+          "tile": "S"
+        },
+        {
+          "x": 60,
+          "y": 140,
+          "tile": "S"
+        },
+        {
+          "x": 340,
+          "y": 260,
+          "tile": "S"
+        },
+        {
+          "x": 60,
+          "y": 740,
+          "tile": "S"
+        },
+        {
+          "x": 940,
+          "y": 620,
+          "tile": "S"
+        },
+        {
+          "x": 940,
+          "y": 260,
+          "tile": "S"
+        },
+        {
+          "x": 1220,
+          "y": 740,
+          "tile": "S"
+        },
+        {
+          "x": 1220,
+          "y": 140,
+          "tile": "S"
+        }
+      ]
+    },
+    {
+      "name": "teams factory actual KO respawns safely with protection",
+      "pass": true,
+      "point": {
+        "x": 60,
+        "y": 740,
+        "tile": "S"
+      }
+    },
+    {
+      "name": "teams dungeon initial eight spawns are finite, distinct, on safe terrain and within arena",
+      "pass": true,
+      "spawns": [
+        {
+          "x": 380,
+          "y": 740,
+          "tile": "S"
+        },
+        {
+          "x": 60,
+          "y": 740,
+          "tile": "S"
+        },
+        {
+          "x": 60,
+          "y": 140,
+          "tile": "S"
+        },
+        {
+          "x": 380,
+          "y": 140,
+          "tile": "S"
+        },
+        {
+          "x": 900,
+          "y": 740,
+          "tile": "S"
+        },
+        {
+          "x": 1220,
+          "y": 740,
+          "tile": "S"
+        },
+        {
+          "x": 1220,
+          "y": 140,
+          "tile": "S"
+        },
+        {
+          "x": 900,
+          "y": 140,
+          "tile": "S"
+        }
+      ]
+    },
+    {
+      "name": "teams dungeon actual KO respawns safely with protection",
+      "pass": true,
+      "point": {
+        "x": 380,
+        "y": 140,
+        "tile": "S"
+      }
+    },
+    {
+      "name": "teams roof initial eight spawns are finite, distinct, on safe terrain and within arena",
+      "pass": true,
+      "spawns": [
+        {
+          "x": 60,
+          "y": 740,
+          "tile": "S"
+        },
+        {
+          "x": 380,
+          "y": 140,
+          "tile": "S"
+        },
+        {
+          "x": 380,
+          "y": 740,
+          "tile": "S"
+        },
+        {
+          "x": 60,
+          "y": 140,
+          "tile": "S"
+        },
+        {
+          "x": 1220,
+          "y": 140,
+          "tile": "S"
+        },
+        {
+          "x": 1220,
+          "y": 740,
+          "tile": "S"
+        },
+        {
+          "x": 900,
+          "y": 740,
+          "tile": "S"
+        },
+        {
+          "x": 900,
+          "y": 140,
+          "tile": "S"
+        }
+      ]
+    },
+    {
+      "name": "teams roof actual KO respawns safely with protection",
+      "pass": true,
+      "point": {
+        "x": 380,
+        "y": 140,
+        "tile": "S"
+      }
+    },
+    {
+      "name": "teams bog initial eight spawns are finite, distinct, on safe terrain and within arena",
+      "pass": true,
+      "spawns": [
+        {
+          "x": 380,
+          "y": 740,
+          "tile": "S"
+        },
+        {
+          "x": 380,
+          "y": 140,
+          "tile": "S"
+        },
+        {
+          "x": 60,
+          "y": 740,
+          "tile": "S"
+        },
+        {
+          "x": 60,
+          "y": 140,
+          "tile": "S"
+        },
+        {
+          "x": 900,
+          "y": 740,
+          "tile": "S"
+        },
+        {
+          "x": 1220,
+          "y": 740,
+          "tile": "S"
+        },
+        {
+          "x": 1220,
+          "y": 140,
+          "tile": "S"
+        },
+        {
+          "x": 900,
+          "y": 140,
+          "tile": "S"
+        }
+      ]
+    },
+    {
+      "name": "teams bog actual KO respawns safely with protection",
+      "pass": true,
+      "point": {
+        "x": 60,
+        "y": 740,
+        "tile": "S"
+      }
+    },
+    {
+      "name": "Actual trapdoor mayhem cannot turn a cached candidate into a pit respawn",
+      "pass": false,
+      "repro": {
+        "seed": 3,
+        "hole": {
+          "x": 100,
+          "y": 580
+        },
+        "point": {
+          "x": 100,
+          "y": 580,
+          "tile": "o"
+        },
+        "dead": false,
+        "protect": 2
+      }
+    }
+  ],
+  "warning": {
+    "name": "Respawn avoids a warning trapdoor that has not opened yet",
+    "pass": false,
+    "repro": {
+      "seed": 76,
+      "hole": {
+        "x": 1060,
+        "y": 460
+      },
+      "point": {
+        "x": 1060,
+        "y": 460
+      },
+      "imminent": {
+        "c": 26,
+        "r": 9,
+        "open": 0,
+        "t": 0.16333333333333527
+      }
+    }
+  }
+}

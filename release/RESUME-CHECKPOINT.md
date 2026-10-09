@@ -1,3 +1,13 @@
+# Friends beta preparation — 9 October 2026
+
+The user selected a **downloadable Windows beta for friends tonight**, rather than Steam hosting. Work continues on `codex/friends-beta-1` toward `0.3.0-beta.1`. The current exported alpha.6 build is preserved and was opened for the user to review. Do not close that player window or use their normal save profile for QA.
+
+The beta retains existing gameplay and music. Faction setup focus and installed desktop title fixes are complete. The user then reported a knight disappearing after a dash/hit in Quick Brawl. Strong legitimate knockback could cross a tile wall; the old inside-solid fallback pushed upward indefinitely. Movement now checks tiles in short steps, ejects embedded actors toward a valid nearest face, enforces outer bounds, and resolves walls after fighter separation. Respawn candidates now recheck current terrain, pending trapdoors and occupied positions. Initial map spawn coordinates were already safe.
+
+The user explicitly asks that every completed, checked task be pushed and merged before moving to the next. This first checkpoint contains the movement/spawn and beta-entry fixes. Expanded weapons (Crossbow and Returning Croissant), Simple/Normal/Insane chaos choices, and the very rare Oh Nae Nae/AK47 and McGinley lightning events are the next tasks, not present in this checkpoint's gameplay. Pure draft modules are staged outside the package under `work/pending-beta-features`; they must be integrated and tested before being advertised. The requested Oh Nae Nae song has not yet been generated. Existing eleven WAVs and menu theme remain unchanged.
+
+See `qa/reviews/friends-beta-boundaries-2026-10-09.md` for focused reproduction and verification. A fresh frozen package is required after these fixes; earlier beta.1 packaging evidence at source 94edfde predates them and is not certification of this source. See BETA-PLAN.md for the private test scope. This is not public-sale or Steam approval.
+
 # Development checkpoint — 9 October 2026
 
 Version **0.3.0-alpha.6** adds eleven original Suno WAV exports to the existing menu recording: all twelve soundtrack cues are enabled. This is a playable development preview, not a validated Steam release. Frozen alpha.6 runtime source is `d15c4b66f66b489241343f9c4e282f4e58b46868`; its package contains 53 verified entries and passed 85 packaged-media checks plus the actual EXE persistence/restart/relocation journey. PR #10 merged the ranked recovery work at `1f6d86efe8c9901188f4b543f9c3a9c6e440b42d`. The user requests continued work and checked GitHub checkpoints for another machine. See PREVIEW-BUILD.md for the latest frozen Windows and friends exports; alpha.5 remains preserved.

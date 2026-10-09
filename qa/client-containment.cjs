@@ -23,4 +23,3 @@ const sleep=ms=>new Promise(r=>setTimeout(r,ms));let ws;const errors=[];
  console.log(JSON.stringify({cases:result.cases.length,escaped:result.cases.filter(x=>x.escaped).length,failed:result.cases.filter(x=>x.failures?.length).length,errors:errors.length,out}));
  if(process.argv.includes('--verify')&&(result.cases.some(x=>x.escaped||x.failures?.length)||errors.length))throw Error('Guest prediction containment failed');
 })().catch(error=>{console.error(error);process.exitCode=1;}).finally(()=>{ws?.close();chrome.kill();});
-

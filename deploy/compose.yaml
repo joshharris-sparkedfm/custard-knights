@@ -1,0 +1,22 @@
+name: custard-knights-battle
+services:
+  battle:
+    build:
+      context: ..
+      dockerfile: deploy/battle.Dockerfile
+    restart: unless-stopped
+    init: true
+    read_only: true
+    cap_drop: [ALL]
+    security_opt: [no-new-privileges:true]
+    pids_limit: 64
+    mem_limit: 512m
+    environment:
+      CK_BATTLE_ORIGINS: custard://game
+    ports:
+      - "127.0.0.1:8787:8787"
+    logging:
+      driver: json-file
+      options:
+        max-size: 10m
+        max-file: "3"

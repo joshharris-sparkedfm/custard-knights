@@ -1,0 +1,3 @@
+{$BATTLE_DOMAIN} {
+    reverse_proxy battle:8787
+}

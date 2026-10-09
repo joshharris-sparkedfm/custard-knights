@@ -1,0 +1,8 @@
+**
+!package.json
+!package-lock.json
+!game/
+!game/mass-battle.js
+!game/mass-battle-wire.js
+!server/
+!server/mass-battle-server.cjs

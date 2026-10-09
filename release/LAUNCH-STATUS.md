@@ -1,5 +1,7 @@
 # Required launch scope — 8 October 2026
 
+**9 October development update:** source is now 0.3.0-alpha.1 with unfinished faction/difficulty work. This document's 0.2.2 acceptance is historical. See [RESUME-CHECKPOINT.md](RESUME-CHECKPOINT.md) for current failures and continuation instructions; the preview is not cleared for release.
+
 The expanded release and requested animation/gameplay refinements are implemented and packaged in 0.2.2. See GAMEPLAY-REVIEW.md and DESKTOP-ACCEPTANCE.md. Joshua requires the Great Pudding War's first eight encounters, Custard Cup and six additional earned cosmetics alongside the original game; the earlier arena-only cutline is superseded. Developer/publisher: Sparked FM Ltd. Recommended price: £7.99 / US$9.99.
 
 The 0.1.0 ZIP is the earlier arena-only test candidate. Version 0.2.2 is the current refined expanded candidate; its BUILD-INFO records the final source revision and package hash. A working candidate is not Steam approval or public release.

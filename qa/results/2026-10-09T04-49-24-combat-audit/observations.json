@@ -1,0 +1,316 @@
+{
+  "description": "Controlled diagnostics; source hash identifies runtime. No balance/human-play verdict.",
+  "results": [
+    {
+      "case": "rear-contact",
+      "kind": "light",
+      "distance": 49,
+      "hit": true,
+      "hp": 2,
+      "stun": 0.179
+    },
+    {
+      "case": "rear-contact",
+      "kind": "light",
+      "distance": 51,
+      "hit": false,
+      "hp": 3,
+      "stun": -0.001
+    },
+    {
+      "case": "rear-contact",
+      "kind": "heavy",
+      "distance": 49,
+      "hit": true,
+      "hp": 2,
+      "stun": 0.179
+    },
+    {
+      "case": "rear-contact",
+      "kind": "heavy",
+      "distance": 51,
+      "hit": false,
+      "hp": 3,
+      "stun": -0.001
+    },
+    {
+      "case": "rear-contact",
+      "kind": "stab",
+      "distance": 49,
+      "hit": false,
+      "hp": 3,
+      "stun": -0.001
+    },
+    {
+      "case": "rear-contact",
+      "kind": "stab",
+      "distance": 51,
+      "hit": false,
+      "hp": 3,
+      "stun": -0.001
+    },
+    {
+      "case": "rear-contact",
+      "kind": "bash",
+      "distance": 49,
+      "hit": false,
+      "hp": 3,
+      "stun": -0.001
+    },
+    {
+      "case": "rear-contact",
+      "kind": "bash",
+      "distance": 51,
+      "hit": false,
+      "hp": 3,
+      "stun": -0.001
+    },
+    {
+      "case": "buffered-dash-during-stun",
+      "stun": 0.2833333333333333,
+      "dashT": 0,
+      "dashes": 0
+    },
+    {
+      "case": "directional-front-contact",
+      "kind": "stab",
+      "hit": true
+    },
+    {
+      "case": "directional-front-contact",
+      "kind": "bash",
+      "hit": true
+    },
+    {
+      "case": "blade-contact-edge",
+      "kind": "light",
+      "face": 0,
+      "elapsed": 0.06666666666666667,
+      "error": 2.220446049250313e-16
+    },
+    {
+      "case": "blade-contact-edge",
+      "kind": "light",
+      "face": 0,
+      "elapsed": 0.085,
+      "error": 4.440892098500626e-16
+    },
+    {
+      "case": "blade-contact-edge",
+      "kind": "light",
+      "face": 0,
+      "elapsed": 0.12,
+      "error": 0
+    },
+    {
+      "case": "blade-contact-edge",
+      "kind": "light",
+      "face": 1.5707963267948966,
+      "elapsed": 0.06666666666666667,
+      "error": 4.440892098500626e-16
+    },
+    {
+      "case": "blade-contact-edge",
+      "kind": "light",
+      "face": 1.5707963267948966,
+      "elapsed": 0.085,
+      "error": 4.440892098500626e-16
+    },
+    {
+      "case": "blade-contact-edge",
+      "kind": "light",
+      "face": 1.5707963267948966,
+      "elapsed": 0.12,
+      "error": 0
+    },
+    {
+      "case": "blade-contact-edge",
+      "kind": "light",
+      "face": 3.141592653589793,
+      "elapsed": 0.06666666666666667,
+      "error": 4.440892098500626e-16
+    },
+    {
+      "case": "blade-contact-edge",
+      "kind": "light",
+      "face": 3.141592653589793,
+      "elapsed": 0.085,
+      "error": 4.440892098500626e-16
+    },
+    {
+      "case": "blade-contact-edge",
+      "kind": "light",
+      "face": 3.141592653589793,
+      "elapsed": 0.12,
+      "error": 0
+    },
+    {
+      "case": "blade-contact-edge",
+      "kind": "light",
+      "face": -1.5707963267948966,
+      "elapsed": 0.06666666666666667,
+      "error": 2.220446049250313e-16
+    },
+    {
+      "case": "blade-contact-edge",
+      "kind": "light",
+      "face": -1.5707963267948966,
+      "elapsed": 0.085,
+      "error": 4.440892098500626e-16
+    },
+    {
+      "case": "blade-contact-edge",
+      "kind": "light",
+      "face": -1.5707963267948966,
+      "elapsed": 0.12,
+      "error": 0
+    },
+    {
+      "case": "blade-contact-edge",
+      "kind": "heavy",
+      "face": 0,
+      "elapsed": 0.06666666666666667,
+      "error": 0
+    },
+    {
+      "case": "blade-contact-edge",
+      "kind": "heavy",
+      "face": 0,
+      "elapsed": 0.085,
+      "error": 0
+    },
+    {
+      "case": "blade-contact-edge",
+      "kind": "heavy",
+      "face": 0,
+      "elapsed": 0.12,
+      "error": 0
+    },
+    {
+      "case": "blade-contact-edge",
+      "kind": "heavy",
+      "face": 1.5707963267948966,
+      "elapsed": 0.06666666666666667,
+      "error": 0
+    },
+    {
+      "case": "blade-contact-edge",
+      "kind": "heavy",
+      "face": 1.5707963267948966,
+      "elapsed": 0.085,
+      "error": 0
+    },
+    {
+      "case": "blade-contact-edge",
+      "kind": "heavy",
+      "face": 1.5707963267948966,
+      "elapsed": 0.12,
+      "error": 0
+    },
+    {
+      "case": "blade-contact-edge",
+      "kind": "heavy",
+      "face": 3.141592653589793,
+      "elapsed": 0.06666666666666667,
+      "error": 0
+    },
+    {
+      "case": "blade-contact-edge",
+      "kind": "heavy",
+      "face": 3.141592653589793,
+      "elapsed": 0.085,
+      "error": 0
+    },
+    {
+      "case": "blade-contact-edge",
+      "kind": "heavy",
+      "face": 3.141592653589793,
+      "elapsed": 0.12,
+      "error": 0
+    },
+    {
+      "case": "blade-contact-edge",
+      "kind": "heavy",
+      "face": -1.5707963267948966,
+      "elapsed": 0.06666666666666667,
+      "error": 0
+    },
+    {
+      "case": "blade-contact-edge",
+      "kind": "heavy",
+      "face": -1.5707963267948966,
+      "elapsed": 0.085,
+      "error": 0
+    },
+    {
+      "case": "blade-contact-edge",
+      "kind": "heavy",
+      "face": -1.5707963267948966,
+      "elapsed": 0.12,
+      "error": 0
+    },
+    {
+      "case": "attack-before-dash-ends",
+      "swingKind": "light",
+      "swing": 0.20333333333333334,
+      "dashT": 0.07333333333333333
+    },
+    {
+      "case": "attack-on-dash-end",
+      "swingKind": "stab",
+      "swing": 0.16333333333333333,
+      "dashT": -0.011666666666666665
+    },
+    {
+      "case": "first-active-tick-forward-target",
+      "kind": "light",
+      "distance": 64,
+      "elapsedMs": 66.66666666666667,
+      "hit": true
+    },
+    {
+      "case": "first-active-tick-forward-target",
+      "kind": "heavy",
+      "distance": 64,
+      "elapsedMs": 66.66666666666667,
+      "hit": true
+    },
+    {
+      "case": "hold-after-whiff",
+      "chargeStartSeconds": 0.5833333333333334,
+      "fullReachSeconds": 0.9333333333333333,
+      "releasedKind": "heavy",
+      "heavyReach": true
+    },
+    {
+      "case": "synthetic-snapshot-json",
+      "fighters": 8,
+      "bytes": 1122,
+      "mbpsAt20HzSevenGuests": 1.25664,
+      "mbpsAt20Hz99Guests": 17.77248
+    },
+    {
+      "case": "synthetic-snapshot-json",
+      "fighters": 32,
+      "bytes": 3544,
+      "mbpsAt20HzSevenGuests": 3.96928,
+      "mbpsAt20Hz99Guests": 56.13696
+    },
+    {
+      "case": "synthetic-snapshot-json",
+      "fighters": 64,
+      "bytes": 6776,
+      "mbpsAt20HzSevenGuests": 7.58912,
+      "mbpsAt20Hz99Guests": 107.33184
+    },
+    {
+      "case": "synthetic-snapshot-json",
+      "fighters": 100,
+      "bytes": 10412,
+      "mbpsAt20HzSevenGuests": 11.66144,
+      "mbpsAt20Hz99Guests": 164.92608
+    }
+  ],
+  "sourceCommit": "f7183135e3a4da9eff3f6389effbb6c9c22a6503",
+  "indexSha256": "33fb23ed6151aaa49316b11992be76b50b727addd54e50e2e55ef70cf347f2a2"
+}

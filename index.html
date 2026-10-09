@@ -261,7 +261,7 @@ body[data-input=pad] :is(button,.card,.tile,input,select):focus{outline:4px soli
         <div class="field" id="humansField"><span class="lab">Humans</span>
           <div class="seg" data-k="players"><button type="button" data-v="1">Just me</button><button type="button" data-v="2">2</button><button type="button" data-v="3">3</button><button type="button" data-v="4">4</button></div></div>
         <div class="field"><span class="lab">Bots</span>
-          <div class="seg" data-k="diff"><button type="button" data-v="chill">Chill</button><button type="button" data-v="spicy">Spicy</button><button type="button" data-v="brutal">Brutal</button></div></div>
+          <div class="seg" data-k="diff"><button type="button" data-v="easy">Easy</button><button type="button" data-v="medium">Medium</button><button type="button" data-v="hard">Hard</button><button type="button" data-v="steve" title="Insane pressure, precise counters. Equal health and damage.">STEVE</button></div></div>
         <div class="field"><span class="lab">Chaos</span>
           <div class="seg" data-k="chaosSpeed"><button type="button" data-v="normal">Normal</button><button type="button" data-v="fast">Fast</button><button type="button" data-v="unhinged">Unhinged from the off</button></div></div>
         <div class="field"><span class="lab">Match length</span>
@@ -389,13 +389,20 @@ body[data-input=pad] :is(button,.card,.tile,input,select):focus{outline:4px soli
 <script src="game/campaign-ui.js"></script>
 <script src="game/campaign-integration.js"></script>
 <script src="game/preferences.js"></script>
+<script src="game/difficulty.js"></script>
 <script src="game/cup.js"></script>
 <script src="game/cup-ui.js"></script>
+<link rel="stylesheet" href="game/mass-battle.css">
+<script src="game/mass-battle.js"></script>
+<script src="game/mass-battle-wire.js"></script>
+<script src="game/mass-battle-ui.js"></script>
 <script src="audio/soundtrack.js"></script>
 <script>
 (()=>{
 const cv=document.getElementById('game'); let ctx=cv.getContext('2d');
 const W=1280,H=800,T=40,COLS=32,ROWS=18,OY=80;
+let massBattleUI=null;
+const massBattleWalk=new Map();
 const INK='#221733',CREAM='#FFF7E0',CUST='#FFD23F',TOM='#FF5A4E',TEAL='#2EC4B6',PINK='#FF8FB1';
 const LIL='"Lilita One", Impact, sans-serif', NUN='Nunito, "Trebuchet MS", sans-serif';
 
@@ -419,7 +426,7 @@ const NAMES=['Sir Loin','Lady Bug','Sir Prize','Dame Crumpet','Baron Von Bap','L
 const SHOUTS=["Oi!","Sorry!","Get 'em!","GG"];
 const CHATTER=["Have at thee!","Tis but a scratch","Not the face!","Custard in me boots","Come here, you!","Run away!","That's MY pie","Mind the pit!","Who ordered chaos?","Mind the bananas","Stop hitting me!","For the pie!"];
 const KO_LINES=["Bonk!","Sit down!","Too easy","Next!","Pie for me","Yoink"];
-const DIFFS={chill:{react:.5,aggro:.5,dash:.25,speed:.84,block:.15,tokens:1,parry:0,heavy:0,punish:0,tell:.35},spicy:{react:.26,aggro:.8,dash:.55,speed:.95,block:.3,tokens:2,parry:.3,heavy:.1,punish:.3,tell:0},brutal:{react:.12,aggro:.96,dash:.95,speed:1.04,block:.55,tokens:3,parry:.6,heavy:.3,punish:.9,tell:0,dodge:.55}};
+const DIFFS=CKDifficulty.profiles;
 // every kind of melee: how long it lasts, the arc it sweeps, reach multiplier, damage, knockback, cooldown on a whiff and on a hit
 const SWINGS={light:{dur:.22,arc:2.8,a0:-1.4,reachM:1,dmg:1,kb:420,cd:.55,hitCd:.36,lunge:150},heavy:{dur:.3,arc:2.8,a0:-1.4,reachM:1.15,dmg:1,kb:820,cd:.7,hitCd:.5,lunge:240,guardBreak:true},stab:{dur:.18,arc:1.2,a0:-.6,reachM:1.5,dmg:1,kb:600,cd:.55,hitCd:.4,lunge:320},bash:{dur:.18,arc:1.0,a0:-.5,reachM:1.05,dmg:0,kb:650,cd:.5,hitCd:.5,lunge:200,guardBreak:true}};
 const VERBS=['bonked','clonked','walloped','yeeted','custarded','flattened'];
@@ -503,7 +510,7 @@ const shuffle=a=>{a=a.slice();for(let i=a.length-1;i>0;i--){const j=Math.floor(M
 const norm=(x,y)=>{const d=Math.hypot(x,y)||1;return{x:x/d,y:y/d}};
 const cx=x=>clamp(x,T*1.5,W-T*1.5), cy=y=>clamp(y,OY+T*1.5,H-T*1.5);
 
-let cfg={mode:'ffa',players:1,diff:'spicy',map:'random',chaosPlus:false,chaosSpeed:'normal',length:180,teamSplit:false}, showHit=false;
+let cfg={mode:'ffa',players:1,diff:'medium',map:'random',chaosPlus:false,chaosSpeed:'normal',length:180,teamSplit:false}, showHit=false;
 try{ Object.assign(cfg,CKPreferences.config(JSON.parse(localStorage.getItem('ck-cfg')||'{}'),Object.keys(MODES),Object.keys(MAPS))); }catch(e){} function saveCfg(){ try{ localStorage.setItem('ck-cfg',JSON.stringify(cfg)); }catch(e){} }
 const SET={music:.55,sfx:1,shake:1,flash:true,names:'near',classic:false,whole:false};
 try{ Object.assign(SET,CKPreferences.settings(JSON.parse(localStorage.getItem('ck-settings')||'{}'))); }catch(e){} function saveSet(){ try{ localStorage.setItem('ck-settings',JSON.stringify(SET)); }catch(e){} }
@@ -590,7 +597,7 @@ function newGame(demo,setup){
  G={roundId:setup?setup.roundId:crypto.randomUUID(),demo,mode,mapKey,map,theme:THEMES[map.theme],grid,spawns,left,right,spawnCands,spawnUsed:new Map(),pads,floor,crateHp,portals,ents,pickups:[],bananas:[],proj:[],bombs:[],decals:[],parts:[],bubbles:[],feed:[],floaters:[],amb:[],flows:new Map(),
   mines:[],bees:[],flock:[],holes:[],mayhem:null,mayhemAt:rand(22,32),ts:1,norrAt:rand(30,55),
   log:[],stats:{swings:{h:0,b:0},swingHits:{h:0,b:0},shots:{h:0,b:0},shotHits:{h:0,b:0},blocks:0,dashes:0,frames:0,parries:0,guardBreaks:0,heavies:0,stabs:0,bashes:0,protectedHits:0},
-  time:demo?1e9:(cfg.length||180),chaos:(!demo&&cfg.chaosSpeed==='unhinged')?.66:0,chaosRate:cfg.chaosSpeed==='fast'?45:115,tierShown:(!demo&&cfg.chaosSpeed==='unhinged')?2:0,chaosHold:0,tips:[],tipT:0,tipGap:0,ev:null,banner:null,spawnT:2,shake:0,clock:0,over:false,lastSpike:'down',steveAt:rand(70,130),steveDone:false,diff:DIFFS[demo?'spicy':cfg.diff]};
+  time:demo?1e9:(cfg.length||180),chaos:(!demo&&cfg.chaosSpeed==='unhinged')?.66:0,chaosRate:cfg.chaosSpeed==='fast'?45:115,tierShown:(!demo&&cfg.chaosSpeed==='unhinged')?2:0,chaosHold:0,tips:[],tipT:0,tipGap:0,ev:null,banner:null,spawnT:2,shake:0,clock:0,over:false,lastSpike:'down',steveAt:rand(70,130),steveDone:false,diff:DIFFS[demo?'medium':CKPreferences.difficulty(cfg.diff)]};
  const order=isTeams(mode)?[...shuffle(left),...shuffle(right)]:shuffle(spawns), kits=shuffle(KITS), embs=shuffle(EMBLEMS);
  // which slot each human takes: humans on opposite teams alternate sides when asked
  const slotHuman=new Array(8).fill(0); for(let h=1;h<=humans;h++){ let slot; if(isTeams(mode)&&cfg.teamSplit&&!setup){ slot=(h%2===1)?Math.floor((h-1)/2):4+Math.floor((h-2)/2); } else slot=h-1; while(slotHuman[slot]) slot=(slot+1)%8; slotHuman[slot]=h; }
@@ -605,7 +612,7 @@ function newGame(demo,setup){
    dead:false,respawn:0,inv:demo?1.5:2,protect:demo?0:2,score:0,deaths:0,walk:0,flash:0,slip:0,fx:{},bananaT:0,bawkCd:0,sayCd:rand(3,10),
    stun:0,hitLock:0,guard:1.5,guardLock:0,holdT:0,charge:0,dashAtkT:0,blockAge:99,bashCd:0,combo:0,comboT:-9,swingKind:'light',swingDur:.22,riposte:0,whiffT:0,atkWas:false,spawnAt:0,
    lives:LIVES_MODES.has(mode)?3:0,chick:mode==='race',laps:0,cp:0,carry:null,hot:false,hillT:0,finished:0,
-   ai:{think:0,target:null,react:0,flee:0,blockT:0,blockFace:null,strafe:Math.random()<.5?1:-1,goal:null,gx:0,gy:0,wx:W/2,wy:440,aimX:0,aimY:0,hold:false,parryOk:false,holdAtk:0,tellT:0}});
+   ai:{think:0,target:null,react:G.diff.react,flee:0,blockT:0,blockFace:null,strafe:Math.random()<.5?1:-1,goal:null,gx:0,gy:0,wx:W/2,wy:440,aimX:0,aimY:0,hold:false,parryOk:false,holdAtk:0,tellT:0}});
  }
  if(setup) setup.ents.forEach((st,i)=>{ if(ents[i]){Object.assign(ents[i],st);const k=cleanKit(st.kit);ents[i].kit={helm:k.helm,plume:k.plume,metal:k.metal,visor:k.visor};} });
  // mode setup: the pie hill, the two pies, the race gates
@@ -836,7 +843,8 @@ function doHit(a,el){
   const dx=b.x-a.x,dy=b.y-a.y,d=Math.hypot(dx,dy),br=b.r*sizeMul(b);
   if(d>R+br) continue;
   const ang=angDiff(Math.atan2(dy,dx),a0), pad=Math.asin(Math.min(1,br/Math.max(d,1)));
-  if(!(ang>=-pad&&ang<=a1-a0+pad) && d>br+ar+6) continue;
+  // Thrusts and shield shoves stay directional even at touching distance.
+  if(!(ang>=-pad&&ang<=a1-a0+pad) && (a.swingKind==='stab'||a.swingKind==='bash'||d>br+ar+6)) continue;
   if(b.hitLock>0||b.protect>0||b.dashT>.06) continue;
   if(b.inv>0&&!(b.lastHit&&b.lastHit.by!==a&&G.clock-b.lastHit.t<.4)) continue;
   a.hitSet.push(b.id);
@@ -936,9 +944,11 @@ function humanInput(n,ent){
 function botInput(e,dt){
  if(G.campaign&&ADVENTURE){const input=ADVENTURE.input(e,dt);if(input)return input;}
  const ai=e.ai, D=G.diff; let mx=0,my=0,atk=false,dash=false,faceTo=null;
+ if(e.stun>0){ai.holdAtk=0;ai.tellT=0;return {mx:0,my:0,atk:false,dash:false,block:false,faceTo:null};}
+ const deciding=ai.think<=dt;
  ai.think-=dt; ai.flee-=dt; ai.blockT-=dt; if(ai.blockT<=0) ai.blockFace=null;
  if(ai.think<=0){
-  ai.think=D.punish>.5?rand(.07,.16):rand(.12,.28);
+  ai.think=D.think*rand(.85,1.15); ai.aimError=rand(-D.aim,D.aim);
   const foes=G.ents.filter(o=>alive(o)&&!isAlly(e,o)&&!o.fx.ghost&&(G.mode==='race'||!o.chick));
   const boss=G.ev&&G.ev.kind==='boss'&&!isAlly(e,G.ev.owner)&&alive(G.ev.owner)?G.ev.owner:null;
   let best=null,bd=1e9;
@@ -957,7 +967,7 @@ function botInput(e,dt){
   if(e.hp===1&&maxHp(e)===3&&ai.flee<=0&&Math.random()<.18) ai.flee=rand(.7,1.5);
   if(Math.random()<.08) ai.strafe*=-1;
   if(ai.blockT<=0){
-   for(const o of foes){ const d=Math.hypot(o.x-e.x,o.y-e.y); if(D.parry>0&&(o.swings||[]).filter(t=>G.clock-t<1.5).length>=3&&o.swing<=0&&o.atkCd<.2&&d<reach(o)+e.r*sizeMul(e)+40&&Math.random()<D.parry){ai.blockT=.35;ai.blockFace=Math.atan2(o.y-e.y,o.x-e.x);ai.parryOk=Math.random()<D.parry;break} if(o.swing>0&&o.swingKind!=='heavy'&&o.swingKind!=='bash'&&d<reach(o)+e.r*sizeMul(e)+30&&Math.random()<D.block){ai.blockT=.4;ai.blockFace=Math.atan2(o.y-e.y,o.x-e.x);ai.parryOk=Math.random()<D.parry;break} }
+   for(const o of foes){ const d=Math.hypot(o.x-e.x,o.y-e.y); if(D.parry>0&&(o.swings||[]).filter(t=>G.clock-t<1.5).length>=3&&o.swing<=0&&o.atkCd<.2&&d<reach(o)+e.r*sizeMul(e)+40&&Math.random()<D.parry){ai.blockT=.35;ai.blockFace=Math.atan2(o.y-e.y,o.x-e.x);ai.parryOk=Math.random()<D.parry;break} if(o.swing>0&&o.swingDur-o.swing>=D.react&&o.swingKind!=='heavy'&&o.swingKind!=='bash'&&d<reach(o)+e.r*sizeMul(e)+30&&Math.random()<D.block){ai.blockT=.4;ai.blockFace=Math.atan2(o.y-e.y,o.x-e.x);ai.parryOk=Math.random()<D.parry;break} }
    for(const p of G.proj){ if(p.owner===e||isAlly(p.owner,e))continue; const d=Math.hypot(p.x-e.x,p.y-e.y), toward=(e.x-p.x)*p.vx+(e.y-p.y)*p.vy>0; if(d<200&&toward&&Math.random()<D.block){ai.blockT=.45;ai.blockFace=Math.atan2(p.y-e.y,p.x-e.x);break} }
   }
   if(isChicken(e)) ai.goal=G.mode==='race'?'race':(G.ev&&G.ev.kind==='chicken')?'run':'peck';
@@ -984,30 +994,38 @@ function botInput(e,dt){
   const dx=Tg.x-e.x,dy=Tg.y-e.y,d=Math.hypot(dx,dy)||1,ux=dx/d,uy=dy/d, see=los(e.x,e.y,Tg.x,Tg.y), w=e.wpn;
   if(ai.flee>0){ const v=steer(e,cx(e.x-ux*220),cy(e.y-uy*220)); mx=v.x;my=v.y; }
   else if(w&&(w.kind==='bow'||w.kind==='cannon')){
-   if(see&&d<480){ if(d<200){mx=-ux;my=-uy} else if(d>340){mx=ux;my=uy} mx+=-uy*ai.strafe*.7; my+=ux*ai.strafe*.7; faceTo=Math.atan2(dy,dx);
+   if(see&&d<480){ if(d<200){mx=-ux;my=-uy} else if(d>340){mx=ux;my=uy} mx+=-uy*ai.strafe*.7; my+=ux*ai.strafe*.7; faceTo=Math.atan2(dy,dx)+(ai.aimError||0);
     if(Math.abs(angDiff(faceTo,e.face))<.2&&e.fireCd<=0){ai.react-=dt; if(ai.react<=0){atk=Math.random()<D.aggro; ai.react=D.react*rand(.8,1.6)}} }
    else { const v=steer(e,Tg.x,Tg.y); mx=v.x;my=v.y; }
   } else if(w&&w.kind==='bombs'){
-   if(d<340&&d>110){ faceTo=Math.atan2(dy,dx); ai.aimX=Tg.x+Tg.vx*.4; ai.aimY=Tg.y+Tg.vy*.4; mx=-uy*ai.strafe*.6; my=ux*ai.strafe*.6;
+   if(d<340&&d>110){ faceTo=Math.atan2(dy,dx)+(ai.aimError||0); ai.aimX=Tg.x+Tg.vx*.4; ai.aimY=Tg.y+Tg.vy*.4; mx=-uy*ai.strafe*.6; my=ux*ai.strafe*.6;
     if(e.fireCd<=0){ai.react-=dt; if(ai.react<=0){atk=Math.random()<D.aggro;ai.react=D.react*rand(1,2)}} }
    else if(d<=110){ mx=-ux;my=-uy; } else { const v=steer(e,Tg.x,Tg.y); mx=v.x;my=v.y; }
   } else {
    const want=ai.hold?reach(e)+150:reach(e)+Tg.r*sizeMul(Tg)*.6+(D.punish>.5?18:0);
    if(d>want){ const v=steer(e,Tg.x,Tg.y); mx=v.x+(see?-uy*ai.strafe*.3:0); my=v.y+(see?ux*ai.strafe*.3:0); if(see&&e.dashCd<=0&&d>170&&d<320&&clearWalk(e.x,e.y,Tg.x,Tg.y)&&Math.random()<D.dash*dt)dash=true; }
    else { mx=-uy*ai.strafe*.5-ux*.2; my=ux*ai.strafe*.5-uy*.2; }
-   if(d<want+80) faceTo=Math.atan2(dy,dx);
+   if(d<want+80) faceTo=Math.atan2(dy,dx)+(ai.aimError||0);
    const fresh=Tg.human&&G.clock-(Tg.spawnAt||0)<2.5&&D.tell>0;
    if(!ai.hold&&!fresh&&d<reach(e)+Tg.r*sizeMul(Tg)+4&&e.atkCd<=0&&ai.blockT<=0){ ai.react-=dt; if(ai.react<=0){atk=Math.random()<D.aggro; ai.react=D.react*rand(.6,1.5)} }
-   // sidestep a masher's swing on Brutal: dash across their arc the moment it starts
-   if(D.dodge&&!ai.hold&&Tg.swing>0&&Tg.swing>Tg.swingDur-.06&&d<reach(Tg)+50&&e.dashCd<=0&&Math.random()<D.dodge){ dash=true; mx=-uy*ai.strafe; my=ux*ai.strafe; }
+   // Dodge a visible swing after the profile reaction delay; roll once per decision.
+   if(deciding&&D.dodge&&!ai.hold&&Tg.swing>0&&Tg.swingDur-Tg.swing>=D.react&&d<reach(Tg)+50&&e.dashCd<=0&&Math.random()<D.dodge){ dash=true; mx=-uy*ai.strafe; my=ux*ai.strafe; }
    // punish a whiffed swing: step in and hit before they recover
-   if(!ai.hold&&Tg.whiffT>0&&d<reach(e)+60&&e.atkCd<=0&&Math.random()<D.punish){ atk=true; if(d>reach(e)&&e.dashCd<=0) dash=true; }
+   if(deciding&&!ai.hold&&Tg.whiffT>0&&d<reach(e)+60&&e.atkCd<=0&&Math.random()<D.punish){ atk=true; if(d>reach(e)&&e.dashCd<=0) dash=true; }
   }
  } else {
   const dd=Math.hypot(ai.wx-e.x,ai.wy-e.y); if(dd<40){const p=freeSpot();ai.wx=p.x;ai.wy=p.y} else { const v=steer(e,ai.wx,ai.wy); mx=v.x;my=v.y; }
  }
+ if(ai.goal==='go'&&Tg&&alive(Tg)&&!ai.hold&&Math.hypot(Tg.x-e.x,Tg.y-e.y)<reach(e)+Tg.r&&los(e.x,e.y,Tg.x,Tg.y)&&e.atkCd<=0&&ai.blockT<=0){
+  faceTo=Math.atan2(Tg.y-e.y,Tg.x-e.x);ai.react-=dt;if(ai.react<=0){atk=Math.random()<D.aggro;ai.react=D.react;}
+ }
+ // Skilled bots may bash a held shield or cash in a legitimate parry riposte.
+ if(deciding&&Tg&&alive(Tg)&&!ai.hold&&!e.wpn&&e.atkCd<=0&&Math.hypot(Tg.x-e.x,Tg.y-e.y)<reach(e)+Tg.r){
+  if(Tg.blocking&&D.heavy>0&&e.bashCd<=0&&Math.random()<D.heavy){ai.blockT=.15;ai.blockFace=Math.atan2(Tg.y-e.y,Tg.x-e.x);atk=true;ai.holdAtk=0;}
+  else if(e.riposte>0&&D.punish>0){ai.blockT=0;atk=true;}
+ }
  if(ai.blockT>0&&ai.blockFace!==null) faceTo=ai.blockFace;
- // a held attack becomes a charged heavy; on Chill every swing is announced first
+ // A held attack becomes a charged heavy; Easy announces every sword swing.
  if(ai.holdAtk>0){ ai.holdAtk-=dt; atk=true; if(!e.hitLanded&&e.swing<=0&&e.charge<=0&&e.atkCd<=0&&ai.holdAtk<.9) ai.holdAtk=Math.min(ai.holdAtk,.5); }
  if(D.tell>0&&!e.wpn){ if(ai.tellT>0){ ai.tellT-=dt; atk=ai.tellT<=0; } else if(atk){ ai.tellT=D.tell; atk=false; say(e,'!',D.tell+.1); } }
  // hazard sense: spikes about to pop, pits right ahead
@@ -1092,7 +1110,7 @@ function update(dt){
   if(atkPress) e.atkBuf=.2; else if(e.atkBuf>0) e.atkBuf-=dt;
   if(inp.atk) e.holdT+=dt; else e.holdT=0;
   if(inp.dash) e.dashBuf=.15; else if(e.dashBuf>0) e.dashBuf-=dt;
-  if(e.dashBuf>0&&e.dashCd<=0&&e.slip<=0&&e.charge<=0){ e.dashBuf=0; const dl=Math.hypot(mx,my); const dx=dl>.1?mx/dl:Math.cos(e.face), dy=dl>.1?my/dl:Math.sin(e.face); e.vx=dx*680;e.vy=dy*680;e.dashT=.16;e.dashCd=.95;e.blocking=false; dust(e.x,e.y+12,8); if(e.human)sfx('dash'); G.stats.dashes++; }
+  if(e.dashBuf>0&&e.dashCd<=0&&e.slip<=0&&e.charge<=0&&e.stun<=0){ e.dashBuf=0; const dl=Math.hypot(mx,my); const dx=dl>.1?mx/dl:Math.cos(e.face), dy=dl>.1?my/dl:Math.sin(e.face); e.vx=dx*680;e.vy=dy*680;e.dashT=.16;e.dashCd=.95;e.blocking=false; dust(e.x,e.y+12,8); if(e.human)sfx('dash'); G.stats.dashes++; }
   const canAct=!isChicken(e)&&e.slip<=0&&e.stun<=0&&!e.carry;
   if(canAct&&e.wpn){ if(inp.atk&&e.fireCd<=0){ e.atkBuf=0; fire(e); G.stats.shots[hb(e)]++; if(e.protect>0){ e.protect=0; e.inv=Math.min(e.inv,.3); } delete e.fx.ghost; } }
   else if(canAct){
@@ -1442,6 +1460,16 @@ function combatBeat(e){
  const S=SWINGS[e.swingKind]||SWINGS.light,d=e.swingDur||S.dur,el=clamp(d-e.swing,0,d),active=e.swing>0&&el>.06&&el<d-.06;
  return {kind:e.swingKind||'light',el,d,active,phase:e.swing<=0?'idle':el<=.06?'anticipation':active?'contact':'recovery',p:clamp((el-.06)/(d-.12),0,1),out:clamp((el-(d-.06))/.06,0,1)};
 }
+// Present the authoritative swept sector at contact, including its forgiving leading edge.
+function bladeSweep(e,b=combatBeat(e)){
+ const S=SWINGS[e.swingKind]||SWINGS.light,wind=S.a0-(b.kind==='heavy'?.4:.08),rest=.9;
+ const edge=t=>swingArc(e,t)[1]-e.face;
+ if(b.phase==='anticipation'){
+  const u=clamp(b.el/.06,0,1),from=b.kind==='heavy'&&e.heavyReach?wind:rest;
+  return u<.55?from+(wind-from)*u/.55:wind+(edge(.06)-wind)*(u-.55)/.45;
+ }
+ return b.active?edge(b.el):edge(b.d-.06)+(rest-edge(b.d-.06))*b.out;
+}
 function combatPose(e,r){
  const b=combatBeat(e),fx=Math.cos(e.face),fy=Math.sin(e.face);let lean=0,squash=0;
  if(e.stun>0||e.flash>0){lean=-.13;squash=-.035;}
@@ -1459,7 +1487,7 @@ function drawSword(e,r){
  if(e.charge>0)a=e.face-2.15;
  if(e.swing>0){
   if(e.swingKind==='stab'){a=e.face;extension=b.phase==='anticipation'?-.12:b.active?(.15+.18*Math.sin(b.p*Math.PI/2)):.33*(1-b.out);L=R*.64;}
-  else {const wind=S.a0-(e.swingKind==='heavy'?.55:.18),end=S.a0+S.arc;a=e.face+(b.phase==='anticipation'?wind:b.active?S.a0+S.arc*(1-Math.pow(1-b.p,2)):end+(.95-end)*b.out);}
+  else a=e.face+bladeSweep(e,b);
  }
  const hand=r*.7+R*extension,hx=Math.cos(a)*hand,hy=Math.sin(a)*hand,w=Math.max(7,r*.38);
  if(b.active){ctx.save();ctx.lineCap='round';ctx.strokeStyle=e.swingKind==='heavy'?'rgba(255,210,63,.65)':'rgba(255,247,224,.65)';ctx.lineWidth=e.swingKind==='heavy'?r*.36:r*.19;ctx.beginPath();
@@ -1824,7 +1852,7 @@ function drawMountedWeapon(e,r,a,SH,sc,mir){
  else if(e.charge>0){angle=face+SWINGS.heavy.a0-.4;forward=-.15;lift=-.17;}
  else if(e.swing>0&&!bash){
   if(b.kind==='stab'){const u=clamp(b.el/.06,0,1);angle=face+(b.phase==='anticipation'?.9*(1-u):b.active?0:.9*b.out);forward=b.phase==='anticipation'?-.1*u:b.active?-.1+.52*Math.min(1,b.p*3):.42*(1-b.out);}
-  else {const wind=S.a0-(b.kind==='heavy'?.4:.08),end=S.a0+S.arc,u=clamp(b.el/.06,0,1),from=b.kind==='heavy'&&e.heavyReach?wind:.9;angle=face+(b.phase==='anticipation'?from+(wind-from)*u:b.active?wind+(end-wind)*(1-Math.pow(1-b.p,2)):end+(.9-end)*b.out);const charged=b.kind==='heavy'&&e.heavyReach;forward=b.phase==='anticipation'?(charged?-.15+.05*u:-.1*u):b.active?-.1+.28*Math.min(1,b.p*3):.18*(1-b.out);lift=b.kind==='heavy'?(b.phase==='anticipation'?(charged?-.17-.03*u:-.2*u):b.active?-.2*(1-Math.min(1,b.p*3)):0):0;}
+  else {const u=clamp(b.el/.06,0,1);angle=face+bladeSweep(e,b);const charged=b.kind==='heavy'&&e.heavyReach;forward=b.phase==='anticipation'?(charged?-.15+.05*u:-.1*u):b.active?-.1+.28*Math.min(1,b.p*3):.18*(1-b.out);lift=b.kind==='heavy'?(b.phase==='anticipation'?(charged?-.17-.03*u:-.2*u):b.active?-.2*(1-Math.min(1,b.p*3)):0):0;}
  }else if(bash){angle=face+1.45;forward=-.12;}
  if(mir)angle=2*face-angle; // mirror the mount, but keep the authoritative world-space sweep direction
  if(victory)angle=-Math.PI/2;
@@ -2320,6 +2348,7 @@ try{ new ResizeObserver(resize).observe(document.getElementById('stage')); }catc
 let paused=false,last=performance.now(),acc=0;
 function frame(now){
  const dt=Math.min(.1,(now-last)/1000); last=now;
+ if(massBattleUI&&massBattleUI.active()){acc=0;requestAnimationFrame(frame);return;}
  pollPads(); padEdges();
  if(NET.role==='client'&&G&&!G.demo){ if(!G.over){ clientTick(dt); clientSend(now); } }
  else if(!paused&&!G.over){ acc+=dt; let n=0; while(acc>=1/60&&n<5){ if(G.hitstop>0){ G.hitstop-=1/60; acc-=1/60; n++; continue; } update((1/60)*(G.ts||1)); acc-=1/60; n++; if(NET.role==='host'&&!G.demo&&!G.over&&++NET.tick%3===0) broadcast(snapshot()); } if(n===5)acc=0; }
@@ -2380,7 +2409,7 @@ function refreshSetup(){
  $('setupControls').textContent=t;
  $('startBtn').textContent=NET.role==='host'?'Back to the lobby with these settings':'Start the brawl';
 }
-$('tQuick').onclick=()=>{ cfg.players=1; let played=0; try{ played=+localStorage.getItem('ck-played')||0; }catch(e){} if(played<2){ cfg.diff='chill'; } if(!MODES[cfg.mode]||cfg.mode!=='ffa'&&cfg.mode!=='teams'){ cfg.mode='ffa'; } saveCfg(); start(); };
+$('tQuick').onclick=()=>{ cfg.players=1; let played=0; try{ played=+localStorage.getItem('ck-played')||0; }catch(e){} if(played<2){ cfg.diff='easy'; } if(!MODES[cfg.mode]||cfg.mode!=='ffa'&&cfg.mode!=='teams'){ cfg.mode='ffa'; } saveCfg(); start(); };
 $('tCustom').onclick=()=>{ buildSetup(); showScreen('setup'); };
 // ---------- couch party: join with a controller or a keyboard half, pick together/versus, mode and arena, go
 const PARTY={seats:[],style:'together',mode:'teams',map:'random',ents:[0,1,2,3].map(i=>mkKnight({id:60+i,hero:1}))};
@@ -2556,6 +2585,7 @@ $('resumeBtn').onclick=()=>setPause(false); $('pauseBtn').onclick=()=>setPause(!
 $('muteBtn').onclick=()=>{ muted=!muted; $('muteBtn').textContent='Sound: '+(muted?'off':'on'); if(muted){ clearInterval(fadeT); music.pause(); } else if(musicWant) cueMusic(musicCue); };
 function shout(n,i){ if(!G||G.demo)return; if(NET.role==='client'){ if(n===1&&NET.conn&&NET.conn.open) NET.conn.send({t:'shout',roundId:G.roundId,i}); return; } const e=G.ents.find(x=>x.human===n); if(e&&alive(e)){ say(e,isChicken(e)?'BAWK!':SHOUTS[i],1.8); sfx('shout'); } }
 addEventListener('keydown',ev=>{
+ if(massBattleUI&&massBattleUI.active())return;
  const playing=G&&!G.demo&&!G.over;
  if(playing&&['ArrowUp','ArrowDown','ArrowLeft','ArrowRight','Space'].includes(ev.code)) ev.preventDefault();
  if(ev.code==='Backquote'&&!ev.repeat){ showHit=!showHit; return; }
@@ -2626,7 +2656,7 @@ function renderLobby(){
  const ol=$('lobbyList'); ol.innerHTML='';
  NET.players.forEach((p,i)=>{ const li=document.createElement('li'); li.textContent=p.name; if(i===0) li.className='host'; ol.appendChild(li); });
  $('lobbyStart').hidden=!host;if($('lobbyCup'))$('lobbyCup').hidden=!host; $('lobbyCopy').hidden=!(host&&NET.code); $('lobbySetupBtn').hidden=!host;
- $('lobbySetup').textContent=host?`${MODES[cfg.mode]?MODES[cfg.mode].name:'Free-for-all'} on ${cfg.map==='random'?'a surprise arena':MAPS[cfg.map].name}, ${cfg.diff} bots, ${cfg.length===90?'90 seconds':cfg.length===300?'5 minutes':'3 minutes'}.`:'';
+ $('lobbySetup').textContent=host?`${MODES[cfg.mode]?MODES[cfg.mode].name:'Free-for-all'} on ${cfg.map==='random'?'a surprise arena':MAPS[cfg.map].name}, ${DIFFS[CKPreferences.difficulty(cfg.diff)].label} bots, ${cfg.length===90?'90 seconds':cfg.length===300?'5 minutes':'3 minutes'}.`:'';
  $('lobbyCtl').textContent='Move: WASD or Arrows. Swing: Space. Dash: Shift. Block: E. Or a pad: left stick, A, B, X.';
  if(host) lobbyMsg(NET.peer&&NET.peer.open?`${NET.players.length-1+cfg.players} of 8 knights. Bots fill the empty spots. Arena, mode and bots come from the main menu.`:'Opening the room…');
 }
@@ -2825,8 +2855,43 @@ ADVENTURE=CKCampaignIntegration.connect({
 SCREENS.push(...ADVENTURE.ui.screens);
 adventureMenu.onclick=()=>{if(!NET.role)ADVENTURE.open();};
 newGame(true);
+/* ---------- larger faction battles: separate simulation, shared accepted art ---------- */
+if(window.CKMassBattle&&window.CKMassBattleUI){
+ massBattleUI=CKMassBattleUI.connect({
+  reducedFlash:()=>!SET.flash,
+  profile:()=>loadProfile(1),
+  onEnter:()=>{massBattleWalk.clear();if(NET.role)leaveOnline();paused=true;for(const k of Object.keys(keys))delete keys[k];['menu','end','pause'].forEach(id=>$(id).hidden=true);audio();cueMusic('courtyard');sprLoadSet(SPR);},
+  onEffect:(effect,meta)=>{
+   const sound={hit:'hit',parry:'parry',defeat:'ko',bash:'bash',blast:'boom',heal:'potion',repair:'clang',siege:'bash',capture:'pickup'}[effect.kind];
+   if(!sound)return;const demo=G.demo,level=SET.sfx;
+   try{G.demo=false;SET.sfx=level*meta.volume;sfx(sound);}finally{G.demo=demo;SET.sfx=level;}
+  },
+  onExit:()=>{massBattleWalk.clear();for(const k of Object.keys(keys))delete keys[k];toMenu();},
+  renderKnight:(battleCtx,p)=>{
+   const oldCtx=ctx,oldClock=G.clock,oldOver=G.over,oldMode=G.mode;
+   const kind=p.attack&&SWINGS[p.attack.kind]?p.attack.kind:'light',duration=SWINGS[kind].dur;
+   const attack=p.attack,phase=attack&&attack.phase,phaseProgress=attack?clamp(attack.phaseProgress!==undefined?attack.phaseProgress:phase==='windup'?attack.elapsed/attack.windup:phase==='active'?(attack.elapsed-attack.windup)/attack.active:(attack.elapsed-attack.windup-attack.active)/attack.recovery,0,1):0;
+   const poseElapsed=phase==='windup'?.06*phaseProgress:phase==='active'?.0601+(duration-.1202)*phaseProgress:duration-.06+.06*phaseProgress;
+   const profile=p.appearance||(p.local?loadProfile(1):{}),role=p.role||'vanguard';
+   const elapsed=p.elapsed||0,previous=massBattleWalk.get(p.id),walk=previous&&elapsed>=previous.time?previous.walk+Math.hypot(p.vx||0,p.vy||0)*Math.min(.1,elapsed-previous.time)*.055:0;
+   massBattleWalk.set(p.id,{time:elapsed,walk});
+   const e=mkKnight({id:Number(String(p.id).split('-').pop())||0,color:p.teamColor,team:p.team==='custardia'?'red':'blue',human:p.local?1:0,
+    face:attack?attack.angle:p.angle||0,vx:p.vx||0,vy:p.vy||0,walk,
+    kit:{helm:profile.helm||(role==='engineer'?'kettle':role==='support'?'sallet':'great'),plume:profile.plume||'feather',metal:profile.metal||'steel',visor:p.visor||profile.visor||'closed'},
+    cape:profile.cape||'plain',blade:profile.blade||'steel',emblem:profile.emblem||'star',
+    swingKind:kind,swingDur:duration,swing:attack&&attack.kind!=='arrow'?Math.max(.001,duration-poseElapsed):0,
+    blocking:!!p.guarding,dashT:p.dashing?.1:0,stun:p.stun||0,charge:p.charge||0,
+    wpn:role==='ranger'&&(!attack||attack.kind==='arrow')?{kind:'bow',lvl:1,ammo:1}:null});
+   try{ctx=battleCtx;G.clock=p.elapsed||0;G.over=false;G.mode='ffa';drawKnight(e);}finally{ctx=oldCtx;G.clock=oldClock;G.over=oldOver;G.mode=oldMode;}
+  }
+ });
+ const battleButton=document.createElement('button');battleButton.type='button';battleButton.className='mbtn';battleButton.id='tFactionBattle';
+ battleButton.innerHTML='<span><b>Faction Front</b><small>Brawl · Capture the flag · Castle siege · Preview</small></span>';
+ battleButton.onclick=()=>massBattleUI.open();document.querySelector('.mgrid').append(battleButton);
+ if(new URLSearchParams(location.search).get('battle')==='1')massBattleUI.open();
+}
 if(new URLSearchParams(location.search).get('qa')){
- window.CK={menuNav,menuActivate,combatBeat,sprFrame,headTop,applySnap,clientTick,presentationSettings:o=>Object.assign(SET,o),collection:()=>COLLECTION,setCollection:saveCollection,awardCollection,campaignCollectionReward,reloadWardrobeSaves,drawCollectionPreview,openWardrobe,owned,cleanKit,collectionUI:()=>collectionUI,adventure:ADVENTURE,hurt,startSwing,hitCrate,clang,doHit,fire,draw,toMenu,cup:()=>CUP,startCup,cupReady,nextCupRound,cancelCup,musicState:()=>({cue:musicCue,wanted:musicWant,src:music.getAttribute('src')}),cueMusic,audioStats:()=>({active:audioVoices,max:MAX_AUDIO_VOICES}),sfx,hostOnline,joinOnline,leaveOnline,G:()=>G,PROG,NET,clientRecv,hostRecv,hostDrop,snapshot,humanInput,endMatch,netSetup,rematch,seats:()=>SEATS,setSeats:v=>{SEATS=v;partyGo=true;},cfg,keys,touch,update,newGame,start,loadProfile,saveProfile,drawKnight:e=>drawKnight(e),sprites:v=>{ SET.classic=!v; },spritesReady:()=>sprReady,sprLoadAll:()=>sprLoadSet(SPR),sprLoadVisors:loadOpenVisors,visorAssets:()=>({requested:!!SPR_OPEN.promise,knightReady:SPR_OPEN.knightReady,heroReady:SPR_OPEN.heroReady}),mkKnight:o=>mkKnight(o),withCtx:(c,fn)=>{ const k=ctx; ctx=c; try{ fn(); }finally{ ctx=k; } },startEvent,startMayhem,applyPU,giveWeapon,spawnPickup,MAYHEM,PU,MAPS,WEAPONS,
+ window.CK={botInput,DIFFS,speedOf,MODES,massBattle:()=>massBattleUI,menuNav,menuActivate,combatBeat,bladeSweep,swingArc,sprFrame,headTop,applySnap,clientTick,presentationSettings:o=>Object.assign(SET,o),collection:()=>COLLECTION,setCollection:saveCollection,awardCollection,campaignCollectionReward,reloadWardrobeSaves,drawCollectionPreview,openWardrobe,owned,cleanKit,collectionUI:()=>collectionUI,adventure:ADVENTURE,hurt,startSwing,hitCrate,clang,doHit,fire,draw,toMenu,cup:()=>CUP,startCup,cupReady,nextCupRound,cancelCup,musicState:()=>({cue:musicCue,wanted:musicWant,src:music.getAttribute('src')}),cueMusic,audioStats:()=>({active:audioVoices,max:MAX_AUDIO_VOICES}),sfx,hostOnline,joinOnline,leaveOnline,G:()=>G,PROG,NET,clientRecv,hostRecv,hostDrop,snapshot,humanInput,endMatch,netSetup,rematch,seats:()=>SEATS,setSeats:v=>{SEATS=v;partyGo=true;},cfg,keys,touch,update,newGame,start,loadProfile,saveProfile,drawKnight:e=>drawKnight(e),sprites:v=>{ SET.classic=!v; },spritesReady:()=>sprReady,sprLoadAll:()=>sprLoadSet(SPR),sprLoadVisors:loadOpenVisors,visorAssets:()=>({requested:!!SPR_OPEN.promise,knightReady:SPR_OPEN.knightReady,heroReady:SPR_OPEN.heroReady}),mkKnight:o=>mkKnight(o),withCtx:(c,fn)=>{ const k=ctx; ctx=c; try{ fn(); }finally{ ctx=k; } },startEvent,startMayhem,applyPU,giveWeapon,spawnPickup,MAYHEM,PU,MAPS,WEAPONS,
   adv:n=>{for(let i=0;i<n;i++)update(1/60)},freeze:v=>{paused=v},
   begin:(o={})=>{ Object.assign(cfg,o); if(o.humans!==undefined) cfg.players=o.humans; $('menu').hidden=true; audio(); menuMusic(false); newGame(false); paused=true; $('pauseBtn').hidden=true; G.banner=null; return G; },
   zoom:(s,gx,gy)=>{ const r=document.getElementById('stage').getBoundingClientRect(); fitS=s; fitX=r.width/2-gx*s; fitY=r.height/2-gy*s; scale=s; offX=fitX; offY=fitY; }};

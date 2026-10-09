@@ -1,0 +1,5 @@
+Soundtrack: 1/12 tracks available.
+Packaging app for platform win32 x64 using electron v44.7.0
+[Error: failed to write '\\?\C:\Users\Joshua\AppData\Local\Temp\electron-packager\win32-x64-template-RSVRpx\electron.exe': Invalid checksum] {
+  code: 'GenericFailure'
+}

@@ -1,0 +1,47 @@
+{
+  "created": "2026-10-09T05:04:35.024Z",
+  "version": "0.3.0-alpha.1",
+  "indexSha256": "37b21cb0969e0b361252e4fd02f667063048384526aa8c72b8cc2c79183f668b",
+  "spriteSha256": {
+    "knight": "c19af9f64503f4b41c9c0b43c93d7c4507cef2b488c07c521f9594c9e910c23a",
+    "hero": "7ae5fcdf0fac4235bfd6de961e645aab8e4f6c7db616288dd7a1f772de2c8ec5",
+    "knight-open": "6ff34f5b062a9570224471c0fece1ce004a4afd1a6f2621e7051f3106a52b165",
+    "hero-open": "aa9efacb420c6b53bd6748f8bc11156b71952160afe67ef1a1d5f16f934b8737",
+    "chicken": "2158fecd13dee40bf4697da38af7a0fb2df098fd1d391c26c7496a7546d4d68e"
+  },
+  "battleFiles": {
+    "game/mass-battle.js": "1e08cc3c46fa360d32592315fe1d3470a998f5580cd31baab7f32ac15e9fedfd",
+    "game/mass-battle-ui.js": "f4b5609df17cc951509cf11c71ce81c5fb380f3a39c96fdedd3daea592aac98c",
+    "game/mass-battle.css": "63f5c4abe3e9d19a3561c8b8297c099b47ba26030a6579e11bdd9c7c3d7c74f6"
+  },
+  "width": 1920,
+  "height": 1080,
+  "fps": 30,
+  "seconds": 20,
+  "scenes": [
+    {
+      "name": "4v4-faction-brawl",
+      "seconds": 6,
+      "mode": "brawl",
+      "size": 4,
+      "role": "vanguard"
+    },
+    {
+      "name": "20v20-capture-the-flag",
+      "seconds": 6,
+      "mode": "ctf",
+      "size": 20,
+      "role": "support"
+    },
+    {
+      "name": "50v50-castle-siege",
+      "seconds": 8,
+      "mode": "siege",
+      "size": 50,
+      "role": "engineer"
+    }
+  ],
+  "source": "actual Faction Front renderer and simulation; scripted local-player intentions plus bots; deterministic 60Hz simulation captured at30fps",
+  "audio": "owner-confirmed existing Suno menu theme; no synthetic gameplay sound added",
+  "limitations": "QA candidate footage for review; not a human playtest, online demonstration or performance benchmark"
+}

@@ -1,7 +1,7 @@
 {
   "name": "custard-knights",
   "productName": "Custard Knights",
-  "version": "0.2.2",
+  "version": "0.3.0-alpha.1",
   "private": true,
   "author": "Sparked FM Ltd",
   "license": "UNLICENSED",
@@ -14,7 +14,8 @@
     "test": "node --test tests/*.test.cjs",
     "qa:quick": "node qa/run.js quick",
     "package:win": "node scripts/package.cjs",
-    "smoke:desktop": "electron . --smoke-test"
+    "smoke:desktop": "electron . --smoke-test",
+    "battle:server": "node server/mass-battle-server.cjs"
   },
   "devDependencies": {
     "@electron/packager": "20.3.0",
@@ -22,5 +23,8 @@
     "@fontsource/nunito": "5.3.0",
     "electron": "44.7.0",
     "peerjs": "1.5.4"
+  },
+  "dependencies": {
+    "ws": "8.22.0"
   }
 }

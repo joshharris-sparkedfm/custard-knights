@@ -1,0 +1,33 @@
+# Development checkpoint — 9 October 2026
+
+Version **0.3.0-alpha.1** is a playable development preview, not a validated Steam release. The user requested all work pushed and merged for cross-machine continuation, then explicitly asked to continue working and keep GitHub current. Automatic work should remain active; the earlier pause request was superseded.
+
+## Start on another computer
+
+Clone the repository, check out `main`, run `npm ci`, then `npm start` for the desktop game. `npm run package:win` builds the Windows folder. For Faction Front online rooms, run `npm run battle:server` separately and use its WebSocket endpoint. The default server is local; no public service has been deployed. Opening `index.html` also supports offline browser play. Downloaded desktop folders must retain all sibling files.
+
+The main menu contains The Great Pudding War (eight playable encounters), Custard Cup, the original arena game, and Faction Front. The latter includes brawl, capture the flag and castle siege at 4v4, 20v20 and 50v50 total combatants with bots filling vacant seats, four tactical roles and balanced human counts. Its session standings are anonymous and unranked; authenticated persistent competitive rankings remain unfinished.
+
+## Current changes
+
+- Original rounded art and both saved visor choices retained. Sword presentation follows the authoritative contact sweep. Rear-only stab/bash hits and dashes escaping stun were corrected.
+- Arena, story and faction difficulty choices: Easy, Medium, Hard, STEVE. Legacy Chill/Spicy/Brutal arena saves migrate. Arena bots share human base movement speed; profiles change decision frequency, aim, pressure and counters. Objective runners can defend themselves; skilled bots can choose shield bash and use an earned riposte. Story changes attack cadence while keeping readable fixed-target warnings, unchanged health, assistance and the defence lesson.
+- Faction bot role abilities now take priority over ordinary attacks. New profiles cover aim, reactions, objectives, coordination and defensive choices without changing role HP/damage/speed/cooldowns.
+- Dedicated authoritative WebSocket server, bounded inputs, bot replacement, resumable sessions, compact full/delta snapshots and explicit resync. Current target is 20 Hz replication. This has not passed final sustained-load acceptance.
+
+## Evidence and unfinished work
+
+1. Latest pre-checkpoint full unit run: 109/110 passed; the projectile-guard test incorrectly expected a probabilistic STEVE guard to succeed for one seed. The assertion was changed to exercise multiple seeds and verify both successful guards and mistakes. The subsequent suite and isolated `--jitless` core run failed with native access violations; **the revised full suite is not green**. Logs are in `qa/results/checkpoint-2026-10-09/`. Investigate runtime/host versus simulation causes before claiming stability. Do not simply retry until a pass hides the failures.
+2. Earlier faction UI pass: 34 real-browser checks, including four difficulty profiles and online STEVE through snapshot deltas. This predates the last arena/story edits. Campaign/preferences focused tests passed 27/27 after those edits.
+3. Earlier sword correction diagnostics, 41 animation checks, 24 regressions, 3231 closed/3207 open grip assertions passed. Avoid using the collided `04-55-05-grip-review` run as independent evidence; later closed/open folders are distinct.
+4. Earlier full-snapshot 100-socket/60-second loopback load passed but consumed roughly 430 Mbps aggregate. New delta transport has short protocol tests; final sustained attempts crashed natively and are not accepted. No WAN, low-end rendering or physical-controller claim is justified.
+5. Earlier nine seeded 100-bot objective matches passed before the latest difficulty edits. Complete the new difficulty/role audit. `qa/bot-audit.body.js` is a prepared, not yet executed, arena matrix; a runner still needs wiring. `qa/mass-battle-performance.cjs` is also not yet run.
+6. Preview Windows package: 41 entries checked against source/metadata. Offline desktop smoke passed sprites, fonts, match completion and save/reload. This does not validate every new mode in the package. First Node22 packaging attempt reported an extraction checksum error; Python verified the cached ZIP, and Node24 packaging succeeded. Cause remains unresolved.
+7. New actual-renderer 20-second faction preview is in `art/review/factions-2026-10-09/`; it shows scripted local play plus bots, not real online people. Captured before latest difficulty changes. Capture scripts currently hash files at completion; freeze sources or record start hashes before the next export. The original 41-second gameplay trailer remains in local outputs/Store-footage.
+8. Refresh launch/store/server docs after final validation; existing 0.2.2 release evidence is historical and must not be presented as acceptance of 0.3.0. No new Steam submission has occurred.
+
+## Existing release gates and decisions
+
+Sparked FM Ltd is developer/publisher. Existing art ownership and Suno commercial rights confirmed. Proposed £7.99/$9.99 remains unsubmitted. Eleven additional soundtrack recordings, public support contact, Steam onboarding/App/depot IDs, private Steam installation on a second PC, physical controllers/Steam Input, different-network tests, measured minimum specs and novice playtest remain outstanding. Do not repeat resolved visor/ownership questions or publish/pay/submit legal declarations without explicit authorization for the concrete action.
+
+Validated 0.2.2 remains a separate local ZIP. Do not overwrite it with this preview. Prior temporary-file deletion rejection for `C:\face-block-fix` remains in force. Agent runs stopped when workspace credits were exhausted; do not assume their pending tests or reviews completed.

@@ -1,0 +1,32 @@
+[
+  {
+    "name": "wrong-source-hash",
+    "pass": true,
+    "reason": "Source ZIP checksum mismatch; no bundle created"
+  },
+  {
+    "name": "wrong-runtime-hash",
+    "pass": true,
+    "reason": "Packaged runtime checksum mismatch"
+  },
+  {
+    "name": "existing-output-preserved",
+    "pass": true,
+    "reason": "Output already exists; choose a new filename to preserve prior kits"
+  },
+  {
+    "name": "path-traversal-rejected",
+    "pass": true,
+    "reason": "Unsafe ZIP member: preview/../escape.txt"
+  },
+  {
+    "name": "case-duplicate-rejected",
+    "pass": true,
+    "reason": "Duplicate ZIP member: CUSTARD KNIGHTS.EXE"
+  },
+  {
+    "name": "multiple-roots-rejected",
+    "pass": true,
+    "reason": "Preview must contain exactly one root folder"
+  }
+]

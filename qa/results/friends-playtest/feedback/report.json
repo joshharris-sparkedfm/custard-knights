@@ -1,0 +1,53 @@
+{
+  "checks": [
+    {
+      "name": "Frozen version and source are shown",
+      "pass": true
+    },
+    {
+      "name": "Actual JSON download completes",
+      "pass": true
+    },
+    {
+      "name": "Report identifies exact packaged runtime",
+      "pass": true
+    },
+    {
+      "name": "Unicode and markup remain literal feedback, not executable HTML",
+      "pass": true
+    },
+    {
+      "name": "Multiple modes and numeric input survive export",
+      "pass": true
+    },
+    {
+      "name": "Copy fallback equals downloaded JSON",
+      "pass": true
+    },
+    {
+      "name": "Invalid duration does not export a misleading report",
+      "pass": true
+    },
+    {
+      "name": "Empty optional survey works when downloads are blocked",
+      "pass": true
+    },
+    {
+      "name": "Narrow window has no horizontal page overflow",
+      "pass": true
+    },
+    {
+      "name": "No HTTP requests, uploads or telemetry",
+      "pass": true
+    },
+    {
+      "name": "No browser exceptions",
+      "pass": true
+    }
+  ],
+  "errors": [],
+  "network": [
+    "file:///C:/Users/Joshua/Documents/Codex/2026-10-08/rea/outputs/Friends-playtest-review/FEEDBACK.html"
+  ],
+  "limitations": "Headless Chrome with synthetic form input. No human usability or OS launch acceptance."
+}

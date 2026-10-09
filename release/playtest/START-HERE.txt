@@ -1,0 +1,77 @@
+CUSTARD KNIGHTS — FRIENDS PLAYTEST
+Sparked FM Ltd | Build {{VERSION}}
+
+1. Save the ZIP, then use Extract All. Keep the extracted files together.
+2. Open Game, then double-click Custard Knights.exe.
+3. Start with Quick brawl or The Great Pudding War. No Steam account,
+   developer tools or separate download is needed for offline play.
+4. After playing, open FEEDBACK.html in your browser. Save the report
+   and send it back to Joshua using the same conversation as your invitation.
+
+Windows x64 only. This is an unsigned development preview, so Windows may
+show a publisher warning. Only use the copy Joshua sent you; if your PC
+blocks it, report the exact message rather than changing security settings.
+Minimum hardware has not been established. Mac/Linux packages are not included.
+
+TRY THIS FIRST — ABOUT 20 MINUTES
+
+Please try without coaching first. Getting stuck is useful feedback.
+- Play two Quick brawls. Try a quick swing, holding a charged swing, blocking
+  and dashing. Tell us what felt satisfying or confusing.
+- Start The Great Pudding War and try the opening story objectives.
+- Try a three-round Custard Cup, or open Faction Front, set Army size to
+  4 vs 4, then choose Play with bots.
+- Change your outfit or visor in Wardrobe, restart, and check it stayed saved.
+You can explore more afterwards. Start on Easy or Medium; STEVE is the
+hardest setting. All four difficulty levels still need human feedback.
+
+CONTROLS
+
+Solo arena/story: WASD or arrows move; Space swings (hold for heavy);
+Shift dashes; E blocks; P or Esc pauses. F11 toggles fullscreen.
+Arena/story controller: left stick moves, right stick aims, A swings,
+B dashes, X blocks, Start pauses. Follow each mode's on-screen prompts.
+Faction Front uses different controls: WASD/arrows move, mouse aims,
+click/J attacks, L/Shift heavy attacks, right-click/K guards, Space dashes,
+E uses your role ability. Controller: left/right sticks move/aim,
+A attacks, B dashes, LT guards, RT heavy attacks, X uses your role ability.
+Couch play: up to four seats. Two can share a keyboard; the lobby explains
+F/G/H for player one and J/K/L for player two. Additional seats need pads.
+Physical-controller compatibility is part of this test, not yet signed off.
+
+WHAT YOU CAN PLAY
+
+- Arena: eight modes and six arenas, alone with bots or local friends.
+- The Great Pudding War: eight playable story encounters.
+- Custard Cup: three linked rounds.
+- Faction Front bot practice: Brawl, Capture the Flag and Siege, with
+  4v4, 20v20 or 50v50 total slots. Bots fill empty slots.
+- Wardrobe, earned cosmetics, goals and saved outfits.
+
+ONLINE TESTING IS OPTIONAL
+
+The original arena's Online screen uses room codes/invites. Have one person
+host and share the code privately. Try a small room before a longer session.
+Different-household connectivity is not yet verified: report join failures
+and the exact message. Do not change router/firewall settings for this test.
+
+Faction Front online is a separate service. Unless Joshua supplies a test
+server address and room name, use Bot practice. The default localhost address
+connects only to your own PC. There is no public faction service or persistent
+competitive ranking in this build. Big bot battles do not prove 100-human play.
+
+IF SOMETHING GOES WRONG
+
+Note the mode, difficulty, number of humans/bots, and what you did immediately
+before it happened. A short clip or screenshot is helpful if you are happy
+to share it. Do not include passwords, private conversations or unrelated files.
+Native crashes occurred in development tests and remain under investigation;
+report any actual game crash, freeze, lost progress or delayed controls.
+
+Saves stay on your PC under %APPDATA%\Custard Knights. Do not delete that
+folder to troubleshoot. Keep older builds in separate folders; they share
+that save location. This package contains no developer or player save profile.
+
+The feedback page works offline and sends nothing automatically. You choose
+what to include and send. Unzipping this kit does not update the game or install
+a server. This is a private feedback build, not a Steam release or sales promise.

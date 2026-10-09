@@ -58,7 +58,10 @@ and the exact message. Do not change router/firewall settings for this test.
 Faction Front online is a separate service. Unless Joshua supplies a test
 server address and room name, use Bot practice. The default localhost address
 connects only to your own PC. There is no public faction service or persistent
-competitive ranking in this build. Big bot battles do not prove 100-human play.
+Steam-ranked service. If your host supplies a player access key, the optional
+Private test ladder waits for full human teams and saves ratings on that host.
+Use Casual with bots for mixed battles. Do not share access keys with others.
+Big bot battles do not prove 100-human play.
 
 IF SOMETHING GOES WRONG
 

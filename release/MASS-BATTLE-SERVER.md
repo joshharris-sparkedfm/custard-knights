@@ -2,6 +2,10 @@
 
 Implemented 9 October 2026. This is an independently runnable Node server for the new faction battle simulation. It supports 4v4, 20v20 and 50v50 room capacities, human participants replacing bots, and Brawl, Capture the Flag and Castle Siege. It does not route these battles through the existing four-seat PeerJS arena protocol.
 
+## Private ladder update
+
+Alpha.4 adds optional `CK_PLAYER_DB` SQLite-backed host-issued accounts, per-mode/size persistent ratings and full-human matchmaking. See [PRIVATE-LADDER.md](PRIVATE-LADDER.md) for setup, keys, protocol behavior and limitations. Anonymous mixed bot/human matches remain unranked. This replaces the earlier statement that all human skill estimates are always neutral: authenticated casual players now use their stored queue rating for team/bot balance. No Steam identity or public server is supplied. The protocol notes below describe the original anonymous path unless overridden here. Blank casual room selection now finds compatible available rooms or creates another when a room is full/finished.
+
 ## Run locally
 
 Use Node 22 or later and the repository's locked dependencies (`ws` 8.22.0). The integration suite was run with Node 22.23.1 on Windows.

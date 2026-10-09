@@ -1,6 +1,6 @@
 # Custard Knights
 
-**Current development preview: 0.3.0-alpha.3.** Faction battles and four difficulty levels are in progress. Read [the cross-machine checkpoint](release/RESUME-CHECKPOINT.md) for setup, evidence and known test failures before continuing work or making release claims.
+**Current development preview: 0.3.0-alpha.4.** Faction battles and four difficulty levels are in progress. Read [the cross-machine checkpoint](release/RESUME-CHECKPOINT.md) for setup, evidence and known test failures before continuing work or making release claims.
 
 **Development plan:** [Master build plan](BUILD-PLAN.md), covering gameplay feel, graphics and animation, the solo campaign, party Cups, earned cosmetics and validation. The [launch status](release/LAUNCH-STATUS.md) records what is implemented and tested; the plan also contains future work.
 
@@ -22,7 +22,7 @@ For friends: see the [playtest kit guide](release/playtest/README.md). The compl
 
 ## What's in it
 
-- **Faction Front (preview):** Brawl, Capture the Flag and Siege at 4v4, 20v20 or 50v50 total slots, with bot fill and four tactical roles. Bot practice works offline. Online faction rooms need a separate server; no public hosted service or persistent ranked ladder is included.
+- **Faction Front (preview):** Brawl, Capture the Flag and Siege at 4v4, 20v20 or 50v50 total slots, with bot fill and four tactical roles. Bot practice works offline. Online faction rooms need a separate server; no public hosted service is included. An optional [private test ladder](release/PRIVATE-LADDER.md) now provides host-issued identities, persistent ratings and human-only skill queues. Steam authentication and public competitive acceptance remain unfinished.
 - **The Great Pudding War:** eight authored story encounters, optional spoon goals, checkpoints, assistance, Steve rescue and a two-phase boss.
 - **Custard Cup:** three linked rounds, human standings, arena votes, ready-up and event-backed awards.
 - **Earned collection:** six extra cosmetics, first reward choice, pinned goals, retained partial progress, previews, three outfits and validated progression/campaign backups.

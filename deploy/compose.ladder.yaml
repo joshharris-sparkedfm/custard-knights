@@ -1,0 +1,9 @@
+# Optional private-test identity/ladder storage. Public Steam auth is separate.
+services:
+  battle:
+    environment:
+      CK_PLAYER_DB: /data/players.sqlite
+    volumes:
+      - battle_players:/data
+volumes:
+  battle_players:

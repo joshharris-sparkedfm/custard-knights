@@ -3,7 +3,9 @@ WORKDIR /app
 COPY package.json package-lock.json ./
 RUN npm ci --omit=dev --ignore-scripts && npm cache clean --force
 COPY game/mass-battle.js game/mass-battle-wire.js ./game/
-COPY server/mass-battle-server.cjs ./server/
+COPY server/*.cjs ./server/
+COPY scripts/player-admin.cjs ./scripts/
+RUN mkdir /data && chown node:node /data
 ENV NODE_ENV=production CK_BATTLE_HOST=0.0.0.0 CK_BATTLE_PORT=8787 CK_BATTLE_ORIGINS=custard://game
 USER node
 EXPOSE 8787

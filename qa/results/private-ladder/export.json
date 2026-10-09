@@ -1,0 +1,13 @@
+{
+  "sourceCommit": "9e8ac15e23f3ab11c137d7b38f78b0e74ca65d6e",
+  "runtimeFilesIdentical": 73,
+  "previewZip": {
+    "sha256": "437a1de62952a5f69b5397c31cb3cf3c26dafa8769c4e7cbf27ed3bbc1a3d7ee",
+    "bytes": 178900232
+  },
+  "friendsZip": {
+    "sha256": "b4ffb21b8b3424e42c7c6431df3482e05be277a086b2334d98415f263c9984b0",
+    "bytes": 178897085
+  },
+  "appAsarSha256": "ceaacd1e6c0f1ea2e8795323742cb2c132e94a9484d4a722ad8b9cb7790801a4"
+}

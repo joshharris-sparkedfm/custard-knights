@@ -5,6 +5,10 @@ art/_compare.png
 node_modules/
 dist/
 build/
+data/
+*.sqlite
+*.sqlite-wal
+*.sqlite-shm
 __pycache__/
 qa/results/*/*.png
 qa/results/*/soak-status.json

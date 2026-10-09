@@ -1,6 +1,6 @@
 # Faction server deployment preparation
 
-This packages the existing anonymous, unranked server. It does not add Steam authentication, persistent rankings, fleet matchmaking or operational acceptance. No public service has been deployed. Hosting account/domain selection is pending.
+The base configuration runs the anonymous, unranked server. The optional `compose.ladder.yaml` overlay adds persistent host-issued private identities, ratings and individual skill queues; see `release/PRIVATE-LADDER.md`. It does not add Steam authentication, party matchmaking or public operational acceptance. No public service has been deployed. Hosting account/domain selection is pending.
 
 From the repository root on a Docker host:
 

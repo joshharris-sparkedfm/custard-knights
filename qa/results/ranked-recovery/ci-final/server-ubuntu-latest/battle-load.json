@@ -1,0 +1,51 @@
+{
+  "status": "pass",
+  "date": "2026-10-09T11:47:17.474Z",
+  "durationSeconds": 60.061294260000004,
+  "clients": 100,
+  "inputHzTarget": 20,
+  "mode": "brawl",
+  "humanCount": 100,
+  "clientTransport": "ws 8.22.0",
+  "inputs": 91200,
+  "receivedSnapshots": 105205,
+  "receivedPayloadBytes": 1373886687,
+  "aggregateReceiveMbps": 182.9979462050973,
+  "wireVersion": 1,
+  "snapshotHz": 20,
+  "fullPackets": 600,
+  "deltaPackets": 104605,
+  "meanDeltaBytes": 12830.582075426604,
+  "maxDeltaBytes": 24544,
+  "equivalentFullPayloadMbps": 764.8956581109812,
+  "simulationSeconds": 59.96931276299815,
+  "scores": {
+    "custardia": 224,
+    "rice": 172
+  },
+  "kills": 389,
+  "serverTickP95Ms": 4.952375000000757,
+  "serverTickP99Ms": 7.662361999995483,
+  "serverTickMaxMs": 13.07655700000032,
+  "serverTickGapMaxMs": 118.57614399999966,
+  "maxSnapshotBytes": 57513,
+  "clientSnapshotGapMaxMs": 127.93192999999974,
+  "clientInputIntervalP95Ms": 98.47102700000005,
+  "peakCombinedRssBytes": 383201280,
+  "unexpectedCloses": [],
+  "errors": [],
+  "rejectedInputs": 0,
+  "rateLimited": 0,
+  "host": {
+    "cpu": "Intel(R) Xeon(R) Platinum 8370C CPU @ 2.80GHz",
+    "memoryBytes": 16765370368,
+    "platform": "linux",
+    "node": "v24.21.0"
+  },
+  "source": {
+    "coreSha256": "34193621c1044ad1d3fdfcfbc0a93fcd0d8459ac7d5aa6e7fc267582634e988d",
+    "serverSha256": "cb8beeecd64dd810df61e623191255ee6e1b99759f015ba4d0b83342751e5d60",
+    "wireSha256": "2352b8315e9a675a0387ea780856dd2809d835c82bb144fa5a85d1a6cb96ff22"
+  },
+  "limitations": "One Node process runs both server and 100 scripted ws clients on loopback. All clients parse and decode every full/delta frame and actively chase/attack opponents. Equivalent full bandwidth extrapolates client zero state to100 clients. No browser rendering, WAN latency/loss, authenticated people, minimum-hardware or production bandwidth certification."
+}

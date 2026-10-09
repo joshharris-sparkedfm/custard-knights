@@ -1,0 +1,88 @@
+[
+  {
+    "artifactId": 11614136335,
+    "name": "server-windows-latest",
+    "run": 37925748486,
+    "sourceCommit": "f776baf63f33e374f930bbb46e2ea9c3cac4bae8",
+    "downloadedBytes": 10205,
+    "expectedDigest": "sha256:0c73b6c7189046bef4e023833e351fdc6d164ec8c3b012d7b5bce4f7c6bd2bbf",
+    "actualDigest": "sha256:0c73b6c7189046bef4e023833e351fdc6d164ec8c3b012d7b5bce4f7c6bd2bbf",
+    "verified": true,
+    "files": [
+      {
+        "name": "battle-load.json",
+        "bytes": 1884,
+        "sha256": "c6551b1cec60ed7fc982dfb938c18ef722479045f265ceef37ca71f1b7d115a6"
+      },
+      {
+        "name": "full-tests.tap",
+        "bytes": 38982,
+        "sha256": "241edd00cc6a6d7c1f47412ccf8ce2ba65127ad0b98d9fae9971ffc904f6618b"
+      },
+      {
+        "name": "ranked-journal-process.json",
+        "bytes": 763,
+        "sha256": "107258525ce596a47fb23015c7fd8ec87a6d6071bab2647fcc627b7fe865917c"
+      }
+    ]
+  },
+  {
+    "artifactId": 11613928456,
+    "name": "server-ubuntu-latest",
+    "run": 37925748486,
+    "sourceCommit": "f776baf63f33e374f930bbb46e2ea9c3cac4bae8",
+    "downloadedBytes": 10491,
+    "expectedDigest": "sha256:e40610dad3a63bd4a597e65529f790058b85fdeb9eab714119914b20a7235534",
+    "actualDigest": "sha256:e40610dad3a63bd4a597e65529f790058b85fdeb9eab714119914b20a7235534",
+    "verified": true,
+    "files": [
+      {
+        "name": "full-tests.tap",
+        "bytes": 39306,
+        "sha256": "f5e8af190cf7affc4fd49a6c2b20109c18ebd937e2a03be9cbb541fb924a9ed3"
+      },
+      {
+        "name": "battle-load.json",
+        "bytes": 1890,
+        "sha256": "91512012abd42e182c00271d2982d76c275e88483f3259cfbd0dd913e1d2bf94"
+      },
+      {
+        "name": "ranked-journal-process.json",
+        "bytes": 763,
+        "sha256": "107258525ce596a47fb23015c7fd8ec87a6d6071bab2647fcc627b7fe865917c"
+      }
+    ]
+  },
+  {
+    "artifactId": 11613133977,
+    "name": "battle-container",
+    "run": 37925028516,
+    "sourceCommit": "06e6c596c08e470202b75950231fc8b6ca24d75e",
+    "downloadedBytes": 1384,
+    "expectedDigest": "sha256:c3cb040f18e1d7f777993fdfc9dbb75c7673650a8584e7b76e93921e9c448b16",
+    "actualDigest": "sha256:c3cb040f18e1d7f777993fdfc9dbb75c7673650a8584e7b76e93921e9c448b16",
+    "verified": true,
+    "files": [
+      {
+        "name": "container-status.txt",
+        "bytes": 353,
+        "sha256": "4a839072227a6637720e47089318b372668b435a7a8cb5b04ad96a79b77a900e"
+      },
+      {
+        "name": "container.log",
+        "bytes": 154,
+        "sha256": "392efa42b3f9dba13c8c2c031b2319dda634708f96fb0b4ac7a43c60c6ccfbbe"
+      },
+      {
+        "name": "container-smoke.json",
+        "bytes": 448,
+        "sha256": "d498c4210fbec3f819186ac960de6411c3473c0609e5095b5d88320361ba0699"
+      },
+      {
+        "name": "container-private.json",
+        "bytes": 798,
+        "sha256": "bbc854f5f650cf76b0182d67e64797188dd3e5cf5fa745a91001d38e2ace70fb"
+      }
+    ]
+  }
+]

@@ -1,0 +1,89 @@
+{
+  "repository": "joshharris-sparkedfm/custard-knights",
+  "run": 37925748486,
+  "sourceCommit": "f776baf63f33e374f930bbb46e2ea9c3cac4bae8",
+  "outcome": "All six jobs completed successfully.",
+  "fullSuites": {
+    "windows": {
+      "tests": 176,
+      "passed": 176,
+      "failed": 0,
+      "skipped": 0,
+      "node": "24.21.0",
+      "journalProcessChecks": {
+        "passed": 6,
+        "total": 6
+      }
+    },
+    "linux": {
+      "tests": 176,
+      "passed": 176,
+      "failed": 0,
+      "skipped": 0,
+      "node": "24.21.0",
+      "journalProcessChecks": {
+        "passed": 6,
+        "total": 6
+      }
+    }
+  },
+  "coreMatrix": {
+    "jobs": 4,
+    "passed": 4,
+    "operatingSystems": [
+      "windows-latest",
+      "ubuntu-latest"
+    ],
+    "nodeMajors": [
+      22,
+      24
+    ]
+  },
+  "scriptedLoads": {
+    "windows": {
+      "status": "pass",
+      "clients": 100,
+      "durationSeconds": 60.0236059,
+      "unexpectedCloses": 0,
+      "protocolErrors": 0
+    },
+    "linux": {
+      "status": "pass",
+      "clients": 100,
+      "durationSeconds": 60.061294260000004,
+      "unexpectedCloses": 0,
+      "protocolErrors": 0
+    }
+  },
+  "container": {
+    "run": 37925028516,
+    "sourceCommit": "06e6c596c08e470202b75950231fc8b6ca24d75e",
+    "job": "success",
+    "smoke": "pass",
+    "privateChecks": {
+      "passed": 7,
+      "total": 7
+    }
+  },
+  "artifactIntegrity": {
+    "archivesChecked": 3,
+    "allMatchGitHubApiSha256": true,
+    "details": "artifact-verification.json"
+  },
+  "previousFailure": {
+    "run": 37925028651,
+    "windowsPassed": 175,
+    "windowsTotal": 176,
+    "test": "100 real local sockets fill 50v50, reject overflow, and refill disconnected slots",
+    "cause": "The test checked completion of asynchronous WebSocket close handshakes after a fixed 150 ms delay.",
+    "correction": "Wait for the bounded authoritative 90-human/10-bot snapshot, then verify snapshot and server state. No runtime change.",
+    "evidence": "../ci-first"
+  },
+  "limitations": [
+    "The subsequent local 179/179 pass does not establish that previously recorded native crashes are fixed.",
+    "Scripted load clients and server share one process on loopback; successful workflow completion is not production timing, WAN, bandwidth, minimum-hardware or human-play acceptance.",
+    "Journal process checks cover abrupt process exit after SQLite staging; they do not establish power-loss, failed-disk or live-match recovery.",
+    "Container checks are private loopback smoke, with no public service, TLS/WAN or Steam acceptance.",
+    "Frozen alpha.5 exports retain runtime source 06e6c596c08e470202b75950231fc8b6ca24d75e; this independent recheck source adds the test correction and evidence/checkpoint changes."
+  ]
+}

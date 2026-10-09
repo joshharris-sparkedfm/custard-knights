@@ -1,0 +1,29 @@
+{
+  "checks": [
+    {
+      "name": "Child exits abruptly after staging",
+      "pass": true
+    },
+    {
+      "name": "Committed pending result survives child exit",
+      "pass": true
+    },
+    {
+      "name": "Staging has not awarded speculative ratings",
+      "pass": true
+    },
+    {
+      "name": "Server startup replays before healthy ranked admission",
+      "pass": true
+    },
+    {
+      "name": "Exactly one result awarded to all eight original humans",
+      "pass": true
+    },
+    {
+      "name": "A second real server startup cannot award twice",
+      "pass": true
+    }
+  ],
+  "limitations": "Abrupt child process exit after a successful SQLite staging commit; no OS power-loss, failed-disk, live-match resumption or public hosting claim."
+}

@@ -2,6 +2,8 @@
 
 Version **0.3.0-alpha.5** is a playable development preview, not a validated Steam release. Frozen source checkpoint: `06e6c596c08e470202b75950231fc8b6ca24d75e`. The user requested all work pushed and merged for cross-machine continuation, then explicitly asked to continue working and keep GitHub current. Automatic work remains active; the earlier pause request was superseded. See PREVIEW-BUILD.md for the local Windows preview and friends ZIP. Ongoing Suno WAV work is separate and is not included in this frozen build.
 
+Latest independent CI: run [37925748486](https://github.com/joshharris-sparkedfm/custard-knights/actions/runs/37925748486) on `f776baf63f33e374f930bbb46e2ea9c3cac4bae8` passed all six jobs. Windows and Linux each passed 176/176 full tests and 6/6 journal-process checks; all four OS/Node core jobs passed. Container run `37925028516` passed smoke and 7/7 private checks. Downloaded server/container artifacts matched GitHub API SHA-256 digests; evidence is in `qa/results/ranked-recovery/ci-final/`. The original Windows 175/176 failure and isolated local 179/179 pass remain in `ci-first/`; previously recorded local native crashes remain unresolved.
+
 ## Start on another computer
 
 Clone the repository, check out `main`, run `npm ci`, then `npm start` for the desktop game. `npm run package:win` builds the Windows folder. For Faction Front online rooms, run `npm run battle:server` separately and use its WebSocket endpoint. The default server is local; no public service has been deployed. Opening `index.html` also supports offline browser play. Downloaded desktop folders must retain all sibling files.

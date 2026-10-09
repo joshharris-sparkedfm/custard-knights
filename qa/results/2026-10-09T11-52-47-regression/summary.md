@@ -1,0 +1,28 @@
+# Release regressions
+
+- PASS: Default sprite atlases decoded
+- PASS: Five rematches preserve non-sequential controller assignments
+- PASS: A fresh quick-play start clears party assignments
+- PASS: Second couch seat contributes to shared progress
+- PASS: Repeated local end does not grant twice
+- PASS: Stale online result is ignored
+- PASS: Duplicate knight results cannot end a round or stack challenges
+- PASS: Malformed combat results allow a later valid result
+- PASS: Duplicate start preserves the active round
+- PASS: Stale snapshots cannot mutate a current round
+- PASS: Guest receives authoritative combat challenge results
+- PASS: Guest awards only its own knight result
+- PASS: Duplicate online packet is ignored
+- PASS: Old-round guest input is ignored
+- PASS: Active guest input reaches its assigned knight
+- PASS: Rematch clears held guest input and action latches
+- PASS: Guest drop clears controls and gives its knight to a bot
+- PASS: Over-capacity settings cannot evict accepted guests
+- PASS: Keyboard halves follow explicit party seats
+- PASS: Sound-effect bursts are bounded to 64 active voices
+- PASS: Completed sound graphs are disconnected
+- PASS: Courtyard selects its installed WAV soundtrack
+- PASS: Wardrobe selects its installed WAV soundtrack
+- PASS: Missing soundtrack exports remain disabled
+- PASS: Missing wardrobe track falls back to the original menu theme
+- PASS: Installed race WAV takes priority over the arena

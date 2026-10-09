@@ -1,0 +1,30 @@
+{
+  "passed": [
+    "Default sprite atlases decoded",
+    "Five rematches preserve non-sequential controller assignments",
+    "A fresh quick-play start clears party assignments",
+    "Second couch seat contributes to shared progress",
+    "Repeated local end does not grant twice",
+    "Stale online result is ignored",
+    "Duplicate knight results cannot end a round or stack challenges",
+    "Malformed combat results allow a later valid result",
+    "Duplicate start preserves the active round",
+    "Stale snapshots cannot mutate a current round",
+    "Guest receives authoritative combat challenge results",
+    "Guest awards only its own knight result",
+    "Duplicate online packet is ignored",
+    "Old-round guest input is ignored",
+    "Active guest input reaches its assigned knight",
+    "Rematch clears held guest input and action latches",
+    "Guest drop clears controls and gives its knight to a bot",
+    "Over-capacity settings cannot evict accepted guests",
+    "Keyboard halves follow explicit party seats",
+    "Sound-effect bursts are bounded to 64 active voices",
+    "Completed sound graphs are disconnected",
+    "Courtyard selects its installed WAV soundtrack",
+    "Wardrobe selects its installed WAV soundtrack",
+    "Missing soundtrack exports remain disabled",
+    "Missing wardrobe track falls back to the original menu theme",
+    "Installed race WAV takes priority over the arena"
+  ]
+}

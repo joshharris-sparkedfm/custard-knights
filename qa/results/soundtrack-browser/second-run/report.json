@@ -1,0 +1,50 @@
+{
+  "date": "2026-10-09T11:51:34.616Z",
+  "checks": [
+    {
+      "name": "Integrated game loads with the native music element observed before startup",
+      "pass": true
+    },
+    {
+      "name": "All 12 soundtrack slots are enabled",
+      "pass": true
+    },
+    {
+      "name": "Original menu MP3 remains the menu source",
+      "pass": true
+    },
+    {
+      "name": "menu: catalog selects the expected local file",
+      "pass": true
+    },
+    {
+      "name": "menu: native media loads and starts playback",
+      "pass": true
+    },
+    {
+      "name": "menu: native playback clock advances without overlapping music",
+      "pass": false
+    }
+  ],
+  "tracks": [],
+  "errors": [],
+  "sourceHashes": {
+    "index.html": "fb4cee753c138b4f9f5a07905fe57cfe05ef89994c7b21ea248c246b7e0cffd1",
+    "audio/tracks.json": "c27078f05518510e5be4847386ad35eb4636a4a94753aa11792687ad720ef844",
+    "audio/soundtrack.js": "8efa2c0a4d4463b8f6d0041ea261f029fe6538d7e1b14b72adebd171fb541c9b",
+    "menu-theme.mp3": "ddf51a60e33a0bbbf53b8d83f4645258e365dccba91d59cd886489fa07463e58",
+    "audio/02-a-very-noble-food-fight.wav": "412bcf0044633a936f9218aa6fecec65e4f58b362ec878bad54b360283aebd65",
+    "audio/03-slippery-when-knighted.wav": "40682025ebf6d0609f72d8f26e2de2c41e5ec86aa169f3f37ec63e97d8e5b21d",
+    "audio/04-the-pie-production-line.wav": "5e0804e152dc4c611030e983768be9af599826c87497a3ac9bd95e8dcc881094",
+    "audio/05-too-hot-for-armour.wav": "3303b7a2c5c22fe15e334a83393a43e060489078e2da514250cec9f09b0bcb0e",
+    "audio/06-mind-the-battlements.wav": "a9144e7b503d5f51732cd1bebb05b2a75d277fb3a388033ec948aef0ed15bb81",
+    "audio/07-bog-standard-heroics.wav": "717bad599ade63ba5f5149355b8b369ad6aa9981b2671b47a04b62199df0c95c",
+    "audio/08-run-little-chicken-run.wav": "06cf39b6b1251d729eb78d446392cdbe82dcb869e9b06d412a6ba68cc8cd15b6",
+    "audio/09-pass-the-pie.wav": "fb2eba3e6fcf048d02b137acdaa6450a2166b60da3fa45925c081ac31dec3d51",
+    "audio/10-dressed-to-spill.wav": "3e745235ea44e9b94d50cce911a6461e2bbdf62163c3891f11d2294f5c4725b0",
+    "audio/11-the-golden-spoon.wav": "9c51c45e0d771554fa6c70805e9b8335d0a26fb78e7b433fed7ecc9f729a1736",
+    "audio/12-another-helping.wav": "952d75166efa93645bfb5583e04fdeb52e24f000488e2d7d777043524fd86ea0"
+  },
+  "limitations": "One headless Chromium instance using native HTMLAudioElement playback and WebAudio decoding over a local HTTP server. Browser output is silenced. Autoplay is explicitly permitted for repeatable functional testing. No auditory-quality, physical-speaker, human listening, loop-seam or packaged Electron acceptance claim.",
+  "failure": "Error: menu: native playback clock advances without overlapping music\n    at check (C:\\Users\\Joshua\\Documents\\Codex\\2026-10-08\\rea\\work\\custard-knights\\qa\\soundtrack-browser.cjs:48:82)\n    at main (C:\\Users\\Joshua\\Documents\\Codex\\2026-10-08\\rea\\work\\custard-knights\\qa\\soundtrack-browser.cjs:62:3)"
+}

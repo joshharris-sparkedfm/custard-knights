@@ -1,0 +1,213 @@
+{
+  "repository": "joshharris-sparkedfm/custard-knights",
+  "sourceCommit": "d15c4b66f66b489241343f9c4e282f4e58b46868",
+  "observedAtUtc": "2026-10-09 12:00:43 UTC",
+  "evidenceMethod": "Read-only GitHub Actions run and job APIs; soundtrack test counts and hash-verification message checked in both job logs. No jobs dispatched or rerun.",
+  "soundtrack": {
+    "run": 37926851264,
+    "url": "https://github.com/joshharris-sparkedfm/custard-knights/actions/runs/37926851264",
+    "event": "push",
+    "attempt": 1,
+    "status": "completed",
+    "conclusion": "success",
+    "completedAtUtc": "2026-10-09T11:57:19Z",
+    "jobs": [
+      {
+        "id": 113807733943,
+        "name": "soundtrack (ubuntu-latest)",
+        "status": "completed",
+        "conclusion": "success",
+        "url": "https://github.com/joshharris-sparkedfm/custard-knights/actions/runs/37926851264/job/113807733943",
+        "checks": [
+          {
+            "name": "Catalog and desktop staging",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "PCM inspector fixtures",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Verify every original WAV against its recorded source hash",
+            "status": "completed",
+            "conclusion": "success"
+          }
+        ],
+        "node": "24.21.0",
+        "javascriptTests": {
+          "passed": 10,
+          "total": 10,
+          "failed": 0
+        },
+        "pythonInspectorTests": {
+          "passed": 5,
+          "total": 5
+        },
+        "originalWavHashesVerified": 11,
+        "catalogCuesVerified": 12,
+        "retainedMenuMp3HashVerified": true
+      },
+      {
+        "id": 113807734148,
+        "name": "soundtrack (windows-latest)",
+        "status": "completed",
+        "conclusion": "success",
+        "url": "https://github.com/joshharris-sparkedfm/custard-knights/actions/runs/37926851264/job/113807734148",
+        "checks": [
+          {
+            "name": "Catalog and desktop staging",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "PCM inspector fixtures",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Verify every original WAV against its recorded source hash",
+            "status": "completed",
+            "conclusion": "success"
+          }
+        ],
+        "node": "24.21.0",
+        "javascriptTests": {
+          "passed": 10,
+          "total": 10,
+          "failed": 0
+        },
+        "pythonInspectorTests": {
+          "passed": 5,
+          "total": 5
+        },
+        "originalWavHashesVerified": 11,
+        "catalogCuesVerified": 12,
+        "retainedMenuMp3HashVerified": true
+      }
+    ]
+  },
+  "battle": {
+    "run": 37926851163,
+    "url": "https://github.com/joshharris-sparkedfm/custard-knights/actions/runs/37926851163",
+    "event": "push",
+    "attempt": 1,
+    "status": "completed",
+    "conclusion": "success",
+    "completedAtUtc": "2026-10-09T11:59:34Z",
+    "jobCount": 6,
+    "successfulJobs": 6,
+    "jobs": [
+      {
+        "id": 113807734172,
+        "name": "core (ubuntu-latest, 24)",
+        "status": "completed",
+        "conclusion": "success",
+        "url": "https://github.com/joshharris-sparkedfm/custard-knights/actions/runs/37926851163/job/113807734172",
+        "checks": [
+          {
+            "name": "Run dependency-free shared simulation assertions",
+            "status": "completed",
+            "conclusion": "success"
+          }
+        ]
+      },
+      {
+        "id": 113807734280,
+        "name": "core (windows-latest, 24)",
+        "status": "completed",
+        "conclusion": "success",
+        "url": "https://github.com/joshharris-sparkedfm/custard-knights/actions/runs/37926851163/job/113807734280",
+        "checks": [
+          {
+            "name": "Run dependency-free shared simulation assertions",
+            "status": "completed",
+            "conclusion": "success"
+          }
+        ]
+      },
+      {
+        "id": 113807734318,
+        "name": "core (windows-latest, 22)",
+        "status": "completed",
+        "conclusion": "success",
+        "url": "https://github.com/joshharris-sparkedfm/custard-knights/actions/runs/37926851163/job/113807734318",
+        "checks": [
+          {
+            "name": "Run dependency-free shared simulation assertions",
+            "status": "completed",
+            "conclusion": "success"
+          }
+        ]
+      },
+      {
+        "id": 113807734385,
+        "name": "core (ubuntu-latest, 22)",
+        "status": "completed",
+        "conclusion": "success",
+        "url": "https://github.com/joshharris-sparkedfm/custard-knights/actions/runs/37926851163/job/113807734385",
+        "checks": [
+          {
+            "name": "Run dependency-free shared simulation assertions",
+            "status": "completed",
+            "conclusion": "success"
+          }
+        ]
+      },
+      {
+        "id": 113807734388,
+        "name": "server (windows-latest)",
+        "status": "completed",
+        "conclusion": "success",
+        "url": "https://github.com/joshharris-sparkedfm/custard-knights/actions/runs/37926851163/job/113807734388",
+        "checks": [
+          {
+            "name": "Run full unit suite",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Exercise 100 active loopback clients for 60 seconds",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Recover journal after an abrupt process exit",
+            "status": "completed",
+            "conclusion": "success"
+          }
+        ]
+      },
+      {
+        "id": 113807734455,
+        "name": "server (ubuntu-latest)",
+        "status": "completed",
+        "conclusion": "success",
+        "url": "https://github.com/joshharris-sparkedfm/custard-knights/actions/runs/37926851163/job/113807734455",
+        "checks": [
+          {
+            "name": "Run full unit suite",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Exercise 100 active loopback clients for 60 seconds",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Recover journal after an abrupt process exit",
+            "status": "completed",
+            "conclusion": "success"
+          }
+        ]
+      }
+    ]
+  },
+  "limitations": [
+    "Functional file-format, catalog, packaging-fixture and provenance-hash checks; no human listening, musical-quality, loudness or seamless-loop acceptance.",
+    "The automatically triggered battle workflow succeeded; no new claim that previously recorded local native crashes are repaired.",
+    "CI results do not establish Steam, WAN, public-hosting, physical-controller or minimum-hardware acceptance."
+  ]
+}

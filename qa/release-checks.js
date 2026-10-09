@@ -47,11 +47,16 @@
  check(CK.audioStats().active<=CK.audioStats().max,'Sound-effect bursts are bounded to 64 active voices');
  await new Promise(r=>setTimeout(r,1500));
  check(CK.audioStats().active===0,'Completed sound graphs are disconnected');
- CK.cueMusic('courtyard');check(!CK.musicState().wanted,'Missing soundtrack exports are disabled');
- CK.cueMusic('wardrobe');check(CK.musicState().src==='menu-theme.mp3'&&CK.musicState().wanted,'Wardrobe falls back to the supplied theme');
- const originalRace=window.CK_SOUNDTRACK.race;window.CK_SOUNDTRACK.race='menu-theme.mp3';
+ CK.cueMusic('courtyard');check(CK.musicState().src==='audio/02-a-very-noble-food-fight.wav'&&CK.musicState().wanted,'Courtyard selects its installed WAV soundtrack');
+ CK.cueMusic('wardrobe');check(CK.musicState().src==='audio/10-dressed-to-spill.wav'&&CK.musicState().wanted,'Wardrobe selects its installed WAV soundtrack');
+ const originalTracks={courtyard:window.CK_SOUNDTRACK.courtyard,wardrobe:window.CK_SOUNDTRACK.wardrobe};
+ try{
+  delete window.CK_SOUNDTRACK.courtyard;delete window.CK_SOUNDTRACK.wardrobe;
+  CK.cueMusic('courtyard');check(!CK.musicState().wanted,'Missing soundtrack exports remain disabled');
+  CK.cueMusic('wardrobe');check(CK.musicState().src==='menu-theme.mp3'&&CK.musicState().wanted,'Missing wardrobe track falls back to the original menu theme');
+ }finally{Object.assign(window.CK_SOUNDTRACK,originalTracks);}
  CK.cfg.mode='race';CK.cfg.map='roof';CK.start();
- check(CK.musicState().cue==='race'&&CK.musicState().wanted,'Race soundtrack takes priority over the arena');
- window.CK_SOUNDTRACK.race=originalRace;CK.cueMusic(null);CK.freeze(true);
+ check(CK.musicState().cue==='race'&&CK.musicState().src==='audio/08-run-little-chicken-run.wav'&&CK.musicState().wanted,'Installed race WAV takes priority over the arena');
+ CK.cueMusic(null);CK.freeze(true);
  return {passed};
 })()

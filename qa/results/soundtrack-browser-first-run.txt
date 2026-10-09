@@ -1,0 +1,4 @@
+Error: {"exceptionId":1,"text":"Uncaught","lineNumber":0,"columnNumber":49,"scriptId":"3","stackTrace":{"callFrames":[{"functionName":"","scriptId":"3","url":"","lineNumber":0,"columnNumber":49}]},"exception":{"type":"object","subtype":"error","className":"TypeError","description":"TypeError: Cannot read properties of undefined (reading 'audios')\n    at <anonymous>:1:50","objectId":"2666706759609694521.2.2"}}
+    at run (C:\Users\Joshua\Documents\Codex\2026-10-08\rea\work\custard-knights\qa\soundtrack-browser.cjs:47:148)
+    at async until (C:\Users\Joshua\Documents\Codex\2026-10-08\rea\work\custard-knights\qa\soundtrack-browser.cjs:49:91)
+    at async main (C:\Users\Joshua\Documents\Codex\2026-10-08\rea\work\custard-knights\qa\soundtrack-browser.cjs:52:86)

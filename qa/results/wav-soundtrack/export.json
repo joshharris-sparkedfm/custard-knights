@@ -1,0 +1,41 @@
+{
+  "checkedAt": "2026-10-09T11:57:51.250165+00:00",
+  "version": "0.3.0-alpha.6",
+  "sourceCommit": "d15c4b66f66b489241343f9c4e282f4e58b46868",
+  "frozenDist": true,
+  "rebuiltDuringExport": false,
+  "preview": {
+    "folder": "C:\\Users\\Joshua\\Documents\\Codex\\2026-10-08\\rea\\outputs\\Custard-Knights-Windows-0.3.0-alpha.6-preview",
+    "zip": "C:\\Users\\Joshua\\Documents\\Codex\\2026-10-08\\rea\\outputs\\Custard-Knights-Windows-0.3.0-alpha.6-preview.zip",
+    "sha256": "5f1dc520c54aeb01d35121973973066881bef67438349c92581faf1cf43153cd",
+    "bytes": 530999088,
+    "commit": "d15c4b66f66b489241343f9c4e282f4e58b46868"
+  },
+  "friends": {
+    "zip": "Custard-Knights-Friends-0.3.0-alpha.6.zip",
+    "bytes": 530994978,
+    "sha256": "18dd31367b193134e9525c70467f84f61bde07cd8c42877b2f9d1d0dea1371cb",
+    "gameFiles": 73,
+    "build": {
+      "version": "0.3.0-alpha.6",
+      "sourceCommit": "d15c4b66f66b489241343f9c4e282f4e58b46868",
+      "sourceZipSha256": "5f1dc520c54aeb01d35121973973066881bef67438349c92581faf1cf43153cd",
+      "appAsarSha256": "d23dacaf2ebe5464a83a67ba7e50aa5e03211209199524978ad9ef996253cf45"
+    }
+  },
+  "appAsarSha256": "d23dacaf2ebe5464a83a67ba7e50aa5e03211209199524978ad9ef996253cf45",
+  "checks": {
+    "previewZipIntegrity": true,
+    "friendsZipIntegrity": true,
+    "gameFiles": 73,
+    "friendsEqualFrozenPreview": true,
+    "previewEqualFrozenDist": true,
+    "buildInfoMatchesSourceAndHashes": true
+  },
+  "packagedMediaChecks": 85,
+  "packagedRuntimeEntries": 53,
+  "soundtrackSlots": 12,
+  "newWavTracks": 11,
+  "menuMp3Retained": true,
+  "limitations": "Functional playback/decode and desktop lifecycle passed; auditory quality, loop seams, human listening and external release gates remain unassessed."
+}

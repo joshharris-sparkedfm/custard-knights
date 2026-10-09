@@ -1,0 +1,54 @@
+name: Soundtrack portability
+on:
+  push:
+    paths:
+      - 'audio/**'
+      - 'scripts/music.cjs'
+      - 'scripts/inspect-soundtrack.py'
+      - 'scripts/package.cjs'
+      - 'tests/music.test.cjs'
+      - 'tests/desktop.test.cjs'
+      - 'tests/inspect_soundtrack_test.py'
+      - 'release/music/source-provenance.json'
+      - '.github/workflows/soundtrack.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  soundtrack:
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, windows-latest]
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 6
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
+        with:
+          node-version: 24
+      - name: Catalog and desktop staging
+        run: node --test tests/music.test.cjs tests/desktop.test.cjs
+      - name: PCM inspector fixtures
+        run: python tests/inspect_soundtrack_test.py
+      - name: Verify every original WAV against its recorded source hash
+        shell: bash
+        run: |
+          node - <<'JS'
+          const fs=require('node:fs'),crypto=require('node:crypto'),assert=require('node:assert/strict');
+          const {buildCatalog}=require('./scripts/music.cjs');
+          const p=require('./release/music/source-provenance.json');
+          const catalog=buildCatalog();
+          assert.equal(Object.values(catalog).filter(Boolean).length,12);
+          assert.equal(catalog.menu,'menu-theme.mp3');
+          assert.equal(crypto.createHash('sha256').update(fs.readFileSync(p.retained_menu.file)).digest('hex'),p.retained_menu.sha256);
+          const tracks=p.tracks;
+          assert.equal(tracks.length,11);
+          for(const t of tracks){
+            const data=fs.readFileSync(t.file);
+            assert.equal(crypto.createHash('sha256').update(data).digest('hex'),t.sha256,t.file);
+            assert.equal(data.length,t.file_bytes);
+            assert.equal(catalog[t.slot],t.file);
+          }
+          console.log('All eleven original WAV hashes and twelve catalog cues verified.');
+          JS

@@ -1,0 +1,8 @@
+PASS Integrated game loads with the native music element observed before startup
+PASS All 12 soundtrack slots are enabled
+PASS Original menu MP3 remains the menu source
+PASS menu: catalog selects the expected local file
+PASS menu: native media loads and starts playback
+Error: menu: native playback clock advances without overlapping music
+    at check (C:\Users\Joshua\Documents\Codex\2026-10-08\rea\work\custard-knights\qa\soundtrack-browser.cjs:48:82)
+    at main (C:\Users\Joshua\Documents\Codex\2026-10-08\rea\work\custard-knights\qa\soundtrack-browser.cjs:62:3)

@@ -1,6 +1,6 @@
 # Custard Knights — Steam preparation handoff
 
-Updated 9 October 2026. Developer/publisher: **Sparked FM Ltd**. Proposed base price: **£7.99 / US$9.99**, subject to the owner's final storefront decision. No price has been submitted. The current exported build is **0.3.0-alpha.2**, a Windows development preview; see [PREVIEW-BUILD.md](PREVIEW-BUILD.md) for the latest exported identity. Public-sale acceptance remains pending.
+Updated 9 October 2026. Developer/publisher: **Sparked FM Ltd**. Proposed base price: **£7.99 / US$9.99**, subject to the owner's final storefront decision. No price has been submitted. The current exported build is **0.3.0-alpha.3**, a Windows development preview; see [PREVIEW-BUILD.md](PREVIEW-BUILD.md) for the latest exported identity. Public-sale acceptance remains pending.
 
 ## Required release and current implementation
 

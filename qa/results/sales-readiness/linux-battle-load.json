@@ -1,0 +1,51 @@
+{
+  "status": "pass",
+  "date": "2026-10-09T07:31:25.857Z",
+  "durationSeconds": 60.045178239,
+  "clients": 100,
+  "inputHzTarget": 20,
+  "mode": "brawl",
+  "humanCount": 100,
+  "clientTransport": "ws 8.22.0",
+  "inputs": 88700,
+  "receivedSnapshots": 104138,
+  "receivedPayloadBytes": 1330474847,
+  "aggregateReceiveMbps": 177.2631723005984,
+  "wireVersion": 1,
+  "snapshotHz": 20,
+  "fullPackets": 600,
+  "deltaPackets": 103538,
+  "meanDeltaBytes": 12546.496484382546,
+  "maxDeltaBytes": 26176,
+  "equivalentFullPayloadMbps": 751.6144030810294,
+  "simulationSeconds": 59.99784185599816,
+  "scores": {
+    "custardia": 251,
+    "rice": 157
+  },
+  "kills": 400,
+  "serverTickP95Ms": 5.6706279999998515,
+  "serverTickP99Ms": 8.710895999998684,
+  "serverTickMaxMs": 10.332846999999674,
+  "serverTickGapMaxMs": 110.18087199999991,
+  "maxSnapshotBytes": 56523,
+  "clientSnapshotGapMaxMs": 143.0618149999999,
+  "clientInputIntervalP95Ms": 101.99007400000028,
+  "peakCombinedRssBytes": 382779392,
+  "unexpectedCloses": [],
+  "errors": [],
+  "rejectedInputs": 0,
+  "rateLimited": 0,
+  "host": {
+    "cpu": "AMD EPYC 7763 64-Core Processor",
+    "memoryBytes": 16766414848,
+    "platform": "linux",
+    "node": "v24.21.0"
+  },
+  "source": {
+    "coreSha256": "34193621c1044ad1d3fdfcfbc0a93fcd0d8459ac7d5aa6e7fc267582634e988d",
+    "serverSha256": "3154003af15582b6bcded87e27cf047fe81d3bc132053a54107ed46a38beb8b3",
+    "wireSha256": "2352b8315e9a675a0387ea780856dd2809d835c82bb144fa5a85d1a6cb96ff22"
+  },
+  "limitations": "One Node process runs both server and 100 scripted ws clients on loopback. All clients parse and decode every full/delta frame and actively chase/attack opponents. Equivalent full bandwidth extrapolates client zero state to100 clients. No browser rendering, WAN latency/loss, authenticated people, minimum-hardware or production bandwidth certification."
+}

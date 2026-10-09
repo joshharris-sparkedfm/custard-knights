@@ -34,3 +34,9 @@ Alpha.3 matched 42 packaged entries to source/generated metadata. The actual Ele
 ## Still required for sale
 
 The native Node failures and a prior microprofile mismatch remain unresolved observations; subsequent browser/hosted successes do not identify their cause. Faction bandwidth remains substantial and hosted-worker tail timing is unaccepted. No public server, authenticated persistent ranking, Steam configuration/approval, actual controller/WAN/second-PC acceptance, minimum-spec measurement or novice playtest is supplied by these checks. Eleven requested soundtrack recordings and the public support contact remain outstanding. Release documents now distinguish current implemented scope from historical acceptance and unperformed checks.
+
+## Independent final checks
+
+Actions run 37899377152 at `3a46a2903045d6f2dfe71e08e40a028e3e63e17e` passed the four OS/Node core jobs and both server jobs. Each full suite passed 121 tests with zero skips or failures. The initial submission had omitted the new smoke module from a staging test fixture; that fixture was corrected and its seven focused tests passed before resubmission. No runtime change was needed. Downloaded server artifacts were SHA256-verified against the upload logs; their full TAP and load JSON are retained under `qa/results/sales-readiness/`.
+
+Container run 37899639763 passed the loopback build, health, exact desktop-Origin connection and three decoded CTF deltas. Public-overlay Compose syntax passed with an inert placeholder hostname. The Docker daemon was unavailable locally; no public instance, DNS change or certificate was created. See `deploy/README.md`. These passes do not repair the earlier native failures or certify WAN/hosted timing.

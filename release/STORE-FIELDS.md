@@ -1,6 +1,6 @@
 # Store field draft
 
-Updated 9 October 2026 for the exported **0.3.0-alpha.2 preview**. This is preparation material; fields have not been submitted or approved. Use LAUNCH-STATUS.md for acceptance and PREVIEW-BUILD.md for build identity.
+Updated 9 October 2026 for the exported **0.3.0-alpha.3 preview**. This is preparation material; fields have not been submitted or approved. Use LAUNCH-STATUS.md for acceptance and PREVIEW-BUILD.md for build identity.
 
 - Product: Custard Knights
 - Developer: Sparked FM Ltd

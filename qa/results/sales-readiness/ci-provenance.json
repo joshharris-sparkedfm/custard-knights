@@ -1,0 +1,24 @@
+{
+  "runId": 37899639763,
+  "jobId": 113718923796,
+  "result": {
+    "status": "pass",
+    "health": {
+      "ok": true,
+      "protocol": 1,
+      "ranked": false,
+      "rooms": 0,
+      "connections": 0,
+      "maxRooms": 8,
+      "maxConnections": 128,
+      "stepHz": 30,
+      "snapshotHz": 20
+    },
+    "full": 1,
+    "delta": 3,
+    "origin": "custard://game",
+    "limitations": "Loopback container smoke only; no TLS, WAN, human, sustained-capacity or hosting acceptance."
+  },
+  "coreRun": 37899377152,
+  "coreSource": "3a46a2903045d6f2dfe71e08e40a028e3e63e17e"
+}

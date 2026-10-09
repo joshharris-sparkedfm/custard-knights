@@ -96,3 +96,69 @@ test('upgrades remain bounded, while unrelated arena projectiles pass through un
   assert.equal(Weapons.updateProjectile(legacy, 1 / 60), true);
   assert.deepEqual(legacy, copy);
 });
+
+test('AK47 is event-only with fixed rapid single shots and no actor mutation', () => {
+  assert.deepEqual(Object.keys(Weapons.definitions), ['crossbow', 'croissant']);
+  assert.deepEqual(Object.keys(Weapons.eventDefinitions), ['ak47']);
+  assert.ok(Object.isFrozen(Weapons.eventDefinitions.ak47));
+  assert.equal(Weapons.eventDefinitions.ak47.ammo, 30);
+  assert.equal(Weapons.isRanged('ak47'), true);
+  assert.ok(Weapons.tip('ak47').includes('30 rounds'));
+  assert.equal(Weapons.ai('ak47').attack, 560);
+  const actor = knight('ak47', { face: Math.PI / 2, wpn: { kind: 'ak47', lvl: 999, ammo: 30 } });
+  const before = JSON.stringify(actor), shot = Weapons.createShot(actor), p = shot.projectiles[0];
+  assert.equal(JSON.stringify(actor), before);
+  assert.equal(shot.projectiles.length, 1);
+  assert.equal(shot.cooldown, 0.12);
+  assert.equal(shot.recoil, 24);
+  assert.equal(p.k, 'bullet');
+  assert.equal(p.owner, actor);
+  assert.equal(p.lvl, 1);
+  assert.equal(p.pierce, false);
+  assert.equal(p.life, 0.65);
+  assert.equal(p.r, 4);
+  assert.ok(Math.abs(Math.hypot(p.vx, p.vy) - 1100) < 0.0001);
+  assert.ok(Math.abs(p.x - actor.x) < 0.0001 && p.y === actor.y + 30);
+  assert.deepEqual(p.hit, []);
+});
+
+test('AK47 refuses missing, nonfinite, fractional and empty ammo without consuming valid ammo', () => {
+  for (const ammo of [undefined, null, '30', NaN, Infinity, -1, 0, 0.5]) {
+    assert.equal(Weapons.createShot(knight('ak47', { wpn: { kind: 'ak47', lvl: 1, ammo } })), null);
+  }
+  const actor = knight('ak47', { wpn: { kind: 'ak47', lvl: 1, ammo: 1 } });
+  assert.ok(Weapons.createShot(actor));
+  assert.equal(actor.wpn.ammo, 1);
+});
+
+test('bullets retain reflected ownership but expire within their original flight budget', () => {
+  const p = Weapons.createShot(knight('ak47')).projectiles[0];
+  for (let i = 0; i < 10; i++) advance(p);
+  const defender = knight('bow', { id: 2 });
+  p.owner = defender; p.vx = -p.vx; p.vy = -p.vy; p.life = 0.8;
+  assert.equal(Weapons.updateProjectile(p, 1 / 60), true);
+  assert.equal(p.owner, defender);
+  assert.ok(p.vx < 0);
+  let frames = 0;
+  while (p.life > 0 && frames++ < 100) { p.life = 0.8; advance(p); }
+  assert.equal(p.life, 0);
+  assert.ok(p.bulletAge >= 0.65 && p.bulletAge < 0.67);
+  const malformed = Weapons.createShot(knight('ak47')).projectiles[0];
+  assert.equal(Weapons.updateProjectile(malformed, NaN), false);
+  assert.equal(malformed.life, 0);
+});
+
+test('event weapon and bullet drawing restore caller styles, including on drawing failure', () => {
+  const original = { fillStyle: 'purple', strokeStyle: 'orange', lineWidth: 9, lineCap: 'butt', lineJoin: 'miter' };
+  const stack = [], ctx = { ...original, save() { stack.push(Object.fromEntries(Object.keys(original).map(k => [k, this[k]]))); }, restore() { Object.assign(this, stack.pop()); } };
+  for (const key of ['beginPath', 'moveTo', 'lineTo', 'closePath', 'fill', 'stroke', 'quadraticCurveTo', 'fillRect', 'strokeRect']) ctx[key] = () => {};
+  for (const draw of [() => Weapons.drawWeapon(ctx, 'ak47'), () => Weapons.drawProjectile(ctx, { k: 'bullet' })]) {
+    assert.equal(draw(), true);
+    assert.deepEqual(Object.fromEntries(Object.keys(original).map(k => [k, ctx[k]])), original);
+    assert.equal(stack.length, 0);
+  }
+  ctx.stroke = () => { throw Error('canvas failure'); };
+  assert.throws(() => Weapons.drawWeapon(ctx, 'ak47'), /canvas failure/);
+  assert.deepEqual(Object.fromEntries(Object.keys(original).map(k => [k, ctx[k]])), original);
+  assert.equal(stack.length, 0);
+});

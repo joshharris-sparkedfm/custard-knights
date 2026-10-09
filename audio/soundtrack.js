@@ -11,5 +11,6 @@ window.CK_SOUNDTRACK={
   "hotpie": "audio/09-pass-the-pie.wav",
   "wardrobe": "audio/10-dressed-to-spill.wav",
   "victory": "audio/11-the-golden-spoon.wav",
-  "defeat": "audio/12-another-helping.wav"
+  "defeat": "audio/12-another-helping.wav",
+  "oh-nae-nae": "audio/13-oh-nae-nae-whats-your-name.wav"
 };

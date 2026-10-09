@@ -14,3 +14,11 @@ test('unknown saved mode/arena and invalid seat counts recover to playable defau
  const s=P.config({mode:'deleted',map:'missing',players:99,length:-1,diff:'bad',teamSplit:'true'},['ffa'],['courtyard']);a.equal(s.mode,'ffa');a.equal(s.map,'random');a.equal(s.players,1);a.equal(s.length,180);a.equal(s.teamSplit,false);
  const valid=P.config({mode:'race',map:'frost',players:4,length:90,diff:'chill',teamSplit:true},['ffa','race'],['frost']);a.equal(valid.mode,'race');a.equal(valid.players,4);a.equal(valid.teamSplit,true);
 });
+
+test('chaos presets persist and old fast settings migrate without losing match choices',()=>{
+ for(const [saved,wanted] of [['simple','simple'],['normal','normal'],['insane','insane'],['fast','insane'],['unhinged','insane']]){
+  const cfg=P.config({chaosSpeed:saved,mode:'teams',players:3,length:300,chaosPlus:true},['teams'],[]);
+  a.equal(cfg.chaosSpeed,wanted);a.equal(cfg.mode,'teams');a.equal(cfg.players,3);a.equal(cfg.length,300);a.equal(cfg.chaosPlus,true);
+ }
+ for(const damaged of [null,'__proto__',{},3])a.equal(P.config({chaosSpeed:damaged},[],[]).chaosSpeed,'normal');
+});

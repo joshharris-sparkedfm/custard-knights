@@ -14,6 +14,7 @@ CUES = {
     "roof": "Rooftop Rumble", "bog": "Custard Bog",
     "race": "Chicken Racing · every arena", "hotpie": "Hot Pie · every arena",
     "wardrobe": "Wardrobe", "victory": "Winning results", "defeat": "Losing results / rematch",
+    "oh-nae-nae": "Rare Oh Nae Nae arena event",
 }
 
 
@@ -58,7 +59,7 @@ def generate(repo, output):
         cards.append(render_card(number, track["slot"], track["title"], media, metadata, track["source_url"], warning))
     copy_asset(provenance_path, output / "source-provenance.json")
     evidence = repo / "release/music/evidence"
-    for filename in ("inspection-all.json", "inspection-all.md", "suno-generated.jpg"):
+    for filename in ("inspection-all.json", "inspection-all.md", "suno-generated.jpg", "inspection-oh-nae-nae.json", "suno-oh-nae-nae.jpg"):
         destination = output / filename
         if not destination.exists():
             copy_asset(evidence / filename, destination)
@@ -70,20 +71,20 @@ def generate(repo, output):
 :root{color-scheme:dark;--bg:#121a24;--panel:#1b2734;--ink:#f7f1df;--muted:#b2bdc9;--gold:#f3cb73;--line:#334250}*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font-family:system-ui,-apple-system,"Segoe UI",sans-serif;line-height:1.55}main{max-width:1160px;margin:auto;padding:52px 24px 64px}.eyebrow{text-transform:uppercase;letter-spacing:.18em;color:var(--gold);font-size:12px;font-weight:750}h1{font-family:Georgia,serif;font-size:clamp(36px,5vw,62px);line-height:1.08;letter-spacing:-.035em;margin:14px 0 20px;max-width:760px}header>p{max-width:790px;color:var(--muted);font-size:17px}.tags{display:flex;gap:9px;flex-wrap:wrap;margin:23px 0}.tags span{border:1px solid var(--line);border-radius:999px;padding:5px 12px;font-size:12px;color:var(--muted)}.notice{padding:17px 20px;border-left:3px solid var(--gold);background:#202b36;border-radius:0 10px 10px 0;margin:28px 0;color:#e2e6ea}.notice strong{color:var(--gold)}.player-status{display:flex;justify-content:space-between;gap:16px;align-items:center;margin:34px 0 20px;padding-bottom:16px;border-bottom:1px solid var(--line);font-size:14px;color:var(--muted)}button{font:inherit;padding:9px 15px;color:var(--ink);background:var(--panel);border:1px solid #596a79;border-radius:7px;cursor:pointer}button:hover{border-color:var(--gold)}button:focus-visible,a:focus-visible{outline:3px solid var(--gold);outline-offset:4px}.tracks{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}.track{background:var(--panel);padding:24px;border:1px solid var(--line);border-radius:13px}.track-top{display:flex;align-items:center;gap:13px}.number{font-size:13px;color:var(--gold);font-variant-numeric:tabular-nums;font-weight:750}.cue{color:var(--muted);font-size:12px;text-transform:uppercase;letter-spacing:.055em}.track h2{font-size:22px;line-height:1.25;margin:14px 0 10px;letter-spacing:-.02em}.metadata{font-size:12px;color:var(--muted);margin:0 0 20px}audio{width:100%;height:42px}.track-footer{display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;margin-top:18px;font-size:12px;color:var(--muted)}a{color:var(--gold);text-underline-offset:3px}.warning{font-size:13px;padding:11px 13px;background:#3d3022;border:1px solid #745d36;border-radius:7px;color:#ffe0a0}footer{margin-top:38px;padding-top:25px;border-top:1px solid var(--line);font-size:13px;color:var(--muted)}footer p{max-width:850px}.evidence{display:flex;gap:18px;flex-wrap:wrap}@media(max-width:700px){main{padding:30px 16px}.tracks{grid-template-columns:1fr}.track{padding:20px}.player-status{align-items:flex-start}.cue{font-size:11px}}@media(prefers-reduced-motion:reduce){*{scroll-behavior:auto}}
 </style></head><body><main>
 <header><div class="eyebrow">Custard Knights · listening room</div><h1>A soundtrack for a very noble food fight.</h1>
-<p>Review eleven new Suno WAV candidates alongside the original menu theme. Play a cue, check how it feels against its setting, and listen through its ending. Only one player runs at a time.</p>
-<div class="tags"><span>VERSION_PLACEHOLDER</span><span>12 playable cues</span><span>11 untouched WAV exports</span><span>Human review pending</span></div></header>
-<div class="notice"><strong>Playback candidates, not final musical selections.</strong> The first exported variant was selected from each pair. Musical fit, absence of unwanted vocals, mix balance and seamless loops still need human listening. Another Helping has a measured 1.595-second silent tail.</div>
+<p>Review the Suno WAV candidates alongside the original menu theme, including the new Oh Nae Nae song. Play a cue, check how it feels against its setting, and listen through its ending. Only one player runs at a time.</p>
+<div class="tags"><span>VERSION_PLACEHOLDER</span><span>CUE_COUNT playable cues</span><span>WAV_COUNT untouched WAV exports</span><span>Human review pending</span></div></header>
+<div class="notice"><strong>Playback candidates, not final musical selections.</strong> The first exported variant was selected from each pair. Musical fit, mix balance and seamless loops still need human listening. Oh Nae Nae intentionally has sung lyrics and plays during its rare arena event. Another Helping has a measured 1.595-second silent tail.</div>
 <div class="player-status"><span id="now-playing" role="status" aria-live="polite">Choose a track to begin. Nothing autoplays.</span><button id="pause-all" type="button">Pause all</button></div>
 <section class="tracks" aria-label="Soundtrack players">CARDS_PLACEHOLDER</section>
 <footer><p>New WAVs retain the exported 48 kHz stereo, 16-bit PCM audio. There was no trimming, normalization, resampling or MP3-to-WAV conversion. Peaks are sample measurements, not perceived loudness. Original downloads and preserved masters remain unchanged.</p>
 <p>The technical report records zero file-structure errors and no full-scale clipping samples, plus the inspection runtime failures and successful checks. These checks do not establish a good musical loop.</p>
-<div class="evidence"><a href="source-provenance.json">Track sources and provenance</a><a href="inspection-all.md">Inspection notes</a><a href="inspection-all.json">Technical measurements</a><a href="suno-generated.jpg">Generation screenshot</a></div></footer>
+<div class="evidence"><a href="source-provenance.json">Track sources and provenance</a><a href="inspection-all.md">Original instrumental inspection</a><a href="inspection-oh-nae-nae.json">Oh Nae Nae measurements</a><a href="suno-oh-nae-nae.jpg">Oh Nae Nae generation</a><a href="suno-generated.jpg">Instrumental generation</a></div></footer>
 </main><script>
 const players=[...document.querySelectorAll('audio')],status=document.querySelector('#now-playing');
 for(const player of players){player.addEventListener('play',()=>{for(const other of players)if(other!==player)other.pause();status.textContent='Playing: '+player.dataset.title;});player.addEventListener('ended',()=>{status.textContent='Finished: '+player.dataset.title;});player.addEventListener('error',()=>{status.textContent='Unable to load '+player.dataset.title+'. Keep the audio files beside this review page.';});}
 document.querySelector('#pause-all').addEventListener('click',()=>{for(const player of players)player.pause();status.textContent='All tracks paused.';});
 </script></body></html>'''
-    page = page.replace("VERSION_PLACEHOLDER", escape(package["version"])).replace("CARDS_PLACEHOLDER", "\n".join(cards))
+    page = page.replace("VERSION_PLACEHOLDER", escape(package["version"])).replace("CARDS_PLACEHOLDER", "\n".join(cards)).replace("CUE_COUNT", str(len(cards))).replace("WAV_COUNT", str(len(provenance["tracks"])))
     target = output / "index.html"
     target.write_text(page, encoding="utf-8")
     return target

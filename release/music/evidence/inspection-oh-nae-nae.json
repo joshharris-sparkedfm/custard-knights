@@ -1,0 +1,27 @@
+{
+  "files": [
+    {
+      "path": "C:\\Users\\Joshua\\Documents\\Codex\\2026-10-08\\rea\\work\\custard-knights\\audio\\13-oh-nae-nae-whats-your-name.wav",
+      "sha256": "b0a29f48c7300e2a9e807f0b616b127c237f4436e5929d007c15e1d2655de917",
+      "file_bytes": 17293840,
+      "encoding": "integer PCM",
+      "sample_rate_hz": 48000,
+      "channels": 2,
+      "container_bits": 16,
+      "valid_bits": 16,
+      "frames": 4320000,
+      "duration_seconds": 90.0,
+      "peak_fraction": 0.6638691366313669,
+      "peak_dbfs": -3.5583504258944743,
+      "full_scale_samples": 0,
+      "possible_clipping": false,
+      "silence_threshold_dbfs": -60.0,
+      "all_below_silence_threshold": false,
+      "leading_silence_seconds": 0.0,
+      "trailing_silence_seconds": 0.0,
+      "loop_verified": false,
+      "notes": "Full-scale samples flag possible clipping, not proof of distortion. Silence is threshold-based. No loudness, musical-loop or listening assessment was performed."
+    }
+  ],
+  "errors": []
+}

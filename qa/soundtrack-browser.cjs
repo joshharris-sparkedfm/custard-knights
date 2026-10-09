@@ -54,7 +54,7 @@ async function main(){
  await send('Page.navigate',{url:origin+'/index.html?qa=1'});
  check('Integrated game loads with the native music element observed before startup',await until('!!(window.CK&&CK.cueMusic&&window.__soundtrackQA&&window.__soundtrackQA.audios.length)',15000));
  if(packaged){check('Frozen package loads through the real custard protocol with renderer isolation',await run(`location.origin==='custard://game'&&typeof require==='undefined'&&typeof process==='undefined'`));check('Packaged media runner blocks external network',await run(`(async()=>{try{await fetch('https://example.com/');return false;}catch{return true;}})()`));}
- check('All 12 soundtrack slots are enabled',await run('Object.keys(CK_SOUNDTRACK).length===12&&Object.values(CK_SOUNDTRACK).every(s=>typeof s===\'string\'&&s.length>0)'));
+ check('All catalog soundtrack slots are enabled',await run(`Object.keys(CK_SOUNDTRACK).length===${tracks.length}&&Object.values(CK_SOUNDTRACK).every(s=>typeof s==='string'&&s.length>0)`));
  check('Original menu MP3 remains the menu source',await run('CK_SOUNDTRACK.menu===\'menu-theme.mp3\''));
  await run(`document.getElementById('sMusic').value='37';document.getElementById('sMusic').dispatchEvent(new Event('input'));`);
  for(const track of tracks){

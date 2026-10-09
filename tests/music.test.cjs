@@ -15,7 +15,7 @@ function fixture(t) {
 test('missing soundtrack slots retain existing menu fallback and silent slots', t => {
   const rootDir = fixture(t), catalog = buildCatalog({ rootDir });
   assert.equal(catalog.menu, 'menu-theme.mp3');
-  assert.equal(Object.keys(catalog).length, 12);
+  assert.equal(Object.keys(catalog).length, 13);
   for (const track of tracks.filter(t => t.id !== 'menu')) assert.equal(catalog[track.id], null);
 });
 

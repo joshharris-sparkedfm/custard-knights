@@ -1,0 +1,26 @@
+(async()=>{
+ const passed=[],check=(v,s)=>{if(!v)throw Error(s);passed.push(s);};await CK.sprLoadAll();
+ const kinds=[['light',.22],['heavy',.3],['stab',.18],['bash',.18]];
+ // Exercise the actual update->doHit path; assertions are fixed combat expectations, not copied pose outputs.
+ for(const [kind,dur] of kinds){for(const [elapsed,expected,label] of [[.059,false,'startup'],[.085,true,'contact'],[dur-.025,false,'recovery']]){
+  CK.begin({humans:2,map:'courtyard',mode:'ffa'});const g=CK.G(),a=g.ents[0],b=g.ents[1];g.ents=g.ents.slice(0,2);g.ev=null;g.mayhem=null;g.pickups=[];g.spawnT=99;
+  Object.assign(a,{x:600,y:400,face:0,inv:0,protect:0,vx:0,vy:0});Object.assign(b,{x:640,y:400,face:Math.PI,inv:0,protect:0,vx:0,vy:0,hitLock:0});CK.startSwing(a,kind);a.swing=dur-elapsed+.001;a.vx=a.vy=0;CK.update(.001);
+  check(a.hitSet.includes(b.id)===expected,kind+' actual collision '+label+' at '+Math.round(elapsed*1000)+'ms');
+ }}
+ CK.begin({humans:0});const g=CK.G();g.clock=1;g.over=false;
+ const cv=document.createElement('canvas');cv.width=cv.height=320;const c=cv.getContext('2d');
+ const render=e=>{c.setTransform(1,0,0,1,0,0);c.clearRect(0,0,320,320);CK.withCtx(c,()=>{c.save();c.translate(160,190);CK.drawKnight(e);c.restore();});const p=c.getImageData(0,0,320,320).data;let h=2166136261;for(let i=0;i<p.length;i++)h=Math.imul(h^p[i],16777619);return h>>>0;};
+ for(const sprites of [true,false]){CK.sprites(sprites);const hashes=kinds.map(([kind,dur])=>render(CK.mkKnight({id:42,face:0,swingKind:kind,swingDur:dur,swing:dur-.085})));check(new Set(hashes).size===4,(sprites?'Baked':'Classic')+' four attack silhouettes differ during contact');
+  const idle=CK.mkKnight({id:42,face:0});check(render(idle)!==render({...idle,charge:.6}),(sprites?'Baked':'Classic')+' charge differs from idle');
+  CK.presentationSettings({flash:false,shake:false});const e=CK.mkKnight({id:42,face:0,stun:.3,flash:.1});const quiet=render(e);CK.presentationSettings({flash:true});check(quiet!==render(e),(sprites?'Baked':'Classic')+' reduced flash removes white hit overlay while retaining hit pose');
+  for(const face of [0,Math.PI/2,Math.PI,-Math.PI/2,-Math.PI/4]){const e=CK.mkKnight({id:42,face,kit:{helm:'roosterCrown',metal:'steel',plume:'feather'},cape:'teaTowel',blade:'goldenWhisk',swingKind:'stab',swingDur:.18,swing:.095});const before=JSON.stringify(e);render(e);check(JSON.stringify(e)===before,(sprites?'Baked':'Classic')+' custom outfit render preserves entity at facing '+face.toFixed(2));}
+  const plain=CK.mkKnight({id:42,kit:{helm:'great',metal:'steel',plume:'feather'}}),crown={...plain,kit:{...plain.kit,helm:'roosterCrown'}};check(CK.headTop(crown)<CK.headTop(plain)-5,(sprites?'Baked':'Classic')+' overhead clears taller earned crown');
+ }
+ CK.presentationSettings({flash:false,shake:false});
+ const a=g.ents[0];Object.assign(a,{swingKind:'heavy',swingDur:.3,swing:.241,heavyReach:true,guardLock:.5,whiffT:.2,dashT:.1});const before=CK.combatBeat(a),snap=CK.snapshot();Object.assign(a,{swing:0,heavyReach:false,guardLock:0,whiffT:0});CK.applySnap(snap);
+ check(Math.abs(a.swing-.241)<.00001&&CK.combatBeat(a).phase===before.phase,'Host snapshot retains 59ms heavy startup without 100ms timer rounding');check(a.heavyReach&&a.guardLock===.5&&a.whiffT===.2,'Guest receives charged reach and vulnerability cues');CK.clientTick(.05);check(a.dashT<.1&&a.guardLock<.5&&a.whiffT<.2,'Guest presentation timers advance between authoritative snapshots');
+ document.getElementById('tSettings').click();const flash=document.getElementById('cFlash');flash.focus();const checked=flash.checked;CK.menuActivate();check(flash.checked!==checked,'Controller activation toggles focused settings checkbox');const slider=document.getElementById('sShake');slider.value=50;slider.focus();CK.menuNav(-1,0);check(slider.value==='49'&&document.activeElement===slider,'Controller Left steps focused slider without changing focus');CK.menuNav(1,0);check(slider.value==='50'&&document.getElementById('oShake').textContent.includes('50'),'Controller Right dispatches slider input and refreshes its output');CK.menuNav(0,-1);check(document.activeElement!==slider,'Controller Up leaves slider for spatial navigation');
+ CK.openWardrobe();const save=document.querySelector('#collectionGoals .ck-presets button');save.focus();save.scrollIntoView({block:'center'});const ward=document.getElementById('wardrobe'),scroll=ward.scrollTop;CK.menuActivate();check(document.activeElement.dataset.ckFocus==='preset:0:save','Saving an outfit retains controller focus on the replaced Save button');check(Math.abs(ward.scrollTop-scroll)<2,'Saving an outfit preserves wardrobe scroll position');const tryOn=document.querySelector('#collectionGoals .ck-card button');tryOn.focus();CK.menuActivate();check(document.activeElement.dataset.ckFocus==='item:tea-towel:try','Changing try-on preserves focus on the same item action');
+ CK.begin({humans:1});CK.endMatch();await new Promise(r=>setTimeout(r,350));const podium=document.querySelector('#end .collectionPodium'),rect=podium.getBoundingClientRect();check(rect.width===180&&rect.height===150,'Actual round-result costume canvas stays 180 by 150 instead of flex stretching');
+ CK.sprites(true);CK.freeze(true);return {passed};
+})()

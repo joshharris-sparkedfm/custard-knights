@@ -1,10 +1,10 @@
 # Custard Knights
 
-**Development plan:** [Master build plan](BUILD-PLAN.md), covering gameplay feel, graphics and animation, the solo campaign, party Cups, earned cosmetics and validation. This is the current planning entry point; its proposed features are not yet implemented.
+**Development plan:** [Master build plan](BUILD-PLAN.md), covering gameplay feel, graphics and animation, the solo campaign, party Cups, earned cosmetics and validation. The [launch status](release/LAUNCH-STATUS.md) records what is implemented and tested; the plan also contains future work.
 
 A cartoon top-down arena brawler for 8 knights. You fight bots, a friend on the same keyboard, friends online, or all of them at once. The power-ups start sensible and get sillier as the match goes on.
 
-This is a playable browser prototype with local and online play. The current plan builds on it to validate combat, presentation, a solo campaign and party Cups before deciding on production packaging or an engine change.
+This is a playable browser game with local and online play, plus a Windows candidate under preparation for Steam. See the [release handoff](release/STEAM-HANDOFF.md) for build commands, verified checks and remaining release gates. The first eight campaign encounters, three-round Custard Cup and six-item earned collection are implemented.
 
 ![Castle Courtyard](docs/m_courtyard.png)
 
@@ -12,10 +12,16 @@ This is a playable browser prototype with local and online play. The current pla
 
 Open `index.html` in any modern browser. Nothing to install.
 
+For the Windows build, run `npm ci`, `npm run package:win`, then launch `dist/Custard Knights-win32-x64/Custard Knights.exe`. Keep the whole output folder together. F11 toggles fullscreen. See the [twelve-track Suno brief](release/SUNO-SOUNDTRACK.md) for the soundtrack prompts and export filenames; only the existing menu theme is included until more recordings are added.
+
 To host it for free, turn on **GitHub Pages** (Settings → Pages → Deploy from branch → `main` / root). The game is then live at `https://<your-username>.github.io/<repo-name>/`.
 
 ## What's in it
 
+- **The Great Pudding War:** eight authored story encounters, optional spoon goals, checkpoints, assistance, Steve rescue and a two-phase boss.
+- **Custard Cup:** three linked rounds, human standings, arena votes, ready-up and event-backed awards.
+- **Earned collection:** six extra cosmetics, first reward choice, pinned goals, retained partial progress, previews, three outfits and validated progression/campaign backups.
+- **Visor choice:** free closed and open options for every helmet, saved with outfits and shown online. Closed is the default; open keeps small eyes recessed inside the helmet.
 - **6 arenas:** Castle Courtyard (hedge maze, well, spike traps), Frosty Keep (ice and a chasm with bridges), Pie Factory (conveyor belts that carry you into pits), Dragon's Larder (lava pools and a lava river), Rooftop Rumble (rooftops split by drops, with springs to bounce across), Custard Bog (a mud river that slows you down, and portals)
 - **Hazards:** pits, spike traps that pop on a timer, ice, conveyor belts, lava that burns and shoves you back, mud, springs that launch you the way you are moving, portals that drop you at a random other portal, breakable crates that sometimes hide a power-up
 - **Weapon pads:** Bow, Bomb Bag and Custard Cannon. Picking up the same weapon again levels it up.
@@ -68,11 +74,11 @@ Touch devices get an on-screen stick plus Swing, Dash and Block buttons. Pause w
 
 ## Planned development
 
-These documents describe proposed work, not released features:
+These documents retain design proposals and research. The implemented first chapter, Cup and collection are described in the release handoff; later kingdoms and unvalidated experiments remain proposals.
 
 - [Master build plan](BUILD-PLAN.md): gameplay and graphics improvements, delivery sequence, 24 work items and acceptance checks.
 - [Player-behaviour roadmap](PLAYER-BEHAVIOUR-ROADMAP.md): research, retention hypotheses, experiments and measurement.
 - [The Great Pudding War](THE-GREAT-PUDDING-WAR.md): dessert kingdoms, story map, first chapter and bosses.
 - [Cosmetic progression](COSMETIC-PROGRESSION.md): desirable gameplay-earned rewards, previews and collection goals. No microtransactions or combat advantages.
 
-First fix session/reward reliability, then improve combat/readability, validate the campaign and Cup slices, and add the initial cosmetic collection. Additional kingdoms, recording features and Steam packaging follow the plan's evidence and capacity gates. Proximity voice and a speculative engine rewrite are deferred.
+The current pass refines combat animation and gameplay readability on the packaged baseline. Additional kingdoms and recording features remain future work. Steam account/review and real hardware/network checks still gate release. Proximity voice and an engine rewrite are deferred.

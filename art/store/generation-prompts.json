@@ -1,0 +1,33 @@
+{
+  "created": "2026-10-08",
+  "tool": "Codex built-in image_gen",
+  "ownership": "Existing reference artwork commercially owned by Joshua; confirmed in chat 2026-10-08. Developer/publisher Sparked FM Ltd.",
+  "references": {
+    "castle": "art/keyart/home.webp — existing procedural castle, palette and environment reference",
+    "gameplay": "qa/results/2026-10-08T09-29-19-screenshots/courtyard-ffa.png — actual character appearance and costume reference",
+    "landscape": "art/store/source/landscape.png — newly generated style consistency reference"
+  },
+  "assets": [
+    {
+      "file": "source/landscape.png",
+      "prompt": "Use case: ads-marketing. Create production key artwork for the existing indie arena brawler Custard Knights, matching the supplied references. Image 1 is the existing procedurally rendered castle palette and environment reference. Image 2 is the actual game for knight costume and silhouette reference, not an edit target. Landscape 3840 by 2160. A joyful, chaotic clash of three squat, chunky medieval knights with oversized closed steel helmets, feather plumes, bright red, teal and purple capes, tiny orange leather boots, chest emblem and a small sword, pie and wooden shield. They are playfully duelling as yellow custard pies fly between them, with one cheeky ordinary chicken running near their feet. Bold dark-purple outlines, flat cel shading, simple polished 3D cartoon volumes with the cheerful colour palette of the existing castle reference; no gritty fantasy, no human faces. The red-caped lead knight and the action live mainly on the RIGHT half, clear readable silhouettes, the castle with custard spilling over the central turret in the background. LEFT 45 percent stays visually quiet with darker purple shaded stone, subtle custard ribbons and distant towers, to support a large logo added later. Full bleed artwork, not a card or mockup. No text, logos, UI, watermarks, ratings, promotional words or date. This is promotional illustration only, not a fake gameplay screenshot. Keep all hero heads comfortably in the central horizontal band for wide capsule crops.",
+      "references": ["castle", "gameplay"],
+      "requestedSize": "3840x2160; generated source dimensions may differ"
+    },
+    {
+      "file": "source/portrait.png",
+      "prompt": "Use case: ads-marketing. Create a companion PORTRAIT key-art illustration for Custard Knights matching supplied image 1 (game palette/environment), image 2 (real game character costume) and image 3 (new approved-direction store key art style). All images are references, not edit targets. Tall portrait 1024 by 1536, intended for 600x900 Steam library cover and 748x896 store vertical capsule. Full bleed flat cel-shaded cartoon art with bold purple ink outlines. One heroic squat little knight in a closed steel greathelm, red feather and cape, orange boots, wooden shield and small sword leaps toward us through a playful custard pie battle in front of a lavender castle overflowing with golden custard. Ordinary cheeky white chicken alongside near the lower corner. Supporting teal and purple knights farther back. Hero visually occupies CENTER LOWER half, face fully visible near vertical midpoint. TOP 35 percent has quiet dark purple shaded castle walls and a sweeping custard splash rim, enough clean negative space for the game's large title to be added later. Keep the heroic main knight, sword and shield within the central 70 percent width; no limbs cut by the image edge. Cheerful slapstick; steel helmets conceal all faces. No text, logos, slogans, UI, promotional copy, ratings or watermark.",
+      "references": ["castle", "gameplay", "landscape"]
+    },
+    {
+      "file": "source/hero.png",
+      "prompt": "Use case: ads-marketing. Generate a TEXT-FREE ULTRAWIDE Steam library HERO illustration for Custard Knights. Output aspect ratio approximately 3.1:1, ideally 3840x1240. Match image 1 original castle, image 2 actual gameplay knight appearance, image 3 new store key art's cartoon style. Images are reference inputs. Full-bleed cheerful landscape, playful small stout closed-helmet medieval knights duelling with pies in front of pastel lavender castle with custard spilling from a turret. Bold dark purple outlines, orange boots, red/teal/purple capes, cel shading, no faces. Wide artwork with castle wings and trees extending to both edges. Crucial: keep the face and feather of the lead red knight near the DEAD CENTER of the entire image, small enough to fit within the central 22 percent width and 30 percent height safe region, supported by a flying custard pie. Put secondary knights toward the sides of the central third and a small white chicken toward lower right. Outer edges may have flying pie splashes, crates and castle walls. Include space along lower left for a separate transparent logo that will be laid over the image by Steam. No text, logos, ratings, UI, claims or watermarks. Do not make a collage, border, card or mockup.",
+      "references": ["castle", "gameplay", "landscape"]
+    },
+    {
+      "file": "source/icon.png",
+      "prompt": "Use case: logo-brand. Produce a square 1024x1024 application icon for Custard Knights, matching the supplied new store illustration as a style reference. A single large charming closed silver medieval greathelm with three chunky dark-purple visor slits, a vivid red feather plume curving upward from the crown, and a drippy golden custard splash diagonally behind it. Bold silhouette, clean cel shading, thick dark-purple outlines, orange/gold highlights, rounded toy-like volumes. Purple circular shield-like backdrop fills the square; not a phone mockup, no border template. Helmet centered and occupying 70 percent of the image; plume stays inside full image boundaries. This icon must remain recognizable at 32x32 pixels. No text, letters, logo words, UI, extra knights, watermark, dramatic realism or additional objects.",
+      "references": ["landscape"]
+    }
+  ]
+}

@@ -1,0 +1,37 @@
+# Collection UI checks
+
+- PASS: All six authored cosmetics have goal cards
+- PASS: Locked try-on previews the selected item without saving it
+- PASS: Try-on renders large and native gameplay-size previews
+- PASS: Work-towards button persists the selected goal
+- PASS: First completion choice earns and equips the selected cape
+- PASS: First choice does not grant both capes
+- PASS: Switching goals retains the prior partial progress
+- PASS: Third outfit preset saves and restores appearance
+- PASS: Repeated result does not advance the goalboard
+- PASS: Two human seats award one household collection completion
+- PASS: First accepted human result offers the two-cape choice
+- PASS: Result choice earns and equips the actual Toast cape
+- PASS: Eight real end-result hooks earn the pinned Golden Whisk
+- PASS: Repeated engine end cannot duplicate collection progress
+- PASS: Integrated wardrobe exposes every collection card
+- PASS: Integrated locked try-on leaves equipped appearance untouched
+- PASS: Try-on draws real knight pixels through the game renderer
+- PASS: Third outfit preset survives save reload and restores through strict ownership
+- PASS: Export/import restores earned collection and actual equipped outfit
+- PASS: Earned mixed outfit reaches a real match entity
+- PASS: Network start includes the result pose
+- PASS: Baked renderer visibly draws Tea Towel
+- PASS: Baked renderer visibly draws Burnt Toast
+- PASS: Baked renderer visibly draws Golden Whisk
+- PASS: Baked renderer visibly draws Rooster Crown
+- PASS: Baked renderer visibly draws Rice Guard
+- PASS: Baked renderer visibly draws Steve Strut
+- PASS: Classic renderer visibly draws Tea Towel
+- PASS: Classic renderer visibly draws Burnt Toast
+- PASS: Classic renderer visibly draws Golden Whisk
+- PASS: Classic renderer visibly draws Rooster Crown
+- PASS: Classic renderer visibly draws Rice Guard
+- PASS: Classic renderer visibly draws Steve Strut
+- PASS: Three-round Cup grants Steve Strut without an extra completion
+- PASS: Actual page reload preserves collection receipts, pin, third preset and earned outfit

@@ -1,0 +1,29 @@
+{
+  "passed": [
+    "Closed default does not request the optional open atlas scripts",
+    "Missing and malformed visor choices default to closed",
+    "Wardrobe exposes the default closed visor",
+    "Open visor is freely selectable and saved",
+    "Second local player keeps an independent closed choice",
+    "Saving and wearing an outfit restores its visor",
+    "Export/import restores the equipped visor",
+    "Saved visor is applied in ffa",
+    "Saved visor is applied in race",
+    "Saved visor is applied in teams",
+    "Saved visor is applied in hotpie",
+    "Saved visor is applied in lks",
+    "Saved visor is applied in flags",
+    "Saved visor is applied in heist",
+    "Saved visor is applied in kotp",
+    "Changing visor does not mutate current combat entities",
+    "Visor rendering preserves entity state",
+    "Visor rendering preserves entity state",
+    "Classic fallback renders visibly different open and closed visors",
+    "Visor rendering preserves entity state",
+    "Visor rendering preserves entity state",
+    "Visor rendering preserves entity state",
+    "Missing optional open assets preserve the entire closed render as atomic fallback",
+    "Actual page reload preserves selected and preset visors"
+  ],
+  "assetsReady": false
+}

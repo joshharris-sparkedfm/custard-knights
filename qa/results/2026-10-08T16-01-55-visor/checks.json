@@ -1,0 +1,56 @@
+{
+  "passed": [
+    "Closed default does not request the optional open atlas scripts",
+    "Missing and malformed visor choices default to closed",
+    "Wardrobe exposes the default closed visor",
+    "Controller Right reaches the Open visor control",
+    "Controller activation preserves visor control focus",
+    "Open visor is freely selectable and saved",
+    "Second local player keeps an independent closed choice",
+    "Saving and wearing an outfit restores its visor",
+    "Export/import restores the equipped visor",
+    "Old wardrobe backup without visor migrates to closed",
+    "Saved visor is applied in ffa",
+    "Saved visor is applied in race",
+    "Saved visor is applied in teams",
+    "Saved visor is applied in hotpie",
+    "Saved visor is applied in lks",
+    "Saved visor is applied in flags",
+    "Saved visor is applied in heist",
+    "Saved visor is applied in kotp",
+    "Changing visor does not mutate current combat entities",
+    "Visor rendering preserves entity state",
+    "Visor rendering preserves entity state",
+    "Classic fallback renders visibly different open and closed visors",
+    "Visor rendering preserves entity state",
+    "Visor rendering preserves entity state",
+    "Both complete open atlas roots decode",
+    "Visor rendering preserves entity state",
+    "Actual open and closed gameplay faces differ",
+    "Visor rendering preserves entity state",
+    "Visor rendering preserves entity state",
+    "Actual open and closed hero faces differ",
+    "Actual page reload preserves selected and preset visors"
+  ],
+  "assetsReady": true,
+  "openDecodeWaitMs": 60,
+  "elapsedMs": 399,
+  "browserMetrics": [
+    {
+      "name": "Documents",
+      "value": 1
+    },
+    {
+      "name": "Nodes",
+      "value": 1588
+    },
+    {
+      "name": "JSHeapUsedSize",
+      "value": 11952800
+    },
+    {
+      "name": "JSHeapTotalSize",
+      "value": 14749696
+    }
+  ]
+}

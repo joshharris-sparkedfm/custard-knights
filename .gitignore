@@ -2,3 +2,9 @@ qa/results/*/raw.json
 art/concepts/*/
 art/lab/*.png
 art/_compare.png
+node_modules/
+dist/
+build/
+__pycache__/
+qa/results/*/*.png
+qa/results/*/soak-status.json

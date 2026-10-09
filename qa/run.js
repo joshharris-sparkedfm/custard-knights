@@ -3,32 +3,65 @@
 //   node qa/run.js                 full matrix (every arena x every persona, plus bots-only)
 //   node qa/run.js quick           one arena per persona
 //   node qa/run.js perf            real-time frame-rate sample on each arena
+//   node qa/run.js soak            one-hour real-time rendering/audio/rematch soak
 // Output: qa/results/<stamp>/raw.json and summary.md
 const fs=require('fs'), path=require('path'), {spawn}=require('child_process');
-const ROOT=path.resolve(__dirname,'..'), PORT=9377, mode=process.argv[2]||'full';
+const ROOT=path.resolve(__dirname,'..'), mode=process.argv[2]||'full';
 const CHROME=process.env.CHROME||'C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe';
 const sleep=ms=>new Promise(r=>setTimeout(r,ms));
-const stamp=new Date().toISOString().replace(/[:.]/g,'-').slice(0,19), OUT=path.join(__dirname,'results',stamp); fs.mkdirSync(OUT,{recursive:true});
-const prof=path.join(process.env.TEMP||'.', 'ck-qa-profile');
-const chrome=spawn(CHROME,['--headless=new','--remote-debugging-port='+PORT,'--user-data-dir='+prof,'--window-size=1600,1000','--hide-scrollbars','--autoplay-policy=no-user-gesture-required','--mute-audio','about:blank'],{stdio:'ignore'});
+const stamp=new Date().toISOString().replace(/[:.]/g,'-').slice(0,19)+'-'+mode, OUT=path.join(__dirname,'results',stamp); fs.mkdirSync(OUT,{recursive:true});
+const prof=fs.mkdtempSync(path.join(require('os').tmpdir(),'ck-qa-'));
+const chrome=spawn(CHROME,['--headless=new','--remote-debugging-port=0','--user-data-dir='+prof,'--window-size=1600,1000','--hide-scrollbars','--autoplay-policy=no-user-gesture-required','--mute-audio','about:blank'],{stdio:'ignore'});
 process.on('exit',()=>{ try{chrome.kill()}catch(e){} });
 (async()=>{
- let tabs; for(let i=0;i<60;i++){ try{ tabs=await (await fetch(`http://127.0.0.1:${PORT}/json`)).json(); break; }catch(e){ await sleep(250); } }
- const t=tabs.find(x=>x.type==='page'); const ws=new WebSocket(t.webSocketDebuggerUrl); let id=0; const pend={};
- const send=(method,params={})=>new Promise(res=>{ const i=++id; pend[i]=res; ws.send(JSON.stringify({id:i,method,params})); });
- ws.onmessage=m=>{ const d=JSON.parse(m.data); if(d.id&&pend[d.id]){ pend[d.id](d.result); delete pend[d.id]; } };
- await new Promise(r=>ws.onopen=r);
- const evalJs=async(expression,awaitPromise=false)=>{ const r=await send('Runtime.evaluate',{expression,returnByValue:true,awaitPromise,timeout:600000}); if(r&&r.exceptionDetails) throw new Error(JSON.stringify(r.exceptionDetails).slice(0,600)); return r&&r.result&&r.result.value; };
+ let port;for(let i=0;i<60;i++){try{port=Number(fs.readFileSync(path.join(prof,'DevToolsActivePort'),'utf8').split('\n')[0]);break;}catch{await sleep(250);}}
+ if(!port)throw Error('Chrome did not open its debugging port');
+ const tabs=await (await fetch(`http://127.0.0.1:${port}/json`)).json();
+ const t=tabs.find(x=>x.type==='page');if(!t)throw Error('No Chrome page');
+ const ws=new WebSocket(t.webSocketDebuggerUrl);let id=0;const pend=new Map();
+ const failAll=error=>{for(const p of pend.values()){clearTimeout(p.timer);p.reject(error);}pend.clear();};
+ const send=(method,params={})=>new Promise((resolve,reject)=>{
+  const i=++id,timer=setTimeout(()=>{pend.delete(i);reject(Error(method+' timed out after 30s'));},30000);
+  pend.set(i,{resolve,reject,timer});ws.send(JSON.stringify({id:i,method,params}));
+ });
+ ws.onmessage=m=>{const d=JSON.parse(m.data),p=pend.get(d.id);if(p){clearTimeout(p.timer);pend.delete(d.id);d.error?p.reject(Error(JSON.stringify(d.error))):p.resolve(d.result);}if(d.method==='Inspector.targetCrashed')failAll(Error('Chrome renderer crashed'));};
+ ws.onclose=()=>failAll(Error('Chrome connection closed'));ws.onerror=()=>failAll(Error('Chrome connection failed'));
+ await new Promise((resolve,reject)=>{ws.onopen=resolve;ws.addEventListener('error',reject,{once:true});});
+ await send('Inspector.enable');
+ const evalJs=async(expression,awaitPromise=false)=>{const r=await send('Runtime.evaluate',{expression,returnByValue:true,awaitPromise,timeout:25000});if(r&&r.exceptionDetails)throw Error(JSON.stringify(r.exceptionDetails).slice(0,1000));return r&&r.result&&r.result.value;};
  await send('Page.navigate',{url:'file:///'+path.join(ROOT,'index.html').replace(/\\/g,'/')+'?qa=1'+(process.env.CKQ||'')});
  for(let i=0;i<40;i++){ await sleep(250); if(await evalJs('!!window.CK')) break; }
+ if(!await evalJs('!!window.CK'))throw Error('Game failed to initialize');
+ if(mode==='soak'){
+  await require('./soak.cjs')({evalJs,OUT,sleep,chromePid:chrome.pid});
+  ws.close();chrome.kill();return;
+ }
+ if(mode==='screenshots'){
+  await send('Emulation.setDeviceMetricsOverride',{width:1920,height:1080,deviceScaleFactor:1,mobile:false});
+  await evalJs('CK.sprLoadAll()',true);
+  for(const [map,md] of [['courtyard','ffa'],['frost','lks'],['factory','heist'],['dungeon','ffa'],['roof','race'],['bog','flags']]){
+   await evalJs(`CK.begin({map:'${map}',mode:'${md}',humans:0});CK.adv(660);0`);await sleep(200);
+   const shot=await send('Page.captureScreenshot',{format:'png',captureBeyondViewport:false});
+   fs.writeFileSync(path.join(OUT,`${map}-${md}.png`),Buffer.from(shot.data,'base64'));
+  }
+  console.log('Gameplay screenshots: '+OUT);ws.close();chrome.kill();return;
+ }
+ if(mode==='regression'||mode==='cup'||mode==='campaign'){
+  const result=await evalJs(fs.readFileSync(path.join(__dirname,mode==='campaign'?'campaign-checks.js':mode==='cup'?'cup-checks.js':'release-checks.js'),'utf8'),true);
+  fs.writeFileSync(path.join(OUT,'raw.json'),JSON.stringify(result,null,2));
+  fs.writeFileSync(path.join(OUT,'summary.md'),'# Release regressions\n\n'+result.passed.map(x=>'- PASS: '+x).join('\n')+'\n');
+  console.log(JSON.stringify(result,null,2));ws.close();chrome.kill();return;
+ }
  await evalJs(fs.readFileSync(path.join(__dirname,'agents.js'),'utf8'));
  const maps=await evalJs('Object.keys(CK.MAPS)'), personas=await evalJs('QA.personas');
  const results=[];
- const run=async(o)=>{ const r=await evalJs(`QA.runMatch(${JSON.stringify(o)})`); results.push(r); const me=r.ents.find(e=>e.human===1); console.log(`${o.map.padEnd(9)} ${String(o.persona||'bots').padEnd(9)} ${o.diff.padEnd(6)} ${(r.simMs/1000).toFixed(1)}s  human ${me?me.score+'/'+me.deaths:'-'}  errors ${r.errors.length}`); return r; };
+ const run=async(o)=>{ const r=await evalJs(`QA.runMatch(${JSON.stringify(o)})`); results.push(r); fs.writeFileSync(path.join(OUT,'raw.json'),JSON.stringify(results)); const me=r.ents.find(e=>e.human===1); console.log(`${o.map.padEnd(9)} ${String(o.persona||'bots').padEnd(9)} ${o.diff.padEnd(6)} ${(r.simMs/1000).toFixed(1)}s  human ${me?me.score+'/'+me.deaths:'-'}  errors ${r.errors.length}`); return r; };
  if(mode==='perf'){
-  for(const map of maps){ await evalJs(`CK.begin({map:'${map}',diff:'spicy',humans:0}); CK.freeze(false); 0`); await sleep(1500);
+  const visorMix=process.env.CK_PERF_VISORS==='1';
+  if(visorMix&&!await evalJs('CK.sprLoadVisors()',true))throw Error('Mixed-visor performance check requires both complete open families');
+  for(const map of maps){ await evalJs(`CK.begin({map:'${map}',diff:'spicy',humans:0});${visorMix?"CK.G().ents.forEach((e,i)=>{e.kit.visor=i%2?'open':'closed';e.kit.helm=['great','sallet','horned','crest','kettle','barbute'][i%6]});":''} CK.freeze(false); 0`); await sleep(1500);
    const fps=await evalJs(`new Promise(res=>{let n=0,t0=performance.now();const f=()=>{n++; if(performance.now()-t0>4000) res(n/((performance.now()-t0)/1000)); else requestAnimationFrame(f)}; requestAnimationFrame(f)})`,true);
-   console.log(map.padEnd(9),'fps',fps.toFixed(1)); results.push({map,fps}); await evalJs('CK.freeze(true);0'); }
+   console.log(map.padEnd(9),'fps',fps.toFixed(1)); results.push({map,fps,visorMix}); await evalJs('CK.freeze(true);0'); }
  } else {
   const plan=[]; const modeRows=[];
   const MODESET=['lks','kotp','heist','race','hotpie','flags'];
@@ -39,8 +72,8 @@ process.on('exit',()=>{ try{chrome.kill()}catch(e){} });
  }
  fs.writeFileSync(path.join(OUT,'raw.json'),JSON.stringify(results));
  if(mode!=='perf') fs.writeFileSync(path.join(OUT,'summary.md'),summarise(results));
- else fs.writeFileSync(path.join(OUT,'summary.md'),'# Frame rate\n\n'+results.map(r=>`- ${r.map}: ${r.fps.toFixed(1)} fps`).join('\n')+'\n');
- console.log('\nwrote',OUT); ws.close(); chrome.kill(); process.exit(0);
+ else fs.writeFileSync(path.join(OUT,'summary.md'),'# Frame rate\n\n'+(results[0]?.visorMix?'All six helmets; open and closed visor families mixed in each arena.\n\n':'')+results.map(r=>`- ${r.map}: ${r.fps.toFixed(1)} fps`).join('\n')+'\n');
+ console.log('\nwrote',OUT); ws.close(); chrome.kill(); process.exit(mode!=='perf'&&results.some(r=>r.errors.length||!r.over)?1:0);
 })().catch(e=>{ console.error(e); chrome.kill(); process.exit(1); });
 
 function pct(a,b){ return b?Math.round(100*a/b)+'%':'-'; }

@@ -1,0 +1,48 @@
+# Release regressions
+
+- PASS: Campaign adapter is exposed in opt-in QA
+- PASS: Fresh save opens the winding chapter map
+- PASS: Exactly eight chapter encounters appear on the map
+- PASS: A fresh save unlocks only the banquet
+- PASS: Story exchange is shown before first play
+- PASS: Banquet starts one human and two authored guards
+- PASS: Actual sword collision damages the banquet guard
+- PASS: Guard combat followed by pantry capture completes encounter one
+- PASS: Completion saves the first spoon
+- PASS: Campaign result screen replaces party standings
+- PASS: First encounter unlocks pudding defence
+- PASS: Campaign result never pays ordinary match coins
+- PASS: Defence clears wave one and spawns a distinct second wave
+- PASS: Pudding defence completes only after both waves
+- PASS: Actual heavy contact breaks the rice guard shield and damages him
+- PASS: Shield duel completes from accepted combat KO
+- PASS: Main bridge and optional toll both unlock after guard
+- PASS: Five actual projectile collisions fire five reflection hooks
+- PASS: Biscuit trial awards the five-reflection optional spoon
+- PASS: Actual dash over the marked gap records the movement feat
+- PASS: Bridge checkpoints and far-end capture complete encounter five
+- PASS: Three actual blocked sword contacts pass Stirling defence
+- PASS: Defeating Stirling starts the pie-hold test
+- PASS: Uncontested pie holding completes the third examination test
+- PASS: Three actual sword/crate contacts break Steve cage and create the guaranteed egg
+- PASS: Real pickup collision mounts Steve
+- PASS: Mounted gate route completes Steve rescue
+- PASS: Marshal marks a fixed slam target before attacking
+- PASS: Player evasion leaves the original warning circle and opens a punish window
+- PASS: Half-health transition summons two shield guards
+- PASS: Marshal sweep explicitly damages his own shield formation
+- PASS: Boss defeat starts a playable trapped-soldier rescue
+- PASS: Real sword/crate rescue completes Marshal encounter
+- PASS: All eight distinct playable encounters completed by scripted engine QA
+- PASS: Campaign collection pays exactly once per completed encounter
+- PASS: Chapter and Steve milestones unlock their real wardrobe rewards
+- PASS: Whole campaign bypasses generic party economy
+- PASS: Real player KO offers immediate failure recovery
+- PASS: Failed encounters do not increment collection completion goals
+- PASS: Retry button launches a clean encounter
+- PASS: Bridge death respawns at the reached checkpoint
+- PASS: Boss phase checkpoint is persisted before retry
+- PASS: A new campaign instance resumes the persisted checkpoint
+- PASS: Resume rebuilds the second boss phase without stale timers
+- PASS: Completed spoons and chapter map survive return from a battle
+- PASS: Quick brawl exit clears campaign runtime and overlays

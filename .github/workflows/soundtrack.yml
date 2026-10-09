@@ -39,16 +39,16 @@ jobs:
           const {buildCatalog}=require('./scripts/music.cjs');
           const p=require('./release/music/source-provenance.json');
           const catalog=buildCatalog();
-          assert.equal(Object.values(catalog).filter(Boolean).length,12);
+          assert.equal(Object.values(catalog).filter(Boolean).length,13);
           assert.equal(catalog.menu,'menu-theme.mp3');
           assert.equal(crypto.createHash('sha256').update(fs.readFileSync(p.retained_menu.file)).digest('hex'),p.retained_menu.sha256);
           const tracks=p.tracks;
-          assert.equal(tracks.length,11);
+          assert.equal(tracks.length,12);
           for(const t of tracks){
             const data=fs.readFileSync(t.file);
             assert.equal(crypto.createHash('sha256').update(data).digest('hex'),t.sha256,t.file);
             assert.equal(data.length,t.file_bytes);
             assert.equal(catalog[t.slot],t.file);
           }
-          console.log('All eleven original WAV hashes and twelve catalog cues verified.');
+          console.log('All twelve original WAV hashes and thirteen catalog cues verified.');
           JS

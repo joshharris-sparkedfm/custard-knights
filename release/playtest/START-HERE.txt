@@ -33,6 +33,23 @@ Please try without coaching first. Getting stuck is useful feedback.
 You can explore more afterwards. Start on Easy or Medium; STEVE is the
 hardest setting. All four difficulty levels still need human feedback.
 
+NEW IN BETA 4
+
+Dash/knockback and delayed online snapshots should no longer leave a knight
+permanently off-screen. Spawns recheck hazards and occupied positions.
+Arena pickups now include Crossbow and Returning Croissant.
+Choose Simple, Normal or Insane chaos in arena setup, independently of bots.
+Simple keeps basic pickups and ordinary weapons, without escalating events.
+Normal builds gradually; Insane starts higher and builds faster.
+In eligible Normal/Insane arena rounds, Oh Nae Nae and McGinley each have a 1%
+chance of being selected. At most one appears, and many sessions will see neither.
+Oh Nae Nae gives one living human an AK47 with 30 shots for up to 12 seconds,
+accompanied by the new song. Hold Swing to fire. A new weapon ends it early.
+McGinley gives one living human up to eight lightning strikes over 10 seconds.
+Walls, guards and spawn protection still count. Death or falling ends either
+power. These surprises are off in Simple, races, Story and Faction Front.
+Please report if a power or its song remains after the event or a rematch.
+
 CONTROLS
 
 Solo arena/story: WASD or arrows move; Space swings (hold for heavy);

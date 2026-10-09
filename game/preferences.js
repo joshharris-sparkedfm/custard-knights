@@ -11,7 +11,8 @@
  function config(raw,modes,maps){const v=record(raw),r={mode:'ffa',players:1,diff:difficulty(v.diff),map:'random',chaosPlus:false,chaosSpeed:'normal',length:180,teamSplit:false};
   if(modes.includes(v.mode))r.mode=v.mode;if(maps.includes(v.map)||v.map==='random')r.map=v.map;
   if(Number.isInteger(v.players)&&v.players>=1&&v.players<=4)r.players=v.players;
-  if(['normal','fast','unhinged'].includes(v.chaosSpeed))r.chaosSpeed=v.chaosSpeed;
+  if(['simple','normal','insane'].includes(v.chaosSpeed))r.chaosSpeed=v.chaosSpeed;
+  else if(['fast','unhinged'].includes(v.chaosSpeed))r.chaosSpeed='insane';
   if([90,180,300].includes(v.length))r.length=v.length;for(const k of ['chaosPlus','teamSplit'])if(typeof v[k]==='boolean')r[k]=v[k];return r;
  }
  return {settings,config,difficulty};

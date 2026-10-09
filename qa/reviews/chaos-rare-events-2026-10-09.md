@@ -1,0 +1,22 @@
+# Chaos choices and rare powers — friends beta 4
+
+Arena setup now offers Simple, Normal and Insane independently of bot difficulty. Simple keeps base hazards, ordinary weapons and tier-one pickups while disabling time/KO escalation, mayhem, global events, Steve/Norr and rare powers. Normal retains the existing clock pacing; Insane starts at 0.33 and builds faster, capped at 1. Old Fast/Unhinged saves migrate to Insane; other preferences remain intact.
+
+Each eligible Normal/Insane arena round makes one partitioned random selection: 1% Oh Nae Nae, 1% McGinley, 98% neither. Only the authority chooses it and its one living human recipient. A selected event waits while conflicting events are busy or no human is eligible, expires if too late, and never rerolls. Actual appearance can therefore be below 1%; larger player counts and Insane do not multiply the odds. Race, Story, Faction Front/private ranked and demo contexts do not receive these events.
+
+- Oh Nae Nae equips 30 AK47 rounds for at most 12 game seconds, with 0.12-second shot cadence and bounded nonpiercing bullets. Ordinary pads/supply drops exclude it. Exhaustion, replacement with an ordinary weapon, death, falling, departure and scene changes remove it. Its original WAV temporarily takes over the single music element; volume/mute still apply and normal scene music resumes.
+- McGinley grants at most eight strike opportunities over ten seconds. It selects the closest hostile living knight within 300 units and line of sight, honoring team membership, guard, spawn protection, invulnerability, hit lock and the normal dash immunity window. Visual lightning respects reduced flashes. Guests present serialized effects without computing damage or scores.
+
+Review caught and corrected three details before freezing: floating-point first-packet remaining time above the nominal limit, rare recipients becoming bots on disconnect, and lightning missing normal dash immunity. Runtime source is `6eec04154419dbab0c3cc5f2a5a6936a60ce3f45`; index SHA256 is `3c27c03c9593b91c03afbf002c03387ae0d83dd32009774d0d40784d8a17df5d`.
+
+## Evidence
+
+- 21 focused chaos/preferences/weapons tests pass, plus 10 catalog/desktop tests. Pure tests exercise all 10,000 probability partitions and per-round lifecycle boundaries; browser scenarios force plans deterministically instead of pretending to measure unforced occurrence rates.
+- `qa/results/chaos-events/final/`: 83 actual-browser checks pass, zero exceptions/native media errors. Includes all eight arena modes in Simple, saved legacy settings with real reloads, rare effects/cleanup, protection rules, guest snapshots, repeated packets preserving the same music playhead and scene priority. Actual reduced-flash screenshots were reviewed.
+- `qa/results/rare-network/third/`: 17 real PeerJS checks pass across host, recipient and witness profiles. Includes host setup propagation, rejected guest self-awards/forged messages, real guest attack input/ammo replication, native WAV playback and recipient departure cleanup. Earlier harness-only failures are preserved and explained in the adjacent README.
+- New original Suno WAV: native 48 kHz stereo 16-bit PCM, 90 seconds, 17,293,840 bytes, byte-identical to the download. Focused inspection exits successfully with no full-scale samples and no threshold-based leading/trailing silence. Prompt, original lyrics, source URL and proof are in `release/music/oh-nae-nae-prompt.md`. Prior recordings remain unchanged.
+- The frozen ASAR passes 85 packaged chaos/native-WAV/isolation checks with zero exceptions/media errors. Windows packaging matches all 56 runtime/metadata entries; actual EXE save/restart/launcher/relocation passes. Hosted Battle core run37973139408 passes all six jobs; Soundtrack run37973139390 passes both jobs, first attempts. Exact archives and subsequent packaged-event/CI results are recorded in `release/PREVIEW-BUILD.md` and `qa/results/chaos-events/`.
+
+## Limits
+
+These are controlled integration and same-network checks, with browser audio output muted. They do not establish human fun/balance, physical controllers, WAN behavior, minimum hardware, speakers, musical quality or licensing. The user selected a private downloadable friends beta; no public server, Steam publication or friends sending is implied. Earlier unexplained local native runtime anomalies remain open. The very low odds mean a short friends session may legitimately see neither rare event.

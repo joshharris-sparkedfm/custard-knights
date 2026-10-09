@@ -15,7 +15,8 @@
     "style": 50,
     "variants_per_prompt": 2,
     "selection": "First exported variant for each prompt; not an auditory best-of-two judgment",
-    "evidence": "release/music/evidence/suno-generated.jpg"
+    "evidence": "release/music/evidence/suno-generated.jpg",
+    "scope": "Original eleven instrumental tracks; track-specific generation overrides apply to later additions."
   },
   "rights_context": {
     "prior_user_commercial_use_confirmation": true,
@@ -214,7 +215,7 @@
       "duration_seconds": 178.76,
       "peak_dbfs": -3.4267855509457794,
       "full_scale_samples": 0,
-      "leading_silence_seconds": 0.000020833333333333333,
+      "leading_silence_seconds": 2.0833333333333333e-05,
       "trailing_silence_seconds": 0,
       "loop_verified": false,
       "musical_review": "pending_human_review",
@@ -306,7 +307,7 @@
       "duration_seconds": 178.6,
       "peak_dbfs": -2.8206311636111794,
       "full_scale_samples": 0,
-      "leading_silence_seconds": 0.000041666666666666665,
+      "leading_silence_seconds": 4.1666666666666665e-05,
       "trailing_silence_seconds": 1.5945625,
       "loop_verified": false,
       "musical_review": "pending_human_review",
@@ -314,6 +315,44 @@
       "technical_review_notes": [
         "Trailing silence may leave a gap on repeat; retained unchanged for audition."
       ]
+    },
+    {
+      "sha256": "b0a29f48c7300e2a9e807f0b616b127c237f4436e5929d007c15e1d2655de917",
+      "file_bytes": 17293840,
+      "encoding": "integer PCM",
+      "sample_rate_hz": 48000,
+      "channels": 2,
+      "container_bits": 16,
+      "valid_bits": 16,
+      "frames": 4320000,
+      "duration_seconds": 90.0,
+      "peak_fraction": 0.6638691366313669,
+      "peak_dbfs": -3.5583504258944743,
+      "full_scale_samples": 0,
+      "possible_clipping": false,
+      "silence_threshold_dbfs": -60.0,
+      "all_below_silence_threshold": false,
+      "leading_silence_seconds": 0.0,
+      "trailing_silence_seconds": 0.0,
+      "loop_verified": false,
+      "slot": "oh-nae-nae",
+      "title": "Oh Nae Nae, What's Your Name?",
+      "file": "audio/13-oh-nae-nae-whats-your-name.wav",
+      "source_url": "https://suno.com/song/31dd1e62-9d26-4efe-9a10-b48b6bae2a2f",
+      "source_download_filename": "Custard Knights - Oh Nae Nae, What's Your Name_.wav",
+      "musical_review": "pending_human_review",
+      "import_note": "byte-identical to original native WAV download",
+      "generation": {
+        "service": "Suno",
+        "model": "v6",
+        "plan_observed": "Pro",
+        "instrumental": false,
+        "duration_seconds": 90,
+        "prompt_and_original_lyrics": "release/music/oh-nae-nae-prompt.md",
+        "evidence": "release/music/evidence/suno-oh-nae-nae.jpg",
+        "selection": "First listed variant; no comparative listening claim",
+        "publicly_published": false
+      }
     }
   ]
 }

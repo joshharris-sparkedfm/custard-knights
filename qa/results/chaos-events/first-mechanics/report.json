@@ -1,0 +1,377 @@
+{
+  "checks": [
+    {
+      "name": "ffa Simple remains at zero after real KO and scheduled escalation opportunities",
+      "pass": true,
+      "details": {
+        "chaos": 0,
+        "pickups": []
+      }
+    },
+    {
+      "name": "teams Simple remains at zero after real KO and scheduled escalation opportunities",
+      "pass": true,
+      "details": {
+        "chaos": 0,
+        "pickups": []
+      }
+    },
+    {
+      "name": "lks Simple remains at zero after real KO and scheduled escalation opportunities",
+      "pass": true,
+      "details": {
+        "chaos": 0,
+        "pickups": []
+      }
+    },
+    {
+      "name": "kotp Simple remains at zero after real KO and scheduled escalation opportunities",
+      "pass": true,
+      "details": {
+        "chaos": 0,
+        "pickups": []
+      }
+    },
+    {
+      "name": "heist Simple remains at zero after real KO and scheduled escalation opportunities",
+      "pass": true,
+      "details": {
+        "chaos": 0,
+        "pickups": []
+      }
+    },
+    {
+      "name": "race Simple remains at zero after real KO and scheduled escalation opportunities",
+      "pass": true,
+      "details": {
+        "chaos": 0,
+        "pickups": []
+      }
+    },
+    {
+      "name": "flags Simple remains at zero after real KO and scheduled escalation opportunities",
+      "pass": true,
+      "details": {
+        "chaos": 0,
+        "pickups": []
+      }
+    },
+    {
+      "name": "hotpie Simple remains at zero after real KO and scheduled escalation opportunities",
+      "pass": true,
+      "details": {
+        "chaos": 0,
+        "pickups": []
+      }
+    },
+    {
+      "name": "Normal retains existing 115-second clock pacing on easy",
+      "pass": true,
+      "details": {
+        "before": 0,
+        "after": 0.008695652173913045
+      }
+    },
+    {
+      "name": "Insane starts heightened and stays capped independently of easy",
+      "pass": true,
+      "details": {
+        "initial": 0.33,
+        "after": 1
+      }
+    },
+    {
+      "name": "Normal retains existing 115-second clock pacing on medium",
+      "pass": true,
+      "details": {
+        "before": 0,
+        "after": 0.008695652173913045
+      }
+    },
+    {
+      "name": "Insane starts heightened and stays capped independently of medium",
+      "pass": true,
+      "details": {
+        "initial": 0.33,
+        "after": 1
+      }
+    },
+    {
+      "name": "Normal retains existing 115-second clock pacing on hard",
+      "pass": true,
+      "details": {
+        "before": 0,
+        "after": 0.008695652173913045
+      }
+    },
+    {
+      "name": "Insane starts heightened and stays capped independently of hard",
+      "pass": true,
+      "details": {
+        "initial": 0.33,
+        "after": 1
+      }
+    },
+    {
+      "name": "Normal retains existing 115-second clock pacing on steve",
+      "pass": true,
+      "details": {
+        "before": 0,
+        "after": 0.008695652173913045
+      }
+    },
+    {
+      "name": "Insane starts heightened and stays capped independently of steve",
+      "pass": true,
+      "details": {
+        "initial": 0.33,
+        "after": 1
+      }
+    },
+    {
+      "name": "Settings exposes Simple, Normal and Insane independently of difficulty",
+      "pass": true
+    },
+    {
+      "name": "simple is persisted through actual settings UI",
+      "pass": true
+    },
+    {
+      "name": "normal is persisted through actual settings UI",
+      "pass": true
+    },
+    {
+      "name": "insane is persisted through actual settings UI",
+      "pass": true
+    },
+    {
+      "name": "Legacy fast settings normalize without changing difficulty",
+      "pass": true
+    },
+    {
+      "name": "Legacy unhinged settings normalize without changing difficulty",
+      "pass": true
+    },
+    {
+      "name": "Simple blocks explicit escalating event and special pickup entry paths",
+      "pass": true
+    },
+    {
+      "name": "Simple retains ordinary weapon combat",
+      "pass": true
+    },
+    {
+      "name": "Simple cannot activate either rare event",
+      "pass": true
+    },
+    {
+      "name": "nae low-roll plan initializes once and remains unchanged while busy",
+      "pass": true,
+      "details": {
+        "calls": 2,
+        "kind": "nae"
+      }
+    },
+    {
+      "name": "nae planned event selects the only living eligible human",
+      "pass": true,
+      "details": {
+        "ownerId": 1
+      }
+    },
+    {
+      "name": "nae selected round cannot produce another rare event",
+      "pass": true
+    },
+    {
+      "name": "mcginley low-roll plan initializes once and remains unchanged while busy",
+      "pass": true,
+      "details": {
+        "calls": 2,
+        "kind": "mcginley"
+      }
+    },
+    {
+      "name": "mcginley planned event selects the only living eligible human",
+      "pass": true,
+      "details": {
+        "ownerId": 1
+      }
+    },
+    {
+      "name": "mcginley selected round cannot produce another rare event",
+      "pass": true
+    },
+    {
+      "name": "Chicken Racing cannot activate rare events",
+      "pass": true
+    },
+    {
+      "name": "Actual campaign boot has no arena chaos policy or allocated rare plan",
+      "pass": true
+    },
+    {
+      "name": "Faction entry cannot activate arena rare events",
+      "pass": true
+    },
+    {
+      "name": "Faction simulation has no arena rare plan or AK equipment",
+      "pass": true
+    },
+    {
+      "name": "Guest cannot choose or activate a rare event",
+      "pass": true
+    },
+    {
+      "name": "Oh Nae Nae equips exactly 30 rounds for a 12-second event",
+      "pass": true
+    },
+    {
+      "name": "AK actual attack input consumes one round and applies rapid-fire cadence",
+      "pass": true
+    },
+    {
+      "name": "AK cannot fire faster than its reload",
+      "pass": true
+    },
+    {
+      "name": "AK held input fires after its reload window",
+      "pass": true
+    },
+    {
+      "name": "AK exhausts 30 rounds and clears the event without unlimited fire",
+      "pass": true,
+      "details": {
+        "shots": 30
+      }
+    },
+    {
+      "name": "AK expiry removes rare equipment and event",
+      "pass": true,
+      "details": {}
+    },
+    {
+      "name": "AK death removes rare equipment and event",
+      "pass": true,
+      "details": {}
+    },
+    {
+      "name": "AK fall removes rare equipment and event",
+      "pass": true,
+      "details": {}
+    },
+    {
+      "name": "AK replacement removes rare equipment and event",
+      "pass": true,
+      "details": {
+        "weapon": "bow"
+      }
+    },
+    {
+      "name": "AK end removes rare equipment and event",
+      "pass": true,
+      "details": {}
+    },
+    {
+      "name": "AK menu removes rare equipment and event",
+      "pass": true,
+      "details": {}
+    },
+    {
+      "name": "AK rematch removes rare equipment and event",
+      "pass": true,
+      "details": {}
+    },
+    {
+      "name": "McGinley enemy obeys target eligibility and guard",
+      "pass": true,
+      "details": {
+        "hp": 2,
+        "strikes": 1
+      }
+    },
+    {
+      "name": "McGinley protected obeys target eligibility and guard",
+      "pass": true,
+      "details": {
+        "hp": 3,
+        "strikes": 1
+      }
+    },
+    {
+      "name": "McGinley guarded obeys target eligibility and guard",
+      "pass": true,
+      "details": {
+        "hp": 3,
+        "strikes": 1
+      }
+    },
+    {
+      "name": "McGinley ally obeys target eligibility and guard",
+      "pass": true,
+      "details": {
+        "hp": 3,
+        "strikes": 1
+      }
+    },
+    {
+      "name": "McGinley blocked-los obeys target eligibility and guard",
+      "pass": true,
+      "details": {
+        "hp": 3,
+        "strikes": 1
+      }
+    },
+    {
+      "name": "McGinley out-of-range obeys target eligibility and guard",
+      "pass": true,
+      "details": {
+        "hp": 3,
+        "strikes": 1
+      }
+    },
+    {
+      "name": "McGinley lasts ten seconds with at most eight one-damage strikes",
+      "pass": true,
+      "details": {
+        "strikes": 8,
+        "hp": 14,
+        "largestHit": 1
+      }
+    },
+    {
+      "name": "McGinley death removes the event",
+      "pass": true
+    },
+    {
+      "name": "McGinley fall removes the event",
+      "pass": true
+    },
+    {
+      "name": "McGinley end removes the event",
+      "pass": true
+    },
+    {
+      "name": "McGinley menu removes the event",
+      "pass": true
+    },
+    {
+      "name": "McGinley rematch removes the event",
+      "pass": true
+    }
+  ],
+  "details": {
+    "mediaPending": true
+  },
+  "limitations": "Isolated native Chromium with synthetic profiles and controlled arena fixtures. Real simulation/input/collision/snapshot paths. Rare selection odds are covered by separate pure tests; forced plans here check integration, not statistical randomness. Native media checks do not certify auditory quality or speakers.",
+  "browserErrors": [],
+  "sourceHashes": {
+    "index.html": "3a71058bbfeec63ee969499438d8496d465a451c1c4d464a63980024b3a9c7e9",
+    "game/weapons.js": "85b6f00b108896f433f2c1fa67bb3f615d6aa005b4746fc970e0c3e45c186a8a",
+    "game/chaos.js": "7775b2f85e2767a30c369a3c21bc62e2e1fab089e6eec9f569abf55890933753",
+    "game/preferences.js": "4df2518c21b16b776bc6911bdd5e36cb3392cd9d713544243756e682ee634764",
+    "audio/soundtrack.js": "8efa2c0a4d4463b8f6d0041ea261f029fe6538d7e1b14b72adebd171fb541c9b"
+  },
+  "weaponSha256": "85b6f00b108896f433f2c1fa67bb3f615d6aa005b4746fc970e0c3e45c186a8a",
+  "indexSha256": "3a71058bbfeec63ee969499438d8496d465a451c1c4d464a63980024b3a9c7e9"
+}

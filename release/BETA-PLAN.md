@@ -1,15 +1,15 @@
 # Private Windows friends beta
 
-**Target: 0.3.0-beta.1.** Joshua is reviewing the alpha.6 executable; the next step is a downloadable private friends kit after the current fixes and source freeze. This plan does not claim that the beta has already been built, uploaded or played by friends. It is a feedback milestone, not a finished-game or public Steam-release claim.
+**Target: 0.3.0-beta.4.** Movement/spawn fixes, expanded weapons and bounded guest prediction have been exported through beta.3. The next kit adds chaos presets and rare events after focused checks and source freeze. PREVIEW-BUILD.md identifies the latest completed export. Keep Joshua's existing player window intact while building separately. This is a feedback milestone, not a finished-game or public Steam-release claim.
 
 ## What friends receive
 
-One versioned ZIP containing the complete Windows x64 game under `Game/`, `START-HERE.txt`, the offline `FEEDBACK.html` form and `BUILD-INFO.json`. Offline arena/bot play, the eight-encounter story chapter, the three-round Cup, Faction Front bot practice and saved wardrobe/progression are the starting scope. Eleven new WAV music candidates and the existing menu theme are included; musical fit and repeat points remain under review. Friends do not need Steam, Node, Python or a separately downloaded runtime.
+One versioned ZIP containing the complete Windows x64 game under `Game/`, `START-HERE.txt`, the offline `FEEDBACK.html` form and `BUILD-INFO.json`. Offline arena/bot play, the eight-encounter story chapter, the three-round Cup, Faction Front bot practice and saved wardrobe/progression are the starting scope. Twelve native WAV candidates (including the rare Oh Nae Nae song) and the existing menu theme are included; musical fit and repeat points remain under review. Friends do not need Steam, Node, Python or a separately downloaded runtime.
 
 ## Freeze, export and invite
 
 1. Finish the current UI/server fixes, review the changes and record the frozen source revision. Keep the currently running alpha.6 window intact while Joshua reviews it; packaging does not require replacing that running installation.
-2. Build the actual `0.3.0-beta.1` Windows candidate after the version bump. Record source revision, export ZIP SHA256 and packaged `app.asar` SHA256. Extract into a fresh folder and verify that the exported game launches with its sibling files and supplied music; preserve older archives separately.
+2. Build the actual `0.3.0-beta.4` Windows candidate after the version bump. Record source revision, export ZIP SHA256 and packaged `app.asar` SHA256. Extract into a fresh folder and verify that the exported game launches with its sibling files and supplied music; preserve older archives separately.
 3. Wrap that verified export with `scripts/playtest-bundle.py`, using its recorded version and hashes. Verify the kit's integrity and embedded identity. The feedback page is unchanged; reuse its existing behavior evidence rather than repeating that entire UI check solely for a new version string.
 4. Provide the complete friends ZIP through a private download link, with its size, SHA256 and the invitation message below. No public upload, endpoint or recipient list is assumed. Record the actual archive/link only after it exists.
 

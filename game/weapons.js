@@ -6,15 +6,21 @@
 })(typeof globalThis !== 'undefined' ? globalThis : this, function() {
   'use strict';
   const MAX_RETURN_LIFE = 1.8;
+  const MAX_BULLET_LIFE = 0.65;
   const definitions = Object.freeze({
     crossbow: Object.freeze({ name: 'Crossbow', ammo: 4, tip: 'Crossbow: one fast bolt pierces a line of knights. Aim carefully: the reload is slower than a bow. Blocks reflect it.' }),
     croissant: Object.freeze({ name: 'Returning Croissant', ammo: 3, tip: 'Croissant: throw, then reposition as it returns. One hit per enemy. Walls stop it; blocks reflect it.' })
   });
+  // Kept separate so ordinary pads and supply drops never offer event weapons.
+  const eventDefinitions = Object.freeze({
+    ak47: Object.freeze({ name: 'AK47', ammo: 30, tip: 'Oh Nae Nae! Hold Swing for rapid fire. 30 rounds, 12 seconds. Shields reflect the shots.' })
+  });
   const ranges = Object.freeze({
     crossbow: Object.freeze({ retreat: 190, approach: 360, attack: 520 }),
-    croissant: Object.freeze({ retreat: 100, approach: 230, attack: 340 })
+    croissant: Object.freeze({ retreat: 100, approach: 230, attack: 340 }),
+    ak47: Object.freeze({ retreat: 180, approach: 380, attack: 560 })
   });
-  const known = kind => Object.hasOwn(definitions, kind);
+  const known = kind => Object.hasOwn(definitions, kind) || Object.hasOwn(eventDefinitions, kind);
   const finite = value => typeof value === 'number' && Number.isFinite(value);
   const level = value => Math.max(1, Math.min(3, Math.floor(finite(value) ? value : 1)));
 
@@ -24,6 +30,15 @@
     if (!actor || !actor.wpn || !known(actor.wpn.kind) || !finite(actor.wpn.ammo) || actor.wpn.ammo <= 0 || ![actor.x, actor.y, actor.face].every(finite)) return null;
     const kind = actor.wpn.kind, lvl = level(actor.wpn.lvl);
     const ca = Math.cos(actor.face), sa = Math.sin(actor.face);
+    if (kind === 'ak47') {
+      if (!Number.isInteger(actor.wpn.ammo)) return null;
+      return {
+        projectiles: [{ k: 'bullet', x: actor.x + ca * 30, y: actor.y + sa * 30,
+          vx: ca * 1100, vy: sa * 1100, owner: actor, life: MAX_BULLET_LIFE,
+          r: 4, pierce: false, hit: [], lvl: 1, bulletAge: 0 }],
+        cooldown: 0.12, recoil: 24, sound: 'shoot'
+      };
+    }
     const speed = kind === 'crossbow' ? 1000 + 40 * (lvl - 1) : 560 + 20 * lvl;
     const projectile = {
       k: kind === 'crossbow' ? 'bolt' : 'croissant',
@@ -48,6 +63,11 @@
   // Call before the arena's normal position update. The total age never resets,
   // even if its normal reflection handler extends p.life or changes p.owner.
   function updateProjectile(projectile, dt) {
+    if (projectile && projectile.k === 'bullet') {
+      if (!finite(dt) || dt < 0 || ![projectile.x, projectile.y, projectile.vx, projectile.vy].every(finite)) return expire(projectile);
+      projectile.bulletAge = (finite(projectile.bulletAge) ? projectile.bulletAge : 0) + dt;
+      return projectile.bulletAge >= MAX_BULLET_LIFE ? expire(projectile) : true;
+    }
     if (!projectile || projectile.k !== 'croissant') return true;
     if (!finite(dt) || dt < 0 || ![projectile.x, projectile.y, projectile.vx, projectile.vy].every(finite)) return expire(projectile);
     const owner = projectile.owner;
@@ -96,6 +116,22 @@
     ctx.save();
     try {
       if (kind === 'croissant') { pastry(ctx, size * 0.65); return true; }
+      if (kind === 'ak47') {
+        ctx.lineJoin = 'round'; ctx.lineCap = 'round'; ctx.strokeStyle = '#37233F'; ctx.lineWidth = Math.max(2, size * 0.12);
+        // Chunky wooden stock, curved magazine and bright receiver keep the
+        // silhouette readable at the arena's small character scale.
+        ctx.fillStyle = '#BC7849'; ctx.beginPath(); ctx.moveTo(-size * 0.2, -size * 0.15);
+        ctx.lineTo(-size, -size * 0.3); ctx.lineTo(-size, size * 0.35); ctx.lineTo(-size * 0.2, size * 0.12); ctx.closePath(); ctx.fill(); ctx.stroke();
+        ctx.fillStyle = '#647687'; ctx.beginPath(); ctx.moveTo(size * 0.1, size * 0.1);
+        ctx.quadraticCurveTo(size * 0.25, size * 0.8, size * 0.65, size * 0.6);
+        ctx.lineTo(size * 0.48, size * 0.1); ctx.closePath(); ctx.fill(); ctx.stroke();
+        ctx.fillStyle = '#8FA8B9'; ctx.fillRect(-size * 0.3, -size * 0.22, size * 1.22, size * 0.38);
+        ctx.strokeRect(-size * 0.3, -size * 0.22, size * 1.22, size * 0.38);
+        ctx.beginPath(); ctx.moveTo(size * 0.9, -size * 0.05); ctx.lineTo(size * 1.5, -size * 0.05); ctx.stroke();
+        ctx.strokeStyle = '#F6BD54'; ctx.lineWidth = Math.max(1.5, size * 0.08);
+        ctx.beginPath(); ctx.moveTo(size * 0.08, -size * 0.11); ctx.lineTo(size * 0.72, -size * 0.11); ctx.stroke();
+        return true;
+      }
       ctx.lineCap = 'round'; ctx.lineJoin = 'round';
       ctx.strokeStyle = '#37233F'; ctx.lineWidth = size * 0.36;
       ctx.beginPath(); ctx.moveTo(-size * 0.7, 0); ctx.lineTo(size * 0.8, 0); ctx.stroke();
@@ -112,12 +148,18 @@
   }
 
   function drawProjectile(ctx, projectile, time = 0) {
-    if (!projectile || !['bolt', 'croissant'].includes(projectile.k)) return false;
+    if (!projectile || !['bolt', 'croissant', 'bullet'].includes(projectile.k)) return false;
     ctx.save();
     try {
       if (projectile.k === 'croissant') {
         ctx.rotate((finite(time) ? time : 0) * 12);
         pastry(ctx, finite(projectile.r) ? projectile.r : 12);
+      } else if (projectile.k === 'bullet') {
+        ctx.lineCap = 'round'; ctx.strokeStyle = '#37233F'; ctx.lineWidth = 7;
+        ctx.beginPath(); ctx.moveTo(-9, 0); ctx.lineTo(5, 0); ctx.stroke();
+        ctx.strokeStyle = '#F6BD54'; ctx.lineWidth = 4; ctx.stroke();
+        ctx.strokeStyle = '#FFF3DC'; ctx.lineWidth = 2;
+        ctx.beginPath(); ctx.moveTo(-7, -1); ctx.lineTo(4, -1); ctx.stroke();
       } else {
         ctx.lineCap = 'round'; ctx.strokeStyle = '#37233F'; ctx.lineWidth = 6;
         ctx.beginPath(); ctx.moveTo(-12, 0); ctx.lineTo(10, 0); ctx.stroke();
@@ -132,9 +174,9 @@
   }
 
   return Object.freeze({
-    definitions, createShot, updateProjectile, drawWeapon, drawProjectile,
+    definitions, eventDefinitions, createShot, updateProjectile, drawWeapon, drawProjectile,
     isRanged: known, ai: kind => known(kind) ? ranges[kind] : null,
-    tip: kind => known(kind) ? definitions[kind].tip : null,
+    tip: kind => known(kind) ? (definitions[kind] || eventDefinitions[kind]).tip : null,
     maxReturnLife: MAX_RETURN_LIFE
   });
 });

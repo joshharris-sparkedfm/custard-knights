@@ -1,6 +1,6 @@
 # Private friends beta kit
 
-The next kit targets **0.3.0-beta.1**, following the alpha.6 Windows review. The kit wraps a frozen Windows build with `START-HERE.txt`, a local feedback page and `BUILD-INFO.json`. This document does not mean the beta archive has been exported or shared: take its actual identity from that manifest and the recorded export hashes. It is for private feedback; it does not deploy an online server or certify sale readiness. See [BETA-PLAN.md](../BETA-PLAN.md) for the distribution checkpoint.
+The latest exported kit is **0.3.0-beta.2**, including the reported arena disappearance/trapdoor spawn fixes and two additional weapons. Its exact source, hashes and pending guest-prediction limitation are recorded in [PREVIEW-BUILD.md](../PREVIEW-BUILD.md). It wraps a frozen Windows build with `START-HERE.txt`, a local feedback page and `BUILD-INFO.json`; it has not been sent to friends or publicly uploaded. Later source changes are not in that kit until another versioned export is recorded. It is for private feedback; it does not deploy an online server or certify sale readiness. See [BETA-PLAN.md](../BETA-PLAN.md) for the distribution checkpoint.
 
 Send the complete ZIP using a private download link, together with its version, size and SHA256. Friends should download it, use Extract All and launch `Game/Custard Knights.exe`; do not send the EXE alone or ask them to run it inside the ZIP. Keep prior builds and archives separate. No hosting account or recipient list is assumed, and nothing is sent automatically.
 

@@ -1,0 +1,199 @@
+{
+  "results": [
+    {
+      "mode": "brawl",
+      "difficulty": "easy",
+      "players": 100,
+      "elapsed": 140.16666666667035,
+      "kills": 773,
+      "scores": {
+        "custardia": 388,
+        "rice": 400
+      },
+      "castles": [
+        2400,
+        2400
+      ],
+      "status": "finished"
+    },
+    {
+      "mode": "ctf",
+      "difficulty": "easy",
+      "players": 100,
+      "elapsed": 203.0000000000537,
+      "kills": 845,
+      "scores": {
+        "custardia": 3,
+        "rice": 1
+      },
+      "castles": [
+        2400,
+        2400
+      ],
+      "status": "finished"
+    },
+    {
+      "mode": "siege",
+      "difficulty": "easy",
+      "players": 100,
+      "elapsed": 47.44999999999859,
+      "kills": 185,
+      "scores": {
+        "custardia": 88,
+        "rice": 97
+      },
+      "castles": [
+        1701.6,
+        0
+      ],
+      "status": "finished"
+    },
+    {
+      "mode": "brawl",
+      "difficulty": "medium",
+      "players": 100,
+      "elapsed": 140.2000000000037,
+      "kills": 770,
+      "scores": {
+        "custardia": 389,
+        "rice": 400
+      },
+      "castles": [
+        2400,
+        2400
+      ],
+      "status": "finished"
+    },
+    {
+      "mode": "ctf",
+      "difficulty": "medium",
+      "players": 100,
+      "elapsed": 107.58333333332851,
+      "kills": 439,
+      "scores": {
+        "custardia": 0,
+        "rice": 3
+      },
+      "castles": [
+        2400,
+        2400
+      ],
+      "status": "finished"
+    },
+    {
+      "mode": "siege",
+      "difficulty": "medium",
+      "players": 100,
+      "elapsed": 600,
+      "kills": 2861,
+      "scores": {
+        "custardia": 1455,
+        "rice": 1406
+      },
+      "castles": [
+        1950.6,
+        2021.3000000000002
+      ],
+      "status": "finished"
+    },
+    {
+      "mode": "brawl",
+      "difficulty": "hard",
+      "players": 100,
+      "elapsed": 145.2833333333411,
+      "kills": 772,
+      "scores": {
+        "custardia": 400,
+        "rice": 387
+      },
+      "castles": [
+        2400,
+        2400
+      ],
+      "status": "finished"
+    },
+    {
+      "mode": "ctf",
+      "difficulty": "hard",
+      "players": 100,
+      "elapsed": 378.63333333331764,
+      "kills": 1652,
+      "scores": {
+        "custardia": 3,
+        "rice": 2
+      },
+      "castles": [
+        2400,
+        2400
+      ],
+      "status": "finished"
+    },
+    {
+      "mode": "siege",
+      "difficulty": "hard",
+      "players": 100,
+      "elapsed": 208.41666666672467,
+      "kills": 936,
+      "scores": {
+        "custardia": 474,
+        "rice": 462
+      },
+      "castles": [
+        0,
+        2110.3
+      ],
+      "status": "finished"
+    },
+    {
+      "mode": "brawl",
+      "difficulty": "steve",
+      "players": 100,
+      "elapsed": 142.68333333333902,
+      "kills": 765,
+      "scores": {
+        "custardia": 381,
+        "rice": 400
+      },
+      "castles": [
+        2400,
+        2400
+      ],
+      "status": "finished"
+    },
+    {
+      "mode": "ctf",
+      "difficulty": "steve",
+      "players": 100,
+      "elapsed": 393.03333333330454,
+      "kills": 1740,
+      "scores": {
+        "custardia": 2,
+        "rice": 3
+      },
+      "castles": [
+        2400,
+        2400
+      ],
+      "status": "finished"
+    },
+    {
+      "mode": "siege",
+      "difficulty": "steve",
+      "players": 100,
+      "elapsed": 600,
+      "kills": 2896,
+      "scores": {
+        "custardia": 1437,
+        "rice": 1459
+      },
+      "castles": [
+        2276.199999999999,
+        2224.7
+      ],
+      "status": "finished"
+    }
+  ],
+  "limitations": "One seeded complete match (maximum 600 simulated seconds) of 100 bots per mode/profile, requiring combat and flag/castle progress. No networking, human play, performance or multi-seed balance acceptance.",
+  "sourceCommit": "1b8fad09499f190720626567966bcf622de4fc57",
+  "indexSha256": "4a9a2aaf615f5155969423c6dd47d2b26825816bc8caa665343b6b38ca6f40ba"
+}

@@ -1,0 +1,57 @@
+{
+  "status": "pass",
+  "date": "2026-10-09T05:58:59.114Z",
+  "durationSeconds": 60.041563106,
+  "clients": 100,
+  "inputHzTarget": 20,
+  "mode": "brawl",
+  "humanCount": 100,
+  "clientTransport": "ws 8.22.0",
+  "inputs": 72100,
+  "receivedSnapshots": 75065,
+  "receivedPayloadBytes": 992906134,
+  "aggregateReceiveMbps": 132.29584076578155,
+  "wireVersion": 1,
+  "snapshotHz": 20,
+  "fullPackets": 400,
+  "deltaPackets": 74665,
+  "meanDeltaBytes": 13022.58170494877,
+  "maxDeltaBytes": 24705,
+  "equivalentFullPayloadMbps": 547.2125091413005,
+  "simulationSeconds": 59.35500817099804,
+  "scores": {
+    "custardia": 227,
+    "rice": 160
+  },
+  "kills": 378,
+  "serverTickP95Ms": 4.9164939999973285,
+  "serverTickP99Ms": 7.754892000000837,
+  "serverTickMaxMs": 14.497987000000649,
+  "serverTickGapMaxMs": 179.22683000000143,
+  "maxSnapshotBytes": 57218,
+  "clientSnapshotGapMaxMs": 183.7586969999993,
+  "clientInputIntervalP95Ms": 101.48790199999348,
+  "peakCombinedRssBytes": 290656256,
+  "unexpectedCloses": [],
+  "errors": [],
+  "rejectedInputs": 0,
+  "rateLimited": 0,
+  "host": {
+    "cpu": "AMD EPYC 7763 64-Core Processor",
+    "memoryBytes": 16766414848,
+    "platform": "linux",
+    "node": "v24.21.0"
+  },
+  "source": {
+    "coreSha256": "34193621c1044ad1d3fdfcfbc0a93fcd0d8459ac7d5aa6e7fc267582634e988d",
+    "serverSha256": "95bafd499ac70eb92f4eaf710b91cbf5e74250c008808730622e1ebf97fc101f",
+    "wireSha256": "e1a2b6ffe63ae8f51004cfbc42baa1fa4f494e0b1a71926d73be51d98360ceef"
+  },
+  "limitations": "One Node process runs both server and 100 scripted ws clients on loopback. All clients parse and decode every full/delta frame and actively chase/attack opponents. Equivalent full bandwidth extrapolates client zero state to100 clients. No browser rendering, WAN latency/loss, authenticated people, minimum-hardware or production bandwidth certification.",
+  "evidence": {
+    "runId": 37891071166,
+    "jobId": 113691899533,
+    "commit": "1b8fad09499f190720626567966bcf622de4fc57",
+    "retrievedFrom": "GitHub Actions job log, timestamp prefixes removed"
+  }
+}

@@ -1,0 +1,39 @@
+{
+  "host": "Intel(R) Core(TM) i9-14900K",
+  "viewport": [
+    1600,
+    950
+  ],
+  "source": {
+    "index.html": "4a9a2aaf615f5155969423c6dd47d2b26825816bc8caa665343b6b38ca6f40ba",
+    "game/mass-battle.js": "76acfad4d9104ec70a05e514935c6f728b33cecb2fee393a18fd58e30d24ca4e",
+    "game/mass-battle-ui.js": "d20004ecfb50d70883f23c2548ea3a1c2769deaaa5dd82c0d0219960adda4811"
+  },
+  "results": [
+    {
+      "frames": 601,
+      "wallMs": 10000.39999999702,
+      "fps": 60.09759609617406,
+      "p95FrameMs": 16.899999999999636,
+      "p99FrameMs": 17,
+      "players": 8
+    },
+    {
+      "frames": 601,
+      "wallMs": 10000.19999999851,
+      "fps": 60.09879802404848,
+      "p95FrameMs": 16.900000000001455,
+      "p99FrameMs": 17,
+      "players": 40
+    },
+    {
+      "frames": 500,
+      "wallMs": 10000.099999995531,
+      "fps": 49.99950000502229,
+      "p95FrameMs": 33.400000000001455,
+      "p99FrameMs": 50,
+      "players": 100
+    }
+  ],
+  "limitations": "Headless Chrome rendering and simulation on QA host, ten-second samples per size, centre-stage controlled setup with protected stationary local observer. Viewport culling remains enabled. Not minimum hardware, human play or WAN acceptance."
+}

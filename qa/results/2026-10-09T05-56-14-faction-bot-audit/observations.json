@@ -1,0 +1,199 @@
+{
+  "results": [
+    {
+      "mode": "brawl",
+      "difficulty": "easy",
+      "players": 100,
+      "elapsed": 34.9999999999993,
+      "kills": 193,
+      "scores": {
+        "custardia": 85,
+        "rice": 111
+      },
+      "castles": [
+        2400,
+        2400
+      ],
+      "status": "playing"
+    },
+    {
+      "mode": "ctf",
+      "difficulty": "easy",
+      "players": 100,
+      "elapsed": 34.9999999999993,
+      "kills": 126,
+      "scores": {
+        "custardia": 0,
+        "rice": 1
+      },
+      "castles": [
+        2400,
+        2400
+      ],
+      "status": "playing"
+    },
+    {
+      "mode": "siege",
+      "difficulty": "easy",
+      "players": 100,
+      "elapsed": 34.9999999999993,
+      "kills": 146,
+      "scores": {
+        "custardia": 75,
+        "rice": 71
+      },
+      "castles": [
+        1018,
+        1882.1000000000001
+      ],
+      "status": "playing"
+    },
+    {
+      "mode": "brawl",
+      "difficulty": "medium",
+      "players": 100,
+      "elapsed": 34.9999999999993,
+      "kills": 183,
+      "scores": {
+        "custardia": 111,
+        "rice": 77
+      },
+      "castles": [
+        2400,
+        2400
+      ],
+      "status": "playing"
+    },
+    {
+      "mode": "ctf",
+      "difficulty": "medium",
+      "players": 100,
+      "elapsed": 34.9999999999993,
+      "kills": 152,
+      "scores": {
+        "custardia": 0,
+        "rice": 0
+      },
+      "castles": [
+        2400,
+        2400
+      ],
+      "status": "playing"
+    },
+    {
+      "mode": "siege",
+      "difficulty": "medium",
+      "players": 100,
+      "elapsed": 34.9999999999993,
+      "kills": 152,
+      "scores": {
+        "custardia": 71,
+        "rice": 81
+      },
+      "castles": [
+        1628.9,
+        1957
+      ],
+      "status": "playing"
+    },
+    {
+      "mode": "brawl",
+      "difficulty": "hard",
+      "players": 100,
+      "elapsed": 34.9999999999993,
+      "kills": 181,
+      "scores": {
+        "custardia": 102,
+        "rice": 84
+      },
+      "castles": [
+        2400,
+        2400
+      ],
+      "status": "playing"
+    },
+    {
+      "mode": "ctf",
+      "difficulty": "hard",
+      "players": 100,
+      "elapsed": 34.9999999999993,
+      "kills": 148,
+      "scores": {
+        "custardia": 0,
+        "rice": 0
+      },
+      "castles": [
+        2400,
+        2400
+      ],
+      "status": "playing"
+    },
+    {
+      "mode": "siege",
+      "difficulty": "hard",
+      "players": 100,
+      "elapsed": 34.9999999999993,
+      "kills": 144,
+      "scores": {
+        "custardia": 78,
+        "rice": 66
+      },
+      "castles": [
+        2400,
+        1187.7000000000007
+      ],
+      "status": "playing"
+    },
+    {
+      "mode": "brawl",
+      "difficulty": "steve",
+      "players": 100,
+      "elapsed": 34.9999999999993,
+      "kills": 171,
+      "scores": {
+        "custardia": 86,
+        "rice": 89
+      },
+      "castles": [
+        2400,
+        2400
+      ],
+      "status": "playing"
+    },
+    {
+      "mode": "ctf",
+      "difficulty": "steve",
+      "players": 100,
+      "elapsed": 34.9999999999993,
+      "kills": 113,
+      "scores": {
+        "custardia": 0,
+        "rice": 1
+      },
+      "castles": [
+        2400,
+        2400
+      ],
+      "status": "playing"
+    },
+    {
+      "mode": "siege",
+      "difficulty": "steve",
+      "players": 100,
+      "elapsed": 34.9999999999993,
+      "kills": 148,
+      "scores": {
+        "custardia": 78,
+        "rice": 70
+      },
+      "castles": [
+        2307,
+        2400
+      ],
+      "status": "playing"
+    }
+  ],
+  "limitations": "35 simulated seconds of 100 bots for each mode/profile in the actual browser runtime. No networking, human play, performance or complete-objective acceptance.",
+  "sourceCommit": "d3fd7ab2f1bdcf6cc24420aba88a076f383794c7",
+  "indexSha256": "4a9a2aaf615f5155969423c6dd47d2b26825816bc8caa665343b6b38ca6f40ba"
+}

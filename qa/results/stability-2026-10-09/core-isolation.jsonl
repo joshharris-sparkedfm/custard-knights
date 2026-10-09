@@ -1,0 +1,64 @@
+{"event":"runtime","version":"v24.19.0","execArgv":[],"source":"2f320fc712f51667ecbffdbb06ca43bbd133ee747060a999da532f60aefc6d33","core":"76acfad4d9104ec70a05e514935c6f728b33cecb2fee393a18fd58e30d24ca4e","at":"2026-10-09T05:54:55.323Z"}
+{"event":"start","name":"all advertised sizes and modes produce complete stable faction rosters","at":"2026-10-09T05:54:55.327Z"}
+{"event":"pass","name":"all advertised sizes and modes produce complete stable faction rosters","at":"2026-10-09T05:54:55.328Z"}
+{"event":"start","name":"four named profiles preserve combat stats and legacy numeric practice selection","at":"2026-10-09T05:54:55.328Z"}
+{"event":"pass","name":"four named profiles preserve combat stats and legacy numeric practice selection","at":"2026-10-09T05:54:55.330Z"}
+{"event":"start","name":"harder profiles make faster, more precise decisions without stat bonuses","at":"2026-10-09T05:54:55.331Z"}
+{"event":"pass","name":"harder profiles make faster, more precise decisions without stat bonuses","at":"2026-10-09T05:54:55.332Z"}
+{"event":"start","name":"every bot role actually uses its ready ability instead of starving behind attacks","at":"2026-10-09T05:54:55.332Z"}
+{"event":"pass","name":"every bot role actually uses its ready ability instead of starving behind attacks","at":"2026-10-09T05:54:55.333Z"}
+{"event":"start","name":"CTF bots recover, intercept, escort and return instead of pursuing only kills","at":"2026-10-09T05:54:55.333Z"}
+{"event":"pass","name":"CTF bots recover, intercept, escort and return instead of pursuing only kills","at":"2026-10-09T05:54:55.334Z"}
+{"event":"start","name":"siege engineer defends and repairs; support follows a wounded squadmate","at":"2026-10-09T05:54:55.334Z"}
+{"event":"pass","name":"siege engineer defends and repairs; support follows a wounded squadmate","at":"2026-10-09T05:54:55.334Z"}
+{"event":"start","name":"human pressure budgets prevent ranged dogpiles without changing human health","at":"2026-10-09T05:54:55.334Z"}
+{"event":"pass","name":"human pressure budgets prevent ranged dogpiles without changing human health","at":"2026-10-09T05:54:55.336Z"}
+{"event":"start","name":"STEVE can time a parry and use a dash to close an opening","at":"2026-10-09T05:54:55.336Z"}
+{"event":"pass","name":"STEVE can time a parry and use a dash to close an opening","at":"2026-10-09T05:54:55.338Z"}
+{"event":"start","name":"projectile-aware bot turns its guard toward incoming arrows","at":"2026-10-09T05:54:55.338Z"}
+{"event":"pass","name":"projectile-aware bot turns its guard toward incoming arrows","at":"2026-10-09T05:54:55.342Z"}
+{"event":"start","name":"support and repair score only useful restoration; self-healing cannot farm support points","at":"2026-10-09T05:54:55.342Z"}
+{"event":"pass","name":"support and repair score only useful restoration; self-healing cannot farm support points","at":"2026-10-09T05:54:55.343Z"}
+{"event":"start","name":"human joins balance human counts and trusted ratings; leave refills exact slot","at":"2026-10-09T05:54:55.343Z"}
+{"event":"pass","name":"human joins balance human counts and trusted ratings; leave refills exact slot","at":"2026-10-09T05:54:55.344Z"}
+{"event":"start","name":"bot ratings adapt to humans without accepting them from input packets","at":"2026-10-09T05:54:55.344Z"}
+{"event":"pass","name":"bot ratings adapt to humans without accepting them from input packets","at":"2026-10-09T05:54:55.345Z"}
+{"event":"start","name":"independent saved visors are sanitized, snapshotted and reset on bot refill","at":"2026-10-09T05:54:55.345Z"}
+{"event":"pass","name":"independent saved visors are sanitized, snapshotted and reset on bot refill","at":"2026-10-09T05:54:55.346Z"}
+{"event":"start","name":"seeded simulation is repeatable and snapshots cannot mutate live state","at":"2026-10-09T05:54:55.346Z"}
+{"event":"pass","name":"seeded simulation is repeatable and snapshots cannot mutate live state","at":"2026-10-09T05:54:55.386Z"}
+{"event":"start","name":"hostile input and long frame stalls cannot teleport or poison simulation","at":"2026-10-09T05:54:55.386Z"}
+{"event":"pass","name":"hostile input and long frame stalls cannot teleport or poison simulation","at":"2026-10-09T05:54:55.386Z"}
+{"event":"start","name":"light attack has visible windup, one directional hit, and recovery","at":"2026-10-09T05:54:55.386Z"}
+{"event":"pass","name":"light attack has visible windup, one directional hit, and recovery","at":"2026-10-09T05:54:55.387Z"}
+{"event":"start","name":"heavy has longer windup and finite forward arc","at":"2026-10-09T05:54:55.387Z"}
+{"event":"pass","name":"heavy has longer windup and finite forward arc","at":"2026-10-09T05:54:55.387Z"}
+{"event":"start","name":"same-tick opposing swings trade instead of favouring roster order","at":"2026-10-09T05:54:55.388Z"}
+{"event":"pass","name":"same-tick opposing swings trade instead of favouring roster order","at":"2026-10-09T05:54:55.388Z"}
+{"event":"start","name":"front guard reduces damage while rear guard does not","at":"2026-10-09T05:54:55.388Z"}
+{"event":"pass","name":"front guard reduces damage while rear guard does not","at":"2026-10-09T05:54:55.388Z"}
+{"event":"start","name":"timed parry interrupts attacker and stun blocks dash","at":"2026-10-09T05:54:55.389Z"}
+{"event":"pass","name":"timed parry interrupts attacker and stun blocks dash","at":"2026-10-09T05:54:55.389Z"}
+{"event":"start","name":"empty guard meter does not disable ordinary attacks or a ready dash","at":"2026-10-09T05:54:55.389Z"}
+{"event":"pass","name":"empty guard meter does not disable ordinary attacks or a ready dash","at":"2026-10-09T05:54:55.389Z"}
+{"event":"start","name":"vanguard bash only damages and stuns its frontal cone","at":"2026-10-09T05:54:55.389Z"}
+{"event":"pass","name":"vanguard bash only damages and stuns its frontal cone","at":"2026-10-09T05:54:55.389Z"}
+{"event":"start","name":"support heals allies only and cannot spam cooldown; engineer repairs own castle","at":"2026-10-09T05:54:55.390Z"}
+{"event":"pass","name":"support heals allies only and cannot spam cooldown; engineer repairs own castle","at":"2026-10-09T05:54:55.390Z"}
+{"event":"start","name":"ranger uses bounded projectiles and kills award only once","at":"2026-10-09T05:54:55.390Z"}
+{"event":"pass","name":"ranger uses bounded projectiles and kills award only once","at":"2026-10-09T05:54:55.391Z"}
+{"event":"start","name":"death respawns with protection and role may change only during respawn","at":"2026-10-09T05:54:55.391Z"}
+{"event":"pass","name":"death respawns with protection and role may change only during respawn","at":"2026-10-09T05:54:55.392Z"}
+{"event":"start","name":"CTF requires own flag home, captures score, and victory freezes simulation","at":"2026-10-09T05:54:55.393Z"}
+{"event":"pass","name":"CTF requires own flag home, captures score, and victory freezes simulation","at":"2026-10-09T05:54:55.393Z"}
+{"event":"start","name":"dropped flag defender recovery wins a simultaneous enemy pickup","at":"2026-10-09T05:54:55.393Z"}
+{"event":"pass","name":"dropped flag defender recovery wins a simultaneous enemy pickup","at":"2026-10-09T05:54:55.393Z"}
+{"event":"start","name":"leaving flag carrier drops objective, removes old shots, and fills a bot","at":"2026-10-09T05:54:55.393Z"}
+{"event":"pass","name":"leaving flag carrier drops objective, removes old shots, and fills a bot","at":"2026-10-09T05:54:55.394Z"}
+{"event":"start","name":"siege forward strikes destroy castles; central control rewards ownership","at":"2026-10-09T05:54:55.394Z"}
+{"event":"pass","name":"siege forward strikes destroy castles; central control rewards ownership","at":"2026-10-09T05:54:55.396Z"}
+{"event":"start","name":"time expiry resolves score, siege castle health, and ties honestly","at":"2026-10-09T05:54:55.396Z"}
+{"event":"pass","name":"time expiry resolves score, siege castle health, and ties honestly","at":"2026-10-09T05:54:55.396Z"}
+{"event":"start","name":"simultaneous objective thresholds resolve as draws for either roster order","at":"2026-10-09T05:54:55.396Z"}
+{"event":"pass","name":"simultaneous objective thresholds resolve as draws for either roster order","at":"2026-10-09T05:54:55.397Z"}
+{"event":"start","name":"100-participant bots pursue objectives with bounded finite state","at":"2026-10-09T05:54:55.397Z"}

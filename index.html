@@ -321,7 +321,7 @@ body[data-input=pad] :is(button,.card,.tile,input,select):focus{outline:4px soli
       <div class="head"><h2 class="logo sm">How to play</h2><button class="btn" type="button" data-back>Back</button></div>
       <div class="howcards">
         <div class="how"><b>Fight</b><strong>Swing</strong> to bonk. <strong>Hold Swing</strong> for a charged heavy that breaks blocks. <strong>Block</strong> stops swords and bounces arrows back; block <em>just</em> as they swing to <strong>parry</strong> and stun them. Holding block drains your guard. <strong>Swing while blocking</strong> to shield-bash. <strong>Dash</strong> hops pits and dodges; attack right after a dash for a stab. Knights get flung further the more hurt they are. Three hearts and you're out for a couple of seconds.</div>
-        <div class="how"><b>Weapons</b>Weapon pads hand out a <strong>Bow</strong>, a <strong>Bomb Bag</strong> or the <strong>Custard Cannon</strong>. Grab the same one again to level it up. Crates break and sometimes hide a power-up. Watch for pits, spike traps, ice, conveyor belts, lava, mud, springs and portals.</div>
+        <div class="how"><b>Weapons</b>Weapon pads hand out a <strong>Bow</strong>, <strong>Bomb Bag</strong>, <strong>Custard Cannon</strong>, <strong>Crossbow</strong> or <strong>Returning Croissant</strong>. Crossbow bolts pierce a line of knights but reload slowly; croissants fly back toward their wielder and hit each enemy once per throw. Block to reflect either. Grab the same weapon again to level it up. Crates can hide power-ups. Watch for pits, spike traps, ice, conveyors, lava, mud, springs and portals.</div>
         <div class="how"><b>Chaos</b>The Chaos Meter fills with time and knockouts and unlocks sillier power-ups: <strong>Sensible</strong> (Zoomy Boots, Bubble Shield, Long Sword, Pork Pie, Magnet Mitts, Prickly Armour), <strong>Silly</strong> (Giant Head, Bouncy Arms, Swap-o-matic, Banana Trail, Ghost, Bee Swarm, Pie Traps) and <strong>Unhinged</strong> (Chicken Party, Custard Flood, Boss Mode, Disco Fever, Tiny Town, Meteor Shower, Lights Out, Jelly Arena). Every half a minute the arena itself kicks off: trapdoors, a pie catapult, a chicken stampede, gales, slow-mo, bounties, supply drops. Once a match Steve's golden egg drops. Now and then a shepherd's pie appears: eat it and feel the power of Norr.</div>
       </div>
       <div class="ctl">
@@ -390,6 +390,7 @@ body[data-input=pad] :is(button,.card,.tile,input,select):focus{outline:4px soli
 <script src="game/campaign-integration.js"></script>
 <script src="game/preferences.js"></script>
 <script src="game/difficulty.js"></script>
+<script src="game/weapons.js"></script>
 <script src="game/cup.js"></script>
 <script src="game/cup-ui.js"></script>
 <link rel="stylesheet" href="game/mass-battle.css">
@@ -430,7 +431,7 @@ const DIFFS=CKDifficulty.profiles;
 // every kind of melee: how long it lasts, the arc it sweeps, reach multiplier, damage, knockback, cooldown on a whiff and on a hit
 const SWINGS={light:{dur:.22,arc:2.8,a0:-1.4,reachM:1,dmg:1,kb:420,cd:.55,hitCd:.36,lunge:150},heavy:{dur:.3,arc:2.8,a0:-1.4,reachM:1.15,dmg:1,kb:820,cd:.7,hitCd:.5,lunge:240,guardBreak:true},stab:{dur:.18,arc:1.2,a0:-.6,reachM:1.5,dmg:1,kb:600,cd:.55,hitCd:.4,lunge:320},bash:{dur:.18,arc:1.0,a0:-.5,reachM:1.05,dmg:0,kb:650,cd:.5,hitCd:.5,lunge:200,guardBreak:true}};
 const VERBS=['bonked','clonked','walloped','yeeted','custarded','flattened'];
-const WEAPONS={bow:{name:'Bow',ammo:6},bombs:{name:'Bomb Bag',ammo:3},cannon:{name:'Custard Cannon',ammo:4}};
+const WEAPONS={bow:{name:'Bow',ammo:6},bombs:{name:'Bomb Bag',ammo:3},cannon:{name:'Custard Cannon',ammo:4},...CKWeapons.definitions};
 const PU={
  speed:{t:1,name:'Zoomy Boots',tip:'Zoomy Boots: you run faster for a bit'}, shield:{t:1,name:'Bubble Shield',tip:'Bubble Shield: the next hit bounces off'}, big:{t:1,name:'Long Sword',tip:'Long Sword: much longer reach'}, heart:{t:1,name:'Pork Pie',tip:'Pork Pie: hearts back to full'},
  magnet:{t:1,name:'Magnet Mitts',tip:'Magnet Mitts: power-ups fly to you'}, thorns:{t:1,name:'Prickly Armour',tip:'Prickly Armour: whoever hits you gets hurt'},
@@ -776,11 +777,11 @@ function spawnPickup(at){
  G.pickups.push({x:p.x,y:p.y,kind,tier,t:0});
 }
 function giveWeapon(e,kind){
- const W0=WEAPONS[kind];
+ const W0=WEAPONS[kind]; if(!W0)return;
  if(e.wpn&&e.wpn.kind===kind){ e.wpn.lvl=Math.min(3,e.wpn.lvl+1); e.wpn.ammo+=W0.ammo; floater(e.x,e.y-50,`${W0.name} LV${e.wpn.lvl}!`,CUST); }
  else { e.wpn={kind,lvl:1,ammo:W0.ammo}; floater(e.x,e.y-50,W0.name,CREAM); }
  sfx('weapon'); logEv('weapon',{id:e.id,h:hb(e),kind});
- if(isMine(e)) tip('wpn-'+kind,kind==='bow'?'Bow: Swing fires arrows. Grab another bow to level it up.':kind==='bombs'?'Bomb Bag: Swing lobs a bomb ahead of you. Mind the blast.':'Custard Cannon: Swing fires a blob that sends them skidding.');
+ if(isMine(e)) tip('wpn-'+kind,CKWeapons.tip(kind)||(kind==='bow'?'Bow: Swing fires arrows. Grab another bow to level it up.':kind==='bombs'?'Bomb Bag: Swing lobs a bomb ahead of you. Mind the blast.':'Custard Cannon: Swing fires a blob that sends them skidding.'));
 }
 
 /* ---------- combat ---------- */
@@ -885,6 +886,7 @@ function fire(e){
  if(w.kind==='bow'){ const spread=w.lvl>=2?[-.16,0,.16]:[0]; for(const s of spread){ const aa=a+s; G.proj.push({k:'arrow',x:e.x+ca*22,y:e.y+sa*22,vx:Math.cos(aa)*820,vy:Math.sin(aa)*820,owner:e,life:1.1,r:6,pierce:w.lvl>=3,hit:[]}); } e.fireCd=w.lvl>=3?.3:.36; sfx('shoot'); }
  else if(w.kind==='cannon'){ G.proj.push({k:'blob',x:e.x+ca*24,y:e.y+sa*24,vx:ca*560,vy:sa*560,owner:e,life:1.4,r:12+w.lvl*4,lvl:w.lvl}); e.fireCd=.7; e.vx-=ca*200; e.vy-=sa*200; sfx('blob'); }
  else if(w.kind==='bombs'){ let tx,ty; if(e.human){tx=e.x+ca*250;ty=e.y+sa*250}else{tx=e.ai.aimX;ty=e.ai.aimY} tx=cx(tx);ty=cy(ty); G.bombs.push({sx:e.x,sy:e.y,tx,ty,x:e.x,y:e.y,z:0,t:0,fl:.55,fuse:.6,owner:e,lvl:w.lvl}); e.fireCd=.6; sfx('swing'); }
+ else { const shot=CKWeapons.createShot(e); if(!shot)return; G.proj.push(...shot.projectiles); e.fireCd=shot.cooldown; e.vx-=ca*shot.recoil; e.vy-=sa*shot.recoil; sfx(shot.sound); }
  w.ammo--; if(w.ammo<=0) e.wpn=null;
 }
 function explode(x,y,R,owner,o={}){
@@ -997,8 +999,9 @@ function botInput(e,dt){
  } else if(Tg&&alive(Tg)){
   const dx=Tg.x-e.x,dy=Tg.y-e.y,d=Math.hypot(dx,dy)||1,ux=dx/d,uy=dy/d, see=los(e.x,e.y,Tg.x,Tg.y), w=e.wpn;
   if(ai.flee>0){ const v=steer(e,cx(e.x-ux*220),cy(e.y-uy*220)); mx=v.x;my=v.y; }
-  else if(w&&(w.kind==='bow'||w.kind==='cannon')){
-   if(see&&d<480){ if(d<200){mx=-ux;my=-uy} else if(d>340){mx=ux;my=uy} mx+=-uy*ai.strafe*.7; my+=ux*ai.strafe*.7; faceTo=Math.atan2(dy,dx)+(ai.aimError||0);
+  else if(w&&(w.kind==='bow'||w.kind==='cannon'||CKWeapons.isRanged(w.kind))){
+   const wr=CKWeapons.ai(w.kind)||{retreat:200,approach:340,attack:480};
+   if(see&&d<wr.attack){ if(d<wr.retreat){mx=-ux;my=-uy} else if(d>wr.approach){mx=ux;my=uy} mx+=-uy*ai.strafe*.7; my+=ux*ai.strafe*.7; faceTo=Math.atan2(dy,dx)+(ai.aimError||0);
     if(Math.abs(angDiff(faceTo,e.face))<.2&&e.fireCd<=0){ai.react-=dt; if(ai.react<=0){atk=Math.random()<D.aggro; ai.react=D.react*rand(.8,1.6)}} }
    else { const v=steer(e,Tg.x,Tg.y); mx=v.x;my=v.y; }
   } else if(w&&w.kind==='bombs'){
@@ -1160,7 +1163,7 @@ function update(dt){
   if(!alive(e)) continue;
   if(isMine(e)){ if(t2==='~') tip('ice','Ice: you slide. Every hit sends you a long way.'); else if(t2==='m') tip('mud','Mud slows you right down. Dash through it.'); else if(t2==='>'||t2==='<') tip('belt','Conveyor belts carry you along. Watch where they end.');
    if(!TAUGHT.has('pit')){ const ax=e.x+Math.cos(e.face)*90, ay=e.y+Math.sin(e.face)*90; if(tileAt(ax,ay)==='o') tip('pit','Dash hops over pits. Enemies can knock you in.'); }
-   if(!TAUGHT.has('arrow')&&G.proj.some(q=>q.owner!==e&&q.k==='arrow'&&Math.hypot(q.x-e.x,q.y-e.y)<220&&(e.x-q.x)*q.vx+(e.y-q.y)*q.vy>0)) tip('arrow','Block bounces arrows back at the shooter.'); }
+   if(!TAUGHT.has('arrow')&&G.proj.some(q=>q.owner!==e&&['arrow','bolt','croissant'].includes(q.k)&&Math.hypot(q.x-e.x,q.y-e.y)<220&&(e.x-q.x)*q.vx+(e.y-q.y)*q.vy>0)) tip('arrow','Block bounces arrows, bolts and croissants back at the shooter.'); }
   if(e.fx.magnet) for(const p of G.pickups){ const d=Math.hypot(p.x-e.x,p.y-e.y); if(d<260&&d>4){ const n=norm(e.x-p.x,e.y-p.y); p.x+=n.x*320*dt; p.y+=n.y*320*dt; } }
   // Steve tramples anyone in the way
   if(e.fx.steve){ for(const o of G.ents){ if(o===e||!alive(o)||isAlly(e,o)||o.inv>0)continue; if(Math.hypot(o.x-e.x,o.y-e.y)<rr+o.r*sizeMul(o)*.8){ hurt(o,e,2,{kb:500,src:'steve'}); if(alive(o)) o.inv=.8; dust(o.x,o.y+10,6); } }
@@ -1193,6 +1196,7 @@ function update(dt){
  G.flock=G.flock.filter(c=>c.t>0);
  // projectiles
  for(const p of G.proj){
+  if(!CKWeapons.updateProjectile(p,dt))continue;
   p.life-=dt; p.x+=p.vx*dt; p.y+=p.vy*dt;
   const c=tcol(p.x),r=trow(p.y);
   if(solid(c,r)){ p.life=0; hitCrate(c,r,1); if(p.k==='blob'){ G.decals.push({k:'splat',x:p.x-p.vx*.02,y:p.y-p.vy*.02,r:p.r*1.6,t:8}); burst(p.x,p.y,12,[CUST,CREAM],200);} else burst(p.x,p.y,5,[CREAM],120); continue; }
@@ -1202,7 +1206,7 @@ function update(dt){
    if(blockedFrom(b,p.x-p.vx,p.y-p.vy)){ p.vx=-p.vx; p.vy=-p.vy; p.owner=b; if(G.campaign&&ADVENTURE)ADVENTURE.event("reflect",{id:b.id}); p.life=Math.max(p.life,.8); p.x+=p.vx*.03; p.y+=p.vy*.03; clang(b,p.x,p.y); break; }
    const n=norm(p.vx,p.vy);
    if(p.k==='blob'){ hurt(b,p.owner,1,{dx:n.x,dy:n.y,kb:760+p.lvl*120,src:'cannon'}); b.goo=2.5; if(p.owner&&alive(p.owner)) G.stats.shotHits[hb(p.owner)]++; if(alive(b)){b.slip=.6+p.lvl*.15;} G.decals.push({k:'splat',x:b.x,y:b.y+6,r:p.r*1.8,t:8}); burst(p.x,p.y,16,[CUST,CREAM],260); }
-   else { hurt(b,p.owner,1,{dx:n.x,dy:n.y,kb:420,src:'bow'}); if(p.owner&&alive(p.owner)) G.stats.shotHits[hb(p.owner)]++; }
+   else { hurt(b,p.owner,1,{dx:n.x,dy:n.y,kb:420,src:p.k==='bolt'?'crossbow':p.k==='croissant'?'croissant':'bow'}); if(p.owner&&alive(p.owner)) G.stats.shotHits[hb(p.owner)]++; }
    if(p.pierce){ p.hit.push(b.id); continue; }
    p.life=0; break;
   }
@@ -1559,6 +1563,7 @@ function drawHeld(e,r){
   ctx.fillStyle='rgba(255,255,255,.5)'; rr(ctx,-r*.2,-r*.22,r*1.1,r*.12,r*.06); ctx.fill();
   ctx.fillStyle='#8A5A2E'; rr(ctx,r*1.05,-r*.36,r*.25,r*.72,4); ctx.fill(); ctx.stroke(); for(let i=0;i<lvl;i++) circle(r*.1+i*r*.3,r*.08,3,TOM,INK,1.5);
   gauntlet(e,r*.2,r*.28,r); }
+ else if(CKWeapons.drawWeapon(ctx,w.kind,r,w.lvl)){ gauntlet(e,-r*.1,r*.12,r); }
  else { gauntlet(e,-r*.1,r*.12,r); bombShape(r*.25,0,r*.42); fuseSpark(r*.25+r*.126,-r*.756,r*.14); }
  ctx.restore();
 }
@@ -2056,7 +2061,7 @@ function drawPadItem(p){
   ctx.strokeStyle=CREAM; ctx.lineWidth=1.5; ctx.beginPath(); ctx.moveTo(-4+Math.cos(-1.2)*16,Math.sin(-1.2)*16); ctx.lineTo(-4+Math.cos(1.2)*16,Math.sin(1.2)*16); ctx.stroke();
   ctx.strokeStyle=INK; ctx.lineWidth=4; ctx.beginPath(); ctx.moveTo(-2,0); ctx.lineTo(18,0); ctx.stroke(); ctx.strokeStyle='#C98A4B'; ctx.lineWidth=2; ctx.stroke(); ctx.fillStyle='#EEF1FA'; ctx.lineWidth=1.5; ctx.beginPath(); ctx.moveTo(22,0); ctx.lineTo(16,-4); ctx.lineTo(16,4); ctx.closePath(); ctx.fill(); ctx.stroke(); }
  else if(p.item==='cannon'){ ctx.fillStyle=lgrad(ctx,0,-8,0,8,['#FFF1B0','#FFC933','#B7791A']); ctx.lineWidth=3; rr(ctx,-16,-8,30,16,6); ctx.fill(); ctx.stroke(); ctx.fillStyle='rgba(255,255,255,.5)'; rr(ctx,-12,-6,20,3.5,2); ctx.fill(); ctx.fillStyle='#8A5A2E'; rr(ctx,12,-10,6,20,3); ctx.fill(); ctx.stroke(); }
- else { bombShape(0,2,11); fuseSpark(3.3,-17.8,4); }
+ else if(!CKWeapons.drawWeapon(ctx,p.item,22)){ bombShape(0,2,11); fuseSpark(3.3,-17.8,4); }
  ctx.restore();
 }
 function drawBanana(b){
@@ -2245,8 +2250,8 @@ function controlLine(n){ const two=G.ents.filter(e=>e.human&&!e.netId).length>1;
 function drawCards(){
  if(G.demo||G.over) return; const mine=G.ents.filter(isMine); if(!mine.length) return;
  const dead=mine.find(e=>e.dead&&e.lastKO);
- if(dead){ const k=dead.lastKO, who=k.by?`${k.by}`:null; const first=k.src==='pit'?(who?`${who} knocked you into a pit`:'You fell in a pit'):k.src==='lava'?'You took a lava bath':k.src==='spike'?'Spikes got you':k.src==='chickens'?'Trampled by the stampede':who?`${who} got you with ${k.src==='bow'?'an arrow':k.src==='bomb'||k.src==='mine'?'a bomb':k.src==='cannon'?'custard':k.src==='bees'?'bees':k.src==='heavy'?'a charged swing':k.src==='norr'?'the power of Norr':k.src==='steve'?'Steve':'a sword'}`:`You ${k.how}`;
-  const second=k.src==='pit'?'Dash hops over pits. Block to stop the knockback.':k.src==='bow'?'Block bounces arrows back.':k.src==='sword'?`Block just as they swing to parry. ${anyPad()?'X':'E'} blocks.`:k.src==='heavy'?'Charged swings break blocks. Dash sideways.':k.src==='lava'?'Lava shoves you back. Dash across it.':'Back in a moment.';
+ if(dead){ const k=dead.lastKO, who=k.by?`${k.by}`:null; const first=k.src==='pit'?(who?`${who} knocked you into a pit`:'You fell in a pit'):k.src==='lava'?'You took a lava bath':k.src==='spike'?'Spikes got you':k.src==='chickens'?'Trampled by the stampede':who?`${who} got you with ${k.src==='bow'?'an arrow':k.src==='crossbow'?'a crossbow bolt':k.src==='croissant'?'a croissant':k.src==='bomb'||k.src==='mine'?'a bomb':k.src==='cannon'?'custard':k.src==='bees'?'bees':k.src==='heavy'?'a charged swing':k.src==='norr'?'the power of Norr':k.src==='steve'?'Steve':'a sword'}`:`You ${k.how}`;
+  const second=k.src==='pit'?'Dash hops over pits. Block to stop the knockback.':['bow','crossbow','croissant'].includes(k.src)?'Block bounces arrows, bolts and croissants back.':k.src==='sword'?`Block just as they swing to parry. ${anyPad()?'X':'E'} blocks.`:k.src==='heavy'?'Charged swings break blocks. Dash sideways.':k.src==='lava'?'Lava shoves you back. Dash across it.':'Back in a moment.';
   card([first,second],TOM); return; }
  if(G.clock<4&&hitsLanded<3){ const lines=[controlLine(1)]; if(mine.length>1) lines.push(controlLine(2)); lines.push('Hold Swing for a charged hit. Block as they swing to parry.'); card(lines,CUST,H-104); return; }
  if(G.tip&&G.tipT>0){ ctx.globalAlpha=Math.min(1,G.tipT*3,(2.6-G.tipT)*3+.2); card([G.tip],TEAL); ctx.globalAlpha=1; }
@@ -2307,7 +2312,7 @@ function draw(){
    ctx.strokeStyle=INK; ctx.lineWidth=5; ctx.lineCap='round'; ctx.beginPath(); ctx.moveTo(-16,0); ctx.lineTo(10,0); ctx.stroke(); ctx.strokeStyle='#C98A4B'; ctx.lineWidth=2.5; ctx.stroke();
    ctx.fillStyle=lgrad(ctx,0,-5,0,5,['#FFFFFF','#8E97AE']); ctx.strokeStyle=INK; ctx.lineWidth=2; ctx.beginPath(); ctx.moveTo(17,0); ctx.lineTo(8,-5.5); ctx.lineTo(8,5.5); ctx.closePath(); ctx.fill(); ctx.stroke();
    ctx.fillStyle=TOM; ctx.lineWidth=1.5; for(const s of [-1,1]){ ctx.beginPath(); ctx.moveTo(-10,0); ctx.lineTo(-19,s*6); ctx.lineTo(-15,0); ctx.closePath(); ctx.fill(); ctx.stroke(); } }
-  else custardBall(p.r,G.clock);
+  else if(!CKWeapons.drawProjectile(ctx,p,G.clock))custardBall(p.r,G.clock);
   ctx.restore(); }
  for(const b of G.bombs){
   if(b.meteor){ const k=clamp(b.t/b.fl,0,1), by=b.y-b.z; ctx.save(); ctx.setLineDash([8,6]); ctx.lineDashOffset=-G.clock*40; circle(b.tx,b.ty,30+(1-k)*30,`rgba(255,90,78,${.1+.2*k})`,`rgba(255,90,78,${.4+.5*k})`,3); ctx.setLineDash([]); ctx.restore(); ell(b.tx,b.ty,10+k*14,4+k*6,'rgba(20,10,35,.35)');

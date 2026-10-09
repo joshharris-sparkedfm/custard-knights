@@ -1,0 +1,46 @@
+TAP version 13
+# Subtest: new pickups have distinct ranged tradeoffs without changing existing weapons or actor state
+ok 1 - new pickups have distinct ranged tradeoffs without changing existing weapons or actor state
+  ---
+  duration_ms: 1.0146
+  type: 'test'
+  ...
+# Subtest: returning croissant travels out then returns to and is caught by a stationary owner
+ok 2 - returning croissant travels out then returns to and is caught by a stationary owner
+  ---
+  duration_ms: 0.3062
+  type: 'test'
+  ...
+# Subtest: return path follows a moving owner, never resets existing per-enemy hit history
+ok 3 - return path follows a moving owner, never resets existing per-enemy hit history
+  ---
+  duration_ms: 0.624
+  type: 'test'
+  ...
+# Subtest: reflection changes return ownership without replenishing lifespan or clearing hit history
+ok 4 - reflection changes return ownership without replenishing lifespan or clearing hit history
+  ---
+  duration_ms: 0.2642
+  type: 'test'
+  ...
+# Subtest: owner loss and malformed motion expire safely without NaN velocities
+ok 5 - owner loss and malformed motion expire safely without NaN velocities
+  ---
+  duration_ms: 0.2146
+  type: 'test'
+  ...
+# Subtest: upgrades remain bounded, while unrelated arena projectiles pass through unchanged
+ok 6 - upgrades remain bounded, while unrelated arena projectiles pass through unchanged
+  ---
+  duration_ms: 0.1474
+  type: 'test'
+  ...
+1..6
+# tests 6
+# suites 0
+# pass 6
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 54.3799

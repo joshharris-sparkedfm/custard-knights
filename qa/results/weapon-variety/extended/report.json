@@ -1,0 +1,192 @@
+{
+  "checks": [
+    {
+      "name": "crossbow pickup grants its declared ammunition",
+      "pass": true
+    },
+    {
+      "name": "crossbow actual attack input fires one projectile and consumes one round",
+      "pass": true,
+      "details": {
+        "ammo": 3,
+        "fireCd": 0.95
+      }
+    },
+    {
+      "name": "crossbow holding attack cannot bypass reload",
+      "pass": true
+    },
+    {
+      "name": "crossbow attack fires again after reload",
+      "pass": true
+    },
+    {
+      "name": "crossbow final round unequips the exhausted weapon",
+      "pass": true
+    },
+    {
+      "name": "crossbow duplicate pickup upgrades and refills",
+      "pass": true
+    },
+    {
+      "name": "crossbow piercing projectile stops at an actual crate and damages it once",
+      "pass": true,
+      "details": {
+        "before": 2,
+        "after": 1
+      }
+    },
+    {
+      "name": "crossbow projectile stops at outer wall",
+      "pass": true
+    },
+    {
+      "name": "crossbow real block reflects ownership and can hit original shooter",
+      "pass": true,
+      "details": {
+        "reflected": true,
+        "defenderHp": 3,
+        "shooterHp": 2
+      }
+    },
+    {
+      "name": "croissant pickup grants its declared ammunition",
+      "pass": true
+    },
+    {
+      "name": "croissant actual attack input fires one projectile and consumes one round",
+      "pass": true,
+      "details": {
+        "ammo": 2,
+        "fireCd": 0.9
+      }
+    },
+    {
+      "name": "croissant holding attack cannot bypass reload",
+      "pass": true
+    },
+    {
+      "name": "croissant attack fires again after reload",
+      "pass": true
+    },
+    {
+      "name": "croissant final round unequips the exhausted weapon",
+      "pass": true
+    },
+    {
+      "name": "croissant duplicate pickup upgrades and refills",
+      "pass": true
+    },
+    {
+      "name": "croissant piercing projectile stops at an actual crate and damages it once",
+      "pass": true,
+      "details": {
+        "before": 2,
+        "after": 1
+      }
+    },
+    {
+      "name": "croissant projectile stops at outer wall",
+      "pass": true
+    },
+    {
+      "name": "croissant real block reflects ownership and can hit original shooter",
+      "pass": true,
+      "details": {
+        "reflected": true,
+        "defenderHp": 3,
+        "shooterHp": 2
+      }
+    },
+    {
+      "name": "Crossbow bolt pierces two real enemy collisions",
+      "pass": true,
+      "details": {
+        "hp": [
+          2,
+          2
+        ]
+      }
+    },
+    {
+      "name": "Croissant turns and follows a moving owner before being caught",
+      "pass": true,
+      "details": {
+        "returning": true,
+        "followed": true,
+        "projectiles": 0
+      }
+    },
+    {
+      "name": "Croissant cannot damage the same enemy twice on outbound/return after hit immunity is cleared",
+      "pass": true,
+      "details": {
+        "hp": 2,
+        "contactedReturn": true
+      }
+    },
+    {
+      "name": "Croissant expires when its owner dies through real damage",
+      "pass": true
+    },
+    {
+      "name": "Croissant is gone within its finite lifetime",
+      "pass": true,
+      "details": {
+        "maxAge": 0.8333333333333343
+      }
+    },
+    {
+      "name": "crossbow walking into a real map weapon pad collects the weapon",
+      "pass": true,
+      "details": {
+        "x": 542.2004620178633,
+        "y": 380
+      }
+    },
+    {
+      "name": "croissant walking into a real map weapon pad collects the weapon",
+      "pass": true,
+      "details": {
+        "x": 542.2004620178633,
+        "y": 380
+      }
+    },
+    {
+      "name": "Croissant expires when owner walks into an actual pit",
+      "pass": true,
+      "details": {
+        "falling": 0.6833333333333332
+      }
+    },
+    {
+      "name": "Reflected croissant returns to the blocking defender rather than original shooter",
+      "pass": true,
+      "details": {
+        "reflectedOwner": true,
+        "returnedDefender": true
+      }
+    },
+    {
+      "name": "Repeated real shield reflections do not extend croissant absolute lifetime",
+      "pass": true,
+      "details": {
+        "reflections": 8,
+        "expiredAge": 1.816666666666665,
+        "lastAge": 1.7999999999999985
+      }
+    },
+    {
+      "name": "Snapshot round trip retains held weapons, projectile kinds and pad items",
+      "pass": true
+    },
+    {
+      "name": "Both new weapons draw in the actual arena after snapshot hydration",
+      "pass": true
+    }
+  ],
+  "limitations": "Fresh isolated browser. Controlled positions on actual map terrain and real engine input/fire/collision/damage/snapshot paths. Hit immunity cleared only in the once-per-throw test to distinguish hit history from temporary protection. Screenshot reviewed separately; no network transport acceptance implied.",
+  "browserErrors": [],
+  "weaponSha256": "e281fb8745a024b7e325ed44bb4d25e87e069eb48e2a4b68c2269fbd7bb50fd9",
+  "indexSha256": "36c3172ab25657524d731c6aef896557ac857831537ce43331f0bb4934ec70aa"
+}

@@ -196,8 +196,13 @@ test('100 real local sockets fill 50v50, reject overflow, and refill disconnecte
   assert.equal(snap.bots, 0);
   assert.equal(snap.state.players.length, 100);
   // One genuine server broadcast with 100 simultaneous loopback clients; not a WAN soak.
+  // Closing a WebSocket initiates an asynchronous handshake. Observe the host's
+  // completed detach/bot refill instead of assuming it finishes within 150 ms.
+  const refilled = clients[99].read(m => m.type === 'snapshot' && m.room === 'hundred' && m.humans === 90 && m.bots === 10);
   for (const client of clients.slice(0, 10)) client.close();
-  await delay(150);
+  const afterDisconnect = await refilled;
+  assert.equal(afterDisconnect.state.players.filter(p => p.humanId).length, 90);
+  assert.equal(afterDisconnect.state.players.filter(p => p.bot).length, 10);
   assert.equal(room.state.players.filter(p => p.humanId).length, 90);
   assert.equal(room.state.players.filter(p => p.bot).length, 10);
   assert.equal(room.state.players.length, 100);

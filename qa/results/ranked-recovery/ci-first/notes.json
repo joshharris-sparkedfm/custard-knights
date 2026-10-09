@@ -1,0 +1,8 @@
+{
+  "failedRun": 37925028651,
+  "job": 113801792101,
+  "artifact": 11613561895,
+  "failure": "Legacy100sockettest assumed closehandshake within150ms; expected90human actual100. Replaced timer with bounded authoritative90human10bots snapshot. No runtimechange.",
+  "localAfterFix": "179/179pass; this single unplanned fullnativepass does not establish prior native crashesfixed.",
+  "independentRecheck": "pending"
+}

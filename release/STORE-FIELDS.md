@@ -1,6 +1,6 @@
 # Store field draft
 
-Updated 9 October 2026 for the exported **0.3.0-alpha.3 preview**. This is preparation material; fields have not been submitted or approved. Use LAUNCH-STATUS.md for acceptance and PREVIEW-BUILD.md for build identity.
+Updated 9 October 2026 for the exported **0.3.0-alpha.4 preview**. This is preparation material; fields have not been submitted or approved. Use LAUNCH-STATUS.md for acceptance and PREVIEW-BUILD.md for build identity.
 
 - Product: Custard Knights
 - Developer: Sparked FM Ltd
@@ -11,7 +11,7 @@ Updated 9 October 2026 for the exported **0.3.0-alpha.3 preview**. This is prepa
 - Language verified in the implementation: English interface and subtitles/text. No spoken narration has been added.
 - Play formats implemented: single-player bots/story; local shared-screen arena and Cup; PeerJS online arena rooms by code. Local couch capacity four human seats; total original-arena capacity eight knights including bots and remote guests. Story is single-player.
 - Faction Front implemented: Brawl, Capture the Flag and Castle Siege with 4v4, 20v20 and 50v50 total combatants, four roles and bot fill. Local bot practice is available; online faction rooms require a separately running authoritative server. No public endpoint is deployed. Do not turn total combatant capacity into an advertised 100-human service claim before acceptance.
-- Difficulty options: Easy, Medium, Hard, STEVE. Session standings are anonymous/unranked; persistent authenticated rankings and calibrated skill matchmaking are unfinished.
+- Difficulty options: Easy, Medium, Hard, STEVE. Session standings are anonymous/unranked; private host-issued ratings and skill queues are implemented; Steam identity, party matchmaking and public competitive acceptance remain unfinished.
 - Do not select unimplemented Steam achievements, Steam Cloud or Steam matchmaking. Full-controller/Deck support needs corresponding acceptance evidence.
 - Public support email/URL: awaiting owner's answer.
 

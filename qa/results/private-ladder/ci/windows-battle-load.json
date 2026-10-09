@@ -1,0 +1,51 @@
+{
+  "status": "pass",
+  "date": "2026-10-09T11:24:49.041Z",
+  "durationSeconds": 60.024097299999994,
+  "clients": 100,
+  "inputHzTarget": 20,
+  "mode": "brawl",
+  "humanCount": 100,
+  "clientTransport": "ws 8.22.0",
+  "inputs": 76100,
+  "receivedSnapshots": 97350,
+  "receivedPayloadBytes": 1227453162,
+  "aggregateReceiveMbps": 163.59471841653172,
+  "wireVersion": 1,
+  "snapshotHz": 20,
+  "fullPackets": 500,
+  "deltaPackets": 96850,
+  "meanDeltaBytes": 12419.63902942695,
+  "maxDeltaBytes": 25151,
+  "equivalentFullPayloadMbps": 702.0695269997839,
+  "simulationSeconds": 59.643319699998116,
+  "scores": {
+    "custardia": 206,
+    "rice": 180
+  },
+  "kills": 379,
+  "serverTickP95Ms": 6.302399999996851,
+  "serverTickP99Ms": 10.00159999999596,
+  "serverTickMaxMs": 20.22870000000694,
+  "serverTickGapMaxMs": 141.75589999999647,
+  "maxSnapshotBytes": 53687,
+  "clientSnapshotGapMaxMs": 222.04989999999998,
+  "clientInputIntervalP95Ms": 130.5717999999979,
+  "peakCombinedRssBytes": 356102144,
+  "unexpectedCloses": [],
+  "errors": [],
+  "rejectedInputs": 0,
+  "rateLimited": 0,
+  "host": {
+    "cpu": "AMD EPYC 7763 64-Core Processor                ",
+    "memoryBytes": 17174360064,
+    "platform": "win32",
+    "node": "v24.21.0"
+  },
+  "source": {
+    "coreSha256": "76acfad4d9104ec70a05e514935c6f728b33cecb2fee393a18fd58e30d24ca4e",
+    "serverSha256": "8ddf80125e34e9a3062fdedcb49c1d0315f8d96c62f4a6df077828220673c171",
+    "wireSha256": "25f472a9c4a937dd0606eefee17b369d7fbe16025a17d2413a79b8b1d3962e99"
+  },
+  "limitations": "One Node process runs both server and 100 scripted ws clients on loopback. All clients parse and decode every full/delta frame and actively chase/attack opponents. Equivalent full bandwidth extrapolates client zero state to100 clients. No browser rendering, WAN latency/loss, authenticated people, minimum-hardware or production bandwidth certification."
+}

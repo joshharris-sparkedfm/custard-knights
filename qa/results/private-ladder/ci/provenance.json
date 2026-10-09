@@ -1,0 +1,29 @@
+{
+  "sourceCommit": "9e8ac15e23f3ab11c137d7b38f78b0e74ca65d6e",
+  "fullRun": 37923390377,
+  "containerRun": 37923390319,
+  "fullTests": {
+    "windows": 156,
+    "linux": 156,
+    "failed": 0,
+    "skipped": 0
+  },
+  "artifacts": [
+    {
+      "id": 11612846684,
+      "name": "container",
+      "sha256": "4ec823a6c34eafe5bae6311ddc19863bdfb77b64633612eb038941c617e27c57"
+    },
+    {
+      "id": 11613291209,
+      "name": "linux",
+      "sha256": "50e1bd359e998046d10a1d1ab0c2e3ccbbf3c23a2a75d840a2efdec33e1a50cc"
+    },
+    {
+      "id": 11613161398,
+      "name": "windows",
+      "sha256": "2223a8d7a9a012211dfcd735ff9336e679a725b674f329654501c2b1cb8e781f"
+    }
+  ],
+  "limits": "Hosted scripted checks only. No Steam authentication, public hosting, WAN/human/minimum-hardware acceptance or repair of the earlier local native failures."
+}

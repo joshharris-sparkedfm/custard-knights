@@ -22,3 +22,11 @@ The private ladder requires complete human teams and disqualifies a match after 
 ## Hosted and export handover
 
 The code is being submitted to independent Windows/Linux full-suite and container checks. The container configuration includes a private data volume; its new test covers host-key issuance, full-human launch, container restart preserving identity and revocation. No public host, DNS or certificate has been created. Append completed run IDs and final exported hashes after verification; until then existing alpha.3 artifact references remain historical frozen builds.
+
+## Completed handover
+
+At source `9e8ac15e23f3ab11c137d7b38f78b0e74ca65d6e`, Actions run `37923390377` passed all four core matrix jobs and both server jobs. Full Node24 suites passed **156/156 on Windows and Linux**, zero failures or skips. Both 60-second shared-process 100-client delta loads completed without protocol failures; Windows simulation reached59.64s and Linux60.01s. Payload measured163.59/210.85Mbps. These noisy shared-runner samples remain diagnostics, not WAN/timing or bandwidth acceptance; no controlled speedup claim.
+
+Container run `37923390319` passed its ordinary custom-Origin/delta smoke and seven private-ladder checks: non-root writable storage, eight distinct authenticated humans, zero bots at launch, restart recovery, preserved identity, no rating for abort, and revoked-key rejection. Artifacts were downloaded and verified against their published SHA256 digests before retaining TAP/JSON under `qa/results/private-ladder/ci/`.
+
+The Windows alpha.4 preview and friends ZIP were exported from that source. Preview ZIP:178900232bytes, SHA256 `437a1de62952a5f69b5397c31cb3cf3c26dafa8769c4e7cbf27ed3bbc1a3d7ee`. Friends ZIP:178897085bytes, SHA256 `b4ffb21b8b3424e42c7c6431df3482e05be277a086b2334d98415f263c9984b0`. App archive SHA256 `ceaacd1e6c0f1ea2e8795323742cb2c132e94a9484d4a722ad8b9cb7790801a4`. All73 shared game files matched the preview byte-for-byte. Exact paths and use are in PREVIEW-BUILD.md. No public endpoint or Steam publication occurred.

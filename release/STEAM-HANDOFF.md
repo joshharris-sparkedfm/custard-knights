@@ -1,6 +1,6 @@
 # Custard Knights — Steam preparation handoff
 
-Updated 9 October 2026. Developer/publisher: **Sparked FM Ltd**. Proposed base price: **£7.99 / US$9.99**, subject to the owner's final storefront decision. No price has been submitted. The current exported build is **0.3.0-alpha.3**, a Windows development preview; see [PREVIEW-BUILD.md](PREVIEW-BUILD.md) for the latest exported identity. Public-sale acceptance remains pending.
+Updated 9 October 2026. Developer/publisher: **Sparked FM Ltd**. Proposed base price: **£7.99 / US$9.99**, subject to the owner's final storefront decision. No price has been submitted. The current exported build is **0.3.0-alpha.4**, a Windows development preview; see [PREVIEW-BUILD.md](PREVIEW-BUILD.md) for the latest exported identity. Public-sale acceptance remains pending.
 
 ## Required release and current implementation
 
@@ -8,7 +8,7 @@ The required scope includes the existing eight arena modes and six arenas, the f
 
 The accepted rounded art, connected sword presentation and free saved closed/open visors remain. The 0.2.2 art, animation and desktop reviews are historical evidence for that source freeze, not certification of the 0.3.0 additions. Alpha.2 adds the faction sprite cache and subsequent checkpoints investigate network performance. Use the versioned exported build and its recorded hash; preserve older archives separately.
 
-Faction bot practice is immediately playable. Online faction rooms require a separately running authoritative WebSocket server; no public service is deployed. The protocol has scripted 100-client capacity evidence, but timing, bandwidth, WAN and operational acceptance are incomplete. Anonymous session standings are unranked. Persistent authenticated rankings and calibrated skill matchmaking remain unfinished; no store copy should promise them. See [MASS-BATTLE-SERVER.md](MASS-BATTLE-SERVER.md).
+Faction bot practice is immediately playable. Online faction rooms require a separately running authoritative WebSocket server; no public service is deployed. The protocol has scripted 100-client capacity evidence, but timing, bandwidth, WAN and operational acceptance are incomplete. Anonymous session standings are unranked. An optional private ladder now supports host-issued accounts, durable ratings and individual skill queues. Steam identity, party matchmaking, leaver sanctions and public competitive acceptance remain unfinished; store copy must not promise a finished public ladder. See [MASS-BATTLE-SERVER.md](MASS-BATTLE-SERVER.md).
 
 The Great Pudding War contains seven main-path encounters and an optional Biscuit Toll, a winding map, story exchanges, independent spoon goals, checkpoints, assistance, Steve's rescue, a two-phase boss and a playable final rescue. Later kingdoms appear in the lore but are not playable chapters in this release. Do not advertise the untested 20–30 minute design target as measured playtime.
 
@@ -64,7 +64,7 @@ Use Valve's authorized SteamCMD workflow to review a preview manifest, upload a 
 | Steam installation | Install the private branch on a second PC; verify updates, saves, Alt-Tab/fullscreen and relaunch. |
 | Controllers | Two to four physical pads, reversed join order, five rematches, unplug/replug, keyboard/pad mixing and Steam Input. |
 | Online across households | Two PCs on different networks; repeat joins/rematches, late join, guest departure, host departure and capacity rejection. |
-| Faction service and rankings | Resolve timing/bandwidth acceptance, deploy and operate the intended service, and test actual browser clients over WAN. Persistent authenticated rankings require implementation if retained as a launch promise; session standings are not a substitute. |
+| Faction service and rankings | Resolve timing/bandwidth acceptance, deploy and operate the intended service, and test actual browser clients over WAN. Private host-issued ratings/queues are implemented; Steam identity, public competitive policies and acceptance remain necessary for a public ranked promise. |
 | Minimum specifications | Measure a supported low-end PC; do not derive public minimum specs from headless FPS here. |
 | Human gameplay | Complete PLAYER-REVIEW.md with novice/experienced players, including sword cues, objectives, all four difficulties and representative large battles; fix observed blockers and retest. |
 | Additional music | Actual Suno exports for the remaining recordings, followed by listening/loop checks. |

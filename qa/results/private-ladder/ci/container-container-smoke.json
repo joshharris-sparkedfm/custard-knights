@@ -1,0 +1,20 @@
+{
+  "status": "pass",
+  "health": {
+    "ok": true,
+    "protocol": 1,
+    "ranked": false,
+    "privateRanked": true,
+    "pendingRankedResults": 0,
+    "rooms": 0,
+    "connections": 0,
+    "maxRooms": 8,
+    "maxConnections": 128,
+    "stepHz": 30,
+    "snapshotHz": 20
+  },
+  "full": 1,
+  "delta": 3,
+  "origin": "custard://game",
+  "limitations": "Loopback container smoke only; no TLS, WAN, human, sustained-capacity or hosting acceptance."
+}

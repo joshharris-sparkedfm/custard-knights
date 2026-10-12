@@ -1,3 +1,6 @@
+## Story feedback checkpoint — 12 October
+
+Controls/pecks/per-life upgrades merged in PR19 at45e763d. Story source now adds sixteen actual-art animated scenes with subtitles and replay/pause/skip, plus the staged banquet rescue. Focused campaign26/26 and scene4/4 tests pass; campaign integration58/58, input-only all8 encounters and presentation25/25 pass. See qa/reviews/story-opening-2026-10-12.md. Human story acceptance is open. Optional Roomier arena work is still in progress in the workspace. Exported beta.6 is unchanged; a combined new package follows checked arena integration. Automation remains removed.
 ## Active player feedback revision — 12 October
 
 Scheduled automation was removed at the user's request. Work follows direct player feedback. Checked source now fixes Chicken Race nonlethal pecks, adds mouse aim/click/guard including guest transport and couch coexistence, and retains weapon/sword upgrades until defeat. See qa/reviews/player-controls-2026-10-12.md: 23 local controls checks, 16 real same-network PeerJS checks and 26 regressions pass. The exported beta.6 below is unchanged and does not contain these revisions yet.

@@ -1,0 +1,24 @@
+{
+  "kind": "Actual in-game opening revision capture",
+  "audio": "Silent; subtitles baked into video.",
+  "errors": [],
+  "capture": {
+    "mime": "video/webm;codecs=vp9",
+    "bytes": 6592728,
+    "sceneSeconds": 24,
+    "knightDrawCalls": 5989,
+    "missingCallback": false
+  },
+  "finishedAt": "2026-10-12T09:56:13.211Z",
+  "sourceHashes": {
+    "index.html": "27db4c3c8b629a4c95973f6e591630609ac666c53d5a19bac1976c9799d19d50",
+    "game/story-scenes.js": "1206cc5caac09e24918f34c098c62a3e401d66154d32571de128b59e2399f0e0",
+    "game/campaign-ui.js": "34b854a73a8d6c735422143c99473f7b6f873a14cabe3968ef10968c7b8ec076",
+    "game/campaign.js": "c267dfb6ab89db890db03b355161826ae4dc6d402d0011565f35313c850c0cf6"
+  },
+  "container": {
+    "durationSeconds": 24.276,
+    "bytes": 6592471,
+    "postprocess": "Lossless FFmpeg remux to add seekable WebM duration/index; original VP9 video retained."
+  }
+}

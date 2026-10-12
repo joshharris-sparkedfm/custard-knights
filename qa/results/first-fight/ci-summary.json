@@ -1,0 +1,38 @@
+{
+  "conclusion": "success",
+  "head_sha": "83f81e4a467fcd7d03af94ae04f4dbb4ebcfc323",
+  "status": "completed",
+  "jobs": [
+    {
+      "name": "server (windows-latest)",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "name": "core (windows-latest, 24)",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "name": "core (ubuntu-latest, 24)",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "name": "core (ubuntu-latest, 22)",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "name": "core (windows-latest, 22)",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "name": "server (ubuntu-latest)",
+      "status": "completed",
+      "conclusion": "success"
+    }
+  ],
+  "id": 38223169999
+}

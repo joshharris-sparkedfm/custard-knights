@@ -1,4 +1,17 @@
-# Private friends beta — 0.3.0-beta.5
+# Private friends beta - 0.3.0-beta.6
+
+Frozen runtime `83f81e4a467fcd7d03af94ae04f4dbb4ebcfc323` adds the optional CK-05 solo first-fight study. Settings lets consenting testers compare curated/random arenas or four/eight knights with other setup held constant. Ordinary play remains available, settings restore and no study rewards are granted. [Protocol](playtest/FIRST-FIGHT-STUDY.md) and [review](../qa/reviews/first-fight-2026-10-12.md) explain assignment lifetime, self-report and unperformed human acceptance.
+
+- Friends ZIP: `outputs/Custard-Knights-Friends-0.3.0-beta.6.zip`, 547116732 bytes, SHA256 `3abd4d7af4ab5481e4627721e69c8a773107016f93fafca7176b333c03d418cd`.
+- Preview folder: `outputs/Custard-Knights-Windows-0.3.0-beta.6-preview`.
+- Preview ZIP: `outputs/Custard-Knights-Windows-0.3.0-beta.6-preview.zip`, 547115972 bytes, SHA256 `afb5bab3b459946d98ebf22869fc6c579607c1d95c0a9f5fa2bce5478a409598`.
+- ASAR SHA256: `dc7e52ef284dd6068dfec30e8475f2897ba00979e6d46ed35516a542818df5db`.
+
+All 58 package entries and all 73 friends game files match; both final ZIPs pass integrity. Actual EXE save/restart/launcher/relocation passed in isolated profiles. Eighteen focused tests, 38 source and 38 packaged study checks, and 30 source/30 packaged reporting regression checks pass. Hosted CI run 38223169999 passed all six Windows/Linux core/server jobs at the frozen runtime. A synthetic fixture failure and the page-cache lifecycle correction are documented in the review. CI does not resolve earlier unexplained local native-runtime faults.
+
+Extract the complete Friends ZIP and run `Game/Custard Knights.exe` after closing older copies normally. The included guide explains optional study enrollment and offline feedback. No public upload or sending occurred. All older builds are preserved; normal saves remain shared across versions. Human fun, newcomer observations, music listening, controllers, WAN, minimum hardware and Steam acceptance remain open. Later QA/docs commits do not change these frozen runtime bytes.
+
+# Historical private friends beta — 0.3.0-beta.5
 
 Frozen runtime source `0817dd839fe8e04568456eb62bb1c345f534b8fd` adds optional local playtest recording and report export to beta.4. It defaults off; nothing uploads automatically. Actual arena/story/Cup/faction events use bounded anonymous observations with explicit denominator limits. [LOCAL-REPORTS.md](playtest/LOCAL-REPORTS.md) explains tester controls and report interpretation. All beta.4 gameplay and music are retained.
 

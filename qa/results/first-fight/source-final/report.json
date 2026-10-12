@@ -1,0 +1,286 @@
+{
+  "checks": [
+    {
+      "name": "Study cannot enroll without consent",
+      "pass": true
+    },
+    {
+      "name": "density/four: actual solo setup",
+      "pass": true
+    },
+    {
+      "name": "density/four: assignment before linked round",
+      "pass": true
+    },
+    {
+      "name": "density/four: timed completion restores config, progression and counters",
+      "pass": true
+    },
+    {
+      "name": "density/four: one terminal and one recognition",
+      "pass": true
+    },
+    {
+      "name": "density/four: completed comparison not repeated",
+      "pass": true
+    },
+    {
+      "name": "density/four: explicit normal round restores ordinary density and has no trial",
+      "pass": true
+    },
+    {
+      "name": "density/eight: actual solo setup",
+      "pass": true
+    },
+    {
+      "name": "density/eight: assignment before linked round",
+      "pass": true
+    },
+    {
+      "name": "density/eight: timed completion restores config, progression and counters",
+      "pass": true
+    },
+    {
+      "name": "density/eight: one terminal and one recognition",
+      "pass": true
+    },
+    {
+      "name": "density/eight: completed comparison not repeated",
+      "pass": true
+    },
+    {
+      "name": "density/eight: explicit normal round restores ordinary density and has no trial",
+      "pass": true
+    },
+    {
+      "name": "arena/curated: actual solo setup",
+      "pass": true
+    },
+    {
+      "name": "arena/curated: assignment before linked round",
+      "pass": true
+    },
+    {
+      "name": "arena/curated: timed completion restores config, progression and counters",
+      "pass": true
+    },
+    {
+      "name": "arena/curated: one terminal and one recognition",
+      "pass": true
+    },
+    {
+      "name": "arena/curated: completed comparison not repeated",
+      "pass": true
+    },
+    {
+      "name": "arena/curated: explicit normal round restores ordinary density and has no trial",
+      "pass": true
+    },
+    {
+      "name": "arena/random: actual solo setup",
+      "pass": true
+    },
+    {
+      "name": "arena/random: assignment before linked round",
+      "pass": true
+    },
+    {
+      "name": "arena/random: timed completion restores config, progression and counters",
+      "pass": true
+    },
+    {
+      "name": "arena/random: one terminal and one recognition",
+      "pass": true
+    },
+    {
+      "name": "arena/random: completed comparison not repeated",
+      "pass": true
+    },
+    {
+      "name": "arena/random: explicit normal round restores ordinary density and has no trial",
+      "pass": true
+    },
+    {
+      "name": "Abandonment restores setup without completion",
+      "pass": true
+    },
+    {
+      "name": "Retry preserves assignment despite a different random draw",
+      "pass": true
+    },
+    {
+      "name": "Opt-out erases trial records and ending still restores configuration",
+      "pass": true
+    },
+    {
+      "name": "Online client cannot enter a solo study",
+      "pass": true
+    },
+    {
+      "name": "menu transition closes the study once",
+      "pass": true
+    },
+    {
+      "name": "story transition closes the study once",
+      "pass": true
+    },
+    {
+      "name": "faction transition closes the study once",
+      "pass": true
+    },
+    {
+      "name": "Cup transition closes the study once",
+      "pass": true
+    },
+    {
+      "name": "QA study records never enter human baseline or experiment summaries",
+      "pass": true
+    },
+    {
+      "name": "No schema rejection during integrated flows",
+      "pass": true,
+      "details": {
+        "retained": 5,
+        "truncated": 0,
+        "duplicates": 0,
+        "rejected": 0,
+        "excludedFromHumanMetrics": 5
+      }
+    },
+    {
+      "name": "No HTTP/WebSocket uploads from recording/export flows",
+      "pass": true
+    },
+    {
+      "name": "No browser exceptions",
+      "pass": true
+    }
+  ],
+  "errors": [],
+  "network": [
+    "file:///C:/Users/Joshua/Documents/Codex/2026-10-08/rea/work/custard-knights/index.html?qa=1",
+    "file:///C:/Users/Joshua/Documents/Codex/2026-10-08/rea/work/custard-knights/vendor/fonts.css",
+    "file:///C:/Users/Joshua/Documents/Codex/2026-10-08/rea/work/custard-knights/sprites/knight.js",
+    "file:///C:/Users/Joshua/Documents/Codex/2026-10-08/rea/work/custard-knights/sprites/chicken.js",
+    "file:///C:/Users/Joshua/Documents/Codex/2026-10-08/rea/work/custard-knights/game/progression.js",
+    "file:///C:/Users/Joshua/Documents/Codex/2026-10-08/rea/work/custard-knights/game/product-events.js",
+    "file:///C:/Users/Joshua/Documents/Codex/2026-10-08/rea/work/custard-knights/game/first-fight.js",
+    "file:///C:/Users/Joshua/Documents/Codex/2026-10-08/rea/work/custard-knights/game/collection.js",
+    "file:///C:/Users/Joshua/Documents/Codex/2026-10-08/rea/work/custard-knights/game/collection-art.js",
+    "file:///C:/Users/Joshua/Documents/Codex/2026-10-08/rea/work/custard-knights/game/collection-ui.js",
+    "file:///C:/Users/Joshua/Documents/Codex/2026-10-08/rea/work/custard-knights/game/campaign.js",
+    "file:///C:/Users/Joshua/Documents/Codex/2026-10-08/rea/work/custard-knights/game/campaign-ui.js",
+    "file:///C:/Users/Joshua/Documents/Codex/2026-10-08/rea/work/custard-knights/game/campaign-integration.js",
+    "file:///C:/Users/Joshua/Documents/Codex/2026-10-08/rea/work/custard-knights/game/preferences.js",
+    "file:///C:/Users/Joshua/Documents/Codex/2026-10-08/rea/work/custard-knights/game/chaos.js",
+    "file:///C:/Users/Joshua/Documents/Codex/2026-10-08/rea/work/custard-knights/game/difficulty.js",
+    "file:///C:/Users/Joshua/Documents/Codex/2026-10-08/rea/work/custard-knights/game/weapons.js",
+    "file:///C:/Users/Joshua/Documents/Codex/2026-10-08/rea/work/custard-knights/game/cup.js",
+    "file:///C:/Users/Joshua/Documents/Codex/2026-10-08/rea/work/custard-knights/game/cup-ui.js",
+    "file:///C:/Users/Joshua/Documents/Codex/2026-10-08/rea/work/custard-knights/game/mass-battle.css",
+    "file:///C:/Users/Joshua/Documents/Codex/2026-10-08/rea/work/custard-knights/game/mass-battle.js",
+    "file:///C:/Users/Joshua/Documents/Codex/2026-10-08/rea/work/custard-knights/game/mass-battle-wire.js",
+    "file:///C:/Users/Joshua/Documents/Codex/2026-10-08/rea/work/custard-knights/game/mass-battle-ui.js",
+    "file:///C:/Users/Joshua/Documents/Codex/2026-10-08/rea/work/custard-knights/audio/soundtrack.js",
+    "file:///C:/Users/Joshua/Documents/Codex/2026-10-08/rea/work/custard-knights/sprites/hero.js",
+    "file:///C:/Users/Joshua/Documents/Codex/2026-10-08/rea/work/custard-knights/art/keyart/home.webp",
+    "file:///C:/Users/Joshua/Documents/Codex/2026-10-08/rea/work/custard-knights/vendor/nunito-latin-900-normal.woff2",
+    "file:///C:/Users/Joshua/Documents/Codex/2026-10-08/rea/work/custard-knights/vendor/lilita-one-latin-400-normal.woff2",
+    "file:///C:/Users/Joshua/Documents/Codex/2026-10-08/rea/work/custard-knights/vendor/nunito-latin-800-normal.woff2",
+    "file:///C:/Users/Joshua/Documents/Codex/2026-10-08/rea/work/custard-knights/vendor/nunito-latin-600-normal.woff2",
+    "data:[embedded asset omitted]",
+    "data:[embedded asset omitted]",
+    "file:///C:/Users/Joshua/Documents/Codex/2026-10-08/rea/work/custard-knights/menu-theme.mp3",
+    "data:[embedded asset omitted]",
+    "data:[embedded asset omitted]",
+    "data:[embedded asset omitted]",
+    "data:[embedded asset omitted]",
+    "data:[embedded asset omitted]",
+    "data:[embedded asset omitted]",
+    "data:[embedded asset omitted]",
+    "data:[embedded asset omitted]",
+    "data:[embedded asset omitted]",
+    "data:[embedded asset omitted]",
+    "data:[embedded asset omitted]",
+    "data:[embedded asset omitted]",
+    "data:[embedded asset omitted]",
+    "data:[embedded asset omitted]",
+    "data:[embedded asset omitted]",
+    "data:[embedded asset omitted]",
+    "data:[embedded asset omitted]",
+    "data:[embedded asset omitted]",
+    "data:[embedded asset omitted]",
+    "data:[embedded asset omitted]",
+    "data:[embedded asset omitted]",
+    "data:[embedded asset omitted]",
+    "data:[embedded asset omitted]",
+    "data:[embedded asset omitted]",
+    "data:[embedded asset omitted]",
+    "data:[embedded asset omitted]",
+    "data:[embedded asset omitted]",
+    "data:[embedded asset omitted]",
+    "data:[embedded asset omitted]",
+    "data:[embedded asset omitted]",
+    "data:[embedded asset omitted]",
+    "data:[embedded asset omitted]",
+    "data:[embedded asset omitted]",
+    "data:[embedded asset omitted]",
+    "data:[embedded asset omitted]",
+    "data:[embedded asset omitted]",
+    "data:[embedded asset omitted]",
+    "data:[embedded asset omitted]",
+    "data:[embedded asset omitted]",
+    "data:[embedded asset omitted]",
+    "data:[embedded asset omitted]",
+    "data:[embedded asset omitted]",
+    "data:[embedded asset omitted]",
+    "data:[embedded asset omitted]",
+    "data:[embedded asset omitted]",
+    "data:[embedded asset omitted]",
+    "data:[embedded asset omitted]",
+    "data:[embedded asset omitted]",
+    "data:[embedded asset omitted]",
+    "data:[embedded asset omitted]",
+    "data:[embedded asset omitted]",
+    "data:[embedded asset omitted]",
+    "data:[embedded asset omitted]",
+    "data:[embedded asset omitted]",
+    "data:[embedded asset omitted]",
+    "data:[embedded asset omitted]",
+    "data:[embedded asset omitted]",
+    "file:///C:/Users/Joshua/Documents/Codex/2026-10-08/rea/work/custard-knights/audio/02-a-very-noble-food-fight.wav",
+    "file:///C:/Users/Joshua/Documents/Codex/2026-10-08/rea/work/custard-knights/audio/11-the-golden-spoon.wav",
+    "file:///C:/Users/Joshua/Documents/Codex/2026-10-08/rea/work/custard-knights/audio/04-the-pie-production-line.wav",
+    "file:///C:/Users/Joshua/Documents/Codex/2026-10-08/rea/work/custard-knights/audio/02-a-very-noble-food-fight.wav",
+    "file:///C:/Users/Joshua/Documents/Codex/2026-10-08/rea/work/custard-knights/audio/11-the-golden-spoon.wav",
+    "file:///C:/Users/Joshua/Documents/Codex/2026-10-08/rea/work/custard-knights/audio/11-the-golden-spoon.wav",
+    "file:///C:/Users/Joshua/Documents/Codex/2026-10-08/rea/work/custard-knights/audio/04-the-pie-production-line.wav",
+    "file:///C:/Users/Joshua/Documents/Codex/2026-10-08/rea/work/custard-knights/audio/02-a-very-noble-food-fight.wav",
+    "file:///C:/Users/Joshua/Documents/Codex/2026-10-08/rea/work/custard-knights/audio/11-the-golden-spoon.wav",
+    "file:///C:/Users/Joshua/Documents/Codex/2026-10-08/rea/work/custard-knights/audio/04-the-pie-production-line.wav",
+    "file:///C:/Users/Joshua/Documents/Codex/2026-10-08/rea/work/custard-knights/audio/05-too-hot-for-armour.wav",
+    "file:///C:/Users/Joshua/Documents/Codex/2026-10-08/rea/work/custard-knights/audio/11-the-golden-spoon.wav",
+    "file:///C:/Users/Joshua/Documents/Codex/2026-10-08/rea/work/custard-knights/audio/04-the-pie-production-line.wav",
+    "file:///C:/Users/Joshua/Documents/Codex/2026-10-08/rea/work/custard-knights/menu-theme.mp3",
+    "file:///C:/Users/Joshua/Documents/Codex/2026-10-08/rea/work/custard-knights/audio/02-a-very-noble-food-fight.wav",
+    "file:///C:/Users/Joshua/Documents/Codex/2026-10-08/rea/work/custard-knights/audio/11-the-golden-spoon.wav",
+    "file:///C:/Users/Joshua/Documents/Codex/2026-10-08/rea/work/custard-knights/menu-theme.mp3",
+    "file:///C:/Users/Joshua/Documents/Codex/2026-10-08/rea/work/custard-knights/menu-theme.mp3",
+    "file:///C:/Users/Joshua/Documents/Codex/2026-10-08/rea/work/custard-knights/audio/02-a-very-noble-food-fight.wav",
+    "data:[embedded asset omitted]",
+    "data:[embedded asset omitted]",
+    "data:[embedded asset omitted]",
+    "data:[embedded asset omitted]",
+    "data:[embedded asset omitted]",
+    "file:///C:/Users/Joshua/Documents/Codex/2026-10-08/rea/work/custard-knights/audio/02-a-very-noble-food-fight.wav",
+    "file:///C:/Users/Joshua/Documents/Codex/2026-10-08/rea/work/custard-knights/audio/02-a-very-noble-food-fight.wav",
+    "file:///C:/Users/Joshua/Documents/Codex/2026-10-08/rea/work/custard-knights/audio/02-a-very-noble-food-fight.wav"
+  ],
+  "packaged": false,
+  "limitations": "Synthetic input in isolated profiles; packet fixtures exercise admission semantics, not live PeerJS or WAN. No human baseline or physical-controller acceptance.",
+  "sourceHashes": {
+    "index.html": "4942061f82926e1e41dedccf4dda80410242a7738aa6de7f180d12af2450c247",
+    "game/product-events.js": "3322fafc3be428a2d1413691c91773058a7907ff90cd3c64493bebeb64e30994",
+    "game/first-fight.js": "3bc66d40f13c482b51bf42e1f45c8852cae8b3676bd90343889487cf630b0017"
+  }
+}

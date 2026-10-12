@@ -11,6 +11,14 @@ Sparked FM Ltd | Build {{VERSION}}
 5. After playing, open FEEDBACK.html in your browser. Save the report
    and send it back to Joshua using the same conversation as your invitation.
 
+Optional newcomer study: if Joshua asks you to try a first-fight comparison,
+go to Settings, enable Local play report, select First arena or Number of
+knights under Optional first-fight test, then Start test round. It lasts
+90 seconds, uses Easy bots and Simple chaos, and grants no coins or goals.
+Your normal setup is restored afterwards. The own-knight question is optional.
+Try it before other matches and tell Joshua if you have played before.
+Clearing the report allows reenrollment; it does not make you a new tester.
+
 Optional: before playing, Settings > Local play report lets you record match
 and connection observations on this device. It starts OFF and never uploads.
 Afterwards, Export report JSON and send that separate file with your feedback

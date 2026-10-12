@@ -1,0 +1,26 @@
+✔ density comparison changes only total combatants (0.8088ms)
+✔ arena comparison changes only map selection; equal duration, bots, density and chaos (0.1119ms)
+✔ assignment is immutable, restore does not reroll, invalid factors are rejected (0.2458ms)
+✔ experiment reports distinguish assignment, terminal outcome and self-report without invented participants (1.4245ms)
+✔ orphaned, QA and bot experiment outcomes do not create denominators (0.2881ms)
+✔ invalid study combinations and arbitrary self-report text are rejected (0.1129ms)
+✔ continuation requires a later normal offline round, not rematch intent or another trial (0.3445ms)
+✔ defaults to disabled; opt-in alone permits IDs and persisted events; opt-out erases data (1.2716ms)
+✔ rejects private strings, unknown fields, raw identifiers, malformed enums and counters (0.7849ms)
+✔ join baseline requires retained attempt and deduplicates both repeated attempts and conflicting outcomes (0.2766ms)
+✔ round completion and actual continuation are distinct from rematch intent (0.2579ms)
+✔ QA, demos, bots, unknown human count and late joins never count as human rounds (0.5185ms)
+✔ 30 minute inactivity rotates session with inferred exit; explicit lifecycle exits are observed (0.1746ms)
+✔ reload keeps installation but creates a fresh session and does not invent retention (0.2211ms)
+✔ session boundaries leave unmatched long-round completions and join outcomes out of baseline (0.4896ms)
+✔ bounded storage reports truncation and avoids counting orphaned outcomes (327.7358ms)
+✔ blocked, corrupt, oversized and poisoned storage cannot break recording or export private extras (0.7835ms)
+✔ export is a deeply immutable snapshot and clear rotates identities while retaining consent (0.1638ms)
+ℹ tests 18
+ℹ suites 0
+ℹ pass 18
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 404.3054

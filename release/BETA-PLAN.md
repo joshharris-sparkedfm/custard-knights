@@ -1,6 +1,6 @@
 # Private Windows friends beta
 
-**Exported: 0.3.0-beta.5.** Movement/spawn fixes, expanded weapons, bounded guest prediction, chaos presets and rare events are included in the checked friends ZIP. [PREVIEW-BUILD.md](PREVIEW-BUILD.md) identifies the frozen runtime and archive hashes. No tester sending or public upload is recorded. Keep Joshua's existing player window intact. This is a feedback milestone, not a finished-game or public Steam-release claim; [ROADMAP-STATUS.md](ROADMAP-STATUS.md) records the outstanding work.
+**Exported: 0.3.0-beta.6.** Movement/spawn fixes, expanded weapons, bounded guest prediction, chaos presets and rare events are included in the checked friends ZIP. [PREVIEW-BUILD.md](PREVIEW-BUILD.md) identifies the frozen runtime and archive hashes. No tester sending or public upload is recorded. Keep Joshua's existing player window intact. This is a feedback milestone, not a finished-game or public Steam-release claim; [ROADMAP-STATUS.md](ROADMAP-STATUS.md) records the outstanding work.
 
 ## What friends receive
 
@@ -8,7 +8,7 @@ One versioned ZIP containing the complete Windows x64 game under `Game/`, `START
 
 ## Distribution checkpoint and future exports
 
-The beta.5 freeze, package and friends-kit checks in steps 1–3 are complete. The ZIP remains in local outputs; step 4 has not been performed. Follow steps 1–3 again only for a material source change and a new versioned export, preserving prior builds unchanged.
+The beta.6 freeze, package and friends-kit checks in steps 1–3 are complete. The ZIP remains in local outputs; step 4 has not been performed. Follow steps 1–3 again only for a material source change and a new versioned export, preserving prior builds unchanged.
 
 1. Finish and review the intended changes, bump the version for a new runtime candidate and record the frozen source revision. Keep any player window and normal saves intact; packaging does not require replacing that running installation.
 2. Build that versioned Windows candidate. Record source revision, export ZIP SHA256 and packaged `app.asar` SHA256. Extract into a fresh folder and verify that the exported game launches with its sibling files and supplied music; preserve older archives separately.

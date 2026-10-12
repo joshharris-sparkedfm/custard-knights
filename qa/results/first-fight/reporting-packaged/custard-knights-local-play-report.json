@@ -1,0 +1,91 @@
+{
+  "version": 1,
+  "build": "0.3.0-beta.6",
+  "generatedAt": 1791793328914,
+  "consent": true,
+  "storageState": "available",
+  "installId": "495997fd849de73820f40d401797bfac",
+  "events": [
+    {
+      "name": "session_start",
+      "build": "0.3.0-beta.6",
+      "sessionId": "7598328a9bf3bef68f3f13a5e86db4b8",
+      "at": 1791793328896,
+      "fields": {
+        "qa": true
+      }
+    },
+    {
+      "name": "round_started",
+      "build": "0.3.0-beta.6",
+      "sessionId": "7598328a9bf3bef68f3f13a5e86db4b8",
+      "at": 1791793328907,
+      "fields": {
+        "format": "arena",
+        "mode": "hotpie",
+        "map": "roof",
+        "difficulty": "medium",
+        "humanCount": 1,
+        "botCount": 7,
+        "botOnly": false,
+        "online": false,
+        "input": "keyboard",
+        "roundId": "bc9c9979a4af55d749e2da20ef6b9899",
+        "qa": true
+      }
+    },
+    {
+      "name": "round_completed",
+      "build": "0.3.0-beta.6",
+      "sessionId": "7598328a9bf3bef68f3f13a5e86db4b8",
+      "at": 1791793328908,
+      "fields": {
+        "result": "win",
+        "format": "arena",
+        "mode": "hotpie",
+        "map": "roof",
+        "difficulty": "medium",
+        "humanCount": 1,
+        "botCount": 7,
+        "botOnly": false,
+        "online": false,
+        "input": "keyboard",
+        "roundId": "bc9c9979a4af55d749e2da20ef6b9899",
+        "qa": true
+      }
+    }
+  ],
+  "metrics": {
+    "joinAttempts": 0,
+    "joinSucceeded": 0,
+    "joinFailed": 0,
+    "joinPendingOrUnobserved": 0,
+    "roundsStarted": 0,
+    "roundsCompleted": 0,
+    "roundCompletionRate": null,
+    "rematchSelections": 0,
+    "completedRoundsWithObservedContinuation": 0
+  },
+  "experiments": [],
+  "counts": {
+    "retained": 3,
+    "truncated": 0,
+    "duplicates": 0,
+    "rejected": 0,
+    "excludedFromHumanMetrics": 3
+  },
+  "limitations": [
+    "Experiment counts describe retained solo trials by build/variant, not unique participants or causal lift. Recognition is self-report. Normal-round continuation requires a later observed offline arena start, not a stated intention.",
+    "Local opt-in observations from one browser installation only; no network collection or population-wide claims.",
+    "Metrics cover retained events only. Truncation, cleared storage, missing instrumentation and interrupted sessions can remove context.",
+    "Deduplication covers retained events in the current session. IDs must be anonymous local tokens, never external identifiers.",
+    "Join outcomes require a retained attempt in the same session. Pending or unobserved does not mean failure.",
+    "Round completions also require a start in the same session. A long round spanning the inactivity cutoff remains uncompleted in this observed baseline.",
+    "General round metrics include optional study rounds; use the experiment summaries and trial fields to separate these from normal play.",
+    "Human round metrics require explicitly positive human counts on start and completion; late joins are excluded. QA, demo and bot-only events are excluded.",
+    "Continuation means a later human round start in the same session after an observed completion; rematch intent alone is not continuation.",
+    "Inactivity exits are inferred after 30 minutes when another event arrives. Page exits are observations of lifecycle signals, not proof a person left.",
+    "Cup, challenge, reward, highlight, share and referral events are observations only; no conversion or retention claim is calculated.",
+    "No D1/D7 retention, people counts, attribution, or cross-device identity is available."
+  ]
+}

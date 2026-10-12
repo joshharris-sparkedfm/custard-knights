@@ -1,0 +1,286 @@
+{
+  "checks": [
+    {
+      "name": "Study cannot enroll without consent",
+      "pass": true
+    },
+    {
+      "name": "density/four: actual solo setup",
+      "pass": true
+    },
+    {
+      "name": "density/four: assignment before linked round",
+      "pass": true
+    },
+    {
+      "name": "density/four: timed completion restores config, progression and counters",
+      "pass": true
+    },
+    {
+      "name": "density/four: one terminal and one recognition",
+      "pass": true
+    },
+    {
+      "name": "density/four: completed comparison not repeated",
+      "pass": true
+    },
+    {
+      "name": "density/four: explicit normal round restores ordinary density and has no trial",
+      "pass": true
+    },
+    {
+      "name": "density/eight: actual solo setup",
+      "pass": true
+    },
+    {
+      "name": "density/eight: assignment before linked round",
+      "pass": true
+    },
+    {
+      "name": "density/eight: timed completion restores config, progression and counters",
+      "pass": true
+    },
+    {
+      "name": "density/eight: one terminal and one recognition",
+      "pass": true
+    },
+    {
+      "name": "density/eight: completed comparison not repeated",
+      "pass": true
+    },
+    {
+      "name": "density/eight: explicit normal round restores ordinary density and has no trial",
+      "pass": true
+    },
+    {
+      "name": "arena/curated: actual solo setup",
+      "pass": true
+    },
+    {
+      "name": "arena/curated: assignment before linked round",
+      "pass": true
+    },
+    {
+      "name": "arena/curated: timed completion restores config, progression and counters",
+      "pass": true
+    },
+    {
+      "name": "arena/curated: one terminal and one recognition",
+      "pass": true
+    },
+    {
+      "name": "arena/curated: completed comparison not repeated",
+      "pass": true
+    },
+    {
+      "name": "arena/curated: explicit normal round restores ordinary density and has no trial",
+      "pass": true
+    },
+    {
+      "name": "arena/random: actual solo setup",
+      "pass": true
+    },
+    {
+      "name": "arena/random: assignment before linked round",
+      "pass": true
+    },
+    {
+      "name": "arena/random: timed completion restores config, progression and counters",
+      "pass": true
+    },
+    {
+      "name": "arena/random: one terminal and one recognition",
+      "pass": true
+    },
+    {
+      "name": "arena/random: completed comparison not repeated",
+      "pass": true
+    },
+    {
+      "name": "arena/random: explicit normal round restores ordinary density and has no trial",
+      "pass": true
+    },
+    {
+      "name": "Abandonment restores setup without completion",
+      "pass": true
+    },
+    {
+      "name": "Retry preserves assignment despite a different random draw",
+      "pass": true
+    },
+    {
+      "name": "Opt-out erases trial records and ending still restores configuration",
+      "pass": true
+    },
+    {
+      "name": "Online client cannot enter a solo study",
+      "pass": true
+    },
+    {
+      "name": "menu transition closes the study once",
+      "pass": true
+    },
+    {
+      "name": "story transition closes the study once",
+      "pass": true
+    },
+    {
+      "name": "faction transition closes the study once",
+      "pass": true
+    },
+    {
+      "name": "Cup transition closes the study once",
+      "pass": true
+    },
+    {
+      "name": "QA study records never enter human baseline or experiment summaries",
+      "pass": true
+    },
+    {
+      "name": "No schema rejection during integrated flows",
+      "pass": true,
+      "details": {
+        "retained": 5,
+        "truncated": 0,
+        "duplicates": 0,
+        "rejected": 0,
+        "excludedFromHumanMetrics": 5
+      }
+    },
+    {
+      "name": "No HTTP/WebSocket uploads from recording/export flows",
+      "pass": true
+    },
+    {
+      "name": "No browser exceptions",
+      "pass": true
+    }
+  ],
+  "errors": [],
+  "network": [
+    "custard://game/index.html?qa=1",
+    "custard://game/vendor/fonts.css",
+    "custard://game/sprites/knight.js",
+    "custard://game/sprites/chicken.js",
+    "custard://game/game/progression.js",
+    "custard://game/game/product-events.js",
+    "custard://game/game/first-fight.js",
+    "custard://game/game/collection.js",
+    "custard://game/game/collection-art.js",
+    "custard://game/game/collection-ui.js",
+    "custard://game/game/campaign.js",
+    "custard://game/game/campaign-ui.js",
+    "custard://game/game/campaign-integration.js",
+    "custard://game/game/preferences.js",
+    "custard://game/game/chaos.js",
+    "custard://game/game/difficulty.js",
+    "custard://game/game/weapons.js",
+    "custard://game/game/cup.js",
+    "custard://game/game/cup-ui.js",
+    "custard://game/game/mass-battle.css",
+    "custard://game/game/mass-battle.js",
+    "custard://game/game/mass-battle-wire.js",
+    "custard://game/game/mass-battle-ui.js",
+    "custard://game/audio/soundtrack.js",
+    "custard://game/sprites/hero.js",
+    "custard://game/art/keyart/home.webp",
+    "custard://game/vendor/nunito-latin-900-normal.woff2",
+    "custard://game/vendor/lilita-one-latin-400-normal.woff2",
+    "custard://game/vendor/nunito-latin-800-normal.woff2",
+    "custard://game/vendor/nunito-latin-600-normal.woff2",
+    "data:[embedded asset omitted]",
+    "data:[embedded asset omitted]",
+    "custard://game/menu-theme.mp3",
+    "data:[embedded asset omitted]",
+    "data:[embedded asset omitted]",
+    "data:[embedded asset omitted]",
+    "data:[embedded asset omitted]",
+    "data:[embedded asset omitted]",
+    "data:[embedded asset omitted]",
+    "data:[embedded asset omitted]",
+    "data:[embedded asset omitted]",
+    "data:[embedded asset omitted]",
+    "data:[embedded asset omitted]",
+    "data:[embedded asset omitted]",
+    "data:[embedded asset omitted]",
+    "data:[embedded asset omitted]",
+    "data:[embedded asset omitted]",
+    "data:[embedded asset omitted]",
+    "data:[embedded asset omitted]",
+    "data:[embedded asset omitted]",
+    "data:[embedded asset omitted]",
+    "data:[embedded asset omitted]",
+    "data:[embedded asset omitted]",
+    "data:[embedded asset omitted]",
+    "data:[embedded asset omitted]",
+    "data:[embedded asset omitted]",
+    "data:[embedded asset omitted]",
+    "data:[embedded asset omitted]",
+    "data:[embedded asset omitted]",
+    "data:[embedded asset omitted]",
+    "data:[embedded asset omitted]",
+    "data:[embedded asset omitted]",
+    "data:[embedded asset omitted]",
+    "data:[embedded asset omitted]",
+    "data:[embedded asset omitted]",
+    "data:[embedded asset omitted]",
+    "data:[embedded asset omitted]",
+    "data:[embedded asset omitted]",
+    "data:[embedded asset omitted]",
+    "data:[embedded asset omitted]",
+    "data:[embedded asset omitted]",
+    "data:[embedded asset omitted]",
+    "data:[embedded asset omitted]",
+    "data:[embedded asset omitted]",
+    "data:[embedded asset omitted]",
+    "data:[embedded asset omitted]",
+    "data:[embedded asset omitted]",
+    "data:[embedded asset omitted]",
+    "data:[embedded asset omitted]",
+    "data:[embedded asset omitted]",
+    "data:[embedded asset omitted]",
+    "data:[embedded asset omitted]",
+    "data:[embedded asset omitted]",
+    "data:[embedded asset omitted]",
+    "data:[embedded asset omitted]",
+    "data:[embedded asset omitted]",
+    "data:[embedded asset omitted]",
+    "data:[embedded asset omitted]",
+    "data:[embedded asset omitted]",
+    "data:[embedded asset omitted]",
+    "data:[embedded asset omitted]",
+    "data:[embedded asset omitted]",
+    "data:[embedded asset omitted]",
+    "custard://game/audio/02-a-very-noble-food-fight.wav",
+    "custard://game/audio/11-the-golden-spoon.wav",
+    "custard://game/audio/04-the-pie-production-line.wav",
+    "custard://game/audio/02-a-very-noble-food-fight.wav",
+    "custard://game/audio/11-the-golden-spoon.wav",
+    "custard://game/audio/04-the-pie-production-line.wav",
+    "custard://game/audio/02-a-very-noble-food-fight.wav",
+    "custard://game/audio/11-the-golden-spoon.wav",
+    "custard://game/audio/04-the-pie-production-line.wav",
+    "custard://game/audio/07-bog-standard-heroics.wav",
+    "custard://game/audio/11-the-golden-spoon.wav",
+    "custard://game/audio/04-the-pie-production-line.wav",
+    "custard://game/menu-theme.mp3",
+    "custard://game/audio/02-a-very-noble-food-fight.wav",
+    "custard://game/menu-theme.mp3",
+    "custard://game/menu-theme.mp3",
+    "custard://game/audio/02-a-very-noble-food-fight.wav",
+    "data:[embedded asset omitted]",
+    "data:[embedded asset omitted]",
+    "custard://game/audio/02-a-very-noble-food-fight.wav",
+    "custard://game/audio/02-a-very-noble-food-fight.wav",
+    "custard://game/audio/02-a-very-noble-food-fight.wav",
+    "custard://game/audio/02-a-very-noble-food-fight.wav"
+  ],
+  "packaged": true,
+  "limitations": "Synthetic input in isolated profiles; Forced variant/timer/transition fixtures exercise study wiring, not human first-fight behaviour. No human baseline or physical-controller acceptance.",
+  "sourceHashes": {
+    "index.html": "4942061f82926e1e41dedccf4dda80410242a7738aa6de7f180d12af2450c247",
+    "game/product-events.js": "7811f13227ce368ebfc525f096c0d8952931e1e5c2ce68bd6d80982877a672c8",
+    "game/first-fight.js": "3bc66d40f13c482b51bf42e1f45c8852cae8b3676bd90343889487cf630b0017"
+  },
+  "archiveSha256": "ce214746f849437e82732f184eb4b46a7adf7f8b68db671fdcb22dca18c4cc13"
+}

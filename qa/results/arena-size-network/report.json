@@ -1,0 +1,252 @@
+{
+  "scope": "Two real PeerJS peers on one machine/network, isolated browser profiles. Real joins, setup packets, keyboard input, authoritative collision, snapshots and rematches. Not cross-network NAT or human playtesting.",
+  "checks": [
+    {
+      "name": "Real PeerJS connection established",
+      "pass": true
+    },
+    {
+      "name": "Legacy hello prevents Roomier start with an actionable lobby message",
+      "pass": true
+    },
+    {
+      "name": "Legacy peer can still join Classic",
+      "pass": true
+    },
+    {
+      "name": "Current hello advertises Roomier capability over real transport",
+      "pass": true
+    },
+    {
+      "name": "roomier: transmitted setup selects host geometry",
+      "pass": true
+    },
+    {
+      "name": "roomier: host/guest dimensions and backing canvases agree",
+      "pass": true,
+      "detail": {
+        "host": {
+          "size": "roomier",
+          "W": 1408,
+          "H": 872,
+          "T": 44,
+          "COLS": 32,
+          "ROWS": 18,
+          "OY": 80,
+          "WB": 62,
+          "worldFit": {
+            "scale": 0.7901376146788991,
+            "x": 59.74311926605503,
+            "y": 0
+          },
+          "hudFit": {
+            "scale": 0.86125,
+            "x": 64.80000000000007,
+            "y": 0
+          },
+          "camera": {
+            "on": false,
+            "x": 640,
+            "y": 400
+          },
+          "backings": {
+            "bg": [
+              2816,
+              1744
+            ],
+            "wl": [
+              2816,
+              2232
+            ],
+            "darkness": [
+              1408,
+              872
+            ],
+            "custard": [
+              1408,
+              872
+            ]
+          }
+        },
+        "guest": {
+          "size": "roomier",
+          "W": 1408,
+          "H": 872,
+          "T": 44,
+          "COLS": 32,
+          "ROWS": 18,
+          "OY": 80,
+          "WB": 62,
+          "worldFit": {
+            "scale": 0.7901376146788991,
+            "x": 59.74311926605503,
+            "y": 0
+          },
+          "hudFit": {
+            "scale": 0.86125,
+            "x": 64.80000000000007,
+            "y": 0
+          },
+          "camera": {
+            "on": false,
+            "x": 640,
+            "y": 400
+          },
+          "backings": {
+            "bg": [
+              2816,
+              1744
+            ],
+            "wl": [
+              2816,
+              2232
+            ],
+            "darkness": [
+              1408,
+              872
+            ],
+            "custard": [
+              1408,
+              872
+            ]
+          }
+        }
+      }
+    },
+    {
+      "name": "roomier: real input and snapshots agree at outer wall",
+      "pass": true,
+      "detail": {
+        "hostX": 1346.4,
+        "guestX": 1346.366349675538
+      }
+    },
+    {
+      "name": "Roomier guest reaches world coordinates beyond the old world edge",
+      "pass": true
+    },
+    {
+      "name": "classic: transmitted setup selects host geometry",
+      "pass": true
+    },
+    {
+      "name": "classic: host/guest dimensions and backing canvases agree",
+      "pass": true,
+      "detail": {
+        "host": {
+          "size": "classic",
+          "W": 1280,
+          "H": 800,
+          "T": 40,
+          "COLS": 32,
+          "ROWS": 18,
+          "OY": 80,
+          "WB": 58,
+          "worldFit": {
+            "scale": 0.86125,
+            "x": 64.80000000000007,
+            "y": 0
+          },
+          "hudFit": {
+            "scale": 0.86125,
+            "x": 64.80000000000007,
+            "y": 0
+          },
+          "camera": {
+            "on": false,
+            "x": 640,
+            "y": 400
+          },
+          "backings": {
+            "bg": [
+              2560,
+              1600
+            ],
+            "wl": [
+              2560,
+              2088
+            ],
+            "darkness": [
+              1280,
+              800
+            ],
+            "custard": [
+              1280,
+              800
+            ]
+          }
+        },
+        "guest": {
+          "size": "classic",
+          "W": 1280,
+          "H": 800,
+          "T": 40,
+          "COLS": 32,
+          "ROWS": 18,
+          "OY": 80,
+          "WB": 58,
+          "worldFit": {
+            "scale": 0.86125,
+            "x": 64.80000000000007,
+            "y": 0
+          },
+          "hudFit": {
+            "scale": 0.86125,
+            "x": 64.80000000000007,
+            "y": 0
+          },
+          "camera": {
+            "on": false,
+            "x": 640,
+            "y": 400
+          },
+          "backings": {
+            "bg": [
+              2560,
+              1600
+            ],
+            "wl": [
+              2560,
+              2088
+            ],
+            "darkness": [
+              1280,
+              800
+            ],
+            "custard": [
+              1280,
+              800
+            ]
+          }
+        }
+      }
+    },
+    {
+      "name": "classic: real input and snapshots agree at outer wall",
+      "pass": true,
+      "detail": {
+        "hostX": 1222.4,
+        "guestX": 1222.3572578134933
+      }
+    },
+    {
+      "name": "Classic rematch transitions the existing connection without replacing local preference",
+      "pass": true
+    },
+    {
+      "name": "No runtime errors during live Roomier join and Classic rematch",
+      "pass": true
+    },
+    {
+      "name": "Runtime source remained unchanged during acceptance",
+      "pass": true
+    }
+  ],
+  "errors": [],
+  "sourceHashes": {
+    "index.html": "b045dec79b6b088c24e55205231a68c07dd38b9831828d083bf60ab6a1413a27"
+  },
+  "sourceHashesAfter": {
+    "index.html": "b045dec79b6b088c24e55205231a68c07dd38b9831828d083bf60ab6a1413a27"
+  }
+}

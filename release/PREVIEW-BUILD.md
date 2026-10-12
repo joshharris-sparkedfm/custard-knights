@@ -1,4 +1,17 @@
-# Private friends beta - 0.3.0-beta.6
+# Private friends beta - 0.3.0-beta.7
+
+Frozen runtime `6f1300b6f5e7dab9f31b684e60d1cadd2bbc5842` combines mouse aiming/click/guard, nonlethal Chicken Race pecks, per-life weapon levels, the staged pantry rescue and animated story scenes, optional Roomier arenas, and corrected Rooftop race bot navigation. Classic remains default; Roomier adds21% floor area and requires compatible guests. [Integration review](../qa/reviews/roomier-arena-2026-10-12.md) and [route evidence](../qa/reviews/arena-size-2026-10-12.md) give validation and limits.
+
+- Friends ZIP: `outputs/Custard-Knights-Friends-0.3.0-beta.7.zip`, 547132532 bytes, SHA256 `b545e706faa83805af31b043fd25c993c5a345a04e6c7ecce00d43211a5354f8`.
+- Preview folder: `outputs/Custard-Knights-Windows-0.3.0-beta.7-preview`.
+- Preview ZIP: `outputs/Custard-Knights-Windows-0.3.0-beta.7-preview.zip`, 547132590 bytes, SHA256 `166ce8fb65d3991b7262056b6fbb77de74c7b59922c45d7e59f3bd2ee264c5cc`.
+- ASAR SHA256: `6d8c968c64d6086ec91a68faf20135cd57fd069effe79b65dad55316d10ff781`.
+
+All59 package entries match source/checked metadata; all73 friends game files and both final ZIPs pass integrity checks. Actual EXE save/restart/launcher/relocation passes. Packaged controls23, story25, geometry101 and Rooftop18 checks pass with zero browser exceptions. Source real PeerJS14 passes. Hosted CI38235427357 passes all6 jobs at gameplay source945cd1a; the later frozen source updates only the isolated desktop acceptance fixture for the new story objectives. First failed fixture attempts are retained and explained; these passes do not resolve earlier local native-runtime anomalies.
+
+Extract the whole Friends ZIP and run `Game/Custard Knights.exe`, after closing older copies normally. Saves remain local and shared across versions. No public upload or sending has occurred. Human story/pacing, physical pads, WAN, second-PC, minimum hardware and Steam acceptance remain open. The user has identified prior generated story videos; their location is pending, and they are not claimed to be recovered or installed. The new story scenes are game-rendered. All older exports remain preserved. Later QA/docs commits do not alter these frozen runtime bytes.
+
+# Historical private friends beta - 0.3.0-beta.6
 
 Frozen runtime `83f81e4a467fcd7d03af94ae04f4dbb4ebcfc323` adds the optional CK-05 solo first-fight study. Settings lets consenting testers compare curated/random arenas or four/eight knights with other setup held constant. Ordinary play remains available, settings restore and no study rewards are granted. [Protocol](playtest/FIRST-FIGHT-STUDY.md) and [review](../qa/reviews/first-fight-2026-10-12.md) explain assignment lifetime, self-report and unperformed human acceptance.
 

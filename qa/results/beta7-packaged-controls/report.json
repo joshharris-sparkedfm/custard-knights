@@ -1,0 +1,208 @@
+{
+  "checks": [
+    {
+      "name": "Keyboard remains usable without mouse aim",
+      "pass": true
+    },
+    {
+      "name": "Mouse aim is independent of keyboard movement",
+      "pass": true
+    },
+    {
+      "name": "Actual pointer attack fires the ranged weapon at the cursor",
+      "pass": true
+    },
+    {
+      "name": "Right mouse button guards",
+      "pass": true
+    },
+    {
+      "name": "Real mouse button chord supports attack while guarding",
+      "pass": true
+    },
+    {
+      "name": "Releasing attack preserves held guard",
+      "pass": true
+    },
+    {
+      "name": "Pad seat activity does not disable keyboard seat mouse",
+      "pass": true
+    },
+    {
+      "name": "Focus loss releases attack, guard and aim",
+      "pass": true
+    },
+    {
+      "name": "Pause does not leave an attack held",
+      "pass": true
+    },
+    {
+      "name": "Human racing chicken pecks with mouse and shoves a rival without killing",
+      "pass": true
+    },
+    {
+      "name": "Peck has a visible effect",
+      "pass": true
+    },
+    {
+      "name": "Keyboard Space pecks in Chicken Race too",
+      "pass": true
+    },
+    {
+      "name": "Refinding an exhausted weapon upgrades it during the same life",
+      "pass": true
+    },
+    {
+      "name": "Swapping preserves earned weapon levels with level and ammo caps",
+      "pass": true
+    },
+    {
+      "name": "Sword pickups raise reach level and last for the life",
+      "pass": true
+    },
+    {
+      "name": "Defeat clears earned weapon and sword upgrades",
+      "pass": true
+    },
+    {
+      "name": "Host receives explicit aim separately from guest movement",
+      "pass": true
+    },
+    {
+      "name": "Legacy seven-field input retains movement-facing compatibility",
+      "pass": true
+    },
+    {
+      "name": "Reject invalid guest aim NaN",
+      "pass": true
+    },
+    {
+      "name": "Reject invalid guest aim Infinity",
+      "pass": true
+    },
+    {
+      "name": "Reject invalid guest aim 9",
+      "pass": true
+    },
+    {
+      "name": "No external network requests during local controls checks",
+      "pass": true
+    },
+    {
+      "name": "No browser exceptions",
+      "pass": true
+    }
+  ],
+  "errors": [],
+  "network": [
+    "custard://game/index.html?qa=1",
+    "custard://game/vendor/fonts.css",
+    "custard://game/sprites/knight.js",
+    "custard://game/sprites/chicken.js",
+    "custard://game/game/progression.js",
+    "custard://game/game/product-events.js",
+    "custard://game/game/first-fight.js",
+    "custard://game/game/collection.js",
+    "custard://game/game/collection-art.js",
+    "custard://game/game/collection-ui.js",
+    "custard://game/game/campaign.js",
+    "custard://game/game/story-scenes.js",
+    "custard://game/game/campaign-ui.js",
+    "custard://game/game/campaign-integration.js",
+    "custard://game/game/preferences.js",
+    "custard://game/game/chaos.js",
+    "custard://game/game/difficulty.js",
+    "custard://game/game/weapons.js",
+    "custard://game/game/cup.js",
+    "custard://game/game/cup-ui.js",
+    "custard://game/game/mass-battle.css",
+    "custard://game/game/mass-battle.js",
+    "custard://game/game/mass-battle-wire.js",
+    "custard://game/game/mass-battle-ui.js",
+    "custard://game/audio/soundtrack.js",
+    "custard://game/sprites/hero.js",
+    "custard://game/art/keyart/home.webp",
+    "custard://game/vendor/nunito-latin-900-normal.woff2",
+    "custard://game/vendor/lilita-one-latin-400-normal.woff2",
+    "custard://game/vendor/nunito-latin-800-normal.woff2",
+    "custard://game/vendor/nunito-latin-600-normal.woff2",
+    "data:[embedded asset omitted]",
+    "data:[embedded asset omitted]",
+    "custard://game/menu-theme.mp3",
+    "data:[embedded asset omitted]",
+    "data:[embedded asset omitted]",
+    "data:[embedded asset omitted]",
+    "data:[embedded asset omitted]",
+    "data:[embedded asset omitted]",
+    "data:[embedded asset omitted]",
+    "data:[embedded asset omitted]",
+    "data:[embedded asset omitted]",
+    "data:[embedded asset omitted]",
+    "data:[embedded asset omitted]",
+    "data:[embedded asset omitted]",
+    "data:[embedded asset omitted]",
+    "data:[embedded asset omitted]",
+    "data:[embedded asset omitted]",
+    "data:[embedded asset omitted]",
+    "data:[embedded asset omitted]",
+    "data:[embedded asset omitted]",
+    "data:[embedded asset omitted]",
+    "data:[embedded asset omitted]",
+    "data:[embedded asset omitted]",
+    "data:[embedded asset omitted]",
+    "data:[embedded asset omitted]",
+    "data:[embedded asset omitted]",
+    "data:[embedded asset omitted]",
+    "data:[embedded asset omitted]",
+    "data:[embedded asset omitted]",
+    "data:[embedded asset omitted]",
+    "data:[embedded asset omitted]",
+    "data:[embedded asset omitted]",
+    "data:[embedded asset omitted]",
+    "data:[embedded asset omitted]",
+    "data:[embedded asset omitted]",
+    "data:[embedded asset omitted]",
+    "data:[embedded asset omitted]",
+    "data:[embedded asset omitted]",
+    "data:[embedded asset omitted]",
+    "data:[embedded asset omitted]",
+    "data:[embedded asset omitted]",
+    "data:[embedded asset omitted]",
+    "data:[embedded asset omitted]",
+    "data:[embedded asset omitted]",
+    "data:[embedded asset omitted]",
+    "data:[embedded asset omitted]",
+    "data:[embedded asset omitted]",
+    "data:[embedded asset omitted]",
+    "data:[embedded asset omitted]",
+    "data:[embedded asset omitted]",
+    "data:[embedded asset omitted]",
+    "data:[embedded asset omitted]",
+    "data:[embedded asset omitted]",
+    "data:[embedded asset omitted]",
+    "data:[embedded asset omitted]",
+    "data:[embedded asset omitted]",
+    "data:[embedded asset omitted]",
+    "data:[embedded asset omitted]",
+    "data:[embedded asset omitted]",
+    "data:[embedded asset omitted]",
+    "custard://game/audio/02-a-very-noble-food-fight.wav",
+    "custard://game/audio/02-a-very-noble-food-fight.wav",
+    "custard://game/audio/02-a-very-noble-food-fight.wav",
+    "custard://game/audio/02-a-very-noble-food-fight.wav",
+    "custard://game/audio/02-a-very-noble-food-fight.wav",
+    "custard://game/audio/08-run-little-chicken-run.wav",
+    "custard://game/audio/08-run-little-chicken-run.wav",
+    "custard://game/audio/02-a-very-noble-food-fight.wav",
+    "custard://game/audio/02-a-very-noble-food-fight.wav",
+    "custard://game/audio/02-a-very-noble-food-fight.wav",
+    "custard://game/audio/02-a-very-noble-food-fight.wav"
+  ],
+  "packaged": true,
+  "limitations": "Synthetic pointer/keyboard and controlled combat fixtures in isolated profiles. No human playtesting or physical-controller acceptance.",
+  "sourceHashes": {
+    "index.html": "b045dec79b6b088c24e55205231a68c07dd38b9831828d083bf60ab6a1413a27",
+    "game/weapons.js": "85b6f00b108896f433f2c1fa67bb3f615d6aa005b4746fc970e0c3e45c186a8a"
+  },
+  "archiveSha256": "14fa834160526bdc83684f4e9ae77dbe18dad01ace14636a82c86b76735faae7"
+}

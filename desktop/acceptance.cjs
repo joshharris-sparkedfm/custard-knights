@@ -67,11 +67,24 @@ async function run({app,win,options}) {
     CK.openWardrobe();document.querySelectorAll('#collectionGoals .ck-presets>div')[0].querySelector('button').click();
     const adventure=CK.adventure;adventure.campaign.assist(true);adventure.launch('banquet');CK.freeze(true);
     const game=CK.G(),me=game.ents[0];
-    for(const guard of game.ents.slice(1)){
+    const clearGuards=()=>{for(const guard of game.ents.slice(1)){
+     if(guard.dead)continue;
      guard.inv=0;guard.protect=0;guard.hitLock=0;guard.blocking=false;guard.dashT=0;
      CK.hurt(guard,me,99,{src:'heavy',kb:0});
+    }};
+    const place=(x,y)=>{me.x=x;me.y=y;me.vx=0;me.vy=0;me.falling=0;me.stun=0;me.slip=0;me.inv=0;me.protect=0;};
+    clearGuards();
+    const pantry=adventure.campaign.run.cage;place(pantry.x-54,pantry.y);me.face=0;
+    for(let i=0;i<3;i++){me.atkCd=0;me.swing=0;me.hitLock=0;CK.startSwing(me,'light');CK.doHit(me,.12);}
+    CK.adv(1);
+    assert(adventure.campaign.run.barricadeOpen,'Real sword contacts did not open the pantry');
+    for(let i=0;i<1800&&adventure.campaign.run.phase===1;i++){
+     const cook=adventure.campaign.run.staff.find(s=>!s.rescued);place(cook.x+60,cook.y);CK.adv(1);
     }
-    me.x=1100;me.y=440;me.vx=0;me.vy=0;CK.adv(100);
+    assert(adventure.campaign.run.staff.every(s=>s.rescued),'Proximity escort did not rescue every cook');
+    clearGuards();place(960,420);CK.adv(361);
+    assert(adventure.campaign.run.phase===3,'Pantry defence did not enable the exit');
+    place(1100,420);CK.adv(100);
     assert(adventure.campaign.run.status==='won'&&adventure.campaign.save.results.banquet.spoons[0],'Actual campaign encounter did not save its completion');
     assert(CK.collection().progress['golden-whisk']===1,'Pinned goal partial progress absent');
     assert(adventure.campaign.unlocked('puddings'),'Next campaign encounter not unlocked');

@@ -1,0 +1,320 @@
+{
+  "checks": [
+    {
+      "name": "Authored scene module loaded",
+      "pass": true
+    },
+    {
+      "name": "Opening canvas has speaker and subtitle",
+      "pass": true
+    },
+    {
+      "name": "Intro cannot start without an explicit completion or skip action",
+      "pass": true
+    },
+    {
+      "name": "Scene advances with animation frames",
+      "pass": true
+    },
+    {
+      "name": "Scene renderer receives game knight art callback",
+      "pass": true
+    },
+    {
+      "name": "Controller activation pauses story time",
+      "pass": true
+    },
+    {
+      "name": "Keyboard Enter resumes scene",
+      "pass": true
+    },
+    {
+      "name": "Replay resets the visible timeline",
+      "pass": true
+    },
+    {
+      "name": "Hidden document suspends both timeline and render work",
+      "pass": true
+    },
+    {
+      "name": "Visibility restoration resumes without fast-forwarding",
+      "pass": true
+    },
+    {
+      "name": "Natural endpoint holds for explicit Start encounter",
+      "pass": true
+    },
+    {
+      "name": "Controller Start launches the playable staged banquet",
+      "pass": true
+    },
+    {
+      "name": "Starting gameplay cancels story animation",
+      "pass": true
+    },
+    {
+      "name": "Victory keeps the saved reward result visible",
+      "pass": true
+    },
+    {
+      "name": "Victory offers the authored outro",
+      "pass": true
+    },
+    {
+      "name": "Outro replay and skip never duplicate rewards",
+      "pass": true
+    },
+    {
+      "name": "Map replays intro without launching encounter",
+      "pass": true
+    },
+    {
+      "name": "Back to map cancels every story frame",
+      "pass": true
+    },
+    {
+      "name": "Existing Skip story intentionally starts gameplay",
+      "pass": true
+    },
+    {
+      "name": "Campaign stop clears scene and runtime",
+      "pass": true
+    },
+    {
+      "name": "Scene and controls fit a 640px viewport",
+      "pass": true
+    },
+    {
+      "name": "Reduced-motion preference reaches the story renderer",
+      "pass": true
+    },
+    {
+      "name": "Destroy removes scene DOM and frame work",
+      "pass": true
+    },
+    {
+      "name": "No external network requests during local story presentation",
+      "pass": true
+    },
+    {
+      "name": "No browser exceptions",
+      "pass": true
+    }
+  ],
+  "errors": [],
+  "network": [
+    "custard://game/index.html?qa=1",
+    "custard://game/vendor/fonts.css",
+    "custard://game/sprites/knight.js",
+    "custard://game/sprites/chicken.js",
+    "custard://game/game/progression.js",
+    "custard://game/game/product-events.js",
+    "custard://game/game/first-fight.js",
+    "custard://game/game/collection.js",
+    "custard://game/game/collection-art.js",
+    "custard://game/game/collection-ui.js",
+    "custard://game/game/campaign.js",
+    "custard://game/game/story-scenes.js",
+    "custard://game/game/campaign-ui.js",
+    "custard://game/game/campaign-integration.js",
+    "custard://game/game/preferences.js",
+    "custard://game/game/chaos.js",
+    "custard://game/game/difficulty.js",
+    "custard://game/game/weapons.js",
+    "custard://game/game/cup.js",
+    "custard://game/game/cup-ui.js",
+    "custard://game/game/mass-battle.css",
+    "custard://game/game/mass-battle.js",
+    "custard://game/game/mass-battle-wire.js",
+    "custard://game/game/mass-battle-ui.js",
+    "custard://game/audio/soundtrack.js",
+    "custard://game/sprites/hero.js",
+    "custard://game/art/keyart/home.webp",
+    "custard://game/vendor/nunito-latin-900-normal.woff2",
+    "custard://game/vendor/lilita-one-latin-400-normal.woff2",
+    "custard://game/vendor/nunito-latin-800-normal.woff2",
+    "custard://game/vendor/nunito-latin-600-normal.woff2",
+    "data:[embedded asset omitted]",
+    "data:[embedded asset omitted]",
+    "custard://game/menu-theme.mp3",
+    "data:[embedded asset omitted]",
+    "data:[embedded asset omitted]",
+    "data:[embedded asset omitted]",
+    "data:[embedded asset omitted]",
+    "data:[embedded asset omitted]",
+    "data:[embedded asset omitted]",
+    "data:[embedded asset omitted]",
+    "data:[embedded asset omitted]",
+    "data:[embedded asset omitted]",
+    "data:[embedded asset omitted]",
+    "data:[embedded asset omitted]",
+    "data:[embedded asset omitted]",
+    "data:[embedded asset omitted]",
+    "data:[embedded asset omitted]",
+    "data:[embedded asset omitted]",
+    "data:[embedded asset omitted]",
+    "data:[embedded asset omitted]",
+    "data:[embedded asset omitted]",
+    "data:[embedded asset omitted]",
+    "data:[embedded asset omitted]",
+    "data:[embedded asset omitted]",
+    "data:[embedded asset omitted]",
+    "data:[embedded asset omitted]",
+    "data:[embedded asset omitted]",
+    "data:[embedded asset omitted]",
+    "data:[embedded asset omitted]",
+    "data:[embedded asset omitted]",
+    "data:[embedded asset omitted]",
+    "data:[embedded asset omitted]",
+    "data:[embedded asset omitted]",
+    "data:[embedded asset omitted]",
+    "data:[embedded asset omitted]",
+    "data:[embedded asset omitted]",
+    "data:[embedded asset omitted]",
+    "data:[embedded asset omitted]",
+    "data:[embedded asset omitted]",
+    "data:[embedded asset omitted]",
+    "data:[embedded asset omitted]",
+    "data:[embedded asset omitted]",
+    "data:[embedded asset omitted]",
+    "data:[embedded asset omitted]",
+    "data:[embedded asset omitted]",
+    "data:[embedded asset omitted]",
+    "data:[embedded asset omitted]",
+    "data:[embedded asset omitted]",
+    "data:[embedded asset omitted]",
+    "data:[embedded asset omitted]",
+    "data:[embedded asset omitted]",
+    "data:[embedded asset omitted]",
+    "data:[embedded asset omitted]",
+    "data:[embedded asset omitted]",
+    "data:[embedded asset omitted]",
+    "data:[embedded asset omitted]",
+    "data:[embedded asset omitted]",
+    "data:[embedded asset omitted]",
+    "data:[embedded asset omitted]",
+    "data:[embedded asset omitted]",
+    "data:[embedded asset omitted]",
+    "data:[embedded asset omitted]",
+    "data:[embedded asset omitted]",
+    "data:[embedded asset omitted]",
+    "data:[embedded asset omitted]",
+    "data:[embedded asset omitted]",
+    "data:[embedded asset omitted]",
+    "data:[embedded asset omitted]",
+    "data:[embedded asset omitted]",
+    "data:[embedded asset omitted]",
+    "custard://game/audio/02-a-very-noble-food-fight.wav",
+    "custard://game/audio/02-a-very-noble-food-fight.wav",
+    "custard://game/audio/02-a-very-noble-food-fight.wav",
+    "custard://game/audio/02-a-very-noble-food-fight.wav",
+    "custard://game/audio/02-a-very-noble-food-fight.wav",
+    "custard://game/audio/11-the-golden-spoon.wav",
+    "data:[embedded asset omitted]",
+    "data:[embedded asset omitted]",
+    "custard://game/menu-theme.mp3",
+    "custard://game/audio/02-a-very-noble-food-fight.wav",
+    "custard://game/menu-theme.mp3",
+    "custard://game/audio/11-the-golden-spoon.wav",
+    "custard://game/audio/11-the-golden-spoon.wav",
+    "custard://game/audio/11-the-golden-spoon.wav",
+    "custard://game/audio/11-the-golden-spoon.wav",
+    "custard://game/audio/11-the-golden-spoon.wav"
+  ],
+  "packaged": true,
+  "limitations": "Synthetic browser integration checks; simulated visibility, controller menu activation and a direct campaign completion fixture. Packaged hidden-window checks explicitly simulate a visible document after checking actual hidden suspension. Bounded frame waits are not responsiveness measurements. No human playtest, physical controller, or genuine foreground/background OS acceptance.",
+  "initialVisibility": {
+    "hidden": false,
+    "state": "visible"
+  },
+  "smallLayout": {
+    "panel": {
+      "client": 576,
+      "scroll": 576
+    },
+    "canvas": {
+      "x": 44.15625,
+      "y": 80.8125,
+      "width": 551.671875,
+      "height": 224,
+      "top": 80.8125,
+      "right": 595.828125,
+      "bottom": 304.8125,
+      "left": 44.15625
+    },
+    "buttons": [
+      {
+        "label": "Resume scene",
+        "rect": {
+          "x": 44.15625,
+          "y": 449,
+          "width": 138.265625,
+          "height": 44,
+          "top": 449,
+          "right": 182.421875,
+          "bottom": 493,
+          "left": 44.15625
+        }
+      },
+      {
+        "label": "Replay scene",
+        "rect": {
+          "x": 190.421875,
+          "y": 449,
+          "width": 130.390625,
+          "height": 44,
+          "top": 449,
+          "right": 320.8125,
+          "bottom": 493,
+          "left": 190.421875
+        }
+      },
+      {
+        "label": "Skip story",
+        "rect": {
+          "x": 328.8125,
+          "y": 449,
+          "width": 108.234375,
+          "height": 44,
+          "top": 449,
+          "right": 437.046875,
+          "bottom": 493,
+          "left": 328.8125
+        }
+      },
+      {
+        "label": "Start encounter",
+        "rect": {
+          "x": 445.046875,
+          "y": 449,
+          "width": 150.78125,
+          "height": 44,
+          "top": 449,
+          "right": 595.828125,
+          "bottom": 493,
+          "left": 445.046875
+        }
+      },
+      {
+        "label": "Back to map",
+        "rect": {
+          "x": 44.15625,
+          "y": 500,
+          "width": 551.671875,
+          "height": 44,
+          "top": 500,
+          "right": 595.828125,
+          "bottom": 544,
+          "left": 44.15625
+        }
+      }
+    ]
+  },
+  "sourceHashes": {
+    "index.html": "b045dec79b6b088c24e55205231a68c07dd38b9831828d083bf60ab6a1413a27",
+    "game/story-scenes.js": "1206cc5caac09e24918f34c098c62a3e401d66154d32571de128b59e2399f0e0",
+    "game/campaign-ui.js": "34b854a73a8d6c735422143c99473f7b6f873a14cabe3968ef10968c7b8ec076",
+    "game/campaign-integration.js": "0d3cb88dae37086d7e2f85688458736c0a77abd1d60cc7444fb188273301e61a"
+  },
+  "archiveSha256": "6d8c968c64d6086ec91a68faf20135cd57fd069effe79b65dad55316d10ff781"
+}

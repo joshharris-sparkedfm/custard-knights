@@ -1,0 +1,191 @@
+{
+  "checks": [
+    {
+      "name": "Keyboard remains usable without mouse aim",
+      "pass": true
+    },
+    {
+      "name": "Mouse aim is independent of keyboard movement",
+      "pass": true
+    },
+    {
+      "name": "Actual pointer attack fires the ranged weapon at the cursor",
+      "pass": true
+    },
+    {
+      "name": "Right mouse button guards",
+      "pass": true
+    },
+    {
+      "name": "Focus loss releases attack, guard and aim",
+      "pass": true
+    },
+    {
+      "name": "Pause does not leave an attack held",
+      "pass": true
+    },
+    {
+      "name": "Human racing chicken pecks with mouse and shoves a rival without killing",
+      "pass": true
+    },
+    {
+      "name": "Peck has a visible effect",
+      "pass": true
+    },
+    {
+      "name": "Keyboard Space pecks in Chicken Race too",
+      "pass": true
+    },
+    {
+      "name": "Refinding an exhausted weapon upgrades it during the same life",
+      "pass": true
+    },
+    {
+      "name": "Swapping preserves earned weapon levels with level and ammo caps",
+      "pass": true
+    },
+    {
+      "name": "Sword pickups raise reach level and last for the life",
+      "pass": true
+    },
+    {
+      "name": "Defeat clears earned weapon and sword upgrades",
+      "pass": true
+    },
+    {
+      "name": "Host receives explicit aim separately from guest movement",
+      "pass": true
+    },
+    {
+      "name": "Legacy seven-field input retains movement-facing compatibility",
+      "pass": true
+    },
+    {
+      "name": "Reject invalid guest aim NaN",
+      "pass": true
+    },
+    {
+      "name": "Reject invalid guest aim Infinity",
+      "pass": true
+    },
+    {
+      "name": "Reject invalid guest aim 9",
+      "pass": true
+    },
+    {
+      "name": "No external network requests during local controls checks",
+      "pass": true
+    },
+    {
+      "name": "No browser exceptions",
+      "pass": true
+    }
+  ],
+  "errors": [],
+  "network": [
+    "file:///C:/Users/Joshua/Documents/Codex/2026-10-08/rea/work/custard-knights/index.html?qa=1",
+    "file:///C:/Users/Joshua/Documents/Codex/2026-10-08/rea/work/custard-knights/vendor/fonts.css",
+    "file:///C:/Users/Joshua/Documents/Codex/2026-10-08/rea/work/custard-knights/sprites/knight.js",
+    "file:///C:/Users/Joshua/Documents/Codex/2026-10-08/rea/work/custard-knights/sprites/chicken.js",
+    "file:///C:/Users/Joshua/Documents/Codex/2026-10-08/rea/work/custard-knights/game/progression.js",
+    "file:///C:/Users/Joshua/Documents/Codex/2026-10-08/rea/work/custard-knights/game/product-events.js",
+    "file:///C:/Users/Joshua/Documents/Codex/2026-10-08/rea/work/custard-knights/game/first-fight.js",
+    "file:///C:/Users/Joshua/Documents/Codex/2026-10-08/rea/work/custard-knights/game/collection.js",
+    "file:///C:/Users/Joshua/Documents/Codex/2026-10-08/rea/work/custard-knights/game/collection-art.js",
+    "file:///C:/Users/Joshua/Documents/Codex/2026-10-08/rea/work/custard-knights/game/collection-ui.js",
+    "file:///C:/Users/Joshua/Documents/Codex/2026-10-08/rea/work/custard-knights/game/campaign.js",
+    "file:///C:/Users/Joshua/Documents/Codex/2026-10-08/rea/work/custard-knights/game/campaign-ui.js",
+    "file:///C:/Users/Joshua/Documents/Codex/2026-10-08/rea/work/custard-knights/game/campaign-integration.js",
+    "file:///C:/Users/Joshua/Documents/Codex/2026-10-08/rea/work/custard-knights/game/preferences.js",
+    "file:///C:/Users/Joshua/Documents/Codex/2026-10-08/rea/work/custard-knights/game/chaos.js",
+    "file:///C:/Users/Joshua/Documents/Codex/2026-10-08/rea/work/custard-knights/game/difficulty.js",
+    "file:///C:/Users/Joshua/Documents/Codex/2026-10-08/rea/work/custard-knights/game/weapons.js",
+    "file:///C:/Users/Joshua/Documents/Codex/2026-10-08/rea/work/custard-knights/game/cup.js",
+    "file:///C:/Users/Joshua/Documents/Codex/2026-10-08/rea/work/custard-knights/game/cup-ui.js",
+    "file:///C:/Users/Joshua/Documents/Codex/2026-10-08/rea/work/custard-knights/game/mass-battle.css",
+    "file:///C:/Users/Joshua/Documents/Codex/2026-10-08/rea/work/custard-knights/game/mass-battle.js",
+    "file:///C:/Users/Joshua/Documents/Codex/2026-10-08/rea/work/custard-knights/game/mass-battle-wire.js",
+    "file:///C:/Users/Joshua/Documents/Codex/2026-10-08/rea/work/custard-knights/game/mass-battle-ui.js",
+    "file:///C:/Users/Joshua/Documents/Codex/2026-10-08/rea/work/custard-knights/audio/soundtrack.js",
+    "file:///C:/Users/Joshua/Documents/Codex/2026-10-08/rea/work/custard-knights/sprites/hero.js",
+    "file:///C:/Users/Joshua/Documents/Codex/2026-10-08/rea/work/custard-knights/art/keyart/home.webp",
+    "file:///C:/Users/Joshua/Documents/Codex/2026-10-08/rea/work/custard-knights/vendor/nunito-latin-900-normal.woff2",
+    "file:///C:/Users/Joshua/Documents/Codex/2026-10-08/rea/work/custard-knights/vendor/lilita-one-latin-400-normal.woff2",
+    "file:///C:/Users/Joshua/Documents/Codex/2026-10-08/rea/work/custard-knights/vendor/nunito-latin-800-normal.woff2",
+    "file:///C:/Users/Joshua/Documents/Codex/2026-10-08/rea/work/custard-knights/vendor/nunito-latin-600-normal.woff2",
+    "data:[embedded asset omitted]",
+    "data:[embedded asset omitted]",
+    "file:///C:/Users/Joshua/Documents/Codex/2026-10-08/rea/work/custard-knights/menu-theme.mp3",
+    "data:[embedded asset omitted]",
+    "data:[embedded asset omitted]",
+    "data:[embedded asset omitted]",
+    "data:[embedded asset omitted]",
+    "data:[embedded asset omitted]",
+    "data:[embedded asset omitted]",
+    "data:[embedded asset omitted]",
+    "data:[embedded asset omitted]",
+    "data:[embedded asset omitted]",
+    "data:[embedded asset omitted]",
+    "data:[embedded asset omitted]",
+    "data:[embedded asset omitted]",
+    "data:[embedded asset omitted]",
+    "data:[embedded asset omitted]",
+    "data:[embedded asset omitted]",
+    "data:[embedded asset omitted]",
+    "data:[embedded asset omitted]",
+    "data:[embedded asset omitted]",
+    "data:[embedded asset omitted]",
+    "data:[embedded asset omitted]",
+    "data:[embedded asset omitted]",
+    "data:[embedded asset omitted]",
+    "data:[embedded asset omitted]",
+    "data:[embedded asset omitted]",
+    "data:[embedded asset omitted]",
+    "data:[embedded asset omitted]",
+    "data:[embedded asset omitted]",
+    "data:[embedded asset omitted]",
+    "data:[embedded asset omitted]",
+    "data:[embedded asset omitted]",
+    "data:[embedded asset omitted]",
+    "data:[embedded asset omitted]",
+    "data:[embedded asset omitted]",
+    "data:[embedded asset omitted]",
+    "data:[embedded asset omitted]",
+    "data:[embedded asset omitted]",
+    "data:[embedded asset omitted]",
+    "data:[embedded asset omitted]",
+    "data:[embedded asset omitted]",
+    "data:[embedded asset omitted]",
+    "data:[embedded asset omitted]",
+    "data:[embedded asset omitted]",
+    "data:[embedded asset omitted]",
+    "data:[embedded asset omitted]",
+    "data:[embedded asset omitted]",
+    "data:[embedded asset omitted]",
+    "data:[embedded asset omitted]",
+    "data:[embedded asset omitted]",
+    "data:[embedded asset omitted]",
+    "data:[embedded asset omitted]",
+    "data:[embedded asset omitted]",
+    "data:[embedded asset omitted]",
+    "data:[embedded asset omitted]",
+    "data:[embedded asset omitted]",
+    "data:[embedded asset omitted]",
+    "data:[embedded asset omitted]",
+    "data:[embedded asset omitted]",
+    "data:[embedded asset omitted]",
+    "file:///C:/Users/Joshua/Documents/Codex/2026-10-08/rea/work/custard-knights/audio/02-a-very-noble-food-fight.wav",
+    "file:///C:/Users/Joshua/Documents/Codex/2026-10-08/rea/work/custard-knights/audio/02-a-very-noble-food-fight.wav",
+    "file:///C:/Users/Joshua/Documents/Codex/2026-10-08/rea/work/custard-knights/audio/08-run-little-chicken-run.wav",
+    "file:///C:/Users/Joshua/Documents/Codex/2026-10-08/rea/work/custard-knights/audio/02-a-very-noble-food-fight.wav",
+    "file:///C:/Users/Joshua/Documents/Codex/2026-10-08/rea/work/custard-knights/audio/02-a-very-noble-food-fight.wav",
+    "file:///C:/Users/Joshua/Documents/Codex/2026-10-08/rea/work/custard-knights/audio/02-a-very-noble-food-fight.wav",
+    "file:///C:/Users/Joshua/Documents/Codex/2026-10-08/rea/work/custard-knights/audio/02-a-very-noble-food-fight.wav"
+  ],
+  "packaged": false,
+  "limitations": "Synthetic pointer/keyboard and controlled combat fixtures in isolated profiles. No human playtesting or physical-controller acceptance.",
+  "sourceHashes": {
+    "index.html": "62ba063a3a5bae7af34166ed69bbf0d9998aadb5a4a75fbf8309b31752432e6f",
+    "game/weapons.js": "85b6f00b108896f433f2c1fa67bb3f615d6aa005b4746fc970e0c3e45c186a8a"
+  }
+}

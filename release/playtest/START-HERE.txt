@@ -53,6 +53,10 @@ Mouse aim and click attacks work alongside keyboard movement.
 Chicken Race pecks shove opponents instead of knocking racing chickens out.
 Repeated weapon pickups retain levels through ammo exhaustion and swaps.
 Weapons and Long Sword reach cap at level III and reset on defeat.
+Arena setup and Couch party offer Classic or Roomier arenas. Roomier has
+about 21% more floor space with unchanged movement speed and weapon reach.
+Use the same beta version for online Roomier matches. Story and the optional
+first-fight study use Classic geometry.
 
 RETAINED FROM BETA 4
 

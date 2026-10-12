@@ -1,11 +1,13 @@
-## Story feedback checkpoint — 12 October
+# Player feedback integration — 12 October 2026
 
-Controls/pecks/per-life upgrades merged in PR19 at45e763d. Story source now adds sixteen actual-art animated scenes with subtitles and replay/pause/skip, plus the staged banquet rescue. Focused campaign26/26 and scene4/4 tests pass; campaign integration58/58, input-only all8 encounters and presentation25/25 pass. See qa/reviews/story-opening-2026-10-12.md. Human story acceptance is open. Optional Roomier arena work is still in progress in the workspace. Exported beta.6 is unchanged; a combined new package follows checked arena integration. Automation remains removed.
-## Active player feedback revision — 12 October
+Scheduled automation was removed at the user's request. Work follows direct feedback, with checked tasks pushed and merged individually. Controls/Chicken Race pecks/per-life upgrades merged in PR19 at 45e763d300f950a7d2c2b96ba434e4e8e85360a7. Story presentation and the playable pantry rescue merged in PR20 at b1838b35e7b8b676a2d7cc318620479ceae8eb9d. Hosted story CI38232944584 passed all six jobs. Optional Roomier geometry, a newly reproduced Rooftop race-navigation issue and combined beta.7 export are in progress; beta.6 below remains the last frozen playable export until the new artifact is verified.
 
-Scheduled automation was removed at the user's request. Work follows direct player feedback. Checked source now fixes Chicken Race nonlethal pecks, adds mouse aim/click/guard including guest transport and couch coexistence, and retains weapon/sword upgrades until defeat. See qa/reviews/player-controls-2026-10-12.md: 23 local controls checks, 16 real same-network PeerJS checks and 26 regressions pass. The exported beta.6 below is unchanged and does not contain these revisions yet.
+Controls have 23 local browser checks, 16 actual same-network PeerJS checks and 26 regressions. Story has 26 campaign and four scene tests, 58 integration checks, all eight input-only encounters and 25 presentation checks. See qa/reviews/player-controls-2026-10-12.md and qa/reviews/story-opening-2026-10-12.md for limits. Actual game footage is in outputs/Story-review/index.html beside the workspace. The user says earlier generated story videos already exist; their location is pending after local searches. Do not represent the new canvas scenes as recovered prior video assets. Do not regenerate videos unnecessarily.
 
-Story presentation and the staged opening are in progress, as is the requested roomier arena option. The user rejected the previous story quality; previous encounter completion checks do not establish a polished story. Do not call these unfinished revisions or the broader game Steam-ready.
+The user rejected the prior story quality. These playable revisions still need their judgement; automated completion does not establish a polished chapter. Preserve ordinary saves and running user sessions, all old exports, rounded art and both visor choices. No public upload or sending has occurred. This remains a private friends beta, not Steam approval.
+
+## Historical frozen build and roadmap context
+
 # Custard Knights — friends beta checkpoint, 12 October 2026
 
 The user selected a downloadable Windows beta for friends tonight and authorizes pushing and merging each completed, checked task before proceeding. No public upload or sending has been performed. Do not use or close the user's normal game/save profile during QA.

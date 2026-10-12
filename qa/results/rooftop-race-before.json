@@ -1,0 +1,168 @@
+{
+  "indexSha256": "13909ea836fc9a1d39b05cbea0ca4e8f418209fc7968c3689fd6e19349de4e5f",
+  "limitation": "Recorded before the Rooftop race follower fix. Seed777, Easy bots,180 simulated seconds.",
+  "races": [
+    {
+      "map": "roof",
+      "size": "classic",
+      "finished": 0,
+      "positions": [
+        {
+          "laps": 0,
+          "cp": 0,
+          "x": 75,
+          "y": 685,
+          "deaths": 0
+        },
+        {
+          "laps": 0,
+          "cp": 1,
+          "x": 1016,
+          "y": 298,
+          "deaths": 0
+        },
+        {
+          "laps": 0,
+          "cp": 0,
+          "x": 416,
+          "y": 580,
+          "deaths": 0
+        },
+        {
+          "laps": 0,
+          "cp": 0,
+          "x": 780,
+          "y": 704,
+          "deaths": 0
+        },
+        {
+          "laps": 0,
+          "cp": 2,
+          "x": 1062,
+          "y": 500,
+          "deaths": 1
+        },
+        {
+          "laps": 0,
+          "cp": 1,
+          "x": 700,
+          "y": 176,
+          "deaths": 0
+        },
+        {
+          "laps": 0,
+          "cp": 0,
+          "x": 1205,
+          "y": 685,
+          "deaths": 0
+        },
+        {
+          "laps": 0,
+          "cp": 1,
+          "x": 435,
+          "y": 195,
+          "deaths": 1
+        }
+      ],
+      "gates": [
+        {
+          "x": 620,
+          "y": 140
+        },
+        {
+          "x": 1220,
+          "y": 420
+        },
+        {
+          "x": 620,
+          "y": 740
+        },
+        {
+          "x": 60,
+          "y": 420
+        }
+      ]
+    },
+    {
+      "map": "roof",
+      "size": "roomier",
+      "finished": 0,
+      "positions": [
+        {
+          "laps": 0,
+          "cp": 0,
+          "x": 245,
+          "y": 403,
+          "deaths": 0
+        },
+        {
+          "laps": 0,
+          "cp": 2,
+          "x": 1254,
+          "y": 544,
+          "deaths": 0
+        },
+        {
+          "laps": 0,
+          "cp": 0,
+          "x": 464,
+          "y": 630,
+          "deaths": 0
+        },
+        {
+          "laps": 0,
+          "cp": 0,
+          "x": 858,
+          "y": 760,
+          "deaths": 0
+        },
+        {
+          "laps": 0,
+          "cp": 3,
+          "x": 638,
+          "y": 760,
+          "deaths": 0
+        },
+        {
+          "laps": 0,
+          "cp": 1,
+          "x": 1125,
+          "y": 330,
+          "deaths": 0
+        },
+        {
+          "laps": 0,
+          "cp": 1,
+          "x": 770,
+          "y": 192,
+          "deaths": 0
+        },
+        {
+          "laps": 0,
+          "cp": 2,
+          "x": 1164,
+          "y": 549,
+          "deaths": 0
+        }
+      ],
+      "gates": [
+        {
+          "x": 682,
+          "y": 146
+        },
+        {
+          "x": 1342,
+          "y": 454
+        },
+        {
+          "x": 682,
+          "y": 806
+        },
+        {
+          "x": 66,
+          "y": 454
+        }
+      ]
+    }
+  ]
+}

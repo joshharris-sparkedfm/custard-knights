@@ -1,0 +1,1 @@
+{"date":"2026-10-12","command":"node --test tests/product-events.test.cjs tests/campaign.test.cjs","passed":35,"failed":0,"productModule":11,"campaign":24,"desktopLifecycle":"write/read/launcher/relocated read all passed on beta.5 actual EXE; isolated profile"}

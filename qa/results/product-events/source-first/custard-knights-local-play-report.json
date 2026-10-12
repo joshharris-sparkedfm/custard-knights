@@ -1,0 +1,204 @@
+{
+  "version": 1,
+  "build": "0.3.0-beta.5",
+  "generatedAt": 1791791415425,
+  "consent": true,
+  "storageState": "available",
+  "installId": "471544d799c6d98828371dbcc1efe90e",
+  "events": [
+    {
+      "name": "session_start",
+      "build": "0.3.0-beta.5",
+      "sessionId": "ba40f5e29672c0625cd80fb20ea0bcec",
+      "at": 1791791415099,
+      "fields": {
+        "qa": true
+      }
+    },
+    {
+      "name": "round_started",
+      "build": "0.3.0-beta.5",
+      "sessionId": "ba40f5e29672c0625cd80fb20ea0bcec",
+      "at": 1791791415106,
+      "fields": {
+        "format": "arena",
+        "mode": "ffa",
+        "map": "dungeon",
+        "difficulty": "medium",
+        "humanCount": 1,
+        "botCount": 7,
+        "botOnly": false,
+        "online": false,
+        "input": "keyboard",
+        "roundId": "25fe449fa2757dbfa4b43e7ef8a5427a",
+        "qa": true
+      }
+    },
+    {
+      "name": "round_completed",
+      "build": "0.3.0-beta.5",
+      "sessionId": "ba40f5e29672c0625cd80fb20ea0bcec",
+      "at": 1791791415108,
+      "fields": {
+        "result": "win",
+        "format": "arena",
+        "mode": "ffa",
+        "map": "dungeon",
+        "difficulty": "medium",
+        "humanCount": 1,
+        "botCount": 7,
+        "botOnly": false,
+        "online": false,
+        "input": "keyboard",
+        "roundId": "25fe449fa2757dbfa4b43e7ef8a5427a",
+        "qa": true
+      }
+    },
+    {
+      "name": "rematch_selected",
+      "build": "0.3.0-beta.5",
+      "sessionId": "ba40f5e29672c0625cd80fb20ea0bcec",
+      "at": 1791791415108,
+      "fields": {
+        "source": "results",
+        "format": "arena",
+        "mode": "ffa",
+        "map": "dungeon",
+        "difficulty": "medium",
+        "humanCount": 1,
+        "botCount": 7,
+        "botOnly": false,
+        "online": false,
+        "input": "keyboard",
+        "roundId": "25fe449fa2757dbfa4b43e7ef8a5427a",
+        "qa": true
+      }
+    },
+    {
+      "name": "round_started",
+      "build": "0.3.0-beta.5",
+      "sessionId": "ba40f5e29672c0625cd80fb20ea0bcec",
+      "at": 1791791415110,
+      "fields": {
+        "format": "arena",
+        "mode": "ffa",
+        "map": "dungeon",
+        "difficulty": "medium",
+        "humanCount": 1,
+        "botCount": 7,
+        "botOnly": false,
+        "online": false,
+        "input": "keyboard",
+        "roundId": "a597cff6e26b6f4dd7be9bd4a8d7066b",
+        "qa": true
+      }
+    },
+    {
+      "name": "round_started",
+      "build": "0.3.0-beta.5",
+      "sessionId": "ba40f5e29672c0625cd80fb20ea0bcec",
+      "at": 1791791415118,
+      "fields": {
+        "format": "story",
+        "mode": "campaign",
+        "map": "courtyard",
+        "difficulty": "medium",
+        "humanCount": 1,
+        "botCount": 2,
+        "encounter": "banquet",
+        "input": "keyboard",
+        "botOnly": false,
+        "roundId": "bda248fc9eefe5873938525f3cb08b2a",
+        "qa": true
+      }
+    },
+    {
+      "name": "round_completed",
+      "build": "0.3.0-beta.5",
+      "sessionId": "ba40f5e29672c0625cd80fb20ea0bcec",
+      "at": 1791791415118,
+      "fields": {
+        "format": "story",
+        "mode": "campaign",
+        "map": "courtyard",
+        "difficulty": "medium",
+        "humanCount": 1,
+        "botCount": 2,
+        "result": "completed",
+        "encounter": "banquet",
+        "input": "keyboard",
+        "botOnly": false,
+        "roundId": "bda248fc9eefe5873938525f3cb08b2a",
+        "qa": true
+      }
+    },
+    {
+      "name": "round_started",
+      "build": "0.3.0-beta.5",
+      "sessionId": "ba40f5e29672c0625cd80fb20ea0bcec",
+      "at": 1791791415152,
+      "fields": {
+        "format": "faction",
+        "mode": "ctf",
+        "difficulty": "medium",
+        "humanCount": 1,
+        "botCount": 7,
+        "online": false,
+        "joinedLate": false,
+        "input": "keyboard",
+        "botOnly": false,
+        "roundId": "a94979401f83fd6143276f3f79453610",
+        "qa": true
+      }
+    },
+    {
+      "name": "round_completed",
+      "build": "0.3.0-beta.5",
+      "sessionId": "ba40f5e29672c0625cd80fb20ea0bcec",
+      "at": 1791791415171,
+      "fields": {
+        "format": "faction",
+        "mode": "ctf",
+        "difficulty": "medium",
+        "humanCount": 1,
+        "botCount": 7,
+        "online": false,
+        "joinedLate": false,
+        "result": "win",
+        "input": "keyboard",
+        "botOnly": false,
+        "roundId": "a94979401f83fd6143276f3f79453610",
+        "qa": true
+      }
+    }
+  ],
+  "metrics": {
+    "joinAttempts": 0,
+    "joinSucceeded": 0,
+    "joinFailed": 0,
+    "joinPendingOrUnobserved": 0,
+    "roundsStarted": 0,
+    "roundsCompleted": 0,
+    "roundCompletionRate": null,
+    "rematchSelections": 0,
+    "completedRoundsWithObservedContinuation": 0
+  },
+  "counts": {
+    "retained": 9,
+    "truncated": 0,
+    "duplicates": 0,
+    "rejected": 0,
+    "excludedFromHumanMetrics": 9
+  },
+  "limitations": [
+    "Local opt-in observations from one browser installation only; no network collection or population-wide claims.",
+    "Metrics cover retained events only. Truncation, cleared storage, missing instrumentation and interrupted sessions can remove context.",
+    "Deduplication covers retained events in the current session. IDs must be anonymous local tokens, never external identifiers.",
+    "Join outcomes require a retained attempt in the same session. Pending or unobserved does not mean failure.",
+    "Human round metrics require explicitly positive human counts on start and completion; late joins are excluded. QA, demo and bot-only events are excluded.",
+    "Continuation means a later human round start in the same session after an observed completion; rematch intent alone is not continuation.",
+    "Inactivity exits are inferred after 30 minutes when another event arrives. Page exits are observations of lifecycle signals, not proof a person left.",
+    "Cup, challenge, reward, highlight, share and referral events are observations only; no conversion or retention claim is calculated.",
+    "No D1/D7 retention, people counts, attribution, or cross-device identity is available."
+  ]
+}

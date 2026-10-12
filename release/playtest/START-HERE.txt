@@ -11,6 +11,12 @@ Sparked FM Ltd | Build {{VERSION}}
 5. After playing, open FEEDBACK.html in your browser. Save the report
    and send it back to Joshua using the same conversation as your invitation.
 
+Optional: before playing, Settings > Local play report lets you record match
+and connection observations on this device. It starts OFF and never uploads.
+Afterwards, Export report JSON and send that separate file with your feedback
+if you wish. Clear removes recorded data; switching reporting off erases it.
+This does not change your game saves or require an account.
+
 Do not launch from inside the ZIP or move the EXE away from its sibling files.
 Keep older builds in separate folders instead of overwriting.
 

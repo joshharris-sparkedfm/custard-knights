@@ -1,0 +1,88 @@
+{
+  "version": 1,
+  "build": "0.3.0-beta.5",
+  "generatedAt": 1791791719964,
+  "consent": true,
+  "storageState": "available",
+  "installId": "9b3fdc8b02254de0ab87c1b836d4b6e9",
+  "events": [
+    {
+      "name": "session_start",
+      "build": "0.3.0-beta.5",
+      "sessionId": "e3c88c9a9e522f350997499c2b31ac7b",
+      "at": 1791791719081,
+      "fields": {
+        "qa": false
+      }
+    },
+    {
+      "name": "round_started",
+      "build": "0.3.0-beta.5",
+      "sessionId": "e3c88c9a9e522f350997499c2b31ac7b",
+      "at": 1791791719118,
+      "fields": {
+        "format": "arena",
+        "mode": "ffa",
+        "map": "dungeon",
+        "difficulty": "medium",
+        "humanCount": 1,
+        "botCount": 7,
+        "botOnly": false,
+        "online": false,
+        "input": "keyboard",
+        "roundId": "b6bddc73c00989b7409c118af13df929",
+        "qa": false
+      }
+    },
+    {
+      "name": "first_meaningful_action",
+      "build": "0.3.0-beta.5",
+      "sessionId": "e3c88c9a9e522f350997499c2b31ac7b",
+      "at": 1791791719930,
+      "fields": {
+        "action": "move",
+        "input": "keyboard",
+        "format": "arena",
+        "mode": "ffa",
+        "map": "dungeon",
+        "difficulty": "medium",
+        "humanCount": 1,
+        "botCount": 7,
+        "botOnly": false,
+        "online": false,
+        "roundId": "b6bddc73c00989b7409c118af13df929",
+        "qa": false
+      }
+    }
+  ],
+  "metrics": {
+    "joinAttempts": 0,
+    "joinSucceeded": 0,
+    "joinFailed": 0,
+    "joinPendingOrUnobserved": 0,
+    "roundsStarted": 1,
+    "roundsCompleted": 0,
+    "roundCompletionRate": 0,
+    "rematchSelections": 0,
+    "completedRoundsWithObservedContinuation": 0
+  },
+  "counts": {
+    "retained": 3,
+    "truncated": 0,
+    "duplicates": 0,
+    "rejected": 0,
+    "excludedFromHumanMetrics": 0
+  },
+  "limitations": [
+    "Local opt-in observations from one browser installation only; no network collection or population-wide claims.",
+    "Metrics cover retained events only. Truncation, cleared storage, missing instrumentation and interrupted sessions can remove context.",
+    "Deduplication covers retained events in the current session. IDs must be anonymous local tokens, never external identifiers.",
+    "Join outcomes require a retained attempt in the same session. Pending or unobserved does not mean failure.",
+    "Round completions also require a start in the same session. A long round spanning the inactivity cutoff remains uncompleted in this observed baseline.",
+    "Human round metrics require explicitly positive human counts on start and completion; late joins are excluded. QA, demo and bot-only events are excluded.",
+    "Continuation means a later human round start in the same session after an observed completion; rematch intent alone is not continuation.",
+    "Inactivity exits are inferred after 30 minutes when another event arrives. Page exits are observations of lifecycle signals, not proof a person left.",
+    "Cup, challenge, reward, highlight, share and referral events are observations only; no conversion or retention claim is calculated.",
+    "No D1/D7 retention, people counts, attribution, or cross-device identity is available."
+  ]
+}

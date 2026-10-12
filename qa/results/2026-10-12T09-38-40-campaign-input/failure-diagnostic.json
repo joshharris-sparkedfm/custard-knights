@@ -1,0 +1,44 @@
+{
+  "source": "Preserved from the original tool output; the legacy runner throws before writing raw.json on a failed check.",
+  "command": "node qa/campaign-visual.cjs --input",
+  "result": "failed",
+  "message": "Real input policy completes Somebody Has Thrown a Pie",
+  "observed": {
+    "attempts": [
+      "normal",
+      "assisted"
+    ],
+    "status": "failed",
+    "elapsed": 180,
+    "hits": 1,
+    "falls": 0,
+    "phase": 1,
+    "objective": "2/4 · 2/3 cooks safe · Walk near each cook; stay close",
+    "barricadeOpen": true,
+    "player": {
+      "x": 777.6,
+      "y": 491.74386966809953
+    },
+    "staff": [
+      {
+        "name": "Mabel",
+        "rescued": true
+      },
+      {
+        "name": "Alf",
+        "rescued": true
+      },
+      {
+        "name": "Pip",
+        "x": 560,
+        "y": 490,
+        "following": false,
+        "rescued": false,
+        "waiting": true
+      }
+    ]
+  },
+  "diagnosis": "Input policy returned directly towards Pip through the solid pantry wall instead of using the open doorway.",
+  "fix": "Banquet input policy recruits unactivated cooks first and routes return movement through the doorway.",
+  "acceptedRerun": "../2026-10-12T09-39-12-campaign-input/raw.json"
+}

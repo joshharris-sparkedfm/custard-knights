@@ -22,7 +22,17 @@
  let g=CK.G(),p=g.ents[0],guard=g.ents[1];place(p,430,350);place(guard,480,350);p.face=0;guard.blocking=false;CK.startSwing(p,'light');CK.doHit(p,.12);
  check(guard.hp===1,'Actual sword collision damages the banquet guard');
  clearEnemies();place(p,1100,440);step(100);
- check(A.campaign.run.status==='won','Guard combat followed by pantry capture completes encounter one');
+ check(A.campaign.run.status==='playing'&&A.campaign.run.phase===0,'Guard KOs and visiting the exit cannot skip the pantry rescue');
+ const pantry=A.campaign.run.cage;place(p,pantry.x-54,pantry.y);p.face=0;
+ for(let i=0;i<3;i++){p.atkCd=0;p.swing=0;p.hitLock=0;CK.startSwing(p,'light');CK.doHit(p,.12);if(i<2)check(!A.campaign.run.barricadeOpen,'Pantry remains blocked after '+(i+1)+' actual sword contacts');}
+ check(g.grid[pantry.r][pantry.c]==='.'&&A.campaign.run.barricadeOpen,'Third real sword/crate collision opens the pantry barricade');
+ place(p,1100,440);step(60);check(A.campaign.run.phase===1&&A.campaign.run.staff.every(s=>!s.following&&!s.rescued),'Cooks wait for the recruit instead of automatically completing rescue');
+ for(let i=0;i<1800&&A.campaign.run.phase===1;i++){const cook=A.campaign.run.staff.find(s=>!s.rescued);place(p,cook.x+60,cook.y);step(1);}
+ check(A.campaign.run.staff.every(s=>s.rescued)&&A.campaign.run.phase===2,'Proximity escort moves all three visible cooks through the actual open doorway');
+ check(g.ents.filter(e=>!e.human&&!e.dead).length===2&&A.campaign.run.staff.every(s=>!g.ents.includes(s)),'Rescue summons two reinforcements while cooks remain outside enemy combat entities');
+ clearEnemies();place(p,1100,440);step(100);check(A.campaign.run.phase===2&&A.campaign.run.hold===0,'Defeating reinforcements alone cannot skip the marked pantry hold');
+ place(p,960,420);step(361);check(A.campaign.run.phase===3&&A.campaign.run.status==='playing','Six seconds defending the pantry enables departure without ending early');
+ place(p,1100,420);step(100);check(A.campaign.run.status==='won','Staff rescue, reinforcement defence and final pantry exit complete encounter one');
  check(A.campaign.save.results.banquet.spoons[0],'Completion saves the first spoon');
  check(document.getElementById('campaignResult').hidden===false,'Campaign result screen replaces party standings');
  check(A.campaign.unlocked('puddings'),'First encounter unlocks pudding defence');

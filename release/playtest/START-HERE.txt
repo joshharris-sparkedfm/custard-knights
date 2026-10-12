@@ -47,7 +47,14 @@ Please try without coaching first. Getting stuck is useful feedback.
 You can explore more afterwards. Start on Easy or Medium; STEVE is the
 hardest setting. All four difficulty levels still need human feedback.
 
-NEW IN BETA 4
+PLAYER FEEDBACK CHANGES
+
+Mouse aim and click attacks work alongside keyboard movement.
+Chicken Race pecks shove opponents instead of knocking racing chickens out.
+Repeated weapon pickups retain levels through ammo exhaustion and swaps.
+Weapons and Long Sword reach cap at level III and reset on defeat.
+
+RETAINED FROM BETA 4
 
 Dash/knockback and delayed online snapshots should no longer leave a knight
 permanently off-screen. Spawns recheck hazards and occupied positions.
@@ -66,8 +73,10 @@ Please report if a power or its song remains after the event or a rematch.
 
 CONTROLS
 
-Solo arena/story: WASD or arrows move; Space swings (hold for heavy);
-Shift dashes; E blocks; P or Esc pauses. F11 toggles fullscreen.
+Solo arena/story: WASD or arrows move, mouse aims, left-click or Space
+attacks (hold for heavy); Shift dashes; right-click or E blocks.
+P or Esc pauses. F11 toggles fullscreen. Chicken Race uses the same
+attack controls to peck: face a nearby rival to shove them.
 Arena/story controller: left stick moves, right stick aims, A swings,
 B dashes, X blocks, Start pauses. Follow each mode's on-screen prompts.
 Faction Front uses different controls: WASD/arrows move, mouse aims,
@@ -81,7 +90,10 @@ Physical-controller compatibility is part of this test, not yet signed off.
 WHAT YOU CAN PLAY
 
 - Arena: eight modes and six arenas, alone with bots or local friends.
-- The Great Pudding War: eight playable story encounters.
+- The Great Pudding War: animated, subtitled scenes and eight encounters.
+  The opening now needs three sword hits to break the pantry barricade,
+  proximity escort for three cooks, then defence and escape.
+  Scenes can be paused, replayed or skipped; there is no recorded voice-over.
 - Custard Cup: three linked rounds.
 - Faction Front bot practice: Brawl, Capture the Flag and Siege, with
   4v4, 20v20 or 50v50 total slots. Bots fill empty slots.

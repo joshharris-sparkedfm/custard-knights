@@ -4,7 +4,7 @@ const fs=require('node:fs'),path=require('node:path'),os=require('node:os'),{spa
 const root=path.resolve(__dirname,'..'),out=path.resolve(process.argv[2]||path.join(__dirname,'results','arena-size'));
 const packaged=process.argv.includes('--packaged'),archive=path.join(root,'dist/Custard Knights-win32-x64/resources/app.asar');
 fs.mkdirSync(out,{recursive:true});
-const profile=fs.mkdtempSync(path.join(os.tmpdir(),'ck-arena-size-'));
+const temporary=fs.mkdtempSync(path.join(os.tmpdir(),packaged?'ck-soundtrack-browser-':'ck-arena-size-')),profile=path.join(temporary,'chrome');
 let chrome,diagnostics='';
 if(packaged){const env={...process.env};delete env.ELECTRON_RUN_AS_NODE;chrome=spawn(require('electron'),[path.join(__dirname,'soundtrack-electron.cjs'),'--qa-archive='+archive,'--qa-profile='+profile,'--remote-debugging-port=0','--mute-audio','--autoplay-policy=no-user-gesture-required'],{env,stdio:['ignore','ignore','pipe'],windowsHide:true});chrome.stderr.on('data',d=>{diagnostics+=d;});}
 else chrome=spawn(process.env.CHROME||'C:/Program Files/Google/Chrome/Application/chrome.exe',['--headless=new','--remote-debugging-port=0','--user-data-dir='+profile,'--window-size=1440,900','--mute-audio','--autoplay-policy=no-user-gesture-required','about:blank'],{stdio:'ignore',windowsHide:true});

@@ -1,0 +1,1739 @@
+{
+  "packaged": true,
+  "checks": [
+    {
+      "name": "easy/classic/seed1/contested completion",
+      "pass": true
+    },
+    {
+      "name": "easy/roomier/seed1/contested completion",
+      "pass": true
+    },
+    {
+      "name": "easy/classic/seed7/contested completion",
+      "pass": true
+    },
+    {
+      "name": "easy/roomier/seed7/contested completion",
+      "pass": true
+    },
+    {
+      "name": "easy/classic/seed777/contested completion",
+      "pass": true
+    },
+    {
+      "name": "easy/roomier/seed777/contested completion",
+      "pass": true
+    },
+    {
+      "name": "easy/classic/seed1/solo zero falls",
+      "pass": true
+    },
+    {
+      "name": "easy/roomier/seed1/solo zero falls",
+      "pass": true
+    },
+    {
+      "name": "easy/classic/seed7/solo zero falls",
+      "pass": true
+    },
+    {
+      "name": "easy/roomier/seed7/solo zero falls",
+      "pass": true
+    },
+    {
+      "name": "easy/classic/seed777/solo zero falls",
+      "pass": true
+    },
+    {
+      "name": "easy/roomier/seed777/solo zero falls",
+      "pass": true
+    },
+    {
+      "name": "medium/classic/seed777/solo zero falls",
+      "pass": true
+    },
+    {
+      "name": "medium/roomier/seed777/solo zero falls",
+      "pass": true
+    },
+    {
+      "name": "hard/classic/seed777/solo zero falls",
+      "pass": true
+    },
+    {
+      "name": "hard/roomier/seed777/solo zero falls",
+      "pass": true
+    },
+    {
+      "name": "steve/classic/seed777/solo zero falls",
+      "pass": true
+    },
+    {
+      "name": "steve/roomier/seed777/solo zero falls",
+      "pass": true
+    }
+  ],
+  "errors": [],
+  "limitations": "Controlled three-minute Rooftop races. Solo routes must complete four laps with zero deaths; contested races must complete within the normal time limit, and record all deaths because rivals can legitimately shove racers into pits. Easy seeds1,7,777 both sizes; each faster difficulty seed777 both sizes solo. Not human playtesting.",
+  "raceDiagnostics": [
+    {
+      "solo": false,
+      "difficulty": "easy",
+      "seed": 1,
+      "elapsed": 59.0166666666646,
+      "size": "classic",
+      "finished": 1,
+      "positions": [
+        {
+          "laps": 2,
+          "cp": 3,
+          "x": 240,
+          "y": 460,
+          "deaths": 2,
+          "finished": 0
+        },
+        {
+          "laps": 2,
+          "cp": 2,
+          "x": 630,
+          "y": 552,
+          "deaths": 2,
+          "finished": 0
+        },
+        {
+          "laps": 4,
+          "cp": 0,
+          "x": 66,
+          "y": 490,
+          "deaths": 0,
+          "finished": 59.0166666666646
+        },
+        {
+          "laps": 3,
+          "cp": 0,
+          "x": 380,
+          "y": 160,
+          "deaths": 0,
+          "finished": 0
+        },
+        {
+          "laps": 2,
+          "cp": 3,
+          "x": 370,
+          "y": 740,
+          "deaths": 1,
+          "finished": 0
+        },
+        {
+          "laps": 3,
+          "cp": 1,
+          "x": 942,
+          "y": 140,
+          "deaths": 0,
+          "finished": 0
+        },
+        {
+          "laps": 3,
+          "cp": 3,
+          "x": 244,
+          "y": 740,
+          "deaths": 0,
+          "finished": 0
+        },
+        {
+          "laps": 3,
+          "cp": 0,
+          "x": 136,
+          "y": 498,
+          "deaths": 0,
+          "finished": 0
+        }
+      ],
+      "gates": [
+        {
+          "x": 620,
+          "y": 140
+        },
+        {
+          "x": 1220,
+          "y": 420
+        },
+        {
+          "x": 620,
+          "y": 740
+        },
+        {
+          "x": 60,
+          "y": 420
+        }
+      ]
+    },
+    {
+      "solo": false,
+      "difficulty": "easy",
+      "seed": 1,
+      "elapsed": 65.09999999999759,
+      "size": "roomier",
+      "finished": 1,
+      "positions": [
+        {
+          "laps": 3,
+          "cp": 0,
+          "x": 422,
+          "y": 365,
+          "deaths": 1,
+          "finished": 0
+        },
+        {
+          "laps": 3,
+          "cp": 2,
+          "x": 767,
+          "y": 805,
+          "deaths": 0,
+          "finished": 0
+        },
+        {
+          "laps": 3,
+          "cp": 3,
+          "x": 102,
+          "y": 798,
+          "deaths": 0,
+          "finished": 0
+        },
+        {
+          "laps": 3,
+          "cp": 2,
+          "x": 987,
+          "y": 366,
+          "deaths": 1,
+          "finished": 0
+        },
+        {
+          "laps": 4,
+          "cp": 0,
+          "x": 72,
+          "y": 525,
+          "deaths": 0,
+          "finished": 65.09999999999759
+        },
+        {
+          "laps": 3,
+          "cp": 3,
+          "x": 410,
+          "y": 806,
+          "deaths": 0,
+          "finished": 0
+        },
+        {
+          "laps": 3,
+          "cp": 3,
+          "x": 697,
+          "y": 807,
+          "deaths": 0,
+          "finished": 0
+        },
+        {
+          "laps": 3,
+          "cp": 1,
+          "x": 791,
+          "y": 147,
+          "deaths": 1,
+          "finished": 0
+        }
+      ],
+      "gates": [
+        {
+          "x": 682,
+          "y": 146
+        },
+        {
+          "x": 1342,
+          "y": 454
+        },
+        {
+          "x": 682,
+          "y": 806
+        },
+        {
+          "x": 66,
+          "y": 454
+        }
+      ]
+    },
+    {
+      "solo": false,
+      "difficulty": "easy",
+      "seed": 7,
+      "elapsed": 60.48333333333118,
+      "size": "classic",
+      "finished": 1,
+      "positions": [
+        {
+          "laps": 3,
+          "cp": 3,
+          "x": 649,
+          "y": 740,
+          "deaths": 2,
+          "finished": 0
+        },
+        {
+          "laps": 3,
+          "cp": 3,
+          "x": 149,
+          "y": 740,
+          "deaths": 0,
+          "finished": 0
+        },
+        {
+          "laps": 4,
+          "cp": 0,
+          "x": 66,
+          "y": 490,
+          "deaths": 1,
+          "finished": 60.48333333333118
+        },
+        {
+          "laps": 3,
+          "cp": 2,
+          "x": 1222,
+          "y": 360,
+          "deaths": 1,
+          "finished": 0
+        },
+        {
+          "laps": 3,
+          "cp": 3,
+          "x": 293,
+          "y": 740,
+          "deaths": 0,
+          "finished": 0
+        },
+        {
+          "laps": 3,
+          "cp": 1,
+          "x": 1009,
+          "y": 140,
+          "deaths": 1,
+          "finished": 0
+        },
+        {
+          "laps": 3,
+          "cp": 1,
+          "x": 1200,
+          "y": 332,
+          "deaths": 1,
+          "finished": 0
+        },
+        {
+          "laps": 3,
+          "cp": 0,
+          "x": 317,
+          "y": 142,
+          "deaths": 2,
+          "finished": 0
+        }
+      ],
+      "gates": [
+        {
+          "x": 620,
+          "y": 140
+        },
+        {
+          "x": 1220,
+          "y": 420
+        },
+        {
+          "x": 620,
+          "y": 740
+        },
+        {
+          "x": 60,
+          "y": 420
+        }
+      ]
+    },
+    {
+      "solo": false,
+      "difficulty": "easy",
+      "seed": 7,
+      "elapsed": 61.23333333333114,
+      "size": "roomier",
+      "finished": 1,
+      "positions": [
+        {
+          "laps": 4,
+          "cp": 0,
+          "x": 72,
+          "y": 525,
+          "deaths": 1,
+          "finished": 61.23333333333114
+        },
+        {
+          "laps": 3,
+          "cp": 3,
+          "x": 87,
+          "y": 691,
+          "deaths": 0,
+          "finished": 0
+        },
+        {
+          "laps": 3,
+          "cp": 1,
+          "x": 1320,
+          "y": 321,
+          "deaths": 1,
+          "finished": 0
+        },
+        {
+          "laps": 3,
+          "cp": 2,
+          "x": 1268,
+          "y": 411,
+          "deaths": 1,
+          "finished": 0
+        },
+        {
+          "laps": 3,
+          "cp": 3,
+          "x": 280,
+          "y": 806,
+          "deaths": 0,
+          "finished": 0
+        },
+        {
+          "laps": 3,
+          "cp": 2,
+          "x": 989,
+          "y": 482,
+          "deaths": 0,
+          "finished": 0
+        },
+        {
+          "laps": 3,
+          "cp": 1,
+          "x": 637,
+          "y": 147,
+          "deaths": 1,
+          "finished": 0
+        },
+        {
+          "laps": 3,
+          "cp": 2,
+          "x": 1329,
+          "y": 362,
+          "deaths": 0,
+          "finished": 0
+        }
+      ],
+      "gates": [
+        {
+          "x": 682,
+          "y": 146
+        },
+        {
+          "x": 1342,
+          "y": 454
+        },
+        {
+          "x": 682,
+          "y": 806
+        },
+        {
+          "x": 66,
+          "y": 454
+        }
+      ]
+    },
+    {
+      "solo": false,
+      "difficulty": "easy",
+      "seed": 777,
+      "elapsed": 53.849999999998225,
+      "size": "classic",
+      "finished": 1,
+      "positions": [
+        {
+          "laps": 3,
+          "cp": 0,
+          "x": 382,
+          "y": 340,
+          "deaths": 2,
+          "finished": 0
+        },
+        {
+          "laps": 2,
+          "cp": 3,
+          "x": 107,
+          "y": 740,
+          "deaths": 1,
+          "finished": 0
+        },
+        {
+          "laps": 2,
+          "cp": 3,
+          "x": 244,
+          "y": 740,
+          "deaths": 2,
+          "finished": 0
+        },
+        {
+          "laps": 3,
+          "cp": 0,
+          "x": 407,
+          "y": 142,
+          "deaths": 1,
+          "finished": 0
+        },
+        {
+          "laps": 4,
+          "cp": 0,
+          "x": 66,
+          "y": 490,
+          "deaths": 0,
+          "finished": 53.849999999998225
+        },
+        {
+          "laps": 3,
+          "cp": 2,
+          "x": 735,
+          "y": 739,
+          "deaths": 0,
+          "finished": 0
+        },
+        {
+          "laps": 3,
+          "cp": 0,
+          "x": 180,
+          "y": 340,
+          "deaths": 0,
+          "finished": 0
+        },
+        {
+          "laps": 3,
+          "cp": 2,
+          "x": 1104,
+          "y": 340,
+          "deaths": 0,
+          "finished": 0
+        }
+      ],
+      "gates": [
+        {
+          "x": 620,
+          "y": 140
+        },
+        {
+          "x": 1220,
+          "y": 420
+        },
+        {
+          "x": 620,
+          "y": 740
+        },
+        {
+          "x": 60,
+          "y": 420
+        }
+      ]
+    },
+    {
+      "solo": false,
+      "difficulty": "easy",
+      "seed": 777,
+      "elapsed": 61.949999999997765,
+      "size": "roomier",
+      "finished": 1,
+      "positions": [
+        {
+          "laps": 3,
+          "cp": 1,
+          "x": 971,
+          "y": 146,
+          "deaths": 1,
+          "finished": 0
+        },
+        {
+          "laps": 4,
+          "cp": 0,
+          "x": 72,
+          "y": 525,
+          "deaths": 0,
+          "finished": 61.949999999997765
+        },
+        {
+          "laps": 3,
+          "cp": 2,
+          "x": 988,
+          "y": 351,
+          "deaths": 1,
+          "finished": 0
+        },
+        {
+          "laps": 3,
+          "cp": 1,
+          "x": 1205,
+          "y": 146,
+          "deaths": 1,
+          "finished": 0
+        },
+        {
+          "laps": 3,
+          "cp": 3,
+          "x": 397,
+          "y": 806,
+          "deaths": 0,
+          "finished": 0
+        },
+        {
+          "laps": 3,
+          "cp": 2,
+          "x": 924,
+          "y": 804,
+          "deaths": 1,
+          "finished": 0
+        },
+        {
+          "laps": 3,
+          "cp": 3,
+          "x": 113,
+          "y": 806,
+          "deaths": 0,
+          "finished": 0
+        },
+        {
+          "laps": 3,
+          "cp": 2,
+          "x": 992,
+          "y": 389,
+          "deaths": 0,
+          "finished": 0
+        }
+      ],
+      "gates": [
+        {
+          "x": 682,
+          "y": 146
+        },
+        {
+          "x": 1342,
+          "y": 454
+        },
+        {
+          "x": 682,
+          "y": 806
+        },
+        {
+          "x": 66,
+          "y": 454
+        }
+      ]
+    },
+    {
+      "solo": true,
+      "difficulty": "easy",
+      "seed": 1,
+      "elapsed": 55.98333333333144,
+      "size": "classic",
+      "finished": 1,
+      "positions": [
+        {
+          "laps": 4,
+          "cp": 0,
+          "x": 66,
+          "y": 490,
+          "deaths": 0,
+          "finished": 55.98333333333144
+        },
+        {
+          "laps": 0,
+          "cp": 0,
+          "x": 380,
+          "y": 140,
+          "deaths": 0,
+          "finished": 0
+        },
+        {
+          "laps": 0,
+          "cp": 0,
+          "x": 380,
+          "y": 740,
+          "deaths": 0,
+          "finished": 0
+        },
+        {
+          "laps": 0,
+          "cp": 0,
+          "x": 1220,
+          "y": 740,
+          "deaths": 0,
+          "finished": 0
+        },
+        {
+          "laps": 0,
+          "cp": 0,
+          "x": 900,
+          "y": 140,
+          "deaths": 0,
+          "finished": 0
+        },
+        {
+          "laps": 0,
+          "cp": 0,
+          "x": 1220,
+          "y": 140,
+          "deaths": 0,
+          "finished": 0
+        },
+        {
+          "laps": 0,
+          "cp": 0,
+          "x": 60,
+          "y": 140,
+          "deaths": 0,
+          "finished": 0
+        },
+        {
+          "laps": 0,
+          "cp": 0,
+          "x": 60,
+          "y": 740,
+          "deaths": 0,
+          "finished": 0
+        }
+      ],
+      "gates": [
+        {
+          "x": 620,
+          "y": 140
+        },
+        {
+          "x": 1220,
+          "y": 420
+        },
+        {
+          "x": 620,
+          "y": 740
+        },
+        {
+          "x": 60,
+          "y": 420
+        }
+      ]
+    },
+    {
+      "solo": true,
+      "difficulty": "easy",
+      "seed": 1,
+      "elapsed": 61.016666666664484,
+      "size": "roomier",
+      "finished": 1,
+      "positions": [
+        {
+          "laps": 4,
+          "cp": 0,
+          "x": 72,
+          "y": 525,
+          "deaths": 0,
+          "finished": 61.016666666664484
+        },
+        {
+          "laps": 0,
+          "cp": 0,
+          "x": 418,
+          "y": 146,
+          "deaths": 0,
+          "finished": 0
+        },
+        {
+          "laps": 0,
+          "cp": 0,
+          "x": 418,
+          "y": 806,
+          "deaths": 0,
+          "finished": 0
+        },
+        {
+          "laps": 0,
+          "cp": 0,
+          "x": 1342,
+          "y": 806,
+          "deaths": 0,
+          "finished": 0
+        },
+        {
+          "laps": 0,
+          "cp": 0,
+          "x": 990,
+          "y": 146,
+          "deaths": 0,
+          "finished": 0
+        },
+        {
+          "laps": 0,
+          "cp": 0,
+          "x": 1342,
+          "y": 146,
+          "deaths": 0,
+          "finished": 0
+        },
+        {
+          "laps": 0,
+          "cp": 0,
+          "x": 66,
+          "y": 146,
+          "deaths": 0,
+          "finished": 0
+        },
+        {
+          "laps": 0,
+          "cp": 0,
+          "x": 66,
+          "y": 806,
+          "deaths": 0,
+          "finished": 0
+        }
+      ],
+      "gates": [
+        {
+          "x": 682,
+          "y": 146
+        },
+        {
+          "x": 1342,
+          "y": 454
+        },
+        {
+          "x": 682,
+          "y": 806
+        },
+        {
+          "x": 66,
+          "y": 454
+        }
+      ]
+    },
+    {
+      "solo": true,
+      "difficulty": "easy",
+      "seed": 7,
+      "elapsed": 53.649999999998236,
+      "size": "classic",
+      "finished": 1,
+      "positions": [
+        {
+          "laps": 4,
+          "cp": 0,
+          "x": 66,
+          "y": 490,
+          "deaths": 0,
+          "finished": 53.649999999998236
+        },
+        {
+          "laps": 0,
+          "cp": 0,
+          "x": 60,
+          "y": 140,
+          "deaths": 0,
+          "finished": 0
+        },
+        {
+          "laps": 0,
+          "cp": 0,
+          "x": 380,
+          "y": 140,
+          "deaths": 0,
+          "finished": 0
+        },
+        {
+          "laps": 0,
+          "cp": 0,
+          "x": 1220,
+          "y": 740,
+          "deaths": 0,
+          "finished": 0
+        },
+        {
+          "laps": 0,
+          "cp": 0,
+          "x": 900,
+          "y": 740,
+          "deaths": 0,
+          "finished": 0
+        },
+        {
+          "laps": 0,
+          "cp": 0,
+          "x": 1220,
+          "y": 140,
+          "deaths": 0,
+          "finished": 0
+        },
+        {
+          "laps": 0,
+          "cp": 0,
+          "x": 60,
+          "y": 740,
+          "deaths": 0,
+          "finished": 0
+        },
+        {
+          "laps": 0,
+          "cp": 0,
+          "x": 380,
+          "y": 740,
+          "deaths": 0,
+          "finished": 0
+        }
+      ],
+      "gates": [
+        {
+          "x": 620,
+          "y": 140
+        },
+        {
+          "x": 1220,
+          "y": 420
+        },
+        {
+          "x": 620,
+          "y": 740
+        },
+        {
+          "x": 60,
+          "y": 420
+        }
+      ]
+    },
+    {
+      "solo": true,
+      "difficulty": "easy",
+      "seed": 7,
+      "elapsed": 58.78333333333128,
+      "size": "roomier",
+      "finished": 1,
+      "positions": [
+        {
+          "laps": 4,
+          "cp": 0,
+          "x": 72,
+          "y": 525,
+          "deaths": 0,
+          "finished": 58.78333333333128
+        },
+        {
+          "laps": 0,
+          "cp": 0,
+          "x": 66,
+          "y": 146,
+          "deaths": 0,
+          "finished": 0
+        },
+        {
+          "laps": 0,
+          "cp": 0,
+          "x": 418,
+          "y": 146,
+          "deaths": 0,
+          "finished": 0
+        },
+        {
+          "laps": 0,
+          "cp": 0,
+          "x": 1342,
+          "y": 806,
+          "deaths": 0,
+          "finished": 0
+        },
+        {
+          "laps": 0,
+          "cp": 0,
+          "x": 990,
+          "y": 806,
+          "deaths": 0,
+          "finished": 0
+        },
+        {
+          "laps": 0,
+          "cp": 0,
+          "x": 1342,
+          "y": 146,
+          "deaths": 0,
+          "finished": 0
+        },
+        {
+          "laps": 0,
+          "cp": 0,
+          "x": 66,
+          "y": 806,
+          "deaths": 0,
+          "finished": 0
+        },
+        {
+          "laps": 0,
+          "cp": 0,
+          "x": 418,
+          "y": 806,
+          "deaths": 0,
+          "finished": 0
+        }
+      ],
+      "gates": [
+        {
+          "x": 682,
+          "y": 146
+        },
+        {
+          "x": 1342,
+          "y": 454
+        },
+        {
+          "x": 682,
+          "y": 806
+        },
+        {
+          "x": 66,
+          "y": 454
+        }
+      ]
+    },
+    {
+      "solo": true,
+      "difficulty": "easy",
+      "seed": 777,
+      "elapsed": 57.38333333333136,
+      "size": "classic",
+      "finished": 1,
+      "positions": [
+        {
+          "laps": 4,
+          "cp": 0,
+          "x": 66,
+          "y": 490,
+          "deaths": 0,
+          "finished": 57.38333333333136
+        },
+        {
+          "laps": 0,
+          "cp": 0,
+          "x": 900,
+          "y": 140,
+          "deaths": 0,
+          "finished": 0
+        },
+        {
+          "laps": 0,
+          "cp": 0,
+          "x": 380,
+          "y": 740,
+          "deaths": 0,
+          "finished": 0
+        },
+        {
+          "laps": 0,
+          "cp": 0,
+          "x": 900,
+          "y": 740,
+          "deaths": 0,
+          "finished": 0
+        },
+        {
+          "laps": 0,
+          "cp": 0,
+          "x": 380,
+          "y": 140,
+          "deaths": 0,
+          "finished": 0
+        },
+        {
+          "laps": 0,
+          "cp": 0,
+          "x": 60,
+          "y": 140,
+          "deaths": 0,
+          "finished": 0
+        },
+        {
+          "laps": 0,
+          "cp": 0,
+          "x": 1220,
+          "y": 740,
+          "deaths": 0,
+          "finished": 0
+        },
+        {
+          "laps": 0,
+          "cp": 0,
+          "x": 1220,
+          "y": 140,
+          "deaths": 0,
+          "finished": 0
+        }
+      ],
+      "gates": [
+        {
+          "x": 620,
+          "y": 140
+        },
+        {
+          "x": 1220,
+          "y": 420
+        },
+        {
+          "x": 620,
+          "y": 740
+        },
+        {
+          "x": 60,
+          "y": 420
+        }
+      ]
+    },
+    {
+      "solo": true,
+      "difficulty": "easy",
+      "seed": 777,
+      "elapsed": 57.083333333331375,
+      "size": "roomier",
+      "finished": 1,
+      "positions": [
+        {
+          "laps": 4,
+          "cp": 0,
+          "x": 71,
+          "y": 525,
+          "deaths": 0,
+          "finished": 57.083333333331375
+        },
+        {
+          "laps": 0,
+          "cp": 0,
+          "x": 990,
+          "y": 146,
+          "deaths": 0,
+          "finished": 0
+        },
+        {
+          "laps": 0,
+          "cp": 0,
+          "x": 418,
+          "y": 806,
+          "deaths": 0,
+          "finished": 0
+        },
+        {
+          "laps": 0,
+          "cp": 0,
+          "x": 990,
+          "y": 806,
+          "deaths": 0,
+          "finished": 0
+        },
+        {
+          "laps": 0,
+          "cp": 0,
+          "x": 418,
+          "y": 146,
+          "deaths": 0,
+          "finished": 0
+        },
+        {
+          "laps": 0,
+          "cp": 0,
+          "x": 66,
+          "y": 146,
+          "deaths": 0,
+          "finished": 0
+        },
+        {
+          "laps": 0,
+          "cp": 0,
+          "x": 1342,
+          "y": 806,
+          "deaths": 0,
+          "finished": 0
+        },
+        {
+          "laps": 0,
+          "cp": 0,
+          "x": 1342,
+          "y": 146,
+          "deaths": 0,
+          "finished": 0
+        }
+      ],
+      "gates": [
+        {
+          "x": 682,
+          "y": 146
+        },
+        {
+          "x": 1342,
+          "y": 454
+        },
+        {
+          "x": 682,
+          "y": 806
+        },
+        {
+          "x": 66,
+          "y": 454
+        }
+      ]
+    },
+    {
+      "solo": true,
+      "difficulty": "medium",
+      "seed": 777,
+      "elapsed": 57.38333333333136,
+      "size": "classic",
+      "finished": 1,
+      "positions": [
+        {
+          "laps": 4,
+          "cp": 0,
+          "x": 66,
+          "y": 490,
+          "deaths": 0,
+          "finished": 57.38333333333136
+        },
+        {
+          "laps": 0,
+          "cp": 0,
+          "x": 900,
+          "y": 140,
+          "deaths": 0,
+          "finished": 0
+        },
+        {
+          "laps": 0,
+          "cp": 0,
+          "x": 380,
+          "y": 740,
+          "deaths": 0,
+          "finished": 0
+        },
+        {
+          "laps": 0,
+          "cp": 0,
+          "x": 900,
+          "y": 740,
+          "deaths": 0,
+          "finished": 0
+        },
+        {
+          "laps": 0,
+          "cp": 0,
+          "x": 380,
+          "y": 140,
+          "deaths": 0,
+          "finished": 0
+        },
+        {
+          "laps": 0,
+          "cp": 0,
+          "x": 60,
+          "y": 140,
+          "deaths": 0,
+          "finished": 0
+        },
+        {
+          "laps": 0,
+          "cp": 0,
+          "x": 1220,
+          "y": 740,
+          "deaths": 0,
+          "finished": 0
+        },
+        {
+          "laps": 0,
+          "cp": 0,
+          "x": 1220,
+          "y": 140,
+          "deaths": 0,
+          "finished": 0
+        }
+      ],
+      "gates": [
+        {
+          "x": 620,
+          "y": 140
+        },
+        {
+          "x": 1220,
+          "y": 420
+        },
+        {
+          "x": 620,
+          "y": 740
+        },
+        {
+          "x": 60,
+          "y": 420
+        }
+      ]
+    },
+    {
+      "solo": true,
+      "difficulty": "medium",
+      "seed": 777,
+      "elapsed": 62.48333333333107,
+      "size": "roomier",
+      "finished": 1,
+      "positions": [
+        {
+          "laps": 4,
+          "cp": 0,
+          "x": 72,
+          "y": 525,
+          "deaths": 0,
+          "finished": 62.48333333333107
+        },
+        {
+          "laps": 0,
+          "cp": 0,
+          "x": 990,
+          "y": 146,
+          "deaths": 0,
+          "finished": 0
+        },
+        {
+          "laps": 0,
+          "cp": 0,
+          "x": 418,
+          "y": 806,
+          "deaths": 0,
+          "finished": 0
+        },
+        {
+          "laps": 0,
+          "cp": 0,
+          "x": 990,
+          "y": 806,
+          "deaths": 0,
+          "finished": 0
+        },
+        {
+          "laps": 0,
+          "cp": 0,
+          "x": 418,
+          "y": 146,
+          "deaths": 0,
+          "finished": 0
+        },
+        {
+          "laps": 0,
+          "cp": 0,
+          "x": 66,
+          "y": 146,
+          "deaths": 0,
+          "finished": 0
+        },
+        {
+          "laps": 0,
+          "cp": 0,
+          "x": 1342,
+          "y": 806,
+          "deaths": 0,
+          "finished": 0
+        },
+        {
+          "laps": 0,
+          "cp": 0,
+          "x": 1342,
+          "y": 146,
+          "deaths": 0,
+          "finished": 0
+        }
+      ],
+      "gates": [
+        {
+          "x": 682,
+          "y": 146
+        },
+        {
+          "x": 1342,
+          "y": 454
+        },
+        {
+          "x": 682,
+          "y": 806
+        },
+        {
+          "x": 66,
+          "y": 454
+        }
+      ]
+    },
+    {
+      "solo": true,
+      "difficulty": "hard",
+      "seed": 777,
+      "elapsed": 57.38333333333136,
+      "size": "classic",
+      "finished": 1,
+      "positions": [
+        {
+          "laps": 4,
+          "cp": 0,
+          "x": 66,
+          "y": 490,
+          "deaths": 0,
+          "finished": 57.38333333333136
+        },
+        {
+          "laps": 0,
+          "cp": 0,
+          "x": 900,
+          "y": 140,
+          "deaths": 0,
+          "finished": 0
+        },
+        {
+          "laps": 0,
+          "cp": 0,
+          "x": 380,
+          "y": 740,
+          "deaths": 0,
+          "finished": 0
+        },
+        {
+          "laps": 0,
+          "cp": 0,
+          "x": 900,
+          "y": 740,
+          "deaths": 0,
+          "finished": 0
+        },
+        {
+          "laps": 0,
+          "cp": 0,
+          "x": 380,
+          "y": 140,
+          "deaths": 0,
+          "finished": 0
+        },
+        {
+          "laps": 0,
+          "cp": 0,
+          "x": 60,
+          "y": 140,
+          "deaths": 0,
+          "finished": 0
+        },
+        {
+          "laps": 0,
+          "cp": 0,
+          "x": 1220,
+          "y": 740,
+          "deaths": 0,
+          "finished": 0
+        },
+        {
+          "laps": 0,
+          "cp": 0,
+          "x": 1220,
+          "y": 140,
+          "deaths": 0,
+          "finished": 0
+        }
+      ],
+      "gates": [
+        {
+          "x": 620,
+          "y": 140
+        },
+        {
+          "x": 1220,
+          "y": 420
+        },
+        {
+          "x": 620,
+          "y": 740
+        },
+        {
+          "x": 60,
+          "y": 420
+        }
+      ]
+    },
+    {
+      "solo": true,
+      "difficulty": "hard",
+      "seed": 777,
+      "elapsed": 62.48333333333107,
+      "size": "roomier",
+      "finished": 1,
+      "positions": [
+        {
+          "laps": 4,
+          "cp": 0,
+          "x": 72,
+          "y": 525,
+          "deaths": 0,
+          "finished": 62.48333333333107
+        },
+        {
+          "laps": 0,
+          "cp": 0,
+          "x": 990,
+          "y": 146,
+          "deaths": 0,
+          "finished": 0
+        },
+        {
+          "laps": 0,
+          "cp": 0,
+          "x": 418,
+          "y": 806,
+          "deaths": 0,
+          "finished": 0
+        },
+        {
+          "laps": 0,
+          "cp": 0,
+          "x": 990,
+          "y": 806,
+          "deaths": 0,
+          "finished": 0
+        },
+        {
+          "laps": 0,
+          "cp": 0,
+          "x": 418,
+          "y": 146,
+          "deaths": 0,
+          "finished": 0
+        },
+        {
+          "laps": 0,
+          "cp": 0,
+          "x": 66,
+          "y": 146,
+          "deaths": 0,
+          "finished": 0
+        },
+        {
+          "laps": 0,
+          "cp": 0,
+          "x": 1342,
+          "y": 806,
+          "deaths": 0,
+          "finished": 0
+        },
+        {
+          "laps": 0,
+          "cp": 0,
+          "x": 1342,
+          "y": 146,
+          "deaths": 0,
+          "finished": 0
+        }
+      ],
+      "gates": [
+        {
+          "x": 682,
+          "y": 146
+        },
+        {
+          "x": 1342,
+          "y": 454
+        },
+        {
+          "x": 682,
+          "y": 806
+        },
+        {
+          "x": 66,
+          "y": 454
+        }
+      ]
+    },
+    {
+      "solo": true,
+      "difficulty": "steve",
+      "seed": 777,
+      "elapsed": 51.399999999998364,
+      "size": "classic",
+      "finished": 1,
+      "positions": [
+        {
+          "laps": 4,
+          "cp": 0,
+          "x": 66,
+          "y": 490,
+          "deaths": 0,
+          "finished": 51.399999999998364
+        },
+        {
+          "laps": 0,
+          "cp": 0,
+          "x": 900,
+          "y": 140,
+          "deaths": 0,
+          "finished": 0
+        },
+        {
+          "laps": 0,
+          "cp": 0,
+          "x": 380,
+          "y": 740,
+          "deaths": 0,
+          "finished": 0
+        },
+        {
+          "laps": 0,
+          "cp": 0,
+          "x": 900,
+          "y": 740,
+          "deaths": 0,
+          "finished": 0
+        },
+        {
+          "laps": 0,
+          "cp": 0,
+          "x": 380,
+          "y": 140,
+          "deaths": 0,
+          "finished": 0
+        },
+        {
+          "laps": 0,
+          "cp": 0,
+          "x": 60,
+          "y": 140,
+          "deaths": 0,
+          "finished": 0
+        },
+        {
+          "laps": 0,
+          "cp": 0,
+          "x": 1220,
+          "y": 740,
+          "deaths": 0,
+          "finished": 0
+        },
+        {
+          "laps": 0,
+          "cp": 0,
+          "x": 1220,
+          "y": 140,
+          "deaths": 0,
+          "finished": 0
+        }
+      ],
+      "gates": [
+        {
+          "x": 620,
+          "y": 140
+        },
+        {
+          "x": 1220,
+          "y": 420
+        },
+        {
+          "x": 620,
+          "y": 740
+        },
+        {
+          "x": 60,
+          "y": 420
+        }
+      ]
+    },
+    {
+      "solo": true,
+      "difficulty": "steve",
+      "seed": 777,
+      "elapsed": 62.48333333333107,
+      "size": "roomier",
+      "finished": 1,
+      "positions": [
+        {
+          "laps": 4,
+          "cp": 0,
+          "x": 72,
+          "y": 525,
+          "deaths": 0,
+          "finished": 62.48333333333107
+        },
+        {
+          "laps": 0,
+          "cp": 0,
+          "x": 990,
+          "y": 146,
+          "deaths": 0,
+          "finished": 0
+        },
+        {
+          "laps": 0,
+          "cp": 0,
+          "x": 418,
+          "y": 806,
+          "deaths": 0,
+          "finished": 0
+        },
+        {
+          "laps": 0,
+          "cp": 0,
+          "x": 990,
+          "y": 806,
+          "deaths": 0,
+          "finished": 0
+        },
+        {
+          "laps": 0,
+          "cp": 0,
+          "x": 418,
+          "y": 146,
+          "deaths": 0,
+          "finished": 0
+        },
+        {
+          "laps": 0,
+          "cp": 0,
+          "x": 66,
+          "y": 146,
+          "deaths": 0,
+          "finished": 0
+        },
+        {
+          "laps": 0,
+          "cp": 0,
+          "x": 1342,
+          "y": 806,
+          "deaths": 0,
+          "finished": 0
+        },
+        {
+          "laps": 0,
+          "cp": 0,
+          "x": 1342,
+          "y": 146,
+          "deaths": 0,
+          "finished": 0
+        }
+      ],
+      "gates": [
+        {
+          "x": 682,
+          "y": 146
+        },
+        {
+          "x": 1342,
+          "y": 454
+        },
+        {
+          "x": 682,
+          "y": 806
+        },
+        {
+          "x": 66,
+          "y": 454
+        }
+      ]
+    }
+  ],
+  "indexSha256": "b045dec79b6b088c24e55205231a68c07dd38b9831828d083bf60ab6a1413a27",
+  "archiveSha256": "6d8c968c64d6086ec91a68faf20135cd57fd069effe79b65dad55316d10ff781"
+}

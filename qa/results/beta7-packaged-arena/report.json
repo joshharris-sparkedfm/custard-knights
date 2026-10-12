@@ -1,0 +1,7 @@
+{
+  "packaged": true,
+  "checks": [],
+  "errors": [],
+  "limitations": "Synthetic simulation, setup/snapshot replay and touch/couch viewport checks. Packaged mode loads the built app.asar through the Electron QA launcher. Not human playtesting, physical controller testing or a live cross-network multiplayer test.",
+  "failure": "Error: Browser did not start App threw an error during load\nError: Explicit frozen archive and isolated QA profile required\n    at Object.<anonymous> (C:\\Users\\Joshua\\Documents\\Codex\\2026-10-08\\rea\\work\\custard-knights\\qa\\soundtrack-electron.cjs:8:147)\n    at Module._compile (node:internal/modules/cjs/loader:1937:14)\n    at Object..js (node:internal/modules/cjs/loader:2070:10)\n    at Module.load (node:internal/modules/cjs/loader:1658:32)\n    at Module._load (node:internal/modules/cjs/loader:1450:12)\n    at wrapModuleLoad (node:internal/modules/cjs/loader:268:19)\n    at loadCJSModuleWithModuleLoad (node:internal/modules/esm/translators:378:15)\n    at ModuleWrap.<anonymous> (node:internal/modules/esm/translators:246:9)\n    at ModuleJob.run (node:internal/modules/esm/module_job:561:25)\n    at process.processTicksAndRejections (node:internal/process/task_queues:104:5)\n\n    at C:\\Users\\Joshua\\Documents\\Codex\\2026-10-08\\rea\\work\\custard-knights\\qa\\arena-size.cjs:14:270"
+}

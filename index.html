@@ -351,6 +351,12 @@ body[data-input=pad] :is(button,.card,.tile,input,select):focus{outline:4px soli
       <div class="row"><button class="btn" id="reportExport" type="button">Export report JSON</button><button class="btn" id="reportClear" type="button">Clear report</button></div>
       <p class="note" id="reportStatus" role="status"></p>
       <textarea id="reportFallback" aria-label="Local report JSON for copying" readonly hidden style="width:100%;min-height:180px"></textarea>
+      <h3>Optional first-fight test</h3>
+      <p class="note">With local reporting enabled, play one 90-second solo round with Easy bots and Simple chaos. Compare a chosen or random arena, or four or eight knights. The comparison is assigned randomly. Your usual setup returns afterwards. Test rounds do not earn coins or goals. Nothing is uploaded.</p>
+      <label class="lab" for="firstFightExperiment">Comparison</label>
+      <select id="firstFightExperiment"><option value="arena">First arena</option><option value="density">Number of knights</option></select>
+      <div class="row"><button class="btn" id="firstFightStart" type="button">Start test round</button></div>
+      <p class="note" id="firstFightStatus" role="status">Enable the local play report to take part. A completed comparison cannot be repeated while retained in this report; an abandoned round keeps its assignment. Clearing the report or reaching its storage limit can allow a repeat.</p>
     </div>
   </div>
 
@@ -381,6 +387,11 @@ body[data-input=pad] :is(button,.card,.tile,input,select):focus{outline:4px soli
       <p class="tag" id="endSub"></p>
       <p class="note" id="endReward" hidden></p>
       <ol id="board"></ol>
+      <div id="firstFightRecognition" hidden>
+        <p class="note">During that test round, could you tell which knight was yours? This is an optional self-report.</p>
+        <div class="row"><button class="btn" type="button" data-recognition="recognised">Yes</button><button class="btn" type="button" data-recognition="not_recognised">No</button><button class="btn" type="button" data-recognition="unsure">Unsure</button><button class="btn" type="button" data-recognition="skipped">Skip</button></div>
+        <p class="note" id="firstFightAnswer" role="status"></p>
+      </div>
       <div class="row"><button id="againBtn" class="btn big" type="button">Rematch</button><button id="setupBtn" class="btn" type="button">Change setup</button><button id="menuBtn" class="btn" type="button">Menu</button></div>
     </div>
   </div>
@@ -390,6 +401,7 @@ body[data-input=pad] :is(button,.card,.tile,input,select):focus{outline:4px soli
 <script src="sprites/chicken.js"></script>
 <script src="game/progression.js"></script>
 <script src="game/product-events.js"></script>
+<script src="game/first-fight.js"></script>
 <script src="game/collection.js"></script>
 <script src="game/collection-art.js"></script>
 <script src="game/collection-ui.js"></script>
@@ -520,13 +532,14 @@ const shuffle=a=>{a=a.slice();for(let i=a.length-1;i>0;i--){const j=Math.floor(M
 const norm=(x,y)=>{const d=Math.hypot(x,y)||1;return{x:x/d,y:y/d}};
 const cx=x=>clamp(x,T*1.5,W-T*1.5), cy=y=>clamp(y,OY+T*1.5,H-T*1.5);
 
+let firstFight=null,firstFightLaunching=false,firstFightResult=null;
 let cfg={mode:'ffa',players:1,diff:'medium',map:'random',chaosPlus:false,chaosSpeed:'normal',length:180,teamSplit:false}, showHit=false;
 try{ Object.assign(cfg,CKPreferences.config(JSON.parse(localStorage.getItem('ck-cfg')||'{}'),Object.keys(MODES),Object.keys(MAPS))); }catch(e){} function saveCfg(){ try{ localStorage.setItem('ck-cfg',JSON.stringify(cfg)); }catch(e){} }
 const SET={music:.55,sfx:1,shake:1,flash:true,names:'near',classic:false,whole:false};
 try{ Object.assign(SET,CKPreferences.settings(JSON.parse(localStorage.getItem('ck-settings')||'{}'))); }catch(e){} function saveSet(){ try{ localStorage.setItem('ck-settings',JSON.stringify(SET)); }catch(e){} }
 // what a first-timer has already been taught, so tips show once
 const TAUGHT=new Set(); try{ (JSON.parse(localStorage.getItem('ck-taught')||'[]')).forEach(k=>TAUGHT.add(k)); }catch(e){}
-function taught(k){ TAUGHT.add(k); try{ localStorage.setItem('ck-taught',JSON.stringify([...TAUGHT])); }catch(e){} }
+function taught(k){ TAUGHT.add(k); if(firstFight)return; try{ localStorage.setItem('ck-taught',JSON.stringify([...TAUGHT])); }catch(e){} }
 let hitsLanded=0; try{ hitsLanded=+localStorage.getItem('ck-hits')||0; }catch(e){}
 const NET={role:null,peer:null,conn:null,conns:new Map(),code:'',players:[],me:-1,inputs:{},latch:{},fxq:[],tick:0,lastIn:'',lastInT:0,an:0,dn:0,pa:false,pd:false};
 // the host records every sound and effect so joined players can replay them
@@ -593,6 +606,7 @@ function spikeState(){ const p=G.clock%3.4; return p>=2.8?'up':p>=2.25?'warn':'d
 
 /* ---------- setup ---------- */
 function newGame(demo,setup){
+ if(firstFight&&!firstFightLaunching)firstFightFinish('abandoned');
  if(G&&G.rareEvent)endRareEvent(false);
  const remote=(!demo&&!setup&&NET.role==='host')?NET.players.slice(1).filter(p=>cupAllowsPeer(p.id)):[];
  const mode=setup?setup.mode:demo?'ffa':cfg.mode, humans=(demo||setup)?0:Math.min(8,Math.max(0,cfg.players)+remote.length), names=shuffle(NAMES), ents=[];
@@ -625,6 +639,7 @@ function newGame(demo,setup){
    lives:LIVES_MODES.has(mode)?3:0,chick:mode==='race',laps:0,cp:0,carry:null,hot:false,hillT:0,finished:0,
    ai:{think:0,target:null,react:G.diff.react,flee:0,blockT:0,blockFace:null,strafe:Math.random()<.5?1:-1,goal:null,gx:0,gy:0,wx:W/2,wy:440,aimX:0,aimY:0,hold:false,parryOk:false,holdAtk:0,tellT:0}});
  }
+ if(firstFightLaunching&&firstFight&&!demo&&!setup&&!NET.role){ents.length=firstFight.assignment.totalKnights;G.firstFight=true;}
  if(setup) setup.ents.forEach((st,i)=>{ if(ents[i]){Object.assign(ents[i],st);const k=cleanKit(st.kit);ents[i].kit={helm:k.helm,plume:k.plume,metal:k.metal,visor:k.visor};} });
  // mode setup: the pie hill, the two pies, the race gates
  if(LIVES_MODES.has(mode)) G.chaosRate/=2; if(mode==='hotpie') G.hot={holder:null,t:12,max:12,round:0,wait:1.5,passT:-9};
@@ -920,7 +935,7 @@ function doHit(a,el){
    else { a.vx-=n.x*200; a.vy-=n.y*200; b.vx+=n.x*100; b.vy+=n.y*100; a.atkCd=.6; a.swing=Math.min(a.swing,.04); b.guard=Math.max(0,b.guard-.35); clang(b,(a.x+b.x)/2,(a.y+b.y)/2); return; }
   }
   let dmg=S.dmg; if(dmg>0&&(a.fx.giant||isBoss(a)||a.fx.norr)) dmg=2;
-  hurt(b,a,dmg,{src:a.swingKind==='light'?'sword':a.swingKind,kb:S.kb}); a.hitLanded=true; if(isMine(a)&&hitsLanded<3){ hitsLanded++; try{ localStorage.setItem('ck-hits',String(hitsLanded)); }catch(e){} }
+  hurt(b,a,dmg,{src:a.swingKind==='light'?'sword':a.swingKind,kb:S.kb}); a.hitLanded=true; if(isMine(a)&&hitsLanded<3){ hitsLanded++; try{ if(!firstFight)localStorage.setItem('ck-hits',String(hitsLanded)); }catch(e){} }
   if(G.clock-a.comboT<.8) a.combo++; else a.combo=1; a.comboT=G.clock; a.atkCd=Math.min(a.atkCd,S.hitCd);
  }
  // a sword swing swats bee swarms
@@ -2455,14 +2470,15 @@ function frame(now){
 const $=id=>document.getElementById(id);
 /* Local observations contain only bounded enums and opaque local tokens. */
 let productEvents=null,productJoin=null;
-try{productEvents=window.CKProductEvents?.create({build:'0.3.0-beta.5',qa:new URLSearchParams(location.search).has('qa')});}catch(_){}
+try{productEvents=window.CKProductEvents?.create({build:'0.3.0-beta.6',qa:new URLSearchParams(location.search).has('qa')});}catch(_){}
 const productRounds=new Map(),productIds=new Map();
 const productInput=()=>INPUT==='pad'?'gamepad':INPUT==='touch'?'touch':'keyboard';
 function productToken(key){if(!productIds.has(key)){productIds.set(key,productEvents.token());if(productIds.size>512)productIds.delete(productIds.keys().next().value);}return productIds.get(key);}
 function productEvent(name,raw={}){try{
  if(!productEvents?.getConsent())return false;
- let round=null,newRound=false;const fields={};for(const k of ['format','mode','map','difficulty','humanCount','botCount','localSeat','botOnly','online','joinedLate','reconnect','result','action','input','encounter','source','rewardType','chaos','shareTarget'])if(raw[k]!==undefined)fields[k]=raw[k];
+ let round=null,newRound=false;const fields={};for(const k of ['format','mode','map','difficulty','humanCount','botCount','localSeat','botOnly','online','joinedLate','reconnect','result','action','input','encounter','source','rewardType','chaos','shareTarget','experiment','variant','totalKnights','outcome','elapsedMs'])if(raw[k]!==undefined)fields[k]=raw[k];
  if(['join_failed','session_exit'].includes(name)&&raw.reason)fields.reason=raw.reason;
+ if(raw.trialId)fields.trialId=productToken('trial:'+raw.trialId);
  if(raw.roundId){round=productRounds.get(raw.roundId);if(name==='round_started'){if(round)return false;if(!fields.input)fields.input=productInput();fields.botOnly=fields.humanCount===0;round={token:productToken('round:'+raw.roundId),fields:{...fields},complete:false,action:false};newRound=true;}else if(!round)return false;
   if(name==='first_meaningful_action'){if(round.action||round.complete)return false;}
   if(name==='round_completed'){if(round.complete)return false;}
@@ -2473,15 +2489,53 @@ function productEvent(name,raw={}){try{
  if(raw.eventId)fields.eventId=productToken('event:'+raw.eventId);
  const accepted=productEvents.record(name,fields);if(accepted&&round){if(newRound){productRounds.set(raw.roundId,round);if(productRounds.size>256)productRounds.delete(productRounds.keys().next().value);}if(name==='first_meaningful_action')round.action=true;if(name==='round_completed')round.complete=true;}return accepted;
 }catch(_){return false;}}
-function productArenaStart(){if(!G||G.demo||G.campaign||!G.ents.some(isMine))return;const humanCount=G.ents.filter(e=>e.human).length;productEvent('round_started',{roundId:G.roundId,format:CUP?'cup':'arena',mode:G.mode,map:G.mapKey,difficulty:NET.role==='client'?'unknown':CKPreferences.difficulty(cfg.diff),humanCount,botCount:G.ents.length-humanCount,botOnly:humanCount===0,online:!!NET.role,input:productInput()});}
+function productArenaStart(){if(!G||G.demo||G.campaign||!G.ents.some(isMine))return;const humanCount=G.ents.filter(e=>e.human).length;productEvent('round_started',{roundId:G.roundId,format:CUP?'cup':'arena',mode:G.mode,map:G.mapKey,difficulty:NET.role==='client'?'unknown':CKPreferences.difficulty(cfg.diff),humanCount,botCount:G.ents.length-humanCount,botOnly:humanCount===0,online:!!NET.role,input:productInput(),...(firstFight&&G.firstFight?firstFightFields(firstFight):{})});}
 function productAction(e,action){if(!G||G.demo||G.over||!e||!isMine(e))return;productEvent('first_meaningful_action',{roundId:G.roundId,action,input:productInput()});}
 function productControls(e,i){if(!e||!alive(e))return;const action=i.atk?'attack':i.dash?'dash':i.block?'block':Math.hypot(i.mx||0,i.my||0)>.18?'move':null;if(action)productAction(e,action);}
 function productJoinEnd(name,reason){if(!productJoin)return;const attemptId=productJoin;productJoin=null;productEvent(name,{attemptId,format:'arena',online:true,...(reason?{reason}:{})});}
+function firstFightFields(trial){return {experiment:trial.assignment.experiment,variant:trial.assignment.variant,totalKnights:trial.assignment.totalKnights,trialId:trial.id};}
+function firstFightFinish(outcome){
+ if(!firstFight)return;
+ const trial=firstFight;firstFight=null;
+ const elapsedMs=Math.round(Math.max(0,Math.min(3600000,(G?.clock||0)*1000)));
+ productEvent('experiment_outcome',{...firstFightFields(trial),outcome,elapsedMs});
+ Object.assign(cfg,trial.previous.cfg);SEATS=trial.previous.seats;partyGo=trial.previous.partyGo;
+ TAUGHT.clear();for(const key of trial.previous.taught)TAUGHT.add(key);hitsLanded=trial.previous.hits;
+ firstFightResult=outcome==='completed'?{...firstFightFields(trial),elapsedMs,answered:false}:null;
+ $('firstFightRecognition').hidden=!firstFightResult;$('firstFightAnswer').textContent='';
+ for(const button of document.querySelectorAll('[data-recognition]'))button.disabled=false;
+ $('againBtn').textContent=firstFightResult?'Play a normal round':'Rematch';
+ $('firstFightStatus').textContent=outcome==='completed'?'Test round completed. You can export your local report.':'Test round left early. Your usual setup has been restored; a retry keeps the same assignment.';
+}
+function firstFightAccepted(){
+ if(!firstFight||!G.firstFight)return;
+ productEvent('experiment_assigned',{...firstFightFields(firstFight),format:'arena',humanCount:1,botCount:G.ents.length-1,online:false,input:productInput()});
+}
+function firstFightStart(){
+ if(!productEvents?.getConsent()||!window.CKFirstFight){$('firstFightStatus').textContent='Enable local reporting before starting a test round.';return;}
+ if(firstFight||NET.role||CUP||(G&&!G.demo&&!G.over)||massBattleUI?.active()){$('firstFightStatus').textContent='Return to the main menu and leave any online room before starting this solo test.';return;}
+ const experiment=$('firstFightExperiment').value,events=productEvents.report().events;
+ if(events.some(e=>e.name==='experiment_outcome'&&e.fields.experiment===experiment&&e.fields.outcome==='completed')){$('firstFightStatus').textContent='This comparison is already completed in this report. Play normally or choose the other comparison.';return;}
+ const previous=events.find(e=>e.name==='experiment_assigned'&&e.fields.experiment===experiment);
+ const assignment=previous?CKFirstFight.variant(experiment,previous.fields.variant):CKFirstFight.assign(experiment);
+ if(!assignment)return;
+ firstFight={id:productEvents.token(),assignment,previous:{cfg:{...cfg},seats:SEATS,partyGo,taught:[...TAUGHT],hits:hitsLanded}};
+ firstFightResult=null;$('firstFightRecognition').hidden=true;Object.assign(cfg,assignment.config,{chaosPlus:false});SEATS=null;partyGo=false;
+ firstFightLaunching=true;
+ try{start();}catch(error){firstFightFinish('abandoned');throw error;}finally{firstFightLaunching=false;}
+}
+$('firstFightStart').onclick=firstFightStart;
+document.querySelectorAll('[data-recognition]').forEach(button=>button.onclick=()=>{
+ if(!firstFightResult||firstFightResult.answered)return;
+ const accepted=productEvent('experiment_outcome',{...firstFightResult,outcome:button.dataset.recognition});
+ firstFightResult.answered=true;for(const b of document.querySelectorAll('[data-recognition]'))b.disabled=true;
+ $('firstFightAnswer').textContent=accepted?'Your answer was saved in the local report.':'Reporting is off or unavailable; your answer was not recorded.';
+});
 function productReportStatus(message){const active=!!productEvents?.getConsent();$('reportConsent').checked=active;$('reportConsent').disabled=!productEvents;$('reportExport').disabled=!productEvents;$('reportClear').disabled=!productEvents;const report=productEvents?.report();$('reportStatus').textContent=message||(active?`${report.counts.retained} local observations retained. ${report.storageState==='available'?'Saved on this device.':'Storage is unavailable or limited; export to keep this report.'}`:'Reporting is off. Nothing is collected.');}
 $('reportConsent').onchange=e=>{try{productEvents?.setConsent(e.target.checked);productRounds.clear();productIds.clear();productJoin=null;$('reportFallback').value='';$('reportFallback').hidden=true;}catch(_){}productReportStatus();};
 $('reportClear').onclick=()=>{try{productEvents?.clear();productRounds.clear();productIds.clear();productJoin=null;$('reportFallback').value='';$('reportFallback').hidden=true;}catch(_){}productReportStatus('Report cleared. New observations follow your current setting.');};
 $('reportExport').onclick=()=>{const content=productEvents?.exportJSON()||'';$('reportFallback').value=content;$('reportFallback').hidden=false;try{const url=URL.createObjectURL(new Blob([content],{type:'application/json'})),a=document.createElement('a');a.href=url;a.download='custard-knights-local-play-report.json';document.body.append(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),1000);productReportStatus('Download requested. You can also copy the JSON below. Nothing was uploaded.');}catch(_){$('reportFallback').hidden=false;productReportStatus('Copy the local report JSON below. Nothing was uploaded.');}};
-addEventListener('pagehide',()=>{try{productEvents?.exit('pagehide');}catch(_){}});
+addEventListener('pagehide',()=>{try{if(firstFight)toMenu();productEvents?.exit('pagehide');}catch(_){}});
 productReportStatus();
 const isTouch=matchMedia('(pointer:coarse)').matches;
 function showTouch(on){ touchWanted=on; $('touch').hidden=!(on&&INPUT==='touch'); checkRotate(); }
@@ -2663,12 +2717,12 @@ function fadeMusic(on){
 // browsers only allow sound after the first click or key press
 const kick=()=>{ if(musicWant&&!muted&&music.paused) cueMusic(musicCue); };
 addEventListener('pointerdown',kick,{once:true}); addEventListener('keydown',kick,{once:true});
-function start(){ if(ADVENTURE)ADVENTURE.stop(); if(NET.role==='client') return; if(!cupStarting)CUP=null;cupUI.hide(); if(NET.role==='host'&&cfg.players+NET.players.length-1>8){ showLobby(); lobbyMsg('Too many knights. Reduce local players in Settings before starting.'); return; } if(NET.role==='host'){ NET.inputs={};NET.latch={};NET.fxq=[];NET.tick=0; } if(!partyGo) SEATS=null; partyGo=false; phoneFullscreen(); audio(); menuMusic(false); newGame(false); matchMusic(); showScreen(null); paused=false; $('pauseBtn').hidden=false; showTouch(true); try{ localStorage.setItem('ck-played',String((+localStorage.getItem('ck-played')||0)+1)); }catch(e){}
- initArenaChaos();productArenaStart();
+function start(){ if(!firstFightLaunching){firstFightFinish('abandoned');firstFightResult=null;$('firstFightRecognition').hidden=true;$('againBtn').textContent='Rematch';} if(ADVENTURE)ADVENTURE.stop(); if(NET.role==='client') return; if(!cupStarting)CUP=null;cupUI.hide(); if(NET.role==='host'&&cfg.players+NET.players.length-1>8){ showLobby(); lobbyMsg('Too many knights. Reduce local players in Settings before starting.'); return; } if(NET.role==='host'){ NET.inputs={};NET.latch={};NET.fxq=[];NET.tick=0; } if(!partyGo) SEATS=null; partyGo=false; phoneFullscreen(); audio(); menuMusic(false); newGame(false); matchMusic(); showScreen(null); paused=false; $('pauseBtn').hidden=false; showTouch(true); try{ if(!G.firstFight)localStorage.setItem('ck-played',String((+localStorage.getItem('ck-played')||0)+1)); }catch(e){}
+ initArenaChaos();firstFightAccepted();productArenaStart();
  G.banner={title:G.mode==='race'?'RACE!':'FIGHT!',sub:G.map.name+'. '+(MODES[G.mode]?MODES[G.mode].name:'')+(G.mode==='ffa'?'. Every knight for themselves.':'.'),col:CUST,t:2,max:2}; sfx('event');
  for(const e of G.ents) if(isMine(e)) e.spot=2.6;
  if(NET.role==='host'){ $('pauseBtn').hidden=true; broadcast({t:'start',setup:netSetup()}); } }
-function toMenu(){ if(ADVENTURE)ADVENTURE.stop(); cancelCup(); if(NET.role==='host'){ newGame(true); showLobby(); menuMusic(true); broadcast({t:'tolobby'}); return; } if(NET.role==='client'){ leaveOnline(); return; } menuMusic(true); newGame(true); paused=false; showScreen('menu'); $('pauseBtn').hidden=true; showTouch(false); }
+function toMenu(){ firstFightFinish('abandoned');firstFightResult=null;$('firstFightRecognition').hidden=true; if(ADVENTURE)ADVENTURE.stop(); cancelCup(); if(NET.role==='host'){ newGame(true); showLobby(); menuMusic(true); broadcast({t:'tolobby'}); return; } if(NET.role==='client'){ leaveOnline(); return; } menuMusic(true); newGame(true); paused=false; showScreen('menu'); $('pauseBtn').hidden=true; showTouch(false); }
 function setPause(p){ if(!G||G.demo||G.over||NET.role)return; paused=p; $('pause').hidden=!p; if(p){ const b=$('resumeBtn'); if(b) b.focus(); }else syncRareMusic(); }
 addEventListener('keydown',ev=>{ if(ev.code==='Escape'&&!(G&&!G.demo&&!G.over)){ const sc=visibleScreen(); if(sc&&sc.id!=='menu') menuBack(); } });
 function finalResults(sorted){
@@ -2694,7 +2748,7 @@ function endMatch(remoteResults){
  $('endTitle').textContent=title; $('endSub').textContent=sub;
  const results=NET.role==='client'?remoteResults:finalResults(sorted);
  if(NET.role==='host'){broadcast(snapshot());broadcast({t:'end',roundId:G.roundId,results});}
- const award=CKProgress.apply(PROG,G.roundId,(Array.isArray(results)?results:[]).filter(r=>r&&G.ents[r.id]&&isMine(G.ents[r.id])));
+ const award=G.firstFight?{applied:false}:CKProgress.apply(PROG,G.roundId,(Array.isArray(results)?results:[]).filter(r=>r&&G.ents[r.id]&&isMine(G.ents[r.id])));
  $('endReward').hidden=true; if(award.applied&&!G.rewarded){G.rewarded=true;Object.assign(PROG,award.progress);const coins=award.coins,got=award.got;
   for(let i=award.before;i<award.after;i++)if(!got.some(it=>it.join(':')===TRACK[i].join(':')))got.push(TRACK[i]);
   saveProg();awardCollection(G.roundId,CUP&&CUP.round===2?['cup-complete']:[]); const nm2=it=>it[0]==='color'?(COLOR_NAMES[it[1]]||it[1])+' colour':(NICE[it[1]]||it[1])+' '+(it[0]==='chick'?'chicken':it[0]);
@@ -2707,6 +2761,7 @@ function endMatch(remoteResults){
  productEvent('round_completed',{roundId:G.roundId,result:G.winners.length?(G.winners.some(isMine)?'win':'loss'):'draw'});
  cueMusic(G.winners.some(isMine)?'victory':'defeat');
  $('end').hidden=false;
+ if(G.firstFight){firstFightFinish('completed');for(const el of $('end').querySelectorAll('.collectionReward,.collectionPodium'))el.remove();return;}
  finishCupRound();if(!CUP)showCollectionReward($('end').querySelector('.panel'));
 }
 function rematch(){if(G&&!G.demo&&G.over&&NET.role!=='client')productEvent('rematch_selected',{roundId:G.roundId,source:'results'});partyGo=!!SEATS;start();}
@@ -2989,6 +3044,7 @@ function receiveCup(state){
  CUP=state;if(CUP.status==='complete'&&G)productEvent('cup_completed',{roundId:G.roundId,eventId:'cup:'+CUP.id,format:'cup'});showCup();
 }
 function startCup(){
+ firstFightFinish('abandoned');
  if(NET.role==='client')return;
  const players=[];for(let seat=1;seat<=Math.max(1,cfg.players);seat++)players.push({key:'local:'+seat,name:localName(seat)||'Player '+seat,seat});
  if(NET.role==='host')for(const p of NET.players.slice(1))players.push({key:'peer:'+p.id,name:p.name,peer:p.id});
@@ -3012,10 +3068,10 @@ const cupLobby=document.createElement('button');cupLobby.type='button';cupLobby.
 const adventureMenu=document.createElement('button');adventureMenu.type='button';adventureMenu.className='mbtn';adventureMenu.id='tAdventure';adventureMenu.innerHTML='<span><b>The Great Pudding War</b><small>Story adventure · Eight encounters</small></span>';document.querySelector('.mgrid').append(adventureMenu);
 ADVENTURE=CKCampaignIntegration.connect({
  makeKnight:mkKnight,steer,hurt,redraw:drawBg,
- boot:map=>{collectionUnlocks=[];cancelCup();SEATS=null;partyGo=false;const saved={...cfg};Object.assign(cfg,{players:1,map,mode:'ffa',diff:'chill',length:360,chaosPlus:false,chaosSpeed:'normal'});audio();menuMusic(false);newGame(false);Object.assign(cfg,saved);return G;},
+ boot:map=>{firstFightFinish('abandoned');collectionUnlocks=[];cancelCup();SEATS=null;partyGo=false;const saved={...cfg};Object.assign(cfg,{players:1,map,mode:'ffa',diff:'chill',length:360,chaosPlus:false,chaosSpeed:'normal'});audio();menuMusic(false);newGame(false);Object.assign(cfg,saved);return G;},
  play:()=>{showScreen(null);paused=false;$('pauseBtn').hidden=false;showTouch(true);matchMusic();},
  finished:r=>{if(r.won)campaignCollectionReward(r,ADVENTURE.campaign.save);else collectionUnlocks=[];queueMicrotask(()=>showCollectionReward($('campaignResult').querySelector('.panel')));paused=false;$('pauseBtn').hidden=true;showTouch(false);cueMusic(r.won?'victory':'defeat');},
- mapOpened:()=>{if(NET.role)return;cancelCup();if(G&&!G.demo)G.over=true;showScreen(null);$('pauseBtn').hidden=true;showTouch(false);menuMusic(true);},
+ mapOpened:()=>{if(NET.role)return;firstFightFinish('abandoned');cancelCup();if(G&&!G.demo)G.over=true;showScreen(null);$('pauseBtn').hidden=true;showTouch(false);menuMusic(true);},
  menu:toMenu
 },{onReward:campaignCollectionReward,onProductEvent:productEvent});
 SCREENS.push(...ADVENTURE.ui.screens);
@@ -3027,7 +3083,7 @@ if(window.CKMassBattle&&window.CKMassBattleUI){
   onProductEvent:productEvent,
   reducedFlash:()=>!SET.flash,
   profile:()=>loadProfile(1),
-  onEnter:()=>{endRareEvent(false);massBattleWalk.clear();clearFactionSprites();if(NET.role)leaveOnline();paused=true;for(const k of Object.keys(keys))delete keys[k];['menu','end','pause'].forEach(id=>$(id).hidden=true);audio();cueMusic('courtyard');sprLoadSet(SPR);},
+  onEnter:()=>{firstFightFinish('abandoned');endRareEvent(false);massBattleWalk.clear();clearFactionSprites();if(NET.role)leaveOnline();paused=true;for(const k of Object.keys(keys))delete keys[k];['menu','end','pause'].forEach(id=>$(id).hidden=true);audio();cueMusic('courtyard');sprLoadSet(SPR);},
   onEffect:(effect,meta)=>{
    const sound={hit:'hit',parry:'parry',defeat:'ko',bash:'bash',blast:'boom',heal:'potion',repair:'clang',siege:'bash',capture:'pickup'}[effect.kind];
    if(!sound)return;const demo=G.demo,level=SET.sfx;
@@ -3058,7 +3114,7 @@ if(window.CKMassBattle&&window.CKMassBattleUI){
  if(new URLSearchParams(location.search).get('battle')==='1')massBattleUI.open();
 }
 if(new URLSearchParams(location.search).has('qa')){
- window.CK={productReport:()=>productEvents?.report()||null,initArenaChaos,startRareEvent,endRareEvent,updateRareEvent,syncRareMusic,ko,startFall,setPause,spriteCacheEnabled:value=>{if(value!==undefined){sprFactionCacheEnabled=!!value;clearFactionSprites();}return sprFactionCacheEnabled;},spriteCompose: (e,i,open=false)=>sprCompose(e,i,open?SPR_OPEN.knight:SPR),spriteFrameCount:()=>SPR.per*5,spriteCache:()=>({entries:sprFactionCache.size,bytes:sprFactionCacheBytes,limit:sprFactionCacheLimit,hits:sprFactionCacheHits,misses:sprFactionCacheMisses}),clearFactionSprites,botInput,DIFFS,speedOf,MODES,massBattle:()=>massBattleUI,menuNav,menuActivate,combatBeat,bladeSweep,swingArc,sprFrame,headTop,applySnap,clientTick,presentationSettings:o=>Object.assign(SET,o),collection:()=>COLLECTION,setCollection:saveCollection,awardCollection,campaignCollectionReward,reloadWardrobeSaves,drawCollectionPreview,openWardrobe,owned,cleanKit,collectionUI:()=>collectionUI,adventure:ADVENTURE,hurt,startSwing,hitCrate,clang,doHit,fire,draw,toMenu,cup:()=>CUP,startCup,cupReady,nextCupRound,cancelCup,musicState:()=>({cue:musicCue,wanted:musicWant,src:music.getAttribute('src')}),cueMusic,audioStats:()=>({active:audioVoices,max:MAX_AUDIO_VOICES}),sfx,hostOnline,joinOnline,leaveOnline,G:()=>G,PROG,NET,clientRecv,hostRecv,hostDrop,snapshot,humanInput,endMatch,netSetup,rematch,seats:()=>SEATS,setSeats:v=>{SEATS=v;partyGo=true;},cfg,keys,touch,update,newGame,start,loadProfile,saveProfile,drawKnight:e=>drawKnight(e),sprites:v=>{ SET.classic=!v; },spritesReady:()=>sprReady,sprLoadAll:()=>sprLoadSet(SPR),sprLoadVisors:loadOpenVisors,visorAssets:()=>({requested:!!SPR_OPEN.promise,knightReady:SPR_OPEN.knightReady,heroReady:SPR_OPEN.heroReady}),mkKnight:o=>mkKnight(o),withCtx:(c,fn)=>{ const k=ctx; ctx=c; try{ fn(); }finally{ ctx=k; } },startEvent,startMayhem,applyPU,giveWeapon,spawnPickup,MAYHEM,PU,MAPS,WEAPONS,
+ window.CK={firstFight:()=>firstFight?Object.freeze({...firstFightFields(firstFight),config:Object.freeze({...firstFight.assignment.config})}):null,productReport:()=>productEvents?.report()||null,initArenaChaos,startRareEvent,endRareEvent,updateRareEvent,syncRareMusic,ko,startFall,setPause,spriteCacheEnabled:value=>{if(value!==undefined){sprFactionCacheEnabled=!!value;clearFactionSprites();}return sprFactionCacheEnabled;},spriteCompose: (e,i,open=false)=>sprCompose(e,i,open?SPR_OPEN.knight:SPR),spriteFrameCount:()=>SPR.per*5,spriteCache:()=>({entries:sprFactionCache.size,bytes:sprFactionCacheBytes,limit:sprFactionCacheLimit,hits:sprFactionCacheHits,misses:sprFactionCacheMisses}),clearFactionSprites,botInput,DIFFS,speedOf,MODES,massBattle:()=>massBattleUI,menuNav,menuActivate,combatBeat,bladeSweep,swingArc,sprFrame,headTop,applySnap,clientTick,presentationSettings:o=>Object.assign(SET,o),collection:()=>COLLECTION,setCollection:saveCollection,awardCollection,campaignCollectionReward,reloadWardrobeSaves,drawCollectionPreview,openWardrobe,owned,cleanKit,collectionUI:()=>collectionUI,adventure:ADVENTURE,hurt,startSwing,hitCrate,clang,doHit,fire,draw,toMenu,cup:()=>CUP,startCup,cupReady,nextCupRound,cancelCup,musicState:()=>({cue:musicCue,wanted:musicWant,src:music.getAttribute('src')}),cueMusic,audioStats:()=>({active:audioVoices,max:MAX_AUDIO_VOICES}),sfx,hostOnline,joinOnline,leaveOnline,G:()=>G,PROG,NET,clientRecv,hostRecv,hostDrop,snapshot,humanInput,endMatch,netSetup,rematch,seats:()=>SEATS,setSeats:v=>{SEATS=v;partyGo=true;},cfg,keys,touch,update,newGame,start,loadProfile,saveProfile,drawKnight:e=>drawKnight(e),sprites:v=>{ SET.classic=!v; },spritesReady:()=>sprReady,sprLoadAll:()=>sprLoadSet(SPR),sprLoadVisors:loadOpenVisors,visorAssets:()=>({requested:!!SPR_OPEN.promise,knightReady:SPR_OPEN.knightReady,heroReady:SPR_OPEN.heroReady}),mkKnight:o=>mkKnight(o),withCtx:(c,fn)=>{ const k=ctx; ctx=c; try{ fn(); }finally{ ctx=k; } },startEvent,startMayhem,applyPU,giveWeapon,spawnPickup,MAYHEM,PU,MAPS,WEAPONS,
   adv:n=>{for(let i=0;i<n;i++)update(1/60)},freeze:v=>{paused=v},
   begin:(o={})=>{ Object.assign(cfg,o); if(o.humans!==undefined) cfg.players=o.humans; $('menu').hidden=true; audio(); menuMusic(false); newGame(false); paused=true; $('pauseBtn').hidden=true; G.banner=null;initArenaChaos(); return G; },
   zoom:(s,gx,gy)=>{ const r=document.getElementById('stage').getBoundingClientRect(); fitS=s; fitX=r.width/2-gx*s; fitY=r.height/2-gy*s; scale=s; offX=fitX; offY=fitY; }};

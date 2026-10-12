@@ -5,6 +5,8 @@
  const names=['session_start','invite_opened','join_attempt','join_succeeded','join_failed','round_started','first_meaningful_action','round_completed','rematch_selected','cup_completed','challenge_selected','challenge_completed','reward_equipped','highlight_saved','share_intent','referral_activated','session_exit'];
  const enums={input:['keyboard','gamepad','touch','mixed','unknown'],mode:['ffa','teams','lks','kotp','heist','race','flags','hotpie','story','campaign','brawl','ctf','siege','conquest'],map:['courtyard','factory','frost','bog','roof','dungeon','random','unknown'],difficulty:['easy','medium','hard','steve','unknown'],format:['arena','faction','local','online','cup','challenge','story','practice','unknown'],result:['win','loss','draw','completed','failed','abandoned','unknown'],action:['move','jump','attack','hit','block','parry','pickup','dash','interact'],source:['menu','invite','results','unknown'],shareTarget:['clipboard','download','system','unknown'],rewardType:['blade','cape','chick','visor','unknown'],chaos:['simple','normal','insane'],encounter:['banquet','puddings','guard','biscuit','bridge','stirling','steve','rind'],observation:['observed','inferred']};
  const reasons={join_failed:['timeout','unavailable','full','version','disconnected','cancelled','invalid','invalid_code','network','left','unknown'],session_exit:['pagehide','menu','quit','disconnect','left','hidden','inactivity','reload','unknown']};
+ names.push('experiment_assigned','experiment_outcome');
+ Object.assign(enums,{experiment:['arena','density'],variant:['curated','random','four','eight'],outcome:['completed','abandoned','recognised','not_recognised','unsure','skipped']});
  const tokenOK=v=>typeof v==='string'&&/^[a-f0-9]{16,64}$/.test(v);
  const object=v=>v!==null&&typeof v==='object'&&!Array.isArray(v);
  const buildOK=v=>typeof v==='string'&&/^\d{1,3}\.\d{1,3}\.\d{1,3}(?:-[a-z]+(?:\.\d{1,4})?)?$/.test(v);
@@ -13,7 +15,9 @@
   const out={};
   for(const key of Object.keys(raw)){
    const value=raw[key];
-   if(['roundId','attemptId','eventId'].includes(key)){if(!tokenOK(value))return null;}
+   if(['roundId','attemptId','eventId','trialId'].includes(key)){if(!tokenOK(value))return null;}
+   else if(key==='totalKnights'){if(value!==4&&value!==8)return null;}
+   else if(key==='elapsedMs'){if(!Number.isInteger(value)||value<0||value>3600000)return null;}
    else if(key==='reason'){if(!reasons[name]||!reasons[name].includes(value))return null;}
    else if(['qa','demo','botOnly','online','joinedLate','reconnect'].includes(key)){if(typeof value!=='boolean')return null;}
    else if(['humanCount','botCount','localSeat'].includes(key)){if(!Number.isInteger(value)||value<0||value>100)return null;}
@@ -26,6 +30,9 @@
   if(name==='session_exit'&&(!out.reason||!out.observation))return null;
   if(name==='session_exit'&&['inactivity','reload'].includes(out.reason)&&out.observation!=='inferred')return null;
   if(name!=='session_exit'&&out.observation!==undefined)return null;
+  if(name.startsWith('experiment_')&&(!out.trialId||!out.experiment||!out.variant||!out.totalKnights))return null;
+  if(name==='experiment_outcome'&&!out.outcome)return null;
+  if(out.experiment){const valid=out.experiment==='arena'?['curated','random']:['four','eight'];if(!valid.includes(out.variant)||out.totalKnights!==(out.variant==='four'?4:8))return null;}
   return out;
  }
  function freeze(value){if(value&&typeof value==='object'){Object.values(value).forEach(freeze);Object.freeze(value);}return value;}
@@ -65,6 +72,8 @@
    lastAt=at;
   }
   function dedupKey(name,f){
+   if(name==='experiment_assigned')return name+':'+f.trialId;
+   if(name==='experiment_outcome')return 'experiment_'+(['completed','abandoned'].includes(f.outcome)?'terminal':'recognition')+':'+f.trialId;
    if(['join_succeeded','join_failed'].includes(name))return 'join_outcome:'+f.attemptId;
    if(name==='join_attempt')return name+':'+f.attemptId;
    if(['round_started','first_meaningful_action','round_completed','rematch_selected'].includes(name))return name+':'+f.roundId;
@@ -86,9 +95,17 @@
   function setConsent(value){if(value!==true){consent=false;clear();access('removeItem',CONSENT);return false;}consent=true;access('setItem',CONSENT,'true');ensureSession(time());persist();return true;}
   function report(){
    const events=JSON.parse(JSON.stringify(records)), eligible=r=>!r.fields.qa&&!r.fields.demo&&!r.fields.botOnly&&r.fields.humanCount!==0;
-   const human=events.filter(eligible), attempts=new Map(), rounds=new Map();
+   const human=events.filter(eligible), attempts=new Map(), rounds=new Map(),trials=new Map();
    const metrics={joinAttempts:0,joinSucceeded:0,joinFailed:0,joinPendingOrUnobserved:0,roundsStarted:0,roundsCompleted:0,roundCompletionRate:null,rematchSelections:0,completedRoundsWithObservedContinuation:0};
    for(const r of human){const f=r.fields,key=r.sessionId+':'+f.attemptId, roundKey=r.sessionId+':'+f.roundId;
+    const trialKey=r.sessionId+':'+f.trialId;
+    if(r.name==='experiment_assigned'&&f.humanCount===1&&!trials.has(trialKey))trials.set(trialKey,{start:r,terminal:null,recognition:null,firstAction:false,continued:false});
+    const trial=trials.get(trialKey);
+    if(trial&&f.experiment===trial.start.fields.experiment&&f.variant===trial.start.fields.variant){
+     if(r.name==='experiment_outcome'){if(['completed','abandoned'].includes(f.outcome)){if(!trial.terminal)trial.terminal=f.outcome;}else if(!trial.recognition)trial.recognition=f.outcome;}
+     if(r.name==='first_meaningful_action')trial.firstAction=true;
+    }
+    if(r.name==='round_started'&&!f.trialId&&f.format==='arena'&&f.humanCount>0&&!f.online)for(const t of trials.values())if(t.start.sessionId===r.sessionId&&t.terminal==='completed')t.continued=true;
     if(r.name==='join_attempt'&&!attempts.has(key))attempts.set(key,{outcome:null});
     if(['join_succeeded','join_failed'].includes(r.name)&&attempts.has(key)&&!attempts.get(key).outcome)attempts.get(key).outcome=r.name;
     if(r.name==='round_started'&&f.humanCount>0&&!f.joinedLate&&!rounds.has(roundKey))rounds.set(roundKey,{start:r,completed:null,rematch:false,continued:false});
@@ -100,12 +117,15 @@
    metrics.joinAttempts=attempts.size;for(const a of attempts.values()){if(a.outcome==='join_succeeded')metrics.joinSucceeded++;else if(a.outcome==='join_failed')metrics.joinFailed++;else metrics.joinPendingOrUnobserved++;}
    metrics.roundsStarted=rounds.size;for(const r of rounds.values()){if(r.completed)metrics.roundsCompleted++;if(r.rematch)metrics.rematchSelections++;if(r.continued)metrics.completedRoundsWithObservedContinuation++;}
    if(metrics.roundsStarted)metrics.roundCompletionRate=metrics.roundsCompleted/metrics.roundsStarted;
-   return freeze({version:VERSION,build,generatedAt:time(),consent,storageState,installId,events,metrics,counts:{retained:events.length,truncated,duplicates,rejected,excludedFromHumanMetrics:events.length-human.length},limitations:[
+   const buckets=new Map();for(const t of trials.values()){const f=t.start.fields,key=t.start.build+':'+f.experiment+':'+f.variant;if(!buckets.has(key))buckets.set(key,{build:t.start.build,experiment:f.experiment,variant:f.variant,totalKnights:f.totalKnights,assigned:0,completed:0,abandoned:0,unobserved:0,recognised:0,not_recognised:0,unsure:0,skipped:0,firstActionObserved:0,normalRoundContinuation:0});const b=buckets.get(key);b.assigned++;b[t.terminal||'unobserved']++;if(t.recognition)b[t.recognition]++;if(t.firstAction)b.firstActionObserved++;if(t.continued)b.normalRoundContinuation++;}
+   return freeze({version:VERSION,build,generatedAt:time(),consent,storageState,installId,events,metrics,experiments:[...buckets.values()],counts:{retained:events.length,truncated,duplicates,rejected,excludedFromHumanMetrics:events.length-human.length},limitations:[
+    'Experiment counts describe retained solo trials by build/variant, not unique participants or causal lift. Recognition is self-report. Normal-round continuation requires a later observed offline arena start, not a stated intention.',
     'Local opt-in observations from one browser installation only; no network collection or population-wide claims.',
     'Metrics cover retained events only. Truncation, cleared storage, missing instrumentation and interrupted sessions can remove context.',
     'Deduplication covers retained events in the current session. IDs must be anonymous local tokens, never external identifiers.',
     'Join outcomes require a retained attempt in the same session. Pending or unobserved does not mean failure.',
     'Round completions also require a start in the same session. A long round spanning the inactivity cutoff remains uncompleted in this observed baseline.',
+    'General round metrics include optional study rounds; use the experiment summaries and trial fields to separate these from normal play.',
     'Human round metrics require explicitly positive human counts on start and completion; late joins are excluded. QA, demo and bot-only events are excluded.',
     'Continuation means a later human round start in the same session after an observed completion; rematch intent alone is not continuation.',
     'Inactivity exits are inferred after 30 minutes when another event arrives. Page exits are observations of lifecycle signals, not proof a person left.',

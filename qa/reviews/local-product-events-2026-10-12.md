@@ -14,6 +14,7 @@ The browser test uses the real menu, Settings handlers, JSON download, combat lo
 - Final source and frozen-package browser passes each have 30 checks and zero exceptions. Four runtime source hashes match between the final reports. All 57 package entries match source/generated metadata; actual EXE save/restart/launcher/relocation checks pass. Evidence remains under `qa/results/product-events/`.
 - Two earlier packaged harness failures are retained: fixed 150 ms input and 250 ms faction-result waits were too short for the hidden window. The final harness waits up to eight seconds for the actual observations and passes without a runtime change. These waits do not measure responsiveness. Embedded image data URLs are omitted from network inventories to avoid duplicating atlases; request schemes are preserved for the no-upload check.
 - The modified campaign adapter passed the existing 24 focused campaign unit tests. No combat, reward, movement, network payload or matchmaking rule is changed.
+- Hosted Battle core run 38220567804 passed all six Windows/Linux core/server jobs on its first attempt at frozen source 0817dd8. New preview and Friends ZIPs are recorded in `qa/results/product-events/exports.json`; older builds remain unchanged. The source freeze was followed only by documentation/evidence commits.
 
 ## Limits
 

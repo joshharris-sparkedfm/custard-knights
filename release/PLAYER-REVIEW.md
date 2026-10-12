@@ -1,8 +1,8 @@
 # Player and device acceptance — 0.3.0 preview
 
-This is an unperformed acceptance session, not a claim that people have tested the game. The current exported build is 0.3.0-beta.4; use PREVIEW-BUILD.md and its BUILD-INFO for exact identity, or record the identity of a newer frozen candidate. Record the build, PC, controller models, Steam Input setting and actual completion times. Use a fresh profile or an exported save backup, without deleting existing progress. Earlier 0.2.2 automated acceptance does not replace this session.
+This is an unperformed acceptance session, not a claim that people have tested the game. The current exported build is 0.3.0-beta.5; use PREVIEW-BUILD.md and its BUILD-INFO for exact identity, or record the identity of a newer frozen candidate. Record the build, PC, controller models, Steam Input setting and actual completion times. Use a fresh profile or an exported save backup, without deleting existing progress. Earlier 0.2.2 automated acceptance does not replace this session.
 
-For a shareable Windows ZIP, short player instructions and an offline feedback form, see [the playtest guide](playtest/README.md). The friends kit preserves the frozen beta.4 runtime; the later documentation reconciliation does not change it or establish sale readiness.
+For a shareable Windows ZIP, short player instructions and an offline feedback form, see [the playtest guide](playtest/README.md). The friends kit preserves the frozen beta.5 runtime with optional local play reports; this does not establish sale readiness.
 
 ## First-time player — approximately 20 minutes
 

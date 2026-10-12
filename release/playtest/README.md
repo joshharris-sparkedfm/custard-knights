@@ -1,6 +1,6 @@
 # Private friends beta kit
 
-The latest exported kit is **0.3.0-beta.4**, including disappearance/spawn and guest-prediction fixes, two additional ordinary weapons, chaos choices, rare powers and their original song. Its exact source, hashes and acceptance limits are recorded in [PREVIEW-BUILD.md](../PREVIEW-BUILD.md). It wraps a frozen Windows build with `START-HERE.txt`, a local feedback page and `BUILD-INFO.json`; it has not been sent to friends or publicly uploaded. Later source changes are not in that kit until another versioned export is recorded. It is for private feedback; it does not deploy an online server or certify sale readiness. See [BETA-PLAN.md](../BETA-PLAN.md) for the distribution checkpoint.
+The latest exported kit is **0.3.0-beta.5**, including disappearance/spawn and guest-prediction fixes, two additional ordinary weapons, chaos choices, rare powers and their original song. Its exact source, hashes and acceptance limits are recorded in [PREVIEW-BUILD.md](../PREVIEW-BUILD.md). It wraps a frozen Windows build with `START-HERE.txt`, a local feedback page and `BUILD-INFO.json`; it has not been sent to friends or publicly uploaded. Later source changes are not in that kit until another versioned export is recorded. It is for private feedback; it does not deploy an online server or certify sale readiness. See [BETA-PLAN.md](../BETA-PLAN.md) for the distribution checkpoint.
 
 Send the complete ZIP using a private download link, together with its version, size and SHA256. Friends should download it, use Extract All and launch `Game/Custard Knights.exe`; do not send the EXE alone or ask them to run it inside the ZIP. Keep prior builds and archives separate. No hosting account or recipient list is assumed, and nothing is sent automatically.
 
@@ -19,6 +19,8 @@ The script verifies the frozen source ZIP and application archive, streams the p
 For a changed feedback page, extract the resulting ZIP to a new review folder, then run `node qa/playtest-feedback.cjs PATH_TO_FEEDBACK.html OUTPUT_DIRECTORY`. This verifies the actual downloaded report, preserved free text and build identity, copy fallback, optional answers, narrow layout and lack of HTTP requests. Reuse existing behavior checks while that page is unchanged; still verify the new kit's substituted version/commit/hashes against its manifest. This is synthetic browser evidence, not a claim of human playtesting.
 
 ## Run the first session
+
+Beta.5 also offers optional in-game local reporting under Settings. It starts off and never uploads; testers can export that report alongside their separate written feedback. Explain the choice before a session, without making it a requirement to play. [Local report guidance](LOCAL-REPORTS.md) describes deletion, fields, limitations and the retained-observation denominators. Automated fixture exports in the repository are not real tester data.
 
 Invite a few novice and experienced players. Let each begin without coaching; observe confusing moments before explaining. The short guide covers combat, story, a Cup or faction match, and save/restart. Ask whether they would choose to play again and why. The optional purchase question uses the proposed price only; it does not publish or set a store price.
 

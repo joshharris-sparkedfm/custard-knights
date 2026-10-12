@@ -4,7 +4,7 @@
 
 Audited repository baseline: `cb820ba1da814f4fd50ca4a1e643f659041559ea` on main, including merged PRs through #15. Fresh fetch and remote main lookup matched that commit with zero commits ahead/behind and a clean worktree before this documentation change. Runtime/package version is `0.3.0-beta.4`; frozen exported runtime is `6eec04154419dbab0c3cc5f2a5a6936a60ce3f45`. [PREVIEW-BUILD.md](PREVIEW-BUILD.md) supplies the immutable ZIP identities. Documentation updates do not rebuild or replace those archives.
 
-Method: source inspection plus retained, version-scoped test/review evidence. No new human, hardware, network or gameplay tests were performed for this audit. Implementation status and release acceptance are separate: an implemented feature can still need people and devices to satisfy its original "done when" criterion.
+Audit method: source inspection plus retained, version-scoped test/review evidence. No new human, hardware, network or gameplay tests were performed for the original audit. Subsequent beta.5 work implements CK-04's local reporting foundation; its new focused/browser/package/CI evidence is recorded in the linked review. Current frozen exports are identified in PREVIEW-BUILD.md. Implementation status and release acceptance are separate: an implemented feature can still need people and devices to satisfy its original "done when" criterion.
 
 ## Every original engineering ticket
 

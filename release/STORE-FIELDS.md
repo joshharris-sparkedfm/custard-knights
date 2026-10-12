@@ -1,6 +1,6 @@
 # Store field draft
 
-Updated 9 October 2026 after the **0.3.0-alpha.6** review checkpoint, with **0.3.0-beta.1** targeted for a private Windows friends beta. This is preparation material; the beta target does not establish an exported archive, and store fields have not been submitted or approved. Use BETA-PLAN.md for the private test scope, LAUNCH-STATUS.md for acceptance and PREVIEW-BUILD.md/the frozen manifest for exported build identity.
+Updated 12 October 2026 against exported **0.3.0-beta.4**, the private Windows friends beta. This is preparation material; store fields have not been submitted or approved. Use BETA-PLAN.md for private test scope, ROADMAP-STATUS.md and LAUNCH-STATUS.md for unfinished work/acceptance, and PREVIEW-BUILD.md/the frozen manifest for exported build identity.
 
 - Product: Custard Knights
 - Developer: Sparked FM Ltd
@@ -17,13 +17,13 @@ Updated 9 October 2026 after the **0.3.0-alpha.6** review checkpoint, with **0.3
 
 ## Copy
 
-Use the current short/about description in STEAM-HANDOFF.md. The campaign is the eight-encounter first chapter. Do not imply the later dessert kingdoms are playable. Eleven new Suno WAV recordings and the existing menu MP3 now fill all twelve cues, but human musical and loop acceptance remains pending. Do not include internal testing instructions or the private beta's access keys/endpoints in the published description.
+Use the current short/about description in STEAM-HANDOFF.md. The campaign is the eight-encounter first chapter. Do not imply the later dessert kingdoms are playable. Twelve native Suno WAV recordings and the existing menu MP3 fill all thirteen cues, but human musical and loop acceptance remains pending. Do not include internal testing instructions or the private beta's access keys/endpoints in the published description.
 
 ## Content-survey source facts for review
 
-The game contains stylised fantasy sword fighting, cartoon knockouts, pies, hazards and transformations into chickens. The implemented story is text-based. Players can choose their displayed names; original arena online uses PeerJS, while faction online uses a separate WebSocket server. The preparation did not add microphones, voice chat, account registration, payments or a live generative-AI service.
+The game contains stylised fantasy sword fighting, cartoon knockouts, pies, hazards and transformations into chickens. Beta.4 also includes a rare temporary AK47 firearm and lightning power; the content survey must account for those implemented effects. The implemented story is text-based. Players can choose their displayed names; original arena online uses PeerJS, while faction online uses a separate WebSocket server. The preparation did not add microphones, voice chat, public account registration, payments or a live generative-AI service.
 
-The menu music is a pre-generated Suno recording whose commercial rights the owner confirmed. Eleven further pre-generated Suno v6 recordings were exported as WAV on 9 October 2026 from the observed Pro account and imported unchanged; their source URLs, hashes, creation settings and review status are recorded in [music/source-provenance.json](music/source-provenance.json). They are playback candidates pending human musical/loop review, and must be included in the shipped-audio inventory if retained in the submitted build. Prior user rights confirmation and observed account status are recorded context, not a new legal declaration or an independent licensing determination.
+The menu music is a pre-generated Suno recording whose commercial rights the owner confirmed. Twelve further pre-generated Suno v6 recordings were exported as native WAV on 9 October 2026 from the observed Pro account and imported unchanged, including the intentionally vocal Oh Nae Nae rare-event song. Their source URLs, hashes, creation settings and review status are recorded in [music/source-provenance.json](music/source-provenance.json). They are playback candidates pending human musical/loop review, and must be included in the shipped-audio inventory if retained in the submitted build. Prior user rights confirmation and observed account status are recorded context, not a new legal declaration or an independent licensing determination.
 
 New store illustrations and the desktop icon were pre-generated with image_gen; exact prompts and image sources are recorded in art/store. The game does not generate music or artwork during play. Review all shipped AI-assisted player-facing art, audio and narrative against the current [Steam content survey](https://partner.steamgames.com/doc/gettingstarted/contentsurvey); the facts above are an inventory starting point, not completed survey answers or an exhaustive provenance declaration. Final classifications and ratings must follow the form presented for this application.
 

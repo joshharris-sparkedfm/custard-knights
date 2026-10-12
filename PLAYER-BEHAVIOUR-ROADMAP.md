@@ -2,7 +2,7 @@
 
 For the consolidated implementation order, gameplay/graphics work and ticket backlog, start with the [master build plan](BUILD-PLAN.md). This document remains the research and measurement reference.
 
-Research and repository review: 8 October 2026.
+Research and repository review: 8 October 2026. Current implementation audit: [12 October roadmap status](release/ROADMAP-STATUS.md). The findings and source line references below describe the original research snapshot; they must not override that current audit.
 
 **Recommendation: make Custard Knights the game a group opens for a quick brawl and ends up playing for a whole evening. Prioritise a reliable party experience, readable comedy, a compelling sequence of rounds, and stories players want to share.**
 

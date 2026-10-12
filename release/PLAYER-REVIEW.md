@@ -1,8 +1,8 @@
 # Player and device acceptance — 0.3.0 preview
 
-This is an unperformed acceptance session, not a claim that people have tested the game. The current exported build is 0.3.0-alpha.6; use PREVIEW-BUILD.md and its BUILD-INFO for exact identity, or record the identity of a newer frozen candidate. Record the build, PC, controller models, Steam Input setting and actual completion times. Use a fresh profile or an exported save backup, without deleting existing progress. Earlier 0.2.2 automated acceptance does not replace this session.
+This is an unperformed acceptance session, not a claim that people have tested the game. The current exported build is 0.3.0-beta.4; use PREVIEW-BUILD.md and its BUILD-INFO for exact identity, or record the identity of a newer frozen candidate. Record the build, PC, controller models, Steam Input setting and actual completion times. Use a fresh profile or an exported save backup, without deleting existing progress. Earlier 0.2.2 automated acceptance does not replace this session.
 
-For a shareable Windows ZIP, short player instructions and an offline feedback form, see `release/playtest/README.md`. The friends kit preserves the frozen alpha.6 runtime; it is not a new game version or sale-ready build.
+For a shareable Windows ZIP, short player instructions and an offline feedback form, see [the playtest guide](playtest/README.md). The friends kit preserves the frozen beta.4 runtime; the later documentation reconciliation does not change it or establish sale readiness.
 
 ## First-time player — approximately 20 minutes
 
@@ -30,7 +30,7 @@ These are separate from the twenty-minute first-time session. Use an actual reac
 1. In bot practice, complete Brawl, Capture the Flag and Siege at 4v4. Observe whether a new player can explain the objective, find their team and use each of Vanguard, Ranger, Engineer and Support. Record failures to understand role abilities, flag capture rules or castle damage and repair.
 2. Compare Easy, Medium, Hard and STEVE using the same mode and size. Record time to first useful action, repeated deaths, reaction to warnings and whether defeats feel explainable. Include a novice and an experienced player. Do not equate scripted wins or a single player's preference with calibrated difficulty.
 3. Repeat representative matches at 20v20 and 50v50 on the intended minimum machine. Record visible stutter, input delay, readability, peak busy scenes, frame-time samples and thermal/power state. Total slots include bots; log actual human numbers separately.
-4. Across separate networks, complete each faction objective, join while bots are present, verify human team balance and bot replacement, disconnect/reconnect, fill a small room, and finish a match. Check that the final scoreboard remains correct and the casual UI never implies a rated result. Test the private ladder separately with host-issued accounts: wait for full human teams, complete a match, verify per-mode/size ratings persist after server restart, and verify departure/revocation produces the stated no-rating outcome. Exercise server loss/restart and record the recovery path.
+4. Across separate networks, complete each faction objective, join while bots are present, verify human team balance and bot replacement, disconnect/reconnect, fill a small room, and finish a match. Check that the final scoreboard remains correct and the casual UI never implies a rated result. Test the private ladder separately with host-issued accounts: wait for full human teams, complete a match, and verify per-mode/size ratings persist after server restart. Departure reserves the slot and pauses while the player's cumulative 20-second absence budget runs down; reconnecting preserves the slot without resetting that budget, and expiry forfeits the match. Test credential revocation separately: invalid credentials must fail admission; revocation before terminal-result staging makes that roster ineligible for a new rated result. An eligible result already staged in the durable journal retains its eligibility during recovery even if a key is subsequently revoked. Exercise server loss/restart and record the recovery path; terminal journal recovery is not live-match resumption. See [PRIVATE-LADDER.md](PRIVATE-LADDER.md).
 5. Run the final intended public-service load and network conditions with instrumented clients. Record worst receive gaps and observed responsiveness as well as averages. The existing 100-socket loopback tests are supporting protocol evidence, not a substitute for real-player/WAN acceptance.
 
 Include these observations in the release decision. A reproducible crash, lost progression, failed objective, misleading online status or persistent input stall is a release blocker for the affected advertised mode.
@@ -43,9 +43,9 @@ Include these observations in the release decision. A reproducible crash, lost p
 
 Release sign-off remains pending until the relevant hardware/platform results and human observations are recorded. Automated evidence is in GAMEPLAY-REVIEW.md, DESKTOP-ACCEPTANCE.md and LAUNCH-STATUS.md.
 
-## Soundtrack listening — alpha.6
+## Soundtrack listening — beta.4
 
-Eleven new WAVs are installed alongside the existing menu recording. Automated decode/playback checks passed; nobody has yet accepted their musical fit, mix or loop seams. Use the offline listening page in outputs/Soundtrack-WAV/index.html, or generate it with scripts/soundtrack-review.py.
+Twelve native WAVs are installed alongside the existing menu recording, including the intentionally vocal Oh Nae Nae rare-event song. Automated decode/playback checks passed; nobody has yet accepted their musical fit, mix or loop seams. Use the offline listening page in outputs/Soundtrack-WAV/index.html, or generate it with scripts/soundtrack-review.py.
 
 - Listen to each cue at normal game volume, both alone and during play. Record unwanted voices, distracting phrases, distortion and combat sounds masked by music.
 - Let each gameplay track repeat across its end; note gaps, clicks, abrupt musical changes and fatigue. Another Helping has a measured 1.595-second silent tail that needs a deliberate keep/edit decision.

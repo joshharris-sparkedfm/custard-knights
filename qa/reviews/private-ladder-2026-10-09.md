@@ -1,5 +1,7 @@
 # Private ladder implementation — 9 October 2026
 
+Historical alpha.4 evidence. The disconnect/no-rating limitation below was subsequently superseded by [ranked recovery](ranked-recovery-2026-10-09.md): cumulative reconnect grace, forfeits and durable terminal-result recovery are implemented. Use [the current private ladder guide](../../release/PRIVATE-LADDER.md) for current policy; retain this report as evidence of its original source freeze.
+
 Alpha.4 adds working host-issued identities, SQLite-backed rating/history records, individual skill queues and UI for a private faction ladder. It also fixes blank casual matchmaking getting stuck on full/finished default rooms. Combat, accepted art, save formats, story, Cup and wardrobe rules are unchanged.
 
 ## Evidence

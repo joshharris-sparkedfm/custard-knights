@@ -1,0 +1,20 @@
+{
+  "version": "0.3.0-beta.5",
+  "runtimeSource": "0817dd839fe8e04568456eb62bb1c345f534b8fd",
+  "preview": {
+    "file": "Custard-Knights-Windows-0.3.0-beta.5-preview.zip",
+    "bytes": 547112411,
+    "sha256": "b34bc1d5611e4e117d857fea4c9124379707773468561e84ffb36f3736bb6b1d",
+    "integrity": "passed"
+  },
+  "friends": {
+    "file": "Custard-Knights-Friends-0.3.0-beta.5.zip",
+    "bytes": 547113367,
+    "sha256": "ab0de006d629972f9afeacc920278bdb19f7bd5fe4954d3afb1bdd7835e98260",
+    "gameFiles": 73,
+    "integrity": "passed"
+  },
+  "asarSha256": "84d616ed2912b9623f0265dd0eaf94fb1734f5af2e67d359ee91db8d46c66f48",
+  "publicUpload": false,
+  "testerSending": false
+}

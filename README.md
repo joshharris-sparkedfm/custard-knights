@@ -1,6 +1,6 @@
 # Custard Knights
 
-**Current private Windows friends beta: 0.3.0-beta.4.** The versioned tester ZIP is exported and checked; no public Steam release or faction server is deployed. Read [the cross-machine checkpoint](release/RESUME-CHECKPOINT.md) for setup, evidence and known test failures, and [the roadmap completion audit](release/ROADMAP-STATUS.md) for implemented work and remaining gaps.
+**Current private Windows friends beta: 0.3.0-beta.5.** The versioned tester ZIP is exported and checked, with optional [local play reports](release/playtest/LOCAL-REPORTS.md); no public Steam release or faction server is deployed. Read [the cross-machine checkpoint](release/RESUME-CHECKPOINT.md) for setup, evidence and known test failures, and [the roadmap completion audit](release/ROADMAP-STATUS.md) for implemented work and remaining gaps.
 
 **Development plan:** [Master build plan](BUILD-PLAN.md), covering gameplay feel, graphics and animation, the solo campaign, party Cups, earned cosmetics and validation. The [launch status](release/LAUNCH-STATUS.md) records what is implemented and tested; the plan also contains future work.
 

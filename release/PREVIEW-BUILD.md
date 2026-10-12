@@ -1,4 +1,17 @@
-# Private friends beta — 0.3.0-beta.4
+# Private friends beta — 0.3.0-beta.5
+
+Frozen runtime source `0817dd839fe8e04568456eb62bb1c345f534b8fd` adds optional local playtest recording and report export to beta.4. It defaults off; nothing uploads automatically. Actual arena/story/Cup/faction events use bounded anonymous observations with explicit denominator limits. [LOCAL-REPORTS.md](playtest/LOCAL-REPORTS.md) explains tester controls and report interpretation. All beta.4 gameplay and music are retained.
+
+- Friends ZIP: `outputs/Custard-Knights-Friends-0.3.0-beta.5.zip`, 547113367 bytes, SHA256 `ab0de006d629972f9afeacc920278bdb19f7bd5fe4954d3afb1bdd7835e98260`.
+- Preview folder: `outputs/Custard-Knights-Windows-0.3.0-beta.5-preview`.
+- Preview ZIP: `outputs/Custard-Knights-Windows-0.3.0-beta.5-preview.zip`, 547112411 bytes, SHA256 `b34bc1d5611e4e117d857fea4c9124379707773468561e84ffb36f3736bb6b1d`.
+- ASAR SHA256: `84d616ed2912b9623f0265dd0eaf94fb1734f5af2e67d359ee91db8d46c66f48`.
+
+All 57 package entries match source/metadata and all 73 friends game files are hashed in BUILD-INFO.json. Both archives passed ZIP integrity. The actual EXE passes isolated save/restart/launcher/relocation. Eleven module and 24 campaign tests pass; source and frozen-package browser reporting checks each pass 30 cases with zero exceptions. Initial hidden-window fixed-wait fixture failures are preserved and explained in [the review](../qa/reviews/local-product-events-2026-10-12.md). No gameplay/native-runtime repair is claimed by those fixture changes.
+
+Extract the complete Friends ZIP and run `Game/Custard Knights.exe` after closing older copies normally. The guide includes optional reporting instructions; the offline feedback form remains included. No public upload or tester sending has been performed. Human baseline collection, controlled experiments, physical devices, WAN, minimum hardware and Steam acceptance remain open. Older archives remain unchanged.
+
+# Historical private friends beta — 0.3.0-beta.4
 
 Frozen runtime source `6eec04154419dbab0c3cc5f2a5a6936a60ce3f45` adds Simple / Normal / Insane arena chaos and the rare Oh Nae Nae/AK47 and McGinley lightning events. It includes the original native WAV song and retains beta.1–3 movement/spawn, Crossbow/Croissant and bounded guest-prediction corrections. Later QA/docs commits do not change the frozen runtime.
 

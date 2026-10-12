@@ -1,0 +1,46 @@
+{
+  "head": "0817dd839fe8e04568456eb62bb1c345f534b8fd",
+  "id": 38220567804,
+  "conclusion": "success",
+  "jobs": [
+    {
+      "id": 114715533911,
+      "name": "server (ubuntu-latest)",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "id": 114715534104,
+      "name": "server (windows-latest)",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "id": 114715534130,
+      "name": "core (ubuntu-latest, 24)",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "id": 114715534190,
+      "name": "core (windows-latest, 24)",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "id": 114715534229,
+      "name": "core (windows-latest, 22)",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "id": 114715534264,
+      "name": "core (ubuntu-latest, 22)",
+      "status": "completed",
+      "conclusion": "success"
+    }
+  ],
+  "status": "completed",
+  "url": "https://github.com/joshharris-sparkedfm/custard-knights/actions/runs/38220567804",
+  "attempt": 1
+}

@@ -4,7 +4,7 @@
 
 Audited repository baseline: `cb820ba1da814f4fd50ca4a1e643f659041559ea` on main, including merged PRs through #15. Fresh fetch and remote main lookup matched that commit with zero commits ahead/behind and a clean worktree before this documentation change. Runtime/package version is `0.3.0-beta.4`; frozen exported runtime is `6eec04154419dbab0c3cc5f2a5a6936a60ce3f45`. [PREVIEW-BUILD.md](PREVIEW-BUILD.md) supplies the immutable ZIP identities. Documentation updates do not rebuild or replace those archives.
 
-Method: source inspection plus retained, version-scoped test/review evidence. No new human, hardware, network or gameplay tests were performed for this audit. Implementation status and release acceptance are separate: an implemented feature can still need people and devices to satisfy its original "done when" criterion.
+Audit method: source inspection plus retained, version-scoped test/review evidence. No new human, hardware, network or gameplay tests were performed for the original audit. Subsequent beta.5 work implements CK-04's local reporting foundation; its new focused/browser/package/CI evidence is recorded in the linked review. Current frozen exports are identified in PREVIEW-BUILD.md. Implementation status and release acceptance are separate: an implemented feature can still need people and devices to satisfy its original "done when" criterion.
 
 ## Every original engineering ticket
 
@@ -13,7 +13,7 @@ Method: source inspection plus retained, version-scoped test/review evidence. No
 | CK-01 seats/rematches | Implemented | `index.html` party/rematch paths preserve seats. [Gameplay review](GAMEPLAY-REVIEW.md) records regressions; physical mixed devices, reverse pad order and reconnect acceptance remain open. |
 | CK-02 authoritative rewards | Implemented | `index.html` endMatch/clientRecv and [progression](../game/progression.js) validate per-player summaries and deduplicate receipts. Retained regression/live PeerJS evidence; real household networks remain open. |
 | CK-03 saves/household policy | Implemented | [Progression](../game/progression.js), [collection](../game/collection.js) and [integration](../game/COLLECTION-INTEGRATION.md) preserve legacy ownership, individual feat attribution and once-per-household round credit. |
-| CK-04 product events/baseline | Missing | `index.html` logEv is capped per-round combat/campaign telemetry. No product session/funnel/referral event pipeline, experiment assignment or behavioural denominator report exists. Combat logs and the manual feedback form do not satisfy this ticket. |
+| CK-04 product events/baseline | Local foundation implemented; acceptance/attribution open | Beta.5 adds opt-in, bounded [local events](../game/product-events.js), session/build tokens, actual lifecycle hooks, JSON export and explicit join/completion/continuation denominators. [Review](../qa/reviews/local-product-events-2026-10-12.md) records synthetic tests and limits. Human cohort baseline, experiment assignment, referral attribution and aggregate/retention analysis remain unperformed; reserved event names are not shipped sharing features. |
 | CK-05 first-fight experiment | Missing experiment | Existing first-two-play Easy bots and hints are implemented. No controlled curated/random or four/eight-knight assignment/outcome measurement exists; campaign teaching does not substitute for the proposed comparison. Depends on CK-04 and observation. |
 | CK-06 attack cues | Implemented | [Animation review](../qa/ANIMATION-REVIEW.md), [face/grip review](FACE-AND-GRIP-REVIEW.md) and `index.html` combatBeat/bladeSweep cover distinct heavy/stab/bash/charge/dash presentation. Recorded actual-sprite/classic checks are tied to their source freezes. |
 | CK-07 feedback/input | Implemented; acceptance open | Block/parry/guard-break/whiff feedback and host/guest presentation exist; [gameplay](GAMEPLAY-REVIEW.md) and [pause controls](../qa/reviews/pause-controller-2026-10-09.md) retain evidence. Physical input responsiveness and novice explanations are unperformed. |
@@ -54,7 +54,7 @@ Later kingdoms and their Angelic/Jelly/Trifle sets, weekly Royal Recipes, a publ
 
 ## Remaining work order and completion rules
 
-1. CK-04: implement a bounded, explicit product-event schema and baseline reporting with build/session identifiers, deduplication, QA/demo separation, denominators and inferred-exit labels. Decide what testers choose to export; do not invent collected data or silently enable an external telemetry service.
+1. CK-04: the bounded opt-in local reporting foundation is implemented in beta.5. Collect voluntary tester exports using [LOCAL-REPORTS.md](playtest/LOCAL-REPORTS.md), assess coverage and establish a real cohort baseline. Referral/retention attribution remains open; no external service is silently enabled.
 2. CK-05/20: prepare the controlled onboarding/density comparison, then run uncoached solo/group sessions. Keep assignments and outcomes separate from opinions, and preserve normal experienced-player flow.
 3. CK-09: implement/test warning audio and banner priorities against concrete overlap cases; keep combat timings and accessibility settings intact.
 4. CK-22: prototype one safe Cup House Rule and attributable chain reaction with a normal-rules fallback. Retain it only after the plan's fairness/understanding observation.

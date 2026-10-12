@@ -1,3 +1,8 @@
+## Active player feedback revision — 12 October
+
+Scheduled automation was removed at the user's request. Work follows direct player feedback. Checked source now fixes Chicken Race nonlethal pecks, adds mouse aim/click/guard including guest transport and couch coexistence, and retains weapon/sword upgrades until defeat. See qa/reviews/player-controls-2026-10-12.md: 23 local controls checks, 16 real same-network PeerJS checks and 26 regressions pass. The exported beta.6 below is unchanged and does not contain these revisions yet.
+
+Story presentation and the staged opening are in progress, as is the requested roomier arena option. The user rejected the previous story quality; previous encounter completion checks do not establish a polished story. Do not call these unfinished revisions or the broader game Steam-ready.
 # Custard Knights — friends beta checkpoint, 12 October 2026
 
 The user selected a downloadable Windows beta for friends tonight and authorizes pushing and merging each completed, checked task before proceeding. No public upload or sending has been performed. Do not use or close the user's normal game/save profile during QA.

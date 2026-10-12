@@ -322,11 +322,11 @@ body[data-input=pad] :is(button,.card,.tile,input,select):focus{outline:4px soli
       <div class="head"><h2 class="logo sm">How to play</h2><button class="btn" type="button" data-back>Back</button></div>
       <div class="howcards">
         <div class="how"><b>Fight</b><strong>Swing</strong> to bonk. <strong>Hold Swing</strong> for a charged heavy that breaks blocks. <strong>Block</strong> stops swords and bounces arrows back; block <em>just</em> as they swing to <strong>parry</strong> and stun them. Holding block drains your guard. <strong>Swing while blocking</strong> to shield-bash. <strong>Dash</strong> hops pits and dodges; attack right after a dash for a stab. Knights get flung further the more hurt they are. Three hearts and you're out for a couple of seconds.</div>
-        <div class="how"><b>Weapons</b>Weapon pads hand out a <strong>Bow</strong>, <strong>Bomb Bag</strong>, <strong>Custard Cannon</strong>, <strong>Crossbow</strong> or <strong>Returning Croissant</strong>. Crossbow bolts pierce a line of knights but reload slowly; croissants fly back toward their wielder and hit each enemy once per throw. Block to reflect either. Grab the same weapon again to level it up. Crates can hide power-ups. Watch for pits, spike traps, ice, conveyors, lava, mud, springs and portals.</div>
+        <div class="how"><b>Weapons</b>Weapon pads hand out a <strong>Bow</strong>, <strong>Bomb Bag</strong>, <strong>Custard Cannon</strong>, <strong>Crossbow</strong> or <strong>Returning Croissant</strong>. Crossbow bolts pierce a line of knights but reload slowly; croissants fly back toward their wielder and hit each enemy once per throw. Block to reflect either. Grab the same weapon again to level it up, up to level III. Levels last until defeat, even when ammo runs out or you swap weapons. Long Sword pickups also stack to III and last until defeat. Crates can hide power-ups. Watch for pits, spike traps, ice, conveyors, lava, mud, springs and portals.</div>
         <div class="how"><b>Chaos</b>The Chaos Meter fills with time and knockouts and unlocks sillier power-ups: <strong>Sensible</strong> (Zoomy Boots, Bubble Shield, Long Sword, Pork Pie, Magnet Mitts, Prickly Armour), <strong>Silly</strong> (Giant Head, Bouncy Arms, Swap-o-matic, Banana Trail, Ghost, Bee Swarm, Pie Traps) and <strong>Unhinged</strong> (Chicken Party, Custard Flood, Boss Mode, Disco Fever, Tiny Town, Meteor Shower, Lights Out, Jelly Arena). Every half a minute the arena itself kicks off: trapdoors, a pie catapult, a chicken stampede, gales, slow-mo, bounties, supply drops. Once a match Steve's golden egg drops. Now and then a shepherd's pie appears: eat it and feel the power of Norr.</div>
       </div>
       <div class="ctl">
-        <div class="ctlrow" data-in="kbm"><strong>Keyboard, just me:</strong> move <kbd>WASD</kbd>/<kbd>Arrows</kbd>, swing <kbd>Space</kbd>, dash <kbd>Shift</kbd>, block <kbd>E</kbd>, shout <kbd>1</kbd>&ndash;<kbd>4</kbd>, pause <kbd>P</kbd> or <kbd>Esc</kbd>.<br><strong>Two on one keyboard:</strong> P1 <kbd>WASD</kbd>, swing <kbd>F</kbd>, dash <kbd>G</kbd>, block <kbd>H</kbd>. P2 <kbd>Arrows</kbd>, swing <kbd>J</kbd>, dash <kbd>K</kbd>, block <kbd>L</kbd>, shout <kbd>7</kbd>&ndash;<kbd>0</kbd>.</div>
+        <div class="ctlrow" data-in="kbm"><strong>Keyboard, just me:</strong> move <kbd>WASD</kbd>/<kbd>Arrows</kbd>, aim with the mouse, swing <kbd>Left click</kbd>/<kbd>Space</kbd>, dash <kbd>Shift</kbd>, block <kbd>Right click</kbd>/<kbd>E</kbd>, shout <kbd>1</kbd>&ndash;<kbd>4</kbd>, pause <kbd>P</kbd> or <kbd>Esc</kbd>.<br><strong>Two on one keyboard:</strong> P1 <kbd>WASD</kbd>, swing <kbd>F</kbd>, dash <kbd>G</kbd>, block <kbd>H</kbd>. P2 <kbd>Arrows</kbd>, swing <kbd>J</kbd>, dash <kbd>K</kbd>, block <kbd>L</kbd>, shout <kbd>7</kbd>&ndash;<kbd>0</kbd>.</div>
         <div class="ctlrow" data-in="pad"><strong>Controller:</strong> left stick moves, right stick aims, <kbd>A</kbd> swings, <kbd>B</kbd> dashes, <kbd>X</kbd> blocks, <kbd>Y</kbd> shouts, <kbd>Start</kbd> pauses. Pads 1 to 4 are players 1 to 4. In menus the stick moves, <kbd>A</kbd> picks and <kbd>B</kbd> goes back.</div>
         <div class="ctlrow" data-in="touch"><strong>Touch:</strong> the stick on the left moves; Swing, Dash, Block and OI! are on the right. Hold Swing for a heavy. Play with the phone sideways; small screens follow your knight (Settings can show the whole arena instead).</div>
       </div>
@@ -491,7 +491,7 @@ const MODES={
  lks:{name:'Last Knight Standing',desc:'Three lives each. Lose them and you are a chicken who can still peck.',teams:false},
  kotp:{name:'King of the Pie',desc:'Stand alone on the giant pie to score. It moves every 30 seconds. First to 60.',teams:false},
  heist:{name:'Pie Heist',desc:'Red vs Blue. Steal the enemy pie and carry it home. First to 3.',teams:true},
- race:{name:'Chicken Racing',desc:'Everyone is a chicken. Four laps round the arena. Peck to shove.',teams:false},
+ race:{name:'Chicken Racing',desc:'Everyone is a chicken. Four laps. Click / Space (pad A) to peck and shove; aim toward your rival.',teams:false},
  flags:{name:'Flag Frenzy',desc:'Red vs Blue. Three flags. Stand by one to turn it your colour. Every flag you hold scores. First to 100.',teams:true},
  hotpie:{name:'Hot Pie',desc:'A pie with a lit fuse. Whack someone to pass it on. When it blows, that knight loses a life. Last knight standing wins.',teams:false}
 };
@@ -827,7 +827,7 @@ function applyPU(e,kind){
  switch(kind){
   case 'speed': level('speed',8,24); break;
   case 'shield': e.shieldN=Math.min(3,(e.shieldN||0)+1); stack('shield',12,36); sfx('shield'); if(e.shieldN>1) floater(e.x,e.y-66,'x'+e.shieldN+' bubbles',TEAL); break;
-  case 'big': level('big',10,30); break;
+  case 'big': level('big',10,30); e.fx.big=1; if(isMine(e))tip('sword-level','Sword upgrades last until defeat: each sword pickup adds reach, up to level 3.'); break;
   case 'potion': e.hp=Math.min(maxHp(e),e.hp+1); stack('regen',12,36); sfx('potion'); burst(e.x,e.y-10,14,[CUST,CREAM],200); break;
   case 'heart': e.hp=maxHp(e); burst(e.x,e.y,14,[TOM,PINK],180); break;
   case 'giant': stack('giant',10,20); say(e,pick(['I AM LARGE','Big head energy','Behold!'])); break;
@@ -852,8 +852,8 @@ function spawnPickup(at){
 function giveWeapon(e,kind){
  const W0=WEAPONS[kind]; if(!W0)return;
  if(G.rareEvent?.kind==='nae'&&G.rareEvent.ownerId===e.id)endRareEvent();
- if(e.wpn&&e.wpn.kind===kind){ e.wpn.lvl=Math.min(3,e.wpn.lvl+1); e.wpn.ammo+=W0.ammo; floater(e.x,e.y-50,`${W0.name} LV${e.wpn.lvl}!`,CUST); }
- else { e.wpn={kind,lvl:1,ammo:W0.ammo}; floater(e.x,e.y-50,W0.name,CREAM); }
+ e.weaponLevels=e.weaponLevels||{};const prior=e.weaponLevels[kind]||(e.wpn?.kind===kind?e.wpn.lvl:0);const lvl=Math.min(3,prior+1);e.weaponLevels[kind]=lvl;
+ const ammo=(e.wpn?.kind===kind?e.wpn.ammo:0)+W0.ammo;e.wpn={kind,lvl,ammo:Math.min(W0.ammo*6,ammo)};floater(e.x,e.y-50,`${W0.name} LV${lvl}${lvl===3?' MAX':''}!`,lvl>1?CUST:CREAM);
  sfx('weapon'); logEv('weapon',{id:e.id,h:hb(e),kind});
  if(isMine(e)) tip('wpn-'+kind,CKWeapons.tip(kind)||(kind==='bow'?'Bow: Swing fires arrows. Grab another bow to level it up.':kind==='bombs'?'Bomb Bag: Swing lobs a bomb ahead of you. Mind the blast.':'Custard Cannon: Swing fires a blob that sends them skidding.'));
 }
@@ -875,7 +875,7 @@ function hurt(b,a,dmg,o={}){
  if(a&&a!==b&&a.hot&&G.hot&&melee&&!b.chick&&G.clock-G.hot.passT>.6){ a.hot=false; b.hot=true; G.hot.holder=b; G.hot.passT=G.clock; floater(b.x,b.y-64,'HOT PIE!',TOM); say(a,pick(['Catch!','All yours!','Not it!']),1); if(isMine(b)) tip('hotpie','You have the hot pie. Whack anyone to pass it before it blows.'); sfx('stack'); }
  if(b.chick&&!o.force){ b.stun=Math.max(b.stun,.15); if(Math.random()<.5) say(b,pick(['BAWK!','Oi!','Rude']),.8); sfx('bawk'); if(b.carry) dropPie(b); return; }
  if(b.fx.shield){ b.shieldN=Math.max(0,(b.shieldN||1)-1); if(b.shieldN<=0) delete b.fx.shield; b.inv=.3; sfx('shield'); burst(b.x,b.y-10,18,[TEAL,CREAM],240); floater(b.x,b.y-50,'BLOCKED',TEAL); return; }
- if(isChicken(b)&&a) dmg=99;
+ if(isChicken(b)&&a&&dmg>0) dmg=99;
  const nearH=(a&&a.human)||b.human?1:G.ents.some(h=>h.human&&alive(h)&&Math.hypot(h.x-b.x,h.y-b.y)<400)?.5:0;
  if(G.campaign&&ADVENTURE)ADVENTURE.event("hit",{v:b.id,a:a?a.id:-1,damage:dmg,src:o.src||"sword"});
  b.hp-=dmg;if(dmg>0&&a&&a!==b)productAction(a,'hit'); b.flash=.15; b.inv=.3; if(nearH) G.hitstop=Math.max(G.hitstop||0,(o.src==='heavy'?.11:.07)*nearH); G.shake=Math.max(G.shake,(a&&a.human)||b.human?8:4);
@@ -887,7 +887,7 @@ function hurt(b,a,dmg,o={}){
 }
 function ko(b,a,how){
  if(G.rareEvent?.ownerId===b.id)endRareEvent();
- const bounty=!!(G.mayhem&&G.mayhem.kind==='bounty'&&G.mayhem.who===b&&a&&!isAlly(a,b)); let pts=(isBoss(b)||bounty)?3:1; if(G.mode==='heist'||G.mode==='race'||G.mode==='flags') pts=0; b.deaths++; b.dead=true; b.respawn=1.8; b.falling=0; b.wpn=null; b.stun=0; b.charge=0;
+ const bounty=!!(G.mayhem&&G.mayhem.kind==='bounty'&&G.mayhem.who===b&&a&&!isAlly(a,b)); let pts=(isBoss(b)||bounty)?3:1; if(G.mode==='heist'||G.mode==='race'||G.mode==='flags') pts=0; b.deaths++; b.dead=true; b.respawn=1.8; b.falling=0; b.wpn=null;b.weaponLevels={};if(b.lvl)delete b.lvl.big;delete b.fx.big; b.stun=0; b.charge=0;
  if(b.carry) dropPie(b,how==='fell in a pit');
  if(b.hot&&G.hot){ b.hot=false; G.hot.holder=null; G.hot.wait=1.5; }
  if(LIVES_MODES.has(G.mode)&&!b.chick){ b.lives=Math.max(0,b.lives-1); if(b.lives<=0){ b.chick=true; feed(`${b.name} is out. Cluck cluck.`,isMine(b)); if(isMine(b)) G.banner={title:'YOU ARE A CHICKEN',sub:'Out of lives. You can still peck people.',col:PINK,t:2.4,max:2.4}; } }
@@ -910,7 +910,7 @@ function ko(b,a,how){
 function blockedFrom(b,sx,sy){ return b.blocking&&Math.abs(angDiff(Math.atan2(sy-b.y,sx-b.x),b.face))<1.0; }
 function parryOk(b){ return b.blockAge<.12&&(b.human||b.ai.parryOk); }
 function startSwing(e,kind){ const S=SWINGS[kind]; e.swingKind=kind; (e.swings||(e.swings=[])).push(G.clock); if(e.swings.length>8) e.swings.shift(); e.swingDur=S.dur; e.swing=S.dur; e.atkCd=S.cd; e.hitSet=[]; e.crateHit=false; e.hitLanded=false; e.charge=0; e.holdT=0; e.dashAtkT=0;
- if(kind==='light'&&e.human) aimAssist(e); e.vx+=Math.cos(e.face)*S.lunge; e.vy+=Math.sin(e.face)*S.lunge;
+ if(kind==='light'&&e.human&&!e.aiming) aimAssist(e); e.vx+=Math.cos(e.face)*S.lunge; e.vy+=Math.sin(e.face)*S.lunge;
  if(e.protect>0){ e.protect=0; e.inv=Math.min(e.inv,.3); } delete e.fx.ghost;
  G.stats.swings[hb(e)]++; if(kind==='heavy')G.stats.heavies++; else if(kind==='stab')G.stats.stabs++; else if(kind==='bash')G.stats.bashes++;
  if(e.human||kind!=='light') sfx(kind==='bash'?'bash':'swing'); }
@@ -973,13 +973,28 @@ function explode(x,y,R,owner,o={}){
  const c0=tcol(x-R),c1=tcol(x+R),r0=trow(y-R),r1=trow(y+R);
  for(let r=r0;r<=r1;r++)for(let c=c0;c<=c1;c++){ const p=centerOf(c,r); if(Math.hypot(p.x-x,p.y-y)<R+10) hitCrate(c,r,3); }
 }
-function respawn(e){ const p=spawnPointFor(e); Object.assign(e,{x:p.x,y:p.y,vx:0,vy:0,hp:3,dead:false,falling:0,inv:2,protect:2,fx:{},lvl:{},shieldN:0,regenT:0,hot:false,slip:0,swing:0,dashT:0,wpn:null,lastHit:null,portalCd:0,spot:e.human?1.6:0,spawnAt:G.clock,stun:0,hitLock:0,guard:1.5,guardLock:0,charge:0,holdT:0,combo:0,riposte:0}); dust(e.x,e.y+10,10); fxRing(e.x,e.y,50,TEAL,.5);
+function respawn(e){ const p=spawnPointFor(e); Object.assign(e,{x:p.x,y:p.y,vx:0,vy:0,hp:3,dead:false,falling:0,inv:2,protect:2,fx:{},lvl:{},shieldN:0,regenT:0,hot:false,slip:0,swing:0,dashT:0,wpn:null,weaponLevels:{},lastHit:null,portalCd:0,spot:e.human?1.6:0,spawnAt:G.clock,stun:0,hitLock:0,guard:1.5,guardLock:0,charge:0,holdT:0,combo:0,riposte:0}); dust(e.x,e.y+10,10); fxRing(e.x,e.y,50,TEAL,.5);
  let ne=1e9; for(const o of G.ents) if(o!==e&&alive(o)&&!isAlly(o,e)) ne=Math.min(ne,Math.hypot(o.x-e.x,o.y-e.y)); logEv('respawn',{id:e.id,h:hb(e),x:Math.round(e.x),y:Math.round(e.y),ne:Math.round(ne)}); if(isMine(e)) tip('respawn','Crates can hide power-ups. Give them a whack.'); }
 function startFall(e){ if(G.rareEvent?.ownerId===e.id)endRareEvent();e.falling=.7; e.vx*=.15; e.vy*=.15; e.swing=0; if(e.human||Math.hypot(e.x-W/2,e.y-440)<2000)sfx('fall'); if(!e.human&&Math.random()<.6) say(e,pick(['Nooooo','Wheee','Tell my mum…']),1); }
 
 /* ---------- input ---------- */
 const keys={};
 const joy={id:null,mx:0,my:0}, touch={atk:false,dash:false,block:false};
+const mouse={x:0,y:0,active:false,attack:false,guard:false};
+function resetMouse(){mouse.active=false;mouse.attack=false;mouse.guard=false;}
+function mousePlayable(){return G&&!G.demo&&!G.over&&!paused&&!massBattleUI?.active();}
+function mousePoint(){const r=cv.getBoundingClientRect();return {x:(mouse.x-r.left-offX)/scale,y:(mouse.y-r.top-offY)/scale};}
+function mouseInput(out,ent,owned=false){if(!mousePlayable()||(!owned&&INPUT!=='kbm')||!mouse.active||!ent)return out;const p=mousePoint();if(Number.isFinite(p.x)&&Number.isFinite(p.y)&&Math.hypot(p.x-ent.x,p.y-ent.y)>4)out.faceTo=Math.atan2(p.y-ent.y,p.x-ent.x);out.atk=!!out.atk||mouse.attack;out.block=!!out.block||mouse.guard;return out;}
+cv.addEventListener('pointermove',ev=>{if(ev.pointerType==='mouse'&&mousePlayable()){mouse.x=ev.clientX;mouse.y=ev.clientY;mouse.active=true;}});
+cv.addEventListener('pointerdown',ev=>{if(ev.pointerType!=='mouse'||!mousePlayable())return;mouse.x=ev.clientX;mouse.y=ev.clientY;mouse.active=true;if(ev.button===0)mouse.attack=true;if(ev.button===2)mouse.guard=true;});
+addEventListener('pointerup',ev=>{if(ev.button===0)mouse.attack=false;if(ev.button===2)mouse.guard=false;});
+// Mouse events also fire for secondary-button chords (Pointer Events do not).
+cv.addEventListener('mousedown',ev=>{if(!mousePlayable())return;mouse.x=ev.clientX;mouse.y=ev.clientY;mouse.active=true;if(ev.button===0)mouse.attack=true;if(ev.button===2)mouse.guard=true;ev.preventDefault();});
+addEventListener('mouseup',ev=>{if(ev.button===0)mouse.attack=false;if(ev.button===2)mouse.guard=false;});
+cv.addEventListener('pointerleave',resetMouse);cv.addEventListener('pointercancel',resetMouse);
+cv.addEventListener('contextmenu',ev=>{if(mousePlayable())ev.preventDefault();});
+addEventListener('blur',resetMouse);document.addEventListener('visibilitychange',()=>{if(document.hidden)resetMouse();});
+
 // which device the player is using right now: 'touch', 'pad' or 'kbm'. It follows the last thing they pressed, so a
 // phone with a pad plugged in, or a touchscreen laptop, shows the right controls and hints at every moment.
 let INPUT=matchMedia('(pointer:coarse)').matches?'touch':'kbm', touchWanted=false;
@@ -1006,8 +1021,8 @@ function seatInput(st){ const o={mx:0,my:0,atk:false,dash:false,block:false,face
  else if(st.dev==='kb2'){ o.mx=(k.ArrowRight?1:0)-(k.ArrowLeft?1:0); o.my=(k.ArrowDown?1:0)-(k.ArrowUp?1:0); o.atk=k.KeyJ; o.dash=k.KeyK; o.block=k.KeyL; }
  return o; }
 function humanInput(n,ent){
- if(SEATS&&SEATS[n-1]&&!(ent&&ent.netId)&&NET.role!=='client') return seatInput(SEATS[n-1]);
- if(ent&&ent.netId){ const i=NET.inputs[ent.netId]||[0,0,0,0,0], L=NET.latch[ent.netId]||{}; const out={mx:i[0],my:i[1],atk:!!i[2]||!!L.a,dash:!!i[3]||!!L.d,block:!!i[4],faceTo:null}; L.a=L.d=0; return out; }
+ if(SEATS&&SEATS[n-1]&&!(ent&&ent.netId)&&NET.role!=='client') return SEATS[n-1].dev==='kb1'?mouseInput(seatInput(SEATS[n-1]),ent,true):seatInput(SEATS[n-1]);
+ if(ent&&ent.netId){ const i=NET.inputs[ent.netId]||[0,0,0,0,0], L=NET.latch[ent.netId]||{}; const out={mx:i[0],my:i[1],atk:!!i[2]||!!L.a,dash:!!i[3]||!!L.d,block:!!i[4],faceTo:Number.isFinite(i[5])&&Math.abs(i[5])<=Math.PI?i[5]:null}; L.a=L.d=0; return out; }
  const k=keys,two=NET.role!=='client'&&G.ents.filter(e=>e.human&&!e.netId).length>1; let mx=0,my=0,atk=false,dash=false,block=false,faceTo=null;
  if(n===1){
   mx=(k.KeyD?1:0)-(k.KeyA?1:0); my=(k.KeyS?1:0)-(k.KeyW?1:0);
@@ -1018,7 +1033,7 @@ function humanInput(n,ent){
   mx=(k.ArrowRight?1:0)-(k.ArrowLeft?1:0); my=(k.ArrowDown?1:0)-(k.ArrowUp?1:0); atk=k.KeyJ; dash=k.KeyK; block=k.KeyL;
  }
  const pd=padState(n-1); if(pd){ mx+=pd.mx; my+=pd.my; atk=atk||pd.atk; dash=dash||pd.dash; block=block||pd.block; if(pd.aim!==null) faceTo=pd.aim; }
- return {mx,my,atk,dash,block,faceTo};
+ const out={mx,my,atk,dash,block,faceTo};return n===1?mouseInput(out,ent||G.ents[NET.role==='client'?NET.me:0]):out;
 }
 
 /* ---------- bots ---------- */
@@ -1180,7 +1195,7 @@ function update(dt){
   if(e.falling>0){ e.falling-=dt; e.x+=e.vx*dt; e.y+=e.vy*dt; if(e.falling<=0){ const cred=e.lastHit&&G.clock-e.lastHit.t<4?e.lastHit.by:null; e.falling=0; ko(e,cred,'fell in a pit'); } continue; }
   e.atkCd-=dt; e.dashCd-=dt; e.inv-=dt; e.flash-=dt; e.slip-=dt; e.bawkCd-=dt; e.fireCd-=dt; e.portalCd-=dt; e.springCd-=dt; if(e.spot>0)e.spot-=dt;
   if(e.goo>0) e.goo-=dt; e.stun-=dt; e.hitLock-=dt; e.guardLock-=dt; e.bashCd-=dt; e.dashAtkT-=dt; e.whiffT-=dt; if(e.protect>0)e.protect-=dt; if(e.riposte>0)e.riposte-=dt;
-  for(const k in e.fx){ e.fx[k]-=dt; if(e.fx[k]<=0){ delete e.fx[k]; if(e.lvl) delete e.lvl[k]; if(k==='shield') e.shieldN=0; } }
+  for(const k in e.fx){ if(k==='big')continue; e.fx[k]-=dt; if(e.fx[k]<=0){ delete e.fx[k]; if(e.lvl) delete e.lvl[k]; if(k==='shield') e.shieldN=0; } }
   if(e.fx.regen){ e.regenT=(e.regenT||0)+dt; if(e.regenT>=6){ e.regenT=0; if(e.hp<maxHp(e)){ e.hp++; floater(e.x,e.y-50,'+1',CUST); burst(e.x,e.y-10,8,[CUST,CREAM],160); sfx('potion'); } } }
   if(e.hp>maxHp(e)) e.hp=maxHp(e);
   const inp=e.human?humanInput(e.human,e):botInput(e,dt);if(e.human&&isMine(e))productControls(e,inp);
@@ -1193,7 +1208,8 @@ function update(dt){
   if(wantBlock){ if(!e.blocking) e.blockAge=0; else e.blockAge+=dt; e.guard-=dt; if(e.guard<=0){ e.guard=0; e.guardLock=.8; wantBlock=false; floater(e.x,e.y-50,'GUARD DOWN',TOM); sfx('guard'); } }
   else { e.blockAge=99; e.guard=Math.min(1.5,e.guard+dt); }
   e.blocking=wantBlock;
-  if(inp.faceTo!==null&&inp.faceTo!==undefined) e.face+=angDiff(inp.faceTo,e.face)*Math.min(1,dt*14);
+  e.aiming=Number.isFinite(inp.faceTo);
+  if(e.aiming){if(e.human)e.face=inp.faceTo;else e.face+=angDiff(inp.faceTo,e.face)*Math.min(1,dt*14);}
   else if(len>.2&&e.swing<=0) e.face=Math.atan2(my,mx);
   const tile=tileAt(e.x,e.y+4);
   let sp=speedOf(e); if(tile==='m'&&!e.fx.steve&&e.dashT<=0)sp*=.55; let k=14;
@@ -1202,8 +1218,8 @@ function update(dt){
   if(e.stun>0) k=6;
   if(e.dashT>0){k=0;e.dashT-=dt; if(e.dashT<=0) e.dashAtkT=.12; if(Math.random()<.6)dust(e.x,e.y+12,1)}
   const f=Math.min(1,k*dt); e.vx+=(mx*sp-e.vx)*f; e.vy+=(my*sp-e.vy)*f;
-  if(isChicken(e)&&inp.atk&&e.bawkCd<=0){ e.bawkCd=.6; say(e,'BAWK!',.7); sfx('bawk'); const rr0=e.r*sizeMul(e); e.vx+=Math.cos(e.face)*120; e.vy+=Math.sin(e.face)*120;
-   for(const o of G.ents){ if(o===e||!alive(o)||(isTeams(G.mode)&&o.team===e.team))continue; const d=Math.hypot(o.x-e.x,o.y-e.y); if(d<rr0+o.r*sizeMul(o)+12&&Math.abs(angDiff(Math.atan2(o.y-e.y,o.x-e.x),e.face))<1.3){ hurt(o,e,0,{kb:420,src:'peck',stunT:.12,force:o.chick}); } } }
+  if(isChicken(e)&&inp.atk&&e.bawkCd<=0){ e.bawkCd=.6; fxRing(e.x+Math.cos(e.face)*35,e.y+Math.sin(e.face)*35,24,CUST,.18); say(e,'PECK!',.5); sfx('bawk'); const rr0=e.r*sizeMul(e); e.vx+=Math.cos(e.face)*120; e.vy+=Math.sin(e.face)*120;
+   for(const o of G.ents){ if(o===e||!alive(o)||(isTeams(G.mode)&&o.team===e.team))continue; const d=Math.hypot(o.x-e.x,o.y-e.y); if(d<rr0+o.r*sizeMul(o)+12&&Math.abs(angDiff(Math.atan2(o.y-e.y,o.x-e.x),e.face))<1.3&&o.dashT<=.06){ hurt(o,e,0,{kb:420,src:'peck',stunT:.12}); } } }
   const atkPress=!!inp.atk&&!e.atkWas, atkRelease=!inp.atk&&e.atkWas; e.atkWas=!!inp.atk;
   if(atkPress) e.atkBuf=.2; else if(e.atkBuf>0) e.atkBuf-=dt;
   if(inp.atk) e.holdT+=dt; else e.holdT=0;
@@ -2323,7 +2339,7 @@ function controlLine(n){ const two=G.ents.filter(e=>e.human&&!e.netId).length>1;
  if(n===1&&!two&&INPUT==='touch') return 'Stick moves   SWING bonks (hold for a heavy)   DASH hops   BLOCK parries';
  if(anyPad()&&n<=PADS.length&&(INPUT==='pad'||two)) return `Move: left stick   Swing: A   Dash: B   Block: X   Pause: Start`;
  if(n===2) return 'P2   Move: Arrows   Swing: J   Dash: K   Block: L';
- return two?'P1   Move: WASD   Swing: F   Dash: G   Block: H':'Move: WASD or Arrows   Swing: Space   Dash: Shift   Block: E'; }
+ return two?'P1   Move: WASD   Swing: F   Dash: G   Block: H':'WASD / Arrows move · Mouse aims · Click / Space attacks · Shift dash · E / right-click block'; }
 function drawCards(){
  if(G.demo||G.over) return; const mine=G.ents.filter(isMine); if(!mine.length) return;
  const dead=mine.find(e=>e.dead&&e.lastKO);
@@ -2409,6 +2425,7 @@ function draw(){
  for(const e of live) if(e.falling<=0) drawOverhead(e);
  for(const f of G.floaters){ ctx.globalAlpha=Math.min(1,f.t*2); if(f.small){ ctx.font=`900 13px ${NUN}`; ctx.textAlign='center'; ctx.textBaseline='middle'; const w=ctx.measureText(f.text).width+18; ctx.fillStyle=INK; rr(ctx,f.x-w/2,f.y-11,w,22,11); ctx.fill(); ctx.fillStyle=f.col; ctx.fillText(f.text,f.x,f.y+1); } else otext(f.text,f.x,f.y,f.big?20:13,f.col); } ctx.globalAlpha=1;
  for(const b of G.bubbles) drawBubble(b);
+ if(mousePlayable()&&mouse.active&&(INPUT==='kbm'||SEATS?.some(s=>s.dev==='kb1'))){const aim=mousePoint();ctx.save();ctx.strokeStyle=CREAM;ctx.lineWidth=2;ctx.beginPath();ctx.arc(aim.x,aim.y,8,0,Math.PI*2);ctx.moveTo(aim.x-13,aim.y);ctx.lineTo(aim.x-4,aim.y);ctx.moveTo(aim.x+4,aim.y);ctx.lineTo(aim.x+13,aim.y);ctx.moveTo(aim.x,aim.y-13);ctx.lineTo(aim.x,aim.y-4);ctx.moveTo(aim.x,aim.y+4);ctx.lineTo(aim.x,aim.y+13);ctx.stroke();ctx.restore();}
  // ambient
  const th=G.map.theme;
  if(th==='grass'||th==='bog'||th==='dungeon'){ const [c1,c2]=th==='dungeon'?['255,140,40','255,210,120']:th==='bog'?['170,255,140','230,255,200']:['255,240,170','255,250,210']; ctx.save(); ctx.globalCompositeOperation='lighter'; for(const a of G.amb){ const tw=.35+.35*Math.sin(G.clock*3+a.p*5); circle(a.x,a.y,a.s*1.8,`rgba(${c1},${tw*.25})`); circle(a.x,a.y,a.s*.6,`rgba(${c2},${tw})`); } ctx.restore(); }
@@ -2717,13 +2734,13 @@ function fadeMusic(on){
 // browsers only allow sound after the first click or key press
 const kick=()=>{ if(musicWant&&!muted&&music.paused) cueMusic(musicCue); };
 addEventListener('pointerdown',kick,{once:true}); addEventListener('keydown',kick,{once:true});
-function start(){ if(!firstFightLaunching){firstFightFinish('abandoned');firstFightResult=null;$('firstFightRecognition').hidden=true;$('againBtn').textContent='Rematch';} if(ADVENTURE)ADVENTURE.stop(); if(NET.role==='client') return; if(!cupStarting)CUP=null;cupUI.hide(); if(NET.role==='host'&&cfg.players+NET.players.length-1>8){ showLobby(); lobbyMsg('Too many knights. Reduce local players in Settings before starting.'); return; } if(NET.role==='host'){ NET.inputs={};NET.latch={};NET.fxq=[];NET.tick=0; } if(!partyGo) SEATS=null; partyGo=false; phoneFullscreen(); audio(); menuMusic(false); newGame(false); matchMusic(); showScreen(null); paused=false; $('pauseBtn').hidden=false; showTouch(true); try{ if(!G.firstFight)localStorage.setItem('ck-played',String((+localStorage.getItem('ck-played')||0)+1)); }catch(e){}
+function start(){ resetMouse();if(!firstFightLaunching){firstFightFinish('abandoned');firstFightResult=null;$('firstFightRecognition').hidden=true;$('againBtn').textContent='Rematch';} if(ADVENTURE)ADVENTURE.stop(); if(NET.role==='client') return; if(!cupStarting)CUP=null;cupUI.hide(); if(NET.role==='host'&&cfg.players+NET.players.length-1>8){ showLobby(); lobbyMsg('Too many knights. Reduce local players in Settings before starting.'); return; } if(NET.role==='host'){ NET.inputs={};NET.latch={};NET.fxq=[];NET.tick=0; } if(!partyGo) SEATS=null; partyGo=false; phoneFullscreen(); audio(); menuMusic(false); newGame(false); matchMusic(); showScreen(null); paused=false; $('pauseBtn').hidden=false; showTouch(true); try{ if(!G.firstFight)localStorage.setItem('ck-played',String((+localStorage.getItem('ck-played')||0)+1)); }catch(e){}
  initArenaChaos();firstFightAccepted();productArenaStart();
  G.banner={title:G.mode==='race'?'RACE!':'FIGHT!',sub:G.map.name+'. '+(MODES[G.mode]?MODES[G.mode].name:'')+(G.mode==='ffa'?'. Every knight for themselves.':'.'),col:CUST,t:2,max:2}; sfx('event');
  for(const e of G.ents) if(isMine(e)) e.spot=2.6;
  if(NET.role==='host'){ $('pauseBtn').hidden=true; broadcast({t:'start',setup:netSetup()}); } }
-function toMenu(){ firstFightFinish('abandoned');firstFightResult=null;$('firstFightRecognition').hidden=true; if(ADVENTURE)ADVENTURE.stop(); cancelCup(); if(NET.role==='host'){ newGame(true); showLobby(); menuMusic(true); broadcast({t:'tolobby'}); return; } if(NET.role==='client'){ leaveOnline(); return; } menuMusic(true); newGame(true); paused=false; showScreen('menu'); $('pauseBtn').hidden=true; showTouch(false); }
-function setPause(p){ if(!G||G.demo||G.over||NET.role)return; paused=p; $('pause').hidden=!p; if(p){ const b=$('resumeBtn'); if(b) b.focus(); }else syncRareMusic(); }
+function toMenu(){ resetMouse();firstFightFinish('abandoned');firstFightResult=null;$('firstFightRecognition').hidden=true; if(ADVENTURE)ADVENTURE.stop(); cancelCup(); if(NET.role==='host'){ newGame(true); showLobby(); menuMusic(true); broadcast({t:'tolobby'}); return; } if(NET.role==='client'){ leaveOnline(); return; } menuMusic(true); newGame(true); paused=false; showScreen('menu'); $('pauseBtn').hidden=true; showTouch(false); }
+function setPause(p){ if(!G||G.demo||G.over||NET.role)return; resetMouse();paused=p; $('pause').hidden=!p; if(p){ const b=$('resumeBtn'); if(b) b.focus(); }else syncRareMusic(); }
 addEventListener('keydown',ev=>{ if(ev.code==='Escape'&&!(G&&!G.demo&&!G.over)){ const sc=visibleScreen(); if(sc&&sc.id!=='menu') menuBack(); } });
 function finalResults(sorted){
  return G.ents.filter(e=>e.human).map(e=>{
@@ -2846,7 +2863,7 @@ function renderLobby(){
  NET.players.forEach((p,i)=>{ const li=document.createElement('li'); li.textContent=p.name; if(i===0) li.className='host'; ol.appendChild(li); });
  $('lobbyStart').hidden=!host;if($('lobbyCup'))$('lobbyCup').hidden=!host; $('lobbyCopy').hidden=!(host&&NET.code); $('lobbySetupBtn').hidden=!host;
  $('lobbySetup').textContent=host?`${MODES[cfg.mode]?MODES[cfg.mode].name:'Free-for-all'} on ${cfg.map==='random'?'a surprise arena':MAPS[cfg.map].name}, ${DIFFS[CKPreferences.difficulty(cfg.diff)].label} bots, ${cfg.length===90?'90 seconds':cfg.length===300?'5 minutes':'3 minutes'}.`:'';
- $('lobbyCtl').textContent='Move: WASD or Arrows. Swing: Space. Dash: Shift. Block: E. Or a pad: left stick, A, B, X.';
+ $('lobbyCtl').textContent='Move: WASD or Arrows. Aim: mouse. Attack: click or Space (peck in Chicken Race). Dash: Shift. Block: E or right-click. Or a pad: left stick, A, B, X.';
  if(host) lobbyMsg(NET.peer&&NET.peer.open?`${NET.players.length-1+cfg.players} of 8 knights. Bots fill the empty spots. Arena, mode and bots come from the main menu.`:'Opening the room…');
 }
 function netReset(){ CUP=null;cupUI.hide();const peer=NET.peer; Object.assign(NET,{role:null,peer:null,conn:null,conns:new Map(),code:'',players:[],me:-1,inputs:{},latch:{},fxq:[],lastIn:'',lastInT:0,an:0,dn:0,pa:false,pd:false,waiting:false}); try{ if(peer) peer.destroy(); }catch(e){} }
@@ -2876,7 +2893,7 @@ function hostRecv(conn,d){
  if(d.t==='kit'){const player=NET.players.find(p=>p.id===conn.peer);if(player&&d.kit&&typeof d.kit==='object'&&!Array.isArray(d.kit))player.kit=cleanKit(d.kit);return;}
  if(d.t==='cup-ready'){if(CUP&&d.cupId===CUP.id&&d.round===CUP.round&&typeof d.ready==='boolean'){CKCup.ready(CUP,'peer:'+conn.peer,d.choice,d.ready);syncCup();}return;}
  if(d.t==='hello'){ if(NET.players.some(p=>p.id===conn.peer)) return; if(NET.players.length+cfg.players>8){NET.conns.delete(conn.peer);conn.send({t:'full',why:'That room is full.'});setTimeout(()=>conn.close(),500);return;} NET.players.push({id:conn.peer,name:String(d.name||'Knight').slice(0,14),kit:cleanKit(d.kit)}); sendLobby(); if(G&&!G.demo)conn.send({t:'wait'}); }
- else if(d.t==='in'&&G&&!G.demo&&!G.over&&d.roundId===G.roundId&&G.ents.some(e=>e.netId===conn.peer)&&Array.isArray(d.i)&&d.i.length===7&&d.i.every(Number.isFinite)){ const i=d.i, L=NET.latch[conn.peer]||(NET.latch[conn.peer]={an:0,dn:0}); NET.inputs[conn.peer]=[clamp(+i[0]||0,-1,1),clamp(+i[1]||0,-1,1),i[2]?1:0,i[3]?1:0,i[4]?1:0]; const an=+i[5]||0, dn=+i[6]||0; if(an>L.an){L.a=1} if(dn>L.dn){L.d=1} L.an=an; L.dn=dn; }
+ else if(d.t==='in'&&G&&!G.demo&&!G.over&&d.roundId===G.roundId&&G.ents.some(e=>e.netId===conn.peer)&&Array.isArray(d.i)&&(d.i.length===7||d.i.length===8)&&d.i.every(Number.isFinite)&&(d.i.length===7||Math.abs(d.i[7])<=Math.PI||d.i[7]===4)){ const i=d.i, L=NET.latch[conn.peer]||(NET.latch[conn.peer]={an:0,dn:0}); NET.inputs[conn.peer]=[clamp(+i[0]||0,-1,1),clamp(+i[1]||0,-1,1),i[2]?1:0,i[3]?1:0,i[4]?1:0,i.length===8&&Math.abs(i[7])<=Math.PI?i[7]:null]; const an=+i[5]||0, dn=+i[6]||0; if(an>L.an){L.a=1} if(dn>L.dn){L.d=1} L.an=an; L.dn=dn; }
  else if(d.t==='shout'&&G&&!G.demo&&!G.over&&d.roundId===G.roundId){ const e=G.ents.find(x=>x.netId===conn.peer); if(e&&alive(e)){ say(e,isChicken(e)?'BAWK!':SHOUTS[Math.abs(d.i|0)%4],1.8); sfx('shout'); } }
 }
 function hostDrop(id){
@@ -3015,7 +3032,7 @@ function clientTick(dt,wallDt=dt){ if(G.punch>0) G.punch-=dt;
 }
 function clientSend(now){
  if(!NET.conn||!NET.conn.open) return;
- const i=humanInput(1); if(i.atk&&!NET.pa) NET.an++; if(i.dash&&!NET.pd) NET.dn++; NET.pa=i.atk; NET.pd=i.dash; const mv=[r1(clamp(i.mx,-1,1)),r1(clamp(i.my,-1,1)),i.atk?1:0,i.dash?1:0,i.block?1:0,NET.an,NET.dn], key=mv.join();
+ const i=humanInput(1); if(i.atk&&!NET.pa) NET.an++; if(i.dash&&!NET.pd) NET.dn++; NET.pa=i.atk; NET.pd=i.dash; const mv=[r1(clamp(i.mx,-1,1)),r1(clamp(i.my,-1,1)),i.atk?1:0,i.dash?1:0,i.block?1:0,NET.an,NET.dn,Number.isFinite(i.faceTo)?clamp(Math.round(i.faceTo*1000)/1000,-Math.PI,Math.PI):4], key=mv.join();
  if(key!==NET.lastIn||now-NET.lastInT>250){ NET.lastIn=key; NET.lastInT=now; try{ NET.conn.send({t:'in',roundId:G.roundId,i:mv});productControls(G.ents[NET.me],i); }catch(e){} }
 }
 $('hostBtn').onclick=hostOnline;

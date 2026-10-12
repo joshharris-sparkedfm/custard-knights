@@ -1,5 +1,7 @@
 # Custard Knights — twelve-track Suno brief
 
+Current beta.4 inventory: the original menu MP3 plus twelve native WAV exports fill thirteen cues. The original twelve-track brief below is retained; [Oh Nae Nae](music/oh-nae-nae-prompt.md) adds the intentionally vocal rare-event cue. [Source provenance](music/source-provenance.json) records the actual downloads. Human audition and loop approval remain open; no further generation is required simply to fill the original slots.
+
 The soundtrack should sound like a ridiculous medieval tournament that becomes a food fight: memorable melodies, comic confidence, real rhythmic drive, and room for the combat sounds. Avoid solemn fantasy ambience, generic cinematic trailers, or a wall of drums. Use instrumental versions throughout gameplay. These are creative prompts, not generated or licensed recordings.
 
 The current menu theme remains enabled. Joshua confirmed on 8 October 2026 that it came from Suno and has commercial-use rights. Keep the existing theme if it already defines the game; track 1's prompt is an optional new version. The other eleven slots activate only when their files exist.

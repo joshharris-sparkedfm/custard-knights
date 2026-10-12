@@ -1,6 +1,6 @@
 # Custard Knights
 
-**Current development preview: 0.3.0-alpha.4.** Faction battles and four difficulty levels are in progress. Read [the cross-machine checkpoint](release/RESUME-CHECKPOINT.md) for setup, evidence and known test failures before continuing work or making release claims.
+**Current private Windows friends beta: 0.3.0-beta.4.** The versioned tester ZIP is exported and checked; no public Steam release or faction server is deployed. Read [the cross-machine checkpoint](release/RESUME-CHECKPOINT.md) for setup, evidence and known test failures, and [the roadmap completion audit](release/ROADMAP-STATUS.md) for implemented work and remaining gaps.
 
 **Development plan:** [Master build plan](BUILD-PLAN.md), covering gameplay feel, graphics and animation, the solo campaign, party Cups, earned cosmetics and validation. The [launch status](release/LAUNCH-STATUS.md) records what is implemented and tested; the plan also contains future work.
 
@@ -14,7 +14,7 @@ This is a playable browser game with local and online play, plus a Windows candi
 
 Open `index.html` in any modern browser. Nothing to install.
 
-For the Windows build, run `npm ci`, `npm run package:win`, then launch `dist/Custard Knights-win32-x64/Custard Knights.exe`. Keep the whole output folder together. F11 toggles fullscreen. See the [twelve-track Suno brief](release/SUNO-SOUNDTRACK.md) for the soundtrack prompts and export filenames; only the existing menu theme is included until more recordings are added.
+For the Windows build, run `npm ci`, `npm run package:win`, then launch `dist/Custard Knights-win32-x64/Custard Knights.exe`. Keep the whole output folder together. F11 toggles fullscreen. Thirteen music cues are included: the original menu MP3 and twelve native WAV exports, including the rare-event song. See the [Suno brief](release/SUNO-SOUNDTRACK.md) and [source provenance](release/music/source-provenance.json). Human listening and loop approval remain pending.
 
 To host it for free, turn on **GitHub Pages** (Settings → Pages → Deploy from branch → `main` / root). The game is then live at `https://<your-username>.github.io/<repo-name>/`.
 
@@ -29,9 +29,9 @@ For friends: see the [playtest kit guide](release/playtest/README.md). The compl
 - **Visor choice:** free closed and open options for every helmet, saved with outfits and shown online. Closed is the default; open keeps small eyes recessed inside the helmet.
 - **6 arenas:** Castle Courtyard (hedge maze, well, spike traps), Frosty Keep (ice and a chasm with bridges), Pie Factory (conveyor belts that carry you into pits), Dragon's Larder (lava pools and a lava river), Rooftop Rumble (rooftops split by drops, with springs to bounce across), Custard Bog (a mud river that slows you down, and portals)
 - **Hazards:** pits, spike traps that pop on a timer, ice, conveyor belts, lava that burns and shoves you back, mud, springs that launch you the way you are moving, portals that drop you at a random other portal, breakable crates that sometimes hide a power-up
-- **Weapon pads:** Bow, Bomb Bag and Custard Cannon. Picking up the same weapon again levels it up.
+- **Weapon pads:** Bow, Bomb Bag, Custard Cannon, Crossbow and Returning Croissant. Picking up the same weapon again levels it up.
 - **Shield block:** stops sword hits and bounces arrows back at the shooter
-- **Chaos Meter:** fills with time and knockouts and unlocks three tiers of power-ups
+- **Chaos Meter:** Simple keeps basic pickups without escalating events; Normal builds gradually; Insane starts higher and builds faster. This is independent of bot difficulty. Escalation unlocks three tiers of power-ups:
   - Sensible: Zoomy Boots, Bubble Shield, Long Sword, Pork Pie, Custard Potion, Magnet Mitts (pulls power-ups to you), Prickly Armour (whoever hits you gets hurt back)
   - Silly: Giant Head, Bouncy Arms, Swap-o-matic, Banana Trail, Ghost Mode, Bee Swarm (a swarm that hunts your nearest enemy), Pie Traps (three pies on the floor that explode when an enemy steps on them)
   - Unhinged: Chicken Party, Custard Flood, Boss Mode, Disco Fever, Mirror Curse, Tiny Town, Meteor Shower (custard falls from the sky, you are immune), Lights Out (only a small circle around each knight is lit, yours is bigger), Jelly Arena (walls bounce and every hit sends people flying), Swap Party (everyone swaps places every two seconds)
@@ -50,7 +50,7 @@ For friends: see the [playtest kit guide](release/playtest/README.md). The compl
 - **The Power of Norr:** now and then a shepherd's pie appears somewhere in the arena. Eat it and you let out a NORRRRRRRR that blasts everyone nearby across the map, then for 12 seconds you are bigger, faster, hit for double and roar again every couple of seconds. Bots panic and run.
 - **Finding yourself:** your knight has a YOU tag (P1 and P2 on a shared keyboard), a coloured ring at its feet, and a spotlight with a big "THIS IS YOU" pointer at the start of the match and every time you respawn
 - **Knights:** each knight has a flowing cape, a heraldic emblem on tabard and shield, a choice of a closed visor or small recessed eyes behind an open visor, and one of six helmets (great helm, sallet, horned, crested, kettle hat, barbute) with feather, twin, mohawk, flame or brush plumes
-- **Menu theme:** "Custard Knights" plays on the menu, fades out when the brawl starts, and follows the Sound button
+- **Soundtrack:** menu, arena, wardrobe, mode, results and rare-event cues follow the game's music controls. Native playback is checked; musical quality and loop seams still need player listening.
 
 ## Controls
 

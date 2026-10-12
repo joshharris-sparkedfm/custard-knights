@@ -147,4 +147,4 @@ First fix save/reward attribution. Then add a data-driven item catalogue and goa
 
 Acceptance checks: existing players retain all items; any couch seat can contribute under the documented shared rules; remote guests receive their own progress; retrying a result cannot award twice; switching goals preserves earlier progress; outfits survive reload; cosmetics cannot affect combat; all unlock routes remain visible and available; and the next round is never blocked by the celebration.
 
-No implementation or live-player validation has been performed for this proposal.
+This document records the original proposal. The six-item first capsule, previews, pinned goals, first reward choice, presets and save migration have since been implemented; see [the completion audit](release/ROADMAP-STATUS.md) and [collection integration](game/COLLECTION-INTEGRATION.md). Human desirability/equip-rate acceptance remains unperformed. Later chapter collections remain proposals.

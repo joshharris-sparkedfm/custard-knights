@@ -1,6 +1,6 @@
-# Sales readiness — 9 October 2026
+# Sales readiness — reconciled 12 October 2026
 
-**Current development version: 0.3.0-beta.1 for a private Windows friends beta. Public-sale sign-off is pending.** Use [PREVIEW-BUILD.md](PREVIEW-BUILD.md) for its exact runtime commit, archive hash and local launch path. [RESUME-CHECKPOINT.md](RESUME-CHECKPOINT.md) records subsequent development. No Steam submission or public release is recorded. Developer/publisher is Sparked FM Ltd; GBP 7.99 / USD 9.99 remains a proposal, not a submitted price.
+**Current exported version: 0.3.0-beta.4 for a private Windows friends beta. Public-sale sign-off is pending.** Use [PREVIEW-BUILD.md](PREVIEW-BUILD.md) for its exact runtime commit, archive hash and local launch path. [RESUME-CHECKPOINT.md](RESUME-CHECKPOINT.md) records development; [ROADMAP-STATUS.md](ROADMAP-STATUS.md) records every original ticket and the genuine engineering gaps. No Steam submission or public release is recorded. Developer/publisher is Sparked FM Ltd; GBP 7.99 / USD 9.99 remains a proposal, not a submitted price.
 
 ## Current scope and acceptance
 
@@ -10,14 +10,16 @@
 | Character and combat presentation | Rounded knights, free saved closed/open visors, connected sword motion, authoritative contact cues | Human readability and responsiveness review; earlier controlled art checks are linked below |
 | Difficulty and bots | Easy, Medium, Hard and STEVE in arena/story/faction; role and objective decisions reviewed | Human difficulty calibration and multi-seed balance; scripted success does not establish fun or fairness |
 | Faction Front | Brawl, capture the flag and castle siege at 4v4, 20v20 and 50v50 total combatants; four roles and bot fill. A real browser plus99 scripted clients passed the local sample | Final timing/bandwidth acceptance, WAN and operating deployment. Anonymous session standings are unranked; private host-issued ratings/queues are implemented, with Steam identity and public competitive acceptance unfinished |
-| Desktop | Offline assets, saves, Windows x64 folder/ZIP; alpha.5 checked 42 package entries, faction connections and restart/relocation; alpha.6 adds the WAV soundtrack; earlier desktop journey is historical | Private Steam depot installation/update on a second PC; measured minimum specification; unsigned preview remains unsigned |
-| Store and music | Artwork, actual-game captures, 41-second trailer; twelve enabled music cues, including eleven new original WAV exports | Final media selection/content survey, support contact, price approval, musical quality, loudness and loop listening checks |
+| Desktop | Beta.4 Windows x64 folder/ZIP; all 56 package entries and 73 friends files verified, ZIP integrity and actual EXE save/restart/launcher/relocation passed | Private Steam depot installation/update on a second PC; measured minimum specification; unsigned beta remains unsigned |
+| Store and music | Artwork, actual-game captures, 41-second trailer; thirteen enabled cues including twelve native WAV exports and the menu MP3 | Final media selection/content survey, support contact, price approval, musical quality, loudness and loop listening checks |
 
 Alpha.2's faction-only 32 MiB sprite cache improved one fixed-seed ten-second 100-combatant sample from 53.61 to 60.09 FPS. Exact software-canvas comparisons passed 1,044 cases and 34 browser interface/online checks passed. GPU readback has documented 1–2 channel-level rounding differences. These results are specific to the QA host, not minimum specifications. See [render-cache review](../qa/reviews/faction-render-cache-2026-10-09.md).
 
 Independent Windows/Linux CI passed core and server tests; twelve full 100-bot browser matches covered all three faction modes and four profiles. Local native Node crashes remain unresolved. Separate server/client-process loads reached approximately 20 snapshots/sec, but minimum input delivery, receive stalls and 205–212 Mbps aggregate payload leave production timing and hosting acceptance incomplete. See [stability review](../qa/reviews/battle-stability-2026-10-09.md) and [process-load review](../qa/reviews/battle-process-load-2026-10-09.md). None of this is acceptance of a public 100-human service.
 
 ## Work required before sales
+
+The audit also found unfinished CK-04 product events/baseline, CK-05 onboarding experiment, CK-09 priority mixing/banner policy, CK-22 House Rules/chain-reaction prototype and CK-24 sharing/creator work. Their full requirements and distinction from conditional later ideas are recorded in [ROADMAP-STATUS.md](ROADMAP-STATUS.md). The current beta's completed movement, spawn, new weapon, guest-prediction and rare-event work is documented in the checkpoint; this does not complete those other tickets.
 
 Alpha.3 fixes controller pause navigation and the packaged faction Origin rejection. Seven focused pause tests, 36 browser pad checks, 1260 exact wire comparisons and both hosted full suites (121 tests each) passed. A deployment container passed isolated CI health/custom-origin/delta checks; the HTTPS overlay is prepared but not deployed or TLS-tested. See [sales preparation review](../qa/reviews/sales-readiness-2026-10-09.md) and [deployment preparation](../deploy/README.md).
 

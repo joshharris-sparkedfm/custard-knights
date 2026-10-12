@@ -6,6 +6,8 @@
 
 This is the implementation entry point. It consolidates the research and the subsequent story/cosmetic decisions. Where earlier documents suggest different sequencing, use this plan. The planning exercise itself made no runtime changes. Subsequent implementation delivered the first campaign chapter, Custard Cup, earned collection and Windows package; consult [launch status](release/LAUNCH-STATUS.md) for current evidence. Remaining proposals are not automatically shipped features.
 
+**Status reconciliation, 12 October 2026:** [ROADMAP-STATUS.md](release/ROADMAP-STATUS.md) audits every CK-01–24 ticket against beta.4 source and retained evidence. Several engineering items and human/platform acceptance gates remain open. The dated proposals below are preserved; they are not a completion checklist. Packaging, faction battles and private ratings were subsequently brought forward by the owner.
+
 ## 1. Product decisions
 
 - **Core:** short, satisfying fights with understandable counters and player-created comic moments.
@@ -149,7 +151,7 @@ Phase 0 must precede rewards/Cups; basic art and combat work precedes a polished
 
 ## 7. Engineering-ready backlog
 
-Effort labels are relative planning sizes: S = bounded change, M = multi-component feature, L = significant feature or uncertain spike. They are not day estimates. All items are proposed and not started.
+Effort labels are relative planning sizes: S = bounded change, M = multi-component feature, L = significant feature or uncertain spike. They are not day estimates. This table preserves the original proposed requirements; current per-ticket implementation and acceptance are in [the completion audit](release/ROADMAP-STATUS.md).
 
 | ID | Priority / size | Work and dependency | Done when |
 |---|---|---|---|

@@ -37,7 +37,7 @@ const check=(name,pass,details)=>{report.checks.push({name,pass:!!pass,...(detai
  const downloads=new Set(fs.readdirSync(out));await run('document.getElementById("reportExport").click()');
  let downloaded;for(let i=0;i<100;i++){downloaded=fs.readdirSync(out).find(f=>!downloads.has(f)&&f.endsWith('.json')&&!f.endsWith('.crdownload'));if(downloaded)break;await sleep(100);}check('Actual report JSON downloads',downloaded);
  const exported=JSON.parse(fs.readFileSync(path.join(out,downloaded),'utf8'));report.exportedMetrics=exported.metrics;
- check('Export identifies beta.5 and matches retained observations',exported.build==='0.3.0-beta.5'&&exported.metrics.roundsStarted===1&&exported.metrics.roundsCompleted===0);
+ check('Export identifies beta.6 and matches retained observations',exported.build==='0.3.0-beta.6'&&exported.metrics.roundsStarted===1&&exported.metrics.roundsCompleted===0);
  check('Export has independent opaque local identifiers',exported.events.every(r=>/^[a-f0-9]{16,64}$/.test(r.sessionId)&&(!r.fields.roundId||/^[a-f0-9]{16,64}$/.test(r.fields.roundId))));
  await run('window.savedConfig=localStorage.getItem("ck-cfg");document.getElementById("reportClear").click()');
  check('Clear erases observations without changing game preferences',await run('!localStorage.getItem(CKProductEvents.KEY)&&localStorage.getItem("ck-cfg")===savedConfig&&document.getElementById("reportConsent").checked'));
@@ -75,7 +75,7 @@ const check=(name,pass,details)=>{report.checks.push({name,pass:!!pass,...(detai
  check('Integration emits only accepted schema fields',await run('CK.productReport().counts.rejected===0'),await run('CK.productReport().counts'));
  await run('CK.massBattle().close();CK.toMenu();document.getElementById("reportExport").click()');
  await run('URL.createObjectURL=()=>{throw Error("Download blocked fixture")};document.getElementById("reportExport").click()');
- check('Blocked download preserves a usable copyable report',await run('!!document.getElementById("reportFallback").value&&JSON.parse(document.getElementById("reportFallback").value).build==="0.3.0-beta.5"'));
+ check('Blocked download preserves a usable copyable report',await run('!!document.getElementById("reportFallback").value&&JSON.parse(document.getElementById("reportFallback").value).build==="0.3.0-beta.6"'));
  await ready('?qa');
  check('Empty QA query also excludes recording from human metrics',await run('document.getElementById("reportConsent").checked&&(document.getElementById("startBtn").click(),true)'));await sleep(150);
  check('Persisted consent does not override QA exclusion',await run(stored+'.records.every(r=>r.fields.qa)'));

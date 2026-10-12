@@ -1,0 +1,208 @@
+{
+  "checks": [
+    {
+      "name": "Study cannot enroll without consent",
+      "pass": true
+    },
+    {
+      "name": "density/four: actual solo setup",
+      "pass": true
+    },
+    {
+      "name": "density/four: assignment before linked round",
+      "pass": true
+    },
+    {
+      "name": "density/four: timed completion restores config, progression and counters",
+      "pass": true
+    },
+    {
+      "name": "density/four: one terminal and one recognition",
+      "pass": true
+    },
+    {
+      "name": "density/four: completed comparison not repeated",
+      "pass": true
+    },
+    {
+      "name": "density/four: explicit normal round restores ordinary density and has no trial",
+      "pass": false
+    }
+  ],
+  "errors": [
+    {
+      "exceptionId": 1,
+      "text": "Uncaught",
+      "lineNumber": 613,
+      "columnNumber": 26,
+      "scriptId": "25",
+      "url": "file:///C:/Users/Joshua/Documents/Codex/2026-10-08/rea/work/custard-knights/index.html?qa=1",
+      "stackTrace": {
+        "callFrames": [
+          {
+            "functionName": "newGame",
+            "scriptId": "25",
+            "url": "file:///C:/Users/Joshua/Documents/Codex/2026-10-08/rea/work/custard-knights/index.html?qa=1",
+            "lineNumber": 613,
+            "columnNumber": 26
+          },
+          {
+            "functionName": "start",
+            "scriptId": "25",
+            "url": "file:///C:/Users/Joshua/Documents/Codex/2026-10-08/rea/work/custard-knights/index.html?qa=1",
+            "lineNumber": 2719,
+            "columnNumber": 598
+          },
+          {
+            "functionName": "rematch",
+            "scriptId": "25",
+            "url": "file:///C:/Users/Joshua/Documents/Codex/2026-10-08/rea/work/custard-knights/index.html?qa=1",
+            "lineNumber": 2766,
+            "columnNumber": 148
+          },
+          {
+            "functionName": "window.click",
+            "scriptId": "28",
+            "url": "",
+            "lineNumber": 0,
+            "columnNumber": 111
+          },
+          {
+            "functionName": "",
+            "scriptId": "40",
+            "url": "",
+            "lineNumber": 0,
+            "columnNumber": 0
+          }
+        ]
+      },
+      "exception": {
+        "type": "object",
+        "subtype": "error",
+        "className": "TypeError",
+        "description": "TypeError: Cannot read properties of undefined (reading 'q')\n    at newGame (file:///C:/Users/Joshua/Documents/Codex/2026-10-08/rea/work/custard-knights/index.html?qa=1:614:27)\n    at start (file:///C:/Users/Joshua/Documents/Codex/2026-10-08/rea/work/custard-knights/index.html?qa=1:2720:599)\n    at HTMLButtonElement.rematch (file:///C:/Users/Joshua/Documents/Codex/2026-10-08/rea/work/custard-knights/index.html?qa=1:2767:149)\n    at window.click (<anonymous>:1:112)\n    at <anonymous>:1:1",
+        "objectId": "7086977396935433109.3.1",
+        "preview": {
+          "type": "object",
+          "subtype": "error",
+          "description": "TypeError: Cannot read properties of undefined (reading 'q')\n    at newGame (file:///C:/Users/Joshua/Documents/Codex/2026-10-08/rea/work/custard-knights/index.html?qa=1:614:27)\n    at start (file:///C:/Users/Joshua/Documents/Codex/2026-10-08/rea/work/custard-knights/index.html?qa=1:2720:599)\n    at HTMLButtonElement.rematch (file:///C:/Users/Joshua/Documents/Codex/2026-10-08/rea/work/custard-knights/index.html?qa=1:2767:149)\n    at window.click (<anonymous>:1:112)\n    at <anonymous>:1:1",
+          "overflow": false,
+          "properties": [
+            {
+              "name": "stack",
+              "type": "string",
+              "value": "TypeError: Cannot read properties of undefined (re….click (<anonymous>:1:112)\n    at <anonymous>:1:1"
+            },
+            {
+              "name": "message",
+              "type": "string",
+              "value": "Cannot read properties of undefined (reading 'q')"
+            }
+          ]
+        }
+      },
+      "executionContextId": 3
+    }
+  ],
+  "network": [
+    "file:///C:/Users/Joshua/Documents/Codex/2026-10-08/rea/work/custard-knights/index.html?qa=1",
+    "file:///C:/Users/Joshua/Documents/Codex/2026-10-08/rea/work/custard-knights/vendor/fonts.css",
+    "file:///C:/Users/Joshua/Documents/Codex/2026-10-08/rea/work/custard-knights/sprites/knight.js",
+    "file:///C:/Users/Joshua/Documents/Codex/2026-10-08/rea/work/custard-knights/sprites/chicken.js",
+    "file:///C:/Users/Joshua/Documents/Codex/2026-10-08/rea/work/custard-knights/game/progression.js",
+    "file:///C:/Users/Joshua/Documents/Codex/2026-10-08/rea/work/custard-knights/game/product-events.js",
+    "file:///C:/Users/Joshua/Documents/Codex/2026-10-08/rea/work/custard-knights/game/first-fight.js",
+    "file:///C:/Users/Joshua/Documents/Codex/2026-10-08/rea/work/custard-knights/game/collection.js",
+    "file:///C:/Users/Joshua/Documents/Codex/2026-10-08/rea/work/custard-knights/game/collection-art.js",
+    "file:///C:/Users/Joshua/Documents/Codex/2026-10-08/rea/work/custard-knights/game/collection-ui.js",
+    "file:///C:/Users/Joshua/Documents/Codex/2026-10-08/rea/work/custard-knights/game/campaign.js",
+    "file:///C:/Users/Joshua/Documents/Codex/2026-10-08/rea/work/custard-knights/game/campaign-ui.js",
+    "file:///C:/Users/Joshua/Documents/Codex/2026-10-08/rea/work/custard-knights/game/campaign-integration.js",
+    "file:///C:/Users/Joshua/Documents/Codex/2026-10-08/rea/work/custard-knights/game/preferences.js",
+    "file:///C:/Users/Joshua/Documents/Codex/2026-10-08/rea/work/custard-knights/game/chaos.js",
+    "file:///C:/Users/Joshua/Documents/Codex/2026-10-08/rea/work/custard-knights/game/difficulty.js",
+    "file:///C:/Users/Joshua/Documents/Codex/2026-10-08/rea/work/custard-knights/game/weapons.js",
+    "file:///C:/Users/Joshua/Documents/Codex/2026-10-08/rea/work/custard-knights/game/cup.js",
+    "file:///C:/Users/Joshua/Documents/Codex/2026-10-08/rea/work/custard-knights/game/cup-ui.js",
+    "file:///C:/Users/Joshua/Documents/Codex/2026-10-08/rea/work/custard-knights/game/mass-battle.css",
+    "file:///C:/Users/Joshua/Documents/Codex/2026-10-08/rea/work/custard-knights/game/mass-battle.js",
+    "file:///C:/Users/Joshua/Documents/Codex/2026-10-08/rea/work/custard-knights/game/mass-battle-wire.js",
+    "file:///C:/Users/Joshua/Documents/Codex/2026-10-08/rea/work/custard-knights/game/mass-battle-ui.js",
+    "file:///C:/Users/Joshua/Documents/Codex/2026-10-08/rea/work/custard-knights/audio/soundtrack.js",
+    "file:///C:/Users/Joshua/Documents/Codex/2026-10-08/rea/work/custard-knights/sprites/hero.js",
+    "file:///C:/Users/Joshua/Documents/Codex/2026-10-08/rea/work/custard-knights/art/keyart/home.webp",
+    "file:///C:/Users/Joshua/Documents/Codex/2026-10-08/rea/work/custard-knights/vendor/nunito-latin-900-normal.woff2",
+    "file:///C:/Users/Joshua/Documents/Codex/2026-10-08/rea/work/custard-knights/vendor/lilita-one-latin-400-normal.woff2",
+    "file:///C:/Users/Joshua/Documents/Codex/2026-10-08/rea/work/custard-knights/vendor/nunito-latin-800-normal.woff2",
+    "file:///C:/Users/Joshua/Documents/Codex/2026-10-08/rea/work/custard-knights/vendor/nunito-latin-600-normal.woff2",
+    "data:[embedded asset omitted]",
+    "data:[embedded asset omitted]",
+    "file:///C:/Users/Joshua/Documents/Codex/2026-10-08/rea/work/custard-knights/menu-theme.mp3",
+    "data:[embedded asset omitted]",
+    "data:[embedded asset omitted]",
+    "data:[embedded asset omitted]",
+    "data:[embedded asset omitted]",
+    "data:[embedded asset omitted]",
+    "data:[embedded asset omitted]",
+    "data:[embedded asset omitted]",
+    "data:[embedded asset omitted]",
+    "data:[embedded asset omitted]",
+    "data:[embedded asset omitted]",
+    "data:[embedded asset omitted]",
+    "data:[embedded asset omitted]",
+    "data:[embedded asset omitted]",
+    "data:[embedded asset omitted]",
+    "data:[embedded asset omitted]",
+    "data:[embedded asset omitted]",
+    "data:[embedded asset omitted]",
+    "data:[embedded asset omitted]",
+    "data:[embedded asset omitted]",
+    "data:[embedded asset omitted]",
+    "data:[embedded asset omitted]",
+    "data:[embedded asset omitted]",
+    "data:[embedded asset omitted]",
+    "data:[embedded asset omitted]",
+    "data:[embedded asset omitted]",
+    "data:[embedded asset omitted]",
+    "data:[embedded asset omitted]",
+    "data:[embedded asset omitted]",
+    "data:[embedded asset omitted]",
+    "data:[embedded asset omitted]",
+    "data:[embedded asset omitted]",
+    "data:[embedded asset omitted]",
+    "data:[embedded asset omitted]",
+    "data:[embedded asset omitted]",
+    "data:[embedded asset omitted]",
+    "data:[embedded asset omitted]",
+    "data:[embedded asset omitted]",
+    "data:[embedded asset omitted]",
+    "data:[embedded asset omitted]",
+    "data:[embedded asset omitted]",
+    "data:[embedded asset omitted]",
+    "data:[embedded asset omitted]",
+    "data:[embedded asset omitted]",
+    "data:[embedded asset omitted]",
+    "data:[embedded asset omitted]",
+    "data:[embedded asset omitted]",
+    "data:[embedded asset omitted]",
+    "data:[embedded asset omitted]",
+    "data:[embedded asset omitted]",
+    "data:[embedded asset omitted]",
+    "data:[embedded asset omitted]",
+    "data:[embedded asset omitted]",
+    "data:[embedded asset omitted]",
+    "data:[embedded asset omitted]",
+    "data:[embedded asset omitted]",
+    "data:[embedded asset omitted]",
+    "data:[embedded asset omitted]",
+    "data:[embedded asset omitted]",
+    "data:[embedded asset omitted]",
+    "data:[embedded asset omitted]",
+    "file:///C:/Users/Joshua/Documents/Codex/2026-10-08/rea/work/custard-knights/audio/02-a-very-noble-food-fight.wav",
+    "file:///C:/Users/Joshua/Documents/Codex/2026-10-08/rea/work/custard-knights/audio/11-the-golden-spoon.wav",
+    "file:///C:/Users/Joshua/Documents/Codex/2026-10-08/rea/work/custard-knights/audio/11-the-golden-spoon.wav"
+  ],
+  "packaged": false,
+  "limitations": "Synthetic input in isolated profiles; packet fixtures exercise admission semantics, not live PeerJS or WAN. No human baseline or physical-controller acceptance.",
+  "failure": "Error: density/four: explicit normal round restores ordinary density and has no trial\n    at check (C:\\Users\\Joshua\\Documents\\Codex\\2026-10-08\\rea\\work\\custard-knights\\qa\\first-fight.cjs:13:127)\n    at C:\\Users\\Joshua\\Documents\\Codex\\2026-10-08\\rea\\work\\custard-knights\\qa\\first-fight.cjs:39:50"
+}

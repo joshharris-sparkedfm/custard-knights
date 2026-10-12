@@ -1,0 +1,16 @@
+{
+  "version": "0.3.0-beta.6",
+  "runtimeSource": "83f81e4a467fcd7d03af94ae04f4dbb4ebcfc323",
+  "asarSha256": "dc7e52ef284dd6068dfec30e8475f2897ba00979e6d46ed35516a542818df5db",
+  "preview": {
+    "bytes": 547115972,
+    "sha256": "afb5bab3b459946d98ebf22869fc6c579607c1d95c0a9f5fa2bce5478a409598"
+  },
+  "friends": {
+    "bytes": 547116732,
+    "sha256": "3abd4d7af4ab5481e4627721e69c8a773107016f93fafca7176b333c03d418cd",
+    "verifiedGameFiles": 73
+  },
+  "publicUpload": false,
+  "testerSending": false
+}

@@ -7,7 +7,7 @@ const exe=path.resolve(process.argv[2]),out=__dirname;
 const temporary=fs.mkdtempSync(path.join(os.tmpdir(),'custard-acceptance-'));
 const profile=path.join(temporary,'user-data');
 fs.writeFileSync(path.join(temporary,'acceptance-profile.marker'),'Isolated acceptance profile\n');
-const report={attempt:1,executable:exe,profile,checks:[],limitations:['Actual packaged desktop origin with programmatic click smoke; physical-device and human acceptance remain open.','In-memory inspector replacement of acceptance.run only; packaged bytes are not edited.']};
+const report={attempt:2,executable:exe,profile,checks:[],limitations:['Actual packaged desktop origin with programmatic click smoke; physical-device and human acceptance remain open.','In-memory inspector replacement of acceptance.run only; packaged bytes are not edited.']};
 const sleep=ms=>new Promise(r=>setTimeout(r,ms));
 async function injected({app,win}){
  try{
@@ -16,20 +16,20 @@ async function injected({app,win}){
    const checks=[],test=(name,pass)=>{checks.push({name,pass});if(!pass)throw Error(name);};
    const click=selector=>{const e=document.querySelector(selector);if(!e)throw Error('Missing '+selector);e.focus();e.click();};
    const wait=()=>new Promise(r=>setTimeout(r,200));
-   await document.fonts.ready;await sprLoadSet(SPR);
+   await document.fonts.ready;
    test('Actual desktop native origin',location.origin==='custard://game'&&!location.search);
    test('Fresh welcome is offered',!document.getElementById('firstLaunch').hidden);
    click('#onboardingJump');await wait();
    test('Skip reaches home and records choice',document.getElementById('firstLaunch').hidden&&!document.getElementById('menu').hidden&&localStorage.getItem('ck-onboarding-v1')!==null);
-   const saved=localStorage.getItem('ck-cfg'),coins=PROG.coins;
+   const saved=JSON.stringify(['ck-cfg','ck-progress','ck-collection','ck-campaign-v1'].map(k=>localStorage.getItem(k)));
    click('#tHowto');await wait();click('#practiceStart');await wait();
-   test('How to Play replays safe practice',!!practice&&G.practice&&!document.getElementById('practiceHud').hidden&&practice.lesson.state().stage==='move');
-   test('Safe practice preserves rewards and saved rules',PROG.coins===coins&&localStorage.getItem('ck-cfg')===saved&&G.ents.length===2&&G.pads.length===0);
-   setPause(true);await wait();
+   test('How to Play replays safe practice',!document.getElementById('practiceHud').hidden&&document.getElementById('practiceStep').textContent.includes('Move'));
+   test('Safe practice preserves rewards and saved rules',JSON.stringify(['ck-cfg','ck-progress','ck-collection','ck-campaign-v1'].map(k=>localStorage.getItem(k)))===saved);
+   click('#pauseBtn');await wait();
    test('Practice pause offers retry and leave',!document.getElementById('pause').hidden&&!document.getElementById('practicePauseRetry').hidden&&document.getElementById('quitBtn').textContent==='Leave practice');
    click('#quitBtn');await wait();
-   test('Leave restores How to Play focus',!practice&&!document.getElementById('howto').hidden&&document.activeElement.id==='practiceStart');
-   test('Leave preserves reward and saved rules',PROG.coins===coins&&localStorage.getItem('ck-cfg')===saved);
+   test('Leave restores How to Play focus',document.getElementById('practiceHud').hidden&&!document.getElementById('howto').hidden&&document.activeElement.id==='practiceStart');
+   test('Leave preserves reward and saved rules',JSON.stringify(['ck-cfg','ck-progress','ck-collection','ck-campaign-v1'].map(k=>localStorage.getItem(k)))===saved);
    return {checks,origin:location.origin};
   })()`);
   const loaded=new Promise(r=>win.webContents.once('did-finish-load',r));win.reload();await loaded;

@@ -1,4 +1,18 @@
-# Private friends beta - 0.3.0-beta.9
+# Private friends beta - 0.3.0-beta.10
+
+Frozen runtime `88a974bc1b5ec1166c1cae62e03d3aa9b1d7f61e` adds an optional first-launch welcome with sound/effect preferences and safe controls practice. New profiles can choose Learn by playing or Jump straight in; existing profiles keep the home menu. How to Play replays practice. Practice uses real arena movement, swing, guard, dash and bow aim without rewards, and restores remembered rules and couch seats afterwards.
+
+- Friends ZIP: `outputs/Custard-Knights-Friends-0.3.0-beta.10.zip`, 547144418 bytes, SHA256 `733d3b12a60fdbd929e6a6a608253d6872693c7c9ecc12468d5af1e53109e3e2`.
+- Preview folder: `outputs/Custard-Knights-Windows-0.3.0-beta.10-preview`.
+- Preview ZIP: `outputs/Custard-Knights-Windows-0.3.0-beta.10-preview.zip`, 547147037 bytes, SHA256 `9a73db79f3a6bd94f559ec9337c7f08d2f854bf21b8d1696177d3a65d0bc4a5f`.
+- ASAR SHA256: `5249b382a6a6a6a9b81684d5034ab859bf8e92b6d91ead29affb30a315982f8c`.
+- EXE SHA256: `c693be3ed68ff84cd9b3b7ed25c2bedd9c993f8ac4851e89ef5c49d6ccf7a916`.
+
+All 61 packaged entries match source/checked metadata, including `game/onboarding.js`. All 73 Friends game files match frozen dist, preview bytes and BUILD-INFO inventory hashes; both ZIPs pass CRC integrity and final hashes on their first verification invocation. Standard actual EXE save/restart/launcher/relocation and 38 extracted-package onboarding checks pass on their first attempts. The additional native actual EXE welcome/skip/replay/pause/leave/reload smoke passes nine checks after one explained fixture correction: native pages scope game internals and omit QA-only CK helpers. The failed first attempt remains preserved. Source checks pass 38/38 browser cases and 65/65 focused tests. All six jobs in hosted CI run [38377006420](https://github.com/joshharris-sparkedfm/custard-knights/actions/runs/38377006420) pass at the frozen runtime. [Package evidence](../qa/results/beta10-desktop/README.md) and [packaged onboarding checks](../qa/results/beta10-packaged-onboarding/README.md) give precise commands and limits.
+
+Extract the whole Friends ZIP and run `Game/Custard Knights.exe`, after closing older copies normally. Saves remain local and shared across versions. No public upload or sending occurred; older outputs remain preserved. Programmatic/synthetic checks do not establish physical-controller ergonomics, human usability/fun/balance, WAN/second-PC, minimum hardware or Steam acceptance. Earlier unexplained native-runtime anomalies remain unresolved. Later QA/docs commits do not change these frozen runtime bytes.
+
+# Historical private friends beta - 0.3.0-beta.9
 
 Frozen runtime `ae262b505ca9758de008df53418a06e26695a8a7` presents four home routes: Quick Brawl, Story / Continue Story, Play with Friends and Faction Front. Quick Brawl offers Custom brawl and Solo Custard Cup; Play with Friends offers On this PC, Online room and Custard Cup with friends. Wardrobe, Options, How to Play and desktop Quit are separate utilities. Existing game modes and saved progress remain included.
 

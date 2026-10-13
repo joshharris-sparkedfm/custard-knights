@@ -65,7 +65,7 @@ PR26 records the four-route home increment from e162741. Frozen runtime ae262b50
 
 Next bounded engineering: remaining FE-03 first-launch accessible setup and optional learning path, reusing existing settings and never forcing reporting, signup or tutorial. Also retain remaining loading/failure/online-match-menu acceptance as explicit FE-03 work. Then complete FE-04/05 couch ownership/persistent rooms and FE-06 before the causal story slice. The four-route home alone does not close FE-03; physical/human acceptance remains pending. Existing video location remains unresolved; menu engineering needs no new generation.
 
-## Active onboarding task — 13 October 2026
+## Completed onboarding engineering/package — 13 October 2026
 
 PR26 verified merged at4e00591703de06cff0fb2c1e6dd46722fe2fdfea; beta.9 is frozen and its agents are complete. New clean worktree work/custard-knights-onboarding, branch codex/first-launch-practice, starts from that main commit. Original bakery WIP preserved unchanged.
 
@@ -77,4 +77,6 @@ PR26 verified merged at4e00591703de06cff0fb2c1e6dd46722fe2fdfea; beta.9 is froze
 
 Root owns integration/checkpoint/Git. No generation, version/package freeze or merge until affected checks and independent review pass. First-launch setup exposes existing audio/motion/flashing only, not an invented remapping/text-scale claim. Normal saves and running user games must not be used. Human/device learning acceptance remains separate.
 
-Onboarding source implementation complete: owner reports65 affected tests; independent actual Chrome finalrun4 passes38/38 with unchanged source hashes and no Runtime exceptions. /root/onboarding_review (gpt-6-luna high) cleared the scoped state/reward/event boundaries. /root/onboarding_package (gpt-6.1-sol medium) owns beta.10 manifests/guide and qa/results/beta10-* only; prep ready, awaiting frozenSHA before exports. No human/device acceptance claimed; root integrates each checked PR before next work.
+The owner table above records the initial dispatch, now superseded: all four onboarding workers completed. Implementation reported65 affected tests; independent Chrome finalrun4 and extracted ASAR each pass38/38 with stable hashes and no Runtime exceptions. /root/onboarding_review (gpt-6-luna high) cleared scoped state/reward/event boundaries. /root/onboarding_package (gpt-6.1-sol medium) completed beta.10 from frozen88a974bc1b5ec1166c1cae62e03d3aa9b1d7f61e:61 entries/73 Friends files, both ZIP integrity checks, actual EXE onboarding9 and isolated save/restart/launcher/relocation pass. Six hosted jobs passed run38377006420. Explained source focus and native scoped-helper fixture failures remain preserved. Exact archives/hashes: PREVIEW-BUILD.md and qa/results/beta10-desktop/exports.json. No human/device acceptance claimed.
+
+Root finalizes checked evidence and merges PR27 before the next integrated task; verify PR/remote state on resume. Do not repeat completed aim/home/onboarding tests without an affected change. Next bounded engineering: remaining FE03 loading/failure and online-match-menu contract, then FE04/05 couch ownership/persistent rooms and FE06. Story causal slice, native two-sofa and200-combatant milestones remain explicit unfinished scope. Original bakery WIP must be preserved and separately reconciled in its story task.

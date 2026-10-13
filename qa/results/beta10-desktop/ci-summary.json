@@ -1,0 +1,53 @@
+{
+  "runId": 38377006420,
+  "url": "https://github.com/joshharris-sparkedfm/custard-knights/actions/runs/38377006420",
+  "sourceCommit": "88a974bc1b5ec1166c1cae62e03d3aa9b1d7f61e",
+  "jobs": [
+    {
+      "name": "server (windows-latest)",
+      "status": "completed",
+      "conclusion": "success",
+      "headSha": "88a974bc1b5ec1166c1cae62e03d3aa9b1d7f61e",
+      "url": "https://github.com/joshharris-sparkedfm/custard-knights/actions/runs/38377006420/job/115227798837"
+    },
+    {
+      "name": "server (ubuntu-latest)",
+      "status": "completed",
+      "conclusion": "success",
+      "headSha": "88a974bc1b5ec1166c1cae62e03d3aa9b1d7f61e",
+      "url": "https://github.com/joshharris-sparkedfm/custard-knights/actions/runs/38377006420/job/115227799073"
+    },
+    {
+      "name": "core (ubuntu-latest, 22)",
+      "status": "completed",
+      "conclusion": "success",
+      "headSha": "88a974bc1b5ec1166c1cae62e03d3aa9b1d7f61e",
+      "url": "https://github.com/joshharris-sparkedfm/custard-knights/actions/runs/38377006420/job/115227799125"
+    },
+    {
+      "name": "core (windows-latest, 24)",
+      "status": "completed",
+      "conclusion": "success",
+      "headSha": "88a974bc1b5ec1166c1cae62e03d3aa9b1d7f61e",
+      "url": "https://github.com/joshharris-sparkedfm/custard-knights/actions/runs/38377006420/job/115227799141"
+    },
+    {
+      "name": "core (ubuntu-latest, 24)",
+      "status": "completed",
+      "conclusion": "success",
+      "headSha": "88a974bc1b5ec1166c1cae62e03d3aa9b1d7f61e",
+      "url": "https://github.com/joshharris-sparkedfm/custard-knights/actions/runs/38377006420/job/115227799233"
+    },
+    {
+      "name": "core (windows-latest, 22)",
+      "status": "completed",
+      "conclusion": "success",
+      "headSha": "88a974bc1b5ec1166c1cae62e03d3aa9b1d7f61e",
+      "url": "https://github.com/joshharris-sparkedfm/custard-knights/actions/runs/38377006420/job/115227799596"
+    }
+  ],
+  "allSixPassed": true,
+  "limitations": [
+    "Hosted CI does not establish resolution of historical local native faults or human/device/WAN acceptance."
+  ]
+}

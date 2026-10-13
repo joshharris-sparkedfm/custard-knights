@@ -8,6 +8,28 @@ Latest verified export: beta.13 frozen dd4906bcae1266355a11e50072bdccaff930f6f8 
 
 ## FE04 remapping final handoff
 
+PR30 merged at6bd91f8522ec33ab5a0d7d9195d6b64dd15a5c44; origin/main and the clean controls checkout verified on this dispatch. All prior agents completed. Beta.13 remains latest verified export.
+
+## Active FE05 stable room-seat task
+
+Fresh work/custard-knights-room, branch codex/room-seat-continuity from verified main6bd91f8. Original bakery WIP remains isolated and untouched. Root owns queue/checkpoint/Git, integration and eventual package dispatch. Complete independent review, checked push/PR/merge before next integrated task.
+
+| Task | Owner/model/effort | Files | Progress / next action |
+|---|---|---|---|
+| Stable local room/Cup identity | /root/room_implementation, gpt-6.1-sol high | index.html, relevant game modules, focused tests | Trace dense-seat assumptions; preserve logical slots through deliberate Leave, recovery, Cup departure and next Cup |
+| Independent browser/transport QA | /root/room_qa, gpt-6.1-sol medium | qa/room-continuity-browser.cjs, dated results/review | Prepare UI/slot/profile/maps/Cup/departure cases with isolated profiles; final acceptance waits stable source |
+| Independent source review | /root/room_review, gpt-6-luna high | Read-only source/evidence | Audit occupancy versus logical identity, input ownership, legacy profiles, rewards, online admission and departed readiness |
+
+Scope is in-memory supported local/host-sofa plus individual guests. Keep beta.12 missing-seat recovery and beta.13 saved controls. No guest multiseat, authenticated persistence, Faction or story rewrite; those remain separate milestones. Human/physical/WAN acceptance is not replaced by fixtures. Latest acceptance package remains beta.13 until a coherent checked increment is exported.
+
+Candidate1: 80 focused source tests pass (initial new fixture mocks were corrected, no native failure run). Independent browser20/20 passes with stable index03500a1ff94915969e9f7649b202734781542f682cf751a6b83586e084214337 and cup-ui94c515d6a3549f6d06c0288f2457ae7d4b35f920e056e034fe7a141703bf4a00, including actual same-host PeerJS and labelled direct Cup/scale fixtures. This is not final acceptance: reviewer found duplicate saved pink can collide with seatLook's fallback and trigger an actor colour swap. Owner is repairing deterministic unused fallback; QA adds preview/actual repeated-Cup and rejoin coverage for candidate2. Original candidate evidence remains retained.
+
+Candidate2 source complete: indexaa0978bd91dfb8727e0f77c2853101adba2eed1361a3ef40ef5ebc0a1f2626fa, cup-ui94c515d6a3549f6d06c0288f2457ae7d4b35f920e056e034fe7a141703bf4a00.81 focused tests pass; duplicate-colour fallback now chooses a deterministic unused value without changing saved profiles. Independent final browser/review pending. /root/room_package (gpt-6.1-sol medium) owns beta.14 version, START-HERE/PREVIEW/export README and qa/results/beta14-* preparation; waits for root frozen source before any build. Root retains queue/checkpoint/CI/Git ownership. Known reviewed extraction adapter must preserve provenance and template content identity; no unchanged native-failure retry.
+
+## Historical FE04 completion details
+
+FE05 source freeze ready: final candidate2 independent source review clear;81 focused unit tests pass. QA retained candidate1 broad20 plus targeted candidate2 two cosmetic/rejoin and one vote/rule cases, all stable/zeroexceptions. No combined source23 run claimed. Package owner must run exact final full23 harnessda03d89785de903b5a6fb592b9e54b78b2d1da5f3e5e93a2934fa0eb69207ebe (root removed only an extra EOF blank line after QA; prior report harness hashes remain historical) with CK_QA_FOCUSED unset against extractedASAR. Root now freezes/pushes/opens PR, then package/CI/final review before merge.
+
 Implementation, independent source/browser QA and beta.13 packaging are complete. Source and extracted-ASAR remapping each pass 33 checks; native programmatic editor/storage/reload smoke passes 9, and isolated EXE lifecycle acceptance passes. All 63 package entries and 73 Friends game files match; both ZIP integrity/hash checks pass. CI38388857005 passes all six jobs at frozen dd4906b on its first attempt. Retained helper failures concern Python newline escaping and a UTF-8 guide comparison decoded with Windows defaults; corrections changed evidence helpers only, not runtime or archives. Native extraction uses the documented reviewed adapter, not a claimed native-fault fix. Root completes final review/evidence push and PR30 merge before the next implementation.
 
 Friends beta.13 is a private testing build. Physical controllers, human ergonomics, native combat timing, WAN and Steam acceptance remain open. Remapping applies to arena/Cup/Story/practice; Faction controls stay separately fixed. Original bakery WIP and older exports remain preserved.

@@ -2,7 +2,7 @@
 
 13 October 2026 · Proposed verification protocol, not a record of passes
 
-Read [FULL-EXPERIENCE-PLAN.md](FULL-EXPERIENCE-PLAN.md), [ROADMAP-STATUS.md](ROADMAP-STATUS.md) and the [beta.7 export record](PREVIEW-BUILD.md) first. Coding completion, automated verification, human/device acceptance and platform approval are separate states. Current technical evidence remains version-scoped; all cases below are pending unless an existing linked record covers unchanged code and dependencies.
+Read [FULL-EXPERIENCE-PLAN.md](FULL-EXPERIENCE-PLAN.md), [ROADMAP-STATUS.md](ROADMAP-STATUS.md) and the [current export record](PREVIEW-BUILD.md) first. Coding completion, automated verification, human/device acceptance and platform approval are separate states. Current technical evidence remains version-scoped; all cases below are pending unless an existing linked record covers unchanged code and dependencies.
 
 ## Record the supported journey and its terminal result
 

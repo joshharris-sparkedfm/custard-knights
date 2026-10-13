@@ -1,3 +1,11 @@
+# FE05 room-seat work in progress — 13 October 2026
+
+Source-freeze handoff: candidate2 independently source-cleared, indexaa0978bd91dfb8727e0f77c2853101adba2eed1361a3ef40ef5ebc0a1f2626fa and cup-ui94c515d6a3549f6d06c0288f2457ae7d4b35f920e056e034fe7a141703bf4a00.81 focused unit tests pass. Independent browser candidate1 broad20 plus candidate2 targeted2+1 all pass with stable hashes/zero exceptions; full combined23 awaits extracted-ASAR run. Candidate1 missed duplicate-pink fallback defect; source review caught it and candidate2 fixes it without mutating saved profiles. New test fixture mock failures were corrected and reported, not native runtime failures. Beta.14 version and guide prepared; root freezes/pushes for CI then authorizes package owner at exact commit. Beta.13 remains verified output until new export checks succeed.
+
+PR30 merged at6bd91f8522ec33ab5a0d7d9195d6b64dd15a5c44 and origin/main was fetched/verified clean before a fresh work/custard-knights-room branch codex/room-seat-continuity. Beta.13 remains the verified exported build below. Original bakery WIP is isolated in the original checkout and unchanged.
+
+Active owners: /root/room_implementation (Sol high) owns index/game/tests; /root/room_qa (Sol medium) owns focused browser harness/results/review; /root/room_review (Luna high) is read-only; root owns release docs/Git/integration. Implement fixed logical local slots, deliberate Leave without profile/control-map shifts, Cup vacancy/readiness continuity and truthful interrupted-Cup messages. Remote actors must fit unique IDs1–8 without being mistaken for local logical seats. Current changes are not accepted until source tests, stable independent QA/review, packaging and CI finish. No public upload, tester messages or normal-save access.
+
 # Beta.13 remappable controls export — 13 October 2026
 
 Frozen runtime dd4906bcae1266355a11e50072bdccaff930f6f8, PR30. Friends ZIP outputs/Custard-Knights-Friends-0.3.0-beta.13.zip: 547153491 bytes, SHA256344c9698f79eeafbc9fe4e501e4a793e79e00d6d2b54a7e46e6444520122fe1f. Preview ZIP547160415 bytes, SHA2567d1753cc9906df916dd767a699a59318d9c9d564c9d0922a6c5c4140cc3184d3. ASAR5cc759db8a29a1d415bf4785e5991b55538e56682ec76e85b67613ca66d5bcfd. Exact paths, evidence and limits: PREVIEW-BUILD.md and qa/results/beta13-desktop.

@@ -6,7 +6,11 @@ The user renewed automation authorization after the earlier removal. Historical 
 
 Latest verified increment: beta.10 frozen at88a974bc1b5ec1166c1cae62e03d3aa9b1d7f61e; PR27 merged at5d32e0960c1321e1cd694e5bafbf006ecfb9a187, verified origin/main on13 October09:47UTC. Earlier beta/version/task labels are historical.
 
-## Active arena recovery task — 13 October 2026
+## Completed arena recovery task — 13 October 2026
+
+Final state supersedes the initial dispatch/progress records below: all four agents completed. PR28 holds frozen beta.11 source5c8549db9d5293005fe3b5bd83998a5e66ac32df and final package evidence.70 affected tests plus32 after CSS; final source38/extracted38/native EXE13 and lifecycle checks pass. All62 entries/73 Friends files and ZIP integrity verified. Independent review cleared; CI38381138348 all6passed at unchanged JS sourcee43c8f9 (not final CSS hash). Exact archive identity in PREVIEW-BUILD.md and qa/results/beta11-desktop/exports.json. Root completes evidence push/merge and verifies current origin/main before next task; no production task remains assigned here.
+
+Next engineering dispatch: bounded FE04 couch device ownership/loss/rejoin and binding prompts, then FE05 room/Cup continuity. Preserve initial/changed seat policy and all existing tested behavior. Broader FE03/Faction/human acceptance stays open; do not mislabel this bounded arena increment as entire milestone completion. FE06 and causal story follow queue dependencies. No new work should duplicate completed recovery agents.
 
 Clean worktree work/custard-knights-recovery, branch codex/menu-online-recovery from verified main5d32e09. No prior agents active; original bakery WIP remains preserved. Root owns queue/checkpoint and Git. Complete/push/merge this task before the next integration.
 

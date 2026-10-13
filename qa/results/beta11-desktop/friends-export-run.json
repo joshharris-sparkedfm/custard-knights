@@ -1,0 +1,12 @@
+{
+  "zip": "Custard-Knights-Friends-0.3.0-beta.11.zip",
+  "bytes": 547146843,
+  "sha256": "01af8ffdabe1d6b6f1e883bacba18aca58afd5c4ea69b3057de0fe9422571cd3",
+  "gameFiles": 73,
+  "build": {
+    "version": "0.3.0-beta.11",
+    "sourceCommit": "5c8549db9d5293005fe3b5bd83998a5e66ac32df",
+    "sourceZipSha256": "890f1924bb6252ab6a0f2bde9b5c720cfbf4a6fa65ed1fa03bbf6cf7fabdc2a2",
+    "appAsarSha256": "b6de7ed7914e5b432c9bc98949a0f72400e6b04f5949855248cb7701610c71aa"
+  }
+}

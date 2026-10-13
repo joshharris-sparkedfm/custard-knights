@@ -26,18 +26,19 @@ with zipfile.ZipFile(friend_path) as z:
         assert data == (repo / 'dist/Custard Knights-win32-x64' / relative).read_bytes()
     (here / 'friends-build-info.json').write_text(json.dumps(info, indent=2) + '\n')
 package = json.loads((here / 'package-evidence.json').read_text())
-assert len(package['files']) > 0
+assert len(package['files']) == 62
 assert any(x['file'] == 'game/online-recovery.js' for x in package['files'])
 assert info['appAsarSha256'] == package['archiveSha256']
 assert digest((Path(preview['folder']) / 'resources/app.asar').read_bytes()) == package['archiveSha256']
 assert digest((Path(preview['folder']) / 'Custard Knights.exe').read_bytes()) == package['executableSha256']
 aim = json.loads((repo / 'qa/results/beta11-packaged-recovery/report.json').read_text())
-assert len(aim['checks']) > 0 and all(x['pass'] for x in aim['checks'])
+assert len(aim['checks']) == 38 and all(x['pass'] for x in aim['checks'])
 assert aim['sourceHashes'] == aim['finalSourceHashes'] and not aim['consoleErrors'] and not aim.get('failure')
+assert aim['realPeerJS'] == 'same-host actual bundled PeerJS'
 by_source = {x['file']: x for x in package['files']}
 assert all(by_source[name]['sha256'] == value for name, value in aim['sourceHashes'].items())
 actual_home = json.loads((here / 'actual-recovery.json').read_text())
-assert actual_home['pass'] and len(actual_home['checks']) > 0
+assert actual_home['pass'] and len(actual_home['checks']) == 13
 assert all(x['pass'] for x in actual_home['checks']) and actual_home['origin'] == 'custard://game'
 record = dict(version=preview['version'], sourceCommit=preview['sourceCommit'],
     asarSha256=package['archiveSha256'], executableSha256=package['executableSha256'],

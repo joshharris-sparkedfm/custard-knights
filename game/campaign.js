@@ -1,6 +1,7 @@
 /* The Great Pudding War: authored encounters, independent spoons and local saves. */
 (function(root,factory){const api=factory();if(typeof module==='object'&&module.exports)module.exports=api;else root.CKCampaign=api;})(typeof globalThis!=='undefined'?globalThis:this,()=>{
  'use strict';
+ const W=typeof module==='object'&&module.exports?require('./warnings.js'):globalThis.CKWarnings;
  const difficulties={easy:{label:'Easy',pace:.8},medium:{label:'Medium',pace:1},hard:{label:'Hard',pace:1.18},steve:{label:'STEVE',pace:1.4}};
  const KEY='ck-campaign-v1';
  const nodes=[
@@ -45,7 +46,13 @@
   function difficulty(value){save.difficulty=Object.hasOwn(difficulties,value)?value:'medium';persist();}
   function pace(){return difficulties[run.difficulty].pace;}
   function checkpoint(phase){save.checkpoint={id:run.node.id,phase};persist();}
-  function banner(title,sub){run.g.banner={title,sub,col:'#FFD23F',t:3,max:3};}
+  function clearWarning(key){const full='campaign:'+run.node.id+':'+key;if(engine.clearBanner)engine.clearBanner(full);else if(run.g.banner?.key===full)run.g.banner=null;}
+  function banner(title,sub,{kind='objective',key=title.toLowerCase().replace(/[^a-z0-9]+/g,'-').slice(0,60),duration=3,cue=kind==='hazard'?'alarm':null}={}){
+   const b={title,sub,col:'#FFD23F',t:duration,max:duration},full='campaign:'+run.node.id+':'+key;
+   // A completed campaign phase makes its previous objective obsolete.
+   if(kind==='objective'&&run.g.banner?.kind==='objective'&&run.g.banner.key.startsWith('campaign:'))clearWarning(run.g.banner.key.split(':').slice(2).join(':'));
+   if(engine.showBanner)engine.showBanner(b,kind,full,cue);else run.g.banner=W.offer(run.g.banner,{...b,kind,key:full}).banner;
+  }
   function spawn(role,x,y,hp=3,name){const g=run.g;const e=engine.makeKnight({id:g.ents.length,name:name||'Rice raider',human:0,team:'blue',x,y,color:'#CFE6FF',plume:'#FFD23F',hp,campaignMaxHp:hp,campaignRole:role,springCd:0,portalCd:0,holdT:0,charge:0,dashAtkT:0,blockAge:99,bashCd:0,hitLock:0,guardLock:0,whiffT:0,spawnAt:g.clock,atkWas:false,comboT:-9,protect:1,inv:1,kit:{helm:'great',plume:'feather',metal:'steel'},ai:{parryOk:false},fx:{},lvl:{}});g.ents.push(e);return e;}
   function freshArena(g,node){
    const player=g.ents.find(e=>e.human&&!e.netId)||g.ents[0];player.human=1;player.team='red';player.netId=null;player.chick=false;player.hp=save.assist?5:3;player.campaignMaxHp=player.hp;player.x=180;player.y=440;player.face=0;player.fx={};player.lvl={};player.carry=null;player.protect=2;player.inv=2;
@@ -54,14 +61,14 @@
   function grid(g){g.grid=Array.from({length:18},(_,r)=>Array.from({length:32},(_,c)=>r===0||r===17||c===0||c===31?'#':'.'));g.crateHp={};g.floor=[];g.portals=[];g.flows.clear();g.spawns=[{x:180,y:440},{x:1100,y:440}];g.left=[g.spawns[0]];g.right=[g.spawns[1]];g.spawnCands=[];g.spawnUsed=new Map();}
   function rebuild(){const g=run.g;g.floor=[];for(let r=1;r<17;r++)for(let c=1;c<31;c++)if(g.grid[r][c]==='.')g.floor.push({x:c*40+20,y:80+r*40+20});engine.redraw&&engine.redraw();}
   function cage(c,r,label){const g=run.g;g.grid[r][c]='x';g.crateHp[r*32+c]=3;run.cage={c,r,x:c*40+20,y:80+r*40+20,label};rebuild();}
-  function cancelStandAttack(e){e.standTimer=0;e.standTarget=null;run.warnings=run.warnings.filter(w=>w.actor!==e.id);}
+  function cancelStandAttack(e){if(e.standWarningKey)clearWarning(e.standWarningKey);e.standWarningKey=null;e.standTimer=0;e.standTarget=null;run.warnings=run.warnings.filter(w=>w.actor!==e.id);}
   function testPhase(phase){const g=run.g;run.phase=phase;run.phaseT=0;g.ents=g.ents.slice(0,1);g.proj=[];run.warnings=[];run.contested=false;run.player.hp=run.player.campaignMaxHp;run.player.inv=1;run.player.x=360;run.player.y=440;run.player.vx=run.player.vy=0;run.hold=0;run.testBlocks=0;
    if(phase===0){spawn('examiner',470,440,20,'Sir Stirling');banner('TEST ONE: DEFEND','Face Stirling. Block or parry three swings.');}
    if(phase===1){spawn('shield',660,440,3,'Sir Stirling');banner('TEST TWO: COUNTER','Charge a heavy, bash, or circle behind his shield.');checkpoint(1);}
    if(phase===2){run.zone={x:640,y:440,r:85,label:'Hold the pie'};spawn('raider',960,330,2);spawn('raider',960,550,2);banner('TEST THREE: LUNCH','Hold the pie circle for eight uncontested seconds.');checkpoint(2);}
   }
-  function bossPhase(phase){run.phase=phase;run.boss.phase=phase;run.boss.step='stalk';run.boss.timer=2.4;run.boss.blocking=false;run.boss.target=null;if(phase===1){spawn('shield',800,320,2,'Shield guard');spawn('shield',800,560,2,'Shield guard');checkpoint(1);banner('THE SHIELD WALL','His wide sweep can knock his own guards down.');}}
-  function rescue(){run.phase=2;run.skinTimer=2;run.skinWarn=false;run.g.ents.filter(e=>!e.human).forEach(e=>{e.dead=true;e.respawn=Infinity;});run.player.hp=run.player.campaignMaxHp;run.player.inv=2;cage(22,8,'Trapped rice soldier');checkpoint(2);banner('THAT ISN’T OURS','Break the living skin patch to free the soldier. Watch for its warned lash.');}
+  function bossPhase(phase){clearWarning('boss-tell');run.phase=phase;run.boss.phase=phase;run.boss.step='stalk';run.boss.timer=2.4;run.boss.blocking=false;run.boss.target=null;if(phase===1){spawn('shield',800,320,2,'Shield guard');spawn('shield',800,560,2,'Shield guard');checkpoint(1);banner('THE SHIELD WALL','His wide sweep can knock his own guards down.');}}
+  function rescue(){clearWarning('boss-tell');run.phase=2;run.skinTimer=2;run.skinWarn=false;run.g.ents.filter(e=>!e.human).forEach(e=>{e.dead=true;e.respawn=Infinity;});run.player.hp=run.player.campaignMaxHp;run.player.inv=2;cage(22,8,'Trapped rice soldier');checkpoint(2);banner('THAT ISN’T OURS','Break the living skin patch to free the soldier. Watch for its warned lash.');}
   function banquet(){
    const g=run.g;
    // One real breakable tile seals a 40px doorway. The engine's 17.6px
@@ -107,7 +114,7 @@
    if(id==='rind'){run.boss=spawn('marshal',800,440,8,'Marshal Rind');run.boss.r=28;run.boss.blade='spoon';run.boss.kit={helm:'crest',plume:'brush',metal:'steel'};run.boss.emblem='crown';if(cp===2)rescue();else if(cp){run.boss.hp=4;bossPhase(1);}else bossPhase(0);}
    rebuild();banner(n.title,n.objective);return run;
   }
-  function finish(won,reason){if(!run||run.status!=='playing')return null;run.status=won?'won':'failed';run.g.over=true;const id=run.node.id;let bonus;
+  function finish(won,reason){if(!run||run.status!=='playing')return null;run.status=won?'won':'failed';run.g.over=true;if(engine.clearBanner)engine.clearBanner();else run.g.banner=null;const id=run.node.id;let bonus;
    if(id==='banquet')bonus=[run.hits===0&&run.falls===0,run.elapsed<=90];
    if(id==='puddings')bonus=[run.stands.every(s=>s.hp===4),run.blocks>=3];
    if(id==='guard')bonus=[run.heavies>0,run.hits===0&&run.falls===0];
@@ -133,13 +140,13 @@
    if(id==='bridge'){const gate=run.gates[run.route];if(gate&&distance(p,gate)<gate.r){run.checkpoint={x:gate.x,y:gate.y};run.route++;banner('CHECKPOINT '+run.route,run.route<3?'The next gold gate is ahead.':'Hold the far end for three seconds.');}if(run.route>=3){run.hold=distance(p,run.zone)<run.zone.r?run.hold+dt:0;if(run.hold>=3)finish(true);}if(p.dashT>0&&p.y>=260&&p.y<=680){for(const c of [8,16,24]){const left=c*40,right=left+40;if(!run.dashGap&&Math.abs(p.x-(left+20))<65&&(p.x<left||p.x>right))run.dashGap={c,side:p.x<left?-1:1};if(run.dashGap&&run.dashGap.c===c&&((run.dashGap.side<0&&p.x>right)||(run.dashGap.side>0&&p.x<left)))run.gapDash=true;}}else run.dashGap=null;}
    if(id==='stirling'){if(run.phase===0&&run.testBlocks>=3)testPhase(1);else if(run.phase===1&&enemies.length===0)testPhase(2);else if(run.phase===2){run.contested=enemies.some(e=>distance(e,run.zone)<110);if(distance(p,run.zone)<run.zone.r&&!run.contested)run.hold+=dt;if(run.hold>=8)finish(true);}}
    if(id==='steve'&&run.eggOpened!==undefined){run.eggT-=dt;if(!p.fx.steve&&!g.pickups.some(q=>q.kind==='steve')&&run.eggT<=0){g.pickups.push({x:run.cage.x,y:run.cage.y,kind:'steve',tier:4,t:0});run.eggT=2;}if(p.fx.steve){const gate=run.gates[run.route];if(gate&&distance(p,gate)<gate.r){run.route++;if(run.route>=3)finish(true);}}}
-   if(id==='rind'&&run.phase<2){const b=run.boss;if(b.dead){rescue();}else if(run.phase===0&&b.hp<=4)bossPhase(1);else{b.timer-=dt;if(b.timer<=0){if(b.step==='stalk'){b.step='warn';b.target={x:p.x,y:p.y};b.timer=(save.assist?1.5:1.15)/pace();b.warnMax=b.timer;banner(run.phase?'SPOON SWEEP':'SPOON SLAM','Leave the red circle. His spoon will lodge in the floor.');}else if(b.step==='warn'){attackCircle(b.target.x,b.target.y,run.phase?170:105,b,run.phase===1);run.effects.push({...b.target,r:run.phase?170:105,t:.65,max:.65,kind:'slam'});b.step='exhausted';b.timer=(save.assist?3.8:2.8)/pace();b.recoveryMax=b.timer;b.blocking=false;b.guardLock=3;banner('SPOON STUCK','His shield is down. Get in and bonk him.');}else{b.step='stalk';b.timer=2.4/pace();b.guardLock=0;b.guard=1.5;}}}}
-   else if(id==='rind'&&run.phase===2){run.skinTimer-=dt;if(run.skinTimer<=0){if(!run.skinWarn){run.skinWarn=true;run.skinTimer=1/pace();run.warnings.push({...run.cage,r:100,t:run.skinTimer,max:run.skinTimer,label:'Skin lash!'});}else{attackCircle(run.cage.x,run.cage.y,100,run.boss);run.skinWarn=false;run.skinTimer=2.2/pace();}}}
+   if(id==='rind'&&run.phase<2){const b=run.boss;if(b.dead){rescue();}else if(run.phase===0&&b.hp<=4)bossPhase(1);else{b.timer-=dt;if(b.timer<=0){if(b.step==='stalk'){b.step='warn';b.target={x:p.x,y:p.y};b.timer=(save.assist?1.5:1.15)/pace();b.warnMax=b.timer;banner(run.phase?'SPOON SWEEP':'SPOON SLAM','Leave the red circle. His spoon will lodge in the floor.',{kind:'hazard',key:'boss-tell',duration:b.timer});}else if(b.step==='warn'){clearWarning('boss-tell');attackCircle(b.target.x,b.target.y,run.phase?170:105,b,run.phase===1);run.effects.push({...b.target,r:run.phase?170:105,t:.65,max:.65,kind:'slam'});b.step='exhausted';b.timer=(save.assist?3.8:2.8)/pace();b.recoveryMax=b.timer;b.blocking=false;b.guardLock=3;banner('SPOON STUCK','His shield is down. Get in and bonk him.');}else{b.step='stalk';b.timer=2.4/pace();b.guardLock=0;b.guard=1.5;}}}}
+   else if(id==='rind'&&run.phase===2){run.skinTimer-=dt;if(run.skinTimer<=0){if(!run.skinWarn){run.skinWarn=true;run.skinTimer=1/pace();run.warnings.push({...run.cage,r:100,t:run.skinTimer,max:run.skinTimer,label:'Skin lash!'});banner('SKIN LASH','Leave the red circle before the skin patch strikes.',{kind:'hazard',key:'skin-lash',duration:run.skinTimer});}else{clearWarning('skin-lash');attackCircle(run.cage.x,run.cage.y,100,run.boss);run.skinWarn=false;run.skinTimer=2.2/pace();}}}
   }
   function input(e,dt){if(!run||!run.g.campaign||e.human)return null;const p=run.player,role=e.campaignRole;let out=noInput();if(run.status!=='playing'||!living(p)||!living(e))return out;if(e.stun>0){cancelStandAttack(e);e.campaignTell=false;return out;}const angle=Math.atan2(p.y-e.y,p.x-e.x),d=distance(p,e);out.faceTo=angle;
    if(role==='archer'){return out;}
    if(role==='marshal'){if(e.step==='stalk'){out.block=true;if(e.guardLock<=0)e.guard=1.5;if(d>160){out.mx=Math.cos(angle)*.5;out.my=Math.sin(angle)*.5;}}return out;}
-   if(role==='stand-raider'){const s=run.stands.filter(q=>q.hp>0).sort((a,b)=>distance(e,a)-distance(e,b))[0];if(!s)return out;if(e.standTarget&&e.standTarget!==s)cancelStandAttack(e);if(distance(e,s)>60){cancelStandAttack(e);const v=engine.steer(e,s.x,s.y);out.mx=v.x;out.my=v.y;}else{if(!e.standTimer){e.standTimer=1.4/pace();e.standTarget=s;run.warnings.push({x:s.x,y:s.y,r:55,t:e.standTimer,max:e.standTimer,label:'Protect this pudding',actor:e.id});}e.standTimer-=dt;if(e.standTimer<=0){s.hp--;cancelStandAttack(e);banner('PUDDING UNDER ATTACK',s.label+' stand: '+s.hp+'/4. Bonk its raider.');}}e.campaignTell=false;if(d<90){e.combatTimer=(e.combatTimer||0)+dt*pace();const cycle=e.combatTimer%2.4;e.campaignTell=cycle>1.1&&cycle<1.8;e.campaignWindup=e.campaignTell?(cycle-1.1)/.7:0;out.atk=cycle>1.8&&cycle<1.95;}return out;}
+   if(role==='stand-raider'){const s=run.stands.filter(q=>q.hp>0).sort((a,b)=>distance(e,a)-distance(e,b))[0];if(!s)return out;if(e.standTarget&&e.standTarget!==s)cancelStandAttack(e);if(distance(e,s)>60){cancelStandAttack(e);const v=engine.steer(e,s.x,s.y);out.mx=v.x;out.my=v.y;}else{if(!e.standTimer){e.standTimer=1.4/pace();e.standTarget=s;run.warnings.push({x:s.x,y:s.y,r:55,t:e.standTimer,max:e.standTimer,label:'Protect this pudding',actor:e.id});e.standWarningSerial=(e.standWarningSerial||0)+1;e.standWarningKey='stand:'+e.id+':'+e.standWarningSerial;banner('PROTECT THIS PUDDING',s.label+' stand: bonk its raider before the red warning fills.',{kind:'hazard',key:e.standWarningKey,duration:e.standTimer});}e.standTimer-=dt;if(e.standTimer<=0){s.hp--;cancelStandAttack(e);banner('PUDDING UNDER ATTACK',s.label+' stand: '+s.hp+'/4. Bonk its raider.',{kind:'objective',key:'stand-hit:'+e.id});}}e.campaignTell=false;if(d<90){e.combatTimer=(e.combatTimer||0)+dt*pace();const cycle=e.combatTimer%2.4;e.campaignTell=cycle>1.1&&cycle<1.8;e.campaignWindup=e.campaignTell?(cycle-1.1)/.7:0;out.atk=cycle>1.8&&cycle<1.95;}return out;}
    const defend=role==='examiner';const shield=role==='shield';const cycle=(run.elapsed*(defend?1:pace())+e.id*.35)%(defend?2.7:3.8);const attacking=defend?cycle>1.5&&cycle<1.65:cycle>2.8&&cycle<2.95;
    if(shield&&cycle<2.4&&e.guardLock<=0){out.block=true;e.guard=Math.min(1.5,e.guard+dt*3);}
    const spacing=defend?70:shield?85:68;if(d>spacing){const v=engine.steer(e,p.x,p.y);out.mx=v.x*(shield?.65:.8);out.my=v.y*(shield?.65:.8);}if(d<105)out.atk=attacking;
@@ -197,7 +204,7 @@
    for(const e of run.g.ents)if(living(e)&&e.campaignTell){ctx.beginPath();ctx.moveTo(e.x,e.y);ctx.arc(e.x,e.y,78,e.face-1.3,e.face+1.3);ctx.closePath();ctx.fillStyle='#FF5A4E30';ctx.strokeStyle='#FF5A4E';ctx.lineWidth=2;ctx.fill();ctx.stroke();marker({...e,r:54,labelOffset:112},'#FF5A4E','Block the swing',e.campaignWindup);}
    ctx.restore();
   }
-  function stop(){run=null;}
+  function stop(){if(run){if(engine.clearBanner)engine.clearBanner();else run.g.banner=null;}run=null;}
   function restore(raw){save=normalize(raw);persist();return save;}
   return {begin,tick,input,event,draw,finish,stop,select,assist,difficulty,restore,objective,get save(){return save;},get run(){return run;},get saveError(){return saveError;},unlocked:id=>unlocked(save,id),next:()=>next(save)};
  }

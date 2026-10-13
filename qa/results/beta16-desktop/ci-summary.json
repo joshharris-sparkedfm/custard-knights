@@ -1,0 +1,281 @@
+{
+  "verifiedAt": "2026-10-13 15:03:37 UTC",
+  "sourceCommit": "a7e5ed4b653823ee2a84cb6df84d425206c46072",
+  "workflow": {
+    "id": 38418272612,
+    "name": "Battle core portability",
+    "url": "https://github.com/joshharris-sparkedfm/custard-knights/actions/runs/38418272612",
+    "status": "completed",
+    "conclusion": "success",
+    "attempt": 1
+  },
+  "jobs": [
+    {
+      "id": 115368430303,
+      "name": "server (ubuntu-latest)",
+      "status": "completed",
+      "conclusion": "success",
+      "steps": [
+        {
+          "name": "Set up job",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020",
+          "conclusion": "success"
+        },
+        {
+          "name": "Install server dependency only",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run full unit suite",
+          "conclusion": "success"
+        },
+        {
+          "name": "Exercise 100 active loopback clients for 60 seconds",
+          "conclusion": "success"
+        },
+        {
+          "name": "Recover journal after an abrupt process exit",
+          "conclusion": "success"
+        },
+        {
+          "name": "Retain passes and failures",
+          "conclusion": "success"
+        },
+        {
+          "name": "Post Run actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020",
+          "conclusion": "success"
+        },
+        {
+          "name": "Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262",
+          "conclusion": "success"
+        },
+        {
+          "name": "Complete job",
+          "conclusion": "success"
+        }
+      ]
+    },
+    {
+      "id": 115368430511,
+      "name": "server (windows-latest)",
+      "status": "completed",
+      "conclusion": "success",
+      "steps": [
+        {
+          "name": "Set up job",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020",
+          "conclusion": "success"
+        },
+        {
+          "name": "Install server dependency only",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run full unit suite",
+          "conclusion": "success"
+        },
+        {
+          "name": "Exercise 100 active loopback clients for 60 seconds",
+          "conclusion": "success"
+        },
+        {
+          "name": "Recover journal after an abrupt process exit",
+          "conclusion": "success"
+        },
+        {
+          "name": "Retain passes and failures",
+          "conclusion": "success"
+        },
+        {
+          "name": "Post Run actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020",
+          "conclusion": "success"
+        },
+        {
+          "name": "Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262",
+          "conclusion": "success"
+        },
+        {
+          "name": "Complete job",
+          "conclusion": "success"
+        }
+      ]
+    },
+    {
+      "id": 115368430538,
+      "name": "core (windows-latest, 24)",
+      "status": "completed",
+      "conclusion": "success",
+      "steps": [
+        {
+          "name": "Set up job",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run dependency-free shared simulation assertions",
+          "conclusion": "success"
+        },
+        {
+          "name": "Retain passes and failures",
+          "conclusion": "success"
+        },
+        {
+          "name": "Post Run actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020",
+          "conclusion": "success"
+        },
+        {
+          "name": "Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262",
+          "conclusion": "success"
+        },
+        {
+          "name": "Complete job",
+          "conclusion": "success"
+        }
+      ]
+    },
+    {
+      "id": 115368430571,
+      "name": "core (ubuntu-latest, 24)",
+      "status": "completed",
+      "conclusion": "success",
+      "steps": [
+        {
+          "name": "Set up job",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run dependency-free shared simulation assertions",
+          "conclusion": "success"
+        },
+        {
+          "name": "Retain passes and failures",
+          "conclusion": "success"
+        },
+        {
+          "name": "Post Run actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020",
+          "conclusion": "success"
+        },
+        {
+          "name": "Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262",
+          "conclusion": "success"
+        },
+        {
+          "name": "Complete job",
+          "conclusion": "success"
+        }
+      ]
+    },
+    {
+      "id": 115368430739,
+      "name": "core (windows-latest, 22)",
+      "status": "completed",
+      "conclusion": "success",
+      "steps": [
+        {
+          "name": "Set up job",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run dependency-free shared simulation assertions",
+          "conclusion": "success"
+        },
+        {
+          "name": "Retain passes and failures",
+          "conclusion": "success"
+        },
+        {
+          "name": "Post Run actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020",
+          "conclusion": "success"
+        },
+        {
+          "name": "Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262",
+          "conclusion": "success"
+        },
+        {
+          "name": "Complete job",
+          "conclusion": "success"
+        }
+      ]
+    },
+    {
+      "id": 115368430794,
+      "name": "core (ubuntu-latest, 22)",
+      "status": "completed",
+      "conclusion": "success",
+      "steps": [
+        {
+          "name": "Set up job",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run dependency-free shared simulation assertions",
+          "conclusion": "success"
+        },
+        {
+          "name": "Retain passes and failures",
+          "conclusion": "success"
+        },
+        {
+          "name": "Post Run actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020",
+          "conclusion": "success"
+        },
+        {
+          "name": "Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262",
+          "conclusion": "success"
+        },
+        {
+          "name": "Complete job",
+          "conclusion": "success"
+        }
+      ]
+    }
+  ],
+  "nativeFaultFixed": false,
+  "manualUnchangedSoakTriggered": false,
+  "note": "Existing push-triggered pipeline at the runtime freeze. Independent hosted success does not resolve the earlier local native runtime anomalies; unchanged soundtrack pipeline was not rerun."
+}

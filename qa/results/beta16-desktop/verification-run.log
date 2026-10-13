@@ -1,0 +1,30 @@
+{
+  "version": "0.3.0-beta.16",
+  "sourceCommit": "a7e5ed4b653823ee2a84cb6df84d425206c46072",
+  "asarSha256": "860e6aaef17248ca0e9c99b393c3b4d26e48b80b08911da3546ec8c4313494b1",
+  "executableSha256": "eb271f2acf7aefae39ab99c21b78e15e1aa187ad9a4b11f7a6f34b635f24ee35",
+  "packageEntries": 66,
+  "friendsGameFiles": 73,
+  "preview": {
+    "bytes": 800745130,
+    "sha256": "5e84a7849d1e7e4e837c6f96f5d28b202a8592245a5a4c282c1e8ad67321911f"
+  },
+  "friends": {
+    "bytes": 800720142,
+    "sha256": "af8c7c69dbf3db2d7aa6dab4edfc3655547805a7b6bda14c27579b7f265e0024"
+  },
+  "zipIntegrity": true,
+  "exactCopiedGameBytes": true,
+  "exactPreviewZipGameBytes": true,
+  "exactFrozenNormalizedMaterials": true,
+  "packagedBakeryChecks": 36,
+  "packagedBakeryFollowupChecks": 7,
+  "actualDesktopBakeryChecks": 8,
+  "nativeRendererInstrumented": false,
+  "nativeBootstrapQaQuery": true,
+  "nativeCheckedDocumentQuery": "",
+  "publiclyUploaded": false,
+  "compression": "ZIP_STORED",
+  "friendsBundlerSourceFrozenNormalizedExact": true,
+  "friendsAdapterSubstitutionsExact": true
+}

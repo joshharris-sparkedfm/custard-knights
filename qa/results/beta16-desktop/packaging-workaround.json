@@ -1,0 +1,11 @@
+{
+  "firstBuildPassed": true,
+  "sourceCommit": "a7e5ed4b653823ee2a84cb6df84d425206c46072",
+  "contentIdentity": "Cached Electron ZIP CRC/SHA256 and every extracted template file byte comparison; timestamps use extraction time.",
+  "adapterSha256": "d00b38740e9344e8b10b1ae2d6c9fd28dacf5ff2ac2a5b49d8a0e1c898e2427f",
+  "adapter": "qa/results/beta16-desktop/build-python-extract.cjs",
+  "byteIdenticalToReviewedCorrectedHelper": true,
+  "nativeExtractionRetry": false,
+  "derivedFrom": "qa/results/beta15-desktop/build-python-extract.cjs",
+  "packageConfigUnchanged": true
+}

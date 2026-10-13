@@ -1,0 +1,18 @@
+{
+  "source": "scripts/playtest-bundle.py",
+  "sourceSha256": "f93543173387f77168620ef739241a5fdab912f360d2b20397c45ea180bd3bdc",
+  "inMemorySha256": "82e22ba7be1e7eeec7b8d2f6cdad925a81fd3b55acd721eedc65566d0d1a72f5",
+  "substitutions": [
+    {
+      "before": "zipfile.ZIP_DEFLATED, compresslevel=4",
+      "after": "zipfile.ZIP_STORED"
+    },
+    {
+      "before": "partial.unlink(missing_ok=True)",
+      "after": "pass # Preserve failed partial evidence"
+    }
+  ],
+  "compression": "ZIP_STORED",
+  "reason": "Earlier beta14 DEFLATE roundtrip anomaly remains preserved; use ZIP_STORED immediately to bypass compression/decompression. No beta16 DEFLATE attempt or failed artifact is assumed.",
+  "frozenSourceUnchanged": true
+}

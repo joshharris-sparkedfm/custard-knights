@@ -1,0 +1,451 @@
+{
+  "attempt": 1,
+  "executable": "C:\\Users\\Joshua\\Documents\\Codex\\2026-10-08\\rea\\work\\custard-knights-room\\dist\\Custard Knights-win32-x64\\Custard Knights.exe",
+  "profile": "C:\\Users\\Joshua\\AppData\\Local\\Temp\\custard-acceptance-1N9usb\\user-data",
+  "checks": [
+    {
+      "name": "Actual native origin is clean without CK query helpers",
+      "pass": true,
+      "state": {
+        "origin": "custard://game",
+        "search": "",
+        "qaHelpers": false,
+        "visible": [
+          "firstLaunch"
+        ],
+        "hud": "",
+        "speech": "",
+        "save": null,
+        "hidden": false
+      }
+    },
+    {
+      "name": "Fresh actual Story input opens bakery talk objective and speech",
+      "pass": true,
+      "state": {
+        "origin": "custard://game",
+        "search": "",
+        "qaHelpers": false,
+        "visible": [],
+        "hud": "Talk to Mabel · Space / left click",
+        "speech": "Mabel: Peace banquet. Six trays. Bring back seven.",
+        "save": "{\"version\":1,\"results\":{},\"selected\":\"banquet\",\"assist\":false,\"difficulty\":\"medium\",\"checkpoint\":null,\"receipts\":[]}",
+        "hidden": false
+      }
+    },
+    {
+      "name": "Native Escape reveals explicit quiet replay and skip controls",
+      "pass": true,
+      "state": {
+        "origin": "custard://game",
+        "search": "",
+        "qaHelpers": false,
+        "visible": [
+          "pause"
+        ],
+        "hud": "Talk to Mabel · Space / left click",
+        "speech": "Mabel: Peace banquet. Six trays. Bring back seven.",
+        "save": "{\"version\":1,\"results\":{},\"selected\":\"banquet\",\"assist\":false,\"difficulty\":\"medium\",\"checkpoint\":null,\"receipts\":[]}",
+        "hidden": false
+      }
+    },
+    {
+      "name": "Actual replay returns to initial bakery objective without save change",
+      "pass": true,
+      "state": {
+        "origin": "custard://game",
+        "search": "",
+        "qaHelpers": false,
+        "visible": [],
+        "hud": "Talk to Mabel · Space / left click",
+        "speech": "Mabel: Peace banquet. Six trays. Bring back seven.",
+        "save": "{\"version\":1,\"results\":{},\"selected\":\"banquet\",\"assist\":false,\"difficulty\":\"medium\",\"checkpoint\":null,\"receipts\":[]}",
+        "hidden": false
+      }
+    },
+    {
+      "name": "Explicit actual pause skip starts pantry combat without awarding result",
+      "pass": true,
+      "state": {
+        "origin": "custard://game",
+        "search": "",
+        "qaHelpers": false,
+        "visible": [],
+        "hud": "Medium · 1/4 · Swing at barricade: 3/3 hits left · 0/2 guards bonked",
+        "speech": "Mabel: Peace banquet. Six trays. Bring back seven.",
+        "save": "{\"version\":1,\"results\":{},\"selected\":\"banquet\",\"assist\":false,\"difficulty\":\"medium\",\"checkpoint\":null,\"receipts\":[]}",
+        "hidden": false
+      }
+    },
+    {
+      "name": "Actual combat quit returns home and hides quiet HUD and speech",
+      "pass": true,
+      "state": {
+        "origin": "custard://game",
+        "search": "",
+        "qaHelpers": false,
+        "visible": [
+          "menu"
+        ],
+        "hud": "Medium · 1/4 · Swing at barricade: 3/3 hits left · 0/2 guards bonked",
+        "speech": "Mabel: Peace banquet. Six trays. Bring back seven.",
+        "save": "{\"version\":1,\"results\":{},\"selected\":\"banquet\",\"assist\":false,\"difficulty\":\"medium\",\"checkpoint\":null,\"receipts\":[]}",
+        "hidden": false
+      }
+    },
+    {
+      "name": "Actual scene replay opens native story theatre with scene controls",
+      "pass": true,
+      "state": {
+        "origin": "custard://game",
+        "search": "",
+        "qaHelpers": false,
+        "visible": [
+          "campaignStory"
+        ],
+        "hud": "Medium · 1/4 · Swing at barricade: 3/3 hits left · 0/2 guards bonked",
+        "speech": "Mabel: Peace banquet. Six trays. Bring back seven.",
+        "save": "{\"version\":1,\"results\":{},\"selected\":\"banquet\",\"assist\":false,\"difficulty\":\"medium\",\"checkpoint\":null,\"receipts\":[]}",
+        "hidden": false
+      }
+    },
+    {
+      "name": "Actual scene skip returns to map without inventing story rewards",
+      "pass": true,
+      "state": {
+        "origin": "custard://game",
+        "search": "",
+        "qaHelpers": false,
+        "visible": [
+          "campaignMap"
+        ],
+        "hud": "Medium · 1/4 · Swing at barricade: 3/3 hits left · 0/2 guards bonked",
+        "speech": "Mabel: Peace banquet. Six trays. Bring back seven.",
+        "save": "{\"version\":1,\"results\":{},\"selected\":\"banquet\",\"assist\":false,\"difficulty\":\"medium\",\"checkpoint\":null,\"receipts\":[]}",
+        "hidden": false
+      }
+    }
+  ],
+  "limitations": [
+    "Actual EXE with fresh marked acceptance profile. Untouched native renderer and no CK query helper or autoplay override. Acceptance.run replaced in memory; native synthesized mouse/Escape keyboard events, read-only DOM/local campaign save observations and ten-second readiness gates. Scoped Story entry/pause/replay/skip/quit/scene navigation; no movement, delivery, rescue combat completion, physical input, human comprehension, responsiveness or audibility acceptance. ASAR unchanged."
+  ],
+  "sourceCommit": "a7e5ed4b653823ee2a84cb6df84d425206c46072",
+  "asarSha256Before": "860e6aaef17248ca0e9c99b393c3b4d26e48b80b08911da3546ec8c4313494b1",
+  "helperSha256": "f010d2efd16386ab56544eebf3ddc34e1076f11b9a7d7f92e2575e3991038f5e",
+  "isolation": {
+    "root": "C:\\Users\\Joshua\\AppData\\Local\\Temp\\custard-acceptance-1N9usb",
+    "profile": "C:\\Users\\Joshua\\AppData\\Local\\Temp\\custard-acceptance-1N9usb\\user-data",
+    "marker": "C:\\Users\\Joshua\\AppData\\Local\\Temp\\custard-acceptance-1N9usb\\acceptance-profile.marker",
+    "fresh": true,
+    "ownWindowShowInactive": true
+  },
+  "fixtureManifest": {
+    "rendererInstrumented": false,
+    "gameStateInjection": false,
+    "autoplayOverride": false,
+    "bootstrap": "Standard marked acceptance launch initially loads ?qa=1; injected runner explicitly loads a second clean native document before every measured check",
+    "checkedDocument": "custard://game/index.html with empty search and no window.CK",
+    "inputs": "Native synthesized mouse and Escape keyboard",
+    "observations": "Read-only DOM and local campaign save",
+    "scope": "Story entry/pause/replay/skip/quit/theatre navigation; no movement/delivery/combat completion claim"
+  },
+  "originalIndexSha256": "c140afd3e72185bdedbabecf91f4e776c68fa040c61a1a9212ad06dfe9994163",
+  "exitCode": 0,
+  "stdout": "\r\nACTUAL_DEVICE_PASS {\"checks\":[{\"name\":\"Actual native origin is clean without CK query helpers\",\"pass\":true,\"state\":{\"origin\":\"custard://game\",\"search\":\"\",\"qaHelpers\":false,\"visible\":[\"firstLaunch\"],\"hud\":\"\",\"speech\":\"\",\"save\":null,\"hidden\":false}},{\"name\":\"Fresh actual Story input opens bakery talk objective and speech\",\"pass\":true,\"state\":{\"origin\":\"custard://game\",\"search\":\"\",\"qaHelpers\":false,\"visible\":[],\"hud\":\"Talk to Mabel · Space / left click\",\"speech\":\"Mabel: Peace banquet. Six trays. Bring back seven.\",\"save\":\"{\\\"version\\\":1,\\\"results\\\":{},\\\"selected\\\":\\\"banquet\\\",\\\"assist\\\":false,\\\"difficulty\\\":\\\"medium\\\",\\\"checkpoint\\\":null,\\\"receipts\\\":[]}\",\"hidden\":false}},{\"name\":\"Native Escape reveals explicit quiet replay and skip controls\",\"pass\":true,\"state\":{\"origin\":\"custard://game\",\"search\":\"\",\"qaHelpers\":false,\"visible\":[\"pause\"],\"hud\":\"Talk to Mabel · Space / left click\",\"speech\":\"Mabel: Peace banquet. Six trays. Bring back seven.\",\"save\":\"{\\\"version\\\":1,\\\"results\\\":{},\\\"selected\\\":\\\"banquet\\\",\\\"assist\\\":false,\\\"difficulty\\\":\\\"medium\\\",\\\"checkpoint\\\":null,\\\"receipts\\\":[]}\",\"hidden\":false}},{\"name\":\"Actual replay returns to initial bakery objective without save change\",\"pass\":true,\"state\":{\"origin\":\"custard://game\",\"search\":\"\",\"qaHelpers\":false,\"visible\":[],\"hud\":\"Talk to Mabel · Space / left click\",\"speech\":\"Mabel: Peace banquet. Six trays. Bring back seven.\",\"save\":\"{\\\"version\\\":1,\\\"results\\\":{},\\\"selected\\\":\\\"banquet\\\",\\\"assist\\\":false,\\\"difficulty\\\":\\\"medium\\\",\\\"checkpoint\\\":null,\\\"receipts\\\":[]}\",\"hidden\":false}},{\"name\":\"Explicit actual pause skip starts pantry combat without awarding result\",\"pass\":true,\"state\":{\"origin\":\"custard://game\",\"search\":\"\",\"qaHelpers\":false,\"visible\":[],\"hud\":\"Medium · 1/4 · Swing at barricade: 3/3 hits left · 0/2 guards bonked\",\"speech\":\"Mabel: Peace banquet. Six trays. Bring back seven.\",\"save\":\"{\\\"version\\\":1,\\\"results\\\":{},\\\"selected\\\":\\\"banquet\\\",\\\"assist\\\":false,\\\"difficulty\\\":\\\"medium\\\",\\\"checkpoint\\\":null,\\\"receipts\\\":[]}\",\"hidden\":false}},{\"name\":\"Actual combat quit returns home and hides quiet HUD and speech\",\"pass\":true,\"state\":{\"origin\":\"custard://game\",\"search\":\"\",\"qaHelpers\":false,\"visible\":[\"menu\"],\"hud\":\"Medium · 1/4 · Swing at barricade: 3/3 hits left · 0/2 guards bonked\",\"speech\":\"Mabel: Peace banquet. Six trays. Bring back seven.\",\"save\":\"{\\\"version\\\":1,\\\"results\\\":{},\\\"selected\\\":\\\"banquet\\\",\\\"assist\\\":false,\\\"difficulty\\\":\\\"medium\\\",\\\"checkpoint\\\":null,\\\"receipts\\\":[]}\",\"hidden\":false}},{\"name\":\"Actual scene replay opens native story theatre with scene controls\",\"pass\":true,\"state\":{\"origin\":\"custard://game\",\"search\":\"\",\"qaHelpers\":false,\"visible\":[\"campaignStory\"],\"hud\":\"Medium · 1/4 · Swing at barricade: 3/3 hits left · 0/2 guards bonked\",\"speech\":\"Mabel: Peace banquet. Six trays. Bring back seven.\",\"save\":\"{\\\"version\\\":1,\\\"results\\\":{},\\\"selected\\\":\\\"banquet\\\",\\\"assist\\\":false,\\\"difficulty\\\":\\\"medium\\\",\\\"checkpoint\\\":null,\\\"receipts\\\":[]}\",\"hidden\":false}},{\"name\":\"Actual scene skip returns to map without inventing story rewards\",\"pass\":true,\"state\":{\"origin\":\"custard://game\",\"search\":\"\",\"qaHelpers\":false,\"visible\":[\"campaignMap\"],\"hud\":\"Medium · 1/4 · Swing at barricade: 3/3 hits left · 0/2 guards bonked\",\"speech\":\"Mabel: Peace banquet. Six trays. Bring back seven.\",\"save\":\"{\\\"version\\\":1,\\\"results\\\":{},\\\"selected\\\":\\\"banquet\\\",\\\"assist\\\":false,\\\"difficulty\\\":\\\"medium\\\",\\\"checkpoint\\\":null,\\\"receipts\\\":[]}\",\"hidden\":false}}],\"inputs\":[{\"type\":\"mouseDown\",\"x\":538,\"y\":676,\"button\":\"left\",\"clickCount\":1},{\"type\":\"mouseUp\",\"x\":538,\"y\":676,\"button\":\"left\",\"clickCount\":1},{\"type\":\"mouseDown\",\"x\":334,\"y\":417,\"button\":\"left\",\"clickCount\":1},{\"type\":\"mouseUp\",\"x\":334,\"y\":417,\"button\":\"left\",\"clickCount\":1},{\"type\":\"mouseDown\",\"x\":263,\"y\":671,\"button\":\"left\",\"clickCount\":1},{\"type\":\"mouseUp\",\"x\":263,\"y\":671,\"button\":\"left\",\"clickCount\":1},{\"type\":\"keyDown\",\"keyCode\":\"Escape\"},{\"type\":\"keyUp\",\"keyCode\":\"Escape\"},{\"type\":\"mouseDown\",\"x\":632,\"y\":489,\"button\":\"left\",\"clickCount\":1},{\"type\":\"mouseUp\",\"x\":632,\"y\":489,\"button\":\"left\",\"clickCount\":1},{\"type\":\"keyDown\",\"keyCode\":\"Escape\"},{\"type\":\"keyUp\",\"keyCode\":\"Escape\"},{\"type\":\"mouseDown\",\"x\":632,\"y\":433,\"button\":\"left\",\"clickCount\":1},{\"type\":\"mouseUp\",\"x\":632,\"y\":433,\"button\":\"left\",\"clickCount\":1},{\"type\":\"keyDown\",\"keyCode\":\"Escape\"},{\"type\":\"keyUp\",\"keyCode\":\"Escape\"},{\"type\":\"mouseDown\",\"x\":773,\"y\":427,\"button\":\"left\",\"clickCount\":1},{\"type\":\"mouseUp\",\"x\":773,\"y\":427,\"button\":\"left\",\"clickCount\":1},{\"type\":\"mouseDown\",\"x\":334,\"y\":417,\"button\":\"left\",\"clickCount\":1},{\"type\":\"mouseUp\",\"x\":334,\"y\":417,\"button\":\"left\",\"clickCount\":1},{\"type\":\"mouseDown\",\"x\":624,\"y\":671,\"button\":\"left\",\"clickCount\":1},{\"type\":\"mouseUp\",\"x\":624,\"y\":671,\"button\":\"left\",\"clickCount\":1},{\"type\":\"mouseDown\",\"x\":742,\"y\":648,\"button\":\"left\",\"clickCount\":1},{\"type\":\"mouseUp\",\"x\":742,\"y\":648,\"button\":\"left\",\"clickCount\":1}],\"gates\":[{\"expression\":\"!document.hidden&&!!document.getElementById(\\\"onboardingJump\\\")\",\"samples\":[{\"at\":1791904085208,\"pass\":true}]},{\"expression\":\"!document.getElementById(\\\"menu\\\").hidden\",\"samples\":[{\"at\":1791904085460,\"pass\":true}]},{\"expression\":\"!document.getElementById(\\\"campaignMap\\\").hidden\",\"samples\":[{\"at\":1791904085527,\"pass\":true}]},{\"expression\":\"!document.getElementById(\\\"campaignHUD\\\").hidden&&/Talk to Mabel/.test(document.getElementById(\\\"campaignHUD\\\").textContent)\",\"samples\":[{\"at\":1791904085623,\"pass\":true}]},{\"expression\":\"!document.getElementById(\\\"pause\\\").hidden\",\"samples\":[{\"at\":1791904085656,\"pass\":true}]},{\"expression\":\"document.getElementById(\\\"pause\\\").hidden&&!document.getElementById(\\\"campaignHUD\\\").hidden\",\"samples\":[{\"at\":1791904085690,\"pass\":true}]},{\"expression\":\"!document.getElementById(\\\"pause\\\").hidden\",\"samples\":[{\"at\":1791904085722,\"pass\":true}]},{\"expression\":\"document.getElementById(\\\"pause\\\").hidden&&!document.getElementById(\\\"campaignHUD\\\").hidden&&/pantry|barricade/i.test(document.getElementById(\\\"campaignHUD\\\").textContent)\",\"samples\":[{\"at\":1791904085759,\"pass\":true}]},{\"expression\":\"!document.getElementById(\\\"pause\\\").hidden\",\"samples\":[{\"at\":1791904085790,\"pass\":true}]},{\"expression\":\"!document.getElementById(\\\"menu\\\").hidden\",\"samples\":[{\"at\":1791904085824,\"pass\":true}]},{\"expression\":\"!document.getElementById(\\\"campaignMap\\\").hidden\",\"samples\":[{\"at\":1791904085856,\"pass\":true}]},{\"expression\":\"!document.getElementById(\\\"campaignStory\\\").hidden&&!!document.querySelector(\\\".campaign-theatre\\\")\",\"samples\":[{\"at\":1791904085891,\"pass\":true}]},{\"expression\":\"!document.getElementById(\\\"campaignMap\\\").hidden\",\"samples\":[{\"at\":1791904085923,\"pass\":true}]}],\"origin\":\"custard://game\",\"bootstrap\":{\"origin\":\"custard://game\",\"search\":\"?qa=1\",\"qaHelpers\":true},\"bootstrapQaQuery\":true,\"checkedDocumentQuery\":\"\",\"checkedDocumentQaHelpers\":false,\"entry\":{\"origin\":\"custard://game\",\"search\":\"\",\"qaHelpers\":false,\"visible\":[],\"hud\":\"Talk to Mabel · Space / left click\",\"speech\":\"Mabel: Peace banquet. Six trays. Bring back seven.\",\"save\":\"{\\\"version\\\":1,\\\"results\\\":{},\\\"selected\\\":\\\"banquet\\\",\\\"assist\\\":false,\\\"difficulty\\\":\\\"medium\\\",\\\"checkpoint\\\":null,\\\"receipts\\\":[]}\",\"hidden\":false},\"rendererInstrumented\":false,\"fixture\":\"Native programmatic UI on a clean reload after QA bootstrap; not ordinary untouched production startup. Only acceptance.run replaced in memory. Native synthesized mouse/Escape events; read-only DOM/save observations. No full movement/tray/combat-completion/physical-input claim.\"}\n",
+  "stderr": "Debugger listening on ws://127.0.0.1:53924/14b087e1-2fef-4c24-8af4-e07fa1f6b612\r\nFor help, see: https://nodejs.org/learn/getting-started/debugging\r\nDebugger attached.\r\nDebugger ending on ws://127.0.0.1:53924/14b087e1-2fef-4c24-8af4-e07fa1f6b612\r\nFor help, see: https://nodejs.org/learn/getting-started/debugging\r\n",
+  "inputs": [
+    {
+      "type": "mouseDown",
+      "x": 538,
+      "y": 676,
+      "button": "left",
+      "clickCount": 1
+    },
+    {
+      "type": "mouseUp",
+      "x": 538,
+      "y": 676,
+      "button": "left",
+      "clickCount": 1
+    },
+    {
+      "type": "mouseDown",
+      "x": 334,
+      "y": 417,
+      "button": "left",
+      "clickCount": 1
+    },
+    {
+      "type": "mouseUp",
+      "x": 334,
+      "y": 417,
+      "button": "left",
+      "clickCount": 1
+    },
+    {
+      "type": "mouseDown",
+      "x": 263,
+      "y": 671,
+      "button": "left",
+      "clickCount": 1
+    },
+    {
+      "type": "mouseUp",
+      "x": 263,
+      "y": 671,
+      "button": "left",
+      "clickCount": 1
+    },
+    {
+      "type": "keyDown",
+      "keyCode": "Escape"
+    },
+    {
+      "type": "keyUp",
+      "keyCode": "Escape"
+    },
+    {
+      "type": "mouseDown",
+      "x": 632,
+      "y": 489,
+      "button": "left",
+      "clickCount": 1
+    },
+    {
+      "type": "mouseUp",
+      "x": 632,
+      "y": 489,
+      "button": "left",
+      "clickCount": 1
+    },
+    {
+      "type": "keyDown",
+      "keyCode": "Escape"
+    },
+    {
+      "type": "keyUp",
+      "keyCode": "Escape"
+    },
+    {
+      "type": "mouseDown",
+      "x": 632,
+      "y": 433,
+      "button": "left",
+      "clickCount": 1
+    },
+    {
+      "type": "mouseUp",
+      "x": 632,
+      "y": 433,
+      "button": "left",
+      "clickCount": 1
+    },
+    {
+      "type": "keyDown",
+      "keyCode": "Escape"
+    },
+    {
+      "type": "keyUp",
+      "keyCode": "Escape"
+    },
+    {
+      "type": "mouseDown",
+      "x": 773,
+      "y": 427,
+      "button": "left",
+      "clickCount": 1
+    },
+    {
+      "type": "mouseUp",
+      "x": 773,
+      "y": 427,
+      "button": "left",
+      "clickCount": 1
+    },
+    {
+      "type": "mouseDown",
+      "x": 334,
+      "y": 417,
+      "button": "left",
+      "clickCount": 1
+    },
+    {
+      "type": "mouseUp",
+      "x": 334,
+      "y": 417,
+      "button": "left",
+      "clickCount": 1
+    },
+    {
+      "type": "mouseDown",
+      "x": 624,
+      "y": 671,
+      "button": "left",
+      "clickCount": 1
+    },
+    {
+      "type": "mouseUp",
+      "x": 624,
+      "y": 671,
+      "button": "left",
+      "clickCount": 1
+    },
+    {
+      "type": "mouseDown",
+      "x": 742,
+      "y": 648,
+      "button": "left",
+      "clickCount": 1
+    },
+    {
+      "type": "mouseUp",
+      "x": 742,
+      "y": 648,
+      "button": "left",
+      "clickCount": 1
+    }
+  ],
+  "gates": [
+    {
+      "expression": "!document.hidden&&!!document.getElementById(\"onboardingJump\")",
+      "samples": [
+        {
+          "at": 1791904085208,
+          "pass": true
+        }
+      ]
+    },
+    {
+      "expression": "!document.getElementById(\"menu\").hidden",
+      "samples": [
+        {
+          "at": 1791904085460,
+          "pass": true
+        }
+      ]
+    },
+    {
+      "expression": "!document.getElementById(\"campaignMap\").hidden",
+      "samples": [
+        {
+          "at": 1791904085527,
+          "pass": true
+        }
+      ]
+    },
+    {
+      "expression": "!document.getElementById(\"campaignHUD\").hidden&&/Talk to Mabel/.test(document.getElementById(\"campaignHUD\").textContent)",
+      "samples": [
+        {
+          "at": 1791904085623,
+          "pass": true
+        }
+      ]
+    },
+    {
+      "expression": "!document.getElementById(\"pause\").hidden",
+      "samples": [
+        {
+          "at": 1791904085656,
+          "pass": true
+        }
+      ]
+    },
+    {
+      "expression": "document.getElementById(\"pause\").hidden&&!document.getElementById(\"campaignHUD\").hidden",
+      "samples": [
+        {
+          "at": 1791904085690,
+          "pass": true
+        }
+      ]
+    },
+    {
+      "expression": "!document.getElementById(\"pause\").hidden",
+      "samples": [
+        {
+          "at": 1791904085722,
+          "pass": true
+        }
+      ]
+    },
+    {
+      "expression": "document.getElementById(\"pause\").hidden&&!document.getElementById(\"campaignHUD\").hidden&&/pantry|barricade/i.test(document.getElementById(\"campaignHUD\").textContent)",
+      "samples": [
+        {
+          "at": 1791904085759,
+          "pass": true
+        }
+      ]
+    },
+    {
+      "expression": "!document.getElementById(\"pause\").hidden",
+      "samples": [
+        {
+          "at": 1791904085790,
+          "pass": true
+        }
+      ]
+    },
+    {
+      "expression": "!document.getElementById(\"menu\").hidden",
+      "samples": [
+        {
+          "at": 1791904085824,
+          "pass": true
+        }
+      ]
+    },
+    {
+      "expression": "!document.getElementById(\"campaignMap\").hidden",
+      "samples": [
+        {
+          "at": 1791904085856,
+          "pass": true
+        }
+      ]
+    },
+    {
+      "expression": "!document.getElementById(\"campaignStory\").hidden&&!!document.querySelector(\".campaign-theatre\")",
+      "samples": [
+        {
+          "at": 1791904085891,
+          "pass": true
+        }
+      ]
+    },
+    {
+      "expression": "!document.getElementById(\"campaignMap\").hidden",
+      "samples": [
+        {
+          "at": 1791904085923,
+          "pass": true
+        }
+      ]
+    }
+  ],
+  "origin": "custard://game",
+  "bootstrap": {
+    "origin": "custard://game",
+    "search": "?qa=1",
+    "qaHelpers": true
+  },
+  "bootstrapQaQuery": true,
+  "checkedDocumentQuery": "",
+  "checkedDocumentQaHelpers": false,
+  "entry": {
+    "origin": "custard://game",
+    "search": "",
+    "qaHelpers": false,
+    "visible": [],
+    "hud": "Talk to Mabel · Space / left click",
+    "speech": "Mabel: Peace banquet. Six trays. Bring back seven.",
+    "save": "{\"version\":1,\"results\":{},\"selected\":\"banquet\",\"assist\":false,\"difficulty\":\"medium\",\"checkpoint\":null,\"receipts\":[]}",
+    "hidden": false
+  },
+  "rendererInstrumented": false,
+  "fixture": "Native programmatic UI on a clean reload after QA bootstrap; not ordinary untouched production startup. Only acceptance.run replaced in memory. Native synthesized mouse/Escape events; read-only DOM/save observations. No full movement/tray/combat-completion/physical-input claim.",
+  "pass": true,
+  "asarSha256After": "860e6aaef17248ca0e9c99b393c3b4d26e48b80b08911da3546ec8c4313494b1",
+  "stableAsar": true
+}

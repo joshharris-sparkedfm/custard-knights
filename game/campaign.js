@@ -6,7 +6,7 @@
  const KEY='ck-campaign-v1';
  const nodes=[
   {id:'banquet',title:'Somebody Has Thrown a Pie',region:'Custardia',map:'courtyard',at:[10,70],requires:[],objective:'Break the pantry barricade, escort three cooks, then hold off the guards.',spoons:['Escape through the pantry','Finish without being bonked','Escape within 90 seconds'],tip:'Swing at the wooden barricade. Walk near each cook to lead them out; stay close. Bonk the guards and hold the pantry.',dialogue:['Cook: The pantry is blocked! Get us out!','Recruit: I was only sent to wash up.','Sir Stirling: First the cooks. Then the washing-up.'],outro:['The pantry staff escape. Outside, a siege bowl is heading for your family bakery.','Sir Stirling: Congratulations. You’re the army.'],limit:180},
-  {id:'puddings',title:'Protect the Puddings',region:'Custardia',map:'courtyard',at:[25,52],requires:['banquet'],objective:'Protect three pudding stands through two waves. One must survive.',spoons:['Clear both waves with a stand remaining','Keep all three stands intact','Block or parry three attacks'],tip:'Watch the red warning over a stand. Bonk that raider before the warning fills.',dialogue:['Cook: Save the puddings! We can replace the chairs.','Recruit: Which chairs?','Cook: All of them.'],outro:['Beneath the table you find a leathery scrap. The Golden Spoon is missing.'],limit:210},
+  {id:'puddings',title:'Protect the Puddings',region:'Custardia',map:'courtyard',at:[25,52],requires:['banquet'],objective:'Protect the cooks’ three bakery supply stations through two waves. One must survive.',spoons:['Clear both waves with a stand remaining','Keep all three stands intact','Block or parry three attacks'],tip:'Watch the red warning over a stand. Bonk that raider before the warning fills.',dialogue:['Mabel: That bowl is coming for our ovens.','Alf: Flour sacks for cover. Pip has the cooling water.','Pip: Protect the puddings while we carry everything inside.'],outro:['Beneath the table you find a leathery scrap. The Golden Spoon is missing.'],limit:210},
   {id:'guard',title:'A Spoon at a Sword Fight',region:'Rice border',map:'courtyard',at:[40,65],requires:['puddings'],objective:'Defeat the rice guard. Charge a heavy swing or circle behind his shield.',spoons:['Defeat the rice guard','Land a heavy attack or shield bash','Finish without being bonked'],tip:'Hold Swing after the first attack recovers, then release for a heavy. Attack + Block also bashes.',dialogue:['Rice Guard: Our lumps are structural integrity.','Recruit: So is that shield.'],outro:['The guard steps aside. Beyond him, the bridge leads to Sir Stirling’s examination yard.'],limit:180},
   {id:'biscuit',title:'The Biscuit Toll',region:'Optional training',map:'courtyard',at:[45,24],requires:['guard'],optional:true,objective:'Reflect three training arrows by facing the archer and blocking.',spoons:['Reflect three arrows','Reflect five arrows before leaving','Finish without being bonked'],tip:'Face the archer and release Block between shots so your guard refills. Reflections count on contact.',dialogue:['Biscuit Keeper: The toll is three returned arrows.','Recruit: You take your biscuits seriously.'],outro:['Biscuit Keeper: Passage granted. Please leave the arrows where you found them.'],limit:180},
   {id:'bridge',title:'A Bridge Too Flan',region:'Custardia',map:'frost',at:[56,53],requires:['guard'],objective:'Reach three bridge checkpoints and hold the far end for three seconds.',spoons:['Capture the far end','Cross without falling','Use a dash to cross a marked gap'],tip:'Dash straight across the narrow gaps. The outer path is safe; checkpoints save your position.',dialogue:['Sir Stirling: The bridge is perfectly safe.','Recruit: It appears to have holes.','Sir Stirling: Perfectly regulated holes.'],outro:['You cross the flan bridge. Sir Stirling has prepared three forms and one sword.'],limit:210},
@@ -101,11 +101,48 @@
     if(run.hold>=6&&enemies.length===0){run.phase=3;run.phaseT=0;run.hold=0;banner('EVERYONE IS OUT','Reach the green pantry exit. Your bakery is next.');}
    }else if(run.phase===3){run.hold=distance(run.player,run.zone)<run.zone.r?run.hold+dt:0;if(run.hold>=1.5)finish(true);}
   }
-  function begin(id,g,api,resume=false){if(!unlocked(save,id))throw Error('Campaign encounter is locked: '+id);engine=api;const n=byId[id];freshArena(g,n);grid(g);
+  // Quiet scenes do not call begin: no checkpoint, selection, or receipt mutation.
+  function beginQuiet(g,api,kind){
+   engine=api;freshArena(g,byId.banquet);grid(g);g.quietStory=true;g.time=0;g.banner=null;
+   const B=typeof module==='object'&&module.exports?require('./bakery-opening.js'):globalThis.CKBakeryOpening;B.layout(g,kind);
+   run={node:byId.banquet,g,player:g.ents[0],difficulty:save.difficulty,status:'playing',prelude:true,quietKind:kind,phase:0,phaseT:0,elapsed:0,hold:0,interactWas:false,interactQueued:false,warnings:[],effects:[],tray:{state:kind==='opening'?'table':'supplies',x:605,y:505},mabel:{x:455,y:424,name:'Mabel',color:'#FF8FB1'},steve:{theft:0,stolen:false},supplyProgress:0,result:null};
+   run.player.x=220;run.player.y=500;run.player.vx=run.player.vy=0;
+   run.staff=kind==='aftermath'?[run.mabel,{x:605,y:410,name:'Alf',color:'#FFD23F'},{x:750,y:440,name:'Pip',color:'#2EC4B6'}]:[];
+   run.speech=kind==='opening'?'Mabel: Peace banquet. Six trays. Bring back seven.':'Mabel: You got all three of us home. Alf, bring the flour. Pip, the cooling water.';
+   rebuild();return run;
+  }
+  function beginPrelude(g,api){return beginQuiet(g,api,'opening');}
+  function beginAftermath(g,api){if(!save.results.banquet?.spoons[0])throw Error('Rescue the cooks before returning to the bakery.');return beginQuiet(g,api,'aftermath');}
+  function playerInput(input){
+   if(!run?.prelude||run.status!=='playing')return input;
+   if(input.atk&&!run.interactWas)run.interactQueued=true;
+   run.interactWas=!!input.atk;return {...input,atk:false,block:false};
+  }
+  function quietTick(dt){
+   const r=run,p=r.player;r.phaseT+=dt;
+   if(r.quietKind==='opening'&&r.phase>=2){r.steve.theft=Math.min(2.4,r.steve.theft+dt);r.steve.stolen=r.steve.theft>=1.6;if(r.steve.stolen&&r.phaseT<3)r.speech='Mabel: Not you, Steve. I’ll take Alf and Pip ahead. Meet us inside the pantry.';}
+   if(r.quietKind==='aftermath')r.supplyProgress=Math.min(1,r.supplyProgress+dt/3);
+   const interact=r.interactQueued;r.interactQueued=false;if(!interact)return;
+   const target=r.phase===0&&r.quietKind==='opening'?r.mabel:r.phase<(r.quietKind==='opening'?2:1)?{x:605,y:505}:{x:1130,y:500};
+   if(distance(p,target)>82)return;
+   if(r.quietKind==='opening'){
+    if(r.phase===0){r.phase=1;r.phaseT=0;r.speech='Recruit: Seven?  Mabel: They still have one from the last war. Pick up the covered tray.';}
+    else if(r.phase===1){r.phase=2;r.phaseT=0;r.tray.state='carried';p.carry='bakery-tray';r.speech='Mabel: Take it to the banquet. I’ll bring Alf and Pip. Keep the scraps away from Steve.';}
+    else if(r.steve.stolen){r.tray.state='delivered';p.carry=null;r.status='quiet-complete';r.g.over=true;options.onPrelude?.();}
+    else r.speech='Mabel: One moment. Steve has his eye on those scraps.';
+   }else if(r.phase===0){r.phase=1;r.phaseT=0;r.tray.state='supplied';r.speech='Alf: Flour sacks for cover. Pip: Water for the cooling channel. Mabel: That siege bowl is coming for our ovens. Protect these puddings while we move the supplies.';}
+   else{r.status='quiet-complete';r.g.over=true;options.onAftermath?.();}
+  }
+  function begin(id,g,api,resume=false){if(!unlocked(save,id))throw Error('Campaign encounter is locked: '+id);engine=api;const n=byId[id];freshArena(g,n);g.quietStory=false;grid(g);
    const receipt=(g.roundId||'campaign')+':'+id+':'+(++serial);run={node:n,g,difficulty:save.difficulty,player:g.ents[0],receipt,elapsed:0,phase:0,phaseT:0,status:'playing',hits:0,falls:0,blocks:0,parries:0,reflects:0,heavies:0,dashes:0,hold:0,route:0,checkpoint:{x:180,y:440},wave:1,guardsHit:0,bonus:[false,false],warnings:[],effects:[],result:null};
    save.selected=id;const cp=resume&&save.checkpoint&&save.checkpoint.id===id?save.checkpoint.phase:0;run.resumed=cp>0;if(!resume&&save.checkpoint&&save.checkpoint.id===id)save.checkpoint=null;persist();
    if(id==='banquet')banquet();
-   if(id==='puddings'){run.stands=[{x:460,y:300,hp:4,label:'Vanilla'},{x:640,y:440,hp:4,label:'Chocolate'},{x:460,y:580,hp:4,label:'Strawberry'}];spawn('stand-raider',1060,300,2);spawn('stand-raider',1060,580,2);}
+   if(id==='puddings'){
+    const B=typeof module==='object'&&module.exports?require('./bakery-opening.js'):globalThis.CKBakeryOpening;B.layout(g,'siege');
+    run.stands=[{x:410,y:440,hp:4,label:'Mabel · Vanilla'},{x:640,y:440,hp:4,label:'Alf · Chocolate'},{x:460,y:620,hp:4,label:'Pip · Strawberry'}];
+    run.staff=run.stands.map((s,i)=>({x:s.x,y:s.y-58,name:['Mabel','Alf','Pip'][i],color:['#FF8FB1','#FFD23F','#2EC4B6'][i],station:i}));run.supplyProgress=1;
+    spawn('stand-raider',1100,520,2);spawn('stand-raider',1100,650,2);
+   }
    if(id==='guard')run.guard=spawn('shield',720,440,5,'Rice guard');
    if(id==='biscuit'){run.archer=spawn('archer',840,440,50,'Biscuit Keeper');run.arrowT=1.5;run.exitT=null;}
    if(id==='bridge'){for(const c of [8,16,24])for(let r=4;r<=14;r++)g.grid[r][c]='o';for(let c=3;c<29;c++)g.grid[3][c]='~';run.gates=[{x:440,y:440,r:65},{x:760,y:440,r:65},{x:1100,y:440,r:70}];run.zone={...run.gates[2],label:'Far end'};}
@@ -114,7 +151,7 @@
    if(id==='rind'){run.boss=spawn('marshal',800,440,8,'Marshal Rind');run.boss.r=28;run.boss.blade='spoon';run.boss.kit={helm:'crest',plume:'brush',metal:'steel'};run.boss.emblem='crown';if(cp===2)rescue();else if(cp){run.boss.hp=4;bossPhase(1);}else bossPhase(0);}
    rebuild();banner(n.title,n.objective);return run;
   }
-  function finish(won,reason){if(!run||run.status!=='playing')return null;run.status=won?'won':'failed';run.g.over=true;if(engine.clearBanner)engine.clearBanner();else run.g.banner=null;const id=run.node.id;let bonus;
+  function finish(won,reason){if(!run||run.status!=='playing'||run.prelude)return null;run.status=won?'won':'failed';run.g.over=true;if(engine.clearBanner)engine.clearBanner();else run.g.banner=null;const id=run.node.id;let bonus;
    if(id==='banquet')bonus=[run.hits===0&&run.falls===0,run.elapsed<=90];
    if(id==='puddings')bonus=[run.stands.every(s=>s.hp===4),run.blocks>=3];
    if(id==='guard')bonus=[run.heavies>0,run.hits===0&&run.falls===0];
@@ -129,12 +166,12 @@
    if(reward.applied&&reward.added.length&&options.onReward)options.onReward(run.result,save);if(options.onFinish)options.onFinish(run.result);return run.result;
   }
   function attackCircle(x,y,r,source,allies=false){const g=run.g;for(const e of g.ents){if(e===source||!living(e)||distance(e,{x,y})>r+e.r||e.dashT>.06||e.inv>0||e.protect>0||e.hitLock>0)continue;if(e.human||allies){const before=e.hp;engine.hurt(e,source,1,{src:'heavy',kb:allies?650:300,dx:e.x-x,dy:e.y-y});if(!e.human&&e.hp<before)run.guardsHit++;}}}
-  function tick(dt){if(!run||run.status!=='playing'||!Number.isFinite(dt)||dt<=0)return;run.elapsed+=dt;run.phaseT+=dt;const g=run.g,p=run.player,id=run.node.id;run.warnings=run.warnings.filter(w=>(w.t-=dt)>0&&(w.actor===undefined||living(g.ents[w.actor])&&!(g.ents[w.actor].stun>0)));run.effects=run.effects.filter(f=>(f.t-=dt)>0);
+  function tick(dt){if(!run||run.status!=='playing'||!Number.isFinite(dt)||dt<=0)return;if(run.prelude){run.elapsed+=dt;quietTick(dt);return;}run.elapsed+=dt;run.phaseT+=dt;const g=run.g,p=run.player,id=run.node.id;run.warnings=run.warnings.filter(w=>(w.t-=dt)>0&&(w.actor===undefined||living(g.ents[w.actor])&&!(g.ents[w.actor].stun>0)));run.effects=run.effects.filter(f=>(f.t-=dt)>0);
    if(g.time<=0){finish(false,'Time ran out. '+run.node.tip);return;}
    if(!living(p))return;
    const enemies=g.ents.filter(e=>!e.human&&living(e));
    if(id==='banquet')banquetTick(dt,enemies);
-   if(id==='puddings'){if(!run.stands.some(s=>s.hp>0)){finish(false,'All pudding stands were smashed.');return;}if(enemies.length===0){if(run.wave===1){run.wave=2;spawn('stand-raider',1040,280,3);spawn('stand-raider',1040,600,3);banner('SECOND HELPINGS','Two more raiders. Keep a pudding stand standing.');}else finish(true);}}
+   if(id==='puddings'){if(!run.stands.some(s=>s.hp>0)){finish(false,'All pudding stands were smashed.');return;}if(enemies.length===0){if(run.wave===1){run.wave=2;spawn('stand-raider',1100,520,3);spawn('stand-raider',1100,650,3);banner('SECOND HELPINGS','Two more raiders. Keep a pudding stand standing.');}else finish(true);}}
    if(id==='guard'&&enemies.length===0)finish(true);
    if(id==='biscuit'){run.archer.hp=50;run.archer.campaignMaxHp=50;run.archer.dead=false;run.arrowT-=dt;if(run.arrowT<=0){run.arrowT=(save.assist?2.5:2)/pace();const a=run.archer,angle=Math.atan2(p.y-a.y,p.x-a.x),speed=save.assist?300:390;g.proj.push({k:'arrow',x:a.x-28,y:a.y,vx:Math.cos(angle)*speed,vy:Math.sin(angle)*speed,owner:a,life:4,r:6,hit:[]});}if(run.reflects>=3){if(run.exitT===null){run.exitT=run.elapsed+7;banner('TOLL PAID','Seven seconds to earn two extra reflections.');}if(run.elapsed>=run.exitT||run.reflects>=5)finish(true);}}
    if(id==='bridge'){const gate=run.gates[run.route];if(gate&&distance(p,gate)<gate.r){run.checkpoint={x:gate.x,y:gate.y};run.route++;banner('CHECKPOINT '+run.route,run.route<3?'The next gold gate is ahead.':'Hold the far end for three seconds.');}if(run.route>=3){run.hold=distance(p,run.zone)<run.zone.r?run.hold+dt:0;if(run.hold>=3)finish(true);}if(p.dashT>0&&p.y>=260&&p.y<=680){for(const c of [8,16,24]){const left=c*40,right=left+40;if(!run.dashGap&&Math.abs(p.x-(left+20))<65&&(p.x<left||p.x>right))run.dashGap={c,side:p.x<left?-1:1};if(run.dashGap&&run.dashGap.c===c&&((run.dashGap.side<0&&p.x>right)||(run.dashGap.side>0&&p.x<left)))run.gapDash=true;}}else run.dashGap=null;}
@@ -153,7 +190,7 @@
    e.campaignTell=(defend?cycle> .85&&cycle<1.5:cycle>2.15&&cycle<2.8)&&d<150;e.campaignWindup=e.campaignTell?(cycle-(defend?.85:2.15))/.65:0;
    return out;
   }
-  function event(k,data={}){if(!run||run.status!=='playing')return;const p=run.player,g=run.g,id=run.node.id;
+  function event(k,data={}){if(!run||run.status!=='playing'||run.prelude)return;const p=run.player,g=run.g,id=run.node.id;
    if(k==='ko'){const e=g.ents.find(q=>q.id===data.v);if(e&&!e.human){e.respawn=Infinity;if(e.campaignRole==='archer'||e.campaignRole==='examiner'){e.dead=false;e.hp=e.campaignMaxHp;e.inv=1;}return;}if(data.v===p.id){if(data.src==='pit')run.falls++;if(id==='bridge'&&run.falls<3){banner('BACK TO THE CHECKPOINT',(3-run.falls)+' falls remaining. Take the outer path if needed.');}else finish(false,data.src==='pit'?'You fell from the route.':'You were bonked. '+run.node.tip);}}
    if(k==='respawn'&&data.id===p.id){p.x=run.checkpoint.x;p.y=run.checkpoint.y;p.hp=p.campaignMaxHp;p.vx=p.vy=0;}
    if(k==='block'&&data.id===p.id){run.blocks++;run.testBlocks=(run.testBlocks||0)+1;}
@@ -162,9 +199,9 @@
    if(k==='hit'){if(data.v===p.id&&data.damage>0)run.hits++;if(data.a===p.id&&['heavy','bash'].includes(data.src))run.heavies++;}
    if(k==='crate'&&run.cage&&data.c===run.cage.c&&data.r===run.cage.r&&data.destroyed){if(id==='banquet'&&!run.barricadeOpen&&g.grid[data.r][data.c]==='.'){run.barricadeOpen=true;g.pickups=g.pickups.filter(q=>distance(q,run.cage)>45);banner('PANTRY OPEN',g.ents.some(e=>!e.human&&living(e))?'Bonk the two banquet guards so the cooks can move.':'Walk near the three cooks. Stay close to lead them through.');}if(id==='steve'&&run.eggOpened===undefined){run.eggOpened=run.elapsed;g.pickups=g.pickups.filter(q=>distance(q,run.cage)>45);g.pickups.push({x:run.cage.x,y:run.cage.y,kind:'steve',tier:4,t:0});banner('STEVE IS FREE','Collect the golden egg. Ride through the gold gates in order.');}if(id==='rind'&&run.phase===2)finish(true);}
   }
-  function objective(){if(!run)return '';const id=run.node.id,aliveEnemies=run.g.ents.filter(e=>!e.human&&living(e)).length;
+  function objective(){if(!run)return '';if(run.prelude)return run.quietKind==='opening'?['Talk to Mabel','Pick up tray','Deliver tray'][run.phase]:['Collect supplies','Go to defence'][run.phase];const id=run.node.id,aliveEnemies=run.g.ents.filter(e=>!e.human&&living(e)).length;
    if(id==='banquet'){if(run.phase===0)return `1/4 · ${run.barricadeOpen?'Barricade open':'Swing at barricade: '+Math.max(0,run.g.crateHp[run.cage.r*32+run.cage.c])+'/3 hits left'} · ${2-aliveEnemies}/2 guards bonked`;if(run.phase===1)return `2/4 · ${run.staff.filter(s=>s.rescued).length}/3 cooks safe · Walk near each cook; stay close`;if(run.phase===2)return `3/4 · Hold pantry: ${run.hold.toFixed(1)}/6s · ${aliveEnemies} guards left`;return `4/4 · Leave through pantry: ${Math.min(1.5,run.hold).toFixed(1)}/1.5s`;}
-   if(id==='puddings')return `Wave ${run.wave}/2 · ${run.stands.filter(s=>s.hp>0).length}/3 stands standing`;
+   if(id==='puddings')return `Bakery siege · Wave ${run.wave}/2 · ${run.stands.filter(s=>s.hp>0).length}/3 cooks’ supply stations intact`;
    if(id==='guard')return `Rice guard: ${run.guard.hp}/5 health`;
    if(id==='biscuit')return `${run.reflects}/3 arrows reflected${run.exitT!==null?' · Extra spoon: '+run.reflects+'/5':''}`;
    if(id==='bridge')return run.route<3?`${run.route}/3 checkpoints · ${3-run.falls} falls left`:`Far end: ${run.hold.toFixed(1)}/3s`;
@@ -173,7 +210,9 @@
    if(id==='rind')return run.phase===2?'Break the skin patch. Free the rice soldier.':`Marshal Rind: ${run.boss.hp}/8 · ${run.boss.step==='exhausted'?'SPOON STUCK — ATTACK':run.boss.step==='warn'?'DASH OUT OF THE RED CIRCLE':'Bait his next swing'}`;
    return run.node.objective;
   }
-  function draw(ctx){if(!run||!run.g.campaign)return;ctx.save();ctx.font='bold 16px Nunito, sans-serif';ctx.textAlign='center';ctx.lineWidth=4;
+  function drawScenery(ctx){if(run&&(run.prelude||['banquet','puddings'].includes(run.node.id)))globalThis.CKBakeryOpening?.scenery(ctx,run);}
+  function drawForeground(ctx){if(run?.prelude)globalThis.CKBakeryOpening?.foreground(ctx,run);}
+  function draw(ctx){if(!run||!run.g.campaign)return;if(run.prelude){globalThis.CKBakeryOpening?.draw(ctx,run);return;}if(run.node.id==='puddings')globalThis.CKBakeryOpening?.siegeStaff(ctx,run);ctx.save();ctx.font='bold 16px Nunito, sans-serif';ctx.textAlign='center';ctx.lineWidth=4;
    const bounded=p=>Math.max(0,Math.min(1,p||0));
    function progressRing(o,color,progress){ctx.beginPath();ctx.strokeStyle=color;ctx.lineWidth=6;ctx.arc(o.x,o.y,(o.r||38)+6,-Math.PI/2,-Math.PI/2+Math.PI*2*bounded(progress));ctx.stroke();ctx.lineWidth=4;}
    function marker(o,color,label,progress){ctx.beginPath();ctx.arc(o.x,o.y,o.r||38,0,Math.PI*2);ctx.fillStyle=color+'30';ctx.strokeStyle=color;ctx.fill();ctx.stroke();if(progress!==undefined)progressRing(o,'#FFF7E0',progress);ctx.fillStyle='#FFF7E0';ctx.strokeStyle='#221733';ctx.lineWidth=4;ctx.strokeText(label,o.labelX||o.x,o.y-(o.labelOffset||(o.r||38)+12));ctx.fillText(label,o.labelX||o.x,o.y-(o.labelOffset||(o.r||38)+12));}
@@ -206,7 +245,7 @@
   }
   function stop(){if(run){if(engine.clearBanner)engine.clearBanner();else run.g.banner=null;}run=null;}
   function restore(raw){save=normalize(raw);persist();return save;}
-  return {begin,tick,input,event,draw,finish,stop,select,assist,difficulty,restore,objective,get save(){return save;},get run(){return run;},get saveError(){return saveError;},unlocked:id=>unlocked(save,id),next:()=>next(save)};
+  return {begin,beginPrelude,beginAftermath,playerInput,drawScenery,drawForeground,tick,input,event,draw,finish,stop,select,assist,difficulty,restore,objective,get save(){return save;},get run(){return run;},get saveError(){return saveError;},unlocked:id=>unlocked(save,id),next:()=>next(save)};
  }
  return {KEY,difficulties,nodes,byId,factions,checkpointLabel,normalize,merge,unlocked,next,award,create};
 });

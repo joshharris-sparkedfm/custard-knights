@@ -1,0 +1,361 @@
+{
+  "startedAt": "2026-10-13T15:08:30.093Z",
+  "root": "C:\\Users\\Joshua\\Documents\\Codex\\2026-10-08\\rea\\work\\custard-knights-room\\build\\beta16-packaged-payload",
+  "harness": "C:\\Users\\Joshua\\Documents\\Codex\\2026-10-08\\rea\\work\\custard-knights-room\\qa\\bakery-story-browser.cjs",
+  "harnessSha256": "3337bc360782156a17f6ede6a9ab2478bf7958c62c4210b85162962d8e13e44c",
+  "sourceHashes": {
+    "index.html": "c140afd3e72185bdedbabecf91f4e776c68fa040c61a1a9212ad06dfe9994163",
+    "game/campaign.js": "014c31e1a9bb842f0f370a921dc7035a063f3fdd3d457ee6733a9f02d2aff8db",
+    "game/campaign-ui.js": "00bf29c6bfa0d0cf083f10b80f79954942ad9c25f2b886831a0411fb80ebbb08",
+    "game/campaign-integration.js": "cc25d908affb074e5ac0c7e69a9ffd11fce579b34cb64d882a43860b83d41dd7",
+    "game/story-scenes.js": "ee84901ced69557e22fda8105cc254f05c05da486873f31756561e39608e508c",
+    "game/bakery-opening.js": "f1487619319d98306be38e7f58a4f4aaf659823bcb7ee45ecc0b088ddb5b1470"
+  },
+  "checks": [
+    {
+      "name": "Explicit pause skip displays next scene without continuing quiet simulation",
+      "pass": true,
+      "details": {
+        "run": null,
+        "save": {
+          "version": 1,
+          "results": {
+            "banquet": {
+              "spoons": [
+                true,
+                true,
+                true
+              ],
+              "attempts": 1,
+              "best": 0,
+              "assisted": false
+            }
+          },
+          "selected": "puddings",
+          "assist": false,
+          "difficulty": "medium",
+          "checkpoint": null,
+          "receipts": [
+            "df6ccede-b188-4c84-9dda-f92ee8020b0f:banquet:1"
+          ]
+        },
+        "visible": [
+          "campaignStory"
+        ],
+        "hud": "Collect supplies · Space / left click"
+      }
+    },
+    {
+      "name": "Explicitly skipped aftermath starts next combat only after scene action",
+      "pass": true,
+      "details": {
+        "run": {
+          "id": "puddings",
+          "phase": 0,
+          "status": "playing",
+          "elapsed": 0.09999999999999999,
+          "player": {
+            "x": 180,
+            "y": 440
+          },
+          "staff": [
+            {
+              "x": 410,
+              "y": 382,
+              "name": "Mabel",
+              "color": "#FF8FB1",
+              "station": 0
+            },
+            {
+              "x": 640,
+              "y": 382,
+              "name": "Alf",
+              "color": "#FFD23F",
+              "station": 1
+            },
+            {
+              "x": 460,
+              "y": 562,
+              "name": "Pip",
+              "color": "#2EC4B6",
+              "station": 2
+            }
+          ],
+          "hold": 0
+        },
+        "save": {
+          "version": 1,
+          "results": {
+            "banquet": {
+              "spoons": [
+                true,
+                true,
+                true
+              ],
+              "attempts": 1,
+              "best": 0,
+              "assisted": false
+            }
+          },
+          "selected": "puddings",
+          "assist": false,
+          "difficulty": "medium",
+          "checkpoint": null,
+          "receipts": [
+            "df6ccede-b188-4c84-9dda-f92ee8020b0f:banquet:1"
+          ]
+        },
+        "visible": [],
+        "hud": "Medium · Bakery siege · Wave 1/2 · 3/3 cooks’ supply stations intact"
+      }
+    },
+    {
+      "name": "Natural aftermath terminal clears quiet runtime without save mutation",
+      "pass": true,
+      "details": {
+        "run": null,
+        "save": {
+          "version": 1,
+          "results": {
+            "banquet": {
+              "spoons": [
+                true,
+                true,
+                true
+              ],
+              "attempts": 2,
+              "best": 0,
+              "assisted": false
+            }
+          },
+          "selected": "puddings",
+          "assist": false,
+          "difficulty": "medium",
+          "checkpoint": null,
+          "receipts": [
+            "df6ccede-b188-4c84-9dda-f92ee8020b0f:banquet:1",
+            "74065f7f-9d7d-4e0f-b5c6-fad6b37dd57c:banquet:3"
+          ]
+        },
+        "visible": [
+          "campaignStory"
+        ],
+        "hud": "Go to defence · Space / left click"
+      }
+    },
+    {
+      "name": "Compact corrected-talk objective stays inside viewport",
+      "pass": true,
+      "details": {
+        "hud": {
+          "x": 286.0859375,
+          "y": 56,
+          "width": 227.828125,
+          "height": 29.5,
+          "top": 56,
+          "right": 513.9140625,
+          "bottom": 85.5,
+          "left": 286.0859375
+        },
+        "text": "Pick up tray · Space / left click",
+        "scroll": {
+          "width": 800,
+          "height": 500
+        },
+        "viewport": {
+          "width": 800,
+          "height": 500
+        },
+        "visible": true
+      }
+    },
+    {
+      "name": "Compact corrected-aftermath objective stays inside viewport",
+      "pass": true,
+      "details": {
+        "hud": {
+          "x": 272.46875,
+          "y": 56,
+          "width": 255.0625,
+          "height": 29.5,
+          "top": 56,
+          "right": 527.53125,
+          "bottom": 85.5,
+          "left": 272.46875
+        },
+        "text": "Collect supplies · Space / left click",
+        "scroll": {
+          "width": 800,
+          "height": 500
+        },
+        "viewport": {
+          "width": 800,
+          "height": 500
+        },
+        "visible": true
+      }
+    },
+    {
+      "name": "Compact corrected-siege-doorwork objective stays inside viewport",
+      "pass": true,
+      "details": {
+        "hud": {
+          "x": 208,
+          "y": 90,
+          "width": 384,
+          "height": 54,
+          "top": 90,
+          "right": 592,
+          "bottom": 144,
+          "left": 208
+        },
+        "text": "Medium · Bakery siege · Wave 1/2 · 2/3 cooks’ supply stations intact",
+        "scroll": {
+          "width": 800,
+          "height": 500
+        },
+        "viewport": {
+          "width": 800,
+          "height": 500
+        },
+        "visible": true
+      }
+    },
+    {
+      "name": "No browser exceptions",
+      "pass": true,
+      "details": []
+    }
+  ],
+  "errors": [],
+  "inputs": [
+    {
+      "type": "mouseClick",
+      "scope": "#campaignResult",
+      "text": "Continue: Return to the bakery"
+    },
+    {
+      "type": "keyDown",
+      "code": "Escape",
+      "observed": {
+        "clock": 0,
+        "elapsed": 0,
+        "phase": 0,
+        "interactWas": false,
+        "held": false,
+        "rawAttack": false
+      }
+    },
+    {
+      "type": "keyUp",
+      "code": "Escape",
+      "observed": {
+        "clock": 0,
+        "elapsed": 0,
+        "phase": 0,
+        "interactWas": false,
+        "held": false,
+        "rawAttack": false
+      }
+    },
+    {
+      "type": "mouseClick",
+      "selector": "#campaignQuietSkip"
+    },
+    {
+      "type": "mouseClick",
+      "scope": "#campaignStory",
+      "text": "Skip story"
+    },
+    {
+      "type": "keyDown",
+      "code": "Space",
+      "observed": {
+        "clock": 0.03333333333333333,
+        "held": false,
+        "rawAttack": null
+      }
+    },
+    {
+      "type": "keyUp",
+      "code": "Space",
+      "observed": {
+        "clock": 0.03333333333333333,
+        "held": false,
+        "rawAttack": null
+      }
+    },
+    {
+      "type": "keyDown",
+      "code": "KeyD"
+    },
+    {
+      "type": "keyDown",
+      "code": "KeyW"
+    },
+    {
+      "type": "keyUp",
+      "code": "KeyW"
+    },
+    {
+      "type": "keyUp",
+      "code": "KeyD"
+    },
+    {
+      "type": "keyDown",
+      "code": "Space",
+      "observed": {
+        "clock": 1.0333333333333345,
+        "elapsed": 1.0333333333333345,
+        "phase": 1,
+        "interactWas": true,
+        "held": true,
+        "rawAttack": true
+      }
+    },
+    {
+      "type": "keyUp",
+      "code": "Space",
+      "observed": {
+        "clock": 1.0666666666666678,
+        "elapsed": 1.0666666666666678,
+        "phase": 1,
+        "interactWas": false,
+        "held": false,
+        "rawAttack": false
+      }
+    }
+  ],
+  "fixtures": [
+    "Single corrected assertion confirmation: direct completed banquet result for actual pause skip",
+    "Natural aftermath terminal cleanup fixture: start legal won return, supply phase and safe gate position; terminal transition uses actual Space",
+    "Focused readability replay launch; Talk transition uses actual WASD and Space",
+    "Focused won return readability setup only; legal saved rescue result",
+    "Focused actual siege launch; no renderer replacement or cooked positions"
+  ],
+  "limitations": [
+    "Actual isolated headless Chrome with CDP keyboard/mouse and live animation frames. No human fun/comprehension, physical device, native EXE, Steam or WAN acceptance.",
+    "Opening movement uses real CDP keys after UI navigation. Pantry uses explicitly recorded inert-enemy setup; progression then uses game movement, breakable collision, escorts and hold/exit simulation. Later outcome/checkpoint/legacy cases use labeled direct setup."
+  ],
+  "profile": "C:\\Users\\Joshua\\AppData\\Local\\Temp\\ck-independent-bakery-Po5hn2",
+  "caseSelection": "followup",
+  "environment": {
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/154.0.0.0 Safari/537.36",
+    "width": 1280,
+    "height": 800
+  },
+  "finishedAt": "2026-10-13T15:08:39.459Z",
+  "sourceHashesAfter": {
+    "index.html": "c140afd3e72185bdedbabecf91f4e776c68fa040c61a1a9212ad06dfe9994163",
+    "game/campaign.js": "014c31e1a9bb842f0f370a921dc7035a063f3fdd3d457ee6733a9f02d2aff8db",
+    "game/campaign-ui.js": "00bf29c6bfa0d0cf083f10b80f79954942ad9c25f2b886831a0411fb80ebbb08",
+    "game/campaign-integration.js": "cc25d908affb074e5ac0c7e69a9ffd11fce579b34cb64d882a43860b83d41dd7",
+    "game/story-scenes.js": "ee84901ced69557e22fda8105cc254f05c05da486873f31756561e39608e508c",
+    "game/bakery-opening.js": "f1487619319d98306be38e7f58a4f4aaf659823bcb7ee45ecc0b088ddb5b1470"
+  },
+  "stableSources": true,
+  "counts": {
+    "pass": 7,
+    "fail": 0
+  }
+}

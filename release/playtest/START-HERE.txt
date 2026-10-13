@@ -50,7 +50,8 @@ Please try without coaching first. Getting stuck is useful feedback.
 - Play two Quick Brawls. Try a quick swing, a charged sword swing, blocking
   and dashing. For a charge, keep holding after the first swing until your
   knight starts charging, then release. Tell us what felt satisfying or confusing.
-- Open Story (The Great Pudding War) and try the opening story objectives.
+- Open Story (The Great Pudding War), choose Begin at the bakery for a fresh
+  story, and try the tray delivery, pantry rescue and return to the bakery.
 - Open Quick Brawl > Solo Custard Cup for three rounds, or Faction Front; set Army size to
   4 vs 4, then choose Play with bots.
 - Change your outfit or visor in Wardrobe, restart, and check it stayed saved.
@@ -168,6 +169,27 @@ plays as they rise. Only one critical banner appears at a time; other world
 hazard tells remain. Faction Front and cinematic/status messages are separate.
 Human listening, warning recognition and physical-device testing remain open.
 
+PLAYABLE BAKERY STORY SLICE — BETA 16
+
+On a fresh Story profile, Begin at the bakery starts a playable opening.
+Walk up to people or marked objects, then use Interact to talk, pick up,
+carry or deliver. Interact uses your current Solo Swing binding or left
+click; a controller uses its current Player 1 Swing binding. Follow the
+on-screen prompt. Swing is interaction during the quiet bakery sequences;
+combat returns to the normal sword/pickup controls during the pantry rescue.
+
+Talk to Mabel, take the covered tray and deliver it at the banquet gate.
+Steve steals a bun on his own; Mabel takes Alf and Pip ahead. Rescue the
+three staff from the pantry, then collect their prepared supplies on your
+return and head east to defend the bakery with its visible siege bowl.
+Returning profiles can replay the bakery opening from Story. Pause offers explicit
+skip/replay controls for the quiet opening and return; follow their labels.
+
+Tell Joshua whether you understood who needed help, what to carry/deliver,
+how Interact differed from combat, and why you returned to defend the bakery.
+This is the first story slice. The rest of the story still needs a fuller
+playable treatment, and human comprehension/fun acceptance remains open.
+
 CONTROLS (DEFAULTS)
 
 Solo arena/story: WASD or arrows move, mouse aims, left-click or Space
@@ -203,10 +225,12 @@ Physical-controller compatibility is part of this test, not yet signed off.
 WHAT YOU CAN PLAY
 
 - Arena: eight modes and six arenas, alone with bots or local friends.
-- The Great Pudding War: animated, subtitled scenes and eight encounters.
-  The opening now needs three sword hits to break the pantry barricade,
-  proximity escort for three cooks, then defence and escape.
-  Scenes can be paused, replayed or skipped; there is no recorded voice-over.
+- The Great Pudding War: a playable bakery opening and return, with eight
+  existing encounters and animated, subtitled scenes. The pantry rescue
+  needs three sword hits to break the barricade, proximity escort for three
+  cooks, then defence and escape. Quiet bakery sequences and scenes offer
+  pause, replay or skip; there is no recorded voice-over. The fuller playable
+  treatment of the remaining story is unfinished.
 - Custard Cup: three linked rounds.
 - Faction Front bot practice: Brawl, Capture the Flag and Siege, with
   4v4, 20v20 or 50v50 total slots. Bots fill empty slots.

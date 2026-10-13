@@ -6,11 +6,13 @@ PR34 merged at `261fec1eec36bb2300719e3dcc698c9c640feb37`. Root verified clean m
 
 | Task | Owner / model / effort | Files | Progress / next action |
 |---|---|---|---|
-| Story and compatible FE09 closure | /root/astra_story_review / gpt-6-astra / ultra | release/ASTRA-STORY-REVIEW.md only | Dispatched one bounded pass using source, captures and the prepared prompt; five prioritised findings and small implementation sequence |
-| Save/replay compatibility audit | /root/story_compatibility_audit / gpt-6-luna / high | Read-only | Inspect eight IDs, prerequisites, checkpoints, spoons, receipts, collection callbacks and legacy-completion mapping; independently review proposal |
+| Story and compatible FE09 closure | /root/astra_story_review / gpt-6-astra / ultra | release/ASTRA-STORY-REVIEW.md only | Complete; five evidence-backed findings and six bounded FE09 PRs, beginning with actual theatre/causal transition correction |
+| Save/replay compatibility audit | /root/story_compatibility_audit / gpt-6-luna / high | Read-only | Final source-fact/mapping review clear; genuine winning replays retain existing once-per-new-round collection policy, while viewing/quiet homecoming never awards |
 | Integration | /root / Sol Extra High | Queue/checkpoint and Git | Verify evidence/compatibility, push/attach/merge review before dispatching the first Sol implementation |
 
 The owner explicitly requested sparing Astra Ultra reviews. This is the single next story/experience pass, not a whole-repository retest or repeated expensive check-in. The release cap stays50v50/100 total;200 is deferred. Original WIP, ordinary saves and all exports remain untouched. Review must distinguish observable defects from creative judgement and human/device acceptance, then enable actionable FE09 engineering.
+
+Review handoff is complete and independently cleared in release/ASTRA-STORY-REVIEW.md. Keep all eight IDs/prerequisites/spoon positions, optional Biscuit and old completed-save entitlements. Stirling becomes support without a mandatory block exam, retaining phase1/2 resume meaning; Rind retains fight/rescue1/2 and later adds only phase3 for the sluice. A separate quiet homecoming must not use the banquet-afterward callback that leads to Puddings. Root merges checked PR35 before FE09-A. No runtime/tests/package/generation changed in this review. FE09-A aligns actual Puddings theatre/captions and causal route/guard identity, plus a short skippable first-delivery disruption while keeping direct pantry retries.
 
 ## Checked FE08 and Friends beta.16 — 13 October 2026
 

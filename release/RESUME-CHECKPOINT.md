@@ -1,3 +1,11 @@
+# Couch device recovery source checkpoint — 13 October 2026
+
+Branch codex/couch-device-continuity in work/custard-knights-couch from verified PR28 merge48456cc. Beta.12 source prepared: loss reserves the same seat, offline pauses, online only lost-seat input becomes neutral, deliberate reclaim rejects occupied devices and gates held controls. Pad edge history follows browser index; recovery supports keyboard/controller navigation; setup/How To Play describe actual fixed bindings. Intentional Leave compaction, remapping UI and physical acceptance are not completed by this increment. Original bakery WIP, normal saves and prior exports preserved.
+
+60 affected source tests passed, followed by focused text assertions for final How To Play correction. Independent final browser23/23 passes with stable index SHA25607a3c1be07ab18f3fe1625ed5a3a06e15f24aad6e37210f8fb15c7132c246e8a and zero browser exceptions; source review cleared. Includes injected pads/direct Cup outcomes (not physical or played-Cup acceptance), ordinary-scroll visibility/reachability800x600/500 and actual same-host PeerJS affected-seat policy. Mid-edit boot failure and initial fake-DOM dataset fixture failure are retained; candidate1 initial-fold assertion was corrected after verifying normal setup scroll, with no CSS runtime change. Source review: qa/reviews/couch-device-2026-10-13.md.
+
+Root freezes/pushes checked source then awaits CI, actual package and export evidence before merge; beta.11 remains the latest verified export until PREVIEW-BUILD records beta.12. Packaging worker owns qa/results/beta12-* and PREVIEW-BUILD. Do not resume completed runtime/review tasks or claim physical/WAN/human/Steam readiness. Local generation guide supplied by user was read and recorded in queue for concrete upcoming story/faction assets; no new generation performed in this controller task.
+
 # Arena recovery and friends beta.11 — 13 October 2026
 
 PR28 packages the checked arena recovery increment. Frozen runtime5c8549db9d5293005fe3b5bd83998a5e66ac32df; later commits only QA/docs/evidence. All recovery agents completed in work/custard-knights-recovery, branch codex/menu-online-recovery. Root verifies PR28 merge and origin/main before the next task. Original bakery WIP, normal saves and older exports remain preserved.

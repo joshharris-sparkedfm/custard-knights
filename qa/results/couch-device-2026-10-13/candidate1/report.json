@@ -1,0 +1,977 @@
+{
+  "startedAt": "2026-10-13T10:31:17.380Z",
+  "root": "C:\\Users\\Joshua\\Documents\\Codex\\2026-10-08\\rea\\work\\custard-knights-couch",
+  "sourceHashes": {
+    "index.html": "5254eceda8ea84bf3c888a8b2a1145fc293cd21197fea2da953161d2635b3377",
+    "game/input-aim.js": "54040dd96e1360a46cd36c5fc6f92b05abeeb7db34af7f5cca3d75a9dcb9baee",
+    "game/cup.js": "790949bce5c2ce54f5a93aa5d13d226fddb735e1426475e9a7c5297987422a12"
+  },
+  "checks": [
+    {
+      "name": "Actual keyboard couch joins preserve reverse pad order",
+      "profile": "Actual keyboard couch joins preserve reverse pad order",
+      "pass": true,
+      "details": {
+        "pass": true,
+        "seats": [
+          {
+            "dev": "pad",
+            "idx": 1,
+            "padId": "QA Beta",
+            "missing": false
+          },
+          {
+            "dev": "kb1"
+          },
+          {
+            "dev": "pad",
+            "idx": 0,
+            "padId": "QA Alpha",
+            "missing": false
+          },
+          {
+            "dev": "kb2"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Four mixed seats route keyboard mouse and pad actions independently",
+      "profile": "Four mixed seats route keyboard mouse and pad actions independently",
+      "pass": true,
+      "details": {
+        "pass": true,
+        "states": [
+          {
+            "mx": 0,
+            "my": 0,
+            "atk": true,
+            "dash": false,
+            "block": false,
+            "faceTo": null
+          },
+          {
+            "mx": 0,
+            "my": 0,
+            "atk": true,
+            "dash": false,
+            "block": false,
+            "faceTo": null
+          },
+          {
+            "mx": 0,
+            "my": 0,
+            "atk": false,
+            "dash": false,
+            "block": false,
+            "faceTo": null
+          },
+          {
+            "mx": 0,
+            "my": 0,
+            "atk": false,
+            "block": true,
+            "faceTo": null
+          }
+        ]
+      }
+    },
+    {
+      "name": "Actual mouse attack follows kb1 seat and never pad or second keyboard",
+      "profile": "Actual mouse attack follows kb1 seat and never pad or second keyboard",
+      "pass": true,
+      "details": {
+        "pass": true,
+        "states": [
+          {
+            "mx": 0,
+            "my": 0,
+            "atk": false,
+            "dash": false,
+            "block": false,
+            "faceTo": null
+          },
+          {
+            "mx": 0,
+            "my": 0,
+            "atk": true,
+            "dash": false,
+            "block": false,
+            "faceTo": -0.3265793279104161
+          },
+          {
+            "mx": 0,
+            "my": 0,
+            "atk": false,
+            "dash": false,
+            "block": false,
+            "faceTo": null
+          },
+          {
+            "mx": 0,
+            "my": 0,
+            "atk": false,
+            "block": false,
+            "faceTo": null
+          }
+        ]
+      }
+    },
+    {
+      "name": "Reordering navigator array does not transfer pad ownership or generate Start edge",
+      "profile": "Reordering navigator array does not transfer pad ownership or generate Start edge",
+      "pass": true,
+      "details": {
+        "pass": true,
+        "a": {
+          "mx": 0,
+          "my": 0,
+          "atk": false,
+          "dash": false,
+          "block": false,
+          "faceTo": null
+        },
+        "c": {
+          "mx": 0,
+          "my": 0,
+          "atk": true,
+          "dash": false,
+          "block": false,
+          "faceTo": null
+        }
+      }
+    },
+    {
+      "name": "Held Start retains one edge across pad array reorder",
+      "profile": "Held Start retains one edge across pad array reorder",
+      "pass": true,
+      "details": {
+        "pass": true,
+        "before": true,
+        "after": true
+      }
+    },
+    {
+      "name": "Offline device loss freezes actual timer and keeps four seat identities",
+      "profile": "Offline device loss freezes actual timer and keeps four seat identities",
+      "pass": true,
+      "details": {
+        "pass": true,
+        "seats": [
+          {
+            "dev": "pad",
+            "idx": 1,
+            "padId": "QA Beta",
+            "missing": true
+          },
+          {
+            "dev": "kb1"
+          },
+          {
+            "dev": "pad",
+            "idx": 0,
+            "padId": "QA Alpha",
+            "missing": false
+          },
+          {
+            "dev": "kb2"
+          }
+        ],
+        "time": 178.53333333333217
+      }
+    },
+    {
+      "name": "Index reuse by a different device cannot seize disconnected seat",
+      "profile": "Index reuse by a different device cannot seize disconnected seat",
+      "pass": true,
+      "details": {
+        "pass": true,
+        "input": {
+          "mx": 0,
+          "my": 0,
+          "atk": false,
+          "dash": false,
+          "block": false,
+          "faceTo": null
+        },
+        "seats": [
+          {
+            "dev": "pad",
+            "idx": 1,
+            "padId": "QA Beta",
+            "missing": true
+          },
+          {
+            "dev": "kb1"
+          },
+          {
+            "dev": "pad",
+            "idx": 0,
+            "padId": "QA Alpha",
+            "missing": false
+          },
+          {
+            "dev": "kb2"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Five direct rematch fixtures preserve seat identity device outfit and team",
+      "profile": "Five direct rematch fixtures preserve seat identity device outfit and team",
+      "pass": true,
+      "details": {
+        "pass": true,
+        "seats": [
+          {
+            "dev": "pad",
+            "idx": 0
+          },
+          {
+            "dev": "pad",
+            "idx": 1
+          }
+        ],
+        "rounds": 5
+      }
+    },
+    {
+      "name": "Same-model pads remain distinct without ambiguous automatic rebind",
+      "profile": "Same-model pads remain distinct without ambiguous automatic rebind",
+      "pass": true,
+      "details": {
+        "pass": true,
+        "lost": {
+          "mx": 0,
+          "my": 0,
+          "atk": false,
+          "dash": false,
+          "block": false,
+          "faceTo": null
+        },
+        "seats": [
+          {
+            "dev": "pad",
+            "idx": 0,
+            "missing": true
+          },
+          {
+            "dev": "pad",
+            "idx": 1
+          }
+        ]
+      }
+    },
+    {
+      "name": "Solo pad loss is detected through polling without disconnect event",
+      "profile": "Solo pad loss is detected through polling without disconnect event",
+      "pass": true,
+      "details": {
+        "pass": true,
+        "time": 179.81666666666652,
+        "seats": [
+          {
+            "dev": "pad",
+            "idx": 0,
+            "missing": true
+          }
+        ]
+      }
+    },
+    {
+      "name": "Recovery status and keyboard control are actually rendered at minimum windows",
+      "profile": "Recovery status and keyboard control are actually rendered at minimum windows",
+      "pass": true,
+      "details": {
+        "pass": true,
+        "cases": [
+          {
+            "width": 800,
+            "height": 600,
+            "text": {
+              "exists": true,
+              "text": "Player 1 controller missing. Match paused until every missing seat is recovered.",
+              "fontSize": "14px",
+              "display": "block",
+              "rect": {
+                "x": 28,
+                "y": 383,
+                "width": 510,
+                "height": 38,
+                "top": 383,
+                "right": 538,
+                "bottom": 421,
+                "left": 28
+              },
+              "textRect": {
+                "x": 28,
+                "y": 383,
+                "width": 454.375,
+                "height": 38,
+                "top": 383,
+                "right": 482.375,
+                "bottom": 421,
+                "left": 28
+              },
+              "visible": true,
+              "clickable": true
+            },
+            "button": {
+              "exists": true,
+              "text": "Use WASD / F G H",
+              "fontSize": "14px",
+              "display": "block",
+              "rect": {
+                "x": 28,
+                "y": 533,
+                "width": 254.671875,
+                "height": 39,
+                "top": 533,
+                "right": 282.671875,
+                "bottom": 572,
+                "left": 28
+              },
+              "textRect": {
+                "x": 93.609375,
+                "y": 543,
+                "width": 123.453125,
+                "height": 19,
+                "top": 543,
+                "right": 217.0625,
+                "bottom": 562,
+                "left": 93.609375
+              },
+              "visible": true,
+              "clickable": true
+            }
+          },
+          {
+            "width": 800,
+            "height": 500,
+            "text": {
+              "exists": true,
+              "text": "Player 1 controller missing. Match paused until every missing seat is recovered.",
+              "fontSize": "14px",
+              "display": "block",
+              "rect": {
+                "x": 28,
+                "y": 283,
+                "width": 510,
+                "height": 38,
+                "top": 283,
+                "right": 538,
+                "bottom": 321,
+                "left": 28
+              },
+              "textRect": {
+                "x": 28,
+                "y": 283,
+                "width": 454.375,
+                "height": 38,
+                "top": 283,
+                "right": 482.375,
+                "bottom": 321,
+                "left": 28
+              },
+              "visible": true,
+              "clickable": true
+            },
+            "button": {
+              "exists": true,
+              "text": "Use WASD / F G H",
+              "fontSize": "14px",
+              "display": "block",
+              "rect": {
+                "x": 28,
+                "y": 433,
+                "width": 254.671875,
+                "height": 39,
+                "top": 433,
+                "right": 282.671875,
+                "bottom": 472,
+                "left": 28
+              },
+              "textRect": {
+                "x": 93.609375,
+                "y": 443,
+                "width": 123.453125,
+                "height": 19,
+                "top": 443,
+                "right": 217.0625,
+                "bottom": 462,
+                "left": 93.609375
+              },
+              "visible": true,
+              "clickable": true
+            }
+          }
+        ]
+      }
+    },
+    {
+      "name": "Keyboard Tab and Enter recover without mouse or replacement pad",
+      "profile": "Keyboard Tab and Enter recover without mouse or replacement pad",
+      "pass": true,
+      "details": {
+        "pass": true,
+        "focus": [
+          "quitBtn",
+          "",
+          "deviceRecoveryKb1"
+        ],
+        "seats": [
+          {
+            "dev": "kb1",
+            "missing": false
+          }
+        ]
+      }
+    },
+    {
+      "name": "Same-index replug requires deliberate A and fresh action after release",
+      "profile": "Same-index replug requires deliberate A and fresh action after release",
+      "pass": true,
+      "details": {
+        "pass": true,
+        "before": true,
+        "reclaimed": true,
+        "held": {
+          "mx": 0,
+          "my": 0,
+          "atk": false,
+          "dash": false,
+          "block": false,
+          "faceTo": null
+        },
+        "fresh": {
+          "mx": 0,
+          "my": 0,
+          "atk": true,
+          "dash": false,
+          "block": false,
+          "faceTo": null
+        }
+      }
+    },
+    {
+      "name": "Occupied device cannot reclaim another seat and free keyboard can recover it",
+      "profile": "Occupied device cannot reclaim another seat and free keyboard can recover it",
+      "pass": true,
+      "details": {
+        "pass": true,
+        "reserved": true,
+        "states": [
+          {
+            "mx": 0,
+            "my": 0,
+            "atk": false,
+            "dash": false,
+            "block": false,
+            "faceTo": null
+          },
+          {
+            "mx": 0,
+            "my": 0,
+            "atk": true,
+            "dash": false,
+            "block": false,
+            "faceTo": null
+          }
+        ],
+        "seats": [
+          {
+            "dev": "pad",
+            "idx": 0
+          },
+          {
+            "dev": "kb1",
+            "missing": false
+          }
+        ]
+      }
+    },
+    {
+      "name": "Setup disconnect retains reserved seat and blocks launch until actual pad reclaim",
+      "profile": "Setup disconnect retains reserved seat and blocks launch until actual pad reclaim",
+      "pass": true,
+      "details": {
+        "pass": true,
+        "before": {
+          "labels": [
+            "Player 1",
+            "Player 2"
+          ],
+          "go": true,
+          "cup": true
+        },
+        "seats": [
+          {
+            "dev": "pad",
+            "idx": 2,
+            "padId": "Setup B",
+            "missing": false
+          },
+          {
+            "dev": "pad",
+            "idx": 0,
+            "padId": "Setup A",
+            "missing": false
+          }
+        ]
+      }
+    },
+    {
+      "name": "Results disconnect and explicit recovery preserve seat before real Rematch click",
+      "profile": "Results disconnect and explicit recovery preserve seat before real Rematch click",
+      "pass": true,
+      "details": {
+        "pass": true,
+        "before": [
+          {
+            "dev": "pad",
+            "idx": 2,
+            "padId": "Setup B",
+            "missing": true
+          },
+          {
+            "dev": "pad",
+            "idx": 0,
+            "padId": "Setup A",
+            "missing": false
+          }
+        ],
+        "recovery": [
+          {
+            "dev": "pad",
+            "idx": 3,
+            "padId": "New results pad",
+            "missing": false
+          },
+          {
+            "dev": "pad",
+            "idx": 0,
+            "padId": "Setup A",
+            "missing": false
+          }
+        ]
+      }
+    },
+    {
+      "name": "Four pads survive three direct Cup outcomes and second Cup with device recovery",
+      "profile": "Four pads survive three direct Cup outcomes and second Cup with device recovery",
+      "pass": true,
+      "details": {
+        "pass": true,
+        "finished": {
+          "status": "complete",
+          "history": 3,
+          "players": [
+            {
+              "key": "local:1",
+              "seat": 1,
+              "name": "Player 1"
+            },
+            {
+              "key": "local:2",
+              "seat": 2,
+              "name": "Player 2"
+            },
+            {
+              "key": "local:3",
+              "seat": 3,
+              "name": "Player 3"
+            },
+            {
+              "key": "local:4",
+              "seat": 4,
+              "name": "Player 4"
+            }
+          ]
+        },
+        "entrants": [
+          {
+            "key": "local:1",
+            "seat": 1,
+            "name": "Player 1"
+          },
+          {
+            "key": "local:2",
+            "seat": 2,
+            "name": "Player 2"
+          },
+          {
+            "key": "local:3",
+            "seat": 3,
+            "name": "Player 3"
+          },
+          {
+            "key": "local:4",
+            "seat": 4,
+            "name": "Player 4"
+          }
+        ],
+        "seats": [
+          {
+            "dev": "pad",
+            "idx": 3
+          },
+          {
+            "dev": "pad",
+            "idx": 4,
+            "padId": "Cup return",
+            "missing": false
+          },
+          {
+            "dev": "pad",
+            "idx": 0
+          },
+          {
+            "dev": "pad",
+            "idx": 2
+          }
+        ]
+      }
+    },
+    {
+      "name": "Classic solo pad can recover to keyboard without null-seat crash",
+      "profile": "Classic solo pad can recover to keyboard without null-seat crash",
+      "pass": true,
+      "details": {
+        "pass": true,
+        "input": {
+          "mx": 0,
+          "my": 0,
+          "atk": true,
+          "dash": false,
+          "block": false,
+          "faceTo": null
+        }
+      }
+    },
+    {
+      "name": "Custom setup fixed binding prompts are truthful and rendered at minimum windows",
+      "profile": "Custom setup fixed binding prompts are truthful and rendered at minimum windows",
+      "pass": false,
+      "details": {
+        "pass": false,
+        "cases": [
+          {
+            "width": 800,
+            "height": 600,
+            "text": {
+              "exists": true,
+              "text": "You: WASD or Arrows move, mouse aims; click / Space / F / J swings or fires, Shift / G / K dashes, right-click / E / H / L blocks. Hold Swing for heavy. Arena controller bindings are fixed: A / RT swing or fire, B / LB dash, X / RB / LT block, Y shout. Left stick / d-pad moves, right stick aims; hold Swing for heavy. Start opens the match menu. Faction Front shows its own bindings. No pad connected yet; press any button on one.",
+              "fontSize": "13px",
+              "display": "flex",
+              "rect": {
+                "x": 41.968379974365234,
+                "y": 501.1517333984375,
+                "width": 701.063232421875,
+                "height": 91.0081787109375,
+                "top": 501.1517333984375,
+                "right": 743.0316123962402,
+                "bottom": 592.159912109375,
+                "left": 41.968379974365234
+              },
+              "textRect": {
+                "x": 41.968379974365234,
+                "y": 503.15185546875,
+                "width": 695.890869140625,
+                "height": 86.2578125,
+                "top": 503.15185546875,
+                "right": 737.8592491149902,
+                "bottom": 589.40966796875,
+                "left": 41.968379974365234
+              },
+              "visible": true,
+              "clickable": true
+            },
+            "button": {
+              "exists": true,
+              "text": "Start the brawl",
+              "fontSize": "26px",
+              "display": "block",
+              "rect": {
+                "x": 41.968379974365234,
+                "y": 606.1611328125,
+                "width": 701.063232421875,
+                "height": 56.005126953125,
+                "top": 606.1611328125,
+                "right": 743.0316123962402,
+                "bottom": 662.166259765625,
+                "left": 41.968379974365234
+              },
+              "textRect": {
+                "x": 305.9453125,
+                "y": 619.162353515625,
+                "width": 173.09375,
+                "height": 30.002685546875,
+                "top": 619.162353515625,
+                "right": 479.0390625,
+                "bottom": 649.1650390625,
+                "left": 305.9453125
+              },
+              "visible": false,
+              "clickable": false
+            }
+          },
+          {
+            "width": 800,
+            "height": 500,
+            "text": {
+              "exists": true,
+              "text": "You: WASD or Arrows move, mouse aims; click / Space / F / J swings or fires, Shift / G / K dashes, right-click / E / H / L blocks. Hold Swing for heavy. Arena controller bindings are fixed: A / RT swing or fire, B / LB dash, X / RB / LT block, Y shout. Left stick / d-pad moves, right stick aims; hold Swing for heavy. Start opens the match menu. Faction Front shows its own bindings. No pad connected yet; press any button on one.",
+              "fontSize": "13px",
+              "display": "flex",
+              "rect": {
+                "x": 42,
+                "y": 401.375,
+                "width": 701,
+                "height": 91,
+                "top": 401.375,
+                "right": 743,
+                "bottom": 492.375,
+                "left": 42
+              },
+              "textRect": {
+                "x": 42,
+                "y": 403.375,
+                "width": 695.828125,
+                "height": 86.25,
+                "top": 403.375,
+                "right": 737.828125,
+                "bottom": 489.625,
+                "left": 42
+              },
+              "visible": true,
+              "clickable": true
+            },
+            "button": {
+              "exists": true,
+              "text": "Start the brawl",
+              "fontSize": "26px",
+              "display": "block",
+              "rect": {
+                "x": 42,
+                "y": 506.375,
+                "width": 701,
+                "height": 56,
+                "top": 506.375,
+                "right": 743,
+                "bottom": 562.375,
+                "left": 42
+              },
+              "textRect": {
+                "x": 305.953125,
+                "y": 519.375,
+                "width": 173.078125,
+                "height": 30,
+                "top": 519.375,
+                "right": 479.03125,
+                "bottom": 549.375,
+                "left": 305.953125
+              },
+              "visible": false,
+              "clickable": false
+            }
+          }
+        ]
+      }
+    },
+    {
+      "name": "Actual bundled PeerJS signaling and guest admission",
+      "profile": "Actual bundled PeerJS signaling and guest admission",
+      "pass": true,
+      "details": {
+        "pass": true,
+        "code": "42KJC"
+      }
+    },
+    {
+      "name": "Online pad loss neutralizes affected seat while timer other local and real guest continue",
+      "profile": "Online pad loss neutralizes affected seat while timer other local and real guest continue",
+      "pass": true,
+      "details": {
+        "pass": true,
+        "states": [
+          {
+            "mx": 0,
+            "my": 0,
+            "atk": false,
+            "dash": false,
+            "block": false,
+            "faceTo": null
+          },
+          {
+            "mx": 0.8,
+            "my": 0,
+            "atk": false,
+            "dash": false,
+            "block": false,
+            "faceTo": null
+          }
+        ],
+        "remote": [
+          1,
+          0,
+          0,
+          0,
+          0,
+          null
+        ],
+        "before": 179.38333333333284,
+        "after": 179.14999999999932,
+        "menu": false
+      }
+    },
+    {
+      "name": "Online recovery status and button render at minimum windows",
+      "profile": "Online recovery status and button render at minimum windows",
+      "pass": true,
+      "details": {
+        "pass": true,
+        "cases": [
+          {
+            "width": 800,
+            "height": 600,
+            "text": {
+              "exists": true,
+              "text": "Player 1 controller missing. Match continues; only missing seats have no controls.",
+              "fontSize": "14px",
+              "display": "block",
+              "rect": {
+                "x": 28,
+                "y": 383,
+                "width": 510,
+                "height": 38,
+                "top": 383,
+                "right": 538,
+                "bottom": 421,
+                "left": 28
+              },
+              "textRect": {
+                "x": 28,
+                "y": 383,
+                "width": 479.515625,
+                "height": 38,
+                "top": 383,
+                "right": 507.515625,
+                "bottom": 421,
+                "left": 28
+              },
+              "visible": true,
+              "clickable": true
+            },
+            "button": {
+              "exists": true,
+              "text": "Use WASD / F G H",
+              "fontSize": "14px",
+              "display": "block",
+              "rect": {
+                "x": 28,
+                "y": 533,
+                "width": 254.671875,
+                "height": 39,
+                "top": 533,
+                "right": 282.671875,
+                "bottom": 572,
+                "left": 28
+              },
+              "textRect": {
+                "x": 93.609375,
+                "y": 543,
+                "width": 123.453125,
+                "height": 19,
+                "top": 543,
+                "right": 217.0625,
+                "bottom": 562,
+                "left": 93.609375
+              },
+              "visible": true,
+              "clickable": true
+            }
+          },
+          {
+            "width": 800,
+            "height": 500,
+            "text": {
+              "exists": true,
+              "text": "Player 1 controller missing. Match continues; only missing seats have no controls.",
+              "fontSize": "14px",
+              "display": "block",
+              "rect": {
+                "x": 28,
+                "y": 283,
+                "width": 510,
+                "height": 38,
+                "top": 283,
+                "right": 538,
+                "bottom": 321,
+                "left": 28
+              },
+              "textRect": {
+                "x": 28,
+                "y": 283,
+                "width": 479.515625,
+                "height": 38,
+                "top": 283,
+                "right": 507.515625,
+                "bottom": 321,
+                "left": 28
+              },
+              "visible": true,
+              "clickable": true
+            },
+            "button": {
+              "exists": true,
+              "text": "Use WASD / F G H",
+              "fontSize": "14px",
+              "display": "block",
+              "rect": {
+                "x": 28,
+                "y": 433,
+                "width": 254.671875,
+                "height": 39,
+                "top": 433,
+                "right": 282.671875,
+                "bottom": 472,
+                "left": 28
+              },
+              "textRect": {
+                "x": 93.609375,
+                "y": 443,
+                "width": 123.453125,
+                "height": 19,
+                "top": 443,
+                "right": 217.0625,
+                "bottom": 462,
+                "left": 93.609375
+              },
+              "visible": true,
+              "clickable": true
+            }
+          }
+        ]
+      }
+    }
+  ],
+  "errors": [],
+  "limitations": [
+    "Actual Chrome; CDP keyboard/mouse and injected standard pad objects. No physical controllers, Steam Input, human couch or packaged EXE acceptance.",
+    "Direct CK start/endMatch/rematch and shortened Cup fixtures are labeled; these are continuity checks, not input-only completion or gameplay balance.",
+    "Profiles are isolated temporary QA saves. Actual PeerJS, when run, is same-host only."
+  ],
+  "realPeerJS": "actual same-host DataConnection",
+  "noRuntimeErrors": true,
+  "sourceHashesAfter": {
+    "index.html": "5254eceda8ea84bf3c888a8b2a1145fc293cd21197fea2da953161d2635b3377",
+    "game/input-aim.js": "54040dd96e1360a46cd36c5fc6f92b05abeeb7db34af7f5cca3d75a9dcb9baee",
+    "game/cup.js": "790949bce5c2ce54f5a93aa5d13d226fddb735e1426475e9a7c5297987422a12"
+  },
+  "stableSources": true,
+  "finishedAt": "2026-10-13T10:31:38.193Z",
+  "counts": {
+    "pass": 21,
+    "fail": 1
+  }
+}

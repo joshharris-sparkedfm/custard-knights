@@ -1,0 +1,13 @@
+{
+  "sourceThreadId": "01a135ec-626c-71d1-b24f-7cb8d51e0e6c",
+  "retrievedFrom": "Codex read_thread output",
+  "retrievedAt": "2026-10-13T15:55:00Z",
+  "commandEventId": "exec-dc68e03b-1652-4003-b9da-5af4585e43e9",
+  "command": "\"C:\\\\Users\\\\Joshua\\\\.cache\\\\codex-runtimes\\\\codex-primary-runtime\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -Command 'node --test tests/campaign.test.cjs tests/bakery-opening.test.cjs tests/story-scenes.test.cjs tests/story-transitions.test.cjs'",
+  "cwd": "C:\\Users\\Joshua\\Documents\\Codex\\2026-10-08\\rea\\work\\custard-knights-room",
+  "status": "completed",
+  "exitCode": 0,
+  "durationMs": 330,
+  "originalTruncated": false,
+  "claim": "Retained original 43-pass check, imported from interrupted worker history; not newly executed. One later guard text alignment has its own focused checks."
+}

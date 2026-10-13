@@ -1,0 +1,462 @@
+{
+  "startedAt": "2026-10-13T16:01:11.049Z",
+  "root": "C:\\Users\\Joshua\\Documents\\Codex\\2026-10-08\\rea\\work\\custard-knights-room",
+  "harness": "C:\\Users\\Joshua\\Documents\\Codex\\2026-10-08\\rea\\work\\custard-knights-room\\qa\\story-transitions-browser.cjs",
+  "harnessSha256": "6df582d483b41d89db67256ccf2d7c71bf62325f5b049a370bd3b5e95396d12e",
+  "sourceHashes": {
+    "index.html": "c140afd3e72185bdedbabecf91f4e776c68fa040c61a1a9212ad06dfe9994163",
+    "game/campaign.js": "c4deee57e403492f3d80e80323c5f97038758f4bf64455fdda73287236f066ce",
+    "game/campaign-ui.js": "b96a9d8fb80bf470225112bf62e68e482031fab5554ddc589cf354606a49799a",
+    "game/campaign-integration.js": "03d3805e177fbce92540f53adbbecf6f254cc3d0501e4ec4e8016af206816001",
+    "game/story-scenes.js": "a64dce7318f2b769fe6320814e34c05b04c6e14abc63c7168f106d05ffaf4c2d",
+    "game/bakery-opening.js": "dbbff764f547da6fdee9f290233c4b6bb5b79c0b0e8282d803b971389267f5e8"
+  },
+  "checks": [
+    {
+      "name": "Compact 10-post-banner-live-cooks-cooling visible element bounds (inspection evidence)",
+      "pass": true,
+      "details": [
+        {
+          "selector": ".campaign-captions",
+          "viewport": {
+            "w": 800,
+            "h": 500
+          }
+        },
+        {
+          "selector": ".campaign-theatre",
+          "viewport": {
+            "w": 800,
+            "h": 500
+          }
+        },
+        {
+          "selector": "#campaignHUD",
+          "hidden": false,
+          "text": "Medium · Bakery siege · Wave 1/2 · 3/3 cooks’ supply stations intact · Bowl → ovens; cooling route blocked",
+          "rect": {
+            "x": 208,
+            "y": 90,
+            "width": 384,
+            "height": 46,
+            "top": 90,
+            "right": 592,
+            "bottom": 136,
+            "left": 208
+          },
+          "viewport": {
+            "w": 800,
+            "h": 500
+          }
+        },
+        {
+          "selector": "#campaignSpeech",
+          "hidden": true,
+          "text": "",
+          "rect": {
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "top": 0,
+            "right": 0,
+            "bottom": 0,
+            "left": 0
+          },
+          "viewport": {
+            "w": 800,
+            "h": 500
+          }
+        }
+      ]
+    },
+    {
+      "name": "Post-banner staged capture no rewards",
+      "pass": true
+    },
+    {
+      "name": "Compact 11-post-banner-live-Bran visible element bounds (inspection evidence)",
+      "pass": true,
+      "details": [
+        {
+          "selector": ".campaign-captions",
+          "viewport": {
+            "w": 800,
+            "h": 500
+          }
+        },
+        {
+          "selector": ".campaign-theatre",
+          "viewport": {
+            "w": 800,
+            "h": 500
+          }
+        },
+        {
+          "selector": "#campaignHUD",
+          "hidden": false,
+          "text": "Medium · Bran: 5/5 · Open the service crossing",
+          "rect": {
+            "x": 229.3671875,
+            "y": 90,
+            "width": 341.265625,
+            "height": 35,
+            "top": 90,
+            "right": 570.6328125,
+            "bottom": 125,
+            "left": 229.3671875
+          },
+          "viewport": {
+            "w": 800,
+            "h": 500
+          }
+        },
+        {
+          "selector": "#campaignSpeech",
+          "hidden": true,
+          "text": "",
+          "rect": {
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "top": 0,
+            "right": 0,
+            "bottom": 0,
+            "left": 0
+          },
+          "viewport": {
+            "w": 800,
+            "h": 500
+          }
+        }
+      ]
+    },
+    {
+      "name": "Reporting starts have unique round IDs",
+      "pass": true,
+      "details": {
+        "starts": [
+          {
+            "name": "round_started",
+            "build": "0.3.0-beta.7",
+            "sessionId": "69fc29a11bd0403e82859be5413044e7",
+            "at": 1791907271620,
+            "fields": {
+              "format": "story",
+              "mode": "campaign",
+              "map": "courtyard",
+              "difficulty": "medium",
+              "humanCount": 1,
+              "botCount": 2,
+              "encounter": "puddings",
+              "input": "keyboard",
+              "botOnly": false,
+              "roundId": "d2e838c667b87905d2fb31be2d1bd3be",
+              "qa": true
+            }
+          },
+          {
+            "name": "round_started",
+            "build": "0.3.0-beta.7",
+            "sessionId": "69fc29a11bd0403e82859be5413044e7",
+            "at": 1791907278950,
+            "fields": {
+              "format": "story",
+              "mode": "campaign",
+              "map": "courtyard",
+              "difficulty": "medium",
+              "humanCount": 1,
+              "botCount": 1,
+              "encounter": "guard",
+              "input": "keyboard",
+              "botOnly": false,
+              "roundId": "109d0b120669f122ff7c167e92932ffe",
+              "qa": true
+            }
+          }
+        ],
+        "ends": []
+      }
+    },
+    {
+      "name": "Reporting completions are unique and reference a launched round",
+      "pass": true,
+      "details": {
+        "starts": [
+          {
+            "name": "round_started",
+            "build": "0.3.0-beta.7",
+            "sessionId": "69fc29a11bd0403e82859be5413044e7",
+            "at": 1791907271620,
+            "fields": {
+              "format": "story",
+              "mode": "campaign",
+              "map": "courtyard",
+              "difficulty": "medium",
+              "humanCount": 1,
+              "botCount": 2,
+              "encounter": "puddings",
+              "input": "keyboard",
+              "botOnly": false,
+              "roundId": "d2e838c667b87905d2fb31be2d1bd3be",
+              "qa": true
+            }
+          },
+          {
+            "name": "round_started",
+            "build": "0.3.0-beta.7",
+            "sessionId": "69fc29a11bd0403e82859be5413044e7",
+            "at": 1791907278950,
+            "fields": {
+              "format": "story",
+              "mode": "campaign",
+              "map": "courtyard",
+              "difficulty": "medium",
+              "humanCount": 1,
+              "botCount": 1,
+              "encounter": "guard",
+              "input": "keyboard",
+              "botOnly": false,
+              "roundId": "109d0b120669f122ff7c167e92932ffe",
+              "qa": true
+            }
+          }
+        ],
+        "ends": []
+      }
+    },
+    {
+      "name": "No browser exceptions",
+      "pass": true,
+      "details": []
+    }
+  ],
+  "errors": [],
+  "inputs": [
+    {
+      "type": "keyDown",
+      "code": "KeyD"
+    },
+    {
+      "type": "keyDown",
+      "code": "KeyS"
+    },
+    {
+      "type": "keyUp",
+      "code": "KeyS"
+    },
+    {
+      "type": "keyUp",
+      "code": "KeyD"
+    }
+  ],
+  "fixtures": [
+    "Enable isolated local QA reporting through normal consent handler",
+    "Copied prerequisite-only isolated save for supplemental Puddings capture; living raiders stunned99 seconds",
+    "Direct guard launch for supplemental capture; living guard stunned99 seconds; prerequisite completion copied"
+  ],
+  "limitations": [
+    "Focused FE09-A engineering QA with actual isolated headless Chrome/CDP keys and clicks. Natural opening movement is actual input. Later completion saves, direct failure and guard KO are labeled fixtures, not a full combat playthrough.",
+    "Screenshots show actual theatre renderer and actual gameplay at 1280x800 and 800x500. Bounds recorded for independent visual inspection; screenshot inspection remains reviewer work. No human comprehension, physical device, native EXE, Steam, WAN or later FE09 finale acceptance."
+  ],
+  "profile": "C:\\Users\\Joshua\\AppData\\Local\\Temp\\ck-independent-bakery-2RrS9V",
+  "chromeLog": "\r\nDevTools listening on ws://127.0.0.1:50435/devtools/browser/e9b7afda-a516-429a-9094-a82f9287e0df\r\n[31688:50088:1013/170114.240:ERROR:services\\device\\usb\\usb_descriptors.cc:118] Failed to parse configuration descriptor.\r\n[31688:14760:1013/170114.571:ERROR:google_apis\\gcm\\engine\\registration_request.cc:291] Registration response error message: PHONE_REGISTRATION_ERROR\r\n[31688:14760:1013/170114.571:ERROR:google_apis\\gcm\\engine\\registration_request.cc:291] Registration response error message: PHONE_REGISTRATION_ERROR\r\n[31688:14760:1013/170114.578:ERROR:google_apis\\gcm\\engine\\registration_request.cc:291] Registration response error message: PHONE_REGISTRATION_ERROR\r\n[31688:14760:1013/170114.703:ERROR:google_apis\\gcm\\engine\\mcs_client.cc:702]   Error code: 401  Error message: Authentication Failed: wrong_secret\r\n[31688:14760:1013/170114.703:ERROR:google_apis\\gcm\\engine\\mcs_client.cc:704] Failed to log in to GCM, resetting connection.\r\n",
+  "cdpTarget": {
+    "description": "",
+    "devtoolsFrontendUrl": "https://chrome-devtools-frontend.appspot.com/serve_rev/@b859317bf11f6be47f9b7799ec690a0a42a1fb33/inspector.html?ws=127.0.0.1:50435/devtools/page/363AA06150D8335AAEC3579C2EB4FCCF",
+    "id": "363AA06150D8335AAEC3579C2EB4FCCF",
+    "title": "",
+    "type": "page",
+    "url": "about:blank",
+    "webSocketDebuggerUrl": "ws://127.0.0.1:50435/devtools/page/363AA06150D8335AAEC3579C2EB4FCCF"
+  },
+  "cdpMessages": 88,
+  "postBanner": {
+    "run": {
+      "id": "puddings",
+      "phase": 0,
+      "status": "playing",
+      "elapsed": 7.19999999999998,
+      "player": {
+        "x": 617.7640811016598,
+        "y": 584.0140811016605
+      },
+      "staff": [
+        {
+          "x": 410,
+          "y": 382,
+          "name": "Mabel",
+          "color": "#FF8FB1",
+          "station": 0
+        },
+        {
+          "x": 640,
+          "y": 382,
+          "name": "Alf",
+          "color": "#FFD23F",
+          "station": 1
+        },
+        {
+          "x": 460,
+          "y": 562,
+          "name": "Pip",
+          "color": "#2EC4B6",
+          "station": 2
+        }
+      ],
+      "hold": 0
+    },
+    "save": {
+      "version": 1,
+      "results": {
+        "banquet": {
+          "spoons": [
+            true,
+            false,
+            false
+          ],
+          "attempts": 1,
+          "best": 70,
+          "assisted": false
+        }
+      },
+      "selected": "puddings",
+      "assist": false,
+      "difficulty": "medium",
+      "checkpoint": null,
+      "receipts": []
+    },
+    "visible": [],
+    "hud": "Medium · Bakery siege · Wave 1/2 · 3/3 cooks’ supply stations intact · Bowl → ovens; cooling route blocked"
+  },
+  "productReport": {
+    "version": 1,
+    "build": "0.3.0-beta.7",
+    "generatedAt": 1791907284007,
+    "consent": true,
+    "storageState": "available",
+    "installId": "934ea0fc8b0d7445fb2d527143986aa6",
+    "events": [
+      {
+        "name": "session_start",
+        "build": "0.3.0-beta.7",
+        "sessionId": "69fc29a11bd0403e82859be5413044e7",
+        "at": 1791907271584,
+        "fields": {
+          "qa": true
+        }
+      },
+      {
+        "name": "round_started",
+        "build": "0.3.0-beta.7",
+        "sessionId": "69fc29a11bd0403e82859be5413044e7",
+        "at": 1791907271620,
+        "fields": {
+          "format": "story",
+          "mode": "campaign",
+          "map": "courtyard",
+          "difficulty": "medium",
+          "humanCount": 1,
+          "botCount": 2,
+          "encounter": "puddings",
+          "input": "keyboard",
+          "botOnly": false,
+          "roundId": "d2e838c667b87905d2fb31be2d1bd3be",
+          "qa": true
+        }
+      },
+      {
+        "name": "first_meaningful_action",
+        "build": "0.3.0-beta.7",
+        "sessionId": "69fc29a11bd0403e82859be5413044e7",
+        "at": 1791907271807,
+        "fields": {
+          "action": "move",
+          "input": "keyboard",
+          "format": "story",
+          "mode": "campaign",
+          "map": "courtyard",
+          "difficulty": "medium",
+          "humanCount": 1,
+          "botCount": 2,
+          "encounter": "puddings",
+          "botOnly": false,
+          "roundId": "d2e838c667b87905d2fb31be2d1bd3be",
+          "qa": true
+        }
+      },
+      {
+        "name": "round_started",
+        "build": "0.3.0-beta.7",
+        "sessionId": "69fc29a11bd0403e82859be5413044e7",
+        "at": 1791907278950,
+        "fields": {
+          "format": "story",
+          "mode": "campaign",
+          "map": "courtyard",
+          "difficulty": "medium",
+          "humanCount": 1,
+          "botCount": 1,
+          "encounter": "guard",
+          "input": "keyboard",
+          "botOnly": false,
+          "roundId": "109d0b120669f122ff7c167e92932ffe",
+          "qa": true
+        }
+      }
+    ],
+    "metrics": {
+      "joinAttempts": 0,
+      "joinSucceeded": 0,
+      "joinFailed": 0,
+      "joinPendingOrUnobserved": 0,
+      "roundsStarted": 0,
+      "roundsCompleted": 0,
+      "roundCompletionRate": null,
+      "rematchSelections": 0,
+      "completedRoundsWithObservedContinuation": 0
+    },
+    "experiments": [],
+    "counts": {
+      "retained": 4,
+      "truncated": 0,
+      "duplicates": 0,
+      "rejected": 0,
+      "excludedFromHumanMetrics": 4
+    },
+    "limitations": [
+      "Experiment counts describe retained solo trials by build/variant, not unique participants or causal lift. Recognition is self-report. Normal-round continuation requires a later observed offline arena start, not a stated intention.",
+      "Local opt-in observations from one browser installation only; no network collection or population-wide claims.",
+      "Metrics cover retained events only. Truncation, cleared storage, missing instrumentation and interrupted sessions can remove context.",
+      "Deduplication covers retained events in the current session. IDs must be anonymous local tokens, never external identifiers.",
+      "Join outcomes require a retained attempt in the same session. Pending or unobserved does not mean failure.",
+      "Round completions also require a start in the same session. A long round spanning the inactivity cutoff remains uncompleted in this observed baseline.",
+      "General round metrics include optional study rounds; use the experiment summaries and trial fields to separate these from normal play.",
+      "Human round metrics require explicitly positive human counts on start and completion; late joins are excluded. QA, demo and bot-only events are excluded.",
+      "Continuation means a later human round start in the same session after an observed completion; rematch intent alone is not continuation.",
+      "Inactivity exits are inferred after 30 minutes when another event arrives. Page exits are observations of lifecycle signals, not proof a person left.",
+      "Cup, challenge, reward, highlight, share and referral events are observations only; no conversion or retention claim is calculated.",
+      "No D1/D7 retention, people counts, attribution, or cross-device identity is available."
+    ]
+  },
+  "environment": {
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/154.0.0.0 Safari/537.36",
+    "width": 1280,
+    "height": 800
+  },
+  "finishedAt": "2026-10-13T16:01:24.011Z",
+  "sourceHashesAfter": {
+    "index.html": "c140afd3e72185bdedbabecf91f4e776c68fa040c61a1a9212ad06dfe9994163",
+    "game/campaign.js": "c4deee57e403492f3d80e80323c5f97038758f4bf64455fdda73287236f066ce",
+    "game/campaign-ui.js": "b96a9d8fb80bf470225112bf62e68e482031fab5554ddc589cf354606a49799a",
+    "game/campaign-integration.js": "03d3805e177fbce92540f53adbbecf6f254cc3d0501e4ec4e8016af206816001",
+    "game/story-scenes.js": "a64dce7318f2b769fe6320814e34c05b04c6e14abc63c7168f106d05ffaf4c2d",
+    "game/bakery-opening.js": "dbbff764f547da6fdee9f290233c4b6bb5b79c0b0e8282d803b971389267f5e8"
+  },
+  "stableSources": true,
+  "counts": {
+    "pass": 6,
+    "fail": 0
+  }
+}

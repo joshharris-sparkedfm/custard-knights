@@ -1,0 +1,1344 @@
+{
+  "startedAt": "2026-10-13T15:46:58.207Z",
+  "root": "C:\\Users\\Joshua\\Documents\\Codex\\2026-10-08\\rea\\work\\custard-knights-room",
+  "harness": "C:\\Users\\Joshua\\Documents\\Codex\\2026-10-08\\rea\\work\\custard-knights-room\\qa\\story-transitions-browser.cjs",
+  "harnessSha256": "fd77c9f91ed3e3f40fe9e3edcc0c18c676b8f1f1c9f4f1d5c92eaecd54100367",
+  "sourceHashes": {
+    "index.html": "c140afd3e72185bdedbabecf91f4e776c68fa040c61a1a9212ad06dfe9994163",
+    "game/campaign.js": "be21740cbcf10003466a5cc82b48a662e3fe3e6d589c7293279b37aaa4cde8fd",
+    "game/campaign-ui.js": "b4e2f296b5b50d20bbddd798561f3d9e622eb8ee4dfc97c9cb7773b91ec34ec9",
+    "game/campaign-integration.js": "03d3805e177fbce92540f53adbbecf6f254cc3d0501e4ec4e8016af206816001",
+    "game/story-scenes.js": "a64dce7318f2b769fe6320814e34c05b04c6e14abc63c7168f106d05ffaf4c2d",
+    "game/bakery-opening.js": "dbbff764f547da6fdee9f290233c4b6bb5b79c0b0e8282d803b971389267f5e8"
+  },
+  "checks": [
+    {
+      "name": "Natural delivery opens short banquet disruption",
+      "pass": true,
+      "details": {
+        "name": "natural disruption",
+        "initial": {
+          "scene": {
+            "id": "banquet",
+            "phase": "disruption",
+            "time": "0.083",
+            "playback": "playing"
+          },
+          "captions": "The Official HistoryOne pie ended the peace banquet.",
+          "buttons": [
+            {
+              "text": "Pause scene",
+              "disabled": false
+            },
+            {
+              "text": "Replay scene",
+              "disabled": false
+            },
+            {
+              "text": "Skip story",
+              "disabled": false
+            },
+            {
+              "text": "Help the cooks",
+              "disabled": true
+            },
+            {
+              "text": "Back to map",
+              "disabled": false
+            }
+          ],
+          "runtime": null,
+          "save": {
+            "version": 1,
+            "results": {},
+            "selected": "banquet",
+            "assist": false,
+            "difficulty": "medium",
+            "checkpoint": null,
+            "receipts": []
+          }
+        },
+        "samples": [
+          {
+            "scene": {
+              "id": "banquet",
+              "phase": "disruption",
+              "time": "0.050",
+              "playback": "playing"
+            },
+            "captions": "The Official HistoryOne pie ended the peace banquet.",
+            "buttons": [
+              {
+                "text": "Pause scene",
+                "disabled": false
+              },
+              {
+                "text": "Replay scene",
+                "disabled": false
+              },
+              {
+                "text": "Skip story",
+                "disabled": false
+              },
+              {
+                "text": "Help the cooks",
+                "disabled": true
+              },
+              {
+                "text": "Back to map",
+                "disabled": false
+              }
+            ],
+            "runtime": null,
+            "save": {
+              "version": 1,
+              "results": {},
+              "selected": "banquet",
+              "assist": false,
+              "difficulty": "medium",
+              "checkpoint": null,
+              "receipts": []
+            }
+          },
+          {
+            "scene": {
+              "id": "banquet",
+              "phase": "disruption",
+              "time": "2.867",
+              "playback": "playing"
+            },
+            "captions": "The Official HistoryIn the fight, a thief took the Golden Spoon.",
+            "buttons": [
+              {
+                "text": "Pause scene",
+                "disabled": false
+              },
+              {
+                "text": "Replay scene",
+                "disabled": false
+              },
+              {
+                "text": "Skip story",
+                "disabled": false
+              },
+              {
+                "text": "Help the cooks",
+                "disabled": true
+              },
+              {
+                "text": "Back to map",
+                "disabled": false
+              }
+            ],
+            "runtime": null,
+            "save": {
+              "version": 1,
+              "results": {},
+              "selected": "banquet",
+              "assist": false,
+              "difficulty": "medium",
+              "checkpoint": null,
+              "receipts": []
+            }
+          },
+          {
+            "scene": {
+              "id": "banquet",
+              "phase": "disruption",
+              "time": "5.667",
+              "playback": "playing"
+            },
+            "captions": "MabelRecruit! The pantry is blocked. Get Alf, Pip and me out!",
+            "buttons": [
+              {
+                "text": "Pause scene",
+                "disabled": false
+              },
+              {
+                "text": "Replay scene",
+                "disabled": false
+              },
+              {
+                "text": "Skip story",
+                "disabled": false
+              },
+              {
+                "text": "Help the cooks",
+                "disabled": true
+              },
+              {
+                "text": "Back to map",
+                "disabled": false
+              }
+            ],
+            "runtime": null,
+            "save": {
+              "version": 1,
+              "results": {},
+              "selected": "banquet",
+              "assist": false,
+              "difficulty": "medium",
+              "checkpoint": null,
+              "receipts": []
+            }
+          },
+          {
+            "scene": {
+              "id": "banquet",
+              "phase": "disruption",
+              "time": "7.950",
+              "playback": "playing"
+            },
+            "captions": "MabelRecruit! The pantry is blocked. Get Alf, Pip and me out!",
+            "buttons": [
+              {
+                "text": "Pause scene",
+                "disabled": false
+              },
+              {
+                "text": "Replay scene",
+                "disabled": false
+              },
+              {
+                "text": "Skip story",
+                "disabled": false
+              },
+              {
+                "text": "Help the cooks",
+                "disabled": true
+              },
+              {
+                "text": "Back to map",
+                "disabled": false
+              }
+            ],
+            "runtime": null,
+            "save": {
+              "version": 1,
+              "results": {},
+              "selected": "banquet",
+              "assist": false,
+              "difficulty": "medium",
+              "checkpoint": null,
+              "receipts": []
+            }
+          }
+        ]
+      }
+    },
+    {
+      "name": "Quiet delivery and disruption earn no rewards",
+      "pass": true
+    },
+    {
+      "name": "Compact 01-natural-disruption visible element bounds (inspection evidence)",
+      "pass": true,
+      "details": [
+        {
+          "selector": ".campaign-captions",
+          "hidden": false,
+          "text": "MabelRecruit! The pantry is blocked. Get Alf, Pip and me out!",
+          "rect": {
+            "x": 47.0625,
+            "y": 262,
+            "width": 690.875,
+            "height": 78,
+            "top": 262,
+            "right": 737.9375,
+            "bottom": 340,
+            "left": 47.0625
+          },
+          "viewport": {
+            "w": 800,
+            "h": 500
+          }
+        },
+        {
+          "selector": ".campaign-theatre",
+          "hidden": false,
+          "text": "",
+          "rect": {
+            "x": 47.0625,
+            "y": 80,
+            "width": 690.875,
+            "height": 175,
+            "top": 80,
+            "right": 737.9375,
+            "bottom": 255,
+            "left": 47.0625
+          },
+          "viewport": {
+            "w": 800,
+            "h": 500
+          }
+        },
+        {
+          "selector": "#campaignHUD",
+          "hidden": true,
+          "text": "Deliver tray · Space / left click",
+          "rect": {
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "top": 0,
+            "right": 0,
+            "bottom": 0,
+            "left": 0
+          },
+          "viewport": {
+            "w": 800,
+            "h": 500
+          }
+        },
+        {
+          "selector": "#campaignSpeech",
+          "hidden": true,
+          "text": "Mabel: Not you, Steve. I’ll take Alf and Pip ahead. Meet us inside the pantry.",
+          "rect": {
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "top": 0,
+            "right": 0,
+            "bottom": 0,
+            "left": 0
+          },
+          "viewport": {
+            "w": 800,
+            "h": 500
+          }
+        }
+      ]
+    },
+    {
+      "name": "Scene pause freezes actual theatre clock",
+      "pass": true,
+      "details": {
+        "scene": {
+          "id": "banquet",
+          "phase": "disruption",
+          "time": "8.000",
+          "playback": "complete"
+        },
+        "captions": "MabelRecruit! The pantry is blocked. Get Alf, Pip and me out!",
+        "buttons": [
+          {
+            "text": "Pause scene",
+            "disabled": true
+          },
+          {
+            "text": "Replay scene",
+            "disabled": false
+          },
+          {
+            "text": "Skip story",
+            "disabled": false
+          },
+          {
+            "text": "Help the cooks",
+            "disabled": false
+          },
+          {
+            "text": "Back to map",
+            "disabled": false
+          }
+        ],
+        "runtime": null,
+        "save": {
+          "version": 1,
+          "results": {},
+          "selected": "banquet",
+          "assist": false,
+          "difficulty": "medium",
+          "checkpoint": null,
+          "receipts": []
+        }
+      }
+    },
+    {
+      "name": "Natural delivery disruption and pantry",
+      "pass": false,
+      "details": "{\"exceptionId\":1,\"text\":\"Uncaught\",\"lineNumber\":0,\"columnNumber\":116,\"scriptId\":\"59\",\"stackTrace\":{\"callFrames\":[{\"functionName\":\"\",\"scriptId\":\"59\",\"url\":\"\",\"lineNumber\":0,\"columnNumber\":122},{\"functionName\":\"\",\"scriptId\":\"59\",\"url\":\"\",\"lineNumber\":0,\"columnNumber\":234}]},\"exception\":{\"type\":\"object\",\"subtype\":\"error\",\"className\":\"Error\",\"description\":\"Error: Missing Resume scene\\n    at <anonymous>:1:123\\n    at <anonymous>:1:235\",\"objectId\":\"-7883690394764523505.2.2\"}}"
+    },
+    {
+      "name": "Explicit opening skip enters pantry directly",
+      "pass": true,
+      "details": {
+        "scene": {
+          "id": "banquet",
+          "phase": "disruption",
+          "time": "8.000",
+          "playback": "complete"
+        },
+        "captions": "MabelRecruit! The pantry is blocked. Get Alf, Pip and me out!",
+        "buttons": [],
+        "runtime": {
+          "id": "banquet",
+          "phase": 0,
+          "status": "playing",
+          "elapsed": 0.11666666666666665
+        },
+        "save": {
+          "version": 1,
+          "results": {},
+          "selected": "banquet",
+          "assist": false,
+          "difficulty": "medium",
+          "checkpoint": null,
+          "receipts": []
+        }
+      }
+    },
+    {
+      "name": "Actual Retry click enters pantry without disruption",
+      "pass": true,
+      "details": {
+        "scene": {
+          "id": "banquet",
+          "phase": "disruption",
+          "time": "8.000",
+          "playback": "complete"
+        },
+        "captions": "MabelRecruit! The pantry is blocked. Get Alf, Pip and me out!",
+        "buttons": [],
+        "runtime": {
+          "id": "banquet",
+          "phase": 0,
+          "status": "playing",
+          "elapsed": 0.11666666666666665
+        },
+        "save": {
+          "version": 1,
+          "results": {
+            "banquet": {
+              "spoons": [
+                false,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": null,
+              "assisted": false
+            }
+          },
+          "selected": "banquet",
+          "assist": false,
+          "difficulty": "medium",
+          "checkpoint": null,
+          "receipts": [
+            "dfeb5a02-262e-4fee-9a8e-2e16616e4bc1:banquet:1"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Puddings actual captions and supplies",
+      "pass": false,
+      "details": "{\"exceptionId\":2,\"text\":\"Uncaught\",\"lineNumber\":0,\"columnNumber\":84,\"scriptId\":\"67\",\"stackTrace\":{\"callFrames\":[{\"functionName\":\"\",\"scriptId\":\"67\",\"url\":\"\",\"lineNumber\":0,\"columnNumber\":84},{\"functionName\":\"\",\"scriptId\":\"67\",\"url\":\"\",\"lineNumber\":0,\"columnNumber\":340}]},\"exception\":{\"type\":\"object\",\"subtype\":\"error\",\"className\":\"ReferenceError\",\"description\":\"ReferenceError: all is not defined\\n    at <anonymous>:1:85\\n    at <anonymous>:1:341\",\"objectId\":\"-7883690394764523505.2.4\"}}"
+    },
+    {
+      "name": "Puddings victory consequence direct next",
+      "pass": false,
+      "details": "{\"exceptionId\":3,\"text\":\"Uncaught\",\"lineNumber\":0,\"columnNumber\":84,\"scriptId\":\"68\",\"stackTrace\":{\"callFrames\":[{\"functionName\":\"\",\"scriptId\":\"68\",\"url\":\"\",\"lineNumber\":0,\"columnNumber\":84},{\"functionName\":\"\",\"scriptId\":\"68\",\"url\":\"\",\"lineNumber\":0,\"columnNumber\":342}]},\"exception\":{\"type\":\"object\",\"subtype\":\"error\",\"className\":\"ReferenceError\",\"description\":\"ReferenceError: all is not defined\\n    at <anonymous>:1:85\\n    at <anonymous>:1:343\",\"objectId\":\"-7883690394764523505.2.6\"}}"
+    },
+    {
+      "name": "Guard outcome and optional Biscuit bypass",
+      "pass": false,
+      "details": "{\"exceptionId\":4,\"text\":\"Uncaught\",\"lineNumber\":136,\"columnNumber\":62,\"scriptId\":\"17\",\"stackTrace\":{\"callFrames\":[{\"functionName\":\"begin\",\"scriptId\":\"17\",\"url\":\"file:///C:/Users/Joshua/Documents/Codex/2026-10-08/rea/work/custard-knights-room/game/campaign.js\",\"lineNumber\":136,\"columnNumber\":68},{\"functionName\":\"launch\",\"scriptId\":\"20\",\"url\":\"file:///C:/Users/Joshua/Documents/Codex/2026-10-08/rea/work/custard-knights-room/game/campaign-integration.js\",\"lineNumber\":8,\"columnNumber\":114},{\"functionName\":\"\",\"scriptId\":\"69\",\"url\":\"\",\"lineNumber\":0,\"columnNumber\":25}]},\"exception\":{\"type\":\"object\",\"subtype\":\"error\",\"className\":\"Error\",\"description\":\"Error: Campaign encounter is locked: guard\\n    at Object.begin (file:///C:/Users/Joshua/Documents/Codex/2026-10-08/rea/work/custard-knights-room/game/campaign.js:137:69)\\n    at Object.launch (file:///C:/Users/Joshua/Documents/Codex/2026-10-08/rea/work/custard-knights-room/game/campaign-integration.js:9:115)\\n    at <anonymous>:1:26\",\"objectId\":\"-7883690394764523505.2.8\"}}"
+    },
+    {
+      "name": "Back and terminal completed entry",
+      "pass": false,
+      "details": "{\"exceptionId\":5,\"text\":\"Uncaught\",\"lineNumber\":0,\"columnNumber\":84,\"scriptId\":\"70\",\"stackTrace\":{\"callFrames\":[{\"functionName\":\"\",\"scriptId\":\"70\",\"url\":\"\",\"lineNumber\":0,\"columnNumber\":84},{\"functionName\":\"\",\"scriptId\":\"70\",\"url\":\"\",\"lineNumber\":0,\"columnNumber\":336}]},\"exception\":{\"type\":\"object\",\"subtype\":\"error\",\"className\":\"ReferenceError\",\"description\":\"ReferenceError: all is not defined\\n    at <anonymous>:1:85\\n    at <anonymous>:1:337\",\"objectId\":\"-7883690394764523505.2.10\"}}"
+    },
+    {
+      "name": "Reporting starts have unique round IDs",
+      "pass": true,
+      "details": {
+        "starts": [
+          {
+            "name": "round_started",
+            "build": "0.3.0-beta.7",
+            "sessionId": "ab64aeb9fb8d66ea7ae5650beda67705",
+            "at": 1791906425792,
+            "fields": {
+              "format": "story",
+              "mode": "campaign",
+              "map": "courtyard",
+              "difficulty": "medium",
+              "humanCount": 1,
+              "botCount": 2,
+              "encounter": "banquet",
+              "input": "keyboard",
+              "botOnly": false,
+              "roundId": "c096df34a2fecda8e89074a8d1b0bb31",
+              "qa": true
+            }
+          },
+          {
+            "name": "round_started",
+            "build": "0.3.0-beta.7",
+            "sessionId": "ab64aeb9fb8d66ea7ae5650beda67705",
+            "at": 1791906425906,
+            "fields": {
+              "format": "story",
+              "mode": "campaign",
+              "map": "courtyard",
+              "difficulty": "medium",
+              "humanCount": 1,
+              "botCount": 2,
+              "encounter": "banquet",
+              "input": "keyboard",
+              "botOnly": false,
+              "roundId": "80c36758ff8945b486a1a31b77d0f846",
+              "qa": true
+            }
+          }
+        ],
+        "ends": [
+          {
+            "name": "round_completed",
+            "build": "0.3.0-beta.7",
+            "sessionId": "ab64aeb9fb8d66ea7ae5650beda67705",
+            "at": 1791906425899,
+            "fields": {
+              "format": "story",
+              "mode": "campaign",
+              "map": "courtyard",
+              "difficulty": "medium",
+              "humanCount": 1,
+              "botCount": 2,
+              "result": "failed",
+              "encounter": "banquet",
+              "input": "keyboard",
+              "botOnly": false,
+              "roundId": "c096df34a2fecda8e89074a8d1b0bb31",
+              "qa": true
+            }
+          }
+        ]
+      }
+    },
+    {
+      "name": "Reporting completions are unique and reference a launched round",
+      "pass": true,
+      "details": {
+        "starts": [
+          {
+            "name": "round_started",
+            "build": "0.3.0-beta.7",
+            "sessionId": "ab64aeb9fb8d66ea7ae5650beda67705",
+            "at": 1791906425792,
+            "fields": {
+              "format": "story",
+              "mode": "campaign",
+              "map": "courtyard",
+              "difficulty": "medium",
+              "humanCount": 1,
+              "botCount": 2,
+              "encounter": "banquet",
+              "input": "keyboard",
+              "botOnly": false,
+              "roundId": "c096df34a2fecda8e89074a8d1b0bb31",
+              "qa": true
+            }
+          },
+          {
+            "name": "round_started",
+            "build": "0.3.0-beta.7",
+            "sessionId": "ab64aeb9fb8d66ea7ae5650beda67705",
+            "at": 1791906425906,
+            "fields": {
+              "format": "story",
+              "mode": "campaign",
+              "map": "courtyard",
+              "difficulty": "medium",
+              "humanCount": 1,
+              "botCount": 2,
+              "encounter": "banquet",
+              "input": "keyboard",
+              "botOnly": false,
+              "roundId": "80c36758ff8945b486a1a31b77d0f846",
+              "qa": true
+            }
+          }
+        ],
+        "ends": [
+          {
+            "name": "round_completed",
+            "build": "0.3.0-beta.7",
+            "sessionId": "ab64aeb9fb8d66ea7ae5650beda67705",
+            "at": 1791906425899,
+            "fields": {
+              "format": "story",
+              "mode": "campaign",
+              "map": "courtyard",
+              "difficulty": "medium",
+              "humanCount": 1,
+              "botCount": 2,
+              "result": "failed",
+              "encounter": "banquet",
+              "input": "keyboard",
+              "botOnly": false,
+              "roundId": "c096df34a2fecda8e89074a8d1b0bb31",
+              "qa": true
+            }
+          }
+        ]
+      }
+    },
+    {
+      "name": "No browser exceptions",
+      "pass": true,
+      "details": []
+    }
+  ],
+  "errors": [],
+  "inputs": [
+    {
+      "type": "mouseClick",
+      "selector": "#tAdventure"
+    },
+    {
+      "type": "mouseClick",
+      "scope": "#campaignMap",
+      "text": "Begin at the bakery"
+    },
+    {
+      "type": "keyDown",
+      "code": "KeyD"
+    },
+    {
+      "type": "keyDown",
+      "code": "KeyW"
+    },
+    {
+      "type": "keyUp",
+      "code": "KeyW"
+    },
+    {
+      "type": "keyUp",
+      "code": "KeyD"
+    },
+    {
+      "type": "keyDown",
+      "code": "Space",
+      "observed": {
+        "clock": 1.100000000000001,
+        "elapsed": 1.100000000000001,
+        "phase": 1,
+        "interactWas": true,
+        "held": true,
+        "rawAttack": true
+      }
+    },
+    {
+      "type": "keyUp",
+      "code": "Space",
+      "observed": {
+        "clock": 1.1333333333333342,
+        "elapsed": 1.1333333333333342,
+        "phase": 1,
+        "interactWas": false,
+        "held": false,
+        "rawAttack": false
+      }
+    },
+    {
+      "type": "keyDown",
+      "code": "KeyD"
+    },
+    {
+      "type": "keyDown",
+      "code": "KeyS"
+    },
+    {
+      "type": "keyUp",
+      "code": "KeyD"
+    },
+    {
+      "type": "keyUp",
+      "code": "KeyS"
+    },
+    {
+      "type": "keyDown",
+      "code": "KeyD"
+    },
+    {
+      "type": "keyDown",
+      "code": "KeyW"
+    },
+    {
+      "type": "keyUp",
+      "code": "KeyW"
+    },
+    {
+      "type": "keyUp",
+      "code": "KeyD"
+    },
+    {
+      "type": "keyDown",
+      "code": "Space",
+      "observed": {
+        "clock": 2.4333333333333296,
+        "elapsed": 2.4333333333333296,
+        "phase": 2,
+        "interactWas": true,
+        "held": true,
+        "rawAttack": true
+      }
+    },
+    {
+      "type": "keyUp",
+      "code": "Space",
+      "observed": {
+        "clock": 2.449999999999996,
+        "elapsed": 2.449999999999996,
+        "phase": 2,
+        "interactWas": false,
+        "held": false,
+        "rawAttack": false
+      }
+    },
+    {
+      "type": "keyDown",
+      "code": "KeyD"
+    },
+    {
+      "type": "keyUp",
+      "code": "KeyD"
+    },
+    {
+      "type": "keyDown",
+      "code": "KeyD"
+    },
+    {
+      "type": "keyUp",
+      "code": "KeyD"
+    },
+    {
+      "type": "keyDown",
+      "code": "KeyD"
+    },
+    {
+      "type": "keyDown",
+      "code": "KeyW"
+    },
+    {
+      "type": "keyUp",
+      "code": "KeyW"
+    },
+    {
+      "type": "keyUp",
+      "code": "KeyD"
+    },
+    {
+      "type": "keyDown",
+      "code": "Space",
+      "observed": {
+        "clock": 5.349999999999986,
+        "held": false,
+        "rawAttack": null
+      }
+    },
+    {
+      "type": "keyUp",
+      "code": "Space",
+      "observed": {
+        "clock": 5.349999999999986,
+        "held": false,
+        "rawAttack": null
+      }
+    },
+    {
+      "type": "mouseClick",
+      "scope": "#campaignStory",
+      "text": "Pause scene"
+    },
+    {
+      "type": "keyDown",
+      "code": "Escape",
+      "observed": {
+        "clock": 0.016666666666666666,
+        "elapsed": 0.016666666666666666,
+        "phase": 0,
+        "interactWas": false,
+        "held": false,
+        "rawAttack": false
+      }
+    },
+    {
+      "type": "keyUp",
+      "code": "Escape",
+      "observed": {
+        "clock": 0.016666666666666666,
+        "elapsed": 0.016666666666666666,
+        "phase": 0,
+        "interactWas": false,
+        "held": false,
+        "rawAttack": false
+      }
+    },
+    {
+      "type": "mouseClick",
+      "selector": "#campaignQuietSkip"
+    },
+    {
+      "type": "mouseClick",
+      "scope": "#campaignResult",
+      "text": "Retry now"
+    }
+  ],
+  "fixtures": [
+    "Enable isolated local QA reporting through normal consent handler",
+    "Direct quiet opening replay fixture",
+    "Direct finish(false) outcome fixture for retry UI",
+    "Copied completion save fixture for banquet",
+    "Copied completion save fixture for puddings",
+    "Direct guard launch and inert enemy KO fixture, not physical combat success",
+    "Copied completion save fixture for guard"
+  ],
+  "limitations": [
+    "Focused FE09-A engineering QA with actual isolated headless Chrome/CDP keys and clicks. Natural opening movement is actual input. Later completion saves, direct failure and guard KO are labeled fixtures, not a full combat playthrough.",
+    "Screenshots show actual theatre renderer and actual gameplay at 1280x800 and 800x500. Bounds recorded for independent visual inspection; screenshot inspection remains reviewer work. No human comprehension, physical device, native EXE, Steam, WAN or later FE09 finale acceptance."
+  ],
+  "profile": "C:\\Users\\Joshua\\AppData\\Local\\Temp\\ck-independent-bakery-DT7uxU",
+  "scenes": [
+    {
+      "name": "natural disruption",
+      "initial": {
+        "scene": {
+          "id": "banquet",
+          "phase": "disruption",
+          "time": "0.083",
+          "playback": "playing"
+        },
+        "captions": "The Official HistoryOne pie ended the peace banquet.",
+        "buttons": [
+          {
+            "text": "Pause scene",
+            "disabled": false
+          },
+          {
+            "text": "Replay scene",
+            "disabled": false
+          },
+          {
+            "text": "Skip story",
+            "disabled": false
+          },
+          {
+            "text": "Help the cooks",
+            "disabled": true
+          },
+          {
+            "text": "Back to map",
+            "disabled": false
+          }
+        ],
+        "runtime": null,
+        "save": {
+          "version": 1,
+          "results": {},
+          "selected": "banquet",
+          "assist": false,
+          "difficulty": "medium",
+          "checkpoint": null,
+          "receipts": []
+        }
+      },
+      "samples": [
+        {
+          "scene": {
+            "id": "banquet",
+            "phase": "disruption",
+            "time": "0.050",
+            "playback": "playing"
+          },
+          "captions": "The Official HistoryOne pie ended the peace banquet.",
+          "buttons": [
+            {
+              "text": "Pause scene",
+              "disabled": false
+            },
+            {
+              "text": "Replay scene",
+              "disabled": false
+            },
+            {
+              "text": "Skip story",
+              "disabled": false
+            },
+            {
+              "text": "Help the cooks",
+              "disabled": true
+            },
+            {
+              "text": "Back to map",
+              "disabled": false
+            }
+          ],
+          "runtime": null,
+          "save": {
+            "version": 1,
+            "results": {},
+            "selected": "banquet",
+            "assist": false,
+            "difficulty": "medium",
+            "checkpoint": null,
+            "receipts": []
+          }
+        },
+        {
+          "scene": {
+            "id": "banquet",
+            "phase": "disruption",
+            "time": "2.867",
+            "playback": "playing"
+          },
+          "captions": "The Official HistoryIn the fight, a thief took the Golden Spoon.",
+          "buttons": [
+            {
+              "text": "Pause scene",
+              "disabled": false
+            },
+            {
+              "text": "Replay scene",
+              "disabled": false
+            },
+            {
+              "text": "Skip story",
+              "disabled": false
+            },
+            {
+              "text": "Help the cooks",
+              "disabled": true
+            },
+            {
+              "text": "Back to map",
+              "disabled": false
+            }
+          ],
+          "runtime": null,
+          "save": {
+            "version": 1,
+            "results": {},
+            "selected": "banquet",
+            "assist": false,
+            "difficulty": "medium",
+            "checkpoint": null,
+            "receipts": []
+          }
+        },
+        {
+          "scene": {
+            "id": "banquet",
+            "phase": "disruption",
+            "time": "5.667",
+            "playback": "playing"
+          },
+          "captions": "MabelRecruit! The pantry is blocked. Get Alf, Pip and me out!",
+          "buttons": [
+            {
+              "text": "Pause scene",
+              "disabled": false
+            },
+            {
+              "text": "Replay scene",
+              "disabled": false
+            },
+            {
+              "text": "Skip story",
+              "disabled": false
+            },
+            {
+              "text": "Help the cooks",
+              "disabled": true
+            },
+            {
+              "text": "Back to map",
+              "disabled": false
+            }
+          ],
+          "runtime": null,
+          "save": {
+            "version": 1,
+            "results": {},
+            "selected": "banquet",
+            "assist": false,
+            "difficulty": "medium",
+            "checkpoint": null,
+            "receipts": []
+          }
+        },
+        {
+          "scene": {
+            "id": "banquet",
+            "phase": "disruption",
+            "time": "7.950",
+            "playback": "playing"
+          },
+          "captions": "MabelRecruit! The pantry is blocked. Get Alf, Pip and me out!",
+          "buttons": [
+            {
+              "text": "Pause scene",
+              "disabled": false
+            },
+            {
+              "text": "Replay scene",
+              "disabled": false
+            },
+            {
+              "text": "Skip story",
+              "disabled": false
+            },
+            {
+              "text": "Help the cooks",
+              "disabled": true
+            },
+            {
+              "text": "Back to map",
+              "disabled": false
+            }
+          ],
+          "runtime": null,
+          "save": {
+            "version": 1,
+            "results": {},
+            "selected": "banquet",
+            "assist": false,
+            "difficulty": "medium",
+            "checkpoint": null,
+            "receipts": []
+          }
+        }
+      ]
+    }
+  ],
+  "fixtureFailures": [
+    {
+      "name": "Natural delivery disruption and pantry",
+      "error": "Error: {\"exceptionId\":1,\"text\":\"Uncaught\",\"lineNumber\":0,\"columnNumber\":116,\"scriptId\":\"59\",\"stackTrace\":{\"callFrames\":[{\"functionName\":\"\",\"scriptId\":\"59\",\"url\":\"\",\"lineNumber\":0,\"columnNumber\":122},{\"functionName\":\"\",\"scriptId\":\"59\",\"url\":\"\",\"lineNumber\":0,\"columnNumber\":234}]},\"exception\":{\"type\":\"object\",\"subtype\":\"error\",\"className\":\"Error\",\"description\":\"Error: Missing Resume scene\\n    at <anonymous>:1:123\\n    at <anonymous>:1:235\",\"objectId\":\"-7883690394764523505.2.2\"}}\n    at run (C:\\Users\\Joshua\\Documents\\Codex\\2026-10-08\\rea\\work\\custard-knights-room\\qa\\story-transitions-browser.cjs:21:1497)\n    at async clickText (C:\\Users\\Joshua\\Documents\\Codex\\2026-10-08\\rea\\work\\custard-knights-room\\qa\\story-transitions-browser.cjs:17:49)\n    at async C:\\Users\\Joshua\\Documents\\Codex\\2026-10-08\\rea\\work\\custard-knights-room\\qa\\story-transitions-browser.cjs:37:289\n    at async suite (C:\\Users\\Joshua\\Documents\\Codex\\2026-10-08\\rea\\work\\custard-knights-room\\qa\\story-transitions-browser.cjs:31:35)\n    at async cases (C:\\Users\\Joshua\\Documents\\Codex\\2026-10-08\\rea\\work\\custard-knights-room\\qa\\story-transitions-browser.cjs:33:2)\n    at async main (C:\\Users\\Joshua\\Documents\\Codex\\2026-10-08\\rea\\work\\custard-knights-room\\qa\\story-transitions-browser.cjs:58:786)",
+      "state": {
+        "scene": {
+          "id": "banquet",
+          "phase": "disruption",
+          "time": "8.000",
+          "playback": "complete"
+        },
+        "captions": "MabelRecruit! The pantry is blocked. Get Alf, Pip and me out!",
+        "buttons": [
+          {
+            "text": "Pause scene",
+            "disabled": true
+          },
+          {
+            "text": "Replay scene",
+            "disabled": false
+          },
+          {
+            "text": "Skip story",
+            "disabled": false
+          },
+          {
+            "text": "Help the cooks",
+            "disabled": false
+          },
+          {
+            "text": "Back to map",
+            "disabled": false
+          }
+        ],
+        "runtime": null,
+        "save": {
+          "version": 1,
+          "results": {},
+          "selected": "banquet",
+          "assist": false,
+          "difficulty": "medium",
+          "checkpoint": null,
+          "receipts": []
+        }
+      }
+    },
+    {
+      "name": "Puddings actual captions and supplies",
+      "error": "Error: {\"exceptionId\":2,\"text\":\"Uncaught\",\"lineNumber\":0,\"columnNumber\":84,\"scriptId\":\"67\",\"stackTrace\":{\"callFrames\":[{\"functionName\":\"\",\"scriptId\":\"67\",\"url\":\"\",\"lineNumber\":0,\"columnNumber\":84},{\"functionName\":\"\",\"scriptId\":\"67\",\"url\":\"\",\"lineNumber\":0,\"columnNumber\":340}]},\"exception\":{\"type\":\"object\",\"subtype\":\"error\",\"className\":\"ReferenceError\",\"description\":\"ReferenceError: all is not defined\\n    at <anonymous>:1:85\\n    at <anonymous>:1:341\",\"objectId\":\"-7883690394764523505.2.4\"}}\n    at run (C:\\Users\\Joshua\\Documents\\Codex\\2026-10-08\\rea\\work\\custard-knights-room\\qa\\story-transitions-browser.cjs:21:1497)\n    at async C:\\Users\\Joshua\\Documents\\Codex\\2026-10-08\\rea\\work\\custard-knights-room\\qa\\story-transitions-browser.cjs:44:3\n    at async suite (C:\\Users\\Joshua\\Documents\\Codex\\2026-10-08\\rea\\work\\custard-knights-room\\qa\\story-transitions-browser.cjs:31:35)\n    at async cases (C:\\Users\\Joshua\\Documents\\Codex\\2026-10-08\\rea\\work\\custard-knights-room\\qa\\story-transitions-browser.cjs:43:2)\n    at async main (C:\\Users\\Joshua\\Documents\\Codex\\2026-10-08\\rea\\work\\custard-knights-room\\qa\\story-transitions-browser.cjs:58:786)",
+      "state": {
+        "scene": {
+          "id": "banquet",
+          "phase": "disruption",
+          "time": "8.000",
+          "playback": "complete"
+        },
+        "captions": "MabelRecruit! The pantry is blocked. Get Alf, Pip and me out!",
+        "buttons": [],
+        "runtime": null,
+        "save": {
+          "version": 1,
+          "results": {
+            "banquet": {
+              "spoons": [
+                false,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": null,
+              "assisted": false
+            }
+          },
+          "selected": "banquet",
+          "assist": false,
+          "difficulty": "medium",
+          "checkpoint": null,
+          "receipts": [
+            "dfeb5a02-262e-4fee-9a8e-2e16616e4bc1:banquet:1"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Puddings victory consequence direct next",
+      "error": "Error: {\"exceptionId\":3,\"text\":\"Uncaught\",\"lineNumber\":0,\"columnNumber\":84,\"scriptId\":\"68\",\"stackTrace\":{\"callFrames\":[{\"functionName\":\"\",\"scriptId\":\"68\",\"url\":\"\",\"lineNumber\":0,\"columnNumber\":84},{\"functionName\":\"\",\"scriptId\":\"68\",\"url\":\"\",\"lineNumber\":0,\"columnNumber\":342}]},\"exception\":{\"type\":\"object\",\"subtype\":\"error\",\"className\":\"ReferenceError\",\"description\":\"ReferenceError: all is not defined\\n    at <anonymous>:1:85\\n    at <anonymous>:1:343\",\"objectId\":\"-7883690394764523505.2.6\"}}\n    at run (C:\\Users\\Joshua\\Documents\\Codex\\2026-10-08\\rea\\work\\custard-knights-room\\qa\\story-transitions-browser.cjs:21:1497)\n    at async C:\\Users\\Joshua\\Documents\\Codex\\2026-10-08\\rea\\work\\custard-knights-room\\qa\\story-transitions-browser.cjs:47:3\n    at async suite (C:\\Users\\Joshua\\Documents\\Codex\\2026-10-08\\rea\\work\\custard-knights-room\\qa\\story-transitions-browser.cjs:31:35)\n    at async cases (C:\\Users\\Joshua\\Documents\\Codex\\2026-10-08\\rea\\work\\custard-knights-room\\qa\\story-transitions-browser.cjs:46:2)\n    at async main (C:\\Users\\Joshua\\Documents\\Codex\\2026-10-08\\rea\\work\\custard-knights-room\\qa\\story-transitions-browser.cjs:58:786)",
+      "state": {
+        "scene": {
+          "id": "banquet",
+          "phase": "disruption",
+          "time": "8.000",
+          "playback": "complete"
+        },
+        "captions": "MabelRecruit! The pantry is blocked. Get Alf, Pip and me out!",
+        "buttons": [],
+        "runtime": null,
+        "save": {
+          "version": 1,
+          "results": {
+            "banquet": {
+              "spoons": [
+                false,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": null,
+              "assisted": false
+            }
+          },
+          "selected": "banquet",
+          "assist": false,
+          "difficulty": "medium",
+          "checkpoint": null,
+          "receipts": [
+            "dfeb5a02-262e-4fee-9a8e-2e16616e4bc1:banquet:1"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Guard outcome and optional Biscuit bypass",
+      "error": "Error: {\"exceptionId\":4,\"text\":\"Uncaught\",\"lineNumber\":136,\"columnNumber\":62,\"scriptId\":\"17\",\"stackTrace\":{\"callFrames\":[{\"functionName\":\"begin\",\"scriptId\":\"17\",\"url\":\"file:///C:/Users/Joshua/Documents/Codex/2026-10-08/rea/work/custard-knights-room/game/campaign.js\",\"lineNumber\":136,\"columnNumber\":68},{\"functionName\":\"launch\",\"scriptId\":\"20\",\"url\":\"file:///C:/Users/Joshua/Documents/Codex/2026-10-08/rea/work/custard-knights-room/game/campaign-integration.js\",\"lineNumber\":8,\"columnNumber\":114},{\"functionName\":\"\",\"scriptId\":\"69\",\"url\":\"\",\"lineNumber\":0,\"columnNumber\":25}]},\"exception\":{\"type\":\"object\",\"subtype\":\"error\",\"className\":\"Error\",\"description\":\"Error: Campaign encounter is locked: guard\\n    at Object.begin (file:///C:/Users/Joshua/Documents/Codex/2026-10-08/rea/work/custard-knights-room/game/campaign.js:137:69)\\n    at Object.launch (file:///C:/Users/Joshua/Documents/Codex/2026-10-08/rea/work/custard-knights-room/game/campaign-integration.js:9:115)\\n    at <anonymous>:1:26\",\"objectId\":\"-7883690394764523505.2.8\"}}\n    at run (C:\\Users\\Joshua\\Documents\\Codex\\2026-10-08\\rea\\work\\custard-knights-room\\qa\\story-transitions-browser.cjs:21:1497)\n    at async C:\\Users\\Joshua\\Documents\\Codex\\2026-10-08\\rea\\work\\custard-knights-room\\qa\\story-transitions-browser.cjs:50:3\n    at async suite (C:\\Users\\Joshua\\Documents\\Codex\\2026-10-08\\rea\\work\\custard-knights-room\\qa\\story-transitions-browser.cjs:31:35)\n    at async cases (C:\\Users\\Joshua\\Documents\\Codex\\2026-10-08\\rea\\work\\custard-knights-room\\qa\\story-transitions-browser.cjs:49:2)\n    at async main (C:\\Users\\Joshua\\Documents\\Codex\\2026-10-08\\rea\\work\\custard-knights-room\\qa\\story-transitions-browser.cjs:58:786)",
+      "state": {
+        "scene": {
+          "id": "banquet",
+          "phase": "disruption",
+          "time": "8.000",
+          "playback": "complete"
+        },
+        "captions": "MabelRecruit! The pantry is blocked. Get Alf, Pip and me out!",
+        "buttons": [],
+        "runtime": null,
+        "save": {
+          "version": 1,
+          "results": {
+            "banquet": {
+              "spoons": [
+                false,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": null,
+              "assisted": false
+            }
+          },
+          "selected": "banquet",
+          "assist": false,
+          "difficulty": "medium",
+          "checkpoint": null,
+          "receipts": [
+            "dfeb5a02-262e-4fee-9a8e-2e16616e4bc1:banquet:1"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Back and terminal completed entry",
+      "error": "Error: {\"exceptionId\":5,\"text\":\"Uncaught\",\"lineNumber\":0,\"columnNumber\":84,\"scriptId\":\"70\",\"stackTrace\":{\"callFrames\":[{\"functionName\":\"\",\"scriptId\":\"70\",\"url\":\"\",\"lineNumber\":0,\"columnNumber\":84},{\"functionName\":\"\",\"scriptId\":\"70\",\"url\":\"\",\"lineNumber\":0,\"columnNumber\":336}]},\"exception\":{\"type\":\"object\",\"subtype\":\"error\",\"className\":\"ReferenceError\",\"description\":\"ReferenceError: all is not defined\\n    at <anonymous>:1:85\\n    at <anonymous>:1:337\",\"objectId\":\"-7883690394764523505.2.10\"}}\n    at run (C:\\Users\\Joshua\\Documents\\Codex\\2026-10-08\\rea\\work\\custard-knights-room\\qa\\story-transitions-browser.cjs:21:1497)\n    at async C:\\Users\\Joshua\\Documents\\Codex\\2026-10-08\\rea\\work\\custard-knights-room\\qa\\story-transitions-browser.cjs:53:3\n    at async suite (C:\\Users\\Joshua\\Documents\\Codex\\2026-10-08\\rea\\work\\custard-knights-room\\qa\\story-transitions-browser.cjs:31:35)\n    at async cases (C:\\Users\\Joshua\\Documents\\Codex\\2026-10-08\\rea\\work\\custard-knights-room\\qa\\story-transitions-browser.cjs:52:2)\n    at async main (C:\\Users\\Joshua\\Documents\\Codex\\2026-10-08\\rea\\work\\custard-knights-room\\qa\\story-transitions-browser.cjs:58:786)",
+      "state": {
+        "scene": {
+          "id": "banquet",
+          "phase": "disruption",
+          "time": "8.000",
+          "playback": "complete"
+        },
+        "captions": "MabelRecruit! The pantry is blocked. Get Alf, Pip and me out!",
+        "buttons": [],
+        "runtime": null,
+        "save": {
+          "version": 1,
+          "results": {
+            "banquet": {
+              "spoons": [
+                false,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": null,
+              "assisted": false
+            }
+          },
+          "selected": "banquet",
+          "assist": false,
+          "difficulty": "medium",
+          "checkpoint": null,
+          "receipts": [
+            "dfeb5a02-262e-4fee-9a8e-2e16616e4bc1:banquet:1"
+          ]
+        }
+      }
+    }
+  ],
+  "productReport": {
+    "version": 1,
+    "build": "0.3.0-beta.7",
+    "generatedAt": 1791906426819,
+    "consent": true,
+    "storageState": "available",
+    "installId": "c1825cd8e758e7c34784ce4ba5623bc4",
+    "events": [
+      {
+        "name": "session_start",
+        "build": "0.3.0-beta.7",
+        "sessionId": "ab64aeb9fb8d66ea7ae5650beda67705",
+        "at": 1791906418717,
+        "fields": {
+          "qa": true
+        }
+      },
+      {
+        "name": "round_started",
+        "build": "0.3.0-beta.7",
+        "sessionId": "ab64aeb9fb8d66ea7ae5650beda67705",
+        "at": 1791906425792,
+        "fields": {
+          "format": "story",
+          "mode": "campaign",
+          "map": "courtyard",
+          "difficulty": "medium",
+          "humanCount": 1,
+          "botCount": 2,
+          "encounter": "banquet",
+          "input": "keyboard",
+          "botOnly": false,
+          "roundId": "c096df34a2fecda8e89074a8d1b0bb31",
+          "qa": true
+        }
+      },
+      {
+        "name": "round_completed",
+        "build": "0.3.0-beta.7",
+        "sessionId": "ab64aeb9fb8d66ea7ae5650beda67705",
+        "at": 1791906425899,
+        "fields": {
+          "format": "story",
+          "mode": "campaign",
+          "map": "courtyard",
+          "difficulty": "medium",
+          "humanCount": 1,
+          "botCount": 2,
+          "result": "failed",
+          "encounter": "banquet",
+          "input": "keyboard",
+          "botOnly": false,
+          "roundId": "c096df34a2fecda8e89074a8d1b0bb31",
+          "qa": true
+        }
+      },
+      {
+        "name": "round_started",
+        "build": "0.3.0-beta.7",
+        "sessionId": "ab64aeb9fb8d66ea7ae5650beda67705",
+        "at": 1791906425906,
+        "fields": {
+          "format": "story",
+          "mode": "campaign",
+          "map": "courtyard",
+          "difficulty": "medium",
+          "humanCount": 1,
+          "botCount": 2,
+          "encounter": "banquet",
+          "input": "keyboard",
+          "botOnly": false,
+          "roundId": "80c36758ff8945b486a1a31b77d0f846",
+          "qa": true
+        }
+      }
+    ],
+    "metrics": {
+      "joinAttempts": 0,
+      "joinSucceeded": 0,
+      "joinFailed": 0,
+      "joinPendingOrUnobserved": 0,
+      "roundsStarted": 0,
+      "roundsCompleted": 0,
+      "roundCompletionRate": null,
+      "rematchSelections": 0,
+      "completedRoundsWithObservedContinuation": 0
+    },
+    "experiments": [],
+    "counts": {
+      "retained": 4,
+      "truncated": 0,
+      "duplicates": 0,
+      "rejected": 0,
+      "excludedFromHumanMetrics": 4
+    },
+    "limitations": [
+      "Experiment counts describe retained solo trials by build/variant, not unique participants or causal lift. Recognition is self-report. Normal-round continuation requires a later observed offline arena start, not a stated intention.",
+      "Local opt-in observations from one browser installation only; no network collection or population-wide claims.",
+      "Metrics cover retained events only. Truncation, cleared storage, missing instrumentation and interrupted sessions can remove context.",
+      "Deduplication covers retained events in the current session. IDs must be anonymous local tokens, never external identifiers.",
+      "Join outcomes require a retained attempt in the same session. Pending or unobserved does not mean failure.",
+      "Round completions also require a start in the same session. A long round spanning the inactivity cutoff remains uncompleted in this observed baseline.",
+      "General round metrics include optional study rounds; use the experiment summaries and trial fields to separate these from normal play.",
+      "Human round metrics require explicitly positive human counts on start and completion; late joins are excluded. QA, demo and bot-only events are excluded.",
+      "Continuation means a later human round start in the same session after an observed completion; rematch intent alone is not continuation.",
+      "Inactivity exits are inferred after 30 minutes when another event arrives. Page exits are observations of lifecycle signals, not proof a person left.",
+      "Cup, challenge, reward, highlight, share and referral events are observations only; no conversion or retention claim is calculated.",
+      "No D1/D7 retention, people counts, attribution, or cross-device identity is available."
+    ]
+  },
+  "environment": {
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/154.0.0.0 Safari/537.36",
+    "width": 1280,
+    "height": 800
+  },
+  "finishedAt": "2026-10-13T15:47:06.822Z",
+  "sourceHashesAfter": {
+    "index.html": "c140afd3e72185bdedbabecf91f4e776c68fa040c61a1a9212ad06dfe9994163",
+    "game/campaign.js": "be21740cbcf10003466a5cc82b48a662e3fe3e6d589c7293279b37aaa4cde8fd",
+    "game/campaign-ui.js": "b4e2f296b5b50d20bbddd798561f3d9e622eb8ee4dfc97c9cb7773b91ec34ec9",
+    "game/campaign-integration.js": "03d3805e177fbce92540f53adbbecf6f254cc3d0501e4ec4e8016af206816001",
+    "game/story-scenes.js": "a64dce7318f2b769fe6320814e34c05b04c6e14abc63c7168f106d05ffaf4c2d",
+    "game/bakery-opening.js": "dbbff764f547da6fdee9f290233c4b6bb5b79c0b0e8282d803b971389267f5e8"
+  },
+  "stableSources": true,
+  "counts": {
+    "pass": 9,
+    "fail": 5
+  }
+}

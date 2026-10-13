@@ -1,0 +1,269 @@
+TAP version 13
+# Subtest: quiet opening cannot mutate legacy progress, checkpoints, attempts or receipts
+ok 1 - quiet opening cannot mutate legacy progress, checkpoints, attempts or receipts
+  ---
+  duration_ms: 2.9502
+  type: 'test'
+  ...
+# Subtest: tray requires a nearby deliberate released press, carries until actual delivery and transitions once
+ok 2 - tray requires a nearby deliberate released press, carries until actual delivery and transitions once
+  ---
+  duration_ms: 0.4571
+  type: 'test'
+  ...
+# Subtest: quiet Interact preserves movement and facing while suppressing attacks and guard
+ok 3 - quiet Interact preserves movement and facing while suppressing attacks and guard
+  ---
+  duration_ms: 0.9694
+  type: 'test'
+  ...
+# Subtest: aftermath requires saved rescue and supplies precede onward without another award
+ok 4 - aftermath requires saved rescue and supplies precede onward without another award
+  ---
+  duration_ms: 1.3854
+  type: 'test'
+  ...
+# Subtest: bakery interaction positions are connected by open cells; footprints match authored world bounds
+ok 5 - bakery interaction positions are connected by open cells; footprints match authored world bounds
+  ---
+  duration_ms: 1.2026
+  type: 'test'
+  ...
+# Subtest: bakery siege keeps three named stations, reachable enemy approaches and both waves
+ok 6 - bakery siege keeps three named stations, reachable enemy approaches and both waves
+  ---
+  duration_ms: 1.6188
+  type: 'test'
+  ...
+# Subtest: aftermath skip and natural continuation clean quiet runtime before the next briefing
+ok 7 - aftermath skip and natural continuation clean quiet runtime before the next briefing
+  ---
+  duration_ms: 6.1034
+  type: 'test'
+  ...
+# Subtest: Rind warning priority keeps exact authored tell expiry and releases the punish objective
+ok 8 - Rind warning priority keeps exact authored tell expiry and releases the punish objective
+  ---
+  duration_ms: 6.5329
+  type: 'test'
+  ...
+# Subtest: Rind phase change and rescue replace obsolete warnings while preserving the real script
+ok 9 - Rind phase change and rescue replace obsolete warnings while preserving the real script
+  ---
+  duration_ms: 0.4276
+  type: 'test'
+  ...
+# Subtest: pudding danger is announced before damage and canceled tells get a fresh authored cue key
+ok 10 - pudding danger is announced before damage and canceled tells get a fresh authored cue key
+  ---
+  duration_ms: 5.216
+  type: 'test'
+  ...
+# Subtest: all story difficulties preserve health, objectives, checkpoints and legacy spoons
+ok 11 - all story difficulties preserve health, objectives, checkpoints and legacy spoons
+  ---
+  duration_ms: 14.7936
+  type: 'test'
+  ...
+# Subtest: story STEVE keeps readable fixed boss tells and punish windows; Easy gives longer windows
+ok 12 - story STEVE keeps readable fixed boss tells and punish windows; Easy gives longer windows
+  ---
+  duration_ms: 1.1271
+  type: 'test'
+  ...
+# Subtest: main route skips biscuit toll, locked nodes reject launch
+ok 13 - main route skips biscuit toll, locked nodes reject launch
+  ---
+  duration_ms: 0.4338
+  type: 'test'
+  ...
+# Subtest: spoons merge across replays and duplicate receipts never pay twice
+ok 14 - spoons merge across replays and duplicate receipts never pay twice
+  ---
+  duration_ms: 0.1556
+  type: 'test'
+  ...
+# Subtest: save normalization tolerates corruption, malformed spoons and missing versions
+ok 15 - save normalization tolerates corruption, malformed spoons and missing versions
+  ---
+  duration_ms: 0.2727
+  type: 'test'
+  ...
+# Subtest: banquet needs the actual destroyed barricade plus guards before any civilian can move
+ok 16 - banquet needs the actual destroyed barricade plus guards before any civilian can move
+  ---
+  duration_ms: 0.7624
+  type: 'test'
+  ...
+# Subtest: banquet escort needs proximity, routes through the open doorway and never treats cooks as combatants
+ok 17 - banquet escort needs proximity, routes through the open doorway and never treats cooks as combatants
+  ---
+  duration_ms: 2.1865
+  type: 'test'
+  ...
+# Subtest: banquet requires a real reinforcement defeat, six seconds in pantry, then final exit
+ok 18 - banquet requires a real reinforcement defeat, six seconds in pantry, then final exit
+  ---
+  duration_ms: 1.9134
+  type: 'test'
+  ...
+# Subtest: pudding attackers warn and damage stands; bonking all wave enemies is needed
+ok 19 - pudding attackers warn and damage stands; bonking all wave enemies is needed
+  ---
+  duration_ms: 0.9642
+  type: 'test'
+  ...
+# Subtest: destroying every pudding stand fails without awarding completion
+ok 20 - destroying every pudding stand fails without awarding completion
+  ---
+  duration_ms: 0.1831
+  type: 'test'
+  ...
+# Subtest: arrow trial counts actual reflections, grants extra-feat window, keeps archer alive
+ok 21 - arrow trial counts actual reflections, grants extra-feat window, keeps archer alive
+  ---
+  duration_ms: 0.3266
+  type: 'test'
+  ...
+# Subtest: bridge sequential checkpoints survive falls; third fall fails
+ok 22 - bridge sequential checkpoints survive falls; third fall fails
+  ---
+  duration_ms: 0.2064
+  type: 'test'
+  ...
+# Subtest: bridge cannot finish by skipping gates; dash feat requires crossing the whole gap
+ok 23 - bridge cannot finish by skipping gates; dash feat requires crossing the whole gap
+  ---
+  duration_ms: 0.1867
+  type: 'test'
+  ...
+# Subtest: Stirling advances only on actual blocks, then counter, then uncontested pie hold
+ok 24 - Stirling advances only on actual blocks, then counter, then uncontested pie hold
+  ---
+  duration_ms: 0.2733
+  type: 'test'
+  ...
+# Subtest: Steve cage opens only at the actual crate; egg and route are required
+ok 25 - Steve cage opens only at the actual crate; egg and route are required
+  ---
+  duration_ms: 0.2219
+  type: 'test'
+  ...
+# Subtest: Rind telegraphs fixed target, provides punish window and sweep hurts allies
+ok 26 - Rind telegraphs fixed target, provides punish window and sweep hurts allies
+  ---
+  duration_ms: 0.3024
+  type: 'test'
+  ...
+# Subtest: Rind defeat leads to playable rescue, not immediate success
+ok 27 - Rind defeat leads to playable rescue, not immediate success
+  ---
+  duration_ms: 0.1857
+  type: 'test'
+  ...
+# Subtest: boss and exam checkpoint resume reset scripts and cannot earn full-run flawless spoon
+ok 28 - boss and exam checkpoint resume reset scripts and cannot earn full-run flawless spoon
+  ---
+  duration_ms: 0.3438
+  type: 'test'
+  ...
+# Subtest: rescue checkpoint resumes with marked living skin and no boss replay
+ok 29 - rescue checkpoint resumes with marked living skin and no boss replay
+  ---
+  duration_ms: 0.2478
+  type: 'test'
+  ...
+# Subtest: assistance modifies only campaign health and authored timing
+ok 30 - assistance modifies only campaign health and authored timing
+  ---
+  duration_ms: 0.1805
+  type: 'test'
+  ...
+# Subtest: replaying another node never erases an unfinished boss checkpoint
+ok 31 - replaying another node never erases an unfinished boss checkpoint
+  ---
+  duration_ms: 0.2044
+  type: 'test'
+  ...
+# Subtest: campaign backup merge preserves independent spoons and completed chapter ownership
+ok 32 - campaign backup merge preserves independent spoons and completed chapter ownership
+  ---
+  duration_ms: 0.1731
+  type: 'test'
+  ...
+# Subtest: displacing a pudding raider cancels its attack; returning starts a complete fresh warning
+ok 33 - displacing a pudding raider cancels its attack; returning starts a complete fresh warning
+  ---
+  duration_ms: 0.288
+  type: 'test'
+  ...
+# Subtest: destroyed pudding target cannot transfer an almost-ready hit to another stand
+ok 34 - destroyed pudding target cannot transfer an almost-ready hit to another stand
+  ---
+  duration_ms: 0.2185
+  type: 'test'
+  ...
+# Subtest: contested pie status explains stalled progress and clears with the threat
+ok 35 - contested pie status explains stalled progress and clears with the threat
+  ---
+  duration_ms: 0.2196
+  type: 'test'
+  ...
+# Subtest: Rind timing cues match normal and assisted attack windows without changing target
+ok 36 - Rind timing cues match normal and assisted attack windows without changing target
+  ---
+  duration_ms: 0.2741
+  type: 'test'
+  ...
+# Subtest: each campaign encounter has a complete, nonoverlapping intro and outro subtitle track
+ok 37 - each campaign encounter has a complete, nonoverlapping intro and outro subtitle track
+  ---
+  duration_ms: 1.0459
+  type: 'test'
+  ...
+# Subtest: all scenes render finite operations, valid knight poses and balanced context state at every half second
+ok 38 - all scenes render finite operations, valid knight poses and balanced context state at every half second
+  ---
+  duration_ms: 118.4321
+  type: 'test'
+  ...
+# Subtest: time is deterministic, reduced motion holds the same tableau within a subtitle beat
+ok 39 - time is deterministic, reduced motion holds the same tableau within a subtitle beat
+  ---
+  duration_ms: 3.66
+  type: 'test'
+  ...
+# Subtest: portrait, wide and invalid canvas inputs do not produce invalid drawing coordinates
+ok 40 - portrait, wide and invalid canvas inputs do not produce invalid drawing coordinates
+  ---
+  duration_ms: 5.7559
+  type: 'test'
+  ...
+# Subtest: natural first delivery pauses before combat without changing rewards or reporting a combat round
+ok 41 - natural first delivery pauses before combat without changing rewards or reporting a combat round
+  ---
+  duration_ms: 21.9554
+  type: 'test'
+  ...
+# Subtest: explicit opening skip and a delivery replay after an attempt intentionally enter combat directly
+ok 42 - explicit opening skip and a delivery replay after an attempt intentionally enter combat directly
+  ---
+  duration_ms: 2.2597
+  type: 'test'
+  ...
+# Subtest: crossing identity and optional practice retain the eight-node save and spoon contract
+ok 43 - crossing identity and optional practice retain the eight-node save and spoon contract
+  ---
+  duration_ms: 0.9843
+  type: 'test'
+  ...
+1..43
+# tests 43
+# suites 0
+# pass 43
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 219.7991
+

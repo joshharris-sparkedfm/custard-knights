@@ -1,0 +1,170 @@
+{
+  "repository": "joshharris-sparkedfm/custard-knights",
+  "run_id": 38426511374,
+  "url": "https://github.com/joshharris-sparkedfm/custard-knights/actions/runs/38426511374",
+  "head_sha": "c79dad537d50a4cb343c8d2c824705d6fab60487",
+  "run_attempt": 1,
+  "status": "completed",
+  "conclusion": "success",
+  "event": "push",
+  "updated_at": "2026-10-13T15:59:33Z",
+  "jobs": [
+    {
+      "id": 115397206873,
+      "name": "core (windows-latest, 24)",
+      "status": "completed",
+      "conclusion": "success",
+      "steps": [
+        {
+          "name": "Run dependency-free shared simulation assertions",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 4
+        },
+        {
+          "name": "Retain passes and failures",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 5
+        }
+      ]
+    },
+    {
+      "id": 115397206997,
+      "name": "core (windows-latest, 22)",
+      "status": "completed",
+      "conclusion": "success",
+      "steps": [
+        {
+          "name": "Run dependency-free shared simulation assertions",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 4
+        },
+        {
+          "name": "Retain passes and failures",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 5
+        }
+      ]
+    },
+    {
+      "id": 115397207032,
+      "name": "server (windows-latest)",
+      "status": "completed",
+      "conclusion": "success",
+      "steps": [
+        {
+          "name": "Install server dependency only",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 4
+        },
+        {
+          "name": "Run full unit suite",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 5
+        },
+        {
+          "name": "Exercise 100 active loopback clients for 60 seconds",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 6
+        },
+        {
+          "name": "Recover journal after an abrupt process exit",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 7
+        },
+        {
+          "name": "Retain passes and failures",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 8
+        }
+      ]
+    },
+    {
+      "id": 115397207051,
+      "name": "core (ubuntu-latest, 22)",
+      "status": "completed",
+      "conclusion": "success",
+      "steps": [
+        {
+          "name": "Run dependency-free shared simulation assertions",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 4
+        },
+        {
+          "name": "Retain passes and failures",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 5
+        }
+      ]
+    },
+    {
+      "id": 115397207054,
+      "name": "core (ubuntu-latest, 24)",
+      "status": "completed",
+      "conclusion": "success",
+      "steps": [
+        {
+          "name": "Run dependency-free shared simulation assertions",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 4
+        },
+        {
+          "name": "Retain passes and failures",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 5
+        }
+      ]
+    },
+    {
+      "id": 115397207171,
+      "name": "server (ubuntu-latest)",
+      "status": "completed",
+      "conclusion": "success",
+      "steps": [
+        {
+          "name": "Install server dependency only",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 4
+        },
+        {
+          "name": "Run full unit suite",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 5
+        },
+        {
+          "name": "Exercise 100 active loopback clients for 60 seconds",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 6
+        },
+        {
+          "name": "Recover journal after an abrupt process exit",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 7
+        },
+        {
+          "name": "Retain passes and failures",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 8
+        }
+      ]
+    }
+  ],
+  "limitations": "Automatic existing push workflow; no manual unchanged soak rerun. Full hosted suite and configured loopback/journal steps passed on Windows/Linux. Not human fun, physical device, WAN or Steam acceptance."
+}

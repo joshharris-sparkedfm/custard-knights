@@ -1,5 +1,18 @@
 # Orchestrator execution queue
 
+## Active FE09-A causal transitions — 13 October 2026
+
+The bounded Astra review and independent Luna compatibility audit merged in PR35 at `de18ebaea54ab339450b1a4909e74d76382f149a`. Root verified clean main/origin/main before branch `codex/story-causal-transitions` in work/custard-knights-room. Astra's single review is complete; routine continuation returns to Sol/Luna. Beta.16 remains the verified export; new source is not yet accepted or packaged.
+
+| Task | Owner / model / effort | Files | Progress / next action |
+|---|---|---|---|
+| FE09-A implementation | /root/story_transitions_impl / gpt-6.1-sol / high | Campaign/theatre/UI/integration, narrow scenery/index seams and focused tests | Dispatched actual bakery/supply/channel transitions, short skippable first-delivery disruption, recognisable Rice guard and optional practice framing |
+| Independent journey/caption QA | /root/story_transitions_qa / gpt-6.1-sol / medium | qa/story-transitions-browser.cjs and dated results/review | Prepare route/callback/save/replay/pause/compact-caption cases; final run waits stable source |
+| Independent source/evidence review | /root/story_transitions_review / gpt-6-luna / high | Read-only | Trace actual theatre override, callback cancellation, direct retries, optional prerequisites and reward/report boundaries |
+| Integration | /root / Sol Extra High | Queue/checkpoint/Git and later coherent package | Relevant checks/review, push/attach/merge completed task before FE09-B |
+
+Scope is FE09-A only from ASTRA-STORY-REVIEW.md: actual Puddings scenes must match the rescued cooks/bakery and explain the cooling-route cause; the crossing guard gets a consistent identity and nonfatal withdrawal; Biscuit remains optional practice; first delivery gets a short explicit skippable disruption while failed pantry retries remain direct. Preserve all eight IDs, prerequisites, spoons, receipts, existing combat and completion/replay access. No Stirling rewrite, Rind phase3, finale/homecoming or new save migration in this increment. Original WIP, saves and frozen exports remain untouched; no unchanged test/soak/native-failure repeat or GPU job. Cap remains50v50/100 total,200 deferred. Current active work must be inspected, not duplicated.
+
 ## Active bounded Astra story review — 13 October 2026
 
 PR34 merged at `261fec1eec36bb2300719e3dcc698c9c640feb37`. Root verified clean main/origin/main and completed agents before creating `codex/astra-story-review` in work/custard-knights-room. Beta.16 remains the checked playable export below; no runtime changes or repeat tests are part of this review.

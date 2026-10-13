@@ -1,4 +1,10 @@
-# Active bounded Astra story review — 13 October 2026
+# Active FE09-A causal transitions — 13 October 2026
+
+PR35 merged the completed bounded Astra review at `de18ebaea54ab339450b1a4909e74d76382f149a`; clean main/origin/main verified. Branch `codex/story-causal-transitions` in work/custard-knights-room. Beta.16 remains latest verified output. All Astra/compatibility reviewers completed; no repeat expensive audit.
+
+Current owners: /root/story_transitions_impl (Sol high) runtime/theatre/campaign plus focused tests; /root/story_transitions_qa (Sol medium) isolated independent journey/caption/capture evidence; /root/story_transitions_review (Luna high) read-only; root queue/checkpoint/Git/package. Implement only FE09-A in ASTRA-STORY-REVIEW.md: correct actual bakery/Puddings scenes and route cause, short skippable first-delivery disruption, stable crossing-guard identity/nonfatal withdrawal and optional Biscuit practice. Keep direct retries and every old ID/prerequisite/spoon/receipt/replay boundary. No later Stirling/Rind/finale/checkpoint implementation yet. Obtain relevant checks, independent review and checked push/merge before FE09-B. Inspect active work before edits; source is not yet accepted/exported. Original WIP/user saves/older outputs untouched; cap50v50/100 total,200 deferred; human/device/WAN/Steam gates and native anomalies remain open.
+
+# Historical bounded Astra review — 13 October 2026
 
 PR34 merged at `261fec1eec36bb2300719e3dcc698c9c640feb37`; clean main/origin/main verified. Current branch `codex/astra-story-review` in work/custard-knights-room. All beta.16 workers completed; latest exports below remain frozen and checked. No new runtime/package/tests yet.
 

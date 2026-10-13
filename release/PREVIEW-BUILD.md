@@ -1,4 +1,18 @@
-# Private friends beta - 0.3.0-beta.10
+# Private friends beta - 0.3.0-beta.11
+
+Frozen runtime `5c8549db9d5293005fe3b5bd83998a5e66ac32df` adds visible pending/cancel, failed-admission Retry, guest recovery after host/snapshot loss, and an online Match menu. Menu or Escape / P / Start opens Options, Resume and Leave while the simulation continues and players on this PC stay neutral. Host Close room ends the room for guests. Interrupted guest rounds grant no invented rewards; completed rewards remain. Compact windows retain critical status text. Offline modes and first-launch practice remain included; Faction Front is a separate service.
+
+- Friends ZIP: `outputs/Custard-Knights-Friends-0.3.0-beta.11.zip`, 547146843 bytes, SHA256 `01af8ffdabe1d6b6f1e883bacba18aca58afd5c4ea69b3057de0fe9422571cd3`.
+- Preview folder: `outputs/Custard-Knights-Windows-0.3.0-beta.11-preview`.
+- Preview ZIP: `outputs/Custard-Knights-Windows-0.3.0-beta.11-preview.zip`, 547150623 bytes, SHA256 `890f1924bb6252ab6a0f2bde9b5c720cfbf4a6fa65ed1fa03bbf6cf7fabdc2a2`.
+- ASAR SHA256: `b6de7ed7914e5b432c9bc98949a0f72400e6b04f5949855248cb7701610c71aa`.
+- EXE SHA256: `2f716f5835db221e590c6888b8a24d9b7ff85798e88ff8f51076cdaa18647313`.
+
+Both ZIPs pass CRC and final hashes; all73 Friends game files match frozen dist, preview and BUILD-INFO inventory bytes. All62 packaged entries match checked source metadata, including game/online-recovery.js. Standard isolated actual EXE save/restart/launcher/relocation, extracted-ASAR recovery38 and native actual EXE DOM/FakePeer recovery/Menu13 pass on their first final-freeze invocations. Source recovery38 and70 affected tests pass. All6 hosted CI jobs pass at earlier e43c8f9 in run38381138348; final5c8549 changes only critical-note CSS, so CI applies to unchanged JavaScript/tests and was not run at finalhash. [Package evidence](../qa/results/beta11-desktop/README.md) and [extracted recovery checks](../qa/results/beta11-packaged-recovery/README.md) record commands, prior superseded evidence and limits.
+
+Extract the complete Friends ZIP and run `Game/Custard Knights.exe` after closing older copies normally. Use matching versions for Roomier rooms. Saves stay local and shared across versions. No sending/public upload occurred; older outputs are preserved. Chrome real PeerJS coverage proves same-host DataConnections; native smoke injects admission faults. Neither establishes physical-controller ergonomics, human usability/fun/balance, WAN/second-PC, minimum hardware, long soak or Steam acceptance. Earlier native-runtime anomalies remain unresolved. Later documentation/evidence commits do not change frozen runtime bytes.
+
+# Historical private friends beta - 0.3.0-beta.10
 
 Frozen runtime `88a974bc1b5ec1166c1cae62e03d3aa9b1d7f61e` adds an optional first-launch welcome with sound/effect preferences and safe controls practice. New profiles can choose Learn by playing or Jump straight in; existing profiles keep the home menu. How to Play replays practice. Practice uses real arena movement, swing, guard, dash and bow aim without rewards, and restores remembered rules and couch seats afterwards.
 

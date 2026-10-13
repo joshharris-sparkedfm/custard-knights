@@ -10,7 +10,7 @@ function fixture(format='arena'){
  const calls=[];let input={},party=false;
  const resume={tagName:'BUTTON',click(){calls.push('resume');c.setPause(false);}},quit={tagName:'BUTTON',click(){calls.push('quit');c.G.demo=true;c.paused=false;}};
  const c={G:{demo:false,over:false},CUP:format==='cup'?{status:'playing'}:null,ADVENTURE:format==='story'?{campaign:{run:{status:'playing'}}}:null,
-  PADS:[{index:3}],padPrev:[],SEATS:[{dev:'kb1'},{dev:'pad',idx:3}],paused:false,document:{activeElement:resume},
+  NET:{role:null,menuOpen:false},PADS:[{index:3}],padPrev:[],SEATS:[{dev:'kb1'},{dev:'pad',idx:3}],paused:false,document:{activeElement:resume},
   visibleScreen:()=>({contains:el=>el===resume||el===quit}),padState:()=>input,setPause(value){calls.push(['pause',value]);c.paused=value;if(value)c.document.activeElement=resume;},
   shout:(...args)=>calls.push(['shout',args[0]]),partyOpen:()=>party,partyPad:(...args)=>calls.push(['party',args[0]]),
   menuNav(dx,dy){calls.push(['nav',dx,dy]);c.document.activeElement=dx>0?quit:resume;},menuBack:()=>calls.push('back')};

@@ -1,0 +1,69 @@
+{
+  "attempt": 1,
+  "executable": "C:\\Users\\Joshua\\Documents\\Codex\\2026-10-08\\rea\\work\\custard-knights-recovery\\dist\\Custard Knights-win32-x64\\Custard Knights.exe",
+  "profile": "C:\\Users\\Joshua\\AppData\\Local\\Temp\\custard-acceptance-FMDqRN\\user-data",
+  "checks": [
+    {
+      "name": "Actual desktop native origin",
+      "pass": true
+    },
+    {
+      "name": "Friends route opens Online room",
+      "pass": true
+    },
+    {
+      "name": "Invalid code gives actionable recovery",
+      "pass": true
+    },
+    {
+      "name": "Hosting pending presents Cancel and status",
+      "pass": true
+    },
+    {
+      "name": "Cancel returns online with focused host control",
+      "pass": true
+    },
+    {
+      "name": "Failed host offers visible focused retry",
+      "pass": true
+    },
+    {
+      "name": "Retry starts fresh pending attempt",
+      "pass": true
+    },
+    {
+      "name": "Recovery preserves saved progress and setup",
+      "pass": true
+    },
+    {
+      "name": "Admitted host starts with visible Menu",
+      "pass": true
+    },
+    {
+      "name": "Online Match menu offers Options Resume and host close",
+      "pass": true
+    },
+    {
+      "name": "Resume closes Match menu",
+      "pass": true
+    },
+    {
+      "name": "Close room returns home",
+      "pass": true
+    },
+    {
+      "name": "Reload retains welcome choice and home",
+      "pass": true
+    }
+  ],
+  "limitations": [
+    "FakePeer injects admission faults only; this native smoke does not establish real PeerJS transport or responsiveness.",
+    "Actual packaged desktop origin with programmatic click smoke; physical-device and human acceptance remain open.",
+    "In-memory inspector replacement of acceptance.run only; packaged bytes are not edited."
+  ],
+  "exitCode": 0,
+  "stdout": "\r\nACTUAL_RECOVERY_PASS {\"checks\":[{\"name\":\"Actual desktop native origin\",\"pass\":true},{\"name\":\"Friends route opens Online room\",\"pass\":true},{\"name\":\"Invalid code gives actionable recovery\",\"pass\":true},{\"name\":\"Hosting pending presents Cancel and status\",\"pass\":true},{\"name\":\"Cancel returns online with focused host control\",\"pass\":true},{\"name\":\"Failed host offers visible focused retry\",\"pass\":true},{\"name\":\"Retry starts fresh pending attempt\",\"pass\":true},{\"name\":\"Recovery preserves saved progress and setup\",\"pass\":true},{\"name\":\"Admitted host starts with visible Menu\",\"pass\":true},{\"name\":\"Online Match menu offers Options Resume and host close\",\"pass\":true},{\"name\":\"Resume closes Match menu\",\"pass\":true},{\"name\":\"Close room returns home\",\"pass\":true},{\"name\":\"Reload retains welcome choice and home\",\"pass\":true}],\"origin\":\"custard://game\"}\n",
+  "stderr": "Debugger listening on ws://127.0.0.1:61269/7fcad7a2-f8d4-44bc-927a-9d9255bc609f\r\nFor help, see: https://nodejs.org/learn/getting-started/debugging\r\nDebugger attached.\r\nDebugger ending on ws://127.0.0.1:61269/7fcad7a2-f8d4-44bc-927a-9d9255bc609f\r\nFor help, see: https://nodejs.org/learn/getting-started/debugging\r\n",
+  "origin": "custard://game",
+  "pass": true
+}

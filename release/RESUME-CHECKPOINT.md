@@ -1,4 +1,24 @@
-# Optional first-launch setup and friends beta.10 — 13 October 2026
+# Arena recovery and friends beta.11 — 13 October 2026
+
+PR28 packages the checked arena recovery increment. Frozen runtime5c8549db9d5293005fe3b5bd83998a5e66ac32df; later commits only QA/docs/evidence. All recovery agents completed in work/custard-knights-recovery, branch codex/menu-online-recovery. Root verifies PR28 merge and origin/main before the next task. Original bakery WIP, normal saves and older exports remain preserved.
+
+Bounded loading/admission, cancel/retry/stale-callback guards, signaling/P2P distinction, continuing online Menu/Options/Leave, truthful interrupted-versus-completed result recovery and host-seat preservation are integrated. The menu neutralizes every local seat on this PC while online peers continue. Compact layouts retain critical status/explanations and reachable actions.
+
+70 affected tests passed before the CSS-only refinement,32 affected tests after it; independent final7-visible38 and extracted-package38 pass with stable source hashes and zero browser exceptions. Actual EXE programmatic DOM/FakePeer smoke13 and isolated save/restart/launcher/relocation pass. All62 payload entries/73 Friends files and both ZIP integrity checks pass. Hosted CI38381138348 passed all6 jobs at e43c8f9's unchanged JavaScript/tests; it did not run at final5c8549. Final compact CSS was independently reviewed at800x600/800x500. Superseded first-freeze package evidence, final5 seat failure and insufficient final6 visibility assertions remain preserved. See qa/reviews/online-recovery-2026-10-13.md, qa/results/beta11-desktop and PREVIEW-BUILD.md.
+
+Friends ZIP outputs/Custard-Knights-Friends-0.3.0-beta.11.zip:547146843bytes,SHA25601af8ffdabe1d6b6f1e883bacba18aca58afd5c4ea69b3057de0fe9422571cd3. Preview ZIP outputs/Custard-Knights-Windows-0.3.0-beta.11-preview.zip:547150623bytes,SHA256890f1924bb6252ab6a0f2bde9b5c720cfbf4a6fa65ed1fa03bbf6cf7fabdc2a2. ASARb6de7ed7914e5b432c9bc98949a0f72400e6b04f5949855248cb7701610c71aa. Extract whole Friends ZIP and run Game/Custard Knights.exe after normally closing older copies. Nothing uploaded publicly or sent to testers.
+
+Next bounded engineering: FE04 couch device ownership/loss/rejoin and truthful binding prompts, followed by FE05 persistent room/Cup continuity. Inspect existing source and actual gaps before changes. FE03 broader acceptance remains open, including separate Faction paths and human/device evidence; do not claim the milestone or game finished. FE06 then causal story slice, native two-sofa and200-combatant commitments remain explicit scope. Do not repeat completed aim/home/onboarding/recovery tests without affected changes. Human/controller/WAN/second-PC/minimumhardware/music/Steam acceptance and historical native faults remain unresolved.
+
+# Historical source checkpoint before export
+
+Worktree work/custard-knights-recovery, branch codex/menu-online-recovery from verified PR27 merge5d32e0960c1321e1cd694e5bafbf006ecfb9a187. Beta.11 source is checked; package/CI identities follow after root freezes it. Latest exported playable version remains beta.10 until PREVIEW-BUILD.md records completed beta.11 exports.
+
+Arena create/join now has bounded loading/admission, visible cancellation/retry and attempt-owned callbacks. Established peer connections survive signaling-service loss. Online Menu/Options/Leave says the match continues and neutralizes all seats on this PC, not remote guests. Host/connection loss interrupts guest rounds without awarding a fabricated result; completed rewards persist. Host seats survive lobby/rematch/Cup starts at the same count; deliberate count changes clear old bindings. Original bakery WIP and normal saves remain untouched.
+
+70 affected tests and independent actual-browser final6 36/36 pass with stable source hashes and zero Runtime exceptions. Source review cleared. Real PeerJS is same-host; library/loading/deadline faults are controlled injections. Final5's real host-seat failure and earlier fixture/mixed-source attempts remain recorded. Packaging/hosted CI are pending at this source checkpoint; no physical/WAN/human/Steam acceptance is implied. Root must complete export/evidence/push/merge before the next integrated task. See qa/reviews/online-recovery-2026-10-13.md and ORCHESTRATOR-QUEUE.md.
+
+# Historical optional first-launch setup and friends beta.10 — 13 October 2026
 
 PR27 contains the checked onboarding increment on codex/first-launch-practice in work/custard-knights-onboarding. Frozen runtime: 88a974bc1b5ec1166c1cae62e03d3aa9b1d7f61e. Fresh profiles can adjust existing sound/effect preferences, skip to home, or learn through real arena movement, swing, guard, dash and ranged aim/fire. Existing profiles and room invites bypass the offer. How to Play replays practice. Practice restores normal rules/seats and excludes normal played counts, rewards and product reports. No text-scale/remapping or human-learning acceptance is claimed.
 

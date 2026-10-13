@@ -1,0 +1,20 @@
+(function(root,factory){const api=factory();if(typeof module==='object'&&module.exports)module.exports=api;else root.CKControls=api;})(globalThis,()=>{
+ 'use strict';
+ const KEY='ck-controls-v1',VERSION=1;
+ const keys=[...'ABCDEFGHIJKLMNOQRSTUVWXYZ'].map(k=>'Key'+k).concat(['ArrowUp','ArrowDown','ArrowLeft','ArrowRight','Space','ShiftLeft','ShiftRight','ControlLeft','ControlRight']);
+ const buttons=[0,1,2,3,4,5,6,7,10,11],buttonNames={0:'A',1:'B',2:'X',3:'Y',4:'LB',5:'RB',6:'LT',7:'RT',10:'L3',11:'R3'};
+ const defaults={solo:{up:['KeyW','ArrowUp'],down:['KeyS','ArrowDown'],left:['KeyA','ArrowLeft'],right:['KeyD','ArrowRight'],atk:['Space','KeyJ','KeyF'],dash:['ShiftLeft','ShiftRight','KeyK','KeyG'],block:['KeyE','KeyL','KeyH']},kb1:{up:['KeyW'],down:['KeyS'],left:['KeyA'],right:['KeyD'],atk:['KeyF','Space'],dash:['KeyG','ShiftLeft','ShiftRight'],block:['KeyH','KeyE']},kb2:{up:['ArrowUp'],down:['ArrowDown'],left:['ArrowLeft'],right:['ArrowRight'],atk:['KeyJ'],dash:['KeyK'],block:['KeyL']}};
+ const padDefault={atk:[0,7],dash:[1,4],block:[2,5,6],shout:[3]};
+ const clone=v=>JSON.parse(JSON.stringify(v));
+ function fresh(){return {version:VERSION,keyboard:clone(defaults),pads:Array.from({length:4},()=>clone(padDefault))};}
+ function conflict(profile,other){const used=new Map();for(const [action,codes]of Object.entries(profile))for(const code of codes){if(used.has(code))return `${label(code)} is assigned to both ${used.get(code)} and ${action}.`;used.set(code,action);}if(other)for(const codes of Object.values(other))for(const code of codes)if(used.has(code))return `${label(code)} is already used by the other keyboard half.`;return '';}
+ function validProfile(value,base,choices){return value&&typeof value==='object'&&!Array.isArray(value)&&Object.keys(base).every(k=>Array.isArray(value[k])&&value[k].length>0&&value[k].length<=base[k].length&&value[k].every(x=>choices.includes(x))&&new Set(value[k]).size===value[k].length)&&!conflict(Object.fromEntries(Object.keys(base).map(k=>[k,value[k]])));}
+ function keyboard(settings,name,shared=false){const p=clone(settings.keyboard[name]);if(name==='kb1'&&shared)for(const k of ['atk','dash','block'])if(JSON.stringify(p[k])===JSON.stringify(defaults.kb1[k]))p[k]=p[k].slice(0,1);return p;}
+ function normalize(raw){const out=fresh();if(!raw||raw.version!==VERSION)return out;for(const name of Object.keys(defaults))if(validProfile(raw.keyboard?.[name],defaults[name],keys))out.keyboard[name]=Object.fromEntries(Object.keys(defaults[name]).map(k=>[k,[...raw.keyboard[name][k]]]));if(conflict(keyboard(out,'kb1',true),out.keyboard.kb2)){out.keyboard.kb1=clone(defaults.kb1);out.keyboard.kb2=clone(defaults.kb2);}for(let i=0;i<4;i++)if(validProfile(raw.pads?.[i],padDefault,buttons))out.pads[i]=Object.fromEntries(Object.keys(padDefault).map(k=>[k,[...raw.pads[i][k]]]));return out;}
+ function label(code){if(typeof code==='number')return buttonNames[code]||'?';return code.startsWith('Key')?code.slice(3):({ArrowUp:'Up arrow',ArrowDown:'Down arrow',ArrowLeft:'Left arrow',ArrowRight:'Right arrow',Space:'Space',ShiftLeft:'Left Shift',ShiftRight:'Right Shift',ControlLeft:'Left Ctrl',ControlRight:'Right Ctrl'}[code]||'?');}
+ function keyInput(profile,held){const on=k=>profile[k].some(code=>!!held[code]);return {mx:+on('right')-on('left'),my:+on('down')-on('up'),atk:on('atk'),dash:on('dash'),block:on('block'),faceTo:null};}
+ function padInput(profile,pressed){return Object.fromEntries(Object.keys(padDefault).map(k=>[k,profile[k].some(n=>!!pressed[n])]));}
+ function names(profile,action){return profile[action].map(label).join(' / ');}
+ function describe(profile,pad=false){return (pad?'Move: left stick / d-pad · Aim: right stick':`Move: ${names(profile,'up')}, ${names(profile,'left')}, ${names(profile,'down')}, ${names(profile,'right')}`)+` · Swing: ${names(profile,'atk')} · Dash: ${names(profile,'dash')} · Block: ${names(profile,'block')}`+(pad?` · Shout: ${names(profile,'shout')} · Menu: Start`:'');}
+ return Object.freeze({KEY,VERSION,keys:Object.freeze(keys),buttons:Object.freeze(buttons),fresh,normalize,keyboard,conflict,label,keyInput,padInput,names,describe});
+});

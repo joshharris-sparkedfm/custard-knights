@@ -1,0 +1,2677 @@
+{
+  "startedAt": "2026-10-13T11:07:38.174Z",
+  "root": "C:\\Users\\Joshua\\Documents\\Codex\\2026-10-08\\rea\\work\\custard-knights-controls",
+  "harnessSha256": "16514b83fbadfcd224962074244683a375188548d2bfcd4067149626d2c63a66",
+  "sourceHashes": {
+    "index.html": "d0fa1eabdb7f2470d99064252a48cc4a5389956a35fc7ac90391611a71fded23",
+    "game/preferences.js": "88462d6520d725e9b525ffbb0c744370327d4959075559bb33ed4e2b9b0d6d4a",
+    "game/controls.js": "a65a941fbe3614ab467207d8b216eecdffa77668d1f1bb171f4ad4a6c2405b40",
+    "game/mass-battle-ui.js": "5b944edec7ebab0ff54fab38a34308e8a8123a04290a8eda969f021292b0e260",
+    "game/input-aim.js": "54040dd96e1360a46cd36c5fc6f92b05abeeb7db34af7f5cca3d75a9dcb9baee"
+  },
+  "checks": [
+    {
+      "name": "Controls editor actual Options entry and minimal window fields/apply are usable",
+      "profile": "local",
+      "pass": true,
+      "details": {
+        "pass": true,
+        "apply": {
+          "pass": true,
+          "cases": [
+            {
+              "width": 800,
+              "height": 600,
+              "text": {
+                "exists": true,
+                "text": "Changes apply only after Apply. Cancel returns to Settings without changing your controls.",
+                "fontSize": "12px",
+                "display": "block",
+                "rect": {
+                  "x": 180.43927001953125,
+                  "y": 548.1912841796875,
+                  "width": 424.418701171875,
+                  "height": 34.09197998046875,
+                  "top": 548.1912841796875,
+                  "right": 604.8579711914062,
+                  "bottom": 582.2832641601562,
+                  "left": 180.43927001953125
+                },
+                "textRect": {
+                  "x": 180.43927001953125,
+                  "y": 548.1912841796875,
+                  "width": 410.4664306640625,
+                  "height": 32.7288818359375,
+                  "top": 548.1912841796875,
+                  "right": 590.9057006835938,
+                  "bottom": 580.920166015625,
+                  "left": 180.43927001953125
+                },
+                "visible": true,
+                "clickable": true
+              },
+              "button": {
+                "exists": true,
+                "text": "Apply",
+                "fontSize": "26px",
+                "display": "block",
+                "rect": {
+                  "x": 176,
+                  "y": 519.859375,
+                  "width": 122.4375,
+                  "height": 56,
+                  "top": 519.859375,
+                  "right": 298.4375,
+                  "bottom": 575.859375,
+                  "left": 176
+                },
+                "textRect": {
+                  "x": 202.5,
+                  "y": 532.859375,
+                  "width": 69.4375,
+                  "height": 30,
+                  "top": 532.859375,
+                  "right": 271.9375,
+                  "bottom": 562.859375,
+                  "left": 202.5
+                },
+                "visible": true,
+                "clickable": true
+              },
+              "fixture": "Each element measured after its own normal scrollIntoView; simultaneous visibility not claimed"
+            },
+            {
+              "width": 800,
+              "height": 500,
+              "text": {
+                "exists": true,
+                "text": "Changes apply only after Apply. Cancel returns to Settings without changing your controls.",
+                "fontSize": "12px",
+                "display": "block",
+                "rect": {
+                  "x": 176,
+                  "y": 441.078125,
+                  "width": 433,
+                  "height": 34.78125,
+                  "top": 441.078125,
+                  "right": 609,
+                  "bottom": 475.859375,
+                  "left": 176
+                },
+                "textRect": {
+                  "x": 176,
+                  "y": 441.078125,
+                  "width": 418.765625,
+                  "height": 33.390625,
+                  "top": 441.078125,
+                  "right": 594.765625,
+                  "bottom": 474.46875,
+                  "left": 176
+                },
+                "visible": true,
+                "clickable": true
+              },
+              "button": {
+                "exists": true,
+                "text": "Apply",
+                "fontSize": "26px",
+                "display": "block",
+                "rect": {
+                  "x": 176,
+                  "y": 419.859375,
+                  "width": 122.4375,
+                  "height": 56,
+                  "top": 419.859375,
+                  "right": 298.4375,
+                  "bottom": 475.859375,
+                  "left": 176
+                },
+                "textRect": {
+                  "x": 202.5,
+                  "y": 432.859375,
+                  "width": 69.4375,
+                  "height": 30,
+                  "top": 432.859375,
+                  "right": 271.9375,
+                  "bottom": 462.859375,
+                  "left": 202.5
+                },
+                "visible": true,
+                "clickable": true
+              },
+              "fixture": "Each element measured after its own normal scrollIntoView; simultaneous visibility not claimed"
+            }
+          ]
+        },
+        "field": {
+          "pass": true,
+          "cases": [
+            {
+              "width": 800,
+              "height": 600,
+              "text": {
+                "exists": true,
+                "text": "Changes apply only after Apply. Cancel returns to Settings without changing your controls.",
+                "fontSize": "12px",
+                "display": "block",
+                "rect": {
+                  "x": 176,
+                  "y": 451.078125,
+                  "width": 433,
+                  "height": 34.78125,
+                  "top": 451.078125,
+                  "right": 609,
+                  "bottom": 485.859375,
+                  "left": 176
+                },
+                "textRect": {
+                  "x": 176,
+                  "y": 451.078125,
+                  "width": 418.765625,
+                  "height": 33.390625,
+                  "top": 451.078125,
+                  "right": 594.765625,
+                  "bottom": 484.46875,
+                  "left": 176
+                },
+                "visible": true,
+                "clickable": true
+              },
+              "button": {
+                "exists": true,
+                "text": "Space / J / F (current aliases)ABCDEFGHIJKLMNOQRSTUVWXYZUp arrowDown arrowLeft arrowRight arrowSpaceLeft ShiftRight ShiftLeft CtrlRight Ctrl",
+                "fontSize": "13.3333px",
+                "display": "block",
+                "rect": {
+                  "x": 412,
+                  "y": 265.015625,
+                  "width": 197,
+                  "height": 19,
+                  "top": 265.015625,
+                  "right": 609,
+                  "bottom": 284.015625,
+                  "left": 412
+                },
+                "textRect": {
+                  "x": 412,
+                  "y": 265.015625,
+                  "width": 197,
+                  "height": 19,
+                  "top": 265.015625,
+                  "right": 609,
+                  "bottom": 284.015625,
+                  "left": 412
+                },
+                "visible": true,
+                "clickable": true
+              },
+              "fixture": "Each element measured after its own normal scrollIntoView; simultaneous visibility not claimed"
+            },
+            {
+              "width": 800,
+              "height": 500,
+              "text": {
+                "exists": true,
+                "text": "Changes apply only after Apply. Cancel returns to Settings without changing your controls.",
+                "fontSize": "12px",
+                "display": "block",
+                "rect": {
+                  "x": 176,
+                  "y": 371.078125,
+                  "width": 433,
+                  "height": 34.78125,
+                  "top": 371.078125,
+                  "right": 609,
+                  "bottom": 405.859375,
+                  "left": 176
+                },
+                "textRect": {
+                  "x": 176,
+                  "y": 371.078125,
+                  "width": 418.765625,
+                  "height": 33.390625,
+                  "top": 371.078125,
+                  "right": 594.765625,
+                  "bottom": 404.46875,
+                  "left": 176
+                },
+                "visible": true,
+                "clickable": true
+              },
+              "button": {
+                "exists": true,
+                "text": "Space / J / F (current aliases)ABCDEFGHIJKLMNOQRSTUVWXYZUp arrowDown arrowLeft arrowRight arrowSpaceLeft ShiftRight ShiftLeft CtrlRight Ctrl",
+                "fontSize": "13.3333px",
+                "display": "block",
+                "rect": {
+                  "x": 412,
+                  "y": 185.015625,
+                  "width": 197,
+                  "height": 19,
+                  "top": 185.015625,
+                  "right": 609,
+                  "bottom": 204.015625,
+                  "left": 412
+                },
+                "textRect": {
+                  "x": 412,
+                  "y": 185.015625,
+                  "width": 197,
+                  "height": 19,
+                  "top": 185.015625,
+                  "right": 609,
+                  "bottom": 204.015625,
+                  "left": 412
+                },
+                "visible": true,
+                "clickable": true
+              },
+              "fixture": "Each element measured after its own normal scrollIntoView; simultaneous visibility not claimed"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "Returning an edited selector to current aliases restores truthful keyboard and pad draft",
+      "profile": "local",
+      "pass": true,
+      "details": {
+        "pass": true,
+        "saved": {
+          "version": 1,
+          "keyboard": {
+            "solo": {
+              "up": [
+                "KeyW",
+                "ArrowUp"
+              ],
+              "down": [
+                "KeyS",
+                "ArrowDown"
+              ],
+              "left": [
+                "KeyA",
+                "ArrowLeft"
+              ],
+              "right": [
+                "KeyD",
+                "ArrowRight"
+              ],
+              "atk": [
+                "Space",
+                "KeyJ",
+                "KeyF"
+              ],
+              "dash": [
+                "ShiftLeft",
+                "ShiftRight",
+                "KeyK",
+                "KeyG"
+              ],
+              "block": [
+                "KeyE",
+                "KeyL",
+                "KeyH"
+              ]
+            },
+            "kb1": {
+              "up": [
+                "KeyW"
+              ],
+              "down": [
+                "KeyS"
+              ],
+              "left": [
+                "KeyA"
+              ],
+              "right": [
+                "KeyD"
+              ],
+              "atk": [
+                "KeyF",
+                "Space"
+              ],
+              "dash": [
+                "KeyG",
+                "ShiftLeft",
+                "ShiftRight"
+              ],
+              "block": [
+                "KeyH",
+                "KeyE"
+              ]
+            },
+            "kb2": {
+              "up": [
+                "ArrowUp"
+              ],
+              "down": [
+                "ArrowDown"
+              ],
+              "left": [
+                "ArrowLeft"
+              ],
+              "right": [
+                "ArrowRight"
+              ],
+              "atk": [
+                "KeyJ"
+              ],
+              "dash": [
+                "KeyK"
+              ],
+              "block": [
+                "KeyL"
+              ]
+            }
+          },
+          "pads": [
+            {
+              "atk": [
+                0,
+                7
+              ],
+              "dash": [
+                1,
+                4
+              ],
+              "block": [
+                2,
+                5,
+                6
+              ],
+              "shout": [
+                3
+              ]
+            },
+            {
+              "atk": [
+                0,
+                7
+              ],
+              "dash": [
+                1,
+                4
+              ],
+              "block": [
+                2,
+                5,
+                6
+              ],
+              "shout": [
+                3
+              ]
+            },
+            {
+              "atk": [
+                0,
+                7
+              ],
+              "dash": [
+                1,
+                4
+              ],
+              "block": [
+                2,
+                5,
+                6
+              ],
+              "shout": [
+                3
+              ]
+            },
+            {
+              "atk": [
+                0,
+                7
+              ],
+              "dash": [
+                1,
+                4
+              ],
+              "block": [
+                2,
+                5,
+                6
+              ],
+              "shout": [
+                3
+              ]
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "Default half 1 supplemental aliases work alone and are suppressed with half 2",
+      "profile": "local",
+      "pass": true,
+      "details": {
+        "pass": true,
+        "alone": {
+          "mx": 0,
+          "my": 0,
+          "atk": true,
+          "dash": false,
+          "block": false,
+          "faceTo": null
+        },
+        "shared": [
+          {
+            "mx": 0,
+            "my": 0,
+            "atk": false,
+            "dash": false,
+            "block": false,
+            "faceTo": null
+          },
+          {
+            "mx": 0,
+            "my": 0,
+            "atk": false,
+            "dash": false,
+            "block": false,
+            "faceTo": null
+          }
+        ]
+      }
+    },
+    {
+      "name": "Explicitly selecting F replaces default F Space aliases even alone",
+      "profile": "local",
+      "pass": true,
+      "details": {
+        "pass": true,
+        "stored": {
+          "up": [
+            "KeyW"
+          ],
+          "down": [
+            "KeyS"
+          ],
+          "left": [
+            "KeyA"
+          ],
+          "right": [
+            "KeyD"
+          ],
+          "atk": [
+            "KeyF"
+          ],
+          "dash": [
+            "KeyG",
+            "ShiftLeft",
+            "ShiftRight"
+          ],
+          "block": [
+            "KeyH",
+            "KeyE"
+          ]
+        },
+        "space": {
+          "mx": 0,
+          "my": 0,
+          "atk": false,
+          "dash": false,
+          "block": false,
+          "faceTo": null
+        },
+        "f": {
+          "mx": 0,
+          "my": 0,
+          "atk": true,
+          "dash": false,
+          "block": false,
+          "faceTo": null
+        }
+      }
+    },
+    {
+      "name": "Reserved system keys and nonstandard pad buttons have no editor option",
+      "profile": "local",
+      "pass": true,
+      "details": {
+        "pass": true,
+        "keyboard": [
+          "aliases",
+          "KeyA",
+          "KeyB",
+          "KeyC",
+          "KeyD",
+          "KeyE",
+          "KeyF",
+          "KeyG",
+          "KeyH",
+          "KeyI",
+          "KeyJ",
+          "KeyK",
+          "KeyL",
+          "KeyM",
+          "KeyN",
+          "KeyO",
+          "KeyQ",
+          "KeyR",
+          "KeyS",
+          "KeyT",
+          "KeyU",
+          "KeyV",
+          "KeyW",
+          "KeyX",
+          "KeyY",
+          "KeyZ",
+          "ArrowUp",
+          "ArrowDown",
+          "ArrowLeft",
+          "ArrowRight",
+          "Space",
+          "ShiftLeft",
+          "ShiftRight",
+          "ControlLeft",
+          "ControlRight"
+        ],
+        "pads": [
+          "aliases",
+          "0",
+          "1",
+          "2",
+          "3",
+          "4",
+          "5",
+          "6",
+          "7",
+          "10",
+          "11"
+        ]
+      }
+    },
+    {
+      "name": "Remaining solo alias conflict rejects Apply without changing saved controls",
+      "profile": "local",
+      "pass": true,
+      "details": {
+        "pass": true,
+        "text": "solo: L is assigned to both atk and block."
+      }
+    },
+    {
+      "name": "Shared keyboard half conflict rejects the other half action key",
+      "profile": "local",
+      "pass": true,
+      "details": {
+        "pass": true,
+        "text": "J is already used by the other keyboard half."
+      }
+    },
+    {
+      "name": "Remaining pad alias conflict rejects LT already assigned to block",
+      "profile": "local",
+      "pass": true,
+      "details": {
+        "pass": true,
+        "text": "Player 1: LT is assigned to both atk and block."
+      }
+    },
+    {
+      "name": "Cancel discards actual keyboard draft edit",
+      "profile": "local",
+      "pass": true,
+      "details": {
+        "pass": true
+      }
+    },
+    {
+      "name": "Escape Back discards draft and returns to Options",
+      "profile": "local",
+      "pass": true,
+      "details": {
+        "pass": true
+      }
+    },
+    {
+      "name": "Controller B cancels keyboard draft through fixed menu Back",
+      "profile": "local",
+      "pass": true,
+      "details": {
+        "pass": true,
+        "saved": {
+          "version": 1,
+          "keyboard": {
+            "solo": {
+              "up": [
+                "KeyW",
+                "ArrowUp"
+              ],
+              "down": [
+                "KeyS",
+                "ArrowDown"
+              ],
+              "left": [
+                "KeyA",
+                "ArrowLeft"
+              ],
+              "right": [
+                "KeyD",
+                "ArrowRight"
+              ],
+              "atk": [
+                "Space",
+                "KeyJ",
+                "KeyF"
+              ],
+              "dash": [
+                "ShiftLeft",
+                "ShiftRight",
+                "KeyK",
+                "KeyG"
+              ],
+              "block": [
+                "KeyE",
+                "KeyL",
+                "KeyH"
+              ]
+            },
+            "kb1": {
+              "up": [
+                "KeyW"
+              ],
+              "down": [
+                "KeyS"
+              ],
+              "left": [
+                "KeyA"
+              ],
+              "right": [
+                "KeyD"
+              ],
+              "atk": [
+                "KeyF",
+                "Space"
+              ],
+              "dash": [
+                "KeyG",
+                "ShiftLeft",
+                "ShiftRight"
+              ],
+              "block": [
+                "KeyH",
+                "KeyE"
+              ]
+            },
+            "kb2": {
+              "up": [
+                "ArrowUp"
+              ],
+              "down": [
+                "ArrowDown"
+              ],
+              "left": [
+                "ArrowLeft"
+              ],
+              "right": [
+                "ArrowRight"
+              ],
+              "atk": [
+                "KeyJ"
+              ],
+              "dash": [
+                "KeyK"
+              ],
+              "block": [
+                "KeyL"
+              ]
+            }
+          },
+          "pads": [
+            {
+              "atk": [
+                0,
+                7
+              ],
+              "dash": [
+                1,
+                4
+              ],
+              "block": [
+                2,
+                5,
+                6
+              ],
+              "shout": [
+                3
+              ]
+            },
+            {
+              "atk": [
+                0,
+                7
+              ],
+              "dash": [
+                1,
+                4
+              ],
+              "block": [
+                2,
+                5,
+                6
+              ],
+              "shout": [
+                3
+              ]
+            },
+            {
+              "atk": [
+                0,
+                7
+              ],
+              "dash": [
+                1,
+                4
+              ],
+              "block": [
+                2,
+                5,
+                6
+              ],
+              "shout": [
+                3
+              ]
+            },
+            {
+              "atk": [
+                0,
+                7
+              ],
+              "dash": [
+                1,
+                4
+              ],
+              "block": [
+                2,
+                5,
+                6
+              ],
+              "shout": [
+                3
+              ]
+            }
+          ]
+        },
+        "back": true
+      }
+    },
+    {
+      "name": "Actual selector edits Apply keyboard and logical controller profiles",
+      "profile": "local",
+      "pass": true,
+      "details": {
+        "pass": true,
+        "saved": {
+          "version": 1,
+          "keyboard": {
+            "solo": {
+              "up": [
+                "KeyW",
+                "ArrowUp"
+              ],
+              "down": [
+                "KeyS",
+                "ArrowDown"
+              ],
+              "left": [
+                "KeyA",
+                "ArrowLeft"
+              ],
+              "right": [
+                "KeyD",
+                "ArrowRight"
+              ],
+              "atk": [
+                "KeyR"
+              ],
+              "dash": [
+                "ShiftLeft",
+                "ShiftRight",
+                "KeyK",
+                "KeyG"
+              ],
+              "block": [
+                "KeyE",
+                "KeyL",
+                "KeyH"
+              ]
+            },
+            "kb1": {
+              "up": [
+                "KeyW"
+              ],
+              "down": [
+                "KeyS"
+              ],
+              "left": [
+                "KeyA"
+              ],
+              "right": [
+                "KeyC"
+              ],
+              "atk": [
+                "KeyQ"
+              ],
+              "dash": [
+                "KeyT"
+              ],
+              "block": [
+                "KeyV"
+              ]
+            },
+            "kb2": {
+              "up": [
+                "ArrowUp"
+              ],
+              "down": [
+                "ArrowDown"
+              ],
+              "left": [
+                "ArrowLeft"
+              ],
+              "right": [
+                "ArrowRight"
+              ],
+              "atk": [
+                "KeyU"
+              ],
+              "dash": [
+                "KeyK"
+              ],
+              "block": [
+                "KeyL"
+              ]
+            }
+          },
+          "pads": [
+            {
+              "atk": [
+                10
+              ],
+              "dash": [
+                11
+              ],
+              "block": [
+                3
+              ],
+              "shout": [
+                4
+              ]
+            },
+            {
+              "atk": [
+                11
+              ],
+              "dash": [
+                1,
+                4
+              ],
+              "block": [
+                2,
+                5,
+                6
+              ],
+              "shout": [
+                3
+              ]
+            },
+            {
+              "atk": [
+                0,
+                7
+              ],
+              "dash": [
+                1,
+                4
+              ],
+              "block": [
+                2,
+                5,
+                6
+              ],
+              "shout": [
+                3
+              ]
+            },
+            {
+              "atk": [
+                0,
+                7
+              ],
+              "dash": [
+                1,
+                4
+              ],
+              "block": [
+                2,
+                5,
+                6
+              ],
+              "shout": [
+                3
+              ]
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "Reload retains isolated-profile mappings saved through Apply",
+      "profile": "local",
+      "pass": true,
+      "details": {
+        "pass": true,
+        "saved": {
+          "version": 1,
+          "keyboard": {
+            "solo": {
+              "up": [
+                "KeyW",
+                "ArrowUp"
+              ],
+              "down": [
+                "KeyS",
+                "ArrowDown"
+              ],
+              "left": [
+                "KeyA",
+                "ArrowLeft"
+              ],
+              "right": [
+                "KeyD",
+                "ArrowRight"
+              ],
+              "atk": [
+                "KeyR"
+              ],
+              "dash": [
+                "ShiftLeft",
+                "ShiftRight",
+                "KeyK",
+                "KeyG"
+              ],
+              "block": [
+                "KeyE",
+                "KeyL",
+                "KeyH"
+              ]
+            },
+            "kb1": {
+              "up": [
+                "KeyW"
+              ],
+              "down": [
+                "KeyS"
+              ],
+              "left": [
+                "KeyA"
+              ],
+              "right": [
+                "KeyC"
+              ],
+              "atk": [
+                "KeyQ"
+              ],
+              "dash": [
+                "KeyT"
+              ],
+              "block": [
+                "KeyV"
+              ]
+            },
+            "kb2": {
+              "up": [
+                "ArrowUp"
+              ],
+              "down": [
+                "ArrowDown"
+              ],
+              "left": [
+                "ArrowLeft"
+              ],
+              "right": [
+                "ArrowRight"
+              ],
+              "atk": [
+                "KeyU"
+              ],
+              "dash": [
+                "KeyK"
+              ],
+              "block": [
+                "KeyL"
+              ]
+            }
+          },
+          "pads": [
+            {
+              "atk": [
+                10
+              ],
+              "dash": [
+                11
+              ],
+              "block": [
+                3
+              ],
+              "shout": [
+                4
+              ]
+            },
+            {
+              "atk": [
+                11
+              ],
+              "dash": [
+                1,
+                4
+              ],
+              "block": [
+                2,
+                5,
+                6
+              ],
+              "shout": [
+                3
+              ]
+            },
+            {
+              "atk": [
+                0,
+                7
+              ],
+              "dash": [
+                1,
+                4
+              ],
+              "block": [
+                2,
+                5,
+                6
+              ],
+              "shout": [
+                3
+              ]
+            },
+            {
+              "atk": [
+                0,
+                7
+              ],
+              "dash": [
+                1,
+                4
+              ],
+              "block": [
+                2,
+                5,
+                6
+              ],
+              "shout": [
+                3
+              ]
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "Rendered How To Play after reload reads saved keyboard and controller mappings",
+      "profile": "local",
+      "pass": false,
+      "details": {
+        "pass": false,
+        "cases": [
+          {
+            "width": 800,
+            "height": 600,
+            "text": {
+              "exists": true,
+              "text": "Player 1: Move: left stick / d-pad · Aim: right stick · Swing: L3 · Dash: R3 · Block: Y · Shout: LB · Menu: Start. Player 2: Move: left stick / d-pad · Aim: right stick · Swing: R3 · Dash: B / LB · Block: X / RB / LT · Shout: Y · Menu: Start. Player 3: Move: left stick / d-pad · Aim: right stick · Swing: A / RT · Dash: B / LB · Block: X / RB / LT · Shout: Y · Menu: Start. Player 4: Move: left stick / d-pad · Aim: right stick · Swing: A / RT · Dash: B / LB · Block: X / RB / LT · Shout: Y · Menu: Start. Hold Swing for heavy. Menus: stick / d-pad moves, A picks, B goes back. Gameplay can be remapped in Settings. Recover a missing controller to its chosen seat. Faction Front keeps its separate bindings.",
+              "fontSize": "13px",
+              "display": "block",
+              "rect": {
+                "x": 42,
+                "y": 433.28125,
+                "width": 701,
+                "height": 158.5,
+                "top": 433.28125,
+                "right": 743,
+                "bottom": 591.78125,
+                "left": 42
+              },
+              "textRect": {
+                "x": 55,
+                "y": 446.28125,
+                "width": 670.34375,
+                "height": 131.75,
+                "top": 446.28125,
+                "right": 725.34375,
+                "bottom": 578.03125,
+                "left": 55
+              },
+              "visible": true,
+              "clickable": true
+            },
+            "button": {
+              "exists": true,
+              "text": "Back",
+              "fontSize": "16px",
+              "display": "block",
+              "rect": {
+                "x": 676.390625,
+                "y": 8,
+                "width": 66.609375,
+                "height": 44,
+                "top": 8,
+                "right": 743,
+                "bottom": 52,
+                "left": 676.390625
+              },
+              "textRect": {
+                "x": 691.390625,
+                "y": 19,
+                "width": 36.609375,
+                "height": 22,
+                "top": 19,
+                "right": 728,
+                "bottom": 41,
+                "left": 691.390625
+              },
+              "visible": true,
+              "clickable": false
+            },
+            "fixture": "Each element measured after its own normal scrollIntoView; simultaneous visibility not claimed"
+          },
+          {
+            "width": 800,
+            "height": 500,
+            "text": {
+              "exists": true,
+              "text": "Player 1: Move: left stick / d-pad · Aim: right stick · Swing: L3 · Dash: R3 · Block: Y · Shout: LB · Menu: Start. Player 2: Move: left stick / d-pad · Aim: right stick · Swing: R3 · Dash: B / LB · Block: X / RB / LT · Shout: Y · Menu: Start. Player 3: Move: left stick / d-pad · Aim: right stick · Swing: A / RT · Dash: B / LB · Block: X / RB / LT · Shout: Y · Menu: Start. Player 4: Move: left stick / d-pad · Aim: right stick · Swing: A / RT · Dash: B / LB · Block: X / RB / LT · Shout: Y · Menu: Start. Hold Swing for heavy. Menus: stick / d-pad moves, A picks, B goes back. Gameplay can be remapped in Settings. Recover a missing controller to its chosen seat. Faction Front keeps its separate bindings.",
+              "fontSize": "13px",
+              "display": "block",
+              "rect": {
+                "x": 42,
+                "y": 333.5,
+                "width": 701,
+                "height": 158.5,
+                "top": 333.5,
+                "right": 743,
+                "bottom": 492,
+                "left": 42
+              },
+              "textRect": {
+                "x": 55,
+                "y": 346.5,
+                "width": 670.34375,
+                "height": 131.75,
+                "top": 346.5,
+                "right": 725.34375,
+                "bottom": 478.25,
+                "left": 55
+              },
+              "visible": true,
+              "clickable": true
+            },
+            "button": {
+              "exists": true,
+              "text": "Back",
+              "fontSize": "16px",
+              "display": "block",
+              "rect": {
+                "x": 676.390625,
+                "y": 8,
+                "width": 66.609375,
+                "height": 44,
+                "top": 8,
+                "right": 743,
+                "bottom": 52,
+                "left": 676.390625
+              },
+              "textRect": {
+                "x": 691.390625,
+                "y": 19,
+                "width": 36.609375,
+                "height": 22,
+                "top": 19,
+                "right": 728,
+                "bottom": 41,
+                "left": 691.390625
+              },
+              "visible": true,
+              "clickable": false
+            },
+            "fixture": "Each element measured after its own normal scrollIntoView; simultaneous visibility not claimed"
+          }
+        ],
+        "keyboard": "Solo keyboard: Move: W / Up arrow, A / Left arrow, S / Down arrow, D / Right arrow · Swing: R · Dash: Left Shift / Right Shift / K / G · Block: E / L / H. Mouse aims, left click swings, right click blocks. Keyboard half 1: Move: W, A, S, C · Swing: Q · Dash: T · Block: V. Keyboard half 2: Move: Up arrow, Left arrow, Down arrow, Right arrow · Swing: U · Dash: K · Block: L. Shout 1-4 / 7-0. Escape / P opens the match menu.",
+        "pad": "Player 1: Move: left stick / d-pad · Aim: right stick · Swing: L3 · Dash: R3 · Block: Y · Shout: LB · Menu: Start. Player 2: Move: left stick / d-pad · Aim: right stick · Swing: R3 · Dash: B / LB · Block: X / RB / LT · Shout: Y · Menu: Start. Player 3: Move: left stick / d-pad · Aim: right stick · Swing: A / RT · Dash: B / LB · Block: X / RB / LT · Shout: Y · Menu: Start. Player 4: Move: left stick / d-pad · Aim: right stick · Swing: A / RT · Dash: B / LB · Block: X / RB / LT · Shout: Y · Menu: Start. Hold Swing for heavy. Menus: stick / d-pad moves, A picks, B goes back. Gameplay can be remapped in Settings. Recover a missing controller to its chosen seat. Faction Front keeps its separate bindings."
+      }
+    }
+  ],
+  "errors": [],
+  "limitations": [
+    "Actual Chrome; CDP keyboard/mouse and injected standard pad objects. No physical controllers, Steam Input, human couch or packaged EXE acceptance.",
+    "Direct CK start/setSeats fixtures isolate routing; no input-only completed gameplay or balance claim. No live input recorder/capture exists: the editor uses explicit selectors.",
+    "Profiles are isolated temporary QA saves. Focus fixture events and malformed-storage setup are explicitly labeled; no real online network acceptance."
+  ],
+  "defaultControls": {
+    "version": 1,
+    "keyboard": {
+      "solo": {
+        "up": [
+          "KeyW",
+          "ArrowUp"
+        ],
+        "down": [
+          "KeyS",
+          "ArrowDown"
+        ],
+        "left": [
+          "KeyA",
+          "ArrowLeft"
+        ],
+        "right": [
+          "KeyD",
+          "ArrowRight"
+        ],
+        "atk": [
+          "Space",
+          "KeyJ",
+          "KeyF"
+        ],
+        "dash": [
+          "ShiftLeft",
+          "ShiftRight",
+          "KeyK",
+          "KeyG"
+        ],
+        "block": [
+          "KeyE",
+          "KeyL",
+          "KeyH"
+        ]
+      },
+      "kb1": {
+        "up": [
+          "KeyW"
+        ],
+        "down": [
+          "KeyS"
+        ],
+        "left": [
+          "KeyA"
+        ],
+        "right": [
+          "KeyD"
+        ],
+        "atk": [
+          "KeyF",
+          "Space"
+        ],
+        "dash": [
+          "KeyG",
+          "ShiftLeft",
+          "ShiftRight"
+        ],
+        "block": [
+          "KeyH",
+          "KeyE"
+        ]
+      },
+      "kb2": {
+        "up": [
+          "ArrowUp"
+        ],
+        "down": [
+          "ArrowDown"
+        ],
+        "left": [
+          "ArrowLeft"
+        ],
+        "right": [
+          "ArrowRight"
+        ],
+        "atk": [
+          "KeyJ"
+        ],
+        "dash": [
+          "KeyK"
+        ],
+        "block": [
+          "KeyL"
+        ]
+      }
+    },
+    "pads": [
+      {
+        "atk": [
+          0,
+          7
+        ],
+        "dash": [
+          1,
+          4
+        ],
+        "block": [
+          2,
+          5,
+          6
+        ],
+        "shout": [
+          3
+        ]
+      },
+      {
+        "atk": [
+          0,
+          7
+        ],
+        "dash": [
+          1,
+          4
+        ],
+        "block": [
+          2,
+          5,
+          6
+        ],
+        "shout": [
+          3
+        ]
+      },
+      {
+        "atk": [
+          0,
+          7
+        ],
+        "dash": [
+          1,
+          4
+        ],
+        "block": [
+          2,
+          5,
+          6
+        ],
+        "shout": [
+          3
+        ]
+      },
+      {
+        "atk": [
+          0,
+          7
+        ],
+        "dash": [
+          1,
+          4
+        ],
+        "block": [
+          2,
+          5,
+          6
+        ],
+        "shout": [
+          3
+        ]
+      }
+    ]
+  },
+  "padPulses": [
+    {
+      "profile": "local",
+      "index": 0,
+      "button": 1,
+      "phases": [
+        {
+          "start": 24843.699999999255,
+          "end": 24935.400000000373,
+          "pressed": false,
+          "polls": [
+            {
+              "time": 24849.699999999255,
+              "tag": "local-0-0-1-0",
+              "visible": "visible",
+              "party": false,
+              "buttons": [
+                {
+                  "index": 0,
+                  "pressed": [
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false
+                  ]
+                }
+              ]
+            },
+            {
+              "time": 24866.299999998882,
+              "tag": "local-0-0-1-0",
+              "visible": "visible",
+              "party": false,
+              "buttons": [
+                {
+                  "index": 0,
+                  "pressed": [
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false
+                  ]
+                }
+              ]
+            },
+            {
+              "time": 24883,
+              "tag": "local-0-0-1-0",
+              "visible": "visible",
+              "party": false,
+              "buttons": [
+                {
+                  "index": 0,
+                  "pressed": [
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false
+                  ]
+                }
+              ]
+            },
+            {
+              "time": 24899.699999999255,
+              "tag": "local-0-0-1-0",
+              "visible": "visible",
+              "party": false,
+              "buttons": [
+                {
+                  "index": 0,
+                  "pressed": [
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false
+                  ]
+                }
+              ]
+            },
+            {
+              "time": 24916.199999999255,
+              "tag": "local-0-0-1-0",
+              "visible": "visible",
+              "party": false,
+              "buttons": [
+                {
+                  "index": 0,
+                  "pressed": [
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false
+                  ]
+                }
+              ]
+            },
+            {
+              "time": 24933,
+              "tag": "local-0-0-1-0",
+              "visible": "visible",
+              "party": false,
+              "buttons": [
+                {
+                  "index": 0,
+                  "pressed": [
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false
+                  ]
+                }
+              ]
+            }
+          ],
+          "seats": []
+        },
+        {
+          "start": 24935.900000000373,
+          "end": 25021.099999999627,
+          "pressed": true,
+          "polls": [
+            {
+              "time": 24949.699999999255,
+              "tag": "local-0-0-1-1",
+              "visible": "visible",
+              "party": false,
+              "buttons": [
+                {
+                  "index": 0,
+                  "pressed": [
+                    false,
+                    true,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false
+                  ]
+                }
+              ]
+            },
+            {
+              "time": 24966.199999999255,
+              "tag": "local-0-0-1-1",
+              "visible": "visible",
+              "party": false,
+              "buttons": [
+                {
+                  "index": 0,
+                  "pressed": [
+                    false,
+                    true,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false
+                  ]
+                }
+              ]
+            },
+            {
+              "time": 24983.099999999627,
+              "tag": "local-0-0-1-1",
+              "visible": "visible",
+              "party": false,
+              "buttons": [
+                {
+                  "index": 0,
+                  "pressed": [
+                    false,
+                    true,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false
+                  ]
+                }
+              ]
+            },
+            {
+              "time": 24999.599999999627,
+              "tag": "local-0-0-1-1",
+              "visible": "visible",
+              "party": false,
+              "buttons": [
+                {
+                  "index": 0,
+                  "pressed": [
+                    false,
+                    true,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false
+                  ]
+                }
+              ]
+            },
+            {
+              "time": 25016.5,
+              "tag": "local-0-0-1-1",
+              "visible": "visible",
+              "party": false,
+              "buttons": [
+                {
+                  "index": 0,
+                  "pressed": [
+                    false,
+                    true,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false
+                  ]
+                }
+              ]
+            }
+          ],
+          "seats": []
+        },
+        {
+          "start": 25021.900000000373,
+          "end": 25119.699999999255,
+          "pressed": false,
+          "polls": [
+            {
+              "time": 25033.199999999255,
+              "tag": "local-0-0-1-2",
+              "visible": "visible",
+              "party": false,
+              "buttons": [
+                {
+                  "index": 0,
+                  "pressed": [
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false
+                  ]
+                }
+              ]
+            },
+            {
+              "time": 25050.099999999627,
+              "tag": "local-0-0-1-2",
+              "visible": "visible",
+              "party": false,
+              "buttons": [
+                {
+                  "index": 0,
+                  "pressed": [
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false
+                  ]
+                }
+              ]
+            },
+            {
+              "time": 25066.400000000373,
+              "tag": "local-0-0-1-2",
+              "visible": "visible",
+              "party": false,
+              "buttons": [
+                {
+                  "index": 0,
+                  "pressed": [
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false
+                  ]
+                }
+              ]
+            },
+            {
+              "time": 25083.099999999627,
+              "tag": "local-0-0-1-2",
+              "visible": "visible",
+              "party": false,
+              "buttons": [
+                {
+                  "index": 0,
+                  "pressed": [
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false
+                  ]
+                }
+              ]
+            },
+            {
+              "time": 25099.799999998882,
+              "tag": "local-0-0-1-2",
+              "visible": "visible",
+              "party": false,
+              "buttons": [
+                {
+                  "index": 0,
+                  "pressed": [
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false
+                  ]
+                }
+              ]
+            },
+            {
+              "time": 25116.5,
+              "tag": "local-0-0-1-2",
+              "visible": "visible",
+              "party": false,
+              "buttons": [
+                {
+                  "index": 0,
+                  "pressed": [
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false
+                  ]
+                }
+              ]
+            }
+          ],
+          "seats": []
+        }
+      ]
+    },
+    {
+      "profile": "local",
+      "index": 0,
+      "button": 7,
+      "phases": [
+        {
+          "start": 659.7000000011176,
+          "end": 747.0999999996275,
+          "pressed": false,
+          "polls": [
+            {
+              "time": 660.0999999996275,
+              "tag": "local-1-0-7-0",
+              "visible": "visible",
+              "party": false,
+              "buttons": [
+                {
+                  "index": 0,
+                  "pressed": [
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false
+                  ]
+                }
+              ]
+            },
+            {
+              "time": 676.9000000003725,
+              "tag": "local-1-0-7-0",
+              "visible": "visible",
+              "party": false,
+              "buttons": [
+                {
+                  "index": 0,
+                  "pressed": [
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false
+                  ]
+                }
+              ]
+            },
+            {
+              "time": 693.4000000003725,
+              "tag": "local-1-0-7-0",
+              "visible": "visible",
+              "party": false,
+              "buttons": [
+                {
+                  "index": 0,
+                  "pressed": [
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false
+                  ]
+                }
+              ]
+            },
+            {
+              "time": 710.4000000003725,
+              "tag": "local-1-0-7-0",
+              "visible": "visible",
+              "party": false,
+              "buttons": [
+                {
+                  "index": 0,
+                  "pressed": [
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false
+                  ]
+                }
+              ]
+            },
+            {
+              "time": 726.9000000003725,
+              "tag": "local-1-0-7-0",
+              "visible": "visible",
+              "party": false,
+              "buttons": [
+                {
+                  "index": 0,
+                  "pressed": [
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false
+                  ]
+                }
+              ]
+            },
+            {
+              "time": 743.8000000007451,
+              "tag": "local-1-0-7-0",
+              "visible": "visible",
+              "party": false,
+              "buttons": [
+                {
+                  "index": 0,
+                  "pressed": [
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false
+                  ]
+                }
+              ]
+            }
+          ],
+          "seats": []
+        },
+        {
+          "start": 747.5999999996275,
+          "end": 830.3000000007451,
+          "pressed": true,
+          "polls": [
+            {
+              "time": 760.5,
+              "tag": "local-1-0-7-1",
+              "visible": "visible",
+              "party": false,
+              "buttons": [
+                {
+                  "index": 0,
+                  "pressed": [
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    true,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false
+                  ]
+                }
+              ]
+            },
+            {
+              "time": 777,
+              "tag": "local-1-0-7-1",
+              "visible": "visible",
+              "party": false,
+              "buttons": [
+                {
+                  "index": 0,
+                  "pressed": [
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    true,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false
+                  ]
+                }
+              ]
+            },
+            {
+              "time": 793.8000000007451,
+              "tag": "local-1-0-7-1",
+              "visible": "visible",
+              "party": false,
+              "buttons": [
+                {
+                  "index": 0,
+                  "pressed": [
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    true,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false
+                  ]
+                }
+              ]
+            },
+            {
+              "time": 810.5,
+              "tag": "local-1-0-7-1",
+              "visible": "visible",
+              "party": false,
+              "buttons": [
+                {
+                  "index": 0,
+                  "pressed": [
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    true,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false
+                  ]
+                }
+              ]
+            },
+            {
+              "time": 827.0999999996275,
+              "tag": "local-1-0-7-1",
+              "visible": "visible",
+              "party": false,
+              "buttons": [
+                {
+                  "index": 0,
+                  "pressed": [
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    true,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false
+                  ]
+                }
+              ]
+            }
+          ],
+          "seats": []
+        },
+        {
+          "start": 830.7000000011176,
+          "end": 928.5999999996275,
+          "pressed": false,
+          "polls": [
+            {
+              "time": 843.9000000003725,
+              "tag": "local-1-0-7-2",
+              "visible": "visible",
+              "party": false,
+              "buttons": [
+                {
+                  "index": 0,
+                  "pressed": [
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false
+                  ]
+                }
+              ]
+            },
+            {
+              "time": 860.4000000003725,
+              "tag": "local-1-0-7-2",
+              "visible": "visible",
+              "party": false,
+              "buttons": [
+                {
+                  "index": 0,
+                  "pressed": [
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false
+                  ]
+                }
+              ]
+            },
+            {
+              "time": 877,
+              "tag": "local-1-0-7-2",
+              "visible": "visible",
+              "party": false,
+              "buttons": [
+                {
+                  "index": 0,
+                  "pressed": [
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false
+                  ]
+                }
+              ]
+            },
+            {
+              "time": 893.5,
+              "tag": "local-1-0-7-2",
+              "visible": "visible",
+              "party": false,
+              "buttons": [
+                {
+                  "index": 0,
+                  "pressed": [
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false
+                  ]
+                }
+              ]
+            },
+            {
+              "time": 910.4000000003725,
+              "tag": "local-1-0-7-2",
+              "visible": "visible",
+              "party": false,
+              "buttons": [
+                {
+                  "index": 0,
+                  "pressed": [
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false
+                  ]
+                }
+              ]
+            },
+            {
+              "time": 927,
+              "tag": "local-1-0-7-2",
+              "visible": "visible",
+              "party": false,
+              "buttons": [
+                {
+                  "index": 0,
+                  "pressed": [
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false
+                  ]
+                }
+              ]
+            }
+          ],
+          "seats": []
+        }
+      ]
+    }
+  ],
+  "savedRemaps": {
+    "version": 1,
+    "keyboard": {
+      "solo": {
+        "up": [
+          "KeyW",
+          "ArrowUp"
+        ],
+        "down": [
+          "KeyS",
+          "ArrowDown"
+        ],
+        "left": [
+          "KeyA",
+          "ArrowLeft"
+        ],
+        "right": [
+          "KeyD",
+          "ArrowRight"
+        ],
+        "atk": [
+          "KeyR"
+        ],
+        "dash": [
+          "ShiftLeft",
+          "ShiftRight",
+          "KeyK",
+          "KeyG"
+        ],
+        "block": [
+          "KeyE",
+          "KeyL",
+          "KeyH"
+        ]
+      },
+      "kb1": {
+        "up": [
+          "KeyW"
+        ],
+        "down": [
+          "KeyS"
+        ],
+        "left": [
+          "KeyA"
+        ],
+        "right": [
+          "KeyC"
+        ],
+        "atk": [
+          "KeyQ"
+        ],
+        "dash": [
+          "KeyT"
+        ],
+        "block": [
+          "KeyV"
+        ]
+      },
+      "kb2": {
+        "up": [
+          "ArrowUp"
+        ],
+        "down": [
+          "ArrowDown"
+        ],
+        "left": [
+          "ArrowLeft"
+        ],
+        "right": [
+          "ArrowRight"
+        ],
+        "atk": [
+          "KeyU"
+        ],
+        "dash": [
+          "KeyK"
+        ],
+        "block": [
+          "KeyL"
+        ]
+      }
+    },
+    "pads": [
+      {
+        "atk": [
+          10
+        ],
+        "dash": [
+          11
+        ],
+        "block": [
+          3
+        ],
+        "shout": [
+          4
+        ]
+      },
+      {
+        "atk": [
+          11
+        ],
+        "dash": [
+          1,
+          4
+        ],
+        "block": [
+          2,
+          5,
+          6
+        ],
+        "shout": [
+          3
+        ]
+      },
+      {
+        "atk": [
+          0,
+          7
+        ],
+        "dash": [
+          1,
+          4
+        ],
+        "block": [
+          2,
+          5,
+          6
+        ],
+        "shout": [
+          3
+        ]
+      },
+      {
+        "atk": [
+          0,
+          7
+        ],
+        "dash": [
+          1,
+          4
+        ],
+        "block": [
+          2,
+          5,
+          6
+        ],
+        "shout": [
+          3
+        ]
+      }
+    ]
+  },
+  "failure": "Error: Stopped after observed-input failure: Rendered How To Play after reload reads saved keyboard and controller mappings\n    at Object.step (C:\\Users\\Joshua\\Documents\\Codex\\2026-10-08\\rea\\work\\custard-knights-controls\\qa\\controls-remap-browser.cjs:34:515)\n    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)\n    at async controlsCases (C:\\Users\\Joshua\\Documents\\Codex\\2026-10-08\\rea\\work\\custard-knights-controls\\qa\\controls-remap-browser.cjs:75:2)\n    at async main (C:\\Users\\Joshua\\Documents\\Codex\\2026-10-08\\rea\\work\\custard-knights-controls\\qa\\controls-remap-browser.cjs:53:2)",
+  "sourceHashesAfter": {
+    "index.html": "d0fa1eabdb7f2470d99064252a48cc4a5389956a35fc7ac90391611a71fded23",
+    "game/preferences.js": "88462d6520d725e9b525ffbb0c744370327d4959075559bb33ed4e2b9b0d6d4a",
+    "game/controls.js": "a65a941fbe3614ab467207d8b216eecdffa77668d1f1bb171f4ad4a6c2405b40",
+    "game/mass-battle-ui.js": "5b944edec7ebab0ff54fab38a34308e8a8123a04290a8eda969f021292b0e260",
+    "game/input-aim.js": "54040dd96e1360a46cd36c5fc6f92b05abeeb7db34af7f5cca3d75a9dcb9baee"
+  },
+  "stableSources": true,
+  "finishedAt": "2026-10-13T11:08:26.243Z",
+  "counts": {
+    "pass": 13,
+    "fail": 1
+  }
+}

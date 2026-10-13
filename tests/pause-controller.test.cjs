@@ -9,12 +9,12 @@ const activate=source.slice(source.indexOf('function menuActivate(){'),source.in
 function fixture(format='arena'){
  const calls=[];let input={},party=false;
  const resume={tagName:'BUTTON',click(){calls.push('resume');c.setPause(false);}},quit={tagName:'BUTTON',click(){calls.push('quit');c.G.demo=true;c.paused=false;}};
- const c={G:{demo:false,over:false},CUP:format==='cup'?{status:'playing'}:null,ADVENTURE:format==='story'?{campaign:{run:{status:'playing'}}}:null,
+ const c={CKControls:require('../game/controls.js'),CONTROLS:require('../game/controls.js').fresh(),padAtRest:()=>true,G:{demo:false,over:false},CUP:format==='cup'?{status:'playing'}:null,ADVENTURE:format==='story'?{campaign:{run:{status:'playing'}}}:null,
   $:()=>({hidden:true}),NET:{role:null,menuOpen:false},PADS:[{index:3}],padPrev:[],SEATS:[{dev:'kb1'},{dev:'pad',idx:3}],blockedArenaPads:new Map(),deviceSeats:()=>[],recoveryPad:()=>false,paused:false,document:{activeElement:resume},
   visibleScreen:()=>({contains:el=>el===resume||el===quit}),padState:()=>input,setPause(value){calls.push(['pause',value]);c.paused=value;if(value)c.document.activeElement=resume;},
   shout:(...args)=>calls.push(['shout',args[0]]),partyOpen:()=>party,partyPad:(...args)=>calls.push(['party',args[0]]),
   menuNav(dx,dy){calls.push(['nav',dx,dy]);c.document.activeElement=dx>0?quit:resume;},menuBack:()=>calls.push('back')};
- vm.createContext(c);vm.runInContext(edges+activate,c);
+ vm.createContext(c);vm.runInContext(source.split(/\r?\n/).find(l=>l.startsWith('function gameplayPad('))+edges+activate,c);
  return {c,calls,resume,quit,party(value){party=value;},press(value){input={};c.padEdges();input=value;c.padEdges();}};
 }
 

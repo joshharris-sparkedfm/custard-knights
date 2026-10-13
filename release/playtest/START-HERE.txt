@@ -99,7 +99,37 @@ Walls, guards and spawn protection still count. Death or falling ends either
 power. These surprises are off in Simple, races, Story and Faction Front.
 Please report if a power or its song remains after the event or a rematch.
 
-CONTROLS
+REMAPPABLE GAMEPLAY CONTROLS — BETA 13
+
+Open Options > Remap gameplay controls. Choose Solo keyboard, Keyboard half
+1 or 2, or Player 1–4 controller, then select the movement/combat bindings.
+Controller profiles follow the knight's logical player seat, not the pad's
+hardware number. A solo online guest uses Solo keyboard / Player 1 controller.
+Solo keyboard applies to solo Quick Brawl, Custom brawl, Story and practice;
+joined keyboard halves use their own profiles, even when half 1 plays alone.
+
+Changes remain a draft until Apply. Cancel keeps your current controls.
+Reset all to defaults prepares a draft; choose Apply to save that reset.
+Conflicting assignments disable Apply and explain which binding to change.
+Default actions may have aliases; choosing one key/button replaces that
+whole action's aliases. Follow the updated setup, lobby, How to Play and
+practice prompts. After applying, release held keys, sticks and buttons
+before playing again. Controls save locally and should survive a restart.
+If the device cannot save, a message says they apply only for this session.
+
+Remapping covers Arena, Custard Cup, Story and controls practice. Faction
+Front keeps its own fixed controls below. Mouse actions, controller movement
+and aim axes/d-pad, menu controls, keyboard join F/J and keyboard shout
+1–4 / 7–0 stay fixed. Menus use arrows / Tab, Enter / Space, Escape / P;
+controller stick / d-pad moves, A picks, B goes back, Start opens the menu.
+
+Try a changed keyboard action and controller action, Cancel a draft, reset
+and Apply, then restart to check persistence. Tell us the selected profile,
+old/new binding, mode, player seat and whether a held input or a conflict
+message was confusing. Physical pads, Steam Input and human usability still
+need playtest feedback.
+
+CONTROLS (DEFAULTS)
 
 Solo arena/story: WASD or arrows move, mouse aims, left-click or Space
 attacks (hold for heavy); Shift dashes; right-click or E blocks.

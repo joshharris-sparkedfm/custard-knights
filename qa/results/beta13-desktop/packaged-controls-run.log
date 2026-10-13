@@ -1,0 +1,34 @@
+PASS Controls editor actual Options entry and minimal window fields/apply are usable
+PASS Fixed controller d-pad adjusts profile and field selectors and A applies actual edit
+PASS Returning an edited selector to current aliases restores truthful keyboard and pad draft
+PASS Default half 1 supplemental aliases work alone and are suppressed with half 2
+PASS Explicitly selecting F replaces default F Space aliases even alone
+PASS Reserved system keys and nonstandard pad buttons have no editor option
+PASS Remaining solo alias conflict rejects Apply without changing saved controls
+PASS Shared keyboard half conflict rejects the other half action key
+PASS Remaining pad alias conflict rejects LT already assigned to block
+PASS Cancel discards actual keyboard draft edit
+PASS Escape Back discards draft and returns to Options
+PASS Controller B cancels keyboard draft through fixed menu Back
+PASS Actual selector edits Apply keyboard and logical controller profiles
+PASS Reload retains isolated-profile mappings saved through Apply
+PASS Rendered How To Play after reload reads saved keyboard and controller mappings
+PASS Owning keyboard halves use remaps and retired F J aliases no longer swing
+PASS Remapped keyboard movement dash and block reach only owning half
+PASS Keyboard half 1 remap persists when shared topology becomes alone
+PASS Dynamic setup and couch seat prompts show actual remaps
+PASS How To Play actual keyboard prompt reflects saved remaps at small windows
+PASS Pad mappings follow logical seats in reverse join and navigator array reorder
+PASS Remapped pad dash block and shout route to their logical owner
+PASS Start pause and B back remain fixed after gameplay remap
+PASS Disconnected seat recovery preserves logical remap on replacement controller
+PASS Controller gameplay prompts reflect logical Player 1 L3 and Player 2 R3 bindings
+PASS Faction Front explicitly keeps distinct fixed controls after Arena remap
+PASS Window blur clears held remapped keyboard and requires release before action
+PASS Applying while a remapped key is held suppresses it until release
+PASS Held remapped controller across pause Options Apply remains neutral until release
+PASS Online guest direct routing fixture uses local solo and Player 1 profile
+PASS Reset is draft-only until Apply then defaults persist after reload
+PASS Malformed saved reserved key invalid pad and cross-half duplicate normalize safely
+PASS Storage write failure truthfully reports session-only remap and reload restores persisted defaults
+C:\Users\Joshua\Documents\Codex\2026-10-08\rea\work\custard-knights-controls\qa\results\beta13-packaged-controls

@@ -1,4 +1,22 @@
-# Private friends beta - 0.3.0-beta.12
+# Private friends beta - 0.3.0-beta.13
+
+Frozen runtime `dd4906bcae1266355a11e50072bdccaff930f6f8` adds Options > Remap gameplay controls for Solo keyboard, both keyboard halves and logical Player 1–4 controller combat profiles. Changes stay drafts until Apply; Cancel discards them, Reset all prepares defaults, and conflicts block Apply. Saved maps stay local and prompts follow active bindings. Release held controls after applying. A storage-failure message explicitly limits changes to this session.
+
+Arena, Custard Cup, Story and practice use these maps. Faction Front retains separate fixed controls. Mouse actions, stick axes/d-pad, menus, keyboard join and keyboard shout keys stay fixed. This does not complete the full-experience milestone or establish physical-pad, Steam Input or human acceptance.
+
+- Friends ZIP: `outputs/Custard-Knights-Friends-0.3.0-beta.13.zip`, 547153491 bytes, SHA256 `344c9698f79eeafbc9fe4e501e4a793e79e00d6d2b54a7e46e6444520122fe1f`.
+- Preview folder: `outputs/Custard-Knights-Windows-0.3.0-beta.13-preview`.
+- Preview ZIP: `outputs/Custard-Knights-Windows-0.3.0-beta.13-preview.zip`, 547160415 bytes, SHA256 `7d1753cc9906df916dd767a699a59318d9c9d564c9d0922a6c5c4140cc3184d3`.
+- ASAR SHA256: `5cc759db8a29a1d415bf4785e5991b55538e56682ec76e85b67613ca66d5bcfd`.
+- EXE SHA256: `ea1e85a9caa682b4ab93e7b09b8cb609edeb7ebf1eff8f22023b5c44b9861bdf`.
+
+Both ZIP CRC/hash checks and all 73 Friends game files match frozen dist, preview and BUILD-INFO inventory bytes. START-HERE and FEEDBACK materials/metadata match frozen templates after the standard bundler's explicit UTF-8 decoding, CRLF-to-LF text transformation and build substitutions. All 63 packaged entries match checked source/metadata. Standard isolated actual EXE save/restart/launcher/relocation passes first invocation. Extracted-ASAR remapping 33 and native programmatic editor/storage/reload smoke 9 pass on their first invocations. The native smoke uses no CK helpers and a bounded initial observed navigator-poll gate; it does not test native combat or second-process remap persistence. All six hosted CI jobs pass first attempt at this exact freeze in run [38388857005](https://github.com/joshharris-sparkedfm/custard-knights/actions/runs/38388857005). [Package evidence](../qa/results/beta13-desktop/README.md) and [extracted remapping report](../qa/results/beta13-packaged-controls/report.json) record commands and limits.
+
+The known unchanged native extraction failure was not retried. A reviewed evidence-only Python extraction adapter uses unchanged standard staging/configuration and cached ZIP CRC/hash/template-byte checks; timestamps are not preserved. Its inherited evidence-newline escaping failure is retained and corrected. The first export verifier used Windows default decoding for a UTF-8 guide; that failed log is retained, a later raw-Git template check exposed checkout CRLF versus Git LF. Both failed logs are retained. The comparator now uses UTF-8 and the standard bundler's exact newline transformation; final verification passes with unchanged ZIPs. Earlier native anomalies remain unresolved. Preview's bundled RESUME-CHECKPOINT is its earlier documentation snapshot; this verified summary supersedes its latest-build status. Runtime bytes remain frozen.
+
+Extract the complete Friends ZIP and run `Game/Custard Knights.exe` after closing older copies normally. Saves stay local and shared across versions. No sending/public upload occurred; older outputs remain preserved. Physical controllers, Steam Input, human couch/usability/fun/balance, WAN/second PC, minimum hardware, long soak and Steam acceptance remain open. Online guest remapping checks use direct routing fixtures; no new live-network acceptance is claimed.
+
+# Historical private friends beta - 0.3.0-beta.12
 
 Frozen runtime `be03b64f6ba3104bfcaa6b1154d4348cb2565fb5` reserves missing couch controller seats and outfits. Offline arena/Custard Cup pauses for recovery; online play continues with only the lost seat neutral. Release controls on an unassigned pad, choose the missing knight with left/right, then A deliberately reclaims it. Keyboard takeover is available when unassigned. Stable pad edges and fixed binding prompts are included; no remapping UI. Deliberate Leave still compacts seats (FE05 remains open).
 

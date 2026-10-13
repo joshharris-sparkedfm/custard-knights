@@ -1,0 +1,52 @@
+{
+  "attempt": 1,
+  "executable": "C:\\Users\\Joshua\\Documents\\Codex\\2026-10-08\\rea\\work\\custard-knights-controls\\dist\\Custard Knights-win32-x64\\Custard Knights.exe",
+  "profile": "C:\\Users\\Joshua\\AppData\\Local\\Temp\\custard-acceptance-UmfudP\\user-data",
+  "checks": [
+    {
+      "name": "Actual packaged native origin has no QA game helpers",
+      "pass": true
+    },
+    {
+      "name": "Options opens real controls editor",
+      "pass": true
+    },
+    {
+      "name": "Cancel discards draft without saving",
+      "pass": true
+    },
+    {
+      "name": "Conflict blocks Apply with explanation",
+      "pass": true
+    },
+    {
+      "name": "Solo Apply persists selector map and status",
+      "pass": true
+    },
+    {
+      "name": "Logical Player 1 combat map saved",
+      "pass": true
+    },
+    {
+      "name": "Help updates actual gameplay labels",
+      "pass": true
+    },
+    {
+      "name": "Reset draft Cancel retains maps",
+      "pass": true
+    },
+    {
+      "name": "Native reload restores local keyboard and pad maps",
+      "pass": true
+    }
+  ],
+  "limitations": [
+    "Actual EXE, isolated marked profile; programmatic DOM selector changes/clicks and synthetic navigator pad. Three observed initial polls bounded to 10 seconds. Native origin has no CK helpers. Remapping UI/storage/reload smoke only; no combat, physical-device, Steam Input, human usability, responsiveness or real transport acceptance. In-memory acceptance.run replacement; ASAR unchanged."
+  ],
+  "exitCode": 0,
+  "stdout": "\r\nACTUAL_DEVICE_PASS {\"checks\":[{\"name\":\"Actual packaged native origin has no QA game helpers\",\"pass\":true},{\"name\":\"Options opens real controls editor\",\"pass\":true},{\"name\":\"Cancel discards draft without saving\",\"pass\":true},{\"name\":\"Conflict blocks Apply with explanation\",\"pass\":true},{\"name\":\"Solo Apply persists selector map and status\",\"pass\":true},{\"name\":\"Logical Player 1 combat map saved\",\"pass\":true},{\"name\":\"Help updates actual gameplay labels\",\"pass\":true},{\"name\":\"Reset draft Cancel retains maps\",\"pass\":true},{\"name\":\"Native reload restores local keyboard and pad maps\",\"pass\":true}],\"origin\":\"custard://game\",\"syntheticPolls\":3}\n",
+  "stderr": "Debugger listening on ws://127.0.0.1:53635/ac074afa-706c-435c-ac60-be930634c159\r\nFor help, see: https://nodejs.org/learn/getting-started/debugging\r\nDebugger attached.\r\nDebugger ending on ws://127.0.0.1:53635/ac074afa-706c-435c-ac60-be930634c159\r\nFor help, see: https://nodejs.org/learn/getting-started/debugging\r\n",
+  "origin": "custard://game",
+  "syntheticPolls": 3,
+  "pass": true
+}

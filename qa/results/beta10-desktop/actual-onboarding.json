@@ -1,0 +1,52 @@
+{
+  "attempt": 2,
+  "executable": "C:\\Users\\Joshua\\Documents\\Codex\\2026-10-08\\rea\\work\\custard-knights-onboarding\\dist\\Custard Knights-win32-x64\\Custard Knights.exe",
+  "profile": "C:\\Users\\Joshua\\AppData\\Local\\Temp\\custard-acceptance-wAMB5e\\user-data",
+  "checks": [
+    {
+      "name": "Actual desktop native origin",
+      "pass": true
+    },
+    {
+      "name": "Fresh welcome is offered",
+      "pass": true
+    },
+    {
+      "name": "Skip reaches home and records choice",
+      "pass": true
+    },
+    {
+      "name": "How to Play replays safe practice",
+      "pass": true
+    },
+    {
+      "name": "Safe practice preserves rewards and saved rules",
+      "pass": true
+    },
+    {
+      "name": "Practice pause offers retry and leave",
+      "pass": true
+    },
+    {
+      "name": "Leave restores How to Play focus",
+      "pass": true
+    },
+    {
+      "name": "Leave preserves reward and saved rules",
+      "pass": true
+    },
+    {
+      "name": "Reload retains skip choice",
+      "pass": true
+    }
+  ],
+  "limitations": [
+    "Actual packaged desktop origin with programmatic click smoke; physical-device and human acceptance remain open.",
+    "In-memory inspector replacement of acceptance.run only; packaged bytes are not edited."
+  ],
+  "exitCode": 0,
+  "stdout": "\r\nACTUAL_ONBOARDING_PASS {\"checks\":[{\"name\":\"Actual desktop native origin\",\"pass\":true},{\"name\":\"Fresh welcome is offered\",\"pass\":true},{\"name\":\"Skip reaches home and records choice\",\"pass\":true},{\"name\":\"How to Play replays safe practice\",\"pass\":true},{\"name\":\"Safe practice preserves rewards and saved rules\",\"pass\":true},{\"name\":\"Practice pause offers retry and leave\",\"pass\":true},{\"name\":\"Leave restores How to Play focus\",\"pass\":true},{\"name\":\"Leave preserves reward and saved rules\",\"pass\":true},{\"name\":\"Reload retains skip choice\",\"pass\":true}],\"origin\":\"custard://game\"}\n",
+  "stderr": "Debugger listening on ws://127.0.0.1:62422/5c00dedd-2385-459b-b1c8-15ad7611665c\r\nFor help, see: https://nodejs.org/learn/getting-started/debugging\r\nDebugger attached.\r\nDebugger ending on ws://127.0.0.1:62422/5c00dedd-2385-459b-b1c8-15ad7611665c\r\nFor help, see: https://nodejs.org/learn/getting-started/debugging\r\n",
+  "origin": "custard://game",
+  "pass": true
+}

@@ -1,0 +1,38 @@
+PASS fresh: Fresh profile receives optional setup with visible skip
+PASS fresh: First-launch setup fits 800x600 with scrolling and reachable choices
+PASS fresh: Skip dismisses offer and persists through reload
+PASS fresh: Isolated reporting is opted in before event-exclusion checks
+PASS fresh: Optional practice reachable through How to Play
+PASS fresh: Idle time alone never completes movement
+PASS fresh: Real keyboard movement advances the movement lesson
+PASS fresh: Real keyboard swing advances the swing lesson
+PASS fresh: Actual held guard advances the guard lesson
+PASS fresh: Actual dash advances the dash lesson
+PASS fresh: Ranged waits for aim and genuine fire rather than timer
+PASS fresh: Changed mouse aim and real bow fire completes practice
+PASS fresh: Completed practice shows Retry and Leave
+PASS fresh: Completed genuine actions emit no normal-match product events
+PASS fresh: Retry resets action evidence and idle does not advance
+PASS fresh: Pause freezes training and Escape resumes
+PASS fresh: Pause Retry returns to a fresh movement lesson
+PASS fresh: Blur releases held gameplay inputs
+PASS fresh: Leaving move restores normal config and couch seats without rewards/events
+PASS fresh: Leaving swing restores normal config and couch seats without rewards/events
+PASS fresh: Leaving guard restores normal config and couch seats without rewards/events
+PASS fresh: Leaving dash restores normal config and couch seats without rewards/events
+PASS fresh: Leaving ranged restores normal config and couch seats without rewards/events
+PASS fresh: Practice produced no progression or collection writes
+PASS fresh: Practice controls fit 1280x800
+PASS fresh: Practice controls fit 800x600
+PASS returning: Genuine existing profile bypasses setup without reset
+PASS setup: Setup saves actual range and checkbox preferences
+PASS setup: Synthetic standard pad moves real knight and advances movement
+PASS setup: Synthetic standard pad action 0 advances to guard
+PASS setup: Synthetic standard pad action 2 advances to dash
+PASS setup: Synthetic standard pad action 1 advances to ranged
+PASS setup: Actual right-stick aim and pad shot complete ranged lesson
+PASS setup: Completed Leave returns focus to the How to Play practice trigger
+PASS setup: Held entry Space never carries into swing after movement
+PASS storage-denied: Storage denial keeps game navigable without compulsory setup
+PASS storage-denied: Practice works when storage is denied
+PASS storage-corrupt: Corrupt onboarding record does not force reset or block menu

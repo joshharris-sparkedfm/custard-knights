@@ -6,10 +6,21 @@ Sparked FM Ltd | Build {{VERSION}}
    beta. Versions share one running-game lock: opening the new EXE while
    the old game is open focuses the old window instead of starting this build.
 3. Open Game, then double-click Custard Knights.exe.
-4. Start with Quick Brawl or Story (The Great Pudding War). No Steam account,
+4. On a new profile, choose Learn by playing for safe controls practice, or
+   Jump straight in. Then try Quick Brawl or Story (The Great Pudding War).
+   No Steam account,
    developer tools or separate download is needed for offline play.
 5. After playing, open FEEDBACK.html in your browser. Save the report
    and send it back to Joshua using the same conversation as your invitation.
+
+OPTIONAL CONTROLS PRACTICE
+
+The first-launch welcome lets you adjust music, sounds, screen shake and
+flashing before playing. Learn by playing covers movement, swing, guard,
+dash and bow aim in a safe solo arena. It grants no coins or goals. Pause
+with Escape / P / Start to retry or leave; your arena rules and couch seats
+return afterwards. Jump straight in skips practice. Existing profiles go
+straight to the home menu. How to Play > Learn by playing replays it anytime.
 
 Optional newcomer study: if Joshua asks you to try a first-fight comparison,
 go to Options, enable Local play report, select First arena or Number of

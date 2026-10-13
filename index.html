@@ -376,9 +376,37 @@ body[data-input=pad] :is(button,.card,.tile,input,select):focus{outline:4px soli
     </div>
   </div>
 
+  <div id="firstLaunch" class="overlay" hidden>
+    <div class="panel">
+      <h2 class="logo sm">Make yourself comfortable</h2>
+      <p>Set sound and effects before playing. You can change these in Options anytime.</p>
+      <label class="slider">Music <input type="range" id="onboardingMusic" min="0" max="100"><output id="onboardingMusicValue"></output></label>
+      <label class="slider">Sounds <input type="range" id="onboardingSfx" min="0" max="100"><output id="onboardingSfxValue"></output></label>
+      <label class="slider">Screen shake <input type="range" id="onboardingShake" min="0" max="100"><output id="onboardingShakeValue"></output></label>
+      <label class="check"><input type="checkbox" id="onboardingFlash"> Reduce flashing</label>
+      <p id="onboardingInput">Keyboard: WASD / arrows move, Space swings, E guards, Shift dashes. Mouse aims; left click fires. Controller: left stick moves, right stick aims, A swings / fires, X guards, B dashes.</p>
+      <p class="note">A / Enter / Space picks a button; B / Escape skips setup. No account or reporting needed. Learn by playing is optional and can be replayed from How to Play.</p>
+      <p class="note" id="onboardingStatus" role="status"></p>
+      <div class="row"><button class="btn big" id="onboardingJump" type="button" data-back>Jump straight in</button><button class="btn" id="onboardingLearn" type="button">Learn by playing</button></div>
+    </div>
+  </div>
+  <div id="practiceHud" hidden style="position:absolute;left:12px;right:12px;bottom:12px;z-index:4;pointer-events:none;background:#221733ee;border:3px solid #FFD23F;border-radius:16px;padding:10px 16px;color:#FFF7E0;font-weight:800;font-size:17px">
+    <b id="practiceStep"></b><span id="practicePrompt" role="status" aria-live="polite" style="display:block"></span>
+    <small>Safe solo practice · no coins or goals · Escape / P / Start to pause, retry or leave</small>
+  </div>
+  <div id="practiceResult" class="overlay" hidden>
+    <div class="panel">
+      <h2 class="logo sm">Ready to brawl</h2>
+      <p>You moved, swung, guarded, dashed and aimed a bow shot with the real controls.</p>
+      <p class="note">Practice earns no coins or goals. Your arena rules and couch seats are preserved.</p>
+      <div class="row"><button class="btn big" id="practiceLeave" type="button" data-back>Done</button><button class="btn" id="practiceRetry" type="button">Practice again</button></div>
+    </div>
+  </div>
   <div id="howto" class="overlay" hidden>
     <div class="panel wide">
       <div class="head"><h2 class="logo sm">How to play</h2><button class="btn" type="button" data-back>Back</button></div>
+      <div class="row"><button class="btn big" id="practiceStart" type="button">Learn by playing</button></div>
+      <p class="note" id="practiceStatus" role="status">Optional safe solo practice. Move, swing, guard, dash and aim a bow. No rewards; your arena rules and couch seats return afterwards.</p>
       <div class="howcards">
         <div class="how"><b>Fight</b><strong>Swing</strong> to bonk. <strong>Hold Swing</strong> for a charged heavy that breaks blocks. <strong>Block</strong> stops swords and bounces arrows back; block <em>just</em> as they swing to <strong>parry</strong> and stun them. Holding block drains your guard. <strong>Swing while blocking</strong> to shield-bash. <strong>Dash</strong> hops pits and dodges; attack right after a dash for a stab. Knights get flung further the more hurt they are. Three hearts and you're out for a couple of seconds.</div>
         <div class="how"><b>Weapons</b>Weapon pads hand out a <strong>Bow</strong>, <strong>Bomb Bag</strong>, <strong>Custard Cannon</strong>, <strong>Crossbow</strong> or <strong>Returning Croissant</strong>. Crossbow bolts pierce a line of knights but reload slowly; croissants fly back toward their wielder and hit each enemy once per throw. Block to reflect either. Grab the same weapon again to level it up, up to level III. Levels last until defeat, even when ammo runs out or you swap weapons. Long Sword pickups also stack to III and last until defeat. Crates can hide power-ups. Watch for pits, spike traps, ice, conveyors, lava, mud, springs and portals.</div>
@@ -436,7 +464,7 @@ body[data-input=pad] :is(button,.card,.tile,input,select):focus{outline:4px soli
   <div id="pause" class="overlay" hidden>
     <div class="panel" style="text-align:center">
       <h1 class="logo" style="font-size:48px">Paused</h1>
-      <div class="row"><button id="resumeBtn" class="btn big" type="button">Resume</button><button id="quitBtn" class="btn" type="button">Quit to menu</button></div>
+      <div class="row"><button id="resumeBtn" class="btn big" type="button">Resume</button><button id="practicePauseRetry" class="btn" type="button" hidden>Retry practice</button><button id="quitBtn" class="btn" type="button">Quit to menu</button></div>
     </div>
   </div>
 
@@ -461,6 +489,7 @@ body[data-input=pad] :is(button,.card,.tile,input,select):focus{outline:4px soli
 <script src="game/progression.js"></script>
 <script src="game/product-events.js"></script>
 <script src="game/first-fight.js"></script>
+<script src="game/onboarding.js"></script>
 <script src="game/collection.js"></script>
 <script src="game/collection-art.js"></script>
 <script src="game/collection-ui.js"></script>
@@ -603,7 +632,8 @@ const shuffle=a=>{a=a.slice();for(let i=a.length-1;i>0;i--){const j=Math.floor(M
 const norm=(x,y)=>{const d=Math.hypot(x,y)||1;return{x:x/d,y:y/d}};
 const cx=x=>clamp(x,T*1.5,W-T*1.5), cy=y=>clamp(y,OY+T*1.5,H-T*1.5);
 
-let firstFight=null,firstFightLaunching=false,firstFightResult=null;
+let firstFight=null,firstFightLaunching=false,firstFightResult=null,practice=null;
+const offerOnboarding=(()=>{try{return CKOnboarding.shouldOffer(localStorage);}catch(_){return false;}})();
 let cfg={mode:'ffa',players:1,diff:'medium',map:'random',chaosPlus:false,chaosSpeed:'normal',length:180,teamSplit:false}, showHit=false;
 cfg.arenaSize='classic';
 try{ const saved=JSON.parse(localStorage.getItem('ck-cfg')||'{}');Object.assign(cfg,CKPreferences.config(saved,Object.keys(MODES),Object.keys(MAPS)));cfg.arenaSize=arenaSize(saved?.arenaSize); }catch(e){} function saveCfg(){ try{ localStorage.setItem('ck-cfg',JSON.stringify(cfg)); }catch(e){} }
@@ -611,7 +641,7 @@ const SET={music:.55,sfx:1,shake:1,flash:true,names:'near',classic:false,whole:f
 try{ Object.assign(SET,CKPreferences.settings(JSON.parse(localStorage.getItem('ck-settings')||'{}'))); }catch(e){} function saveSet(){ try{ localStorage.setItem('ck-settings',JSON.stringify(SET)); }catch(e){} }
 // what a first-timer has already been taught, so tips show once
 const TAUGHT=new Set(); try{ (JSON.parse(localStorage.getItem('ck-taught')||'[]')).forEach(k=>TAUGHT.add(k)); }catch(e){}
-function taught(k){ TAUGHT.add(k); if(firstFight)return; try{ localStorage.setItem('ck-taught',JSON.stringify([...TAUGHT])); }catch(e){} }
+function taught(k){ if(practice)return;TAUGHT.add(k); if(firstFight)return; try{ localStorage.setItem('ck-taught',JSON.stringify([...TAUGHT])); }catch(e){} }
 let hitsLanded=0; try{ hitsLanded=+localStorage.getItem('ck-hits')||0; }catch(e){}
 const NET={role:null,peer:null,conn:null,conns:new Map(),code:'',players:[],me:-1,inputs:{},latch:{},fxq:[],tick:0,lastIn:'',lastInT:0,an:0,dn:0,pa:false,pd:false};
 // the host records every sound and effect so joined players can replay them
@@ -674,10 +704,11 @@ const centerOf=(c,r)=>({x:c*T+T/2,y:OY+r*T+T/2});
 function tileAt(x,y){const c=tcol(x),r=trow(y); if(r<0||r>=ROWS||c<0||c>=COLS)return '#'; return G.grid[r][c]}
 function solid(c,r){ if(r<0||r>=ROWS||c<0||c>=COLS)return true; return SOLID.has(G.grid[r][c]) }
 function passable(c,r){ return !solid(c,r)&&G.grid[r][c]!=='o'&&G.grid[r][c]!=='L' }
-function spikeState(){ const p=G.clock%3.4; return p>=2.8?'up':p>=2.25?'warn':'down'; }
+function spikeState(){ if(G.practice)return 'down';const p=G.clock%3.4; return p>=2.8?'up':p>=2.25?'warn':'down'; }
 
 /* ---------- setup ---------- */
 function newGame(demo,setup){
+ if(practice)restorePractice();
  if(firstFight&&!firstFightLaunching)firstFightFinish('abandoned');
  if(G&&G.rareEvent)endRareEvent(false);
  const size=arenaSize(setup?setup.arenaSize:demo?'classic':cfg.arenaSize);setArenaGeometry(size);
@@ -740,7 +771,7 @@ function say(e,text,t=2.2){ G.bubbles=G.bubbles.filter(b=>b.e!==e); G.bubbles.pu
 function floater(x,y,text,col){ const big=G.ents.some(m=>isMine(m)&&Math.hypot(m.x-x,m.y-y)<70); G.floaters.push({x,y,text,col,t:1.3,big}); }
 function feed(text,mine){ G.feed.unshift({text,t:5,mine:!!mine}); G.feed.length=Math.min(G.feed.length,3); }
 // one-off teaching tips for the local player, queued so they never pile up
-function tip(key,text){ if(G.demo||NET.role==='client'&&false) return; if(TAUGHT.has(key)) return; taught(key); G.tips.push(text); }
+function tip(key,text){ if(G.demo||G.practice||NET.role==='client'&&false) return; if(TAUGHT.has(key)) return; taught(key); G.tips.push(text); }
 const nm=(e,mid)=>e.name==='You'&&mid?'you':e.name;
 function logEv(k,d){ if(G.campaign&&ADVENTURE)ADVENTURE.event(k,d); if(G.demo||G.log.length>=20000) return; if(k==='pickup')productAction(G.ents.find(e=>e.id===d.id),'pickup');d.k=k; d.t=Math.round(G.clock*100)/100; G.log.push(d); }
 const hb=e=>e.human?'h':'b';
@@ -931,6 +962,7 @@ function applyPU(e,kind){
  }
 }
 function spawnPickup(at){
+ if(G.practice)return;
  let tier=1; const c=G.chaos, r=Math.random();
  if(c>=.66) tier=r<.45?3:r<.8?2:1; else if(c>=.33) tier=r<.55?2:1;
  if(G.chaosPolicy?.name==='simple')tier=1;
@@ -998,7 +1030,7 @@ function ko(b,a,how){
 }
 function blockedFrom(b,sx,sy){ return b.blocking&&Math.abs(angDiff(Math.atan2(sy-b.y,sx-b.x),b.face))<1.0; }
 function parryOk(b){ return b.blockAge<.12&&(b.human||b.ai.parryOk); }
-function startSwing(e,kind){ const S=SWINGS[kind]; e.swingKind=kind; (e.swings||(e.swings=[])).push(G.clock); if(e.swings.length>8) e.swings.shift(); e.swingDur=S.dur; e.swing=S.dur; e.atkCd=S.cd; e.hitSet=[]; e.crateHit=false; e.hitLanded=false; e.charge=0; e.holdT=0; e.dashAtkT=0;
+function startSwing(e,kind){ if(G.practice&&e.human)practiceAction('swing');const S=SWINGS[kind]; e.swingKind=kind; (e.swings||(e.swings=[])).push(G.clock); if(e.swings.length>8) e.swings.shift(); e.swingDur=S.dur; e.swing=S.dur; e.atkCd=S.cd; e.hitSet=[]; e.crateHit=false; e.hitLanded=false; e.charge=0; e.holdT=0; e.dashAtkT=0;
  if(kind==='light'&&e.human&&!e.aiming) aimAssist(e); e.vx+=Math.cos(e.face)*S.lunge; e.vy+=Math.sin(e.face)*S.lunge;
  if(e.protect>0){ e.protect=0; e.inv=Math.min(e.inv,.3); } delete e.fx.ghost;
  G.stats.swings[hb(e)]++; if(kind==='heavy')G.stats.heavies++; else if(kind==='stab')G.stats.stabs++; else if(kind==='bash')G.stats.bashes++;
@@ -1024,7 +1056,7 @@ function doHit(a,el){
    else { a.vx-=n.x*200; a.vy-=n.y*200; b.vx+=n.x*100; b.vy+=n.y*100; a.atkCd=.6; a.swing=Math.min(a.swing,.04); b.guard=Math.max(0,b.guard-.35); clang(b,(a.x+b.x)/2,(a.y+b.y)/2); return; }
   }
   let dmg=S.dmg; if(dmg>0&&(a.fx.giant||isBoss(a)||a.fx.norr)) dmg=2;
-  hurt(b,a,dmg,{src:a.swingKind==='light'?'sword':a.swingKind,kb:S.kb}); a.hitLanded=true; if(isMine(a)&&hitsLanded<3){ hitsLanded++; try{ if(!firstFight)localStorage.setItem('ck-hits',String(hitsLanded)); }catch(e){} }
+  hurt(b,a,dmg,{src:a.swingKind==='light'?'sword':a.swingKind,kb:S.kb}); a.hitLanded=true; if(!G.practice&&isMine(a)&&hitsLanded<3){ hitsLanded++; try{ if(!firstFight)localStorage.setItem('ck-hits',String(hitsLanded)); }catch(e){} }
   if(G.clock-a.comboT<.8) a.combo++; else a.combo=1; a.comboT=G.clock; a.atkCd=Math.min(a.atkCd,S.hitCd);
  }
  // a sword swing swats bee swarms
@@ -1052,6 +1084,7 @@ function fire(e){
  else if(w.kind==='bombs'){ let tx,ty; if(e.human){tx=e.x+ca*250;ty=e.y+sa*250}else{tx=e.ai.aimX;ty=e.ai.aimY} tx=cx(tx);ty=cy(ty); G.bombs.push({sx:e.x,sy:e.y,tx,ty,x:e.x,y:e.y,z:0,t:0,fl:.55,fuse:.6,owner:e,lvl:w.lvl}); e.fireCd=.6; sfx('swing'); }
  else { const shot=CKWeapons.createShot(e); if(!shot)return; G.proj.push(...shot.projectiles); e.fireCd=shot.cooldown; e.vx-=ca*shot.recoil; e.vy-=sa*shot.recoil; sfx(shot.sound); }
  w.ammo--; if(w.ammo<=0){e.wpn=null;if(w.kind==='ak47')endRareEvent();}
+ if(G.practice&&e.human)practiceAction('fire');
 }
 function explode(x,y,R,owner,o={}){
  G.shake=Math.max(G.shake,18); sfx('boom');
@@ -1151,6 +1184,7 @@ function humanInput(n,ent){
 
 /* ---------- bots ---------- */
 function botInput(e,dt){
+ if(G.practice)return {mx:0,my:0,atk:false,dash:false,block:false,faceTo:null};
  if(G.campaign&&ADVENTURE){const input=ADVENTURE.input(e,dt);if(input)return input;}
  const ai=e.ai, D=G.diff; let mx=0,my=0,atk=false,dash=false,faceTo=null;
  if(e.stun>0){ai.holdAtk=0;ai.tellT=0;return {mx:0,my:0,atk:false,dash:false,block:false,faceTo:null};}
@@ -1284,7 +1318,7 @@ function moveInArena(e,dt,bx,by,rt,bouncy){
 }
 function update(dt){
  G.clock+=dt; G.stats.frames++; if(G.punch>0) G.punch-=dt;
- if(!G.demo){ G.time-=dt; G.chaos=G.chaosPolicy?CKChaos.progress(G.chaos,dt,G.chaosPolicy):Math.min(1,G.chaos+dt/G.chaosRate);
+ if(!G.demo){ G.time-=dt; G.chaos=G.practice?0:G.chaosPolicy?CKChaos.progress(G.chaos,dt,G.chaosPolicy):Math.min(1,G.chaos+dt/G.chaosRate);
   const tier=G.chaos>=.66?2:G.chaos>=.33?1:0; if(tier>G.tierShown){ G.tierShown=tier; G.banner={title:tier===2?'CHAOS: UNHINGED':'CHAOS: SILLY',sub:tier===2?'Anything goes now. Chickens, meteors, the lot.':'The crates just got daft.',col:tier===2?CUST:PINK,t:2.2,max:2.2}; sfx('event'); }
   if(G.tipT>0) G.tipT-=dt; else if(G.tips.length){ if(G.tipGap>0) G.tipGap-=dt; else { G.tip=G.tips.shift(); G.tipT=2.6; G.tipGap=6; } } if(G.tipT<=0) G.tip=null; }
  else { G.chaos=Math.min(1,G.chaos+dt/38); if(G.chaos>=1){G.chaosHold+=dt; if(G.chaosHold>22){ newGame(true); return; }} }
@@ -1322,6 +1356,7 @@ function update(dt){
   if(wantBlock){ if(!e.blocking) e.blockAge=0; else e.blockAge+=dt; e.guard-=dt; if(e.guard<=0){ e.guard=0; e.guardLock=.8; wantBlock=false; floater(e.x,e.y-50,'GUARD DOWN',TOM); sfx('guard'); } }
   else { e.blockAge=99; e.guard=Math.min(1.5,e.guard+dt); }
   e.blocking=wantBlock;
+  if(G.practice&&e.human&&e.blocking)practiceAction('guard');
   e.aiming=Number.isFinite(inp.faceTo);
   if(e.aiming){if(e.human)e.face=inp.faceTo;else e.face+=angDiff(inp.faceTo,e.face)*Math.min(1,dt*14);}
   else if(len>.2&&e.swing<=0) e.face=Math.atan2(my,mx);
@@ -1338,7 +1373,7 @@ function update(dt){
   if(atkPress) e.atkBuf=.2; else if(e.atkBuf>0) e.atkBuf-=dt;
   if(inp.atk) e.holdT+=dt; else e.holdT=0;
   if(inp.dash) e.dashBuf=.15; else if(e.dashBuf>0) e.dashBuf-=dt;
-  if(e.dashBuf>0&&e.dashCd<=0&&e.slip<=0&&e.charge<=0&&e.stun<=0){ e.dashBuf=0; const dl=Math.hypot(mx,my); const dx=dl>.1?mx/dl:Math.cos(e.face), dy=dl>.1?my/dl:Math.sin(e.face); e.vx=dx*680;e.vy=dy*680;e.dashT=.16;e.dashCd=.95;e.blocking=false; dust(e.x,e.y+12,8); if(e.human)sfx('dash'); G.stats.dashes++; }
+  if(e.dashBuf>0&&e.dashCd<=0&&e.slip<=0&&e.charge<=0&&e.stun<=0){ e.dashBuf=0; const dl=Math.hypot(mx,my); const dx=dl>.1?mx/dl:Math.cos(e.face), dy=dl>.1?my/dl:Math.sin(e.face); e.vx=dx*680;e.vy=dy*680;e.dashT=.16;e.dashCd=.95;e.blocking=false; dust(e.x,e.y+12,8); if(e.human)sfx('dash'); G.stats.dashes++;if(G.practice&&e.human)practiceAction('dash'); }
   const canAct=!isChicken(e)&&e.slip<=0&&e.stun<=0&&!e.carry;
   if(canAct&&e.wpn){ if(inp.atk&&e.fireCd<=0){ e.atkBuf=0; fire(e); G.stats.shots[hb(e)]++; if(e.protect>0){ e.protect=0; e.inv=Math.min(e.inv,.3); } delete e.fx.ghost; } }
   else if(canAct){
@@ -1359,6 +1394,7 @@ function update(dt){
   const spd=Math.hypot(e.vx,e.vy); e.walk+=dt*spd*.055;
   const rr=e.r*sizeMul(e);
   moveInArena(e,dt,bx,by,Math.min(rr*.8,T*.48),custard||tile==='~'||(G.ev&&G.ev.kind==='jelly'));
+  if(G.practice&&e.human)practiceObserve(e,inp);
   // hazards
   const t2=tileAt(e.x,e.y+4);
   if(t2==='o'&&e.dashT<=0&&!e.fx.ghost&&!e.fx.steve&&e.protect<=0){ startFall(e); continue; }
@@ -1435,6 +1471,7 @@ function update(dt){
 /* ---------- game modes ---------- */
 function dropPie(e,toHome){ const pie=G.pies&&G.pies.find(q=>q.carrier===e); if(!pie) return; pie.carrier=null; e.carry=null; if(toHome){ pie.home=true; pie.x=pie.hx; pie.y=pie.hy; feed(`The ${pie.team} pie went home`); } else { pie.home=false; pie.x=e.x; pie.y=e.y; pie.dropT=8; feed(`${e.name} dropped the ${pie.team} pie`,isMine(e)); } }
 function updateMode(dt){
+ if(G.practice)return;
  if(G.campaign)return;
  if(G.demo||G.over) return; const m=G.mode;
  if(LIVES_MODES.has(m)){ const left=G.ents.filter(inPlay); if(left.length<=1) endMatch(); }
@@ -2405,6 +2442,7 @@ function plaque(x,y,w,h,r,gold){
  ctx.fillStyle='rgba(255,255,255,.07)'; rr(ctx,x+4,y+4,w-8,(h-8)/2,Math.max(2,r-4)); ctx.fill();
 }
 function drawHUD(){
+ if(G.practice){plaque(500,2,280,40,12,true);otext('CONTROLS PRACTICE',640,23,24,CREAM);return;}
  const W=HUD_W,H=HUD_H;
  const tm=Math.max(0,Math.ceil(G.time)), mm=Math.floor(tm/60), ss=String(tm%60).padStart(2,'0');
  if(!G.demo&&G.mode==='hotpie'){ const left=G.ents.filter(inPlay).length, h=G.hot, hot=h&&h.holder&&alive(h.holder); plaque(500,2,280,40,12,true); otext(hot?`HOT PIE  ${Math.ceil(h.t)}s  ${left} LEFT`:`${left} KNIGHTS LEFT`,640,23,22,hot&&h.t<3&&Math.floor(G.clock*6)%2?TOM:CREAM); }
@@ -2622,8 +2660,8 @@ function productEvent(name,raw={}){try{
  if(raw.eventId)fields.eventId=productToken('event:'+raw.eventId);
  const accepted=productEvents.record(name,fields);if(accepted&&round){if(newRound){productRounds.set(raw.roundId,round);if(productRounds.size>256)productRounds.delete(productRounds.keys().next().value);}if(name==='first_meaningful_action')round.action=true;if(name==='round_completed')round.complete=true;}return accepted;
 }catch(_){return false;}}
-function productArenaStart(){if(!G||G.demo||G.campaign||!G.ents.some(isMine))return;const humanCount=G.ents.filter(e=>e.human).length;productEvent('round_started',{roundId:G.roundId,format:CUP?'cup':'arena',mode:G.mode,map:G.mapKey,difficulty:NET.role==='client'?'unknown':CKPreferences.difficulty(cfg.diff),humanCount,botCount:G.ents.length-humanCount,botOnly:humanCount===0,online:!!NET.role,input:productInput(),...(firstFight&&G.firstFight?firstFightFields(firstFight):{})});}
-function productAction(e,action){if(!G||G.demo||G.over||!e||!isMine(e))return;productEvent('first_meaningful_action',{roundId:G.roundId,action,input:productInput()});}
+function productArenaStart(){if(!G||G.demo||G.practice||G.campaign||!G.ents.some(isMine))return;const humanCount=G.ents.filter(e=>e.human).length;productEvent('round_started',{roundId:G.roundId,format:CUP?'cup':'arena',mode:G.mode,map:G.mapKey,difficulty:NET.role==='client'?'unknown':CKPreferences.difficulty(cfg.diff),humanCount,botCount:G.ents.length-humanCount,botOnly:humanCount===0,online:!!NET.role,input:productInput(),...(firstFight&&G.firstFight?firstFightFields(firstFight):{})});}
+function productAction(e,action){if(!G||G.demo||G.practice||G.over||!e||!isMine(e))return;productEvent('first_meaningful_action',{roundId:G.roundId,action,input:productInput()});}
 function productControls(e,i){if(!e||!alive(e))return;const action=i.atk?'attack':i.dash?'dash':i.block?'block':Math.hypot(i.mx||0,i.my||0)>.18?'move':null;if(action)productAction(e,action);}
 function productJoinEnd(name,reason){if(!productJoin)return;const attemptId=productJoin;productJoin=null;productEvent(name,{attemptId,format:'arena',online:true,...(reason?{reason}:{})});}
 function firstFightFields(trial){return {experiment:trial.assignment.experiment,variant:trial.assignment.variant,totalKnights:trial.assignment.totalKnights,trialId:trial.id};}
@@ -2668,7 +2706,7 @@ function productReportStatus(message){const active=!!productEvents?.getConsent()
 $('reportConsent').onchange=e=>{try{productEvents?.setConsent(e.target.checked);productRounds.clear();productIds.clear();productJoin=null;$('reportFallback').value='';$('reportFallback').hidden=true;}catch(_){}productReportStatus();};
 $('reportClear').onclick=()=>{try{productEvents?.clear();productRounds.clear();productIds.clear();productJoin=null;$('reportFallback').value='';$('reportFallback').hidden=true;}catch(_){}productReportStatus('Report cleared. New observations follow your current setting.');};
 $('reportExport').onclick=()=>{const content=productEvents?.exportJSON()||'';$('reportFallback').value=content;$('reportFallback').hidden=false;try{const url=URL.createObjectURL(new Blob([content],{type:'application/json'})),a=document.createElement('a');a.href=url;a.download='custard-knights-local-play-report.json';document.body.append(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),1000);productReportStatus('Download requested. You can also copy the JSON below. Nothing was uploaded.');}catch(_){$('reportFallback').hidden=false;productReportStatus('Copy the local report JSON below. Nothing was uploaded.');}};
-addEventListener('pagehide',()=>{try{if(firstFight)toMenu();productEvents?.exit('pagehide');}catch(_){}});
+addEventListener('pagehide',()=>{try{if(firstFight||practice)toMenu();productEvents?.exit('pagehide');}catch(_){}});
 productReportStatus();
 const isTouch=matchMedia('(pointer:coarse)').matches;
 function showTouch(on){ touchWanted=on; $('touch').hidden=!(on&&INPUT==='touch'); checkRotate(); }
@@ -2686,7 +2724,7 @@ const parseV=v=>v==='true'?true:v==='false'?false:(/^-?\d+$/.test(v)?+v:v);
 document.querySelectorAll('.seg[data-k]').forEach(seg=>{ seg.addEventListener('click',ev=>{ const b=ev.target.closest('button'); if(!b)return; seg.querySelectorAll('button').forEach(x=>x.setAttribute('aria-pressed',String(x===b))); cfg[seg.dataset.k]=parseV(b.dataset.v); saveCfg(); refreshSetup(); }); });
 function syncSegs(){ document.querySelectorAll('.seg[data-k]').forEach(seg=>{ const k=seg.dataset.k; seg.querySelectorAll('button').forEach(x=>x.setAttribute('aria-pressed',String(parseV(x.dataset.v)===cfg[k]))); }); }
 /* ---------- screens ---------- */
-const SCREENS=['menu','quickRoute','friendsRoute','setup','online','lobby','wardrobe','howto','settings','pause','end','party','cupResults'];
+const SCREENS=['menu','quickRoute','friendsRoute','setup','online','lobby','wardrobe','howto','settings','pause','end','party','cupResults','firstLaunch','practiceResult'];
 const menuFocus=new Map(),screenReturn=new Map();
 const esc=t=>String(t).replace(/[&<>]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;'}[c]));
 function menuControls(sc){return [...sc.querySelectorAll('button,input,select,summary,[tabindex="0"]')].filter(el=>!el.hidden&&el.getClientRects().length&&!el.disabled);}
@@ -2694,7 +2732,7 @@ function rememberMenuFocus(){const sc=visibleScreen();if(sc&&sc.contains(documen
 function focusScreen(el){if(!el||el.hidden)return;const controls=menuControls(el),saved=menuFocus.get(el.id),target=controls.includes(saved)?saved:controls.find(b=>!b.hasAttribute('data-back'))||controls[0];if(target){target.focus();target.scrollIntoView({block:'nearest'});}}
 function showScreen(id){ const from=rememberMenuFocus();if(id&&from&&from.id!==id&&['menu','quickRoute','friendsRoute','lobby'].includes(from.id)&&id!=='menu')screenReturn.set(id,from.id); if(id)cueMusic(id==='wardrobe'?'wardrobe':'menu'); SCREENS.forEach(k=>{ const el=$(k); if(el) el.hidden=(k!==id); }); if(id==='menu')refreshHome();if(id==='quickRoute')refreshQuick(); if(id)queueMicrotask(()=>focusScreen($(id))); }
 function backScreen(){if(NET.role==='client'){leaveOnline();return;}const sc=visibleScreen();if(NET.role==='host'&&sc?.id==='setup'){showLobby();return;}showScreen(screenReturn.get(sc?.id)||'menu');}
-document.querySelectorAll('[data-back]').forEach(b=>{if(b.closest('#quitDialog'))return;b.addEventListener('click',backScreen);});
+document.querySelectorAll('[data-back]').forEach(b=>{if(b.closest('#quitDialog,#firstLaunch,#practiceResult'))return;b.addEventListener('click',backScreen);});
 function quickRules(){let played=0;try{played=+localStorage.getItem('ck-played')||0;}catch(_){}return {mode:cfg.mode==='teams'?'teams':'ffa',diff:played<2?'easy':cfg.diff,first:played<2};}
 function refreshQuick(){const r=quickRules(),arena=cfg.map==='random'?'Random arena':MAPS[cfg.map]?.name||'Random arena';$('quickSummary').textContent=`${MODES[r.mode].name} · ${r.diff==='steve'?'STEVE':r.diff[0].toUpperCase()+r.diff.slice(1)} bots · ${arena} · ${arenaSize(cfg.arenaSize)==='roomier'?'Roomier':'Classic'} · ${cfg.length} seconds · ${cfg.chaosSpeed[0].toUpperCase()+cfg.chaosSpeed.slice(1)} chaos${cfg.chaosPlus?' + Mirror Curse / Swap Party':''}.`+(r.first?' Your first two quick brawls use Easy bots.':' Remembered arena rules.');}
 function homeStory(){if(!ADVENTURE)return null;const c=ADVENTURE.campaign,s=c.save,id=s.checkpoint?.id||(c.next()||CKCampaign.byId[s.selected]).id;return {id,node:CKCampaign.byId[id],started:!!s.checkpoint||Object.values(s.results).some(r=>r.attempts>0),checkpoint:s.checkpoint};}
@@ -2799,6 +2837,43 @@ $('tHowto').onclick=()=>showScreen('howto');
 $('tSettings').onclick=()=>{ syncSettings(); showScreen('settings'); };
 $('setupBtn').onclick=()=>{ if(NET.role==='client') return; if(ADVENTURE)ADVENTURE.stop();cancelCup();newGame(true); paused=false; $('pauseBtn').hidden=true; showTouch(false); menuMusic(true); buildSetup(); showScreen('setup'); };
 /* ---------- settings ---------- */
+function finishOnboarding(){let saved=false;try{localStorage.setItem(CKOnboarding.KEY,'1');saved=true;}catch(_){}showScreen('menu');if(!saved)$('homeStatus').textContent='Setup applies for this session. This device could not remember that you finished it.';}
+function syncOnboarding(){for(const [id,k] of [['Music','music'],['Sfx','sfx'],['Shake','shake']]){$('onboarding'+id).value=Math.round(SET[k]*100);$('onboarding'+id+'Value').value=$('onboarding'+id).value+'%';}$('onboardingFlash').checked=!SET.flash;}
+function saveOnboardingSettings(){try{localStorage.setItem('ck-settings',JSON.stringify(SET));$('onboardingStatus').textContent='Preferences saved on this device.';}catch(_){$('onboardingStatus').textContent='Preferences apply for this session. This device could not save them.';}}
+for(const [id,k] of [['Music','music'],['Sfx','sfx'],['Shake','shake']])$('onboarding'+id).oninput=e=>{SET[k]=+e.target.value/100;$('onboarding'+id+'Value').value=e.target.value+'%';if(k==='music'&&!music.paused)music.volume=SET.music;saveOnboardingSettings();};
+$('onboardingFlash').onchange=e=>{SET.flash=!e.target.checked;saveOnboardingSettings();};
+$('onboardingJump').onclick=finishOnboarding;
+$('onboardingLearn').onclick=()=>{finishOnboarding();startPractice('menu');};
+/* Boot the same arena, then restore remembered rules immediately. Practice owns only its arena. */
+function startPractice(origin='howto'){
+ if(practice||firstFight||NET.role||CUP||(G&&!G.demo&&!G.over)||massBattleUI?.active()){if(origin==='howto')$('practiceStatus').textContent='Return home and leave any room, Cup or test round before practising.';return false;}
+ rememberMenuFocus();
+ const previous={cfg:{...cfg},seats:SEATS,partyGo,taught:[...TAUGHT],hits:hitsLanded,origin};
+ clearArenaInput();SEATS=null;partyGo=false;audio();menuMusic(false);
+ try{Object.assign(cfg,{players:1,mode:'ffa',map:'courtyard',diff:'easy',length:300,chaosSpeed:'simple',chaosPlus:false,arenaSize:'classic'});newGame(false);}catch(error){SEATS=previous.seats;partyGo=previous.partyGo;throw error;}finally{Object.assign(cfg,previous.cfg);}
+ G.practice=true;G.ents.length=2;G.ents[1].name='Practice partner';G.spawnT=G.mayhemAt=G.norrAt=G.steveAt=Infinity;G.steveDone=true;G.time=Infinity;G.pads=[];G.pickups=[];G.banner=null;
+ G.chaosPolicy=CKChaos.settings('simple','ffa');
+ const me=G.ents[0],target=G.ents[1],p=openSpot(W/2,OY+(H-OY)/2,400,100),q=nearestFloor(p.x+150,p.y);
+ Object.assign(me,{x:p.x,y:p.y,vx:0,vy:0,face:0,inv:0,protect:0,spot:2.6});Object.assign(target,{x:q.x,y:q.y,vx:0,vy:0,inv:0,protect:0});
+ practice={previous,lesson:CKOnboarding.create(me.x,me.y),shown:null};
+ showScreen(null);paused=false;$('pauseBtn').hidden=false;$('practicePauseRetry').hidden=false;$('quitBtn').textContent='Leave practice';showTouch(true);matchMusic();practiceRender();return true;
+}
+function practiceRender(){if(!practice)return;const state=practice.lesson.state(),stage=state.stage;
+ if(practice.shown===stage&&practice.input===INPUT)return;
+ const changed=practice.shown!==stage;if(changed&&stage==='ranged'){const me=G.ents.find(isMine),aim=localAim.get(me);giveWeapon(me,'bow');practice.lesson.aim(me.face,'move');practice.aimMouseX=mouse.x;practice.aimMouseY=mouse.y;practice.aimPadX=aim?.padX||0;practice.aimPadY=aim?.padY||0;}
+ practice.shown=stage;practice.input=INPUT;const pad=INPUT==='pad',touching=INPUT==='touch';
+ const prompts={move:pad?'Move around with the left stick.':touching?'Move around with the left stick.':'Move around with WASD or the arrow keys.',swing:pad?'Tap A to swing your sword.':touching?'Tap Swing to swing your sword.':'Tap Space or left click to swing your sword.',guard:pad?'Hold X to raise your guard. Release to refill it.':touching?'Hold Block to raise your guard.':'Hold E or right click to raise your guard. Release to refill it.',dash:pad?'Tap B to dash in your movement direction.':touching?'Tap Dash to dash in your movement direction.':'Tap Shift to dash in your movement direction.',ranged:pad?'Turn your aim with the right stick, then press A to fire your bow.':touching?'Move to turn toward a new direction, then tap Swing to fire your bow.':'Move the mouse to turn your aim, then left click or Space to fire. Keyboard only: move to face a new direction, then press Space.'};
+ $('practiceStep').textContent=`${state.completed?5:['move','swing','guard','dash','ranged'].indexOf(stage)+1} of 5 · ${stage==='ranged'?'Aim and fire':stage[0].toUpperCase()+stage.slice(1)}`;$('practicePrompt').textContent=prompts[stage]||'';
+ $('practiceHud').hidden=state.completed||paused;
+ if(state.completed&&!G.over){G.over=true;paused=false;clearArenaInput();$('pauseBtn').hidden=true;showTouch(false);showScreen('practiceResult');}
+}
+function practiceAction(kind){if(!practice||!G.practice)return;practice.lesson.action(kind);practiceRender();}
+function practiceObserve(e,input){if(!practice||!G.practice)return;practice.lesson.move(e.x,e.y,input);const aim=localAim.get(e),mouseTurn=aim?.source==='mouse'&&Math.hypot(mouse.x-practice.aimMouseX,mouse.y-practice.aimMouseY)>4,padTurn=aim?.source==='pad'&&Math.hypot(aim.padX-practice.aimPadX,aim.padY-practice.aimPadY)>.015;if(Number.isFinite(input.faceTo)&&(mouseTurn||padTurn))practice.lesson.aim(input.faceTo,aim.source);else if(!Number.isFinite(input.faceTo)&&Math.hypot(input.mx,input.my)>.18)practice.lesson.aim(e.face,'move');if(e.wpn)e.wpn.ammo=6;practiceRender();}
+function restorePractice(){if(!practice)return null;const old=practice.previous;practice=null;Object.assign(cfg,old.cfg);SEATS=old.seats;partyGo=old.partyGo;TAUGHT.clear();old.taught.forEach(k=>TAUGHT.add(k));hitsLanded=old.hits;$('practiceHud').hidden=true;$('practicePauseRetry').hidden=true;$('quitBtn').textContent='Quit to menu';return old.origin;}
+function leavePractice(){const origin=restorePractice();if(!origin)return;clearArenaInput();newGame(true);paused=false;$('pauseBtn').hidden=true;showTouch(false);menuMusic(true);showScreen(origin);}
+function retryPractice(){const origin=practice?.previous.origin;if(!origin)return;leavePractice();startPractice(origin);}
+$('practiceStart').onclick=()=>startPractice();$('practiceRetry').onclick=retryPractice;$('practicePauseRetry').onclick=retryPractice;$('practiceLeave').onclick=leavePractice;
+addEventListener('blur',()=>{if(practice&&!G.over)setPause(true);});
 function syncSettings(){ productReportStatus();$('sMusic').value=Math.round(SET.music*100); $('sSfx').value=Math.round(SET.sfx*100); $('sShake').value=Math.round(SET.shake*100); $('cFlash').checked=!SET.flash; $('cNames').checked=SET.names==='all'; $('cSprites').checked=!!SET.classic; $('cWhole').checked=!!SET.whole; ['Music','Sfx','Shake'].forEach(k=>$('o'+k).value=$('s'+k).value+'%'); }
 $('sMusic').oninput=e=>{ SET.music=+e.target.value/100; $('oMusic').value=e.target.value+'%'; if(!music.paused) music.volume=SET.music; saveSet(); };
 $('sSfx').oninput=e=>{ SET.sfx=+e.target.value/100; $('oSfx').value=e.target.value+'%'; saveSet(); };
@@ -2876,13 +2951,13 @@ function fadeMusic(on){
 // browsers only allow sound after the first click or key press
 const kick=()=>{ if(musicWant&&!muted&&music.paused) cueMusic(musicCue); };
 addEventListener('pointerdown',kick,{once:true}); addEventListener('keydown',kick,{once:true});
-function start(){ resetMouse();if(!firstFightLaunching){firstFightFinish('abandoned');firstFightResult=null;$('firstFightRecognition').hidden=true;$('againBtn').textContent='Rematch';} if(ADVENTURE)ADVENTURE.stop(); if(NET.role==='client') return; if(!cupStarting)CUP=null;cupUI.hide(); if(NET.role==='host'&&cfg.players+NET.players.length-1>8){ showLobby(); lobbyMsg('Too many knights. Reduce local players in Settings before starting.'); return; } if(NET.role==='host'&&arenaSize(cfg.arenaSize)==='roomier'&&NET.players.slice(1).some(p=>cupAllowsPeer(p.id)&&p.arenaSizeVersion!==1)){showLobby();lobbyMsg('Roomier needs the current build for every player. Ask friends to update, or choose Classic arena size.');return;} if(NET.role==='host'){ NET.inputs={};NET.latch={};NET.fxq=[];NET.tick=0; } if(!partyGo) SEATS=null; partyGo=false; phoneFullscreen(); audio(); menuMusic(false); newGame(false); matchMusic(); showScreen(null); paused=false; $('pauseBtn').hidden=false; showTouch(true); try{ if(!G.firstFight)localStorage.setItem('ck-played',String((+localStorage.getItem('ck-played')||0)+1)); }catch(e){}
+function start(){ if(practice)restorePractice();resetMouse();if(!firstFightLaunching){firstFightFinish('abandoned');firstFightResult=null;$('firstFightRecognition').hidden=true;$('againBtn').textContent='Rematch';} if(ADVENTURE)ADVENTURE.stop(); if(NET.role==='client') return; if(!cupStarting)CUP=null;cupUI.hide(); if(NET.role==='host'&&cfg.players+NET.players.length-1>8){ showLobby(); lobbyMsg('Too many knights. Reduce local players in Settings before starting.'); return; } if(NET.role==='host'&&arenaSize(cfg.arenaSize)==='roomier'&&NET.players.slice(1).some(p=>cupAllowsPeer(p.id)&&p.arenaSizeVersion!==1)){showLobby();lobbyMsg('Roomier needs the current build for every player. Ask friends to update, or choose Classic arena size.');return;} if(NET.role==='host'){ NET.inputs={};NET.latch={};NET.fxq=[];NET.tick=0; } if(!partyGo) SEATS=null; partyGo=false; phoneFullscreen(); audio(); menuMusic(false); newGame(false); matchMusic(); showScreen(null); paused=false; $('pauseBtn').hidden=false; showTouch(true); try{ if(!G.firstFight)localStorage.setItem('ck-played',String((+localStorage.getItem('ck-played')||0)+1)); }catch(e){}
  initArenaChaos();firstFightAccepted();productArenaStart();
  G.banner={title:G.mode==='race'?'RACE!':'FIGHT!',sub:G.map.name+'. '+(MODES[G.mode]?MODES[G.mode].name:'')+(G.mode==='ffa'?'. Every knight for themselves.':'.'),col:CUST,t:2,max:2}; sfx('event');
  for(const e of G.ents) if(isMine(e)) e.spot=2.6;
  if(NET.role==='host'){ $('pauseBtn').hidden=true; broadcast({t:'start',setup:netSetup()}); } }
-function toMenu(){ resetMouse();firstFightFinish('abandoned');firstFightResult=null;$('firstFightRecognition').hidden=true; if(ADVENTURE)ADVENTURE.stop(); cancelCup(); if(NET.role==='host'){ newGame(true); showLobby(); menuMusic(true); broadcast({t:'tolobby'}); return; } if(NET.role==='client'){ leaveOnline(); return; } menuMusic(true); newGame(true); paused=false; showScreen('menu'); $('pauseBtn').hidden=true; showTouch(false); }
-function setPause(p){ if(!G||G.demo||G.over||NET.role)return; clearArenaInput();paused=p; $('pause').hidden=!p; if(p){ const b=$('resumeBtn'); if(b) b.focus(); }else syncRareMusic(); }
+function toMenu(){ if(practice){leavePractice();return;}resetMouse();firstFightFinish('abandoned');firstFightResult=null;$('firstFightRecognition').hidden=true; if(ADVENTURE)ADVENTURE.stop(); cancelCup(); if(NET.role==='host'){ newGame(true); showLobby(); menuMusic(true); broadcast({t:'tolobby'}); return; } if(NET.role==='client'){ leaveOnline(); return; } menuMusic(true); newGame(true); paused=false; showScreen('menu'); $('pauseBtn').hidden=true; showTouch(false); }
+function setPause(p){ if(!G||G.demo||G.over||NET.role)return; clearArenaInput();paused=p; $('pause').hidden=!p;if(practice)$('practiceHud').hidden=p; if(p){ const b=$('resumeBtn'); if(b) b.focus(); }else syncRareMusic(); }
 addEventListener('keydown',ev=>{ if(ev.code==='Escape'&&!(G&&!G.demo&&!G.over)){ const sc=visibleScreen(); if(sc&&sc.id!=='menu') menuBack(); } });
 function finalResults(sorted){
  return G.ents.filter(e=>e.human).map(e=>{
@@ -2893,6 +2968,7 @@ function finalResults(sorted){
  });
 }
 function endMatch(remoteResults){
+ if(G?.practice)return;
  if(G.campaign)return;
  if(!G||G.demo||G.over) return;
  endRareEvent(false);G.over=true; $('pauseBtn').hidden=true; showTouch(false);
@@ -2954,7 +3030,7 @@ function padEdges(){
   else { if(up) menuNav(0,-1); if(down) menuNav(0,1); if(left) menuNav(-1,0); if(right) menuNav(1,0); if(a) menuActivate(); if(back) menuBack(); }
  });
 }
-addEventListener('gamepaddisconnected',ev=>{ if(G&&!G.demo&&!G.over&&SEATS&&SEATS.some(x=>x.dev==='pad'&&x.idx===ev.gamepad.index)){ setPause(true); feed('A controller disconnected. Plug it back in and press A.'); } if(partyOpen()){ partyLeavePad(ev.gamepad.index); } });
+addEventListener('gamepaddisconnected',ev=>{ if(G&&!G.demo&&!G.over&&(SEATS&&SEATS.some(x=>x.dev==='pad'&&x.idx===ev.gamepad.index)||practice&&G.ents.some(e=>e.human&&classicPads.get(e)===ev.gamepad.index))){ setPause(true); feed('A controller disconnected. Plug it back in and press A.'); } if(partyOpen()){ partyLeavePad(ev.gamepad.index); } });
 function visibleScreen(){ const overlays=[...document.querySelectorAll('.overlay')].filter(o=>!o.hidden);return overlays.find(o=>o.getAttribute('aria-modal')==='true')||overlays.at(-1); }
 function menuNav(dx,dy){ const sc=visibleScreen(); if(!sc) return; const els=menuControls(sc); if(!els.length) return;
  let cur=document.activeElement; if(!els.includes(cur)){ els[0].focus(); return; }
@@ -3286,8 +3362,9 @@ if(window.CKMassBattle&&window.CKMassBattleUI){
  if(new URLSearchParams(location.search).get('battle')==='1')massBattleUI.open();
 }else{ $('tFactionBattle').disabled=true;$('tFactionBattle').querySelector('small').textContent='Battle files unavailable. Restart the game or reinstall this build.'; }
 queueMicrotask(()=>focusScreen(visibleScreen()));
+if(offerOnboarding&&!new URLSearchParams(location.search).has('qa')&&!new URLSearchParams(location.search).has('join')&&!new URLSearchParams(location.search).has('battle')){syncOnboarding();showScreen('firstLaunch');}
 if(new URLSearchParams(location.search).has('qa')){
- window.CK={arenaGeometry:()=>({size:G.arenaSize,W,H,T,COLS,ROWS,OY,WB,worldFit:{scale:fitS,x:fitX,y:fitY},hudFit:{scale:hudS,x:hudX,y:hudY},camera:{...cam},backings:{bg:[bg.width,bg.height],wl:[wl.width,wl.height],darkness:[dk.width,dk.height],custard:[custCv.width,custCv.height]}}),mapThumb,validNetSetupShape,firstFight:()=>firstFight?Object.freeze({...firstFightFields(firstFight),config:Object.freeze({...firstFight.assignment.config})}):null,productReport:()=>productEvents?.report()||null,initArenaChaos,startRareEvent,endRareEvent,updateRareEvent,syncRareMusic,ko,startFall,setPause,spriteCacheEnabled:value=>{if(value!==undefined){sprFactionCacheEnabled=!!value;clearFactionSprites();}return sprFactionCacheEnabled;},spriteCompose: (e,i,open=false)=>sprCompose(e,i,open?SPR_OPEN.knight:SPR),spriteFrameCount:()=>SPR.per*5,spriteCache:()=>({entries:sprFactionCache.size,bytes:sprFactionCacheBytes,limit:sprFactionCacheLimit,hits:sprFactionCacheHits,misses:sprFactionCacheMisses}),clearFactionSprites,botInput,DIFFS,speedOf,MODES,massBattle:()=>massBattleUI,menuNav,menuActivate,combatBeat,bladeSweep,swingArc,sprFrame,headTop,applySnap,clientTick,presentationSettings:o=>Object.assign(SET,o),collection:()=>COLLECTION,setCollection:saveCollection,awardCollection,campaignCollectionReward,reloadWardrobeSaves,drawCollectionPreview,openWardrobe,owned,cleanKit,collectionUI:()=>collectionUI,adventure:ADVENTURE,hurt,startSwing,hitCrate,clang,doHit,fire,draw,toMenu,cup:()=>CUP,startCup,cupReady,nextCupRound,cancelCup,musicState:()=>({cue:musicCue,wanted:musicWant,src:music.getAttribute('src')}),cueMusic,audioStats:()=>({active:audioVoices,max:MAX_AUDIO_VOICES}),sfx,hostOnline,joinOnline,leaveOnline,G:()=>G,PROG,NET,clientRecv,hostRecv,hostDrop,snapshot,humanInput,endMatch,netSetup,rematch,seats:()=>SEATS,setSeats:v=>{SEATS=v;partyGo=true;},cfg,keys,touch,update,newGame,start,loadProfile,saveProfile,drawKnight:e=>drawKnight(e),sprites:v=>{ SET.classic=!v; },spritesReady:()=>sprReady,sprLoadAll:()=>sprLoadSet(SPR),sprLoadVisors:loadOpenVisors,visorAssets:()=>({requested:!!SPR_OPEN.promise,knightReady:SPR_OPEN.knightReady,heroReady:SPR_OPEN.heroReady}),mkKnight:o=>mkKnight(o),withCtx:(c,fn)=>{ const k=ctx; ctx=c; try{ fn(); }finally{ ctx=k; } },startEvent,startMayhem,applyPU,giveWeapon,spawnPickup,MAYHEM,PU,MAPS,WEAPONS,
+ window.CK={practice:()=>practice?practice.lesson.state():null,arenaGeometry:()=>({size:G.arenaSize,W,H,T,COLS,ROWS,OY,WB,worldFit:{scale:fitS,x:fitX,y:fitY},hudFit:{scale:hudS,x:hudX,y:hudY},camera:{...cam},backings:{bg:[bg.width,bg.height],wl:[wl.width,wl.height],darkness:[dk.width,dk.height],custard:[custCv.width,custCv.height]}}),mapThumb,validNetSetupShape,firstFight:()=>firstFight?Object.freeze({...firstFightFields(firstFight),config:Object.freeze({...firstFight.assignment.config})}):null,productReport:()=>productEvents?.report()||null,initArenaChaos,startRareEvent,endRareEvent,updateRareEvent,syncRareMusic,ko,startFall,setPause,spriteCacheEnabled:value=>{if(value!==undefined){sprFactionCacheEnabled=!!value;clearFactionSprites();}return sprFactionCacheEnabled;},spriteCompose: (e,i,open=false)=>sprCompose(e,i,open?SPR_OPEN.knight:SPR),spriteFrameCount:()=>SPR.per*5,spriteCache:()=>({entries:sprFactionCache.size,bytes:sprFactionCacheBytes,limit:sprFactionCacheLimit,hits:sprFactionCacheHits,misses:sprFactionCacheMisses}),clearFactionSprites,botInput,DIFFS,speedOf,MODES,massBattle:()=>massBattleUI,menuNav,menuActivate,combatBeat,bladeSweep,swingArc,sprFrame,headTop,applySnap,clientTick,presentationSettings:o=>Object.assign(SET,o),collection:()=>COLLECTION,setCollection:saveCollection,awardCollection,campaignCollectionReward,reloadWardrobeSaves,drawCollectionPreview,openWardrobe,owned,cleanKit,collectionUI:()=>collectionUI,adventure:ADVENTURE,hurt,startSwing,hitCrate,clang,doHit,fire,draw,toMenu,cup:()=>CUP,startCup,cupReady,nextCupRound,cancelCup,musicState:()=>({cue:musicCue,wanted:musicWant,src:music.getAttribute('src')}),cueMusic,audioStats:()=>({active:audioVoices,max:MAX_AUDIO_VOICES}),sfx,hostOnline,joinOnline,leaveOnline,G:()=>G,PROG,NET,clientRecv,hostRecv,hostDrop,snapshot,humanInput,endMatch,netSetup,rematch,seats:()=>SEATS,setSeats:v=>{SEATS=v;partyGo=true;},cfg,keys,touch,update,newGame,start,loadProfile,saveProfile,drawKnight:e=>drawKnight(e),sprites:v=>{ SET.classic=!v; },spritesReady:()=>sprReady,sprLoadAll:()=>sprLoadSet(SPR),sprLoadVisors:loadOpenVisors,visorAssets:()=>({requested:!!SPR_OPEN.promise,knightReady:SPR_OPEN.knightReady,heroReady:SPR_OPEN.heroReady}),mkKnight:o=>mkKnight(o),withCtx:(c,fn)=>{ const k=ctx; ctx=c; try{ fn(); }finally{ ctx=k; } },startEvent,startMayhem,applyPU,giveWeapon,spawnPickup,MAYHEM,PU,MAPS,WEAPONS,
   inputAim:e=>{const a=localAim.get(e);return a?{source:a.source,angle:a.angle,padIndex:a.padIndex}:null;},arenaAimCue,pollPads,padState,
   adv:n=>{for(let i=0;i<n;i++)update(1/60)},freeze:v=>{paused=v},
   begin:(o={})=>{ Object.assign(cfg,o); if(o.humans!==undefined) cfg.players=o.humans; $('menu').hidden=true; audio(); menuMusic(false); newGame(false); paused=true; $('pauseBtn').hidden=true; G.banner=null;initArenaChaos(); return G; },

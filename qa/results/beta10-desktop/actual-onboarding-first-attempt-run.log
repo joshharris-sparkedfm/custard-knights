@@ -1,0 +1,15 @@
+{
+  "attempt": 1,
+  "executable": "C:\\Users\\Joshua\\Documents\\Codex\\2026-10-08\\rea\\work\\custard-knights-onboarding\\dist\\Custard Knights-win32-x64\\Custard Knights.exe",
+  "profile": "C:\\Users\\Joshua\\AppData\\Local\\Temp\\custard-acceptance-Qx5Md4\\user-data",
+  "checks": [],
+  "limitations": [
+    "Actual packaged desktop origin with programmatic click smoke; physical-device and human acceptance remain open.",
+    "In-memory inspector replacement of acceptance.run only; packaged bytes are not edited."
+  ],
+  "exitCode": 1,
+  "stdout": "\r\n",
+  "stderr": "Debugger listening on ws://127.0.0.1:57707/e389dbb8-c93b-457b-9ae6-ae7349d9adf5\r\nFor help, see: https://nodejs.org/learn/getting-started/debugging\r\nDebugger attached.\r\nDebugger ending on ws://127.0.0.1:57707/e389dbb8-c93b-457b-9ae6-ae7349d9adf5\r\nFor help, see: https://nodejs.org/learn/getting-started/debugging\r\nACTUAL_ONBOARDING_FAIL Error: sprLoadSet is not defined\n[35056:1013/103411.577:ERROR:gpu\\ipc\\client\\command_buffer_proxy_impl.cc:490] GPU state invalid after WaitForGetOffsetInRange.\r\n[35056:1013/103411.577:ERROR:gpu\\ipc\\client\\command_buffer_proxy_impl.cc:490] GPU state invalid after WaitForGetOffsetInRange.\r\n",
+  "pass": false,
+  "error": "Error: Actual onboarding failed: Debugger listening on ws://127.0.0.1:57707/e389dbb8-c93b-457b-9ae6-ae7349d9adf5\r\nFor help, see: https://nodejs.org/learn/getting-started/debugging\r\nDebugger attached.\r\nDebugger ending on ws://127.0.0.1:57707/e389dbb8-c93b-457b-9ae6-ae7349d9adf5\r\nFor help, see: https://nodejs.org/learn/getting-started/debugging\r\nACTUAL_ONBOARDING_FAIL Error: sprLoadSet is not defined\n[35056:1013/103411.577:ERROR:gpu\\ipc\\client\\command_buffer_proxy_impl.cc:490] GPU state invalid after WaitForGetOffsetInRange.\r\n[35056:1013/103411.577:ERROR:gpu\\ipc\\client\\command_buffer_proxy_impl.cc:490] GPU state invalid after WaitForGetOffsetInRange.\r\n \r\n\n    at C:\\Users\\Joshua\\Documents\\Codex\\2026-10-08\\rea\\work\\custard-knights-onboarding\\qa\\results\\beta10-desktop\\actual-onboarding.cjs:63:108\n    at process.processTicksAndRejections (node:internal/process/task_queues:104:5)"
+}

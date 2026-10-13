@@ -1,0 +1,1392 @@
+{
+  "startedAt": "2026-10-13T11:05:25.483Z",
+  "root": "C:\\Users\\Joshua\\Documents\\Codex\\2026-10-08\\rea\\work\\custard-knights-controls",
+  "harnessSha256": "05192018cdfafdd86988c31d663e6fd5efe178f042439330cecad3b45e3d5765",
+  "sourceHashes": {
+    "index.html": "d04f3ec5615fb2c664d083da4e812c2c11bc4d56a5370cc9f4723991c6e1bc67",
+    "game/preferences.js": "88462d6520d725e9b525ffbb0c744370327d4959075559bb33ed4e2b9b0d6d4a",
+    "game/controls.js": "a65a941fbe3614ab467207d8b216eecdffa77668d1f1bb171f4ad4a6c2405b40",
+    "game/mass-battle-ui.js": "5b944edec7ebab0ff54fab38a34308e8a8123a04290a8eda969f021292b0e260",
+    "game/input-aim.js": "54040dd96e1360a46cd36c5fc6f92b05abeeb7db34af7f5cca3d75a9dcb9baee"
+  },
+  "checks": [
+    {
+      "name": "Controls editor actual Options entry and minimal window fields/apply are usable",
+      "profile": "local",
+      "pass": true,
+      "details": {
+        "pass": true,
+        "apply": {
+          "pass": true,
+          "cases": [
+            {
+              "width": 800,
+              "height": 600,
+              "text": {
+                "exists": true,
+                "text": "Changes apply only after Apply. Cancel returns to Settings without changing your controls.",
+                "fontSize": "12px",
+                "display": "block",
+                "rect": {
+                  "x": 175.8954620361328,
+                  "y": 540.9105834960938,
+                  "width": 433.20208740234375,
+                  "height": 34.7974853515625,
+                  "top": 540.9105834960938,
+                  "right": 609.0975494384766,
+                  "bottom": 575.7080688476562,
+                  "left": 175.8954620361328
+                },
+                "textRect": {
+                  "x": 175.8954620361328,
+                  "y": 540.9105834960938,
+                  "width": 418.96112060546875,
+                  "height": 33.40625,
+                  "top": 540.9105834960938,
+                  "right": 594.8565826416016,
+                  "bottom": 574.3168334960938,
+                  "left": 175.8954620361328
+                },
+                "visible": true,
+                "clickable": true
+              },
+              "button": {
+                "exists": true,
+                "text": "Apply",
+                "fontSize": "26px",
+                "display": "block",
+                "rect": {
+                  "x": 176,
+                  "y": 519.859375,
+                  "width": 122.4375,
+                  "height": 56,
+                  "top": 519.859375,
+                  "right": 298.4375,
+                  "bottom": 575.859375,
+                  "left": 176
+                },
+                "textRect": {
+                  "x": 202.5,
+                  "y": 532.859375,
+                  "width": 69.4375,
+                  "height": 30,
+                  "top": 532.859375,
+                  "right": 271.9375,
+                  "bottom": 562.859375,
+                  "left": 202.5
+                },
+                "visible": true,
+                "clickable": true
+              },
+              "fixture": "Each element measured after its own normal scrollIntoView; simultaneous visibility not claimed"
+            },
+            {
+              "width": 800,
+              "height": 500,
+              "text": {
+                "exists": true,
+                "text": "Changes apply only after Apply. Cancel returns to Settings without changing your controls.",
+                "fontSize": "12px",
+                "display": "block",
+                "rect": {
+                  "x": 176,
+                  "y": 441.078125,
+                  "width": 433,
+                  "height": 34.78125,
+                  "top": 441.078125,
+                  "right": 609,
+                  "bottom": 475.859375,
+                  "left": 176
+                },
+                "textRect": {
+                  "x": 176,
+                  "y": 441.078125,
+                  "width": 418.765625,
+                  "height": 33.390625,
+                  "top": 441.078125,
+                  "right": 594.765625,
+                  "bottom": 474.46875,
+                  "left": 176
+                },
+                "visible": true,
+                "clickable": true
+              },
+              "button": {
+                "exists": true,
+                "text": "Apply",
+                "fontSize": "26px",
+                "display": "block",
+                "rect": {
+                  "x": 176,
+                  "y": 419.859375,
+                  "width": 122.4375,
+                  "height": 56,
+                  "top": 419.859375,
+                  "right": 298.4375,
+                  "bottom": 475.859375,
+                  "left": 176
+                },
+                "textRect": {
+                  "x": 202.5,
+                  "y": 432.859375,
+                  "width": 69.4375,
+                  "height": 30,
+                  "top": 432.859375,
+                  "right": 271.9375,
+                  "bottom": 462.859375,
+                  "left": 202.5
+                },
+                "visible": true,
+                "clickable": true
+              },
+              "fixture": "Each element measured after its own normal scrollIntoView; simultaneous visibility not claimed"
+            }
+          ]
+        },
+        "field": {
+          "pass": true,
+          "cases": [
+            {
+              "width": 800,
+              "height": 600,
+              "text": {
+                "exists": true,
+                "text": "Changes apply only after Apply. Cancel returns to Settings without changing your controls.",
+                "fontSize": "12px",
+                "display": "block",
+                "rect": {
+                  "x": 176,
+                  "y": 451.078125,
+                  "width": 433,
+                  "height": 34.78125,
+                  "top": 451.078125,
+                  "right": 609,
+                  "bottom": 485.859375,
+                  "left": 176
+                },
+                "textRect": {
+                  "x": 176,
+                  "y": 451.078125,
+                  "width": 418.765625,
+                  "height": 33.390625,
+                  "top": 451.078125,
+                  "right": 594.765625,
+                  "bottom": 484.46875,
+                  "left": 176
+                },
+                "visible": true,
+                "clickable": true
+              },
+              "button": {
+                "exists": true,
+                "text": "Space / J / F (current aliases)ABCDEFGHIJKLMNOQRSTUVWXYZUp arrowDown arrowLeft arrowRight arrowSpaceLeft ShiftRight ShiftLeft CtrlRight Ctrl",
+                "fontSize": "13.3333px",
+                "display": "block",
+                "rect": {
+                  "x": 412,
+                  "y": 265.015625,
+                  "width": 197,
+                  "height": 19,
+                  "top": 265.015625,
+                  "right": 609,
+                  "bottom": 284.015625,
+                  "left": 412
+                },
+                "textRect": {
+                  "x": 412,
+                  "y": 265.015625,
+                  "width": 197,
+                  "height": 19,
+                  "top": 265.015625,
+                  "right": 609,
+                  "bottom": 284.015625,
+                  "left": 412
+                },
+                "visible": true,
+                "clickable": true
+              },
+              "fixture": "Each element measured after its own normal scrollIntoView; simultaneous visibility not claimed"
+            },
+            {
+              "width": 800,
+              "height": 500,
+              "text": {
+                "exists": true,
+                "text": "Changes apply only after Apply. Cancel returns to Settings without changing your controls.",
+                "fontSize": "12px",
+                "display": "block",
+                "rect": {
+                  "x": 176,
+                  "y": 371.078125,
+                  "width": 433,
+                  "height": 34.78125,
+                  "top": 371.078125,
+                  "right": 609,
+                  "bottom": 405.859375,
+                  "left": 176
+                },
+                "textRect": {
+                  "x": 176,
+                  "y": 371.078125,
+                  "width": 418.765625,
+                  "height": 33.390625,
+                  "top": 371.078125,
+                  "right": 594.765625,
+                  "bottom": 404.46875,
+                  "left": 176
+                },
+                "visible": true,
+                "clickable": true
+              },
+              "button": {
+                "exists": true,
+                "text": "Space / J / F (current aliases)ABCDEFGHIJKLMNOQRSTUVWXYZUp arrowDown arrowLeft arrowRight arrowSpaceLeft ShiftRight ShiftLeft CtrlRight Ctrl",
+                "fontSize": "13.3333px",
+                "display": "block",
+                "rect": {
+                  "x": 412,
+                  "y": 185.015625,
+                  "width": 197,
+                  "height": 19,
+                  "top": 185.015625,
+                  "right": 609,
+                  "bottom": 204.015625,
+                  "left": 412
+                },
+                "textRect": {
+                  "x": 412,
+                  "y": 185.015625,
+                  "width": 197,
+                  "height": 19,
+                  "top": 185.015625,
+                  "right": 609,
+                  "bottom": 204.015625,
+                  "left": 412
+                },
+                "visible": true,
+                "clickable": true
+              },
+              "fixture": "Each element measured after its own normal scrollIntoView; simultaneous visibility not claimed"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "Default half 1 supplemental aliases work alone and are suppressed with half 2",
+      "profile": "local",
+      "pass": true,
+      "details": {
+        "pass": true,
+        "alone": {
+          "mx": 0,
+          "my": 0,
+          "atk": true,
+          "dash": false,
+          "block": false,
+          "faceTo": null
+        },
+        "shared": [
+          {
+            "mx": 0,
+            "my": 0,
+            "atk": false,
+            "dash": false,
+            "block": false,
+            "faceTo": null
+          },
+          {
+            "mx": 0,
+            "my": 0,
+            "atk": false,
+            "dash": false,
+            "block": false,
+            "faceTo": null
+          }
+        ]
+      }
+    },
+    {
+      "name": "Explicitly selecting F replaces default F Space aliases even alone",
+      "profile": "local",
+      "pass": true,
+      "details": {
+        "pass": true,
+        "stored": {
+          "up": [
+            "KeyW"
+          ],
+          "down": [
+            "KeyS"
+          ],
+          "left": [
+            "KeyA"
+          ],
+          "right": [
+            "KeyD"
+          ],
+          "atk": [
+            "KeyF"
+          ],
+          "dash": [
+            "KeyG",
+            "ShiftLeft",
+            "ShiftRight"
+          ],
+          "block": [
+            "KeyH",
+            "KeyE"
+          ]
+        },
+        "space": {
+          "mx": 0,
+          "my": 0,
+          "atk": false,
+          "dash": false,
+          "block": false,
+          "faceTo": null
+        },
+        "f": {
+          "mx": 0,
+          "my": 0,
+          "atk": true,
+          "dash": false,
+          "block": false,
+          "faceTo": null
+        }
+      }
+    },
+    {
+      "name": "Reserved system keys and nonstandard pad buttons have no editor option",
+      "profile": "local",
+      "pass": true,
+      "details": {
+        "pass": true,
+        "keyboard": [
+          "aliases",
+          "KeyA",
+          "KeyB",
+          "KeyC",
+          "KeyD",
+          "KeyE",
+          "KeyF",
+          "KeyG",
+          "KeyH",
+          "KeyI",
+          "KeyJ",
+          "KeyK",
+          "KeyL",
+          "KeyM",
+          "KeyN",
+          "KeyO",
+          "KeyQ",
+          "KeyR",
+          "KeyS",
+          "KeyT",
+          "KeyU",
+          "KeyV",
+          "KeyW",
+          "KeyX",
+          "KeyY",
+          "KeyZ",
+          "ArrowUp",
+          "ArrowDown",
+          "ArrowLeft",
+          "ArrowRight",
+          "Space",
+          "ShiftLeft",
+          "ShiftRight",
+          "ControlLeft",
+          "ControlRight"
+        ],
+        "pads": [
+          "aliases",
+          "0",
+          "1",
+          "2",
+          "3",
+          "4",
+          "5",
+          "6",
+          "7",
+          "10",
+          "11"
+        ]
+      }
+    },
+    {
+      "name": "Remaining solo alias conflict rejects Apply without changing saved controls",
+      "profile": "local",
+      "pass": true,
+      "details": {
+        "pass": true,
+        "text": "solo: L is assigned to both atk and block."
+      }
+    },
+    {
+      "name": "Shared keyboard half conflict rejects the other half action key",
+      "profile": "local",
+      "pass": true,
+      "details": {
+        "pass": true,
+        "text": "J is already used by the other keyboard half."
+      }
+    },
+    {
+      "name": "Remaining pad alias conflict rejects LT already assigned to block",
+      "profile": "local",
+      "pass": true,
+      "details": {
+        "pass": true,
+        "text": "Player 1: LT is assigned to both atk and block."
+      }
+    },
+    {
+      "name": "Cancel discards actual keyboard draft edit",
+      "profile": "local",
+      "pass": true,
+      "details": {
+        "pass": true
+      }
+    },
+    {
+      "name": "Escape Back discards draft and returns to Options",
+      "profile": "local",
+      "pass": true,
+      "details": {
+        "pass": true
+      }
+    },
+    {
+      "name": "Actual selector edits Apply keyboard and logical controller profiles",
+      "profile": "local",
+      "pass": true,
+      "details": {
+        "pass": true,
+        "saved": {
+          "version": 1,
+          "keyboard": {
+            "solo": {
+              "up": [
+                "KeyW",
+                "ArrowUp"
+              ],
+              "down": [
+                "KeyS",
+                "ArrowDown"
+              ],
+              "left": [
+                "KeyA",
+                "ArrowLeft"
+              ],
+              "right": [
+                "KeyD",
+                "ArrowRight"
+              ],
+              "atk": [
+                "KeyR"
+              ],
+              "dash": [
+                "ShiftLeft",
+                "ShiftRight",
+                "KeyK",
+                "KeyG"
+              ],
+              "block": [
+                "KeyE",
+                "KeyL",
+                "KeyH"
+              ]
+            },
+            "kb1": {
+              "up": [
+                "KeyW"
+              ],
+              "down": [
+                "KeyS"
+              ],
+              "left": [
+                "KeyA"
+              ],
+              "right": [
+                "KeyC"
+              ],
+              "atk": [
+                "KeyQ"
+              ],
+              "dash": [
+                "KeyT"
+              ],
+              "block": [
+                "KeyV"
+              ]
+            },
+            "kb2": {
+              "up": [
+                "ArrowUp"
+              ],
+              "down": [
+                "ArrowDown"
+              ],
+              "left": [
+                "ArrowLeft"
+              ],
+              "right": [
+                "ArrowRight"
+              ],
+              "atk": [
+                "KeyU"
+              ],
+              "dash": [
+                "KeyK"
+              ],
+              "block": [
+                "KeyL"
+              ]
+            }
+          },
+          "pads": [
+            {
+              "atk": [
+                10
+              ],
+              "dash": [
+                11
+              ],
+              "block": [
+                3
+              ],
+              "shout": [
+                4
+              ]
+            },
+            {
+              "atk": [
+                11
+              ],
+              "dash": [
+                1,
+                4
+              ],
+              "block": [
+                2,
+                5,
+                6
+              ],
+              "shout": [
+                3
+              ]
+            },
+            {
+              "atk": [
+                0,
+                7
+              ],
+              "dash": [
+                1,
+                4
+              ],
+              "block": [
+                2,
+                5,
+                6
+              ],
+              "shout": [
+                3
+              ]
+            },
+            {
+              "atk": [
+                0,
+                7
+              ],
+              "dash": [
+                1,
+                4
+              ],
+              "block": [
+                2,
+                5,
+                6
+              ],
+              "shout": [
+                3
+              ]
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "Reload retains isolated-profile mappings saved through Apply",
+      "profile": "local",
+      "pass": true,
+      "details": {
+        "pass": true,
+        "saved": {
+          "version": 1,
+          "keyboard": {
+            "solo": {
+              "up": [
+                "KeyW",
+                "ArrowUp"
+              ],
+              "down": [
+                "KeyS",
+                "ArrowDown"
+              ],
+              "left": [
+                "KeyA",
+                "ArrowLeft"
+              ],
+              "right": [
+                "KeyD",
+                "ArrowRight"
+              ],
+              "atk": [
+                "KeyR"
+              ],
+              "dash": [
+                "ShiftLeft",
+                "ShiftRight",
+                "KeyK",
+                "KeyG"
+              ],
+              "block": [
+                "KeyE",
+                "KeyL",
+                "KeyH"
+              ]
+            },
+            "kb1": {
+              "up": [
+                "KeyW"
+              ],
+              "down": [
+                "KeyS"
+              ],
+              "left": [
+                "KeyA"
+              ],
+              "right": [
+                "KeyC"
+              ],
+              "atk": [
+                "KeyQ"
+              ],
+              "dash": [
+                "KeyT"
+              ],
+              "block": [
+                "KeyV"
+              ]
+            },
+            "kb2": {
+              "up": [
+                "ArrowUp"
+              ],
+              "down": [
+                "ArrowDown"
+              ],
+              "left": [
+                "ArrowLeft"
+              ],
+              "right": [
+                "ArrowRight"
+              ],
+              "atk": [
+                "KeyU"
+              ],
+              "dash": [
+                "KeyK"
+              ],
+              "block": [
+                "KeyL"
+              ]
+            }
+          },
+          "pads": [
+            {
+              "atk": [
+                10
+              ],
+              "dash": [
+                11
+              ],
+              "block": [
+                3
+              ],
+              "shout": [
+                4
+              ]
+            },
+            {
+              "atk": [
+                11
+              ],
+              "dash": [
+                1,
+                4
+              ],
+              "block": [
+                2,
+                5,
+                6
+              ],
+              "shout": [
+                3
+              ]
+            },
+            {
+              "atk": [
+                0,
+                7
+              ],
+              "dash": [
+                1,
+                4
+              ],
+              "block": [
+                2,
+                5,
+                6
+              ],
+              "shout": [
+                3
+              ]
+            },
+            {
+              "atk": [
+                0,
+                7
+              ],
+              "dash": [
+                1,
+                4
+              ],
+              "block": [
+                2,
+                5,
+                6
+              ],
+              "shout": [
+                3
+              ]
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "Owning keyboard halves use remaps and retired F J aliases no longer swing",
+      "profile": "local",
+      "pass": true,
+      "details": {
+        "pass": true,
+        "q": [
+          {
+            "mx": 0,
+            "my": 0,
+            "atk": false,
+            "dash": false,
+            "block": false,
+            "faceTo": null
+          },
+          {
+            "mx": 0,
+            "my": 0,
+            "atk": true,
+            "dash": false,
+            "block": false,
+            "faceTo": null
+          }
+        ],
+        "u": [
+          {
+            "mx": 0,
+            "my": 0,
+            "atk": true,
+            "dash": false,
+            "block": false,
+            "faceTo": null
+          },
+          {
+            "mx": 0,
+            "my": 0,
+            "atk": false,
+            "dash": false,
+            "block": false,
+            "faceTo": null
+          }
+        ],
+        "old": [
+          {
+            "mx": 0,
+            "my": 0,
+            "atk": false,
+            "dash": false,
+            "block": false,
+            "faceTo": null
+          },
+          {
+            "mx": 0,
+            "my": 0,
+            "atk": false,
+            "dash": false,
+            "block": false,
+            "faceTo": null
+          }
+        ],
+        "seats": [
+          {
+            "dev": "kb2"
+          },
+          {
+            "dev": "kb1"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Remapped keyboard movement dash and block reach only owning half",
+      "profile": "local",
+      "pass": true,
+      "details": {
+        "pass": true,
+        "mapped": [
+          {
+            "mx": 0,
+            "my": 0,
+            "atk": false,
+            "dash": false,
+            "block": false,
+            "faceTo": null
+          },
+          {
+            "mx": 1,
+            "my": 0,
+            "atk": false,
+            "dash": true,
+            "block": true,
+            "faceTo": null
+          }
+        ],
+        "old": [
+          {
+            "mx": 0,
+            "my": 0,
+            "atk": false,
+            "dash": false,
+            "block": false,
+            "faceTo": null
+          },
+          {
+            "mx": 0,
+            "my": 0,
+            "atk": false,
+            "dash": false,
+            "block": false,
+            "faceTo": null
+          }
+        ]
+      }
+    },
+    {
+      "name": "Keyboard half 1 remap persists when shared topology becomes alone",
+      "profile": "local",
+      "pass": true,
+      "details": {
+        "pass": true,
+        "half": {
+          "mx": 0,
+          "my": 0,
+          "atk": true,
+          "dash": false,
+          "block": false,
+          "faceTo": null
+        },
+        "solo": {
+          "mx": 0,
+          "my": 0,
+          "atk": false,
+          "dash": false,
+          "block": false,
+          "faceTo": null
+        },
+        "seats": [
+          {
+            "dev": "kb1"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Dynamic setup and couch seat prompts show actual remaps",
+      "profile": "local",
+      "pass": false,
+      "details": {
+        "pass": false,
+        "cases": [
+          {
+            "width": 800,
+            "height": 600,
+            "text": {
+              "exists": true,
+              "text": "P1: Keyboard: Move: W, A, S, C · Swing: Q · Dash: T · Block: V. Controllers use their logical Player 1–4 gameplay settings. Mouse aims / click swings / right-click blocks for solo or keyboard half 1. Hold Swing for heavy. Start opens the match menu. Remap in Settings; Faction Front keeps separate bindings. No pad connected yet; press any button on one.",
+              "fontSize": "13px",
+              "display": "flex",
+              "rect": {
+                "x": 41.927040100097656,
+                "y": 501.14569091796875,
+                "width": 701.1458740234375,
+                "height": 91.0189208984375,
+                "top": 501.14569091796875,
+                "right": 743.0729141235352,
+                "bottom": 592.1646118164062,
+                "left": 41.927040100097656
+              },
+              "textRect": {
+                "x": 41.927040100097656,
+                "y": 503.14605712890625,
+                "width": 700.6614379882812,
+                "height": 86.2679443359375,
+                "top": 503.14605712890625,
+                "right": 742.5884780883789,
+                "bottom": 589.4140014648438,
+                "left": 41.927040100097656
+              },
+              "visible": true,
+              "clickable": true
+            },
+            "button": {
+              "exists": true,
+              "text": "Start the brawl",
+              "fontSize": "26px",
+              "display": "block",
+              "rect": {
+                "x": 42,
+                "y": 536.15625,
+                "width": 701,
+                "height": 56,
+                "top": 536.15625,
+                "right": 743,
+                "bottom": 592.15625,
+                "left": 42
+              },
+              "textRect": {
+                "x": 305.953125,
+                "y": 549.15625,
+                "width": 173.078125,
+                "height": 30,
+                "top": 549.15625,
+                "right": 479.03125,
+                "bottom": 579.15625,
+                "left": 305.953125
+              },
+              "visible": true,
+              "clickable": true
+            },
+            "fixture": "Each element measured after its own normal scrollIntoView; simultaneous visibility not claimed"
+          },
+          {
+            "width": 800,
+            "height": 500,
+            "text": {
+              "exists": true,
+              "text": "P1: Keyboard: Move: W, A, S, C · Swing: Q · Dash: T · Block: V. Controllers use their logical Player 1–4 gameplay settings. Mouse aims / click swings / right-click blocks for solo or keyboard half 1. Hold Swing for heavy. Start opens the match menu. Remap in Settings; Faction Front keeps separate bindings. No pad connected yet; press any button on one.",
+              "fontSize": "13px",
+              "display": "flex",
+              "rect": {
+                "x": 42,
+                "y": 390.375,
+                "width": 701,
+                "height": 91,
+                "top": 390.375,
+                "right": 743,
+                "bottom": 481.375,
+                "left": 42
+              },
+              "textRect": {
+                "x": 42,
+                "y": 392.375,
+                "width": 700.515625,
+                "height": 86.25,
+                "top": 392.375,
+                "right": 742.515625,
+                "bottom": 478.625,
+                "left": 42
+              },
+              "visible": true,
+              "clickable": true
+            },
+            "button": {
+              "exists": true,
+              "text": "Start the brawl",
+              "fontSize": "26px",
+              "display": "block",
+              "rect": {
+                "x": 42,
+                "y": 436.375,
+                "width": 701,
+                "height": 56,
+                "top": 436.375,
+                "right": 743,
+                "bottom": 492.375,
+                "left": 42
+              },
+              "textRect": {
+                "x": 305.953125,
+                "y": 449.375,
+                "width": 173.078125,
+                "height": 30,
+                "top": 449.375,
+                "right": 479.03125,
+                "bottom": 479.375,
+                "left": 305.953125
+              },
+              "visible": true,
+              "clickable": true
+            },
+            "fixture": "Each element measured after its own normal scrollIntoView; simultaneous visibility not claimed"
+          }
+        ],
+        "text": "P1: Keyboard: Move: W, A, S, C · Swing: Q · Dash: T · Block: V. Controllers use their logical Player 1–4 gameplay settings. Mouse aims / click swings / right-click blocks for solo or keyboard half 1. Hold Swing for heavy. Start opens the match menu. Remap in Settings; Faction Front keeps separate bindings. No pad connected yet; press any button on one."
+      }
+    }
+  ],
+  "errors": [],
+  "limitations": [
+    "Actual Chrome; CDP keyboard/mouse and injected standard pad objects. No physical controllers, Steam Input, human couch or packaged EXE acceptance.",
+    "Direct CK start/setSeats fixtures isolate routing; no input-only completed gameplay or balance claim. No live input recorder/capture exists: the editor uses explicit selectors.",
+    "Profiles are isolated temporary QA saves. Focus fixture events and malformed-storage setup are explicitly labeled; no real online network acceptance."
+  ],
+  "defaultControls": {
+    "version": 1,
+    "keyboard": {
+      "solo": {
+        "up": [
+          "KeyW",
+          "ArrowUp"
+        ],
+        "down": [
+          "KeyS",
+          "ArrowDown"
+        ],
+        "left": [
+          "KeyA",
+          "ArrowLeft"
+        ],
+        "right": [
+          "KeyD",
+          "ArrowRight"
+        ],
+        "atk": [
+          "Space",
+          "KeyJ",
+          "KeyF"
+        ],
+        "dash": [
+          "ShiftLeft",
+          "ShiftRight",
+          "KeyK",
+          "KeyG"
+        ],
+        "block": [
+          "KeyE",
+          "KeyL",
+          "KeyH"
+        ]
+      },
+      "kb1": {
+        "up": [
+          "KeyW"
+        ],
+        "down": [
+          "KeyS"
+        ],
+        "left": [
+          "KeyA"
+        ],
+        "right": [
+          "KeyD"
+        ],
+        "atk": [
+          "KeyF",
+          "Space"
+        ],
+        "dash": [
+          "KeyG",
+          "ShiftLeft",
+          "ShiftRight"
+        ],
+        "block": [
+          "KeyH",
+          "KeyE"
+        ]
+      },
+      "kb2": {
+        "up": [
+          "ArrowUp"
+        ],
+        "down": [
+          "ArrowDown"
+        ],
+        "left": [
+          "ArrowLeft"
+        ],
+        "right": [
+          "ArrowRight"
+        ],
+        "atk": [
+          "KeyJ"
+        ],
+        "dash": [
+          "KeyK"
+        ],
+        "block": [
+          "KeyL"
+        ]
+      }
+    },
+    "pads": [
+      {
+        "atk": [
+          0,
+          7
+        ],
+        "dash": [
+          1,
+          4
+        ],
+        "block": [
+          2,
+          5,
+          6
+        ],
+        "shout": [
+          3
+        ]
+      },
+      {
+        "atk": [
+          0,
+          7
+        ],
+        "dash": [
+          1,
+          4
+        ],
+        "block": [
+          2,
+          5,
+          6
+        ],
+        "shout": [
+          3
+        ]
+      },
+      {
+        "atk": [
+          0,
+          7
+        ],
+        "dash": [
+          1,
+          4
+        ],
+        "block": [
+          2,
+          5,
+          6
+        ],
+        "shout": [
+          3
+        ]
+      },
+      {
+        "atk": [
+          0,
+          7
+        ],
+        "dash": [
+          1,
+          4
+        ],
+        "block": [
+          2,
+          5,
+          6
+        ],
+        "shout": [
+          3
+        ]
+      }
+    ]
+  },
+  "savedRemaps": {
+    "version": 1,
+    "keyboard": {
+      "solo": {
+        "up": [
+          "KeyW",
+          "ArrowUp"
+        ],
+        "down": [
+          "KeyS",
+          "ArrowDown"
+        ],
+        "left": [
+          "KeyA",
+          "ArrowLeft"
+        ],
+        "right": [
+          "KeyD",
+          "ArrowRight"
+        ],
+        "atk": [
+          "KeyR"
+        ],
+        "dash": [
+          "ShiftLeft",
+          "ShiftRight",
+          "KeyK",
+          "KeyG"
+        ],
+        "block": [
+          "KeyE",
+          "KeyL",
+          "KeyH"
+        ]
+      },
+      "kb1": {
+        "up": [
+          "KeyW"
+        ],
+        "down": [
+          "KeyS"
+        ],
+        "left": [
+          "KeyA"
+        ],
+        "right": [
+          "KeyC"
+        ],
+        "atk": [
+          "KeyQ"
+        ],
+        "dash": [
+          "KeyT"
+        ],
+        "block": [
+          "KeyV"
+        ]
+      },
+      "kb2": {
+        "up": [
+          "ArrowUp"
+        ],
+        "down": [
+          "ArrowDown"
+        ],
+        "left": [
+          "ArrowLeft"
+        ],
+        "right": [
+          "ArrowRight"
+        ],
+        "atk": [
+          "KeyU"
+        ],
+        "dash": [
+          "KeyK"
+        ],
+        "block": [
+          "KeyL"
+        ]
+      }
+    },
+    "pads": [
+      {
+        "atk": [
+          10
+        ],
+        "dash": [
+          11
+        ],
+        "block": [
+          3
+        ],
+        "shout": [
+          4
+        ]
+      },
+      {
+        "atk": [
+          11
+        ],
+        "dash": [
+          1,
+          4
+        ],
+        "block": [
+          2,
+          5,
+          6
+        ],
+        "shout": [
+          3
+        ]
+      },
+      {
+        "atk": [
+          0,
+          7
+        ],
+        "dash": [
+          1,
+          4
+        ],
+        "block": [
+          2,
+          5,
+          6
+        ],
+        "shout": [
+          3
+        ]
+      },
+      {
+        "atk": [
+          0,
+          7
+        ],
+        "dash": [
+          1,
+          4
+        ],
+        "block": [
+          2,
+          5,
+          6
+        ],
+        "shout": [
+          3
+        ]
+      }
+    ]
+  },
+  "failure": "Error: Stopped after observed-input failure: Dynamic setup and couch seat prompts show actual remaps\n    at Object.step (C:\\Users\\Joshua\\Documents\\Codex\\2026-10-08\\rea\\work\\custard-knights-controls\\qa\\controls-remap-browser.cjs:34:515)\n    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)\n    at async controlsCases (C:\\Users\\Joshua\\Documents\\Codex\\2026-10-08\\rea\\work\\custard-knights-controls\\qa\\controls-remap-browser.cjs:76:2)\n    at async main (C:\\Users\\Joshua\\Documents\\Codex\\2026-10-08\\rea\\work\\custard-knights-controls\\qa\\controls-remap-browser.cjs:53:2)",
+  "sourceHashesAfter": {
+    "index.html": "d04f3ec5615fb2c664d083da4e812c2c11bc4d56a5370cc9f4723991c6e1bc67",
+    "game/preferences.js": "88462d6520d725e9b525ffbb0c744370327d4959075559bb33ed4e2b9b0d6d4a",
+    "game/controls.js": "a65a941fbe3614ab467207d8b216eecdffa77668d1f1bb171f4ad4a6c2405b40",
+    "game/mass-battle-ui.js": "5b944edec7ebab0ff54fab38a34308e8a8123a04290a8eda969f021292b0e260",
+    "game/input-aim.js": "54040dd96e1360a46cd36c5fc6f92b05abeeb7db34af7f5cca3d75a9dcb9baee"
+  },
+  "stableSources": true,
+  "finishedAt": "2026-10-13T11:06:08.926Z",
+  "counts": {
+    "pass": 14,
+    "fail": 1
+  }
+}

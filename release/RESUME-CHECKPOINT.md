@@ -1,3 +1,13 @@
+# Remappable controls source checkpoint — 13 October 2026
+
+Worktree work/custard-knights-controls, branch codex/remappable-controls from verified PR29 merge fcc94548781ea559dfde82913074ce1983f18d86. Beta.13 prepared; latest verified export remains beta.12 until package evidence records the new build. Original bakery WIP, normal saves and prior exports unchanged.
+
+Options now offers draft gameplay mappings for Solo keyboard, two keyboard halves and four logical player controller combat profiles, with conflict validation, Apply/Cancel/default reset, saved/session-only status and hold-release safeguards. Arena/Cup/Story/practice use them; Faction retains its explicitly labelled separate bindings. Menu navigation, mouse aiming/fire and stick axes remain fixed. Default aliases preserve prior behavior; editing an action replaces its complete alias list. Half1 supplements apply alone until edited and are stripped from untouched defaults when sharing. Profile ownership follows local logical seats; online guests use local P1 controls.
+
+108 affected tests passed before final selector repair;12 focused after alias-option restoration;21 controls/navigation after scoped HowTo layout fix. Independent final candidate3 browser33/33 passes with stable hashes and zero Runtime exceptions; source review cleared. Exact index SHA256 e8d08e7589c9222d5753f8f57b5f1b8424807d2827b46bff3f1745b9b7d58b6f, controls module a65a941fbe3614ab467207d8b216eecdffa77668d1f1bb171f4ad4a6c2405b40. Includes native-select/CDP interaction, sampled synthetic pad navigation, persistence/reset/corrupt/storage failure, held Apply/recovery and actual compact visibility. Online guest routing uses labelled direct state, not new WAN transport acceptance.
+
+Preserve candidate1 wrong Solo-versus-couch expectation, alias-selector real defect and candidate2 actual Sound/Back overlap failure. Unit missing dependency/state fixture corrections and encoding correction were reported from tool transcripts; do not invent archived raw failure logs. See qa/reviews/controls-remap-2026-10-13.md. Root freezes/pushes source, then package/CI before PR merge; packaging worker has only prepared beta.13 guidance/dependencies. Physical pads/Steam Input/human/TV/WAN/second-PC/minimum hardware/Steam readiness remain open; native tooling faults are not fixed.
+
 # Couch recovery and verified friends beta.12 — 13 October 2026
 
 PR29 contains frozen runtime be03b64f6ba3104bfcaa6b1154d4348cb2565fb5; later changes only QA/docs/evidence. All implementation/QA/package work completed in work/custard-knights-couch, branch codex/couch-device-continuity. Root completes final evidence push/merge and verifies origin/main before the next task. Original bakery WIP, normal saves and older exports remain preserved.

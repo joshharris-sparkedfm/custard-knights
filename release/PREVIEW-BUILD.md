@@ -1,4 +1,12 @@
-# Private friends beta - 0.3.0-beta.12
+# Private friends beta - 0.3.0-beta.13 (preparation)
+
+The remappable gameplay controls candidate adds Options > Remap gameplay controls for Solo keyboard, both keyboard halves and logical Player 1–4 controller combat profiles. Changes are drafts until Apply; Cancel discards them, Reset all prepares defaults, and conflicts block Apply. Saved maps stay local and prompts follow active bindings. After applying, held inputs must be released; a storage-failure message explicitly limits changes to this session.
+
+Arena, Custard Cup, Story and practice use these maps. Faction Front retains its separate fixed controls. Mouse actions, stick axes/d-pad, menu controls, keyboard join and keyboard shout keys stay fixed. This does not complete the wider full-experience milestone or establish physical-pad, Steam Input or human acceptance.
+
+Version and Friends start guide are prepared. Runtime review, exact source freeze, packaging, actual EXE acceptance, extracted-ASAR remapping checks, and export verification are pending. No beta.13 output or hash is claimed yet. Older exports remain preserved; no sending/public upload is authorized by this preparation.
+
+# Historical private friends beta - 0.3.0-beta.12
 
 Frozen runtime `be03b64f6ba3104bfcaa6b1154d4348cb2565fb5` reserves missing couch controller seats and outfits. Offline arena/Custard Cup pauses for recovery; online play continues with only the lost seat neutral. Release controls on an unassigned pad, choose the missing knight with left/right, then A deliberately reclaims it. Keyboard takeover is available when unassigned. Stable pad edges and fixed binding prompts are included; no remapping UI. Deliberate Leave still compacts seats (FE05 remains open).
 

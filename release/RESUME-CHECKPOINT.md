@@ -1,4 +1,16 @@
-# FE07 warning arbitration active — 13 October 2026
+# Verified Friends beta.15 — 13 October 2026
+
+Frozen runtime `f201acab3ee61a7bcb6900d206b4dc9715cf9b41`, attached PR33; subsequent commits only docs/evidence. Checked source, source/packaged QA, exports and independent review complete. Root finishes evidence push/merge and verifies origin/main before the next implementation. All workers are complete; do not repeat their passing checks or count failed fixtures as game repairs.
+
+Friends outputs/Custard-Knights-Friends-0.3.0-beta.15.zip: 800700135 bytes, SHA256 `65c0ff3027eb176a9b9f4a42c5f09654beb7a0aa7a7c2563140a604e0dcd958e`. Preview folder outputs/Custard-Knights-Windows-0.3.0-beta.15-preview; ZIP800718857 bytes, SHA256 `0a86368c9899d95b02e12d0355a094077701b9afa34ecfbc78fc2008382cb1ef`. ASAR `b603fc4b7957f7beea066ebea4f4aa40a49b1ddce0fc22980cded8cadd53f953`; EXE `7c0e6e346ea12ecafc83da99faa40b59beee741b6923f794ba992efde6fd7ed3`. Exact records and commands are qa/results/beta15-desktop/README.md and exports.json, PREVIEW-BUILD.md and release/playtest/README.md. Extract all, close older copies normally, open Game/Custard Knights.exe.
+
+Includes scoped priority/coalescing of arena/campaign banners, reserved warning voices and temporary settings-aware music ducking, pre-damage stand-raider warning cleanup, and prior accurate sword instructions. Source111 focused checks reported; source arena11 + overlapping network/render3 + final campaign2; exact packaged default11 + campaign2; actual untouched EXE lifecycle, package65/Friends73 and both ZIPs/materials pass. Final native instrumented fixture8 passes; it inserts an in-memory closure-local test into the native index response and records original/instrumented hashes, with ASAR unchanged. Earlier three helper failures/diagnostics remain; bounded fade/gain observation corrections do not establish a production fault fix, physical latency or input-only/native human acceptance. Independent .NET verifies all75/76 archive members. CI38409174611 six jobs and38409174541 two soundtrack jobs pass first attempts at freeze. See dated warning review for exact source coverage and non-overlapping counts.
+
+Reviewed extraction workaround and direct stored ZIPs avoid previously observed native-extraction/DEFLATE paths; their root causes remain unresolved. No new compressed-failure retry or beta.15 archive failure. Older outputs and the failed beta.14 partial stay preserved. Source/package Luna-high review is clear; Sol-medium packaging finished. No public upload/tester sending, normal-save edits or user-window closure.
+
+Next: FE08 selective playable bakery→pantry→visible siege consequence; original WIP preserved with exact hashes in outputs/Bakery-WIP-20261013-preserved and release/research/2026-10-13/bakery-wip. Do not silently port wholesale or claim generated media recovered. Keep warning snapshot-age/spike-audio follow-ups, Faction/status/cinematic boundaries and human/device/WAN/minimum-hardware/Steam acceptance open. Native two-sofa/200-total, later causal chapter and distinct live faction art remain required engineering. The full game/roadmap is unfinished.
+
+# Historical FE07 source work — 13 October 2026
 
 PR32 merged at `f900cf01e9bc12e8fa05b0985b0a619a1d57cecc`; the clean integration checkout matched origin/main before branch `codex/warning-priority` was created in work/custard-knights-room. The completed FE06 copy correction is below. Latest playable archive remains beta.14, unchanged; original bakery WIP and saves remain preserved.
 

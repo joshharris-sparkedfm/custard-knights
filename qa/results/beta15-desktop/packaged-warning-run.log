@@ -1,0 +1,12 @@
+PASS Actual hazard producer survives flavour/reward and reduced-flash rendering
+PASS Key repetition neither extends authored expiry nor replays warning cue
+PASS Distinct simultaneous hazard retains first banner and independent objective/world tell
+PASS Objective survives flavour/reward; hazard and last-life priorities supersede it
+PASS Authored expiry clears warning and restores user music envelope
+PASS Ordinary saturation leaves bounded warning admission and shared native SFX bus
+PASS Live user volume scales warning duck; mute remains silent; unmute retains warning factor
+PASS Pause resumes warning; result/menu/new match release duck state
+PASS Live host warning metadata/cue reach guest once with guest local settings
+PASS Snapshot legacy/malformed/expired warning metadata cannot synthesize cue
+PASS Host leave restores guest duck state
+C:\Users\Joshua\Documents\Codex\2026-10-08\rea\work\custard-knights-room\qa\results\beta15-packaged-warning

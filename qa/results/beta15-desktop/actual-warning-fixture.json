@@ -1,0 +1,14 @@
+{
+  "attempt": 2,
+  "executable": "C:\\Users\\Joshua\\Documents\\Codex\\2026-10-08\\rea\\work\\custard-knights-room\\dist\\Custard Knights-win32-x64\\Custard Knights.exe",
+  "profile": "C:\\Users\\Joshua\\AppData\\Local\\Temp\\custard-acceptance-45UPiP\\user-data",
+  "checks": [],
+  "limitations": [
+    "Actual EXE, isolated marked profile. Programmatic DOM clicks/slider inputs and direct production showBanner/clearBanner fixtures. Observed readiness predicates bounded to 10 seconds. No CK query helpers. Native warning/UI music-volume/mute/reset smoke; not physical/input-only, combat completion, human listening, real transport, Steam Input, responsiveness or usability acceptance. In-memory acceptance.run replacement and native index response fixture insertion inside production closure; on-disk ASAR unchanged. Instrumented-renderer acceptance, not untouched-renderer acceptance."
+  ],
+  "exitCode": 1,
+  "stdout": "\r\n",
+  "stderr": "Debugger listening on ws://127.0.0.1:52544/780f94c4-596b-47f0-b485-847206bfab2b\r\nFor help, see: https://nodejs.org/learn/getting-started/debugging\r\nDebugger attached.\r\nDebugger ending on ws://127.0.0.1:52544/780f94c4-596b-47f0-b485-847206bfab2b\r\nFor help, see: https://nodejs.org/learn/getting-started/debugging\r\nACTUAL_DEVICE_FAIL Error: Critical native banner retains priority and local music duck\n",
+  "pass": false,
+  "error": "Error: Actual device smoke failed: Debugger listening on ws://127.0.0.1:52544/780f94c4-596b-47f0-b485-847206bfab2b\r\nFor help, see: https://nodejs.org/learn/getting-started/debugging\r\nDebugger attached.\r\nDebugger ending on ws://127.0.0.1:52544/780f94c4-596b-47f0-b485-847206bfab2b\r\nFor help, see: https://nodejs.org/learn/getting-started/debugging\r\nACTUAL_DEVICE_FAIL Error: Critical native banner retains priority and local music duck\n \r\n\n    at C:\\Users\\Joshua\\Documents\\Codex\\2026-10-08\\rea\\work\\custard-knights-room\\qa\\results\\beta15-desktop\\actual-warning-fixture.cjs:67:104\n    at process.processTicksAndRejections (node:internal/process/task_queues:104:5)"
+}

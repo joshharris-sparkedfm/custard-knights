@@ -1,0 +1,474 @@
+{
+  "startedAt": "2026-10-13T13:58:22.096Z",
+  "root": "C:\\Users\\Joshua\\Documents\\Codex\\2026-10-08\\rea\\work\\custard-knights-room\\build\\beta15-packaged-payload",
+  "checks": [
+    {
+      "profile": "campaign",
+      "name": "Actual stand-raider prehit tell has hazard banner/cue before damage",
+      "pass": true,
+      "details": {
+        "pass": true,
+        "state": {
+          "banner": {
+            "title": "PROTECT THIS PUDDING",
+            "sub": "Vanilla stand: bonk its raider before the red warning fills.",
+            "col": "#FFD23F",
+            "t": 1.4,
+            "max": 1.4,
+            "key": "campaign:puddings:stand:1:1",
+            "kind": "hazard"
+          },
+          "music": {
+            "cue": "courtyard",
+            "wanted": true,
+            "src": "audio/02-a-very-noble-food-fight.wav",
+            "saved": 0.4,
+            "base": 0.4,
+            "duck": 0.35,
+            "warningFactor": 0.35,
+            "volume": 0.13999999999999999,
+            "muted": false
+          },
+          "audio": {
+            "active": 4,
+            "ordinary": 0,
+            "warning": 4,
+            "max": 64,
+            "reserved": 8,
+            "ordinaryMax": 56,
+            "droppedOrdinary": 0,
+            "droppedWarning": 0,
+            "cueKeys": 1
+          },
+          "starts": 4,
+          "saved": null
+        },
+        "hp": 4,
+        "worldWarnings": [
+          {
+            "x": 460,
+            "y": 300,
+            "r": 55,
+            "t": 0.900000000000001,
+            "max": 1.4,
+            "label": "Protect this pudding",
+            "actor": 1
+          }
+        ],
+        "fixture": "Actual campaign adapter launch with isolated prerequisite save; raider positioned beside stand; actual campaign input, no human combat acceptance"
+      }
+    },
+    {
+      "profile": "campaign",
+      "name": "Stun cancels tell; new attempt emits once; impact clears hazard without second cue",
+      "pass": true,
+      "details": {
+        "pass": true,
+        "canceled": {
+          "banner": null,
+          "music": {
+            "cue": "courtyard",
+            "wanted": true,
+            "src": "audio/02-a-very-noble-food-fight.wav",
+            "saved": 0.4,
+            "base": 0.4,
+            "duck": 1,
+            "warningFactor": 1,
+            "volume": 0.4,
+            "muted": false
+          },
+          "audio": {
+            "active": 4,
+            "ordinary": 0,
+            "warning": 4,
+            "max": 64,
+            "reserved": 8,
+            "ordinaryMax": 56,
+            "droppedOrdinary": 0,
+            "droppedWarning": 0,
+            "cueKeys": 1
+          },
+          "starts": 4,
+          "saved": null
+        },
+        "restarted": {
+          "banner": {
+            "title": "PROTECT THIS PUDDING",
+            "sub": "Vanilla stand: bonk its raider before the red warning fills.",
+            "col": "#FFD23F",
+            "t": 1.4,
+            "max": 1.4,
+            "key": "campaign:puddings:stand:1:2",
+            "kind": "hazard"
+          },
+          "music": {
+            "cue": "courtyard",
+            "wanted": true,
+            "src": "audio/02-a-very-noble-food-fight.wav",
+            "saved": 0.4,
+            "base": 0.4,
+            "duck": 0.35,
+            "warningFactor": 0.35,
+            "volume": 0.13999999999999999,
+            "muted": false
+          },
+          "audio": {
+            "active": 8,
+            "ordinary": 0,
+            "warning": 8,
+            "max": 64,
+            "reserved": 8,
+            "ordinaryMax": 56,
+            "droppedOrdinary": 0,
+            "droppedWarning": 0,
+            "cueKeys": 2
+          },
+          "starts": 8,
+          "saved": null
+        },
+        "impact": {
+          "banner": {
+            "title": "PUDDING UNDER ATTACK",
+            "sub": "Vanilla stand: 3/4. Bonk its raider.",
+            "col": "#FFD23F",
+            "t": 3,
+            "max": 3,
+            "key": "campaign:puddings:stand-hit:1",
+            "kind": "objective"
+          },
+          "music": {
+            "cue": "courtyard",
+            "wanted": true,
+            "src": "audio/02-a-very-noble-food-fight.wav",
+            "saved": 0.4,
+            "base": 0.4,
+            "duck": 0.35,
+            "warningFactor": 0.35,
+            "volume": 0.13999999999999999,
+            "muted": false
+          },
+          "audio": {
+            "active": 8,
+            "ordinary": 0,
+            "warning": 8,
+            "max": 64,
+            "reserved": 8,
+            "ordinaryMax": 56,
+            "droppedOrdinary": 0,
+            "droppedWarning": 0,
+            "cueKeys": 2
+          },
+          "starts": 8,
+          "saved": null
+        },
+        "hp": 3,
+        "fixture": "Bounded direct actual campaign input step to cross authored impact; normal RAF remains active"
+      }
+    }
+  ],
+  "errors": [],
+  "limitations": [
+    "Actual isolated Chrome, direct CK bounded forced state fixtures; screenshots show actual canvas rendering.",
+    "Native WebAudio graph and digital RMS/envelope only. Browser output silenced; no human audibility, loudness, recognition, physical speaker or minimum-spec acceptance.",
+    "Actual PeerJS same-host where connection supported, separately labeled from direct snapshot sanitization fixtures. Normal saves and user game untouched.",
+    "Focused arena FE07 evidence; Faction Front and campaign/story presentation boundaries are not exercised."
+  ],
+  "sourceHashes": {
+    "index.html": "6f5565642e4f5e33b6df126704f0b1e63af9519e47a0f811c9e54aa924d967eb",
+    "game/warnings.js": "30faee21034b5fa493f2923a7b85bf127af2f1f86270466e1a7c14d5fe57ae7a",
+    "audio/warning-mixer.js": "98318dc7575e946b8e171fcb0af7920c91e991fb85a18d5cd30c550a882bc928",
+    "game/campaign.js": "95ce586e31fe71429acef86a7044d13d46937b40157fadbe300212fb475e443a"
+  },
+  "chromeVersion": {
+    "Browser": "Chrome/154.0.8037.98",
+    "Protocol-Version": "1.3",
+    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/154.0.0.0 Safari/537.36",
+    "V8-Version": "15.4.80.20",
+    "WebKit-Version": "537.36 (@b859317bf11f6be47f9b7799ec690a0a42a1fb33)",
+    "webSocketDebuggerUrl": "ws://127.0.0.1:50715/devtools/browser/01fa5431-1407-47e9-987a-43fb264603c5"
+  },
+  "campaignAudioEnvelope": [
+    {
+      "time": 32.099999997764826,
+      "rms": null
+    },
+    {
+      "time": 94.79999999701977,
+      "music": 1,
+      "paused": true,
+      "rms": null
+    },
+    {
+      "time": 145.09999999776483,
+      "music": 0.4,
+      "paused": false,
+      "rms": 0,
+      "busGain": 1
+    },
+    {
+      "time": 152.59999999776483,
+      "music": 0.13999999999999999,
+      "paused": false,
+      "rms": 0,
+      "busGain": 1
+    },
+    {
+      "time": 196.5,
+      "music": 0.13999999999999999,
+      "paused": false,
+      "rms": 0.04343921169541003,
+      "busGain": 1
+    },
+    {
+      "time": 222,
+      "music": 0.13999999999999999,
+      "paused": false,
+      "rms": 0.04343921169541003,
+      "busGain": 1
+    },
+    {
+      "time": 233.29999999701977,
+      "music": 0.13999999999999999,
+      "paused": false,
+      "rms": 0.04343921169541003,
+      "busGain": 1
+    },
+    {
+      "time": 252.19999999925494,
+      "music": 0.13999999999999999,
+      "paused": false,
+      "rms": 0.04343921169541003,
+      "busGain": 1
+    },
+    {
+      "time": 273,
+      "music": 0.13999999999999999,
+      "paused": false,
+      "rms": 0.04343921169541003,
+      "busGain": 1
+    },
+    {
+      "time": 292.69999999925494,
+      "music": 0.13999999999999999,
+      "paused": false,
+      "rms": 0.04343921169541003,
+      "busGain": 1
+    },
+    {
+      "time": 313.69999999925494,
+      "music": 0.13999999999999999,
+      "paused": false,
+      "rms": 0.04343921169541003,
+      "busGain": 1
+    },
+    {
+      "time": 332.69999999925494,
+      "music": 0.13999999999999999,
+      "paused": false,
+      "rms": 0.04343921169541003,
+      "busGain": 1
+    },
+    {
+      "time": 352.79999999701977,
+      "music": 0.13999999999999999,
+      "paused": false,
+      "rms": 0.04343921169541003,
+      "busGain": 1
+    },
+    {
+      "time": 372,
+      "music": 0.13999999999999999,
+      "paused": false,
+      "rms": 0.04343921169541003,
+      "busGain": 1
+    },
+    {
+      "time": 392.5999999977648,
+      "music": 0.13999999999999999,
+      "paused": false,
+      "rms": 0.04343921169541003,
+      "busGain": 1
+    },
+    {
+      "time": 413.5999999977648,
+      "music": 0.13999999999999999,
+      "paused": false,
+      "rms": 0.04343921169541003,
+      "busGain": 1
+    },
+    {
+      "time": 432.79999999701977,
+      "music": 0.13999999999999999,
+      "paused": false,
+      "rms": 0.04343921169541003,
+      "busGain": 1
+    },
+    {
+      "time": 452.79999999701977,
+      "music": 0.13999999999999999,
+      "paused": false,
+      "rms": 0.04343921169541003,
+      "busGain": 1
+    },
+    {
+      "time": 472.3999999985099,
+      "music": 0.13999999999999999,
+      "paused": false,
+      "rms": 0.04343921169541003,
+      "busGain": 1
+    },
+    {
+      "time": 492.3999999985099,
+      "music": 0.13999999999999999,
+      "paused": false,
+      "rms": 0.04343921169541003,
+      "busGain": 1
+    },
+    {
+      "time": 512.8999999985099,
+      "music": 0.13999999999999999,
+      "paused": false,
+      "rms": 0.04343921169541003,
+      "busGain": 1
+    },
+    {
+      "time": 533.7999999970198,
+      "music": 0.13999999999999999,
+      "paused": false,
+      "rms": 0.04343921169541003,
+      "busGain": 1
+    },
+    {
+      "time": 553.7999999970198,
+      "music": 0.13999999999999999,
+      "paused": false,
+      "rms": 0.04343921169541003,
+      "busGain": 1
+    },
+    {
+      "time": 572.2999999970198,
+      "music": 0.13999999999999999,
+      "paused": false,
+      "rms": 0.04343921169541003,
+      "busGain": 1
+    },
+    {
+      "time": 592.2999999970198,
+      "music": 0.13999999999999999,
+      "paused": false,
+      "rms": 0.04343921169541003,
+      "busGain": 1
+    },
+    {
+      "time": 612.7999999970198,
+      "music": 0.13999999999999999,
+      "paused": false,
+      "rms": 0.04343921169541003,
+      "busGain": 1
+    },
+    {
+      "time": 632.1999999992549,
+      "music": 0.13999999999999999,
+      "paused": false,
+      "rms": 0.04343921169541003,
+      "busGain": 1
+    },
+    {
+      "time": 652.6999999992549,
+      "music": 0.13999999999999999,
+      "paused": false,
+      "rms": 0.04343921169541003,
+      "busGain": 1
+    },
+    {
+      "time": 673.0999999977648,
+      "music": 0.13999999999999999,
+      "paused": false,
+      "rms": 0.04343921169541003,
+      "busGain": 1
+    },
+    {
+      "time": 695.3999999985099,
+      "music": 0.13999999999999999,
+      "paused": false,
+      "rms": 0.04343921169541003,
+      "busGain": 1
+    },
+    {
+      "time": 712.7999999970198,
+      "music": 0.13999999999999999,
+      "paused": false,
+      "rms": 0.04343921169541003,
+      "busGain": 1
+    },
+    {
+      "time": 731.7999999970198,
+      "music": 0.13999999999999999,
+      "paused": false,
+      "rms": 0.04343921169541003,
+      "busGain": 1
+    },
+    {
+      "time": 752.8999999985099,
+      "music": 0.13999999999999999,
+      "paused": false,
+      "rms": 0.04343921169541003,
+      "busGain": 1
+    },
+    {
+      "time": 772.5,
+      "music": 0.13999999999999999,
+      "paused": false,
+      "rms": 0.04343921169541003,
+      "busGain": 1
+    },
+    {
+      "time": 792.1999999992549,
+      "music": 0.13999999999999999,
+      "paused": false,
+      "rms": 0.04343921169541003,
+      "busGain": 1
+    },
+    {
+      "time": 812.6999999992549,
+      "music": 0.13999999999999999,
+      "paused": false,
+      "rms": 0.021161365013976634,
+      "busGain": 1
+    },
+    {
+      "time": 833.5999999977648,
+      "music": 0.13999999999999999,
+      "paused": false,
+      "rms": 0.010313616733463713,
+      "busGain": 1
+    },
+    {
+      "time": 852.7999999970198,
+      "music": 0.13999999999999999,
+      "paused": false,
+      "rms": 0.007571894029082018,
+      "busGain": 1
+    },
+    {
+      "time": 872.5,
+      "music": 0.13999999999999999,
+      "paused": false,
+      "rms": 0.003687737966462914,
+      "busGain": 1
+    }
+  ],
+  "harnessSha256": "6698fc8f21cc6a82f397d98c4fc22da32f3f642dc195feb3d6b9bdd9c5e354b6",
+  "sourceHashesAfter": {
+    "index.html": "6f5565642e4f5e33b6df126704f0b1e63af9519e47a0f811c9e54aa924d967eb",
+    "game/warnings.js": "30faee21034b5fa493f2923a7b85bf127af2f1f86270466e1a7c14d5fe57ae7a",
+    "audio/warning-mixer.js": "98318dc7575e946b8e171fcb0af7920c91e991fb85a18d5cd30c550a882bc928",
+    "game/campaign.js": "95ce586e31fe71429acef86a7044d13d46937b40157fadbe300212fb475e443a"
+  },
+  "stableSources": true,
+  "finishedAt": "2026-10-13T13:58:23.214Z",
+  "counts": {
+    "pass": 2,
+    "fail": 0
+  }
+}

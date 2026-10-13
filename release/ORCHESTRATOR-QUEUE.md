@@ -1,6 +1,20 @@
 # Orchestrator execution queue
 
-## Active FE07 warning arbitration — 13 October 2026
+## Verified warning increment and Friends beta.15 — 13 October 2026
+
+Frozen runtime `f201acab3ee61a7bcb6900d206b4dc9715cf9b41` is pushed in attached PR33. All source, QA, package and independent review work is complete; root finishes checked evidence push/merge before the next implementation. Later files are documentation/evidence only. Exact export record: qa/results/beta15-desktop/exports.json.
+
+- Friends ZIP outputs/Custard-Knights-Friends-0.3.0-beta.15.zip: 800700135 bytes, SHA256 `65c0ff3027eb176a9b9f4a42c5f09654beb7a0aa7a7c2563140a604e0dcd958e`.
+- Windows preview folder outputs/Custard-Knights-Windows-0.3.0-beta.15-preview; neighbouring ZIP 800718857 bytes, SHA256 `0a86368c9899d95b02e12d0355a094077701b9afa34ecfbc78fc2008382cb1ef`.
+- ASAR SHA256 `b603fc4b7957f7beea066ebea4f4aa40a49b1ddce0fc22980cded8cadd53f953`; EXE `7c0e6e346ea12ecafc83da99faa40b59beee741b6923f794ba992efde6fd7ed3`.
+
+All65 package entries/73 Friends game files, exact templates/metadata, ZIP CRC/hash, independent .NET75 preview/76 Friends member checks pass. Actual untouched EXE isolated save/restart/launcher/relocation, extracted default warning11 and campaign2 pass on first invocations. Current default11 already includes three network cases; do not add overlapping source net3 as a second package count. Final native instrumented renderer fixture8 passes after three retained helper failures. Original native index hash is exact; an in-memory protocol response adds a bounded closure-local test fixture, with instrumented hash separately recorded and ASAR unchanged. The first helper lacked closure access; second's same-task combined volume assertion has no established cause; third observed pending AudioParam gain update while mute/music state were correct. Reviewed fourth fixture adds bounded observed readiness and retains states, without production/autoplay changes. This does not prove physical/native input-only or human audibility.
+
+Hosted general CI38409174611 all6 and soundtrack38409174541 both2 pass first attempts at the exact freeze. Native extraction and old DEFLATE faults were not retried: use the reviewed byte-identical Python extraction adapter and ZIP_STORED directly. No beta.15 archive failure; older outputs and failed beta.14 partial remain preserved. Final source/package reviewer /root/warning_contract_audit (Luna high) found no blocker. Root and QA visually inspected warning captures; package owner /root/room_package (Sol medium) is complete. No more passing-test reruns are needed.
+
+This scoped arena/campaign warning priority increment also packages PR32's accurate sword instructions. One live critical banner, delayed positive-TTL snapshot age, spike activation-only audio, separate Faction/status/cinematic formats, human recognition/loudness, physical devices, WAN, second-PC/minimum hardware and Steam acceptance remain explicit limits. CK-09/full roadmap is not declared complete. Next meaningful integration is FE08 selective bakery→pantry→siege consequence, using preserved WIP/actual media inventory and maintaining legacy saves; warning age/spike follow-ups remain listed work. Native two-sofa and200 combatants are unfinished. Nothing sent to testers or publicly uploaded. Extract the entire Friends ZIP, close older copies normally, run Game/Custard Knights.exe. Do not close the user's running game or use normal saves for QA.
+
+## Historical FE07 dispatch and implementation — 13 October 2026
 
 PR32 merged the checked sword guidance at `f900cf01e9bc12e8fa05b0985b0a619a1d57cecc`. The clean integration checkout matched origin/main before creating `codex/warning-priority` in work/custard-knights-room. All charge workers completed. Beta.14 remains the current verified downloadable archive; subsequent source corrections are not in that archive. Original bakery WIP remains unchanged.
 

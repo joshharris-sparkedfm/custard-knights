@@ -1,0 +1,17 @@
+warning: in the working copy of 'audio/soundtrack.js', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'vendor/fonts.css', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'vendor/lilita-one-LICENSE.txt', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'vendor/nunito-LICENSE.txt', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'vendor/peerjs-LICENSE.txt', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'vendor/peerjs-THIRD-PARTY-NOTICES.txt', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'vendor/peerjs.min.js', LF will be replaced by CRLF the next time Git touches it
+{
+  "version": "0.3.0-beta.9",
+  "sourceCommit": "ae262b505ca9758de008df53418a06e26695a8a7",
+  "folder": "C:\\Users\\Joshua\\Documents\\Codex\\2026-10-08\\rea\\outputs\\Custard-Knights-Windows-0.3.0-beta.9-preview",
+  "zip": "C:\\Users\\Joshua\\Documents\\Codex\\2026-10-08\\rea\\outputs\\Custard-Knights-Windows-0.3.0-beta.9-preview.zip",
+  "bytes": 547141725,
+  "sha256": "206abfa4d127898cb0c26a3ae66e641cd305abc1236ec7754c28163fe2f5cbf8",
+  "zipIntegrity": true,
+  "publiclyUploaded": false
+}

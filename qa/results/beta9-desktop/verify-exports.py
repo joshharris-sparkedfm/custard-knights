@@ -15,23 +15,34 @@ with zipfile.ZipFile(friend_path) as z:
     assert z.testzip() is None
     info = json.loads(z.read('BUILD-INFO.json'))
     assert info['sourceCommit'] == preview['sourceCommit']
+    assert info['version'] == preview['version'] == '0.3.0-beta.9'
+    assert info['sourceZipSha256'] == preview['sha256']
     assert len(info['gameFiles']) == len(preview['gameFiles']) == 73
     for item in info['gameFiles']:
         data = z.read(item['path'])
         relative = item['path'].removeprefix('Game/')
         assert len(data) == item['bytes'] and digest(data) == item['sha256']
         assert data == (Path(preview['folder']) / relative).read_bytes()
+        assert data == (repo / 'dist/Custard Knights-win32-x64' / relative).read_bytes()
     (here / 'friends-build-info.json').write_text(json.dumps(info, indent=2) + '\n')
 package = json.loads((here / 'package-evidence.json').read_text())
-assert len(package['files']) >= 60
+assert len(package['files']) == 60
 assert any(x['file'] == 'game/input-aim.js' for x in package['files'])
+assert info['appAsarSha256'] == package['archiveSha256']
+assert digest((Path(preview['folder']) / 'resources/app.asar').read_bytes()) == package['archiveSha256']
+assert digest((Path(preview['folder']) / 'Custard Knights.exe').read_bytes()) == package['executableSha256']
 aim = json.loads((repo / 'qa/results/beta9-packaged-home/report.json').read_text())
 assert len(aim['checks']) == 44 and all(x['pass'] for x in aim['checks'])
-assert aim['sourceHashes'] == aim['sourceHashesAfter']
+assert aim['sourceHashes'] == aim['sourceHashesAfter'] and not aim['consoleErrors']
+by_source = {x['file']: x for x in package['files']}
+assert all(by_source[name]['sha256'] == value for name, value in aim['sourceHashes'].items())
+actual_home = json.loads((here / 'actual-home.json').read_text())
+assert actual_home['pass'] and len(actual_home['checks']) == 13
+assert all(x['pass'] for x in actual_home['checks']) and actual_home['origin'] == 'custard://game'
 record = dict(version=preview['version'], sourceCommit=preview['sourceCommit'],
     asarSha256=package['archiveSha256'], executableSha256=package['executableSha256'],
-    packageEntries=len(package['files']), friendsGameFiles=73, preview={k:preview[k] for k in ('bytes','sha256')},
+    packageEntries=60, friendsGameFiles=73, preview={k:preview[k] for k in ('bytes','sha256')},
     friends={k:friends[k] for k in ('bytes','sha256')}, zipIntegrity=True,
-    exactCopiedGameBytes=True, packagedHomeChecks=len(aim['checks']), publiclyUploaded=False)
+    exactCopiedGameBytes=True, packagedHomeChecks=44, actualDesktopHomeChecks=13, publiclyUploaded=False)
 (here / 'exports.json').write_text(json.dumps(record, indent=2) + '\n')
 print(json.dumps(record, indent=2))

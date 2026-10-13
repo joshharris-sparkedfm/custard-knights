@@ -2,7 +2,7 @@
 
 13 October 2026 · Durable handoff for the explicitly renewed 30-minute build loop. Active automation ID: `custard-knights-build-orchestrator` (verified by root; every 30 minutes).
 
-The user renewed automation authorization after the earlier removal. Historical removal remains true; its no-recreation instruction is superseded for this requested build loop. The root orchestrator owns coordination, integration and this queue. [FULL-EXPERIENCE-PLAN.md](FULL-EXPERIENCE-PLAN.md) and [ACCEPTANCE-MATRIX.md](ACCEPTANCE-MATRIX.md) remain the scope and acceptance authority. Documentation is not a gameplay pass. Latest friends beta.8 is frozen at `5c9b02f3692c7b03786e659f7cd7b1d35e3e7e99`; earlier exports remain preserved.
+The user renewed automation authorization after the earlier removal. Historical removal remains true; its no-recreation instruction is superseded for this requested build loop. The root orchestrator owns coordination, integration and this queue. [FULL-EXPERIENCE-PLAN.md](FULL-EXPERIENCE-PLAN.md) and [ACCEPTANCE-MATRIX.md](ACCEPTANCE-MATRIX.md) remain the scope and acceptance authority. Documentation is not a gameplay pass. Latest friends beta.9 is frozen at `ae262b505ca9758de008df53418a06e26695a8a7`; earlier exports remain preserved.
 
 ## FE-01 bounded inventory
 
@@ -58,3 +58,9 @@ Use Sol at medium/high for implementation and Luna at medium/high for bounded au
 6. Notify only on meaningful change, completion, failure or required user action; stay quiet when unchanged. Stop scheduling work once the authorized roadmap is complete or the user cancels the loop; preserve honest external-gate status.
 
 Beta.9 release owner: /root/home_package, gpt-6.1-sol medium, same branch; package version/manifests/guide and qa/results/beta9-* only. Preparation complete; frozen source and actual EXE/ZIP verification next. Root integrates Git and queue/checkpoint. Physical/human acceptance remains open.
+
+## Beta.9 completed increment and next dispatch
+
+PR26 records the four-route home increment from e162741. Frozen runtime ae262b505ca9758de008df53418a06e26695a8a7; source64 focused tests, independent Chrome44, packaged44, actual EXE routes/Quit cancel13 and save/restart/launcher/relocation passed. All60 package entries/73 Friends files and both ZIPs verified; all6 hosted jobs passed run38373900190. Independent /root/home_review (gpt-6.1-sol medium) cleared after focus, held-A and minimum-window fixes. Owners completed; source/package evidence is in qa/results/home-navigation-2026-10-13 and beta9-desktop. Root verifies PR26 merged before next integration; don't resume completed agents or repeat unchanged checks.
+
+Next bounded engineering: remaining FE-03 first-launch accessible setup and optional learning path, reusing existing settings and never forcing reporting, signup or tutorial. Also retain remaining loading/failure/online-match-menu acceptance as explicit FE-03 work. Then complete FE-04/05 couch ownership/persistent rooms and FE-06 before the causal story slice. The four-route home alone does not close FE-03; physical/human acceptance remains pending. Existing video location remains unresolved; menu engineering needs no new generation.

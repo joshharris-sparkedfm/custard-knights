@@ -1,4 +1,18 @@
-# Private friends beta - 0.3.0-beta.8
+# Private friends beta - 0.3.0-beta.9
+
+Frozen runtime `ae262b505ca9758de008df53418a06e26695a8a7` presents four home routes: Quick Brawl, Story / Continue Story, Play with Friends and Faction Front. Quick Brawl offers Custom brawl and Solo Custard Cup; Play with Friends offers On this PC, Online room and Custard Cup with friends. Wardrobe, Options, How to Play and desktop Quit are separate utilities. Existing game modes and saved progress remain included.
+
+- Friends ZIP: `outputs/Custard-Knights-Friends-0.3.0-beta.9.zip`, 547139965 bytes, SHA256 `9616aa60d5cefc45086618236db060804f4dbe432b8e9d7926414f2a1f23b400`.
+- Preview folder: `outputs/Custard-Knights-Windows-0.3.0-beta.9-preview`.
+- Preview ZIP: `outputs/Custard-Knights-Windows-0.3.0-beta.9-preview.zip`, 547141725 bytes, SHA256 `206abfa4d127898cb0c26a3ae66e641cd305abc1236ec7754c28163fe2f5cbf8`.
+- ASAR SHA256: `52101c3ec673f2fa1a95d49f28d9d489c27cace18489b6e4ca17ef78102abb90`.
+- EXE SHA256: `2f82ae7605d75effd1562534548c777b162a8479c47eedf557da2c2b3d61f965`.
+
+All 60 packaged entries match source/checked metadata. All 73 Friends game files match frozen dist, preview bytes and BUILD-INFO inventory hashes; both ZIPs pass CRC integrity and final hashes. Actual EXE save/restart/launcher/relocation and 44 extracted-package home checks pass on their first attempts. The additional programmatic actual EXE four-route/Quit-cancel smoke passes 13 checks after one explained fixture focus correction; its failed first attempt remains preserved. Source browser checks pass 44/44 and focused tests pass 64/64. All six jobs in hosted CI run [38373900190](https://github.com/joshharris-sparkedfm/custard-knights/actions/runs/38373900190) pass at the frozen runtime. [Package evidence](../qa/results/beta9-desktop/README.md) and [packaged home checks](../qa/results/beta9-packaged-home/README.md) give precise commands and limits.
+
+Extract the whole Friends ZIP and run `Game/Custard Knights.exe`, after closing older copies normally. Saves remain local and shared across versions. No public upload or sending occurred; older outputs remain preserved. Synthetic/programmatic checks do not establish physical-controller ergonomics, human usability/fun/balance, WAN/second-PC, minimum hardware or Steam acceptance. Earlier unexplained native-runtime anomalies remain unresolved. Later QA/docs commits do not change these frozen runtime bytes.
+
+# Historical private friends beta - 0.3.0-beta.8
 
 Frozen runtime `5c9b02f3692c7b03786e659f7cd7b1d35e3e7e99` adds independent ranged movement/aim, circular right-stick deadzone and retained controller aim, visible aim cues, device ownership switching and pause/modal input clearing. Arena, Story and Cup share the aim helper; Faction Front uses it with its camera transform. Earlier gameplay remains included. [Engineering review](../qa/reviews/ranged-aim-2026-10-13.md) records scope and limits.
 

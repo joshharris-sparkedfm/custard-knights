@@ -7,13 +7,13 @@ const exe=path.resolve(process.argv[2]),out=__dirname;
 const temporary=fs.mkdtempSync(path.join(os.tmpdir(),'custard-acceptance-'));
 const profile=path.join(temporary,'user-data');
 fs.writeFileSync(path.join(temporary,'acceptance-profile.marker'),'Isolated acceptance profile\n');
-const report={attempt:1,executable:exe,profile,checks:[],limitations:['Actual packaged desktop origin with programmatic click smoke; physical-device and human acceptance remain open.','In-memory inspector replacement of acceptance.run only; packaged bytes are not edited.']};
+const report={attempt:2,executable:exe,profile,checks:[],limitations:['Actual packaged desktop origin with programmatic click smoke; physical-device and human acceptance remain open.','In-memory inspector replacement of acceptance.run only; packaged bytes are not edited.']};
 const sleep=ms=>new Promise(r=>setTimeout(r,ms));
 async function injected({app,win}){
  try{
   const result=await win.webContents.executeJavaScript(`(async()=>{
    const checks=[],test=(name,pass)=>{checks.push({name,pass});if(!pass)throw Error(name);};
-   const click=selector=>{const e=document.querySelector(selector);if(!e)throw Error('Missing '+selector);e.click();};
+   const click=selector=>{const e=document.querySelector(selector);if(!e)throw Error('Missing '+selector);e.focus();e.click();};
    const wait=()=>new Promise(r=>setTimeout(r,180));
    await document.fonts.ready;await CK.sprLoadAll();
    test('Actual desktop origin',location.origin==='custard://game');

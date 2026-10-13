@@ -1,0 +1,20 @@
+PASS Actual game loads in isolated browser profile
+PASS Keyboard movement and pointer aim are independent
+PASS Roomier scaled canvas pointer coordinates fire toward the selected world point
+PASS Mouse ownership persists while the pointer remains parked
+PASS Arena radial deadzone preserves a diagonal right-stick aim while left stick moves
+PASS Arena pad aim cue resolves to a rendered world point
+PASS Neutral right stick retains aim without jitter
+PASS Keyboard-only movement takes facing while right stick is neutral
+PASS Parked mouse aim cannot override a later pad aim
+PASS Pointer aim and attack follow the kb1 couch seat
+PASS Pointer does not steal the pad-owned couch seat
+PASS Classic late-connect pads retain distinct actual-index ownership
+PASS Pause and blur clear held pointer actions
+PASS Faction starts a real local practice battle
+PASS Faction mouse cursor targets through the live camera transform
+PASS Faction mouse aim cue is visible and maps to the cursor
+PASS Faction radial right-stick aim supersedes the parked mouse
+PASS Faction neutral stick retains pad aim
+PASS Faction keyboard movement takes facing when pad stick is neutral
+PASS Faction modal entry clears held mouse attack and guard

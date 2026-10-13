@@ -1,0 +1,1 @@
+DESKTOP_PACKAGE_PASS {"version":"0.3.0-beta.8","files":60,"archiveSha256":"f6ed8a6822a788c5c572f6a16fbe95fad9a4ea7dd65cde7aca03ef5fd4eb84d4","runtimeSourceSha256":"3d8ece9e0274b62c1a467da603439ad734baf1eedf3fad3adbfb14cca6fa8acc"}

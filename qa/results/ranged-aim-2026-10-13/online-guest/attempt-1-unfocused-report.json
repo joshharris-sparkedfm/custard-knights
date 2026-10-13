@@ -1,0 +1,238 @@
+{
+  "scope": "Two real PeerJS peers connected by a DataConnection in isolated headless Chrome profiles on one machine/network. CDP dispatches mouse and keyboard events; normal client serialization, transport, host authority and guest snapshots run live. Not cross-network NAT, human playtesting, or physical input-device certification.",
+  "fixtures": "Host QA hooks place humans, disable bots/chaos and give a bow. A read-only data listener records host acceptance of real transport packets. Tagged legacy/invalid input probes use the existing real guest DataConnection, without invoking hostRecv directly. A short host sampler observes transient peck and projectile effects.",
+  "checks": [
+    {
+      "name": "Two isolated profiles establish a real PeerJS DataConnection",
+      "pass": true
+    },
+    {
+      "name": "Guest D movement and upward mouse aim travel separately and drive authoritative movement/facing",
+      "pass": true
+    },
+    {
+      "name": "Real guest left-click fires a host-owned upward bow projectile while moving right",
+      "pass": true
+    },
+    {
+      "name": "Authoritative ammo consumption returns to the guest through snapshots",
+      "pass": true
+    },
+    {
+      "name": "Guest right-click activates authoritative block",
+      "pass": true
+    },
+    {
+      "name": "Focus loss releases pointer buttons and transports the explicit no-aim sentinel",
+      "pass": true
+    },
+    {
+      "name": "Legacy seven-field input remains movement-facing over the real connection",
+      "pass": true
+    },
+    {
+      "name": "Eight-field no-aim sentinel preserves independent movement",
+      "pass": true
+    },
+    {
+      "name": "Finite explicit aim survives real PeerJS serialization",
+      "pass": true
+    },
+    {
+      "name": "Host rejects outside aim arriving through real transport",
+      "pass": true
+    },
+    {
+      "name": "Host rejects nan aim arriving through real transport",
+      "pass": true
+    },
+    {
+      "name": "Host rejects infinity aim arriving through real transport",
+      "pass": true
+    }
+  ],
+  "errors": [],
+  "startedAt": "2026-10-13T08:35:06.554Z",
+  "sourceHashes": {
+    "index.html": "eb21b78a7ba9c69ebb2eaf8825ecea8c7828db7e3dcdeed86b8a3f673c08439a",
+    "game/weapons.js": "8eb85d3eb69d80e49157b162e5eea288933578ff191460ad3b3f92cbfa82d0ae"
+  },
+  "protocolProbes": [
+    {
+      "wire": [
+        0,
+        0.5,
+        0,
+        0,
+        0,
+        10,
+        0
+      ],
+      "tag": "legacy",
+      "accepted": [
+        0,
+        0.5,
+        0,
+        0,
+        0,
+        null
+      ]
+    },
+    {
+      "wire": [
+        0.5,
+        0,
+        0,
+        0,
+        0,
+        10,
+        0,
+        4
+      ],
+      "tag": "sentinel",
+      "accepted": [
+        0.5,
+        0,
+        0,
+        0,
+        0,
+        null
+      ]
+    },
+    {
+      "wire": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        10,
+        0,
+        1.5707963267948966
+      ],
+      "tag": "angle",
+      "accepted": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        1.5707963267948966
+      ]
+    },
+    {
+      "wire": [
+        0.731,
+        0.419,
+        1,
+        0,
+        0,
+        900,
+        0,
+        9
+      ],
+      "tag": "outside",
+      "accepted": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        1.5707963267948966
+      ]
+    },
+    {
+      "wire": [
+        0.731,
+        0.419,
+        1,
+        0,
+        0,
+        900,
+        0,
+        null
+      ],
+      "tag": "nan",
+      "accepted": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        1.5707963267948966
+      ]
+    },
+    {
+      "wire": [
+        0.731,
+        0.419,
+        1,
+        0,
+        0,
+        900,
+        0,
+        null
+      ],
+      "tag": "infinity",
+      "accepted": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        1.5707963267948966
+      ]
+    }
+  ],
+  "shotSamples": [
+    {
+      "vx": -122.70440274871184,
+      "vy": -810.767309125178,
+      "x": 486.939059634628,
+      "y": 404.7349178551244
+    },
+    {
+      "vx": -122.70440274871184,
+      "vy": -810.767309125178,
+      "x": 486.939059634628,
+      "y": 404.7349178551244
+    },
+    {
+      "vx": -122.70440274871184,
+      "vy": -810.767309125178,
+      "x": 486.939059634628,
+      "y": 404.7349178551244
+    },
+    {
+      "vx": -122.70440274871184,
+      "vy": -810.767309125178,
+      "x": 486.939059634628,
+      "y": 404.7349178551244
+    },
+    {
+      "vx": -122.70440274871184,
+      "vy": -810.767309125178,
+      "x": 484.8939862554828,
+      "y": 391.2221293697048
+    },
+    {
+      "vx": -122.70440274871184,
+      "vy": -810.767309125178,
+      "x": 484.8939862554828,
+      "y": 391.2221293697048
+    },
+    {
+      "vx": -122.70440274871184,
+      "vy": -810.767309125178,
+      "x": 484.8939862554828,
+      "y": 391.2221293697048
+    },
+    {
+      "vx": -122.70440274871184,
+      "vy": -810.767309125178,
+      "x": 482.8489128763376,
+      "y": 377.7093408842852
+    }
+  ],
+  "failure": "Error: ControlsHost: guest mouse peck shoves target\n    at b.wait (C:\\Users\\Joshua\\Documents\\Codex\\2026-10-08\\rea\\work\\custard-knights-aim\\qa\\player-controls-network.cjs:25:116)\n    at async C:\\Users\\Joshua\\Documents\\Codex\\2026-10-08\\rea\\work\\custard-knights-aim\\qa\\player-controls-network.cjs:77:2"
+}

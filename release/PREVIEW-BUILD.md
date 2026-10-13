@@ -1,4 +1,18 @@
-# Private friends beta - 0.3.0-beta.7
+# Private friends beta - 0.3.0-beta.8
+
+Frozen runtime `5c9b02f3692c7b03786e659f7cd7b1d35e3e7e99` adds independent ranged movement/aim, circular right-stick deadzone and retained controller aim, visible aim cues, device ownership switching and pause/modal input clearing. Arena, Story and Cup share the aim helper; Faction Front uses it with its camera transform. Earlier gameplay remains included. [Engineering review](../qa/reviews/ranged-aim-2026-10-13.md) records scope and limits.
+
+- Friends ZIP: `outputs/Custard-Knights-Friends-0.3.0-beta.8.zip`, 547137079 bytes, SHA256 `279c42d1c66cd358f434e66c94941d2b13aec93328238239defca32e200718e0`.
+- Preview folder: `outputs/Custard-Knights-Windows-0.3.0-beta.8-preview`.
+- Preview ZIP: `outputs/Custard-Knights-Windows-0.3.0-beta.8-preview.zip`, 547138025 bytes, SHA256 `da06740565ff5449159de84839716adcfd4a8853c2a37a4bbe0624e24d250631`.
+- ASAR SHA256: `f6ed8a6822a788c5c572f6a16fbe95fad9a4ea7dd65cde7aca03ef5fd4eb84d4`.
+- EXE SHA256: `a2610c50e9e104a684a81f3f5ad04995926fc3ee95ef0f02cf26873a4f4520ea`.
+
+All 60 packaged entries match source/checked metadata, including `game/input-aim.js`. All 73 friends game files match the preview byte-for-byte and BUILD-INFO inventory hashes; both ZIPs pass integrity checks. Actual EXE save/restart/launcher/relocation and 20 extracted-package ranged-input checks pass on their first attempts. Source ranged-input 20/20 and real local PeerJS 16/16 pass. [Package evidence](../qa/results/beta8-desktop/README.md) gives exact commands, manifests and limits.
+
+Extract the whole Friends ZIP and run `Game/Custard Knights.exe`, after closing older copies normally. Saves remain local and shared across versions. No public upload or sending occurred; all older exports remain preserved. Synthetic controller checks do not establish physical-device ergonomics, human fun/balance, WAN, second-PC, minimum-hardware or Steam acceptance. Earlier unexplained local native-runtime anomalies remain unresolved; this bounded package acceptance does not establish a long soak. Later QA/docs commits do not change these frozen runtime bytes.
+
+# Historical private friends beta - 0.3.0-beta.7
 
 Frozen runtime `6f1300b6f5e7dab9f31b684e60d1cadd2bbc5842` combines mouse aiming/click/guard, nonlethal Chicken Race pecks, per-life weapon levels, the staged pantry rescue and animated story scenes, optional Roomier arenas, and corrected Rooftop race bot navigation. Classic remains default; Roomier adds21% floor area and requires compatible guests. [Integration review](../qa/reviews/roomier-arena-2026-10-12.md) and [route evidence](../qa/reviews/arena-size-2026-10-12.md) give validation and limits.
 

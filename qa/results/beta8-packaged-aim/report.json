@@ -1,0 +1,322 @@
+{
+  "startedAt": "2026-10-13T08:40:48.259Z",
+  "runtime": {
+    "node": "C:\\Users\\Joshua\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\node\\bin\\node.exe",
+    "chrome": "C:/Program Files/Google/Chrome/Application/chrome.exe",
+    "root": "C:\\Users\\Joshua\\Documents\\Codex\\2026-10-08\\rea\\work\\custard-knights-aim\\build\\beta8-packaged-payload"
+  },
+  "sourceHashes": {
+    "index.html": "eb21b78a7ba9c69ebb2eaf8825ecea8c7828db7e3dcdeed86b8a3f673c08439a",
+    "game/input-aim.js": "1d2f622578ec63301e5803c484b4e35af758b305994d81cd841e3898a81ffed9",
+    "game/mass-battle-ui.js": "ec7c6ea2c73cb8e1b95ffc0b664d310d211d867201f4ccddd2a865c1c247e6b6",
+    "game/mass-battle.js": "76acfad4d9104ec70a05e514935c6f728b33cecb2fee393a18fd58e30d24ca4e"
+  },
+  "checks": [
+    {
+      "name": "Actual game loads in isolated browser profile",
+      "pass": true
+    },
+    {
+      "name": "Keyboard movement and pointer aim are independent",
+      "pass": true,
+      "details": {
+        "pass": true,
+        "state": {
+          "mx": 1,
+          "my": 0,
+          "atk": false,
+          "dash": false,
+          "block": false,
+          "faceTo": 2.404721682451907
+        },
+        "expected": 2.4034509365201933,
+        "target": {
+          "x": 1113.6,
+          "y": 539.36,
+          "expected": 2.4034509365201933,
+          "size": "roomier",
+          "width": 1568,
+          "inside": true,
+          "hit": {
+            "id": "game",
+            "tag": "CANVAS",
+            "className": ""
+          }
+        },
+        "trace": [
+          {
+            "target": "game",
+            "pointerType": "mouse",
+            "x": 1113.5999755859375,
+            "y": 539.3599853515625
+          }
+        ]
+      }
+    },
+    {
+      "name": "Roomier scaled canvas pointer coordinates fire toward the selected world point",
+      "pass": true,
+      "details": {
+        "pass": true,
+        "angle": 2.443399731126851,
+        "projectileCapture": {
+          "angle": 2.443399731126851,
+          "x": 1308.6104156016593,
+          "y": 185.11553829166115,
+          "tick": 18,
+          "projectile": true
+        },
+        "expected": 2.4289538163097255,
+        "aim": {
+          "source": "mouse",
+          "angle": 2.4442833524839833,
+          "padIndex": null
+        },
+        "face": 2.443899733347054,
+        "held": {
+          "mx": 0,
+          "my": 0,
+          "atk": true,
+          "dash": false,
+          "block": false,
+          "faceTo": 2.4442833524839833
+        },
+        "weapon": {
+          "kind": "bow",
+          "lvl": 1,
+          "ammo": 5
+        },
+        "fireCd": 0.3433333333333333,
+        "protect": -0.016666666666664564,
+        "size": "roomier",
+        "width": 1568,
+        "projectiles": 1,
+        "targetInside": true,
+        "targetHit": {
+          "id": "game",
+          "tag": "CANVAS",
+          "className": ""
+        },
+        "trace": [
+          {
+            "target": "game",
+            "pointerType": "mouse",
+            "x": 1113.5999755859375,
+            "y": 539.3599853515625
+          },
+          {
+            "target": "game",
+            "pointerType": "mouse",
+            "x": 1082.239990234375,
+            "y": 549.2000122070312
+          }
+        ]
+      }
+    },
+    {
+      "name": "Mouse ownership persists while the pointer remains parked",
+      "pass": true,
+      "details": {
+        "pass": true,
+        "before": {
+          "source": "mouse",
+          "angle": 2.4442833524839833,
+          "padIndex": null
+        },
+        "after": {
+          "source": "mouse",
+          "angle": 2.4454775960497495,
+          "padIndex": null
+        },
+        "traceBefore": {
+          "target": "game",
+          "pointerType": "mouse",
+          "x": 1082.239990234375,
+          "y": 549.2000122070312
+        },
+        "traceAfter": {
+          "target": "game",
+          "pointerType": "mouse",
+          "x": 1082.239990234375,
+          "y": 549.2000122070312
+        }
+      }
+    },
+    {
+      "name": "Arena radial deadzone preserves a diagonal right-stick aim while left stick moves",
+      "pass": true
+    },
+    {
+      "name": "Arena pad aim cue resolves to a rendered world point",
+      "pass": true
+    },
+    {
+      "name": "Neutral right stick retains aim without jitter",
+      "pass": true
+    },
+    {
+      "name": "Keyboard-only movement takes facing while right stick is neutral",
+      "pass": true
+    },
+    {
+      "name": "Parked mouse aim cannot override a later pad aim",
+      "pass": true,
+      "details": {
+        "pass": true,
+        "mouse": 2.5298209156347236,
+        "pad": 3.017237659043032,
+        "expected": 3.017237659043032
+      }
+    },
+    {
+      "name": "Pointer aim and attack follow the kb1 couch seat",
+      "pass": true
+    },
+    {
+      "name": "Pointer does not steal the pad-owned couch seat",
+      "pass": true
+    },
+    {
+      "name": "Classic late-connect pads retain distinct actual-index ownership",
+      "pass": true,
+      "details": {
+        "pass": true,
+        "before": {
+          "source": "move",
+          "angle": 3.141592653589793,
+          "padIndex": null
+        },
+        "p1from1": true,
+        "p2from1": false,
+        "p1from0": false,
+        "p2from0": true,
+        "scenario": "one actual pad at index 1, then late index 0 joins; each button affects only its distinct owner"
+      }
+    },
+    {
+      "name": "Pause and blur clear held pointer actions",
+      "pass": true
+    },
+    {
+      "name": "Faction starts a real local practice battle",
+      "pass": true
+    },
+    {
+      "name": "Faction mouse cursor targets through the live camera transform",
+      "pass": true
+    },
+    {
+      "name": "Faction mouse aim cue is visible and maps to the cursor",
+      "pass": true
+    },
+    {
+      "name": "Faction radial right-stick aim supersedes the parked mouse",
+      "pass": true
+    },
+    {
+      "name": "Faction neutral stick retains pad aim",
+      "pass": true
+    },
+    {
+      "name": "Faction keyboard movement takes facing when pad stick is neutral",
+      "pass": true
+    },
+    {
+      "name": "Faction modal entry clears held mouse attack and guard",
+      "pass": true
+    }
+  ],
+  "limitations": [
+    "Synthetic mouse, keyboard, and standard gamepad routed through the actual browser input handlers and game loop.",
+    "Physical controller/device ergonomics and human acceptance were not performed.",
+    "Online owned/guest aim was not exercised unless the optional bounded local fixture is available."
+  ],
+  "onlineGuest": "not-run: no owned-guest local network fixture was available in this bounded browser review",
+  "arenaPadCue": {
+    "x": 1391,
+    "y": 216.6220576763654,
+    "source": "pad",
+    "distance": 83.52618679258688
+  },
+  "factionMouseCue": {
+    "input": {
+      "aimX": 0.9991563849261367,
+      "aimY": -0.04106724316695323
+    },
+    "cue": {
+      "x": 1152,
+      "y": 440,
+      "source": "mouse"
+    },
+    "state": {
+      "source": "mouse",
+      "x": 911.9175382708199,
+      "y": -37.4815593007952,
+      "padIndex": 0,
+      "camera": {
+        "x": 800,
+        "y": 500
+      },
+      "zoom": 1,
+      "width": 1600,
+      "height": 1000
+    },
+    "expectedScreen": {
+      "x": 1152,
+      "y": 440
+    },
+    "projected": {
+      "x": 1152,
+      "y": 440
+    }
+  },
+  "factionPadAim": {
+    "input": {
+      "moveX": 0,
+      "moveY": 0,
+      "aimX": 0.6726727939963125,
+      "aimY": 0.7399400733959437,
+      "attack": false,
+      "heavy": false,
+      "guard": false,
+      "dash": false,
+      "ability": false
+    },
+    "state": {
+      "source": "pad",
+      "x": 0.6726727939963125,
+      "y": 0.7399400733959437,
+      "padIndex": 0,
+      "camera": {
+        "x": 800,
+        "y": 500
+      },
+      "zoom": 1,
+      "width": 1600,
+      "height": 1000
+    },
+    "cue": {
+      "x": 340.98338082862693,
+      "y": 588.4725703101867,
+      "source": "pad"
+    }
+  },
+  "environment": {
+    "platform": "win32",
+    "arch": "x64",
+    "node": "v24.19.0",
+    "browser": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/154.0.0.0 Safari/537.36",
+    "viewport": {
+      "width": 1600,
+      "height": 1000,
+      "dpr": 1
+    }
+  },
+  "sourceHashesAfter": {
+    "index.html": "eb21b78a7ba9c69ebb2eaf8825ecea8c7828db7e3dcdeed86b8a3f673c08439a",
+    "game/input-aim.js": "1d2f622578ec63301e5803c484b4e35af758b305994d81cd841e3898a81ffed9",
+    "game/mass-battle-ui.js": "ec7c6ea2c73cb8e1b95ffc0b664d310d211d867201f4ccddd2a865c1c247e6b6",
+    "game/mass-battle.js": "76acfad4d9104ec70a05e514935c6f728b33cecb2fee393a18fd58e30d24ca4e"
+  },
+  "finishedAt": "2026-10-13T08:40:58.964Z"
+}

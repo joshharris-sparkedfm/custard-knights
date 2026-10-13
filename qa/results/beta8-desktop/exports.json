@@ -1,0 +1,20 @@
+{
+  "version": "0.3.0-beta.8",
+  "sourceCommit": "5c9b02f3692c7b03786e659f7cd7b1d35e3e7e99",
+  "asarSha256": "f6ed8a6822a788c5c572f6a16fbe95fad9a4ea7dd65cde7aca03ef5fd4eb84d4",
+  "executableSha256": "a2610c50e9e104a684a81f3f5ad04995926fc3ee95ef0f02cf26873a4f4520ea",
+  "packageEntries": 60,
+  "friendsGameFiles": 73,
+  "preview": {
+    "bytes": 547138025,
+    "sha256": "da06740565ff5449159de84839716adcfd4a8853c2a37a4bbe0624e24d250631"
+  },
+  "friends": {
+    "bytes": 547137079,
+    "sha256": "279c42d1c66cd358f434e66c94941d2b13aec93328238239defca32e200718e0"
+  },
+  "zipIntegrity": true,
+  "exactCopiedGameBytes": true,
+  "packagedRangedAimChecks": 20,
+  "publiclyUploaded": false
+}

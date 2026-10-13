@@ -1,0 +1,110 @@
+{
+  "attempt": 1,
+  "executable": "C:\\Users\\Joshua\\Documents\\Codex\\2026-10-08\\rea\\work\\custard-knights-room\\dist\\Custard Knights-win32-x64\\Custard Knights.exe",
+  "profile": "C:\\Users\\Joshua\\AppData\\Local\\Temp\\custard-acceptance-19OfNq\\user-data",
+  "checks": [
+    {
+      "name": "Native origin has no QA helpers",
+      "pass": true
+    },
+    {
+      "name": "Four sampled synthetic pads join four logical slots",
+      "pass": true
+    },
+    {
+      "name": "Middle Leave preserves P1 P3 P4 labels colours and control prompts",
+      "pass": true
+    },
+    {
+      "name": "Rejoin reclaims vacant P2 without survivor relabel",
+      "pass": true
+    },
+    {
+      "name": "Missing P3 remains reserved and blocks Cup start",
+      "pass": true
+    },
+    {
+      "name": "Selected recovery restores P3 and permits Cup",
+      "pass": true
+    },
+    {
+      "name": "Actual Cup entry leaves couch menu and shows arena",
+      "pass": true
+    }
+  ],
+  "limitations": [
+    "Actual EXE, isolated marked profile. Programmatic DOM clicks and synthetic navigator pads with three observed polls per phase bounded to 10 seconds. No CK helpers. Native room UI vacancy/rejoin/recovery/Cup-entry smoke; not physical/input-only, combat completion, Cup-result readiness, real transport, Steam Input, responsiveness or human usability acceptance. In-memory acceptance.run replacement; ASAR unchanged."
+  ],
+  "exitCode": 0,
+  "stdout": "\r\nACTUAL_DEVICE_PASS {\"checks\":[{\"name\":\"Native origin has no QA helpers\",\"pass\":true},{\"name\":\"Four sampled synthetic pads join four logical slots\",\"pass\":true},{\"name\":\"Middle Leave preserves P1 P3 P4 labels colours and control prompts\",\"pass\":true},{\"name\":\"Rejoin reclaims vacant P2 without survivor relabel\",\"pass\":true},{\"name\":\"Missing P3 remains reserved and blocks Cup start\",\"pass\":true},{\"name\":\"Selected recovery restores P3 and permits Cup\",\"pass\":true},{\"name\":\"Actual Cup entry leaves couch menu and shows arena\",\"pass\":true}],\"origin\":\"custard://game\",\"syntheticPolls\":72,\"before\":[{\"text\":\"Player 1Player 1 controller: Move: left stick / d-pad · Aim: right stick · Swing: A / RT · Dash: B / LB · Block: X / RB / LT · Shout: Y · Menu: StartLeave\",\"color\":\"rgb(255, 90, 78)\",\"occupied\":true},{\"text\":\"Player 2Player 2 controller: Move: left stick / d-pad · Aim: right stick · Swing: A / RT · Dash: B / LB · Block: X / RB / LT · Shout: Y · Menu: StartLeave\",\"color\":\"rgb(255, 143, 177)\",\"occupied\":true},{\"text\":\"Player 3Player 3 controller: Move: left stick / d-pad · Aim: right stick · Swing: A / RT · Dash: B / LB · Block: X / RB / LT · Shout: Y · Menu: StartLeave\",\"color\":\"rgb(255, 159, 67)\",\"occupied\":true},{\"text\":\"Player 4Player 4 controller: Move: left stick / d-pad · Aim: right stick · Swing: A / RT · Dash: B / LB · Block: X / RB / LT · Shout: Y · Menu: StartLeave\",\"color\":\"rgb(46, 196, 182)\",\"occupied\":true}],\"after\":[{\"text\":\"Player 1Player 1 controller: Move: left stick / d-pad · Aim: right stick · Swing: A / RT · Dash: B / LB · Block: X / RB / LT · Shout: Y · Menu: StartLeave\",\"color\":\"rgb(255, 90, 78)\",\"occupied\":true},{\"text\":\"Press A to joinPlayer 2 · vacant\",\"color\":\"\",\"occupied\":false},{\"text\":\"Player 3Player 3 controller: Move: left stick / d-pad · Aim: right stick · Swing: A / RT · Dash: B / LB · Block: X / RB / LT · Shout: Y · Menu: StartLeave\",\"color\":\"rgb(255, 159, 67)\",\"occupied\":true},{\"text\":\"Player 4Player 4 controller: Move: left stick / d-pad · Aim: right stick · Swing: A / RT · Dash: B / LB · Block: X / RB / LT · Shout: Y · Menu: StartLeave\",\"color\":\"rgb(46, 196, 182)\",\"occupied\":true}],\"reclaimed\":[{\"text\":\"Player 1Player 1 controller: Move: left stick / d-pad · Aim: right stick · Swing: A / RT · Dash: B / LB · Block: X / RB / LT · Shout: Y · Menu: StartLeave\",\"color\":\"rgb(255, 90, 78)\",\"occupied\":true},{\"text\":\"Player 2Player 2 controller: Move: left stick / d-pad · Aim: right stick · Swing: A / RT · Dash: B / LB · Block: X / RB / LT · Shout: Y · Menu: StartLeave\",\"color\":\"rgb(255, 143, 177)\",\"occupied\":true},{\"text\":\"Player 3Player 3 controller: Move: left stick / d-pad · Aim: right stick · Swing: A / RT · Dash: B / LB · Block: X / RB / LT · Shout: Y · Menu: StartLeave\",\"color\":\"rgb(255, 159, 67)\",\"occupied\":true},{\"text\":\"Player 4Player 4 controller: Move: left stick / d-pad · Aim: right stick · Swing: A / RT · Dash: B / LB · Block: X / RB / LT · Shout: Y · Menu: StartLeave\",\"color\":\"rgb(46, 196, 182)\",\"occupied\":true}]}\n",
+  "stderr": "Debugger listening on ws://127.0.0.1:63086/263b9590-1f02-4c44-8664-95ba37ee1d04\r\nFor help, see: https://nodejs.org/learn/getting-started/debugging\r\nDebugger attached.\r\nDebugger ending on ws://127.0.0.1:63086/263b9590-1f02-4c44-8664-95ba37ee1d04\r\nFor help, see: https://nodejs.org/learn/getting-started/debugging\r\n",
+  "origin": "custard://game",
+  "syntheticPolls": 72,
+  "before": [
+    {
+      "text": "Player 1Player 1 controller: Move: left stick / d-pad · Aim: right stick · Swing: A / RT · Dash: B / LB · Block: X / RB / LT · Shout: Y · Menu: StartLeave",
+      "color": "rgb(255, 90, 78)",
+      "occupied": true
+    },
+    {
+      "text": "Player 2Player 2 controller: Move: left stick / d-pad · Aim: right stick · Swing: A / RT · Dash: B / LB · Block: X / RB / LT · Shout: Y · Menu: StartLeave",
+      "color": "rgb(255, 143, 177)",
+      "occupied": true
+    },
+    {
+      "text": "Player 3Player 3 controller: Move: left stick / d-pad · Aim: right stick · Swing: A / RT · Dash: B / LB · Block: X / RB / LT · Shout: Y · Menu: StartLeave",
+      "color": "rgb(255, 159, 67)",
+      "occupied": true
+    },
+    {
+      "text": "Player 4Player 4 controller: Move: left stick / d-pad · Aim: right stick · Swing: A / RT · Dash: B / LB · Block: X / RB / LT · Shout: Y · Menu: StartLeave",
+      "color": "rgb(46, 196, 182)",
+      "occupied": true
+    }
+  ],
+  "after": [
+    {
+      "text": "Player 1Player 1 controller: Move: left stick / d-pad · Aim: right stick · Swing: A / RT · Dash: B / LB · Block: X / RB / LT · Shout: Y · Menu: StartLeave",
+      "color": "rgb(255, 90, 78)",
+      "occupied": true
+    },
+    {
+      "text": "Press A to joinPlayer 2 · vacant",
+      "color": "",
+      "occupied": false
+    },
+    {
+      "text": "Player 3Player 3 controller: Move: left stick / d-pad · Aim: right stick · Swing: A / RT · Dash: B / LB · Block: X / RB / LT · Shout: Y · Menu: StartLeave",
+      "color": "rgb(255, 159, 67)",
+      "occupied": true
+    },
+    {
+      "text": "Player 4Player 4 controller: Move: left stick / d-pad · Aim: right stick · Swing: A / RT · Dash: B / LB · Block: X / RB / LT · Shout: Y · Menu: StartLeave",
+      "color": "rgb(46, 196, 182)",
+      "occupied": true
+    }
+  ],
+  "reclaimed": [
+    {
+      "text": "Player 1Player 1 controller: Move: left stick / d-pad · Aim: right stick · Swing: A / RT · Dash: B / LB · Block: X / RB / LT · Shout: Y · Menu: StartLeave",
+      "color": "rgb(255, 90, 78)",
+      "occupied": true
+    },
+    {
+      "text": "Player 2Player 2 controller: Move: left stick / d-pad · Aim: right stick · Swing: A / RT · Dash: B / LB · Block: X / RB / LT · Shout: Y · Menu: StartLeave",
+      "color": "rgb(255, 143, 177)",
+      "occupied": true
+    },
+    {
+      "text": "Player 3Player 3 controller: Move: left stick / d-pad · Aim: right stick · Swing: A / RT · Dash: B / LB · Block: X / RB / LT · Shout: Y · Menu: StartLeave",
+      "color": "rgb(255, 159, 67)",
+      "occupied": true
+    },
+    {
+      "text": "Player 4Player 4 controller: Move: left stick / d-pad · Aim: right stick · Swing: A / RT · Dash: B / LB · Block: X / RB / LT · Shout: Y · Menu: StartLeave",
+      "color": "rgb(46, 196, 182)",
+      "occupied": true
+    }
+  ],
+  "pass": true
+}

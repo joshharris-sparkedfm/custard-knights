@@ -1,0 +1,15 @@
+{
+  "archive": "C:\\Users\\Joshua\\Documents\\Codex\\2026-10-08\\rea\\outputs\\Custard-Knights-Windows-0.3.0-beta.14-preview.zip.partial",
+  "entry": "Custard-Knights-Windows-0.3.0-beta.14-preview/resources/app.asar",
+  "archiveBytes": 547162447,
+  "compressedBytes": 383932198,
+  "declaredBytes": 415067217,
+  "decompressedBytes": 415067233,
+  "declaredCrc": 228852910,
+  "actualCrc": 2199701887,
+  "decompressedSha256": "b59c464c2cce3d545c6afc7d588ed7785d809a9e05420bac8a787581e242e433",
+  "sourceSha256": "97703de7fe1daf699183fcfd86ed5fe9f83b3a8ae9f9944e056d690066eb5593",
+  "folderSha256": "97703de7fe1daf699183fcfd86ed5fe9f83b3a8ae9f9944e056d690066eb5593",
+  "sourceFolderExact": true,
+  "archiveSourceExact": false
+}

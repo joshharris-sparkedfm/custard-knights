@@ -1,0 +1,12 @@
+warning: in the working copy of 'audio/soundtrack.js', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'vendor/fonts.css', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'vendor/lilita-one-LICENSE.txt', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'vendor/nunito-LICENSE.txt', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'vendor/peerjs-LICENSE.txt', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'vendor/peerjs-THIRD-PARTY-NOTICES.txt', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'vendor/peerjs.min.js', LF will be replaced by CRLF the next time Git touches it
+Traceback (most recent call last):
+  File "C:\Users\Joshua\Documents\Codex\2026-10-08\rea\work\custard-knights-room\qa\results\beta14-desktop\export-preview.py", line 62, in <module>
+    assert z.testzip() is None
+           ^^^^^^^^^^^^^^^^^^^
+AssertionError

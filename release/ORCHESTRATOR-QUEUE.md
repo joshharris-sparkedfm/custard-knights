@@ -1,5 +1,22 @@
 # Orchestrator execution queue
 
+## Checked FE06 sword guidance — 13 October 2026
+
+PR31 merged at `8e3a8b15ae13f611e24461c4a25abad4e6d4c2c1`. The clean room checkout matched current remote main before switching to `codex/sword-charge-guidance`. Beta.14 remains the latest verified Friends export; its exact identities and packaging workaround are recorded below and in PREVIEW-BUILD.md. All prior room workers completed. Original bakery WIP remains isolated and unchanged.
+
+| Task | Owner / model / effort | Branch / files | Progress / next action |
+|---|---|---|---|
+| Sword action guidance | /root/charge_implementation / gpt-6.1-sol / high | codex/sword-charge-guidance; index.html only | Complete; accurate sword light/hold/recovery/charge/release wording, explicit left click, bound practice hint and pickup-only fire card; mechanics unchanged |
+| Independent behavior/rendered QA | /root/charge_qa / gpt-6.1-sol / medium | Same branch; qa/charge-guidance-browser.cjs and dated QA evidence/review | Complete; 10 scoped passing observations combined transparently from retained runs; compact help/practice/touch, actual keyboard/mouse and sampled-pad transitions |
+| Independent source/evidence review | /root/room_contract_audit / gpt-6-luna / high | Read-only source and evidence | Final source/evidence clear at index SHA256 8342eb96fef62905b7e42de81bfe922416666730997044fa0eb74385208dd42f |
+| Integration | /root / Sol Extra High | Queue/checkpoint, source tester guide, roadmap snapshot, Git and PR | Checked evidence ready; push/attach/merge before FE07 implementation |
+
+This is a bounded copy correction following the completed combat-clarity audit. It does not close broader FE06 encounter-density, physical-input or human-comprehension acceptance. No new balance, timings, weapons, art or native-fault retries are authorized by this task. A new package is deferred until a coherent playable increment; the beta.14 archive is not claimed to contain subsequent source changes. FE07 warning/banner arbitration follows the merged correction. Native two-sofa, 200-combatant and causal-story work remain explicit unfinished milestones.
+
+Owner reported 20/20 affected controls/onboarding tests, inline-script parse and unchanged normalized combat spans at the initial copy revision. The final follow-up only names left click explicitly; those tests were not repeated. Independent combined browser evidence is qa/results/charge-guidance-2026-10-13/report.json; review is qa/reviews/charge-guidance-2026-10-13.md. Root visually inspected compact Fight, practice and touch captures. The initial whole-card visibility assumption, incomplete input fixtures, mouse trace misses and missing-pad-overlay fixture error remain retained. Earlier mouse trace misses have no retrospectively established cause; subsequent bounded observed-input passes do not explain or erase them. No game defect was established from those misses. Human comprehension, physical input, packaged-new-source and WAN acceptance remain open. No unchanged hosted core/load runs were triggered for this copy-only task.
+
+Next FE07 read-only preparation is complete: /root/warning_contract_audit (gpt-6-luna high), no files/tests/generation. Root recorded the bounded policy and risks in research/2026-10-13/warning-priority-audit.md. Convert relevant writers through one protected banner policy, add warning voice admission/music ducking, preserve settings and authored tells, and independently check overlap/reset/host-client behavior. Do not count this audit as implementation or skip causal-story/two-sofa/200-total work.
+
 ## Latest FE05 completion — beta.14
 
 Frozen14a5527b0cf56592ce752e74c4937aaba0625bb4, PR31; final verification recorded in qa/results/beta14-desktop/exports.json. Friends beta.14 is800688106bytes/SHA256bf539090dd7a2b17d6afebda7409d414310fcf9b8c5fe73ce64bebf6ce18351a. Full extracted23, native programmatic/syntheticUI7, isolated lifecycle,63entries/73Friendsfiles and both final ZIP CRC/hash/material checks pass. CI38391808897 all6passed firstattempt at exactfreeze. Later files are documentation/evidence only. Independent source and final package review clear, including .NET75preview/76Friends CRC/hash verification; root completes checked evidence push/PR31 merge before next task.

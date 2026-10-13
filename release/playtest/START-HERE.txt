@@ -47,8 +47,9 @@ Minimum hardware has not been established. Mac/Linux packages are not included.
 TRY THIS FIRST — ABOUT 20 MINUTES
 
 Please try without coaching first. Getting stuck is useful feedback.
-- Play two Quick Brawls. Try a quick swing, holding a charged swing, blocking
-  and dashing. Tell us what felt satisfying or confusing.
+- Play two Quick Brawls. Try a quick swing, a charged sword swing, blocking
+  and dashing. For a charge, keep holding after the first swing until your
+  knight starts charging, then release. Tell us what felt satisfying or confusing.
 - Open Story (The Great Pudding War) and try the opening story objectives.
 - Open Quick Brawl > Solo Custard Cup for three rounds, or Faction Front; set Army size to
   4 vs 4, then choose Play with bots.
@@ -154,7 +155,10 @@ Faction Front remains a separate service. Human/device/WAN testing is open.
 CONTROLS (DEFAULTS)
 
 Solo arena/story: WASD or arrows move, mouse aims, left-click or Space
-attacks (hold for heavy); Shift dashes; right-click or E blocks.
+attacks; Shift dashes; right-click or E blocks. With the sword, tap for a
+light swing. Keep holding after the first swing until charging starts,
+then release for a heavy that breaks guard and knocks rivals farther.
+Picked-up weapons fire instead; their on-screen prompts show the action.
 P or Esc pauses. F11 toggles fullscreen. Chicken Race uses the same
 attack controls to peck: face a nearby rival to shove them.
 Arena/story controller: left stick moves, right stick aims, A swings,

@@ -1,0 +1,1158 @@
+{
+  "startedAt": "2026-10-13T13:04:23.422Z",
+  "root": "C:\\Users\\Joshua\\Documents\\Codex\\2026-10-08\\rea\\work\\custard-knights-room",
+  "harnessSha256": "9040d6488d1c6d20a9b7971358d772561cf1ee9c069bd45a85259853f923b871",
+  "sourceHashes": {
+    "index.html": "e614402a0013939c9218191325ae5e1307a6ba2791cc91764b0c03d7d8a0992c",
+    "game/preferences.js": "88462d6520d725e9b525ffbb0c744370327d4959075559bb33ed4e2b9b0d6d4a",
+    "game/controls.js": "a65a941fbe3614ab467207d8b216eecdffa77668d1f1bb171f4ad4a6c2405b40",
+    "game/mass-battle-ui.js": "5b944edec7ebab0ff54fab38a34308e8a8123a04290a8eda969f021292b0e260",
+    "game/input-aim.js": "54040dd96e1360a46cd36c5fc6f92b05abeeb7db34af7f5cca3d75a9dcb9baee"
+  },
+  "checks": [
+    {
+      "name": "Rendered compact Fight and default keyboard guidance explain complete sword sequence",
+      "profile": "guidance",
+      "pass": true,
+      "details": {
+        "pass": true,
+        "fight": {
+          "text": "FightWith a sword, press Swing for a light swing. Keep holding through that swing and its recovery to start charging, then release Swing for a heavy. A heavy normally takes one heart, flings knights further and breaks guard; fill the charge arc for extra reach. With a pickup weapon, Swing fires it. Block stops swords and bounces arrows back; block just as they swing to parry and stun them. Holding block drains your guard. Swing while blocking to shield-bash. Dash hops pits and dodges; attack right after a dash for a stab. Knights get flung further the more hurt they are. Three hearts and you're out for a couple of seconds.",
+          "rect": {
+            "x": 52.739990234375,
+            "y": 84.23999786376953,
+            "width": 220.19000244140625,
+            "height": 472.875,
+            "top": 84.23999786376953,
+            "right": 272.92999267578125,
+            "bottom": 557.1149978637695,
+            "left": 52.739990234375
+          },
+          "textRect": {
+            "x": 67.28999328613281,
+            "y": 96.8499984741211,
+            "width": 191.0900115966797,
+            "height": 446.1999816894531,
+            "top": 96.8499984741211,
+            "right": 258.3800048828125,
+            "bottom": 543.0499801635742,
+            "left": 67.28999328613281
+          },
+          "font": "700 13px / 19.5px Nunito, \"Trebuchet MS\", system-ui, sans-serif",
+          "visible": false,
+          "guidance": {
+            "text": "FightWith a sword, press Swing for a light swing. Keep holding through that swing and its recovery to start charging, then release Swing for a heavy. A heavy normally takes one heart, flings knights further and breaks guard; fill the charge arc for extra reach. With a pickup weapon, Swing fires it.",
+            "rect": {
+              "x": 67.28999328613281,
+              "y": 96.8499984741211,
+              "width": 191.0900115966797,
+              "height": 238.13497924804688,
+              "top": 96.8499984741211,
+              "right": 258.3800048828125,
+              "bottom": 334.98497772216797,
+              "left": 67.28999328613281
+            },
+            "visible": true
+          }
+        },
+        "keyboard": {
+          "text": "Solo keyboard: Move: W / Up arrow, A / Left arrow, S / Down arrow, D / Right arrow · Swing: Space / J / F · Dash: Left Shift / Right Shift / K / G · Block: E / L / H. Mouse aims, left click swings or fires, right click blocks. Keyboard half 1: Move: W, A, S, D · Swing: F · Dash: G · Block: H. Keyboard half 2: Move: Up arrow, Left arrow, Down arrow, Right arrow · Swing: J · Dash: K · Block: L. Sword: press Swing for a light swing; keep holding through its recovery to charge, then release for a heavy. Pickup weapons: Swing fires. Shout 1-4 / 7-0. Escape / P opens the match menu.",
+          "rect": {
+            "x": 41.87031936645508,
+            "y": 317.30059814453125,
+            "width": 701.2539672851562,
+            "height": 158.55743408203125,
+            "top": 317.30059814453125,
+            "right": 743.1242866516113,
+            "bottom": 475.8580322265625,
+            "left": 41.87031936645508
+          },
+          "textRect": {
+            "x": 54.875030517578125,
+            "y": 330.3052978515625,
+            "width": 670.03955078125,
+            "height": 131.7977294921875,
+            "top": 330.3052978515625,
+            "right": 724.9145812988281,
+            "bottom": 462.10302734375,
+            "left": 54.875030517578125
+          },
+          "font": "13px / 22.75px Nunito, \"Trebuchet MS\", system-ui, sans-serif",
+          "visible": true
+        }
+      }
+    },
+    {
+      "name": "Keyboard hold passes initial light recovery charge and release heavy",
+      "profile": "guidance",
+      "pass": true,
+      "details": {
+        "pass": true,
+        "indices": {
+          "light": 1,
+          "recovery": 14,
+          "charge": 34,
+          "heavy": 62
+        },
+        "held": {
+          "charge": 0.45099999999999996,
+          "heavies": 0
+        },
+        "traces": [
+          {
+            "t": 3186.400000002235,
+            "clock": 2.28333333333333,
+            "input": true,
+            "swing": 0,
+            "kind": "light",
+            "cd": -2.28333333333333,
+            "charge": 0,
+            "hold": 0,
+            "heavies": 0
+          },
+          {
+            "t": 3203.400000002235,
+            "clock": 2.2999999999999967,
+            "input": true,
+            "swing": 0.20333333333333334,
+            "kind": "light",
+            "cd": 0.55,
+            "charge": 0,
+            "hold": 0,
+            "heavies": 0
+          },
+          {
+            "t": 3219.300000000745,
+            "clock": 2.33333333333333,
+            "input": true,
+            "swing": 0.17,
+            "kind": "light",
+            "cd": 0.5166666666666666,
+            "charge": 0,
+            "hold": 0.03333333333333333,
+            "heavies": 0
+          },
+          {
+            "t": 3235.800000000745,
+            "clock": 2.33333333333333,
+            "input": true,
+            "swing": 0.17,
+            "kind": "light",
+            "cd": 0.5166666666666666,
+            "charge": 0,
+            "hold": 0.03333333333333333,
+            "heavies": 0
+          },
+          {
+            "t": 3252.7000000029802,
+            "clock": 2.3499999999999965,
+            "input": true,
+            "swing": 0.15333333333333335,
+            "kind": "light",
+            "cd": 0.49999999999999994,
+            "charge": 0,
+            "hold": 0.05,
+            "heavies": 0
+          },
+          {
+            "t": 3269.10000000149,
+            "clock": 2.3833333333333298,
+            "input": true,
+            "swing": 0.12000000000000002,
+            "kind": "light",
+            "cd": 0.4666666666666666,
+            "charge": 0,
+            "hold": 0.08333333333333333,
+            "heavies": 0
+          },
+          {
+            "t": 3285.60000000149,
+            "clock": 2.3833333333333298,
+            "input": true,
+            "swing": 0.12000000000000002,
+            "kind": "light",
+            "cd": 0.4666666666666666,
+            "charge": 0,
+            "hold": 0.08333333333333333,
+            "heavies": 0
+          },
+          {
+            "t": 3303.10000000149,
+            "clock": 2.3999999999999964,
+            "input": true,
+            "swing": 0.10333333333333336,
+            "kind": "light",
+            "cd": 0.44999999999999996,
+            "charge": 0,
+            "hold": 0.09999999999999999,
+            "heavies": 0
+          },
+          {
+            "t": 3319.400000002235,
+            "clock": 2.416666666666663,
+            "input": true,
+            "swing": 0.0866666666666667,
+            "kind": "light",
+            "cd": 0.4333333333333333,
+            "charge": 0,
+            "hold": 0.11666666666666665,
+            "heavies": 0
+          },
+          {
+            "t": 3336.2000000029802,
+            "clock": 2.4333333333333296,
+            "input": true,
+            "swing": 0.07000000000000003,
+            "kind": "light",
+            "cd": 0.41666666666666663,
+            "charge": 0,
+            "hold": 0.13333333333333333,
+            "heavies": 0
+          },
+          {
+            "t": 3352.400000002235,
+            "clock": 2.449999999999996,
+            "input": true,
+            "swing": 0.05333333333333337,
+            "kind": "light",
+            "cd": 0.39999999999999997,
+            "charge": 0,
+            "hold": 0.15,
+            "heavies": 0
+          },
+          {
+            "t": 3369.10000000149,
+            "clock": 2.4833333333333294,
+            "input": true,
+            "swing": 0.020000000000000042,
+            "kind": "light",
+            "cd": 0.36666666666666664,
+            "charge": 0,
+            "hold": 0.18333333333333332,
+            "heavies": 0
+          },
+          {
+            "t": 3385.5,
+            "clock": 2.4833333333333294,
+            "input": true,
+            "swing": 0.020000000000000042,
+            "kind": "light",
+            "cd": 0.36666666666666664,
+            "charge": 0,
+            "hold": 0.18333333333333332,
+            "heavies": 0
+          },
+          {
+            "t": 3402.900000002235,
+            "clock": 2.499999999999996,
+            "input": true,
+            "swing": 0.0033333333333333756,
+            "kind": "light",
+            "cd": 0.35,
+            "charge": 0,
+            "hold": 0.19999999999999998,
+            "heavies": 0
+          },
+          {
+            "t": 3419.5,
+            "clock": 2.533333333333329,
+            "input": true,
+            "swing": -0.01333333333333329,
+            "kind": "light",
+            "cd": 0.31666666666666665,
+            "charge": 0,
+            "hold": 0.2333333333333333,
+            "heavies": 0
+          },
+          {
+            "t": 3435.5,
+            "clock": 2.533333333333329,
+            "input": true,
+            "swing": -0.01333333333333329,
+            "kind": "light",
+            "cd": 0.31666666666666665,
+            "charge": 0,
+            "hold": 0.2333333333333333,
+            "heavies": 0
+          },
+          {
+            "t": 3452.5,
+            "clock": 2.5666666666666624,
+            "input": true,
+            "swing": -0.01333333333333329,
+            "kind": "light",
+            "cd": 0.2833333333333333,
+            "charge": 0,
+            "hold": 0.26666666666666666,
+            "heavies": 0
+          },
+          {
+            "t": 3469,
+            "clock": 2.583333333333329,
+            "input": true,
+            "swing": -0.01333333333333329,
+            "kind": "light",
+            "cd": 0.26666666666666666,
+            "charge": 0,
+            "hold": 0.2833333333333333,
+            "heavies": 0
+          },
+          {
+            "t": 3485.5,
+            "clock": 2.583333333333329,
+            "input": true,
+            "swing": -0.01333333333333329,
+            "kind": "light",
+            "cd": 0.26666666666666666,
+            "charge": 0,
+            "hold": 0.2833333333333333,
+            "heavies": 0
+          },
+          {
+            "t": 3502.400000002235,
+            "clock": 2.6166666666666623,
+            "input": true,
+            "swing": -0.01333333333333329,
+            "kind": "light",
+            "cd": 0.23333333333333334,
+            "charge": 0,
+            "hold": 0.31666666666666665,
+            "heavies": 0
+          },
+          {
+            "t": 3519.2000000029802,
+            "clock": 2.633333333333329,
+            "input": true,
+            "swing": -0.01333333333333329,
+            "kind": "light",
+            "cd": 0.21666666666666667,
+            "charge": 0,
+            "hold": 0.3333333333333333,
+            "heavies": 0
+          },
+          {
+            "t": 3535.800000000745,
+            "clock": 2.6499999999999955,
+            "input": true,
+            "swing": -0.01333333333333329,
+            "kind": "light",
+            "cd": 0.2,
+            "charge": 0,
+            "hold": 0.35,
+            "heavies": 0
+          },
+          {
+            "t": 3552.300000000745,
+            "clock": 2.666666666666662,
+            "input": true,
+            "swing": -0.01333333333333329,
+            "kind": "light",
+            "cd": 0.18333333333333335,
+            "charge": 0,
+            "hold": 0.36666666666666664,
+            "heavies": 0
+          },
+          {
+            "t": 3569.2000000029802,
+            "clock": 2.6833333333333287,
+            "input": true,
+            "swing": -0.01333333333333329,
+            "kind": "light",
+            "cd": 0.16666666666666669,
+            "charge": 0,
+            "hold": 0.3833333333333333,
+            "heavies": 0
+          },
+          {
+            "t": 3586.300000000745,
+            "clock": 2.6999999999999953,
+            "input": true,
+            "swing": -0.01333333333333329,
+            "kind": "light",
+            "cd": 0.15000000000000002,
+            "charge": 0,
+            "hold": 0.39999999999999997,
+            "heavies": 0
+          },
+          {
+            "t": 3603.2000000029802,
+            "clock": 2.716666666666662,
+            "input": true,
+            "swing": -0.01333333333333329,
+            "kind": "light",
+            "cd": 0.13333333333333336,
+            "charge": 0,
+            "hold": 0.41666666666666663,
+            "heavies": 0
+          },
+          {
+            "t": 3619.2000000029802,
+            "clock": 2.7333333333333285,
+            "input": true,
+            "swing": -0.01333333333333329,
+            "kind": "light",
+            "cd": 0.1166666666666667,
+            "charge": 0,
+            "hold": 0.4333333333333333,
+            "heavies": 0
+          },
+          {
+            "t": 3636,
+            "clock": 2.749999999999995,
+            "input": true,
+            "swing": -0.01333333333333329,
+            "kind": "light",
+            "cd": 0.10000000000000003,
+            "charge": 0,
+            "hold": 0.44999999999999996,
+            "heavies": 0
+          },
+          {
+            "t": 3652.5,
+            "clock": 2.7666666666666617,
+            "input": true,
+            "swing": -0.01333333333333329,
+            "kind": "light",
+            "cd": 0.08333333333333337,
+            "charge": 0,
+            "hold": 0.4666666666666666,
+            "heavies": 0
+          },
+          {
+            "t": 3668.900000002235,
+            "clock": 2.7666666666666617,
+            "input": true,
+            "swing": -0.01333333333333329,
+            "kind": "light",
+            "cd": 0.08333333333333337,
+            "charge": 0,
+            "hold": 0.4666666666666666,
+            "heavies": 0
+          },
+          {
+            "t": 3686,
+            "clock": 2.799999999999995,
+            "input": true,
+            "swing": -0.01333333333333329,
+            "kind": "light",
+            "cd": 0.050000000000000044,
+            "charge": 0,
+            "hold": 0.49999999999999994,
+            "heavies": 0
+          },
+          {
+            "t": 3704,
+            "clock": 2.8166666666666615,
+            "input": true,
+            "swing": -0.01333333333333329,
+            "kind": "light",
+            "cd": 0.03333333333333338,
+            "charge": 0,
+            "hold": 0.5166666666666666,
+            "heavies": 0
+          },
+          {
+            "t": 3719.300000000745,
+            "clock": 2.833333333333328,
+            "input": true,
+            "swing": -0.01333333333333329,
+            "kind": "light",
+            "cd": 0.016666666666666715,
+            "charge": 0,
+            "hold": 0.5333333333333333,
+            "heavies": 0
+          },
+          {
+            "t": 3736,
+            "clock": 2.8499999999999948,
+            "input": true,
+            "swing": -0.01333333333333329,
+            "kind": "light",
+            "cd": 4.85722573273506e-17,
+            "charge": 0,
+            "hold": 0.55,
+            "heavies": 0
+          },
+          {
+            "t": 3753.800000000745,
+            "clock": 2.8666666666666614,
+            "input": true,
+            "swing": -0.01333333333333329,
+            "kind": "light",
+            "cd": -0.016666666666666618,
+            "charge": 0.001,
+            "hold": 0.5666666666666668,
+            "heavies": 0
+          },
+          {
+            "t": 3770,
+            "clock": 2.883333333333328,
+            "input": true,
+            "swing": -0.01333333333333329,
+            "kind": "light",
+            "cd": -0.033333333333333284,
+            "charge": 0.017666666666666667,
+            "hold": 0.5833333333333335,
+            "heavies": 0
+          },
+          {
+            "t": 3786.60000000149,
+            "clock": 2.8999999999999946,
+            "input": true,
+            "swing": -0.01333333333333329,
+            "kind": "light",
+            "cd": -0.04999999999999995,
+            "charge": 0.034333333333333334,
+            "hold": 0.6000000000000002,
+            "heavies": 0
+          },
+          {
+            "t": 3803.7000000029802,
+            "clock": 2.916666666666661,
+            "input": true,
+            "swing": -0.01333333333333329,
+            "kind": "light",
+            "cd": -0.06666666666666661,
+            "charge": 0.051000000000000004,
+            "hold": 0.6166666666666669,
+            "heavies": 0
+          },
+          {
+            "t": 3819.900000002235,
+            "clock": 2.933333333333328,
+            "input": true,
+            "swing": -0.01333333333333329,
+            "kind": "light",
+            "cd": -0.08333333333333327,
+            "charge": 0.06766666666666667,
+            "hold": 0.6333333333333336,
+            "heavies": 0
+          },
+          {
+            "t": 3836.2000000029802,
+            "clock": 2.9499999999999944,
+            "input": true,
+            "swing": -0.01333333333333329,
+            "kind": "light",
+            "cd": -0.09999999999999994,
+            "charge": 0.08433333333333333,
+            "hold": 0.6500000000000004,
+            "heavies": 0
+          },
+          {
+            "t": 3852.60000000149,
+            "clock": 2.966666666666661,
+            "input": true,
+            "swing": -0.01333333333333329,
+            "kind": "light",
+            "cd": -0.1166666666666666,
+            "charge": 0.10099999999999999,
+            "hold": 0.6666666666666671,
+            "heavies": 0
+          },
+          {
+            "t": 3869.800000000745,
+            "clock": 2.9833333333333276,
+            "input": true,
+            "swing": -0.01333333333333329,
+            "kind": "light",
+            "cd": -0.13333333333333328,
+            "charge": 0.11766666666666666,
+            "hold": 0.6833333333333338,
+            "heavies": 0
+          },
+          {
+            "t": 3885.900000002235,
+            "clock": 2.9999999999999942,
+            "input": true,
+            "swing": -0.01333333333333329,
+            "kind": "light",
+            "cd": -0.14999999999999994,
+            "charge": 0.13433333333333333,
+            "hold": 0.7000000000000005,
+            "heavies": 0
+          },
+          {
+            "t": 3903,
+            "clock": 3.016666666666661,
+            "input": true,
+            "swing": -0.01333333333333329,
+            "kind": "light",
+            "cd": -0.1666666666666666,
+            "charge": 0.151,
+            "hold": 0.7166666666666672,
+            "heavies": 0
+          },
+          {
+            "t": 3920.10000000149,
+            "clock": 3.0333333333333274,
+            "input": true,
+            "swing": -0.01333333333333329,
+            "kind": "light",
+            "cd": -0.18333333333333326,
+            "charge": 0.16766666666666666,
+            "hold": 0.733333333333334,
+            "heavies": 0
+          },
+          {
+            "t": 3937,
+            "clock": 3.049999999999994,
+            "input": true,
+            "swing": -0.01333333333333329,
+            "kind": "light",
+            "cd": -0.19999999999999993,
+            "charge": 0.18433333333333332,
+            "hold": 0.7500000000000007,
+            "heavies": 0
+          },
+          {
+            "t": 3955.10000000149,
+            "clock": 3.0666666666666607,
+            "input": true,
+            "swing": -0.01333333333333329,
+            "kind": "light",
+            "cd": -0.2166666666666666,
+            "charge": 0.20099999999999998,
+            "hold": 0.7666666666666674,
+            "heavies": 0
+          },
+          {
+            "t": 3969.300000000745,
+            "clock": 3.0833333333333273,
+            "input": true,
+            "swing": -0.01333333333333329,
+            "kind": "light",
+            "cd": -0.23333333333333325,
+            "charge": 0.21766666666666665,
+            "hold": 0.7833333333333341,
+            "heavies": 0
+          },
+          {
+            "t": 3985.7000000029802,
+            "clock": 3.099999999999994,
+            "input": true,
+            "swing": -0.01333333333333329,
+            "kind": "light",
+            "cd": -0.24999999999999992,
+            "charge": 0.2343333333333333,
+            "hold": 0.8000000000000008,
+            "heavies": 0
+          },
+          {
+            "t": 4002.2000000029802,
+            "clock": 3.1166666666666605,
+            "input": true,
+            "swing": -0.01333333333333329,
+            "kind": "light",
+            "cd": -0.2666666666666666,
+            "charge": 0.251,
+            "hold": 0.8166666666666675,
+            "heavies": 0
+          },
+          {
+            "t": 4018.800000000745,
+            "clock": 3.133333333333327,
+            "input": true,
+            "swing": -0.01333333333333329,
+            "kind": "light",
+            "cd": -0.28333333333333327,
+            "charge": 0.26766666666666666,
+            "hold": 0.8333333333333343,
+            "heavies": 0
+          },
+          {
+            "t": 4035.400000002235,
+            "clock": 3.1499999999999937,
+            "input": true,
+            "swing": -0.01333333333333329,
+            "kind": "light",
+            "cd": -0.29999999999999993,
+            "charge": 0.2843333333333333,
+            "hold": 0.850000000000001,
+            "heavies": 0
+          },
+          {
+            "t": 4052.300000000745,
+            "clock": 3.1666666666666603,
+            "input": true,
+            "swing": -0.01333333333333329,
+            "kind": "light",
+            "cd": -0.3166666666666666,
+            "charge": 0.301,
+            "hold": 0.8666666666666677,
+            "heavies": 0
+          },
+          {
+            "t": 4068.900000002235,
+            "clock": 3.183333333333327,
+            "input": true,
+            "swing": -0.01333333333333329,
+            "kind": "light",
+            "cd": -0.33333333333333326,
+            "charge": 0.31766666666666665,
+            "hold": 0.8833333333333344,
+            "heavies": 0
+          },
+          {
+            "t": 4086,
+            "clock": 3.1999999999999935,
+            "input": true,
+            "swing": -0.01333333333333329,
+            "kind": "light",
+            "cd": -0.3499999999999999,
+            "charge": 0.3343333333333333,
+            "hold": 0.9000000000000011,
+            "heavies": 0
+          },
+          {
+            "t": 4103.20000000298,
+            "clock": 3.21666666666666,
+            "input": true,
+            "swing": -0.01333333333333329,
+            "kind": "light",
+            "cd": -0.3666666666666666,
+            "charge": 0.351,
+            "hold": 0.9166666666666679,
+            "heavies": 0
+          },
+          {
+            "t": 4119.800000000745,
+            "clock": 3.2333333333333267,
+            "input": true,
+            "swing": -0.01333333333333329,
+            "kind": "light",
+            "cd": -0.38333333333333325,
+            "charge": 0.36766666666666664,
+            "hold": 0.9333333333333346,
+            "heavies": 0
+          },
+          {
+            "t": 4137.800000000745,
+            "clock": 3.2499999999999933,
+            "input": true,
+            "swing": -0.01333333333333329,
+            "kind": "light",
+            "cd": -0.3999999999999999,
+            "charge": 0.3843333333333333,
+            "hold": 0.9500000000000013,
+            "heavies": 0
+          },
+          {
+            "t": 4153,
+            "clock": 3.26666666666666,
+            "input": true,
+            "swing": -0.01333333333333329,
+            "kind": "light",
+            "cd": -0.4166666666666666,
+            "charge": 0.40099999999999997,
+            "hold": 0.966666666666668,
+            "heavies": 0
+          },
+          {
+            "t": 4169.10000000149,
+            "clock": 3.2833333333333266,
+            "input": true,
+            "swing": -0.01333333333333329,
+            "kind": "light",
+            "cd": -0.43333333333333324,
+            "charge": 0.41766666666666663,
+            "hold": 0.9833333333333347,
+            "heavies": 0
+          },
+          {
+            "t": 4185.800000000745,
+            "clock": 3.299999999999993,
+            "input": true,
+            "swing": -0.01333333333333329,
+            "kind": "light",
+            "cd": -0.4499999999999999,
+            "charge": 0.4343333333333333,
+            "hold": 1.0000000000000013,
+            "heavies": 0
+          },
+          {
+            "t": 4203.300000000745,
+            "clock": 3.3166666666666598,
+            "input": true,
+            "swing": -0.01333333333333329,
+            "kind": "light",
+            "cd": -0.46666666666666656,
+            "charge": 0.45099999999999996,
+            "hold": 1.016666666666668,
+            "heavies": 0
+          },
+          {
+            "t": 4220.5,
+            "clock": 3.3333333333333264,
+            "input": false,
+            "swing": 0.2833333333333333,
+            "kind": "heavy",
+            "cd": 0.7,
+            "charge": 0,
+            "hold": 0,
+            "heavies": 1
+          },
+          {
+            "t": 4236.10000000149,
+            "clock": 3.349999999999993,
+            "input": false,
+            "swing": 0.26666666666666666,
+            "kind": "heavy",
+            "cd": 0.6833333333333332,
+            "charge": 0,
+            "hold": 0,
+            "heavies": 1
+          },
+          {
+            "t": 4252.70000000298,
+            "clock": 3.3666666666666596,
+            "input": false,
+            "swing": 0.25,
+            "kind": "heavy",
+            "cd": 0.6666666666666665,
+            "charge": 0,
+            "hold": 0,
+            "heavies": 1
+          },
+          {
+            "t": 4269.400000002235,
+            "clock": 3.383333333333326,
+            "input": false,
+            "swing": 0.23333333333333334,
+            "kind": "heavy",
+            "cd": 0.6499999999999998,
+            "charge": 0,
+            "hold": 0,
+            "heavies": 1
+          },
+          {
+            "t": 4286.800000000745,
+            "clock": 3.399999999999993,
+            "input": false,
+            "swing": 0.21666666666666667,
+            "kind": "heavy",
+            "cd": 0.6333333333333331,
+            "charge": 0,
+            "hold": 0,
+            "heavies": 1
+          }
+        ]
+      }
+    },
+    {
+      "name": "Early sword canvas guidance fits compact viewport and includes hold recovery release",
+      "profile": "guidance",
+      "pass": true,
+      "details": {
+        "pass": true,
+        "control": "P1 · Move: W, A, S, D · Swing: F / Space · Dash: G / Left Shift / Right Shift · Block: H / E",
+        "texts": [
+          {
+            "text": "YOU",
+            "x": 375.92044779669317,
+            "y": 199.2450651137471,
+            "right": 398.3740369984653,
+            "width": 768,
+            "height": 484,
+            "font": "900 13px Nunito, \"Trebuchet MS\", sans-serif"
+          },
+          {
+            "text": "4:57",
+            "x": 366.3393227235201,
+            "y": 15.800000548362732,
+            "right": 401.660707794058,
+            "width": 768,
+            "height": 484,
+            "font": "31px \"Lilita One\", Impact, sans-serif"
+          },
+          {
+            "text": "CHAOS",
+            "x": 241.01703228223414,
+            "y": 35.60000133514404,
+            "right": 268.80001068115234,
+            "width": 768,
+            "height": 484,
+            "font": "15px \"Lilita One\", Impact, sans-serif"
+          },
+          {
+            "text": "SIMPLE",
+            "x": 499.2000198364258,
+            "y": 35.60000133514404,
+            "right": 529.4849972361317,
+            "width": 768,
+            "height": 484,
+            "font": "15px \"Lilita One\", Impact, sans-serif"
+          },
+          {
+            "text": "1. Player 1",
+            "x": 19.200000762939453,
+            "y": 11.600000381469727,
+            "right": 62.44315128497874,
+            "width": 768,
+            "height": 484,
+            "font": "900 14px Nunito, \"Trebuchet MS\", sans-serif"
+          },
+          {
+            "text": "0",
+            "x": 135.08221056787988,
+            "y": 11.600000381469727,
+            "right": 141.60000562667847,
+            "width": 768,
+            "height": 484,
+            "font": "17px \"Lilita One\", Impact, sans-serif"
+          },
+          {
+            "text": "2. Duchess Dumpling",
+            "x": 19.200000762939453,
+            "y": 24.200000882148743,
+            "right": 105.19911306695576,
+            "width": 768,
+            "height": 484,
+            "font": "900 14px Nunito, \"Trebuchet MS\", sans-serif"
+          },
+          {
+            "text": "0",
+            "x": 135.08221056787988,
+            "y": 24.200000882148743,
+            "right": 141.60000562667847,
+            "width": 768,
+            "height": 484,
+            "font": "17px \"Lilita One\", Impact, sans-serif"
+          },
+          {
+            "text": "P1 · Move: W, A, S, D · Swing: F / Space · Dash: G / Left Shift / Right Shift · Block: H / E",
+            "x": 196.46272753328958,
+            "y": 399.8000158071518,
+            "right": 571.5373029842885,
+            "width": 768,
+            "height": 484,
+            "font": "900 15px Nunito, \"Trebuchet MS\", sans-serif"
+          },
+          {
+            "text": "Sword: press Swing for a light swing; keep holding through its recovery to charge.",
+            "x": 220.0868495657778,
+            "y": 413.00001633167267,
+            "right": 547.9131809518003,
+            "width": 768,
+            "height": 484,
+            "font": "bold 14px Nunito, \"Trebuchet MS\", sans-serif"
+          },
+          {
+            "text": "Release Swing once charging for a heavy. Pickups: Swing fires.",
+            "x": 259.2853923831535,
+            "y": 426.20001685619354,
+            "right": 508.7146381344246,
+            "width": 768,
+            "height": 484,
+            "font": "bold 14px Nunito, \"Trebuchet MS\", sans-serif"
+          },
+          {
+            "text": "Block as they swing to parry.",
+            "x": 326.229106896285,
+            "y": 439.4000173807144,
+            "right": 441.77092362129315,
+            "width": 768,
+            "height": 484,
+            "font": "bold 14px Nunito, \"Trebuchet MS\", sans-serif"
+          }
+        ],
+        "fixture": "Direct clock .1 and CK.draw on a live-started match; captures actual canvas text, not input-only navigation",
+        "lines": [
+          {
+            "text": "P1 · Move: W, A, S, D · Swing: F / Space · Dash: G / Left Shift / Right Shift · Block: H / E",
+            "x": 196.46272753328958,
+            "y": 399.8000158071518,
+            "right": 571.5373029842885,
+            "width": 768,
+            "height": 484,
+            "font": "900 15px Nunito, \"Trebuchet MS\", sans-serif"
+          },
+          {
+            "text": "Sword: press Swing for a light swing; keep holding through its recovery to charge.",
+            "x": 220.0868495657778,
+            "y": 413.00001633167267,
+            "right": 547.9131809518003,
+            "width": 768,
+            "height": 484,
+            "font": "bold 14px Nunito, \"Trebuchet MS\", sans-serif"
+          },
+          {
+            "text": "Release Swing once charging for a heavy. Pickups: Swing fires.",
+            "x": 259.2853923831535,
+            "y": 426.20001685619354,
+            "right": 508.7146381344246,
+            "width": 768,
+            "height": 484,
+            "font": "bold 14px Nunito, \"Trebuchet MS\", sans-serif"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Early pickup canvas and active control line exclude sword heavy promise",
+      "profile": "guidance",
+      "pass": true,
+      "details": {
+        "pass": true,
+        "control": "P1 · Move: W, A, S, D · Swing: F / Space · Dash: G / Left Shift / Right Shift · Block: H / E",
+        "texts": [
+          {
+            "text": "YOU",
+            "x": 373.54453989874395,
+            "y": 199.2450651137471,
+            "right": 395.99812910051605,
+            "width": 768,
+            "height": 484,
+            "font": "900 13px Nunito, \"Trebuchet MS\", sans-serif"
+          },
+          {
+            "text": "Bow LV1!",
+            "x": 354.24335552910264,
+            "y": 226.0000035762787,
+            "right": 415.29931347015736,
+            "width": 768,
+            "height": 484,
+            "font": "20px \"Lilita One\", Impact, sans-serif"
+          },
+          {
+            "text": "4:57",
+            "x": 366.3393227235201,
+            "y": 15.800000548362732,
+            "right": 401.660707794058,
+            "width": 768,
+            "height": 484,
+            "font": "31px \"Lilita One\", Impact, sans-serif"
+          },
+          {
+            "text": "CHAOS",
+            "x": 241.01703228223414,
+            "y": 35.60000133514404,
+            "right": 268.80001068115234,
+            "width": 768,
+            "height": 484,
+            "font": "15px \"Lilita One\", Impact, sans-serif"
+          },
+          {
+            "text": "SIMPLE",
+            "x": 499.2000198364258,
+            "y": 35.60000133514404,
+            "right": 529.4849972361317,
+            "width": 768,
+            "height": 484,
+            "font": "15px \"Lilita One\", Impact, sans-serif"
+          },
+          {
+            "text": "1. Player 1",
+            "x": 19.200000762939453,
+            "y": 11.600000381469727,
+            "right": 62.44315128497874,
+            "width": 768,
+            "height": 484,
+            "font": "900 14px Nunito, \"Trebuchet MS\", sans-serif"
+          },
+          {
+            "text": "0",
+            "x": 135.08221056787988,
+            "y": 11.600000381469727,
+            "right": 141.60000562667847,
+            "width": 768,
+            "height": 484,
+            "font": "17px \"Lilita One\", Impact, sans-serif"
+          },
+          {
+            "text": "2. Duchess Dumpling",
+            "x": 19.200000762939453,
+            "y": 24.200000882148743,
+            "right": 105.19911306695576,
+            "width": 768,
+            "height": 484,
+            "font": "900 14px Nunito, \"Trebuchet MS\", sans-serif"
+          },
+          {
+            "text": "0",
+            "x": 135.08221056787988,
+            "y": 24.200000882148743,
+            "right": 141.60000562667847,
+            "width": 768,
+            "height": 484,
+            "font": "17px \"Lilita One\", Impact, sans-serif"
+          },
+          {
+            "text": "P1 · Move: W, A, S, D · Swing: F / Space · Dash: G / Left Shift / Right Shift · Block: H / E",
+            "x": 196.46272753328958,
+            "y": 406.40001606941223,
+            "right": 571.5373029842885,
+            "width": 768,
+            "height": 484,
+            "font": "900 15px Nunito, \"Trebuchet MS\", sans-serif"
+          },
+          {
+            "text": "Pickup weapons: Swing fires.",
+            "x": 325.96449201760606,
+            "y": 419.6000165939331,
+            "right": 442.03553849997206,
+            "width": 768,
+            "height": 484,
+            "font": "bold 14px Nunito, \"Trebuchet MS\", sans-serif"
+          },
+          {
+            "text": "Block as they swing to parry.",
+            "x": 326.229106896285,
+            "y": 432.800017118454,
+            "right": 441.77092362129315,
+            "width": 768,
+            "height": 484,
+            "font": "bold 14px Nunito, \"Trebuchet MS\", sans-serif"
+          }
+        ],
+        "fixture": "Direct clock .1 and CK.draw on a live-started match; captures actual canvas text, not input-only navigation",
+        "lines": [
+          {
+            "text": "P1 · Move: W, A, S, D · Swing: F / Space · Dash: G / Left Shift / Right Shift · Block: H / E",
+            "x": 196.46272753328958,
+            "y": 406.40001606941223,
+            "right": 571.5373029842885,
+            "width": 768,
+            "height": 484,
+            "font": "900 15px Nunito, \"Trebuchet MS\", sans-serif"
+          },
+          {
+            "text": "Pickup weapons: Swing fires.",
+            "x": 325.96449201760606,
+            "y": 419.6000165939331,
+            "right": 442.03553849997206,
+            "width": 768,
+            "height": 484,
+            "font": "bold 14px Nunito, \"Trebuchet MS\", sans-serif"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Mouse hold passes initial light recovery charge and release heavy",
+      "profile": "guidance",
+      "pass": false,
+      "error": "Error: Timed out: qaTrace.some(t=>t.input&&t.kind===\"light\"&&t.swing>0&&t.charge===0)\n    at Object.wait (C:\\Users\\Joshua\\Documents\\Codex\\2026-10-08\\rea\\work\\custard-knights-room\\qa\\charge-guidance-browser.cjs:22:131)\n    at async C:\\Users\\Joshua\\Documents\\Codex\\2026-10-08\\rea\\work\\custard-knights-room\\qa\\charge-guidance-browser.cjs:46:16\n    at async Object.step (C:\\Users\\Joshua\\Documents\\Codex\\2026-10-08\\rea\\work\\custard-knights-room\\qa\\charge-guidance-browser.cjs:34:66)\n    at async transition (C:\\Users\\Joshua\\Documents\\Codex\\2026-10-08\\rea\\work\\custard-knights-room\\qa\\charge-guidance-browser.cjs:45:50)\n    at async main (C:\\Users\\Joshua\\Documents\\Codex\\2026-10-08\\rea\\work\\custard-knights-room\\qa\\charge-guidance-browser.cjs:60:290)"
+    }
+  ],
+  "errors": [],
+  "limitations": [
+    "Actual Chrome; CDP keyboard/mouse and sampled injected standard pad objects. No physical controllers, human comprehension, responsiveness, packaged EXE or WAN acceptance.",
+    "CK start/setSeats, inert opponent and weapon setup are direct fixtures. Sword transitions use actual browser input and the live animation-frame simulation; no direct update/startSwing calls.",
+    "Touch presentation uses an explicitly labeled pointer-event fixture. Canvas instruction capture uses the actual draw path at a direct early-clock fixture. Profiles are isolated temporary QA saves."
+  ],
+  "failure": "Error: Stopped after observed-input failure: Mouse hold passes initial light recovery charge and release heavy\n    at Object.step (C:\\Users\\Joshua\\Documents\\Codex\\2026-10-08\\rea\\work\\custard-knights-room\\qa\\charge-guidance-browser.cjs:34:515)\n    at process.processTicksAndRejections (node:internal/process/task_queues:104:5)\n    at async transition (C:\\Users\\Joshua\\Documents\\Codex\\2026-10-08\\rea\\work\\custard-knights-room\\qa\\charge-guidance-browser.cjs:45:50)\n    at async main (C:\\Users\\Joshua\\Documents\\Codex\\2026-10-08\\rea\\work\\custard-knights-room\\qa\\charge-guidance-browser.cjs:60:290)",
+  "sourceHashesAfter": {
+    "index.html": "e614402a0013939c9218191325ae5e1307a6ba2791cc91764b0c03d7d8a0992c",
+    "game/preferences.js": "88462d6520d725e9b525ffbb0c744370327d4959075559bb33ed4e2b9b0d6d4a",
+    "game/controls.js": "a65a941fbe3614ab467207d8b216eecdffa77668d1f1bb171f4ad4a6c2405b40",
+    "game/mass-battle-ui.js": "5b944edec7ebab0ff54fab38a34308e8a8123a04290a8eda969f021292b0e260",
+    "game/input-aim.js": "54040dd96e1360a46cd36c5fc6f92b05abeeb7db34af7f5cca3d75a9dcb9baee"
+  },
+  "stableSources": true,
+  "finishedAt": "2026-10-13T13:04:34.796Z",
+  "counts": {
+    "pass": 4,
+    "fail": 1
+  }
+}

@@ -1,0 +1,3 @@
+# Preserve evidence bytes across checkouts; these are not runtime sources.
+tracked.patch -text
+bakery-opening.js.txt -text

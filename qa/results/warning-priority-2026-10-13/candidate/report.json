@@ -1,0 +1,5271 @@
+{
+  "startedAt": "2026-10-13T13:39:26.136Z",
+  "root": "C:\\Users\\Joshua\\Documents\\Codex\\2026-10-08\\rea\\work\\custard-knights-room",
+  "checks": [
+    {
+      "profile": "local",
+      "name": "Actual hazard producer survives flavour/reward and reduced-flash rendering",
+      "pass": true,
+      "details": {
+        "pass": true,
+        "before": {
+          "banner": {
+            "title": "TRAPDOORS!",
+            "sub": "The floor has opinions. Mind the cracks",
+            "col": "#FF5A4E",
+            "t": 2.6,
+            "max": 2.6,
+            "key": "mayhem:trapdoor",
+            "kind": "hazard"
+          },
+          "music": {
+            "cue": "courtyard",
+            "wanted": true,
+            "src": "audio/02-a-very-noble-food-fight.wav",
+            "saved": 0.4,
+            "base": 0.4,
+            "duck": 0.35,
+            "warningFactor": 0.35,
+            "volume": 0.13999999999999999,
+            "muted": false
+          },
+          "audio": {
+            "active": 8,
+            "ordinary": 4,
+            "warning": 4,
+            "max": 64,
+            "reserved": 8,
+            "ordinaryMax": 56,
+            "droppedOrdinary": 0,
+            "droppedWarning": 0,
+            "cueKeys": 1
+          },
+          "starts": 12,
+          "saved": null
+        },
+        "after": {
+          "banner": {
+            "title": "TRAPDOORS!",
+            "sub": "The floor has opinions. Mind the cracks",
+            "col": "#FF5A4E",
+            "t": 1.966666666666669,
+            "max": 2.6,
+            "key": "mayhem:trapdoor",
+            "kind": "hazard"
+          },
+          "music": {
+            "cue": "courtyard",
+            "wanted": true,
+            "src": "audio/02-a-very-noble-food-fight.wav",
+            "saved": 0.4,
+            "base": 0.4,
+            "duck": 0.35,
+            "warningFactor": 0.35,
+            "volume": 0.13999999999999999,
+            "muted": false
+          },
+          "audio": {
+            "active": 0,
+            "ordinary": 0,
+            "warning": 0,
+            "max": 64,
+            "reserved": 8,
+            "ordinaryMax": 56,
+            "droppedOrdinary": 0,
+            "droppedWarning": 0,
+            "cueKeys": 1
+          },
+          "starts": 12,
+          "saved": null
+        },
+        "worldTellHoles": [
+          {
+            "c": 27,
+            "r": 5,
+            "open": 0,
+            "t": 0.866666666666668
+          },
+          {
+            "c": 26,
+            "r": 3,
+            "open": 0,
+            "t": 0.9466666666666685
+          },
+          {
+            "c": 22,
+            "r": 9,
+            "open": 0,
+            "t": 1.0266666666666688
+          },
+          {
+            "c": 17,
+            "r": 5,
+            "open": 0,
+            "t": 1.106666666666669
+          },
+          {
+            "c": 18,
+            "r": 7,
+            "open": 0,
+            "t": 1.186666666666669
+          },
+          {
+            "c": 27,
+            "r": 7,
+            "open": 0,
+            "t": 1.2666666666666688
+          },
+          {
+            "c": 21,
+            "r": 9,
+            "open": 0,
+            "t": 1.346666666666669
+          }
+        ],
+        "fixture": "CK.startMayhem real trapdoor producer + forced flavour/reward; reduced flash and shake zero"
+      }
+    },
+    {
+      "profile": "local",
+      "name": "Key repetition neither extends authored expiry nor replays warning cue",
+      "pass": true,
+      "details": {
+        "pass": true,
+        "before": {
+          "banner": {
+            "title": "Repeat",
+            "sub": "Focused overlap integration fixture",
+            "col": "#FF5A4E",
+            "t": 1,
+            "max": 1,
+            "key": "qa-repeat",
+            "kind": "hazard"
+          },
+          "music": {
+            "cue": "courtyard",
+            "wanted": true,
+            "src": "audio/02-a-very-noble-food-fight.wav",
+            "saved": 0.4,
+            "base": 0.4,
+            "duck": 0.35,
+            "warningFactor": 0.35,
+            "volume": 0.13999999999999999,
+            "muted": false
+          },
+          "audio": {
+            "active": 4,
+            "ordinary": 0,
+            "warning": 4,
+            "max": 64,
+            "reserved": 8,
+            "ordinaryMax": 56,
+            "droppedOrdinary": 0,
+            "droppedWarning": 0,
+            "cueKeys": 1
+          },
+          "starts": 16,
+          "saved": null
+        },
+        "after": {
+          "banner": {
+            "title": "Repeat",
+            "sub": "Focused overlap integration fixture",
+            "col": "#FF5A4E",
+            "t": 0.75,
+            "max": 1,
+            "key": "qa-repeat",
+            "kind": "hazard"
+          },
+          "music": {
+            "cue": "courtyard",
+            "wanted": true,
+            "src": "audio/02-a-very-noble-food-fight.wav",
+            "saved": 0.4,
+            "base": 0.4,
+            "duck": 0.35,
+            "warningFactor": 0.35,
+            "volume": 0.13999999999999999,
+            "muted": false
+          },
+          "audio": {
+            "active": 4,
+            "ordinary": 0,
+            "warning": 4,
+            "max": 64,
+            "reserved": 8,
+            "ordinaryMax": 56,
+            "droppedOrdinary": 0,
+            "droppedWarning": 0,
+            "cueKeys": 1
+          },
+          "starts": 16,
+          "saved": null
+        }
+      }
+    },
+    {
+      "profile": "local",
+      "name": "Distinct simultaneous hazard retains first banner and independent objective/world tell",
+      "pass": true,
+      "details": {
+        "pass": true,
+        "state": {
+          "banner": {
+            "title": "First hazard",
+            "sub": "Focused overlap integration fixture",
+            "col": "#FF5A4E",
+            "t": 2.6,
+            "max": 2.6,
+            "key": "qa-first",
+            "kind": "hazard"
+          },
+          "music": {
+            "cue": "courtyard",
+            "wanted": true,
+            "src": "audio/02-a-very-noble-food-fight.wav",
+            "saved": 0.4,
+            "base": 0.4,
+            "duck": 0.35,
+            "warningFactor": 0.35,
+            "volume": 0.13999999999999999,
+            "muted": false
+          },
+          "audio": {
+            "active": 12,
+            "ordinary": 0,
+            "warning": 12,
+            "max": 64,
+            "reserved": 8,
+            "ordinaryMax": 56,
+            "droppedOrdinary": 0,
+            "droppedWarning": 0,
+            "cueKeys": 2
+          },
+          "starts": 24,
+          "saved": null
+        },
+        "holes": [
+          {
+            "c": 27,
+            "r": 5,
+            "open": 0,
+            "t": 0.866666666666668
+          },
+          {
+            "c": 26,
+            "r": 3,
+            "open": 0,
+            "t": 0.9466666666666685
+          },
+          {
+            "c": 22,
+            "r": 9,
+            "open": 0,
+            "t": 1.0266666666666688
+          },
+          {
+            "c": 17,
+            "r": 5,
+            "open": 0,
+            "t": 1.106666666666669
+          },
+          {
+            "c": 18,
+            "r": 7,
+            "open": 0,
+            "t": 1.186666666666669
+          },
+          {
+            "c": 27,
+            "r": 7,
+            "open": 0,
+            "t": 1.2666666666666688
+          },
+          {
+            "c": 21,
+            "r": 9,
+            "open": 0,
+            "t": 1.346666666666669
+          },
+          {
+            "c": 14,
+            "r": 8,
+            "open": 0,
+            "t": 1.5
+          },
+          {
+            "c": 4,
+            "r": 3,
+            "open": 0,
+            "t": 1.58
+          },
+          {
+            "c": 27,
+            "r": 7,
+            "open": 0,
+            "t": 1.66
+          },
+          {
+            "c": 11,
+            "r": 11,
+            "open": 0,
+            "t": 1.74
+          },
+          {
+            "c": 24,
+            "r": 13,
+            "open": 0,
+            "t": 1.82
+          },
+          {
+            "c": 27,
+            "r": 16,
+            "open": 0,
+            "t": 1.9
+          },
+          {
+            "c": 18,
+            "r": 1,
+            "open": 0,
+            "t": 1.98
+          },
+          {
+            "c": 5,
+            "r": 9,
+            "open": 0,
+            "t": 2.06
+          }
+        ],
+        "fixture": "Real trapdoor world producer under equal live hazard banner; one active banner by policy"
+      }
+    },
+    {
+      "profile": "local",
+      "name": "Objective survives flavour/reward; hazard and last-life priorities supersede it",
+      "pass": true,
+      "details": {
+        "pass": true,
+        "objective": {
+          "banner": {
+            "title": "Objective",
+            "sub": "Focused overlap integration fixture",
+            "col": "#FF5A4E",
+            "t": 2.6,
+            "max": 2.6,
+            "key": "qa-objective",
+            "kind": "objective"
+          },
+          "music": {
+            "cue": "courtyard",
+            "wanted": true,
+            "src": "audio/02-a-very-noble-food-fight.wav",
+            "saved": 0.4,
+            "base": 0.4,
+            "duck": 0.35,
+            "warningFactor": 0.35,
+            "volume": 0.13999999999999999,
+            "muted": false
+          },
+          "audio": {
+            "active": 16,
+            "ordinary": 0,
+            "warning": 16,
+            "max": 64,
+            "reserved": 8,
+            "ordinaryMax": 56,
+            "droppedOrdinary": 0,
+            "droppedWarning": 0,
+            "cueKeys": 1
+          },
+          "starts": 28,
+          "saved": null
+        },
+        "hazard": {
+          "banner": {
+            "title": "Hazard",
+            "sub": "Focused overlap integration fixture",
+            "col": "#FF5A4E",
+            "t": 2.6,
+            "max": 2.6,
+            "key": "qa-high",
+            "kind": "hazard"
+          },
+          "music": {
+            "cue": "courtyard",
+            "wanted": true,
+            "src": "audio/02-a-very-noble-food-fight.wav",
+            "saved": 0.4,
+            "base": 0.4,
+            "duck": 0.35,
+            "warningFactor": 0.35,
+            "volume": 0.13999999999999999,
+            "muted": false
+          },
+          "audio": {
+            "active": 20,
+            "ordinary": 0,
+            "warning": 20,
+            "max": 64,
+            "reserved": 8,
+            "ordinaryMax": 56,
+            "droppedOrdinary": 0,
+            "droppedWarning": 0,
+            "cueKeys": 2
+          },
+          "starts": 32,
+          "saved": null
+        },
+        "last": {
+          "banner": {
+            "title": "Last life",
+            "sub": "Focused overlap integration fixture",
+            "col": "#FF5A4E",
+            "t": 2.6,
+            "max": 2.6,
+            "key": "qa-last",
+            "kind": "lastlife"
+          },
+          "music": {
+            "cue": "courtyard",
+            "wanted": true,
+            "src": "audio/02-a-very-noble-food-fight.wav",
+            "saved": 0.4,
+            "base": 0.4,
+            "duck": 0.35,
+            "warningFactor": 0.35,
+            "volume": 0.13999999999999999,
+            "muted": false
+          },
+          "audio": {
+            "active": 12,
+            "ordinary": 0,
+            "warning": 12,
+            "max": 64,
+            "reserved": 8,
+            "ordinaryMax": 56,
+            "droppedOrdinary": 0,
+            "droppedWarning": 0,
+            "cueKeys": 3
+          },
+          "starts": 36,
+          "saved": null
+        }
+      }
+    },
+    {
+      "profile": "local",
+      "name": "Authored expiry clears warning and restores user music envelope",
+      "pass": true,
+      "details": {
+        "pass": true,
+        "during": {
+          "banner": {
+            "title": "Expiry",
+            "sub": "Focused overlap integration fixture",
+            "col": "#FF5A4E",
+            "t": 0.35,
+            "max": 0.35,
+            "key": "qa-expiry",
+            "kind": "hazard"
+          },
+          "music": {
+            "cue": "courtyard",
+            "wanted": true,
+            "src": "audio/02-a-very-noble-food-fight.wav",
+            "saved": 0.4,
+            "base": 0.4,
+            "duck": 0.35,
+            "warningFactor": 0.35,
+            "volume": 0.13999999999999999,
+            "muted": false
+          },
+          "audio": {
+            "active": 16,
+            "ordinary": 0,
+            "warning": 16,
+            "max": 64,
+            "reserved": 8,
+            "ordinaryMax": 56,
+            "droppedOrdinary": 0,
+            "droppedWarning": 0,
+            "cueKeys": 1
+          },
+          "starts": 40,
+          "saved": null
+        },
+        "after": {
+          "banner": null,
+          "music": {
+            "cue": "courtyard",
+            "wanted": true,
+            "src": "audio/02-a-very-noble-food-fight.wav",
+            "saved": 0.4,
+            "base": 0.4,
+            "duck": 1,
+            "warningFactor": 1,
+            "volume": 0.4,
+            "muted": false
+          },
+          "audio": {
+            "active": 16,
+            "ordinary": 0,
+            "warning": 16,
+            "max": 64,
+            "reserved": 8,
+            "ordinaryMax": 56,
+            "droppedOrdinary": 0,
+            "droppedWarning": 0,
+            "cueKeys": 1
+          },
+          "starts": 40,
+          "saved": null
+        }
+      }
+    },
+    {
+      "profile": "local",
+      "name": "Ordinary saturation leaves bounded warning admission and shared native SFX bus",
+      "pass": true,
+      "details": {
+        "pass": true,
+        "saturated": {
+          "active": 56,
+          "ordinary": 56,
+          "warning": 0,
+          "max": 64,
+          "reserved": 8,
+          "ordinaryMax": 56,
+          "droppedOrdinary": 304,
+          "droppedWarning": 0,
+          "cueKeys": 0
+        },
+        "after": {
+          "banner": {
+            "title": "Saturated hazard",
+            "sub": "Focused overlap integration fixture",
+            "col": "#FF5A4E",
+            "t": 2,
+            "max": 2,
+            "key": "qa-saturation",
+            "kind": "hazard"
+          },
+          "music": {
+            "cue": "courtyard",
+            "wanted": true,
+            "src": "audio/02-a-very-noble-food-fight.wav",
+            "saved": 0.4,
+            "base": 0.4,
+            "duck": 0.35,
+            "warningFactor": 0.35,
+            "volume": 0.13999999999999999,
+            "muted": false
+          },
+          "audio": {
+            "active": 60,
+            "ordinary": 56,
+            "warning": 4,
+            "max": 64,
+            "reserved": 8,
+            "ordinaryMax": 56,
+            "droppedOrdinary": 304,
+            "droppedWarning": 0,
+            "cueKeys": 1
+          },
+          "starts": 100,
+          "saved": null
+        },
+        "addedNativeSources": 4,
+        "graph": {
+          "nodes": [
+            {
+              "id": 1,
+              "type": "GainNode"
+            },
+            {
+              "id": 2,
+              "type": "AudioDestinationNode"
+            },
+            {
+              "id": 3,
+              "type": "OscillatorNode"
+            },
+            {
+              "id": 4,
+              "type": "GainNode"
+            },
+            {
+              "id": 5,
+              "type": "OscillatorNode"
+            },
+            {
+              "id": 6,
+              "type": "GainNode"
+            },
+            {
+              "id": 7,
+              "type": "OscillatorNode"
+            },
+            {
+              "id": 8,
+              "type": "GainNode"
+            },
+            {
+              "id": 9,
+              "type": "OscillatorNode"
+            },
+            {
+              "id": 10,
+              "type": "GainNode"
+            },
+            {
+              "id": 11,
+              "type": "OscillatorNode"
+            },
+            {
+              "id": 12,
+              "type": "GainNode"
+            },
+            {
+              "id": 13,
+              "type": "OscillatorNode"
+            },
+            {
+              "id": 14,
+              "type": "GainNode"
+            },
+            {
+              "id": 15,
+              "type": "OscillatorNode"
+            },
+            {
+              "id": 16,
+              "type": "GainNode"
+            },
+            {
+              "id": 17,
+              "type": "OscillatorNode"
+            },
+            {
+              "id": 18,
+              "type": "GainNode"
+            },
+            {
+              "id": 19,
+              "type": "OscillatorNode"
+            },
+            {
+              "id": 20,
+              "type": "GainNode"
+            },
+            {
+              "id": 21,
+              "type": "OscillatorNode"
+            },
+            {
+              "id": 22,
+              "type": "GainNode"
+            },
+            {
+              "id": 23,
+              "type": "OscillatorNode"
+            },
+            {
+              "id": 24,
+              "type": "GainNode"
+            },
+            {
+              "id": 25,
+              "type": "OscillatorNode"
+            },
+            {
+              "id": 26,
+              "type": "GainNode"
+            },
+            {
+              "id": 27,
+              "type": "OscillatorNode"
+            },
+            {
+              "id": 28,
+              "type": "GainNode"
+            },
+            {
+              "id": 29,
+              "type": "OscillatorNode"
+            },
+            {
+              "id": 30,
+              "type": "GainNode"
+            },
+            {
+              "id": 31,
+              "type": "OscillatorNode"
+            },
+            {
+              "id": 32,
+              "type": "GainNode"
+            },
+            {
+              "id": 33,
+              "type": "OscillatorNode"
+            },
+            {
+              "id": 34,
+              "type": "GainNode"
+            },
+            {
+              "id": 35,
+              "type": "OscillatorNode"
+            },
+            {
+              "id": 36,
+              "type": "GainNode"
+            },
+            {
+              "id": 37,
+              "type": "OscillatorNode"
+            },
+            {
+              "id": 38,
+              "type": "GainNode"
+            },
+            {
+              "id": 39,
+              "type": "OscillatorNode"
+            },
+            {
+              "id": 40,
+              "type": "GainNode"
+            },
+            {
+              "id": 41,
+              "type": "OscillatorNode"
+            },
+            {
+              "id": 42,
+              "type": "GainNode"
+            },
+            {
+              "id": 43,
+              "type": "OscillatorNode"
+            },
+            {
+              "id": 44,
+              "type": "GainNode"
+            },
+            {
+              "id": 45,
+              "type": "OscillatorNode"
+            },
+            {
+              "id": 46,
+              "type": "GainNode"
+            },
+            {
+              "id": 47,
+              "type": "OscillatorNode"
+            },
+            {
+              "id": 48,
+              "type": "GainNode"
+            },
+            {
+              "id": 49,
+              "type": "OscillatorNode"
+            },
+            {
+              "id": 50,
+              "type": "GainNode"
+            },
+            {
+              "id": 51,
+              "type": "OscillatorNode"
+            },
+            {
+              "id": 52,
+              "type": "GainNode"
+            },
+            {
+              "id": 53,
+              "type": "OscillatorNode"
+            },
+            {
+              "id": 54,
+              "type": "GainNode"
+            },
+            {
+              "id": 55,
+              "type": "OscillatorNode"
+            },
+            {
+              "id": 56,
+              "type": "GainNode"
+            },
+            {
+              "id": 57,
+              "type": "OscillatorNode"
+            },
+            {
+              "id": 58,
+              "type": "GainNode"
+            },
+            {
+              "id": 59,
+              "type": "OscillatorNode"
+            },
+            {
+              "id": 60,
+              "type": "GainNode"
+            },
+            {
+              "id": 61,
+              "type": "OscillatorNode"
+            },
+            {
+              "id": 62,
+              "type": "GainNode"
+            },
+            {
+              "id": 63,
+              "type": "OscillatorNode"
+            },
+            {
+              "id": 64,
+              "type": "GainNode"
+            },
+            {
+              "id": 65,
+              "type": "OscillatorNode"
+            },
+            {
+              "id": 66,
+              "type": "GainNode"
+            },
+            {
+              "id": 67,
+              "type": "OscillatorNode"
+            },
+            {
+              "id": 68,
+              "type": "GainNode"
+            },
+            {
+              "id": 69,
+              "type": "OscillatorNode"
+            },
+            {
+              "id": 70,
+              "type": "GainNode"
+            },
+            {
+              "id": 71,
+              "type": "OscillatorNode"
+            },
+            {
+              "id": 72,
+              "type": "GainNode"
+            },
+            {
+              "id": 73,
+              "type": "OscillatorNode"
+            },
+            {
+              "id": 74,
+              "type": "GainNode"
+            },
+            {
+              "id": 75,
+              "type": "OscillatorNode"
+            },
+            {
+              "id": 76,
+              "type": "GainNode"
+            },
+            {
+              "id": 77,
+              "type": "OscillatorNode"
+            },
+            {
+              "id": 78,
+              "type": "GainNode"
+            },
+            {
+              "id": 79,
+              "type": "OscillatorNode"
+            },
+            {
+              "id": 80,
+              "type": "GainNode"
+            },
+            {
+              "id": 81,
+              "type": "OscillatorNode"
+            },
+            {
+              "id": 82,
+              "type": "GainNode"
+            },
+            {
+              "id": 83,
+              "type": "OscillatorNode"
+            },
+            {
+              "id": 84,
+              "type": "GainNode"
+            },
+            {
+              "id": 85,
+              "type": "AudioBufferSourceNode"
+            },
+            {
+              "id": 86,
+              "type": "BiquadFilterNode"
+            },
+            {
+              "id": 87,
+              "type": "GainNode"
+            },
+            {
+              "id": 88,
+              "type": "OscillatorNode"
+            },
+            {
+              "id": 89,
+              "type": "GainNode"
+            },
+            {
+              "id": 90,
+              "type": "OscillatorNode"
+            },
+            {
+              "id": 91,
+              "type": "GainNode"
+            },
+            {
+              "id": 92,
+              "type": "AudioBufferSourceNode"
+            },
+            {
+              "id": 93,
+              "type": "BiquadFilterNode"
+            },
+            {
+              "id": 94,
+              "type": "GainNode"
+            },
+            {
+              "id": 95,
+              "type": "OscillatorNode"
+            },
+            {
+              "id": 96,
+              "type": "GainNode"
+            },
+            {
+              "id": 97,
+              "type": "OscillatorNode"
+            },
+            {
+              "id": 98,
+              "type": "GainNode"
+            },
+            {
+              "id": 99,
+              "type": "AudioBufferSourceNode"
+            },
+            {
+              "id": 100,
+              "type": "BiquadFilterNode"
+            },
+            {
+              "id": 101,
+              "type": "GainNode"
+            },
+            {
+              "id": 102,
+              "type": "OscillatorNode"
+            },
+            {
+              "id": 103,
+              "type": "GainNode"
+            },
+            {
+              "id": 104,
+              "type": "OscillatorNode"
+            },
+            {
+              "id": 105,
+              "type": "GainNode"
+            },
+            {
+              "id": 106,
+              "type": "AudioBufferSourceNode"
+            },
+            {
+              "id": 107,
+              "type": "BiquadFilterNode"
+            },
+            {
+              "id": 108,
+              "type": "GainNode"
+            },
+            {
+              "id": 109,
+              "type": "OscillatorNode"
+            },
+            {
+              "id": 110,
+              "type": "GainNode"
+            },
+            {
+              "id": 111,
+              "type": "OscillatorNode"
+            },
+            {
+              "id": 112,
+              "type": "GainNode"
+            },
+            {
+              "id": 113,
+              "type": "AudioBufferSourceNode"
+            },
+            {
+              "id": 114,
+              "type": "BiquadFilterNode"
+            },
+            {
+              "id": 115,
+              "type": "GainNode"
+            },
+            {
+              "id": 116,
+              "type": "OscillatorNode"
+            },
+            {
+              "id": 117,
+              "type": "GainNode"
+            },
+            {
+              "id": 118,
+              "type": "OscillatorNode"
+            },
+            {
+              "id": 119,
+              "type": "GainNode"
+            },
+            {
+              "id": 120,
+              "type": "AudioBufferSourceNode"
+            },
+            {
+              "id": 121,
+              "type": "BiquadFilterNode"
+            },
+            {
+              "id": 122,
+              "type": "GainNode"
+            },
+            {
+              "id": 123,
+              "type": "OscillatorNode"
+            },
+            {
+              "id": 124,
+              "type": "GainNode"
+            },
+            {
+              "id": 125,
+              "type": "OscillatorNode"
+            },
+            {
+              "id": 126,
+              "type": "GainNode"
+            },
+            {
+              "id": 127,
+              "type": "AudioBufferSourceNode"
+            },
+            {
+              "id": 128,
+              "type": "BiquadFilterNode"
+            },
+            {
+              "id": 129,
+              "type": "GainNode"
+            },
+            {
+              "id": 130,
+              "type": "OscillatorNode"
+            },
+            {
+              "id": 131,
+              "type": "GainNode"
+            },
+            {
+              "id": 132,
+              "type": "OscillatorNode"
+            },
+            {
+              "id": 133,
+              "type": "GainNode"
+            },
+            {
+              "id": 134,
+              "type": "AudioBufferSourceNode"
+            },
+            {
+              "id": 135,
+              "type": "BiquadFilterNode"
+            },
+            {
+              "id": 136,
+              "type": "GainNode"
+            },
+            {
+              "id": 137,
+              "type": "OscillatorNode"
+            },
+            {
+              "id": 138,
+              "type": "GainNode"
+            },
+            {
+              "id": 139,
+              "type": "OscillatorNode"
+            },
+            {
+              "id": 140,
+              "type": "GainNode"
+            },
+            {
+              "id": 141,
+              "type": "AudioBufferSourceNode"
+            },
+            {
+              "id": 142,
+              "type": "BiquadFilterNode"
+            },
+            {
+              "id": 143,
+              "type": "GainNode"
+            },
+            {
+              "id": 144,
+              "type": "OscillatorNode"
+            },
+            {
+              "id": 145,
+              "type": "GainNode"
+            },
+            {
+              "id": 146,
+              "type": "OscillatorNode"
+            },
+            {
+              "id": 147,
+              "type": "GainNode"
+            },
+            {
+              "id": 148,
+              "type": "AudioBufferSourceNode"
+            },
+            {
+              "id": 149,
+              "type": "BiquadFilterNode"
+            },
+            {
+              "id": 150,
+              "type": "GainNode"
+            },
+            {
+              "id": 151,
+              "type": "OscillatorNode"
+            },
+            {
+              "id": 152,
+              "type": "GainNode"
+            },
+            {
+              "id": 153,
+              "type": "OscillatorNode"
+            },
+            {
+              "id": 154,
+              "type": "GainNode"
+            },
+            {
+              "id": 155,
+              "type": "AudioBufferSourceNode"
+            },
+            {
+              "id": 156,
+              "type": "BiquadFilterNode"
+            },
+            {
+              "id": 157,
+              "type": "GainNode"
+            },
+            {
+              "id": 158,
+              "type": "OscillatorNode"
+            },
+            {
+              "id": 159,
+              "type": "GainNode"
+            },
+            {
+              "id": 160,
+              "type": "OscillatorNode"
+            },
+            {
+              "id": 161,
+              "type": "GainNode"
+            },
+            {
+              "id": 162,
+              "type": "AudioBufferSourceNode"
+            },
+            {
+              "id": 163,
+              "type": "BiquadFilterNode"
+            },
+            {
+              "id": 164,
+              "type": "GainNode"
+            },
+            {
+              "id": 165,
+              "type": "OscillatorNode"
+            },
+            {
+              "id": 166,
+              "type": "GainNode"
+            },
+            {
+              "id": 167,
+              "type": "OscillatorNode"
+            },
+            {
+              "id": 168,
+              "type": "GainNode"
+            },
+            {
+              "id": 169,
+              "type": "AudioBufferSourceNode"
+            },
+            {
+              "id": 170,
+              "type": "BiquadFilterNode"
+            },
+            {
+              "id": 171,
+              "type": "GainNode"
+            },
+            {
+              "id": 172,
+              "type": "OscillatorNode"
+            },
+            {
+              "id": 173,
+              "type": "GainNode"
+            },
+            {
+              "id": 174,
+              "type": "OscillatorNode"
+            },
+            {
+              "id": 175,
+              "type": "GainNode"
+            },
+            {
+              "id": 176,
+              "type": "AudioBufferSourceNode"
+            },
+            {
+              "id": 177,
+              "type": "BiquadFilterNode"
+            },
+            {
+              "id": 178,
+              "type": "GainNode"
+            },
+            {
+              "id": 179,
+              "type": "OscillatorNode"
+            },
+            {
+              "id": 180,
+              "type": "GainNode"
+            },
+            {
+              "id": 181,
+              "type": "OscillatorNode"
+            },
+            {
+              "id": 182,
+              "type": "GainNode"
+            },
+            {
+              "id": 183,
+              "type": "AudioBufferSourceNode"
+            },
+            {
+              "id": 184,
+              "type": "BiquadFilterNode"
+            },
+            {
+              "id": 185,
+              "type": "GainNode"
+            },
+            {
+              "id": 186,
+              "type": "OscillatorNode"
+            },
+            {
+              "id": 187,
+              "type": "GainNode"
+            },
+            {
+              "id": 188,
+              "type": "OscillatorNode"
+            },
+            {
+              "id": 189,
+              "type": "GainNode"
+            },
+            {
+              "id": 190,
+              "type": "AudioBufferSourceNode"
+            },
+            {
+              "id": 191,
+              "type": "BiquadFilterNode"
+            },
+            {
+              "id": 192,
+              "type": "GainNode"
+            },
+            {
+              "id": 193,
+              "type": "OscillatorNode"
+            },
+            {
+              "id": 194,
+              "type": "GainNode"
+            },
+            {
+              "id": 195,
+              "type": "OscillatorNode"
+            },
+            {
+              "id": 196,
+              "type": "GainNode"
+            },
+            {
+              "id": 197,
+              "type": "AudioBufferSourceNode"
+            },
+            {
+              "id": 198,
+              "type": "BiquadFilterNode"
+            },
+            {
+              "id": 199,
+              "type": "GainNode"
+            },
+            {
+              "id": 200,
+              "type": "OscillatorNode"
+            },
+            {
+              "id": 201,
+              "type": "GainNode"
+            },
+            {
+              "id": 202,
+              "type": "OscillatorNode"
+            },
+            {
+              "id": 203,
+              "type": "GainNode"
+            },
+            {
+              "id": 204,
+              "type": "AudioBufferSourceNode"
+            },
+            {
+              "id": 205,
+              "type": "BiquadFilterNode"
+            },
+            {
+              "id": 206,
+              "type": "GainNode"
+            },
+            {
+              "id": 207,
+              "type": "OscillatorNode"
+            },
+            {
+              "id": 208,
+              "type": "GainNode"
+            },
+            {
+              "id": 209,
+              "type": "OscillatorNode"
+            },
+            {
+              "id": 210,
+              "type": "GainNode"
+            },
+            {
+              "id": 211,
+              "type": "AudioBufferSourceNode"
+            },
+            {
+              "id": 212,
+              "type": "BiquadFilterNode"
+            },
+            {
+              "id": 213,
+              "type": "GainNode"
+            },
+            {
+              "id": 214,
+              "type": "OscillatorNode"
+            },
+            {
+              "id": 215,
+              "type": "GainNode"
+            },
+            {
+              "id": 216,
+              "type": "OscillatorNode"
+            },
+            {
+              "id": 217,
+              "type": "GainNode"
+            },
+            {
+              "id": 218,
+              "type": "OscillatorNode"
+            },
+            {
+              "id": 219,
+              "type": "GainNode"
+            },
+            {
+              "id": 220,
+              "type": "OscillatorNode"
+            },
+            {
+              "id": 221,
+              "type": "GainNode"
+            }
+          ],
+          "edges": [
+            {
+              "from": 1,
+              "to": 2
+            },
+            {
+              "from": 3,
+              "to": 4
+            },
+            {
+              "from": 4,
+              "to": 1
+            },
+            {
+              "from": 5,
+              "to": 6
+            },
+            {
+              "from": 6,
+              "to": 1
+            },
+            {
+              "from": 7,
+              "to": 8
+            },
+            {
+              "from": 8,
+              "to": 1
+            },
+            {
+              "from": 9,
+              "to": 10
+            },
+            {
+              "from": 10,
+              "to": 1
+            },
+            {
+              "from": 11,
+              "to": 12
+            },
+            {
+              "from": 12,
+              "to": 1
+            },
+            {
+              "from": 13,
+              "to": 14
+            },
+            {
+              "from": 14,
+              "to": 1
+            },
+            {
+              "from": 15,
+              "to": 16
+            },
+            {
+              "from": 16,
+              "to": 1
+            },
+            {
+              "from": 17,
+              "to": 18
+            },
+            {
+              "from": 18,
+              "to": 1
+            },
+            {
+              "from": 19,
+              "to": 20
+            },
+            {
+              "from": 20,
+              "to": 1
+            },
+            {
+              "from": 21,
+              "to": 22
+            },
+            {
+              "from": 22,
+              "to": 1
+            },
+            {
+              "from": 23,
+              "to": 24
+            },
+            {
+              "from": 24,
+              "to": 1
+            },
+            {
+              "from": 25,
+              "to": 26
+            },
+            {
+              "from": 26,
+              "to": 1
+            },
+            {
+              "from": 27,
+              "to": 28
+            },
+            {
+              "from": 28,
+              "to": 1
+            },
+            {
+              "from": 29,
+              "to": 30
+            },
+            {
+              "from": 30,
+              "to": 1
+            },
+            {
+              "from": 31,
+              "to": 32
+            },
+            {
+              "from": 32,
+              "to": 1
+            },
+            {
+              "from": 33,
+              "to": 34
+            },
+            {
+              "from": 34,
+              "to": 1
+            },
+            {
+              "from": 35,
+              "to": 36
+            },
+            {
+              "from": 36,
+              "to": 1
+            },
+            {
+              "from": 37,
+              "to": 38
+            },
+            {
+              "from": 38,
+              "to": 1
+            },
+            {
+              "from": 39,
+              "to": 40
+            },
+            {
+              "from": 40,
+              "to": 1
+            },
+            {
+              "from": 41,
+              "to": 42
+            },
+            {
+              "from": 42,
+              "to": 1
+            },
+            {
+              "from": 43,
+              "to": 44
+            },
+            {
+              "from": 44,
+              "to": 1
+            },
+            {
+              "from": 45,
+              "to": 46
+            },
+            {
+              "from": 46,
+              "to": 1
+            },
+            {
+              "from": 47,
+              "to": 48
+            },
+            {
+              "from": 48,
+              "to": 1
+            },
+            {
+              "from": 49,
+              "to": 50
+            },
+            {
+              "from": 50,
+              "to": 1
+            },
+            {
+              "from": 51,
+              "to": 52
+            },
+            {
+              "from": 52,
+              "to": 1
+            },
+            {
+              "from": 53,
+              "to": 54
+            },
+            {
+              "from": 54,
+              "to": 1
+            },
+            {
+              "from": 55,
+              "to": 56
+            },
+            {
+              "from": 56,
+              "to": 1
+            },
+            {
+              "from": 57,
+              "to": 58
+            },
+            {
+              "from": 58,
+              "to": 1
+            },
+            {
+              "from": 59,
+              "to": 60
+            },
+            {
+              "from": 60,
+              "to": 1
+            },
+            {
+              "from": 61,
+              "to": 62
+            },
+            {
+              "from": 62,
+              "to": 1
+            },
+            {
+              "from": 63,
+              "to": 64
+            },
+            {
+              "from": 64,
+              "to": 1
+            },
+            {
+              "from": 65,
+              "to": 66
+            },
+            {
+              "from": 66,
+              "to": 1
+            },
+            {
+              "from": 67,
+              "to": 68
+            },
+            {
+              "from": 68,
+              "to": 1
+            },
+            {
+              "from": 69,
+              "to": 70
+            },
+            {
+              "from": 70,
+              "to": 1
+            },
+            {
+              "from": 71,
+              "to": 72
+            },
+            {
+              "from": 72,
+              "to": 1
+            },
+            {
+              "from": 73,
+              "to": 74
+            },
+            {
+              "from": 74,
+              "to": 1
+            },
+            {
+              "from": 75,
+              "to": 76
+            },
+            {
+              "from": 76,
+              "to": 1
+            },
+            {
+              "from": 77,
+              "to": 78
+            },
+            {
+              "from": 78,
+              "to": 1
+            },
+            {
+              "from": 79,
+              "to": 80
+            },
+            {
+              "from": 80,
+              "to": 1
+            },
+            {
+              "from": 81,
+              "to": 82
+            },
+            {
+              "from": 82,
+              "to": 1
+            },
+            {
+              "from": 83,
+              "to": 84
+            },
+            {
+              "from": 84,
+              "to": 1
+            },
+            {
+              "from": 85,
+              "to": 86
+            },
+            {
+              "from": 86,
+              "to": 87
+            },
+            {
+              "from": 87,
+              "to": 1
+            },
+            {
+              "from": 88,
+              "to": 89
+            },
+            {
+              "from": 89,
+              "to": 1
+            },
+            {
+              "from": 90,
+              "to": 91
+            },
+            {
+              "from": 91,
+              "to": 1
+            },
+            {
+              "from": 92,
+              "to": 93
+            },
+            {
+              "from": 93,
+              "to": 94
+            },
+            {
+              "from": 94,
+              "to": 1
+            },
+            {
+              "from": 95,
+              "to": 96
+            },
+            {
+              "from": 96,
+              "to": 1
+            },
+            {
+              "from": 97,
+              "to": 98
+            },
+            {
+              "from": 98,
+              "to": 1
+            },
+            {
+              "from": 99,
+              "to": 100
+            },
+            {
+              "from": 100,
+              "to": 101
+            },
+            {
+              "from": 101,
+              "to": 1
+            },
+            {
+              "from": 102,
+              "to": 103
+            },
+            {
+              "from": 103,
+              "to": 1
+            },
+            {
+              "from": 104,
+              "to": 105
+            },
+            {
+              "from": 105,
+              "to": 1
+            },
+            {
+              "from": 106,
+              "to": 107
+            },
+            {
+              "from": 107,
+              "to": 108
+            },
+            {
+              "from": 108,
+              "to": 1
+            },
+            {
+              "from": 109,
+              "to": 110
+            },
+            {
+              "from": 110,
+              "to": 1
+            },
+            {
+              "from": 111,
+              "to": 112
+            },
+            {
+              "from": 112,
+              "to": 1
+            },
+            {
+              "from": 113,
+              "to": 114
+            },
+            {
+              "from": 114,
+              "to": 115
+            },
+            {
+              "from": 115,
+              "to": 1
+            },
+            {
+              "from": 116,
+              "to": 117
+            },
+            {
+              "from": 117,
+              "to": 1
+            },
+            {
+              "from": 118,
+              "to": 119
+            },
+            {
+              "from": 119,
+              "to": 1
+            },
+            {
+              "from": 120,
+              "to": 121
+            },
+            {
+              "from": 121,
+              "to": 122
+            },
+            {
+              "from": 122,
+              "to": 1
+            },
+            {
+              "from": 123,
+              "to": 124
+            },
+            {
+              "from": 124,
+              "to": 1
+            },
+            {
+              "from": 125,
+              "to": 126
+            },
+            {
+              "from": 126,
+              "to": 1
+            },
+            {
+              "from": 127,
+              "to": 128
+            },
+            {
+              "from": 128,
+              "to": 129
+            },
+            {
+              "from": 129,
+              "to": 1
+            },
+            {
+              "from": 130,
+              "to": 131
+            },
+            {
+              "from": 131,
+              "to": 1
+            },
+            {
+              "from": 132,
+              "to": 133
+            },
+            {
+              "from": 133,
+              "to": 1
+            },
+            {
+              "from": 134,
+              "to": 135
+            },
+            {
+              "from": 135,
+              "to": 136
+            },
+            {
+              "from": 136,
+              "to": 1
+            },
+            {
+              "from": 137,
+              "to": 138
+            },
+            {
+              "from": 138,
+              "to": 1
+            },
+            {
+              "from": 139,
+              "to": 140
+            },
+            {
+              "from": 140,
+              "to": 1
+            },
+            {
+              "from": 141,
+              "to": 142
+            },
+            {
+              "from": 142,
+              "to": 143
+            },
+            {
+              "from": 143,
+              "to": 1
+            },
+            {
+              "from": 144,
+              "to": 145
+            },
+            {
+              "from": 145,
+              "to": 1
+            },
+            {
+              "from": 146,
+              "to": 147
+            },
+            {
+              "from": 147,
+              "to": 1
+            },
+            {
+              "from": 148,
+              "to": 149
+            },
+            {
+              "from": 149,
+              "to": 150
+            },
+            {
+              "from": 150,
+              "to": 1
+            },
+            {
+              "from": 151,
+              "to": 152
+            },
+            {
+              "from": 152,
+              "to": 1
+            },
+            {
+              "from": 153,
+              "to": 154
+            },
+            {
+              "from": 154,
+              "to": 1
+            },
+            {
+              "from": 155,
+              "to": 156
+            },
+            {
+              "from": 156,
+              "to": 157
+            },
+            {
+              "from": 157,
+              "to": 1
+            },
+            {
+              "from": 158,
+              "to": 159
+            },
+            {
+              "from": 159,
+              "to": 1
+            },
+            {
+              "from": 160,
+              "to": 161
+            },
+            {
+              "from": 161,
+              "to": 1
+            },
+            {
+              "from": 162,
+              "to": 163
+            },
+            {
+              "from": 163,
+              "to": 164
+            },
+            {
+              "from": 164,
+              "to": 1
+            },
+            {
+              "from": 165,
+              "to": 166
+            },
+            {
+              "from": 166,
+              "to": 1
+            },
+            {
+              "from": 167,
+              "to": 168
+            },
+            {
+              "from": 168,
+              "to": 1
+            },
+            {
+              "from": 169,
+              "to": 170
+            },
+            {
+              "from": 170,
+              "to": 171
+            },
+            {
+              "from": 171,
+              "to": 1
+            },
+            {
+              "from": 172,
+              "to": 173
+            },
+            {
+              "from": 173,
+              "to": 1
+            },
+            {
+              "from": 174,
+              "to": 175
+            },
+            {
+              "from": 175,
+              "to": 1
+            },
+            {
+              "from": 176,
+              "to": 177
+            },
+            {
+              "from": 177,
+              "to": 178
+            },
+            {
+              "from": 178,
+              "to": 1
+            },
+            {
+              "from": 179,
+              "to": 180
+            },
+            {
+              "from": 180,
+              "to": 1
+            },
+            {
+              "from": 181,
+              "to": 182
+            },
+            {
+              "from": 182,
+              "to": 1
+            },
+            {
+              "from": 183,
+              "to": 184
+            },
+            {
+              "from": 184,
+              "to": 185
+            },
+            {
+              "from": 185,
+              "to": 1
+            },
+            {
+              "from": 186,
+              "to": 187
+            },
+            {
+              "from": 187,
+              "to": 1
+            },
+            {
+              "from": 188,
+              "to": 189
+            },
+            {
+              "from": 189,
+              "to": 1
+            },
+            {
+              "from": 190,
+              "to": 191
+            },
+            {
+              "from": 191,
+              "to": 192
+            },
+            {
+              "from": 192,
+              "to": 1
+            },
+            {
+              "from": 193,
+              "to": 194
+            },
+            {
+              "from": 194,
+              "to": 1
+            },
+            {
+              "from": 195,
+              "to": 196
+            },
+            {
+              "from": 196,
+              "to": 1
+            },
+            {
+              "from": 197,
+              "to": 198
+            },
+            {
+              "from": 198,
+              "to": 199
+            },
+            {
+              "from": 199,
+              "to": 1
+            },
+            {
+              "from": 200,
+              "to": 201
+            },
+            {
+              "from": 201,
+              "to": 1
+            },
+            {
+              "from": 202,
+              "to": 203
+            },
+            {
+              "from": 203,
+              "to": 1
+            },
+            {
+              "from": 204,
+              "to": 205
+            },
+            {
+              "from": 205,
+              "to": 206
+            },
+            {
+              "from": 206,
+              "to": 1
+            },
+            {
+              "from": 207,
+              "to": 208
+            },
+            {
+              "from": 208,
+              "to": 1
+            },
+            {
+              "from": 209,
+              "to": 210
+            },
+            {
+              "from": 210,
+              "to": 1
+            },
+            {
+              "from": 211,
+              "to": 212
+            },
+            {
+              "from": 212,
+              "to": 213
+            },
+            {
+              "from": 213,
+              "to": 1
+            },
+            {
+              "from": 214,
+              "to": 215
+            },
+            {
+              "from": 215,
+              "to": 1
+            },
+            {
+              "from": 216,
+              "to": 217
+            },
+            {
+              "from": 217,
+              "to": 1
+            },
+            {
+              "from": 218,
+              "to": 219
+            },
+            {
+              "from": 219,
+              "to": 1
+            },
+            {
+              "from": 220,
+              "to": 221
+            },
+            {
+              "from": 221,
+              "to": 1
+            }
+          ],
+          "samples": [
+            {
+              "time": 1074.300000000745,
+              "music": 0.13999999999999999,
+              "paused": false,
+              "rms": 0,
+              "busGain": 1
+            },
+            {
+              "time": 1094,
+              "music": 0.4,
+              "paused": false,
+              "rms": 0.13031763480935835,
+              "busGain": 1
+            },
+            {
+              "time": 1113.6000000014901,
+              "music": 0.4,
+              "paused": false,
+              "rms": 0,
+              "busGain": 1
+            },
+            {
+              "time": 1133.6000000014901,
+              "music": 0.4,
+              "paused": false,
+              "rms": 0,
+              "busGain": 1
+            },
+            {
+              "time": 1153.199999999255,
+              "music": 0.13999999999999999,
+              "paused": false,
+              "rms": 0.3322347226175702,
+              "busGain": 1
+            },
+            {
+              "time": 1175.300000000745,
+              "music": 0.13999999999999999,
+              "paused": false,
+              "rms": 0.7964057530151821,
+              "busGain": 1
+            },
+            {
+              "time": 1193.699999999255,
+              "music": 0.13999999999999999,
+              "paused": false,
+              "rms": 0.737578319074906,
+              "busGain": 1
+            },
+            {
+              "time": 1213.6000000014901,
+              "music": 0.13999999999999999,
+              "paused": false,
+              "rms": 0.6818188828078784,
+              "busGain": 1
+            }
+          ]
+        }
+      }
+    },
+    {
+      "profile": "local",
+      "name": "Live user volume scales warning duck; mute remains silent; unmute retains warning factor",
+      "pass": true,
+      "details": {
+        "pass": true,
+        "volume": {
+          "banner": {
+            "title": "Saturated hazard",
+            "sub": "Focused overlap integration fixture",
+            "col": "#FF5A4E",
+            "t": 1.916666666666667,
+            "max": 2,
+            "key": "qa-saturation",
+            "kind": "hazard"
+          },
+          "music": {
+            "cue": "courtyard",
+            "wanted": true,
+            "src": "audio/02-a-very-noble-food-fight.wav",
+            "saved": 0.23,
+            "base": 0.23,
+            "duck": 0.35,
+            "warningFactor": 0.35,
+            "volume": 0.0805,
+            "muted": false
+          },
+          "audio": {
+            "active": 60,
+            "ordinary": 56,
+            "warning": 4,
+            "max": 64,
+            "reserved": 8,
+            "ordinaryMax": 56,
+            "droppedOrdinary": 304,
+            "droppedWarning": 0,
+            "cueKeys": 1
+          },
+          "starts": 100,
+          "saved": "{\"music\":0.23,\"sfx\":1,\"shake\":0,\"flash\":false,\"names\":\"near\",\"classic\":false,\"whole\":false}"
+        },
+        "muted": {
+          "banner": {
+            "title": "Muted hazard",
+            "sub": "Focused overlap integration fixture",
+            "col": "#FF5A4E",
+            "t": 2.6,
+            "max": 2.6,
+            "key": "qa-muted",
+            "kind": "lastlife"
+          },
+          "music": {
+            "cue": "courtyard",
+            "wanted": true,
+            "src": "audio/02-a-very-noble-food-fight.wav",
+            "saved": 0.23,
+            "base": 0.23,
+            "duck": 0.35,
+            "warningFactor": 0.35,
+            "volume": 0,
+            "muted": true
+          },
+          "audio": {
+            "active": 60,
+            "ordinary": 56,
+            "warning": 4,
+            "max": 64,
+            "reserved": 8,
+            "ordinaryMax": 56,
+            "droppedOrdinary": 304,
+            "droppedWarning": 0,
+            "cueKeys": 2
+          },
+          "starts": 100,
+          "saved": "{\"music\":0.23,\"sfx\":1,\"shake\":0,\"flash\":false,\"names\":\"near\",\"classic\":false,\"whole\":false}"
+        },
+        "unmuted": {
+          "banner": {
+            "title": "Muted hazard",
+            "sub": "Focused overlap integration fixture",
+            "col": "#FF5A4E",
+            "t": 2.266666666666668,
+            "max": 2.6,
+            "key": "qa-muted",
+            "kind": "lastlife"
+          },
+          "music": {
+            "cue": "courtyard",
+            "wanted": true,
+            "src": "audio/02-a-very-noble-food-fight.wav",
+            "saved": 0.23,
+            "base": 0.23,
+            "duck": 0.35,
+            "warningFactor": 0.35,
+            "volume": 0.0805,
+            "muted": false
+          },
+          "audio": {
+            "active": 57,
+            "ordinary": 56,
+            "warning": 1,
+            "max": 64,
+            "reserved": 8,
+            "ordinaryMax": 56,
+            "droppedOrdinary": 304,
+            "droppedWarning": 0,
+            "cueKeys": 2
+          },
+          "starts": 100,
+          "saved": "{\"music\":0.23,\"sfx\":1,\"shake\":0,\"flash\":false,\"names\":\"near\",\"classic\":false,\"whole\":false}"
+        }
+      }
+    },
+    {
+      "profile": "local",
+      "name": "Pause resumes warning; result/menu/new match release duck state",
+      "pass": true,
+      "details": {
+        "pass": true,
+        "paused": {
+          "banner": {
+            "title": "Lifecycle warning",
+            "sub": "Focused overlap integration fixture",
+            "col": "#FF5A4E",
+            "t": 10,
+            "max": 10,
+            "key": "qa-lifecycle",
+            "kind": "hazard"
+          },
+          "music": {
+            "cue": "menu",
+            "wanted": true,
+            "src": "menu-theme.mp3",
+            "saved": 0.23,
+            "base": 0,
+            "duck": 1,
+            "warningFactor": 1,
+            "volume": 0,
+            "muted": false
+          },
+          "audio": {
+            "active": 61,
+            "ordinary": 56,
+            "warning": 5,
+            "max": 64,
+            "reserved": 8,
+            "ordinaryMax": 56,
+            "droppedOrdinary": 304,
+            "droppedWarning": 0,
+            "cueKeys": 1
+          },
+          "starts": 104,
+          "saved": "{\"music\":0.23,\"sfx\":1,\"shake\":0,\"flash\":false,\"names\":\"near\",\"classic\":false,\"whole\":false}"
+        },
+        "resumed": {
+          "banner": {
+            "title": "Lifecycle warning",
+            "sub": "Focused overlap integration fixture",
+            "col": "#FF5A4E",
+            "t": 10,
+            "max": 10,
+            "key": "qa-lifecycle",
+            "kind": "hazard"
+          },
+          "music": {
+            "cue": "menu",
+            "wanted": true,
+            "src": "menu-theme.mp3",
+            "saved": 0.23,
+            "base": 0,
+            "duck": 0.35,
+            "warningFactor": 0.35,
+            "volume": 0,
+            "muted": false
+          },
+          "audio": {
+            "active": 61,
+            "ordinary": 56,
+            "warning": 5,
+            "max": 64,
+            "reserved": 8,
+            "ordinaryMax": 56,
+            "droppedOrdinary": 304,
+            "droppedWarning": 0,
+            "cueKeys": 1
+          },
+          "starts": 104,
+          "saved": "{\"music\":0.23,\"sfx\":1,\"shake\":0,\"flash\":false,\"names\":\"near\",\"classic\":false,\"whole\":false}"
+        },
+        "result": {
+          "banner": null,
+          "music": {
+            "cue": "victory",
+            "wanted": true,
+            "src": "audio/11-the-golden-spoon.wav",
+            "saved": 0.23,
+            "base": 0,
+            "duck": 1,
+            "warningFactor": 1,
+            "volume": 0,
+            "muted": false
+          },
+          "audio": {
+            "active": 56,
+            "ordinary": 56,
+            "warning": 0,
+            "max": 64,
+            "reserved": 8,
+            "ordinaryMax": 56,
+            "droppedOrdinary": 310,
+            "droppedWarning": 0,
+            "cueKeys": 0
+          },
+          "starts": 104,
+          "saved": "{\"music\":0.23,\"sfx\":1,\"shake\":0,\"flash\":false,\"names\":\"near\",\"classic\":false,\"whole\":false}"
+        },
+        "menu": {
+          "banner": null,
+          "music": {
+            "cue": "menu",
+            "wanted": true,
+            "src": "menu-theme.mp3",
+            "saved": 0.23,
+            "base": 0.05,
+            "duck": 1,
+            "warningFactor": 1,
+            "volume": 0.05,
+            "muted": false
+          },
+          "audio": {
+            "active": 37,
+            "ordinary": 37,
+            "warning": 0,
+            "max": 64,
+            "reserved": 8,
+            "ordinaryMax": 56,
+            "droppedOrdinary": 310,
+            "droppedWarning": 0,
+            "cueKeys": 0
+          },
+          "starts": 104,
+          "saved": "{\"music\":0.23,\"sfx\":1,\"shake\":0,\"flash\":false,\"names\":\"near\",\"classic\":false,\"whole\":false}"
+        },
+        "fresh": {
+          "banner": {
+            "title": "FIGHT!",
+            "sub": "Castle Courtyard. Free-for-all. Every knight for themselves.",
+            "col": "#FFD23F",
+            "t": 1.9833333333333334,
+            "max": 2,
+            "key": "match:start",
+            "kind": "objective"
+          },
+          "music": {
+            "cue": "courtyard",
+            "wanted": true,
+            "src": "audio/02-a-very-noble-food-fight.wav",
+            "saved": 0.23,
+            "base": 0,
+            "duck": 0.35,
+            "warningFactor": 0.35,
+            "volume": 0,
+            "muted": false
+          },
+          "audio": {
+            "active": 41,
+            "ordinary": 37,
+            "warning": 4,
+            "max": 64,
+            "reserved": 8,
+            "ordinaryMax": 56,
+            "droppedOrdinary": 310,
+            "droppedWarning": 0,
+            "cueKeys": 1
+          },
+          "starts": 108,
+          "saved": "{\"music\":0.23,\"sfx\":1,\"shake\":0,\"flash\":false,\"names\":\"near\",\"classic\":false,\"whole\":false}"
+        }
+      }
+    },
+    {
+      "profile": "host",
+      "name": "Live host warning metadata/cue reach guest once with guest local settings",
+      "pass": true,
+      "details": {
+        "pass": true,
+        "received": {
+          "banner": {
+            "title": "Live warning",
+            "sub": "Focused overlap integration fixture",
+            "col": "#FF5A4E",
+            "t": 2.5833,
+            "max": 2.6,
+            "key": "qa-live",
+            "kind": "hazard"
+          },
+          "music": {
+            "cue": "courtyard",
+            "wanted": true,
+            "src": "audio/02-a-very-noble-food-fight.wav",
+            "saved": 0.23,
+            "base": 0.23,
+            "duck": 0.35,
+            "warningFactor": 0.35,
+            "volume": 0.0805,
+            "muted": false
+          },
+          "audio": {
+            "active": 8,
+            "ordinary": 0,
+            "warning": 8,
+            "max": 64,
+            "reserved": 8,
+            "ordinaryMax": 56,
+            "droppedOrdinary": 0,
+            "droppedWarning": 0,
+            "cueKeys": 0
+          },
+          "starts": 8,
+          "saved": null
+        },
+        "repeated": {
+          "banner": {
+            "title": "Live warning",
+            "sub": "Focused overlap integration fixture",
+            "col": "#FF5A4E",
+            "t": 2.6,
+            "max": 2.6,
+            "key": "qa-live",
+            "kind": "hazard"
+          },
+          "music": {
+            "cue": "courtyard",
+            "wanted": true,
+            "src": "audio/02-a-very-noble-food-fight.wav",
+            "saved": 0.23,
+            "base": 0.23,
+            "duck": 0.35,
+            "warningFactor": 0.35,
+            "volume": 0.0805,
+            "muted": false
+          },
+          "audio": {
+            "active": 8,
+            "ordinary": 0,
+            "warning": 8,
+            "max": 64,
+            "reserved": 8,
+            "ordinaryMax": 56,
+            "droppedOrdinary": 0,
+            "droppedWarning": 0,
+            "cueKeys": 0
+          },
+          "starts": 8,
+          "saved": null
+        },
+        "fixture": "Live PeerJS warning cue; direct host forced banner + explicit repeated snapshot sent over actual connection"
+      }
+    },
+    {
+      "profile": "guest",
+      "name": "Snapshot legacy/malformed/stale warning metadata cannot synthesize cue",
+      "pass": true,
+      "details": {
+        "pass": true,
+        "rows": [
+          {
+            "banner": {
+              "title": "Legacy",
+              "sub": "older host",
+              "col": "#FFD23F",
+              "t": 1,
+              "max": 1,
+              "key": "legacy",
+              "kind": "flavour"
+            },
+            "music": {
+              "cue": "courtyard",
+              "wanted": true,
+              "src": "audio/02-a-very-noble-food-fight.wav",
+              "saved": 0.23,
+              "base": 0.23,
+              "duck": 1,
+              "warningFactor": 1,
+              "volume": 0.23,
+              "muted": false
+            },
+            "audio": {
+              "active": 6,
+              "ordinary": 0,
+              "warning": 6,
+              "max": 64,
+              "reserved": 8,
+              "ordinaryMax": 56,
+              "droppedOrdinary": 0,
+              "droppedWarning": 0,
+              "cueKeys": 0
+            },
+            "starts": 8,
+            "saved": null
+          },
+          {
+            "banner": null,
+            "music": {
+              "cue": "courtyard",
+              "wanted": true,
+              "src": "audio/02-a-very-noble-food-fight.wav",
+              "saved": 0.23,
+              "base": 0.23,
+              "duck": 1,
+              "warningFactor": 1,
+              "volume": 0.23,
+              "muted": false
+            },
+            "audio": {
+              "active": 6,
+              "ordinary": 0,
+              "warning": 6,
+              "max": 64,
+              "reserved": 8,
+              "ordinaryMax": 56,
+              "droppedOrdinary": 0,
+              "droppedWarning": 0,
+              "cueKeys": 0
+            },
+            "starts": 8,
+            "saved": null
+          },
+          {
+            "banner": null,
+            "music": {
+              "cue": "courtyard",
+              "wanted": true,
+              "src": "audio/02-a-very-noble-food-fight.wav",
+              "saved": 0.23,
+              "base": 0.23,
+              "duck": 1,
+              "warningFactor": 1,
+              "volume": 0.23,
+              "muted": false
+            },
+            "audio": {
+              "active": 6,
+              "ordinary": 0,
+              "warning": 6,
+              "max": 64,
+              "reserved": 8,
+              "ordinaryMax": 56,
+              "droppedOrdinary": 0,
+              "droppedWarning": 0,
+              "cueKeys": 0
+            },
+            "starts": 8,
+            "saved": null
+          }
+        ],
+        "fixture": "Direct CK.applySnap injected old/malformed/stale snapshots; no live transport claim"
+      }
+    },
+    {
+      "profile": "guest",
+      "name": "Host leave restores guest duck state",
+      "pass": true,
+      "details": {
+        "pass": true,
+        "state": {
+          "banner": null,
+          "music": {
+            "cue": "menu",
+            "wanted": true,
+            "src": "menu-theme.mp3",
+            "saved": 0.23,
+            "base": 0,
+            "duck": 1,
+            "warningFactor": 1,
+            "volume": 0,
+            "muted": false
+          },
+          "audio": {
+            "active": 0,
+            "ordinary": 0,
+            "warning": 0,
+            "max": 64,
+            "reserved": 8,
+            "ordinaryMax": 56,
+            "droppedOrdinary": 0,
+            "droppedWarning": 0,
+            "cueKeys": 0
+          },
+          "starts": 8,
+          "saved": null
+        }
+      }
+    }
+  ],
+  "errors": [],
+  "limitations": [
+    "Actual isolated Chrome, direct CK bounded forced state fixtures; screenshots show actual canvas rendering.",
+    "Native WebAudio graph and digital RMS/envelope only. Browser output silenced; no human audibility, loudness, recognition, physical speaker or minimum-spec acceptance.",
+    "Actual PeerJS same-host where connection supported, separately labeled from direct snapshot sanitization fixtures. Normal saves and user game untouched.",
+    "Focused arena FE07 evidence; Faction Front and campaign/story presentation boundaries are not exercised."
+  ],
+  "sourceHashes": {
+    "index.html": "6f5565642e4f5e33b6df126704f0b1e63af9519e47a0f811c9e54aa924d967eb",
+    "game/warnings.js": "30faee21034b5fa493f2923a7b85bf127af2f1f86270466e1a7c14d5fe57ae7a",
+    "audio/warning-mixer.js": "98318dc7575e946b8e171fcb0af7920c91e991fb85a18d5cd30c550a882bc928",
+    "game/campaign.js": "9b056e3b2ff4a9b5cf72f8cce0ce863b733a654d3a31883673a0b1908216008e"
+  },
+  "chromeVersion": {
+    "Browser": "Chrome/154.0.8037.98",
+    "Protocol-Version": "1.3",
+    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/154.0.0.0 Safari/537.36",
+    "V8-Version": "15.4.80.20",
+    "WebKit-Version": "537.36 (@b859317bf11f6be47f9b7799ec690a0a42a1fb33)",
+    "webSocketDebuggerUrl": "ws://127.0.0.1:61886/devtools/browser/e442f35a-0306-497d-a9cd-5b159a45e201"
+  },
+  "digitalAudioGraph": {
+    "nodes": [
+      {
+        "id": 1,
+        "type": "GainNode"
+      },
+      {
+        "id": 2,
+        "type": "AudioDestinationNode"
+      },
+      {
+        "id": 3,
+        "type": "OscillatorNode"
+      },
+      {
+        "id": 4,
+        "type": "GainNode"
+      },
+      {
+        "id": 5,
+        "type": "OscillatorNode"
+      },
+      {
+        "id": 6,
+        "type": "GainNode"
+      },
+      {
+        "id": 7,
+        "type": "OscillatorNode"
+      },
+      {
+        "id": 8,
+        "type": "GainNode"
+      },
+      {
+        "id": 9,
+        "type": "OscillatorNode"
+      },
+      {
+        "id": 10,
+        "type": "GainNode"
+      },
+      {
+        "id": 11,
+        "type": "OscillatorNode"
+      },
+      {
+        "id": 12,
+        "type": "GainNode"
+      },
+      {
+        "id": 13,
+        "type": "OscillatorNode"
+      },
+      {
+        "id": 14,
+        "type": "GainNode"
+      },
+      {
+        "id": 15,
+        "type": "OscillatorNode"
+      },
+      {
+        "id": 16,
+        "type": "GainNode"
+      },
+      {
+        "id": 17,
+        "type": "OscillatorNode"
+      },
+      {
+        "id": 18,
+        "type": "GainNode"
+      },
+      {
+        "id": 19,
+        "type": "OscillatorNode"
+      },
+      {
+        "id": 20,
+        "type": "GainNode"
+      },
+      {
+        "id": 21,
+        "type": "OscillatorNode"
+      },
+      {
+        "id": 22,
+        "type": "GainNode"
+      },
+      {
+        "id": 23,
+        "type": "OscillatorNode"
+      },
+      {
+        "id": 24,
+        "type": "GainNode"
+      },
+      {
+        "id": 25,
+        "type": "OscillatorNode"
+      },
+      {
+        "id": 26,
+        "type": "GainNode"
+      },
+      {
+        "id": 27,
+        "type": "OscillatorNode"
+      },
+      {
+        "id": 28,
+        "type": "GainNode"
+      },
+      {
+        "id": 29,
+        "type": "OscillatorNode"
+      },
+      {
+        "id": 30,
+        "type": "GainNode"
+      },
+      {
+        "id": 31,
+        "type": "OscillatorNode"
+      },
+      {
+        "id": 32,
+        "type": "GainNode"
+      },
+      {
+        "id": 33,
+        "type": "OscillatorNode"
+      },
+      {
+        "id": 34,
+        "type": "GainNode"
+      },
+      {
+        "id": 35,
+        "type": "OscillatorNode"
+      },
+      {
+        "id": 36,
+        "type": "GainNode"
+      },
+      {
+        "id": 37,
+        "type": "OscillatorNode"
+      },
+      {
+        "id": 38,
+        "type": "GainNode"
+      },
+      {
+        "id": 39,
+        "type": "OscillatorNode"
+      },
+      {
+        "id": 40,
+        "type": "GainNode"
+      },
+      {
+        "id": 41,
+        "type": "OscillatorNode"
+      },
+      {
+        "id": 42,
+        "type": "GainNode"
+      },
+      {
+        "id": 43,
+        "type": "OscillatorNode"
+      },
+      {
+        "id": 44,
+        "type": "GainNode"
+      },
+      {
+        "id": 45,
+        "type": "OscillatorNode"
+      },
+      {
+        "id": 46,
+        "type": "GainNode"
+      },
+      {
+        "id": 47,
+        "type": "OscillatorNode"
+      },
+      {
+        "id": 48,
+        "type": "GainNode"
+      },
+      {
+        "id": 49,
+        "type": "OscillatorNode"
+      },
+      {
+        "id": 50,
+        "type": "GainNode"
+      },
+      {
+        "id": 51,
+        "type": "OscillatorNode"
+      },
+      {
+        "id": 52,
+        "type": "GainNode"
+      },
+      {
+        "id": 53,
+        "type": "OscillatorNode"
+      },
+      {
+        "id": 54,
+        "type": "GainNode"
+      },
+      {
+        "id": 55,
+        "type": "OscillatorNode"
+      },
+      {
+        "id": 56,
+        "type": "GainNode"
+      },
+      {
+        "id": 57,
+        "type": "OscillatorNode"
+      },
+      {
+        "id": 58,
+        "type": "GainNode"
+      },
+      {
+        "id": 59,
+        "type": "OscillatorNode"
+      },
+      {
+        "id": 60,
+        "type": "GainNode"
+      },
+      {
+        "id": 61,
+        "type": "OscillatorNode"
+      },
+      {
+        "id": 62,
+        "type": "GainNode"
+      },
+      {
+        "id": 63,
+        "type": "OscillatorNode"
+      },
+      {
+        "id": 64,
+        "type": "GainNode"
+      },
+      {
+        "id": 65,
+        "type": "OscillatorNode"
+      },
+      {
+        "id": 66,
+        "type": "GainNode"
+      },
+      {
+        "id": 67,
+        "type": "OscillatorNode"
+      },
+      {
+        "id": 68,
+        "type": "GainNode"
+      },
+      {
+        "id": 69,
+        "type": "OscillatorNode"
+      },
+      {
+        "id": 70,
+        "type": "GainNode"
+      },
+      {
+        "id": 71,
+        "type": "OscillatorNode"
+      },
+      {
+        "id": 72,
+        "type": "GainNode"
+      },
+      {
+        "id": 73,
+        "type": "OscillatorNode"
+      },
+      {
+        "id": 74,
+        "type": "GainNode"
+      },
+      {
+        "id": 75,
+        "type": "OscillatorNode"
+      },
+      {
+        "id": 76,
+        "type": "GainNode"
+      },
+      {
+        "id": 77,
+        "type": "OscillatorNode"
+      },
+      {
+        "id": 78,
+        "type": "GainNode"
+      },
+      {
+        "id": 79,
+        "type": "OscillatorNode"
+      },
+      {
+        "id": 80,
+        "type": "GainNode"
+      },
+      {
+        "id": 81,
+        "type": "OscillatorNode"
+      },
+      {
+        "id": 82,
+        "type": "GainNode"
+      },
+      {
+        "id": 83,
+        "type": "OscillatorNode"
+      },
+      {
+        "id": 84,
+        "type": "GainNode"
+      },
+      {
+        "id": 85,
+        "type": "AudioBufferSourceNode"
+      },
+      {
+        "id": 86,
+        "type": "BiquadFilterNode"
+      },
+      {
+        "id": 87,
+        "type": "GainNode"
+      },
+      {
+        "id": 88,
+        "type": "OscillatorNode"
+      },
+      {
+        "id": 89,
+        "type": "GainNode"
+      },
+      {
+        "id": 90,
+        "type": "OscillatorNode"
+      },
+      {
+        "id": 91,
+        "type": "GainNode"
+      },
+      {
+        "id": 92,
+        "type": "AudioBufferSourceNode"
+      },
+      {
+        "id": 93,
+        "type": "BiquadFilterNode"
+      },
+      {
+        "id": 94,
+        "type": "GainNode"
+      },
+      {
+        "id": 95,
+        "type": "OscillatorNode"
+      },
+      {
+        "id": 96,
+        "type": "GainNode"
+      },
+      {
+        "id": 97,
+        "type": "OscillatorNode"
+      },
+      {
+        "id": 98,
+        "type": "GainNode"
+      },
+      {
+        "id": 99,
+        "type": "AudioBufferSourceNode"
+      },
+      {
+        "id": 100,
+        "type": "BiquadFilterNode"
+      },
+      {
+        "id": 101,
+        "type": "GainNode"
+      },
+      {
+        "id": 102,
+        "type": "OscillatorNode"
+      },
+      {
+        "id": 103,
+        "type": "GainNode"
+      },
+      {
+        "id": 104,
+        "type": "OscillatorNode"
+      },
+      {
+        "id": 105,
+        "type": "GainNode"
+      },
+      {
+        "id": 106,
+        "type": "AudioBufferSourceNode"
+      },
+      {
+        "id": 107,
+        "type": "BiquadFilterNode"
+      },
+      {
+        "id": 108,
+        "type": "GainNode"
+      },
+      {
+        "id": 109,
+        "type": "OscillatorNode"
+      },
+      {
+        "id": 110,
+        "type": "GainNode"
+      },
+      {
+        "id": 111,
+        "type": "OscillatorNode"
+      },
+      {
+        "id": 112,
+        "type": "GainNode"
+      },
+      {
+        "id": 113,
+        "type": "AudioBufferSourceNode"
+      },
+      {
+        "id": 114,
+        "type": "BiquadFilterNode"
+      },
+      {
+        "id": 115,
+        "type": "GainNode"
+      },
+      {
+        "id": 116,
+        "type": "OscillatorNode"
+      },
+      {
+        "id": 117,
+        "type": "GainNode"
+      },
+      {
+        "id": 118,
+        "type": "OscillatorNode"
+      },
+      {
+        "id": 119,
+        "type": "GainNode"
+      },
+      {
+        "id": 120,
+        "type": "AudioBufferSourceNode"
+      },
+      {
+        "id": 121,
+        "type": "BiquadFilterNode"
+      },
+      {
+        "id": 122,
+        "type": "GainNode"
+      },
+      {
+        "id": 123,
+        "type": "OscillatorNode"
+      },
+      {
+        "id": 124,
+        "type": "GainNode"
+      },
+      {
+        "id": 125,
+        "type": "OscillatorNode"
+      },
+      {
+        "id": 126,
+        "type": "GainNode"
+      },
+      {
+        "id": 127,
+        "type": "AudioBufferSourceNode"
+      },
+      {
+        "id": 128,
+        "type": "BiquadFilterNode"
+      },
+      {
+        "id": 129,
+        "type": "GainNode"
+      },
+      {
+        "id": 130,
+        "type": "OscillatorNode"
+      },
+      {
+        "id": 131,
+        "type": "GainNode"
+      },
+      {
+        "id": 132,
+        "type": "OscillatorNode"
+      },
+      {
+        "id": 133,
+        "type": "GainNode"
+      },
+      {
+        "id": 134,
+        "type": "AudioBufferSourceNode"
+      },
+      {
+        "id": 135,
+        "type": "BiquadFilterNode"
+      },
+      {
+        "id": 136,
+        "type": "GainNode"
+      },
+      {
+        "id": 137,
+        "type": "OscillatorNode"
+      },
+      {
+        "id": 138,
+        "type": "GainNode"
+      },
+      {
+        "id": 139,
+        "type": "OscillatorNode"
+      },
+      {
+        "id": 140,
+        "type": "GainNode"
+      },
+      {
+        "id": 141,
+        "type": "AudioBufferSourceNode"
+      },
+      {
+        "id": 142,
+        "type": "BiquadFilterNode"
+      },
+      {
+        "id": 143,
+        "type": "GainNode"
+      },
+      {
+        "id": 144,
+        "type": "OscillatorNode"
+      },
+      {
+        "id": 145,
+        "type": "GainNode"
+      },
+      {
+        "id": 146,
+        "type": "OscillatorNode"
+      },
+      {
+        "id": 147,
+        "type": "GainNode"
+      },
+      {
+        "id": 148,
+        "type": "AudioBufferSourceNode"
+      },
+      {
+        "id": 149,
+        "type": "BiquadFilterNode"
+      },
+      {
+        "id": 150,
+        "type": "GainNode"
+      },
+      {
+        "id": 151,
+        "type": "OscillatorNode"
+      },
+      {
+        "id": 152,
+        "type": "GainNode"
+      },
+      {
+        "id": 153,
+        "type": "OscillatorNode"
+      },
+      {
+        "id": 154,
+        "type": "GainNode"
+      },
+      {
+        "id": 155,
+        "type": "AudioBufferSourceNode"
+      },
+      {
+        "id": 156,
+        "type": "BiquadFilterNode"
+      },
+      {
+        "id": 157,
+        "type": "GainNode"
+      },
+      {
+        "id": 158,
+        "type": "OscillatorNode"
+      },
+      {
+        "id": 159,
+        "type": "GainNode"
+      },
+      {
+        "id": 160,
+        "type": "OscillatorNode"
+      },
+      {
+        "id": 161,
+        "type": "GainNode"
+      },
+      {
+        "id": 162,
+        "type": "AudioBufferSourceNode"
+      },
+      {
+        "id": 163,
+        "type": "BiquadFilterNode"
+      },
+      {
+        "id": 164,
+        "type": "GainNode"
+      },
+      {
+        "id": 165,
+        "type": "OscillatorNode"
+      },
+      {
+        "id": 166,
+        "type": "GainNode"
+      },
+      {
+        "id": 167,
+        "type": "OscillatorNode"
+      },
+      {
+        "id": 168,
+        "type": "GainNode"
+      },
+      {
+        "id": 169,
+        "type": "AudioBufferSourceNode"
+      },
+      {
+        "id": 170,
+        "type": "BiquadFilterNode"
+      },
+      {
+        "id": 171,
+        "type": "GainNode"
+      },
+      {
+        "id": 172,
+        "type": "OscillatorNode"
+      },
+      {
+        "id": 173,
+        "type": "GainNode"
+      },
+      {
+        "id": 174,
+        "type": "OscillatorNode"
+      },
+      {
+        "id": 175,
+        "type": "GainNode"
+      },
+      {
+        "id": 176,
+        "type": "AudioBufferSourceNode"
+      },
+      {
+        "id": 177,
+        "type": "BiquadFilterNode"
+      },
+      {
+        "id": 178,
+        "type": "GainNode"
+      },
+      {
+        "id": 179,
+        "type": "OscillatorNode"
+      },
+      {
+        "id": 180,
+        "type": "GainNode"
+      },
+      {
+        "id": 181,
+        "type": "OscillatorNode"
+      },
+      {
+        "id": 182,
+        "type": "GainNode"
+      },
+      {
+        "id": 183,
+        "type": "AudioBufferSourceNode"
+      },
+      {
+        "id": 184,
+        "type": "BiquadFilterNode"
+      },
+      {
+        "id": 185,
+        "type": "GainNode"
+      },
+      {
+        "id": 186,
+        "type": "OscillatorNode"
+      },
+      {
+        "id": 187,
+        "type": "GainNode"
+      },
+      {
+        "id": 188,
+        "type": "OscillatorNode"
+      },
+      {
+        "id": 189,
+        "type": "GainNode"
+      },
+      {
+        "id": 190,
+        "type": "AudioBufferSourceNode"
+      },
+      {
+        "id": 191,
+        "type": "BiquadFilterNode"
+      },
+      {
+        "id": 192,
+        "type": "GainNode"
+      },
+      {
+        "id": 193,
+        "type": "OscillatorNode"
+      },
+      {
+        "id": 194,
+        "type": "GainNode"
+      },
+      {
+        "id": 195,
+        "type": "OscillatorNode"
+      },
+      {
+        "id": 196,
+        "type": "GainNode"
+      },
+      {
+        "id": 197,
+        "type": "AudioBufferSourceNode"
+      },
+      {
+        "id": 198,
+        "type": "BiquadFilterNode"
+      },
+      {
+        "id": 199,
+        "type": "GainNode"
+      },
+      {
+        "id": 200,
+        "type": "OscillatorNode"
+      },
+      {
+        "id": 201,
+        "type": "GainNode"
+      },
+      {
+        "id": 202,
+        "type": "OscillatorNode"
+      },
+      {
+        "id": 203,
+        "type": "GainNode"
+      },
+      {
+        "id": 204,
+        "type": "AudioBufferSourceNode"
+      },
+      {
+        "id": 205,
+        "type": "BiquadFilterNode"
+      },
+      {
+        "id": 206,
+        "type": "GainNode"
+      },
+      {
+        "id": 207,
+        "type": "OscillatorNode"
+      },
+      {
+        "id": 208,
+        "type": "GainNode"
+      },
+      {
+        "id": 209,
+        "type": "OscillatorNode"
+      },
+      {
+        "id": 210,
+        "type": "GainNode"
+      },
+      {
+        "id": 211,
+        "type": "AudioBufferSourceNode"
+      },
+      {
+        "id": 212,
+        "type": "BiquadFilterNode"
+      },
+      {
+        "id": 213,
+        "type": "GainNode"
+      },
+      {
+        "id": 214,
+        "type": "OscillatorNode"
+      },
+      {
+        "id": 215,
+        "type": "GainNode"
+      },
+      {
+        "id": 216,
+        "type": "OscillatorNode"
+      },
+      {
+        "id": 217,
+        "type": "GainNode"
+      },
+      {
+        "id": 218,
+        "type": "OscillatorNode"
+      },
+      {
+        "id": 219,
+        "type": "GainNode"
+      },
+      {
+        "id": 220,
+        "type": "OscillatorNode"
+      },
+      {
+        "id": 221,
+        "type": "GainNode"
+      }
+    ],
+    "edges": [
+      {
+        "from": 1,
+        "to": 2
+      },
+      {
+        "from": 3,
+        "to": 4
+      },
+      {
+        "from": 4,
+        "to": 1
+      },
+      {
+        "from": 5,
+        "to": 6
+      },
+      {
+        "from": 6,
+        "to": 1
+      },
+      {
+        "from": 7,
+        "to": 8
+      },
+      {
+        "from": 8,
+        "to": 1
+      },
+      {
+        "from": 9,
+        "to": 10
+      },
+      {
+        "from": 10,
+        "to": 1
+      },
+      {
+        "from": 11,
+        "to": 12
+      },
+      {
+        "from": 12,
+        "to": 1
+      },
+      {
+        "from": 13,
+        "to": 14
+      },
+      {
+        "from": 14,
+        "to": 1
+      },
+      {
+        "from": 15,
+        "to": 16
+      },
+      {
+        "from": 16,
+        "to": 1
+      },
+      {
+        "from": 17,
+        "to": 18
+      },
+      {
+        "from": 18,
+        "to": 1
+      },
+      {
+        "from": 19,
+        "to": 20
+      },
+      {
+        "from": 20,
+        "to": 1
+      },
+      {
+        "from": 21,
+        "to": 22
+      },
+      {
+        "from": 22,
+        "to": 1
+      },
+      {
+        "from": 23,
+        "to": 24
+      },
+      {
+        "from": 24,
+        "to": 1
+      },
+      {
+        "from": 25,
+        "to": 26
+      },
+      {
+        "from": 26,
+        "to": 1
+      },
+      {
+        "from": 27,
+        "to": 28
+      },
+      {
+        "from": 28,
+        "to": 1
+      },
+      {
+        "from": 29,
+        "to": 30
+      },
+      {
+        "from": 30,
+        "to": 1
+      },
+      {
+        "from": 31,
+        "to": 32
+      },
+      {
+        "from": 32,
+        "to": 1
+      },
+      {
+        "from": 33,
+        "to": 34
+      },
+      {
+        "from": 34,
+        "to": 1
+      },
+      {
+        "from": 35,
+        "to": 36
+      },
+      {
+        "from": 36,
+        "to": 1
+      },
+      {
+        "from": 37,
+        "to": 38
+      },
+      {
+        "from": 38,
+        "to": 1
+      },
+      {
+        "from": 39,
+        "to": 40
+      },
+      {
+        "from": 40,
+        "to": 1
+      },
+      {
+        "from": 41,
+        "to": 42
+      },
+      {
+        "from": 42,
+        "to": 1
+      },
+      {
+        "from": 43,
+        "to": 44
+      },
+      {
+        "from": 44,
+        "to": 1
+      },
+      {
+        "from": 45,
+        "to": 46
+      },
+      {
+        "from": 46,
+        "to": 1
+      },
+      {
+        "from": 47,
+        "to": 48
+      },
+      {
+        "from": 48,
+        "to": 1
+      },
+      {
+        "from": 49,
+        "to": 50
+      },
+      {
+        "from": 50,
+        "to": 1
+      },
+      {
+        "from": 51,
+        "to": 52
+      },
+      {
+        "from": 52,
+        "to": 1
+      },
+      {
+        "from": 53,
+        "to": 54
+      },
+      {
+        "from": 54,
+        "to": 1
+      },
+      {
+        "from": 55,
+        "to": 56
+      },
+      {
+        "from": 56,
+        "to": 1
+      },
+      {
+        "from": 57,
+        "to": 58
+      },
+      {
+        "from": 58,
+        "to": 1
+      },
+      {
+        "from": 59,
+        "to": 60
+      },
+      {
+        "from": 60,
+        "to": 1
+      },
+      {
+        "from": 61,
+        "to": 62
+      },
+      {
+        "from": 62,
+        "to": 1
+      },
+      {
+        "from": 63,
+        "to": 64
+      },
+      {
+        "from": 64,
+        "to": 1
+      },
+      {
+        "from": 65,
+        "to": 66
+      },
+      {
+        "from": 66,
+        "to": 1
+      },
+      {
+        "from": 67,
+        "to": 68
+      },
+      {
+        "from": 68,
+        "to": 1
+      },
+      {
+        "from": 69,
+        "to": 70
+      },
+      {
+        "from": 70,
+        "to": 1
+      },
+      {
+        "from": 71,
+        "to": 72
+      },
+      {
+        "from": 72,
+        "to": 1
+      },
+      {
+        "from": 73,
+        "to": 74
+      },
+      {
+        "from": 74,
+        "to": 1
+      },
+      {
+        "from": 75,
+        "to": 76
+      },
+      {
+        "from": 76,
+        "to": 1
+      },
+      {
+        "from": 77,
+        "to": 78
+      },
+      {
+        "from": 78,
+        "to": 1
+      },
+      {
+        "from": 79,
+        "to": 80
+      },
+      {
+        "from": 80,
+        "to": 1
+      },
+      {
+        "from": 81,
+        "to": 82
+      },
+      {
+        "from": 82,
+        "to": 1
+      },
+      {
+        "from": 83,
+        "to": 84
+      },
+      {
+        "from": 84,
+        "to": 1
+      },
+      {
+        "from": 85,
+        "to": 86
+      },
+      {
+        "from": 86,
+        "to": 87
+      },
+      {
+        "from": 87,
+        "to": 1
+      },
+      {
+        "from": 88,
+        "to": 89
+      },
+      {
+        "from": 89,
+        "to": 1
+      },
+      {
+        "from": 90,
+        "to": 91
+      },
+      {
+        "from": 91,
+        "to": 1
+      },
+      {
+        "from": 92,
+        "to": 93
+      },
+      {
+        "from": 93,
+        "to": 94
+      },
+      {
+        "from": 94,
+        "to": 1
+      },
+      {
+        "from": 95,
+        "to": 96
+      },
+      {
+        "from": 96,
+        "to": 1
+      },
+      {
+        "from": 97,
+        "to": 98
+      },
+      {
+        "from": 98,
+        "to": 1
+      },
+      {
+        "from": 99,
+        "to": 100
+      },
+      {
+        "from": 100,
+        "to": 101
+      },
+      {
+        "from": 101,
+        "to": 1
+      },
+      {
+        "from": 102,
+        "to": 103
+      },
+      {
+        "from": 103,
+        "to": 1
+      },
+      {
+        "from": 104,
+        "to": 105
+      },
+      {
+        "from": 105,
+        "to": 1
+      },
+      {
+        "from": 106,
+        "to": 107
+      },
+      {
+        "from": 107,
+        "to": 108
+      },
+      {
+        "from": 108,
+        "to": 1
+      },
+      {
+        "from": 109,
+        "to": 110
+      },
+      {
+        "from": 110,
+        "to": 1
+      },
+      {
+        "from": 111,
+        "to": 112
+      },
+      {
+        "from": 112,
+        "to": 1
+      },
+      {
+        "from": 113,
+        "to": 114
+      },
+      {
+        "from": 114,
+        "to": 115
+      },
+      {
+        "from": 115,
+        "to": 1
+      },
+      {
+        "from": 116,
+        "to": 117
+      },
+      {
+        "from": 117,
+        "to": 1
+      },
+      {
+        "from": 118,
+        "to": 119
+      },
+      {
+        "from": 119,
+        "to": 1
+      },
+      {
+        "from": 120,
+        "to": 121
+      },
+      {
+        "from": 121,
+        "to": 122
+      },
+      {
+        "from": 122,
+        "to": 1
+      },
+      {
+        "from": 123,
+        "to": 124
+      },
+      {
+        "from": 124,
+        "to": 1
+      },
+      {
+        "from": 125,
+        "to": 126
+      },
+      {
+        "from": 126,
+        "to": 1
+      },
+      {
+        "from": 127,
+        "to": 128
+      },
+      {
+        "from": 128,
+        "to": 129
+      },
+      {
+        "from": 129,
+        "to": 1
+      },
+      {
+        "from": 130,
+        "to": 131
+      },
+      {
+        "from": 131,
+        "to": 1
+      },
+      {
+        "from": 132,
+        "to": 133
+      },
+      {
+        "from": 133,
+        "to": 1
+      },
+      {
+        "from": 134,
+        "to": 135
+      },
+      {
+        "from": 135,
+        "to": 136
+      },
+      {
+        "from": 136,
+        "to": 1
+      },
+      {
+        "from": 137,
+        "to": 138
+      },
+      {
+        "from": 138,
+        "to": 1
+      },
+      {
+        "from": 139,
+        "to": 140
+      },
+      {
+        "from": 140,
+        "to": 1
+      },
+      {
+        "from": 141,
+        "to": 142
+      },
+      {
+        "from": 142,
+        "to": 143
+      },
+      {
+        "from": 143,
+        "to": 1
+      },
+      {
+        "from": 144,
+        "to": 145
+      },
+      {
+        "from": 145,
+        "to": 1
+      },
+      {
+        "from": 146,
+        "to": 147
+      },
+      {
+        "from": 147,
+        "to": 1
+      },
+      {
+        "from": 148,
+        "to": 149
+      },
+      {
+        "from": 149,
+        "to": 150
+      },
+      {
+        "from": 150,
+        "to": 1
+      },
+      {
+        "from": 151,
+        "to": 152
+      },
+      {
+        "from": 152,
+        "to": 1
+      },
+      {
+        "from": 153,
+        "to": 154
+      },
+      {
+        "from": 154,
+        "to": 1
+      },
+      {
+        "from": 155,
+        "to": 156
+      },
+      {
+        "from": 156,
+        "to": 157
+      },
+      {
+        "from": 157,
+        "to": 1
+      },
+      {
+        "from": 158,
+        "to": 159
+      },
+      {
+        "from": 159,
+        "to": 1
+      },
+      {
+        "from": 160,
+        "to": 161
+      },
+      {
+        "from": 161,
+        "to": 1
+      },
+      {
+        "from": 162,
+        "to": 163
+      },
+      {
+        "from": 163,
+        "to": 164
+      },
+      {
+        "from": 164,
+        "to": 1
+      },
+      {
+        "from": 165,
+        "to": 166
+      },
+      {
+        "from": 166,
+        "to": 1
+      },
+      {
+        "from": 167,
+        "to": 168
+      },
+      {
+        "from": 168,
+        "to": 1
+      },
+      {
+        "from": 169,
+        "to": 170
+      },
+      {
+        "from": 170,
+        "to": 171
+      },
+      {
+        "from": 171,
+        "to": 1
+      },
+      {
+        "from": 172,
+        "to": 173
+      },
+      {
+        "from": 173,
+        "to": 1
+      },
+      {
+        "from": 174,
+        "to": 175
+      },
+      {
+        "from": 175,
+        "to": 1
+      },
+      {
+        "from": 176,
+        "to": 177
+      },
+      {
+        "from": 177,
+        "to": 178
+      },
+      {
+        "from": 178,
+        "to": 1
+      },
+      {
+        "from": 179,
+        "to": 180
+      },
+      {
+        "from": 180,
+        "to": 1
+      },
+      {
+        "from": 181,
+        "to": 182
+      },
+      {
+        "from": 182,
+        "to": 1
+      },
+      {
+        "from": 183,
+        "to": 184
+      },
+      {
+        "from": 184,
+        "to": 185
+      },
+      {
+        "from": 185,
+        "to": 1
+      },
+      {
+        "from": 186,
+        "to": 187
+      },
+      {
+        "from": 187,
+        "to": 1
+      },
+      {
+        "from": 188,
+        "to": 189
+      },
+      {
+        "from": 189,
+        "to": 1
+      },
+      {
+        "from": 190,
+        "to": 191
+      },
+      {
+        "from": 191,
+        "to": 192
+      },
+      {
+        "from": 192,
+        "to": 1
+      },
+      {
+        "from": 193,
+        "to": 194
+      },
+      {
+        "from": 194,
+        "to": 1
+      },
+      {
+        "from": 195,
+        "to": 196
+      },
+      {
+        "from": 196,
+        "to": 1
+      },
+      {
+        "from": 197,
+        "to": 198
+      },
+      {
+        "from": 198,
+        "to": 199
+      },
+      {
+        "from": 199,
+        "to": 1
+      },
+      {
+        "from": 200,
+        "to": 201
+      },
+      {
+        "from": 201,
+        "to": 1
+      },
+      {
+        "from": 202,
+        "to": 203
+      },
+      {
+        "from": 203,
+        "to": 1
+      },
+      {
+        "from": 204,
+        "to": 205
+      },
+      {
+        "from": 205,
+        "to": 206
+      },
+      {
+        "from": 206,
+        "to": 1
+      },
+      {
+        "from": 207,
+        "to": 208
+      },
+      {
+        "from": 208,
+        "to": 1
+      },
+      {
+        "from": 209,
+        "to": 210
+      },
+      {
+        "from": 210,
+        "to": 1
+      },
+      {
+        "from": 211,
+        "to": 212
+      },
+      {
+        "from": 212,
+        "to": 213
+      },
+      {
+        "from": 213,
+        "to": 1
+      },
+      {
+        "from": 214,
+        "to": 215
+      },
+      {
+        "from": 215,
+        "to": 1
+      },
+      {
+        "from": 216,
+        "to": 217
+      },
+      {
+        "from": 217,
+        "to": 1
+      },
+      {
+        "from": 218,
+        "to": 219
+      },
+      {
+        "from": 219,
+        "to": 1
+      },
+      {
+        "from": 220,
+        "to": 221
+      },
+      {
+        "from": 221,
+        "to": 1
+      }
+    ],
+    "samples": [
+      {
+        "time": 1074.300000000745,
+        "music": 0.13999999999999999,
+        "paused": false,
+        "rms": 0,
+        "busGain": 1
+      },
+      {
+        "time": 1094,
+        "music": 0.4,
+        "paused": false,
+        "rms": 0.13031763480935835,
+        "busGain": 1
+      },
+      {
+        "time": 1113.6000000014901,
+        "music": 0.4,
+        "paused": false,
+        "rms": 0,
+        "busGain": 1
+      },
+      {
+        "time": 1133.6000000014901,
+        "music": 0.4,
+        "paused": false,
+        "rms": 0,
+        "busGain": 1
+      },
+      {
+        "time": 1153.199999999255,
+        "music": 0.13999999999999999,
+        "paused": false,
+        "rms": 0.3322347226175702,
+        "busGain": 1
+      },
+      {
+        "time": 1175.300000000745,
+        "music": 0.13999999999999999,
+        "paused": false,
+        "rms": 0.7964057530151821,
+        "busGain": 1
+      },
+      {
+        "time": 1193.699999999255,
+        "music": 0.13999999999999999,
+        "paused": false,
+        "rms": 0.737578319074906,
+        "busGain": 1
+      },
+      {
+        "time": 1213.6000000014901,
+        "music": 0.13999999999999999,
+        "paused": false,
+        "rms": 0.6818188828078784,
+        "busGain": 1
+      }
+    ]
+  },
+  "localAudioEnvelope": [
+    {
+      "time": 32.900000002235174,
+      "rms": null
+    },
+    {
+      "time": 128.5,
+      "music": 1,
+      "paused": true,
+      "rms": null
+    },
+    {
+      "time": 221,
+      "music": 0.4,
+      "paused": false,
+      "rms": 0.011881541771407796,
+      "busGain": 1
+    },
+    {
+      "time": 278.69999999925494,
+      "music": 0.4,
+      "paused": false,
+      "rms": 0.0013868465462973766,
+      "busGain": 1
+    },
+    {
+      "time": 293,
+      "music": 0.13999999999999999,
+      "paused": false,
+      "rms": 0.0474106192414682,
+      "busGain": 1
+    },
+    {
+      "time": 314.1000000014901,
+      "music": 0.13999999999999999,
+      "paused": false,
+      "rms": 0.023122411149741503,
+      "busGain": 1
+    },
+    {
+      "time": 333.19999999925494,
+      "music": 0.13999999999999999,
+      "paused": false,
+      "rms": 0.028421239197118968,
+      "busGain": 1
+    },
+    {
+      "time": 354,
+      "music": 0.13999999999999999,
+      "paused": false,
+      "rms": 0.014168426199472915,
+      "busGain": 1
+    },
+    {
+      "time": 374.30000000074506,
+      "music": 0.13999999999999999,
+      "paused": false,
+      "rms": 0.006281913894393394,
+      "busGain": 1
+    },
+    {
+      "time": 393.9000000022352,
+      "music": 0.13999999999999999,
+      "paused": false,
+      "rms": 0.003426003760343801,
+      "busGain": 1
+    },
+    {
+      "time": 413.9000000022352,
+      "music": 0.13999999999999999,
+      "paused": false,
+      "rms": 0.05005042062478545,
+      "busGain": 1
+    },
+    {
+      "time": 432.9000000022352,
+      "music": 0.13999999999999999,
+      "paused": false,
+      "rms": 0.02432347146079961,
+      "busGain": 1
+    },
+    {
+      "time": 454.1000000014901,
+      "music": 0.13999999999999999,
+      "paused": false,
+      "rms": 0.01618336440436434,
+      "busGain": 1
+    },
+    {
+      "time": 473.5,
+      "music": 0.13999999999999999,
+      "paused": false,
+      "rms": 0.016512443565414665,
+      "busGain": 1
+    },
+    {
+      "time": 493.19999999925494,
+      "music": 0.13999999999999999,
+      "paused": false,
+      "rms": 0.007026776428104398,
+      "busGain": 1
+    },
+    {
+      "time": 514.1000000014901,
+      "music": 0.13999999999999999,
+      "paused": false,
+      "rms": 0.0029971432882124095,
+      "busGain": 1
+    },
+    {
+      "time": 533.3000000007451,
+      "music": 0.13999999999999999,
+      "paused": false,
+      "rms": 0.04669627853121626,
+      "busGain": 1
+    },
+    {
+      "time": 554,
+      "music": 0.13999999999999999,
+      "paused": false,
+      "rms": 0.02272437701433018,
+      "busGain": 1
+    },
+    {
+      "time": 573.4000000022352,
+      "music": 0.13999999999999999,
+      "paused": false,
+      "rms": 0.012253511989869249,
+      "busGain": 1
+    },
+    {
+      "time": 594,
+      "music": 0.13999999999999999,
+      "paused": false,
+      "rms": 0.03341876910515201,
+      "busGain": 1
+    },
+    {
+      "time": 613.9000000022352,
+      "music": 0.13999999999999999,
+      "paused": false,
+      "rms": 0.026871594549284082,
+      "busGain": 1
+    },
+    {
+      "time": 633.9000000022352,
+      "music": 0.13999999999999999,
+      "paused": false,
+      "rms": 0.020487764732526247,
+      "busGain": 1
+    },
+    {
+      "time": 652.9000000022352,
+      "music": 0.13999999999999999,
+      "paused": false,
+      "rms": 0.05003908383066785,
+      "busGain": 1
+    },
+    {
+      "time": 674.6999999992549,
+      "music": 0.13999999999999999,
+      "paused": false,
+      "rms": 0.020748566964058173,
+      "busGain": 1
+    },
+    {
+      "time": 693.9000000022352,
+      "music": 0.13999999999999999,
+      "paused": false,
+      "rms": 0.015376584841812809,
+      "busGain": 1
+    },
+    {
+      "time": 714,
+      "music": 0.13999999999999999,
+      "paused": false,
+      "rms": 0.009521187431965976,
+      "busGain": 1
+    },
+    {
+      "time": 733.1000000014901,
+      "music": 0.13999999999999999,
+      "paused": false,
+      "rms": 0.006804748296688507,
+      "busGain": 1
+    },
+    {
+      "time": 753.9000000022352,
+      "music": 0.13999999999999999,
+      "paused": false,
+      "rms": 0.005215344380626235,
+      "busGain": 1
+    },
+    {
+      "time": 775,
+      "music": 0.13999999999999999,
+      "paused": false,
+      "rms": 0.004006893115841996,
+      "busGain": 1
+    },
+    {
+      "time": 793.9000000022352,
+      "music": 0.13999999999999999,
+      "paused": false,
+      "rms": 0.0032275094814683573,
+      "busGain": 1
+    },
+    {
+      "time": 814.1000000014901,
+      "music": 0.13999999999999999,
+      "paused": false,
+      "rms": 0.002543158967773562,
+      "busGain": 1
+    },
+    {
+      "time": 833.6999999992549,
+      "music": 0.13999999999999999,
+      "paused": false,
+      "rms": 0.0021306884822520017,
+      "busGain": 1
+    },
+    {
+      "time": 854,
+      "music": 0.13999999999999999,
+      "paused": false,
+      "rms": 0.0016260634088591894,
+      "busGain": 1
+    },
+    {
+      "time": 875.6999999992549,
+      "music": 0.13999999999999999,
+      "paused": false,
+      "rms": 0.0012534772510267578,
+      "busGain": 1
+    },
+    {
+      "time": 894.1000000014901,
+      "music": 0.13999999999999999,
+      "paused": false,
+      "rms": 0.0010941709840675288,
+      "busGain": 1
+    },
+    {
+      "time": 913.6999999992549,
+      "music": 0.13999999999999999,
+      "paused": false,
+      "rms": 0.0008335502754949339,
+      "busGain": 1
+    },
+    {
+      "time": 933.9000000022352,
+      "music": 0.13999999999999999,
+      "paused": false,
+      "rms": 0.0006777480898296553,
+      "busGain": 1
+    },
+    {
+      "time": 954.1000000014901,
+      "music": 0.13999999999999999,
+      "paused": false,
+      "rms": 0.0005665524797612841,
+      "busGain": 1
+    },
+    {
+      "time": 974.9000000022352,
+      "music": 0.13999999999999999,
+      "paused": false,
+      "rms": 0.0003590189558400421,
+      "busGain": 1
+    },
+    {
+      "time": 993,
+      "music": 0.13999999999999999,
+      "paused": false,
+      "rms": 0,
+      "busGain": 1
+    },
+    {
+      "time": 1013.6999999992549,
+      "music": 0.13999999999999999,
+      "paused": false,
+      "rms": 0,
+      "busGain": 1
+    },
+    {
+      "time": 1033,
+      "music": 0.13999999999999999,
+      "paused": false,
+      "rms": 0,
+      "busGain": 1
+    },
+    {
+      "time": 1052.9000000022352,
+      "music": 0.13999999999999999,
+      "paused": false,
+      "rms": 0,
+      "busGain": 1
+    },
+    {
+      "time": 1074.300000000745,
+      "music": 0.13999999999999999,
+      "paused": false,
+      "rms": 0,
+      "busGain": 1
+    },
+    {
+      "time": 1094,
+      "music": 0.4,
+      "paused": false,
+      "rms": 0.13031763480935835,
+      "busGain": 1
+    },
+    {
+      "time": 1113.6000000014901,
+      "music": 0.4,
+      "paused": false,
+      "rms": 0,
+      "busGain": 1
+    },
+    {
+      "time": 1133.6000000014901,
+      "music": 0.4,
+      "paused": false,
+      "rms": 0,
+      "busGain": 1
+    },
+    {
+      "time": 1153.199999999255,
+      "music": 0.13999999999999999,
+      "paused": false,
+      "rms": 0.3322347226175702,
+      "busGain": 1
+    },
+    {
+      "time": 1175.300000000745,
+      "music": 0.13999999999999999,
+      "paused": false,
+      "rms": 0.7964057530151821,
+      "busGain": 1
+    },
+    {
+      "time": 1193.699999999255,
+      "music": 0.13999999999999999,
+      "paused": false,
+      "rms": 0.737578319074906,
+      "busGain": 1
+    },
+    {
+      "time": 1213.6000000014901,
+      "music": 0.13999999999999999,
+      "paused": false,
+      "rms": 0.6818188828078784,
+      "busGain": 1
+    },
+    {
+      "time": 1232.9000000022352,
+      "music": 0,
+      "paused": true,
+      "rms": 0.5805968501979903,
+      "busGain": 1
+    },
+    {
+      "time": 1253.699999999255,
+      "music": 0,
+      "paused": false,
+      "rms": 0.8429129375470945,
+      "busGain": 1
+    },
+    {
+      "time": 1274.699999999255,
+      "music": 0,
+      "paused": false,
+      "rms": 1.2656020197901612,
+      "busGain": 1
+    },
+    {
+      "time": 1293.800000000745,
+      "music": 0,
+      "paused": false,
+      "rms": 0.9466391425568578,
+      "busGain": 1
+    },
+    {
+      "time": 1313.5,
+      "music": 0.017499999999999998,
+      "paused": false,
+      "rms": 1.1114371909908551,
+      "busGain": 1
+    },
+    {
+      "time": 1333.6000000014901,
+      "music": 0.017499999999999998,
+      "paused": false,
+      "rms": 1.0132151337130233,
+      "busGain": 1
+    },
+    {
+      "time": 1353.800000000745,
+      "music": 0.017499999999999998,
+      "paused": false,
+      "rms": 0.8500767700208283,
+      "busGain": 1
+    },
+    {
+      "time": 1374.4000000022352,
+      "music": 0.034999999999999996,
+      "paused": false,
+      "rms": 0.6770608712013322,
+      "busGain": 1
+    },
+    {
+      "time": 1393.699999999255,
+      "music": 0.034999999999999996,
+      "paused": false,
+      "rms": 0.5632137507123549,
+      "busGain": 1
+    },
+    {
+      "time": 1412.9000000022352,
+      "music": 0.034999999999999996,
+      "paused": false,
+      "rms": 0.5606972381554027,
+      "busGain": 1
+    },
+    {
+      "time": 1432.9000000022352,
+      "music": 0.052500000000000005,
+      "paused": false,
+      "rms": 0.4060112977368583,
+      "busGain": 1
+    },
+    {
+      "time": 1453.800000000745,
+      "music": 0.052500000000000005,
+      "paused": false,
+      "rms": 0.3840641130166394,
+      "busGain": 1
+    },
+    {
+      "time": 1475,
+      "music": 0.052500000000000005,
+      "paused": false,
+      "rms": 0.3688029062704293,
+      "busGain": 1
+    },
+    {
+      "time": 1493.699999999255,
+      "music": 0.06999999999999999,
+      "paused": false,
+      "rms": 0.24643259412063864,
+      "busGain": 1
+    },
+    {
+      "time": 1513.800000000745,
+      "music": 0.06999999999999999,
+      "paused": false,
+      "rms": 0.2893202968312496,
+      "busGain": 1
+    },
+    {
+      "time": 1533.6000000014901,
+      "music": 0.06999999999999999,
+      "paused": false,
+      "rms": 0.21151307373039277,
+      "busGain": 1
+    },
+    {
+      "time": 1553.800000000745,
+      "music": 0.0805,
+      "paused": false,
+      "rms": 0.23750073904637867,
+      "busGain": 1
+    },
+    {
+      "time": 1649.4000000022352,
+      "music": 0,
+      "paused": false,
+      "rms": 0.11308022351831963,
+      "busGain": 1
+    },
+    {
+      "time": 1688.9000000022352,
+      "music": 0.05,
+      "paused": false,
+      "rms": 0.07620948031354949,
+      "busGain": 1
+    },
+    {
+      "time": 1709.9000000022352,
+      "music": 0,
+      "paused": false,
+      "rms": 0.06078898527229318,
+      "busGain": 1
+    },
+    {
+      "time": 1716.800000000745,
+      "music": 0,
+      "paused": false,
+      "rms": 0.08086205042355872,
+      "busGain": 1
+    }
+  ],
+  "transport": {
+    "kind": "Actual bundled PeerJS same-host live DataConnection",
+    "code": "2PBAX"
+  },
+  "harnessSha256": "6c30a00e0c078afffbbb0453010896793bdc8a53958aaf2d966f5cad0e254f67",
+  "sourceHashesAfter": {
+    "index.html": "6f5565642e4f5e33b6df126704f0b1e63af9519e47a0f811c9e54aa924d967eb",
+    "game/warnings.js": "30faee21034b5fa493f2923a7b85bf127af2f1f86270466e1a7c14d5fe57ae7a",
+    "audio/warning-mixer.js": "98318dc7575e946b8e171fcb0af7920c91e991fb85a18d5cd30c550a882bc928",
+    "game/campaign.js": "9b056e3b2ff4a9b5cf72f8cce0ce863b733a654d3a31883673a0b1908216008e"
+  },
+  "stableSources": true,
+  "finishedAt": "2026-10-13T13:39:30.154Z",
+  "counts": {
+    "pass": 11,
+    "fail": 0
+  }
+}

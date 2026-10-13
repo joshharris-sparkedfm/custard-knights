@@ -152,6 +152,22 @@ which Ready/vote action you used, and whether the surviving controls/outfits
 or past points changed. This applies to supported couch and arena/Cup rooms;
 Faction Front remains a separate service. Human/device/WAN testing is open.
 
+CRITICAL WARNING PRESENTATION — BETA 15
+
+Critical arena and campaign warnings now keep priority over ordinary
+announcements in the single large banner. Their warning sounds have reserved
+capacity during busy fights, and music dips while the critical banner is
+active. Your local sound/music levels, mute and reduced-flash settings still
+apply. Pausing, leaving or opening a menu restores the normal music level.
+
+Try a busy arena and the campaign's pudding-stand defence. Tell Joshua if a
+warning gets buried, the music stays quiet afterwards, or a sound ignores
+your volume/mute choice. Sounds and music can be adjusted in Options.
+This does not add a warning before arena spikes rise: their sound still
+plays as they rise. Only one critical banner appears at a time; other world
+hazard tells remain. Faction Front and cinematic/status messages are separate.
+Human listening, warning recognition and physical-device testing remain open.
+
 CONTROLS (DEFAULTS)
 
 Solo arena/story: WASD or arrows move, mouse aims, left-click or Space

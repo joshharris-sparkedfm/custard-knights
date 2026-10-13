@@ -1,0 +1,3240 @@
+{
+  "attempt": 4,
+  "executable": "C:\\Users\\Joshua\\Documents\\Codex\\2026-10-08\\rea\\work\\custard-knights-room\\dist\\Custard Knights-win32-x64\\Custard Knights.exe",
+  "profile": "C:\\Users\\Joshua\\AppData\\Local\\Temp\\custard-acceptance-CJG3mx\\user-data",
+  "checks": [
+    {
+      "name": "Native origin has no CK query helpers and ships warning modules",
+      "pass": true,
+      "state": {
+        "banner": null,
+        "music": {
+          "saved": 0.55,
+          "base": 0,
+          "duck": 1,
+          "volume": 0,
+          "paused": false,
+          "muted": false
+        },
+        "audioContext": {},
+        "hidden": false,
+        "paused": false,
+        "warningAudioBlocked": true,
+        "demo": true,
+        "over": false
+      }
+    },
+    {
+      "name": "Actual menu starts arena with local music and SFX choices",
+      "pass": true,
+      "state": {
+        "banner": {
+          "title": "FIGHT!",
+          "sub": "Custard Bog. Free-for-all. Every knight for themselves.",
+          "col": "#FFD23F",
+          "t": 2,
+          "max": 2,
+          "key": "match:start",
+          "kind": "objective"
+        },
+        "music": {
+          "saved": 0.23,
+          "base": 0,
+          "duck": 0.35,
+          "volume": 0,
+          "paused": false,
+          "muted": false
+        },
+        "bus": 1,
+        "audioContext": {
+          "state": "running",
+          "currentTime": 0
+        },
+        "hidden": false,
+        "menuOpen": false,
+        "paused": false,
+        "warningAudioBlocked": false,
+        "demo": false,
+        "over": false
+      }
+    },
+    {
+      "name": "Critical native banner retains priority and local music duck",
+      "pass": true,
+      "state": {
+        "banner": {
+          "title": "Native warning",
+          "sub": "Bounded acceptance fixture",
+          "col": "#FF5A4E",
+          "t": 7.200000000000003,
+          "max": 8,
+          "key": "native-warning",
+          "kind": "hazard"
+        },
+        "music": {
+          "saved": 0.23,
+          "base": 0.23,
+          "duck": 0.35,
+          "volume": 0.0805,
+          "paused": false,
+          "muted": false
+        },
+        "bus": 0.4099999964237213,
+        "audioContext": {
+          "state": "running",
+          "currentTime": 0.011609977324263039
+        },
+        "hidden": false,
+        "menuOpen": false,
+        "paused": false,
+        "warningAudioBlocked": false,
+        "demo": false,
+        "over": false
+      }
+    },
+    {
+      "name": "Live volume changes retain warning factor",
+      "pass": true,
+      "state": {
+        "banner": {
+          "title": "Native warning",
+          "sub": "Bounded acceptance fixture",
+          "col": "#FF5A4E",
+          "t": 7.200000000000003,
+          "max": 8,
+          "key": "native-warning",
+          "kind": "hazard"
+        },
+        "music": {
+          "saved": 0.4,
+          "base": 0.4,
+          "duck": 0.35,
+          "volume": 0.13999999999999999,
+          "paused": false,
+          "muted": false
+        },
+        "bus": 0.4099999964237213,
+        "audioContext": {
+          "state": "running",
+          "currentTime": 0.011609977324263039
+        },
+        "hidden": false,
+        "menuOpen": false,
+        "paused": false,
+        "warningAudioBlocked": false,
+        "demo": false,
+        "over": false
+      }
+    },
+    {
+      "name": "Mute silences local music and native SFX bus",
+      "pass": true,
+      "state": {
+        "banner": {
+          "title": "Native warning",
+          "sub": "Bounded acceptance fixture",
+          "col": "#FF5A4E",
+          "t": 7.200000000000003,
+          "max": 8,
+          "key": "native-warning",
+          "kind": "hazard"
+        },
+        "music": {
+          "saved": 0.4,
+          "base": 0.4,
+          "duck": 0.35,
+          "volume": 0,
+          "paused": true,
+          "muted": true
+        },
+        "bus": 0,
+        "audioContext": {
+          "state": "running",
+          "currentTime": 0.040634920634920635
+        },
+        "hidden": false,
+        "menuOpen": false,
+        "paused": false,
+        "warningAudioBlocked": false,
+        "demo": false,
+        "over": false
+      }
+    },
+    {
+      "name": "Unmute restores selected warning volume and SFX bus",
+      "pass": true,
+      "state": {
+        "banner": {
+          "title": "Native warning",
+          "sub": "Bounded acceptance fixture",
+          "col": "#FF5A4E",
+          "t": 7.200000000000003,
+          "max": 8,
+          "key": "native-warning",
+          "kind": "hazard"
+        },
+        "music": {
+          "saved": 0.4,
+          "base": 0.4,
+          "duck": 0.35,
+          "volume": 0.13999999999999999,
+          "paused": false,
+          "muted": false
+        },
+        "bus": 0.4099999964237213,
+        "audioContext": {
+          "state": "running",
+          "currentTime": 0.6124263038548753
+        },
+        "hidden": false,
+        "menuOpen": false,
+        "paused": false,
+        "warningAudioBlocked": false,
+        "demo": false,
+        "over": false
+      }
+    },
+    {
+      "name": "Actual Pause releases warning duck",
+      "pass": true,
+      "state": {
+        "banner": {
+          "title": "Native warning",
+          "sub": "Bounded acceptance fixture",
+          "col": "#FF5A4E",
+          "t": 7.200000000000003,
+          "max": 8,
+          "key": "native-warning",
+          "kind": "hazard"
+        },
+        "music": {
+          "saved": 0.4,
+          "base": 0.4,
+          "duck": 1,
+          "volume": 0.4,
+          "paused": false,
+          "muted": false
+        },
+        "bus": 0.4099999964237213,
+        "audioContext": {
+          "state": "running",
+          "currentTime": 1.1900226757369614
+        },
+        "hidden": false,
+        "menuOpen": false,
+        "paused": true,
+        "warningAudioBlocked": true,
+        "demo": false,
+        "over": false
+      }
+    },
+    {
+      "name": "Warning clear restores user level without altering saved preferences",
+      "pass": true,
+      "state": {
+        "banner": null,
+        "music": {
+          "saved": 0.4,
+          "base": 0.4,
+          "duck": 1,
+          "volume": 0.4,
+          "paused": false,
+          "muted": false
+        },
+        "bus": 0.4099999964237213,
+        "audioContext": {
+          "state": "running",
+          "currentTime": 1.1900226757369614
+        },
+        "hidden": false,
+        "menuOpen": false,
+        "paused": false,
+        "warningAudioBlocked": false,
+        "demo": false,
+        "over": false
+      }
+    }
+  ],
+  "limitations": [
+    "Actual EXE, isolated marked profile. Programmatic DOM clicks/slider inputs and direct production showBanner/clearBanner fixtures. Observed readiness predicates bounded to 10 seconds. No CK query helpers. Native warning/UI music-volume/mute/reset smoke; not physical/input-only, combat completion, human listening, real transport, Steam Input, responsiveness or usability acceptance. In-memory acceptance.run replacement and native index response fixture insertion inside production closure; on-disk ASAR unchanged. Instrumented-renderer acceptance, not untouched-renderer acceptance."
+  ],
+  "exitCode": 0,
+  "stdout": "\r\nNATIVE_RENDERER_FIXTURE {\"indexOriginalSha256\":\"6f5565642e4f5e33b6df126704f0b1e63af9519e47a0f811c9e54aa924d967eb\",\"indexInstrumentedSha256\":\"9e000a17874e5334a4e5ac3506855fd264aae3cea669e70e32dd0a06f3618e82\",\"insertion\":\"Bounded asynchronous acceptance fixture inserted at unique final closure marker; other native assets unchanged\",\"asarUnchanged\":true}\nACTUAL_DEVICE_PASS {\"checks\":[{\"name\":\"Native origin has no CK query helpers and ships warning modules\",\"pass\":true,\"state\":{\"banner\":null,\"music\":{\"saved\":0.55,\"base\":0,\"duck\":1,\"volume\":0,\"paused\":false,\"muted\":false},\"audioContext\":{},\"hidden\":false,\"paused\":false,\"warningAudioBlocked\":true,\"demo\":true,\"over\":false}},{\"name\":\"Actual menu starts arena with local music and SFX choices\",\"pass\":true,\"state\":{\"banner\":{\"title\":\"FIGHT!\",\"sub\":\"Custard Bog. Free-for-all. Every knight for themselves.\",\"col\":\"#FFD23F\",\"t\":2,\"max\":2,\"key\":\"match:start\",\"kind\":\"objective\"},\"music\":{\"saved\":0.23,\"base\":0,\"duck\":0.35,\"volume\":0,\"paused\":false,\"muted\":false},\"bus\":1,\"audioContext\":{\"state\":\"running\",\"currentTime\":0},\"hidden\":false,\"menuOpen\":false,\"paused\":false,\"warningAudioBlocked\":false,\"demo\":false,\"over\":false}},{\"name\":\"Critical native banner retains priority and local music duck\",\"pass\":true,\"state\":{\"banner\":{\"title\":\"Native warning\",\"sub\":\"Bounded acceptance fixture\",\"col\":\"#FF5A4E\",\"t\":7.200000000000003,\"max\":8,\"key\":\"native-warning\",\"kind\":\"hazard\"},\"music\":{\"saved\":0.23,\"base\":0.23,\"duck\":0.35,\"volume\":0.0805,\"paused\":false,\"muted\":false},\"bus\":0.4099999964237213,\"audioContext\":{\"state\":\"running\",\"currentTime\":0.011609977324263039},\"hidden\":false,\"menuOpen\":false,\"paused\":false,\"warningAudioBlocked\":false,\"demo\":false,\"over\":false}},{\"name\":\"Live volume changes retain warning factor\",\"pass\":true,\"state\":{\"banner\":{\"title\":\"Native warning\",\"sub\":\"Bounded acceptance fixture\",\"col\":\"#FF5A4E\",\"t\":7.200000000000003,\"max\":8,\"key\":\"native-warning\",\"kind\":\"hazard\"},\"music\":{\"saved\":0.4,\"base\":0.4,\"duck\":0.35,\"volume\":0.13999999999999999,\"paused\":false,\"muted\":false},\"bus\":0.4099999964237213,\"audioContext\":{\"state\":\"running\",\"currentTime\":0.011609977324263039},\"hidden\":false,\"menuOpen\":false,\"paused\":false,\"warningAudioBlocked\":false,\"demo\":false,\"over\":false}},{\"name\":\"Mute silences local music and native SFX bus\",\"pass\":true,\"state\":{\"banner\":{\"title\":\"Native warning\",\"sub\":\"Bounded acceptance fixture\",\"col\":\"#FF5A4E\",\"t\":7.200000000000003,\"max\":8,\"key\":\"native-warning\",\"kind\":\"hazard\"},\"music\":{\"saved\":0.4,\"base\":0.4,\"duck\":0.35,\"volume\":0,\"paused\":true,\"muted\":true},\"bus\":0,\"audioContext\":{\"state\":\"running\",\"currentTime\":0.040634920634920635},\"hidden\":false,\"menuOpen\":false,\"paused\":false,\"warningAudioBlocked\":false,\"demo\":false,\"over\":false}},{\"name\":\"Unmute restores selected warning volume and SFX bus\",\"pass\":true,\"state\":{\"banner\":{\"title\":\"Native warning\",\"sub\":\"Bounded acceptance fixture\",\"col\":\"#FF5A4E\",\"t\":7.200000000000003,\"max\":8,\"key\":\"native-warning\",\"kind\":\"hazard\"},\"music\":{\"saved\":0.4,\"base\":0.4,\"duck\":0.35,\"volume\":0.13999999999999999,\"paused\":false,\"muted\":false},\"bus\":0.4099999964237213,\"audioContext\":{\"state\":\"running\",\"currentTime\":0.6124263038548753},\"hidden\":false,\"menuOpen\":false,\"paused\":false,\"warningAudioBlocked\":false,\"demo\":false,\"over\":false}},{\"name\":\"Actual Pause releases warning duck\",\"pass\":true,\"state\":{\"banner\":{\"title\":\"Native warning\",\"sub\":\"Bounded acceptance fixture\",\"col\":\"#FF5A4E\",\"t\":7.200000000000003,\"max\":8,\"key\":\"native-warning\",\"kind\":\"hazard\"},\"music\":{\"saved\":0.4,\"base\":0.4,\"duck\":1,\"volume\":0.4,\"paused\":false,\"muted\":false},\"bus\":0.4099999964237213,\"audioContext\":{\"state\":\"running\",\"currentTime\":1.1900226757369614},\"hidden\":false,\"menuOpen\":false,\"paused\":true,\"warningAudioBlocked\":true,\"demo\":false,\"over\":false}},{\"name\":\"Warning clear restores user level without altering saved preferences\",\"pass\":true,\"state\":{\"banner\":null,\"music\":{\"saved\":0.4,\"base\":0.4,\"duck\":1,\"volume\":0.4,\"paused\":false,\"muted\":false},\"bus\":0.4099999964237213,\"audioContext\":{\"state\":\"running\",\"currentTime\":1.1900226757369614},\"hidden\":false,\"menuOpen\":false,\"paused\":false,\"warningAudioBlocked\":false,\"demo\":false,\"over\":false}}],\"gates\":[{\"predicate\":\"()=>!!document.getElementById('onboardingJump')&&!document.hidden\",\"observations\":[{\"time\":27.600000001490116,\"pass\":true,\"state\":{\"banner\":null,\"music\":{\"saved\":0.55,\"base\":0,\"duck\":1,\"volume\":0,\"paused\":false,\"muted\":false},\"audioContext\":{},\"hidden\":false,\"paused\":false,\"warningAudioBlocked\":true,\"demo\":true,\"over\":false}}]},{\"predicate\":\"()=>!document.getElementById('pauseBtn').hidden&&!!sfxMixer\",\"observations\":[{\"time\":44.400000002235174,\"pass\":true,\"state\":{\"banner\":{\"title\":\"FIGHT!\",\"sub\":\"Custard Bog. Free-for-all. Every knight for themselves.\",\"col\":\"#FFD23F\",\"t\":2,\"max\":2,\"key\":\"match:start\",\"kind\":\"objective\"},\"music\":{\"saved\":0.23,\"base\":0,\"duck\":0.35,\"volume\":0,\"paused\":false,\"muted\":false},\"bus\":1,\"audioContext\":{\"state\":\"running\",\"currentTime\":0},\"hidden\":false,\"menuOpen\":false,\"paused\":false,\"warningAudioBlocked\":false,\"demo\":false,\"over\":false}}]},{\"predicate\":\"()=>musicBaseVolume===SET.music&&Math.abs(music.volume-.0805)<.005\",\"observations\":[{\"time\":44.900000002235174,\"pass\":false,\"state\":{\"banner\":{\"title\":\"Native warning\",\"sub\":\"Bounded acceptance fixture\",\"col\":\"#FF5A4E\",\"t\":7.200000000000003,\"max\":8,\"key\":\"native-warning\",\"kind\":\"hazard\"},\"music\":{\"saved\":0.23,\"base\":0,\"duck\":0.35,\"volume\":0,\"paused\":false,\"muted\":false},\"bus\":1,\"audioContext\":{\"state\":\"running\",\"currentTime\":0},\"hidden\":false,\"menuOpen\":false,\"paused\":false,\"warningAudioBlocked\":false,\"demo\":false,\"over\":false}},{\"time\":70.60000000149012,\"pass\":false,\"state\":{\"banner\":{\"title\":\"Native warning\",\"sub\":\"Bounded acceptance fixture\",\"col\":\"#FF5A4E\",\"t\":7.200000000000003,\"max\":8,\"key\":\"native-warning\",\"kind\":\"hazard\"},\"music\":{\"saved\":0.23,\"base\":0,\"duck\":0.35,\"volume\":0,\"paused\":false,\"muted\":false},\"bus\":0.4099999964237213,\"audioContext\":{\"state\":\"running\",\"currentTime\":0.011609977324263039},\"hidden\":false,\"menuOpen\":false,\"paused\":false,\"warningAudioBlocked\":false,\"demo\":false,\"over\":false}},{\"time\":167.20000000298023,\"pass\":false,\"state\":{\"banner\":{\"title\":\"Native warning\",\"sub\":\"Bounded acceptance fixture\",\"col\":\"#FF5A4E\",\"t\":7.200000000000003,\"max\":8,\"key\":\"native-warning\",\"kind\":\"hazard\"},\"music\":{\"saved\":0.23,\"base\":0,\"duck\":0.35,\"volume\":0,\"paused\":false,\"muted\":false},\"bus\":0.4099999964237213,\"audioContext\":{\"state\":\"running\",\"currentTime\":0.011609977324263039},\"hidden\":false,\"menuOpen\":false,\"paused\":false,\"warningAudioBlocked\":false,\"demo\":false,\"over\":false}},{\"time\":193,\"pass\":false,\"state\":{\"banner\":{\"title\":\"Native warning\",\"sub\":\"Bounded acceptance fixture\",\"col\":\"#FF5A4E\",\"t\":7.200000000000003,\"max\":8,\"key\":\"native-warning\",\"kind\":\"hazard\"},\"music\":{\"saved\":0.23,\"base\":0.05,\"duck\":0.35,\"volume\":0.017499999999999998,\"paused\":false,\"muted\":false},\"bus\":0.4099999964237213,\"audioContext\":{\"state\":\"running\",\"currentTime\":0.011609977324263039},\"hidden\":false,\"menuOpen\":false,\"paused\":false,\"warningAudioBlocked\":false,\"demo\":false,\"over\":false}},{\"time\":219.90000000223517,\"pass\":false,\"state\":{\"banner\":{\"title\":\"Native warning\",\"sub\":\"Bounded acceptance fixture\",\"col\":\"#FF5A4E\",\"t\":7.200000000000003,\"max\":8,\"key\":\"native-warning\",\"kind\":\"hazard\"},\"music\":{\"saved\":0.23,\"base\":0.05,\"duck\":0.35,\"volume\":0.017499999999999998,\"paused\":false,\"muted\":false},\"bus\":0.4099999964237213,\"audioContext\":{\"state\":\"running\",\"currentTime\":0.011609977324263039},\"hidden\":false,\"menuOpen\":false,\"paused\":false,\"warningAudioBlocked\":false,\"demo\":false,\"over\":false}},{\"time\":247.5,\"pass\":false,\"state\":{\"banner\":{\"title\":\"Native warning\",\"sub\":\"Bounded acceptance fixture\",\"col\":\"#FF5A4E\",\"t\":7.200000000000003,\"max\":8,\"key\":\"native-warning\",\"kind\":\"hazard\"},\"music\":{\"saved\":0.23,\"base\":0.1,\"duck\":0.35,\"volume\":0.034999999999999996,\"paused\":false,\"muted\":false},\"bus\":0.4099999964237213,\"audioContext\":{\"state\":\"running\",\"currentTime\":0.011609977324263039},\"hidden\":false,\"menuOpen\":false,\"paused\":false,\"warningAudioBlocked\":false,\"demo\":false,\"over\":false}},{\"time\":273.20000000298023,\"pass\":false,\"state\":{\"banner\":{\"title\":\"Native warning\",\"sub\":\"Bounded acceptance fixture\",\"col\":\"#FF5A4E\",\"t\":7.200000000000003,\"max\":8,\"key\":\"native-warning\",\"kind\":\"hazard\"},\"music\":{\"saved\":0.23,\"base\":0.1,\"duck\":0.35,\"volume\":0.034999999999999996,\"paused\":false,\"muted\":false},\"bus\":0.4099999964237213,\"audioContext\":{\"state\":\"running\",\"currentTime\":0.011609977324263039},\"hidden\":false,\"menuOpen\":false,\"paused\":false,\"warningAudioBlocked\":false,\"demo\":false,\"over\":false}},{\"time\":298.30000000074506,\"pass\":false,\"state\":{\"banner\":{\"title\":\"Native warning\",\"sub\":\"Bounded acceptance fixture\",\"col\":\"#FF5A4E\",\"t\":7.200000000000003,\"max\":8,\"key\":\"native-warning\",\"kind\":\"hazard\"},\"music\":{\"saved\":0.23,\"base\":0.15000000000000002,\"duck\":0.35,\"volume\":0.052500000000000005,\"paused\":false,\"muted\":false},\"bus\":0.4099999964237213,\"audioContext\":{\"state\":\"running\",\"currentTime\":0.011609977324263039},\"hidden\":false,\"menuOpen\":false,\"paused\":false,\"warningAudioBlocked\":false,\"demo\":false,\"over\":false}},{\"time\":324.30000000074506,\"pass\":false,\"state\":{\"banner\":{\"title\":\"Native warning\",\"sub\":\"Bounded acceptance fixture\",\"col\":\"#FF5A4E\",\"t\":7.200000000000003,\"max\":8,\"key\":\"native-warning\",\"kind\":\"hazard\"},\"music\":{\"saved\":0.23,\"base\":0.15000000000000002,\"duck\":0.35,\"volume\":0.052500000000000005,\"paused\":false,\"muted\":false},\"bus\":0.4099999964237213,\"audioContext\":{\"state\":\"running\",\"currentTime\":0.011609977324263039},\"hidden\":false,\"menuOpen\":false,\"paused\":false,\"warningAudioBlocked\":false,\"demo\":false,\"over\":false}},{\"time\":351.30000000074506,\"pass\":false,\"state\":{\"banner\":{\"title\":\"Native warning\",\"sub\":\"Bounded acceptance fixture\",\"col\":\"#FF5A4E\",\"t\":7.200000000000003,\"max\":8,\"key\":\"native-warning\",\"kind\":\"hazard\"},\"music\":{\"saved\":0.23,\"base\":0.15000000000000002,\"duck\":0.35,\"volume\":0.052500000000000005,\"paused\":false,\"muted\":false},\"bus\":0.4099999964237213,\"audioContext\":{\"state\":\"running\",\"currentTime\":0.011609977324263039},\"hidden\":false,\"menuOpen\":false,\"paused\":false,\"warningAudioBlocked\":false,\"demo\":false,\"over\":false}},{\"time\":377,\"pass\":false,\"state\":{\"banner\":{\"title\":\"Native warning\",\"sub\":\"Bounded acceptance fixture\",\"col\":\"#FF5A4E\",\"t\":7.200000000000003,\"max\":8,\"key\":\"native-warning\",\"kind\":\"hazard\"},\"music\":{\"saved\":0.23,\"base\":0.2,\"duck\":0.35,\"volume\":0.06999999999999999,\"paused\":false,\"muted\":false},\"bus\":0.4099999964237213,\"audioContext\":{\"state\":\"running\",\"currentTime\":0.011609977324263039},\"hidden\":false,\"menuOpen\":false,\"paused\":false,\"warningAudioBlocked\":false,\"demo\":false,\"over\":false}},{\"time\":402.4000000022352,\"pass\":false,\"state\":{\"banner\":{\"title\":\"Native warning\",\"sub\":\"Bounded acceptance fixture\",\"col\":\"#FF5A4E\",\"t\":7.200000000000003,\"max\":8,\"key\":\"native-warning\",\"kind\":\"hazard\"},\"music\":{\"saved\":0.23,\"base\":0.2,\"duck\":0.35,\"volume\":0.06999999999999999,\"paused\":false,\"muted\":false},\"bus\":0.4099999964237213,\"audioContext\":{\"state\":\"running\",\"currentTime\":0.011609977324263039},\"hidden\":false,\"menuOpen\":false,\"paused\":false,\"warningAudioBlocked\":false,\"demo\":false,\"over\":false}},{\"time\":428.1000000014901,\"pass\":true,\"state\":{\"banner\":{\"title\":\"Native warning\",\"sub\":\"Bounded acceptance fixture\",\"col\":\"#FF5A4E\",\"t\":7.200000000000003,\"max\":8,\"key\":\"native-warning\",\"kind\":\"hazard\"},\"music\":{\"saved\":0.23,\"base\":0.23,\"duck\":0.35,\"volume\":0.0805,\"paused\":false,\"muted\":false},\"bus\":0.4099999964237213,\"audioContext\":{\"state\":\"running\",\"currentTime\":0.011609977324263039},\"hidden\":false,\"menuOpen\":false,\"paused\":false,\"warningAudioBlocked\":false,\"demo\":false,\"over\":false}}]},{\"predicate\":\"()=>muted&&music.paused&&sfxMixer.bus.gain.value===0\",\"observations\":[{\"time\":428.4000000022352,\"pass\":false,\"state\":{\"banner\":{\"title\":\"Native warning\",\"sub\":\"Bounded acceptance fixture\",\"col\":\"#FF5A4E\",\"t\":7.200000000000003,\"max\":8,\"key\":\"native-warning\",\"kind\":\"hazard\"},\"music\":{\"saved\":0.4,\"base\":0.4,\"duck\":0.35,\"volume\":0,\"paused\":true,\"muted\":true},\"bus\":0.4099999964237213,\"audioContext\":{\"state\":\"running\",\"currentTime\":0.011609977324263039},\"hidden\":false,\"menuOpen\":false,\"paused\":false,\"warningAudioBlocked\":false,\"demo\":false,\"over\":false}},{\"time\":455.1000000014901,\"pass\":false,\"state\":{\"banner\":{\"title\":\"Native warning\",\"sub\":\"Bounded acceptance fixture\",\"col\":\"#FF5A4E\",\"t\":7.200000000000003,\"max\":8,\"key\":\"native-warning\",\"kind\":\"hazard\"},\"music\":{\"saved\":0.4,\"base\":0.4,\"duck\":0.35,\"volume\":0,\"paused\":true,\"muted\":true},\"bus\":0.4099999964237213,\"audioContext\":{\"state\":\"running\",\"currentTime\":0.011609977324263039},\"hidden\":false,\"menuOpen\":false,\"paused\":false,\"warningAudioBlocked\":false,\"demo\":false,\"over\":false}},{\"time\":480.70000000298023,\"pass\":false,\"state\":{\"banner\":{\"title\":\"Native warning\",\"sub\":\"Bounded acceptance fixture\",\"col\":\"#FF5A4E\",\"t\":7.200000000000003,\"max\":8,\"key\":\"native-warning\",\"kind\":\"hazard\"},\"music\":{\"saved\":0.4,\"base\":0.4,\"duck\":0.35,\"volume\":0,\"paused\":true,\"muted\":true},\"bus\":0.4099999964237213,\"audioContext\":{\"state\":\"running\",\"currentTime\":0.011609977324263039},\"hidden\":false,\"menuOpen\":false,\"paused\":false,\"warningAudioBlocked\":false,\"demo\":false,\"over\":false}},{\"time\":505.9000000022352,\"pass\":false,\"state\":{\"banner\":{\"title\":\"Native warning\",\"sub\":\"Bounded acceptance fixture\",\"col\":\"#FF5A4E\",\"t\":7.200000000000003,\"max\":8,\"key\":\"native-warning\",\"kind\":\"hazard\"},\"music\":{\"saved\":0.4,\"base\":0.4,\"duck\":0.35,\"volume\":0,\"paused\":true,\"muted\":true},\"bus\":0.4099999964237213,\"audioContext\":{\"state\":\"running\",\"currentTime\":0.011609977324263039},\"hidden\":false,\"menuOpen\":false,\"paused\":false,\"warningAudioBlocked\":false,\"demo\":false,\"over\":false}},{\"time\":531,\"pass\":false,\"state\":{\"banner\":{\"title\":\"Native warning\",\"sub\":\"Bounded acceptance fixture\",\"col\":\"#FF5A4E\",\"t\":7.200000000000003,\"max\":8,\"key\":\"native-warning\",\"kind\":\"hazard\"},\"music\":{\"saved\":0.4,\"base\":0.4,\"duck\":0.35,\"volume\":0,\"paused\":true,\"muted\":true},\"bus\":0.4099999964237213,\"audioContext\":{\"state\":\"running\",\"currentTime\":0.011609977324263039},\"hidden\":false,\"menuOpen\":false,\"paused\":false,\"warningAudioBlocked\":false,\"demo\":false,\"over\":false}},{\"time\":556.9000000022352,\"pass\":false,\"state\":{\"banner\":{\"title\":\"Native warning\",\"sub\":\"Bounded acceptance fixture\",\"col\":\"#FF5A4E\",\"t\":7.200000000000003,\"max\":8,\"key\":\"native-warning\",\"kind\":\"hazard\"},\"music\":{\"saved\":0.4,\"base\":0.4,\"duck\":0.35,\"volume\":0,\"paused\":true,\"muted\":true},\"bus\":0.4099999964237213,\"audioContext\":{\"state\":\"running\",\"currentTime\":0.011609977324263039},\"hidden\":false,\"menuOpen\":false,\"paused\":false,\"warningAudioBlocked\":false,\"demo\":false,\"over\":false}},{\"time\":582.5,\"pass\":false,\"state\":{\"banner\":{\"title\":\"Native warning\",\"sub\":\"Bounded acceptance fixture\",\"col\":\"#FF5A4E\",\"t\":7.200000000000003,\"max\":8,\"key\":\"native-warning\",\"kind\":\"hazard\"},\"music\":{\"saved\":0.4,\"base\":0.4,\"duck\":0.35,\"volume\":0,\"paused\":true,\"muted\":true},\"bus\":0.4099999964237213,\"audioContext\":{\"state\":\"running\",\"currentTime\":0.011609977324263039},\"hidden\":false,\"menuOpen\":false,\"paused\":false,\"warningAudioBlocked\":false,\"demo\":false,\"over\":false}},{\"time\":608.1000000014901,\"pass\":false,\"state\":{\"banner\":{\"title\":\"Native warning\",\"sub\":\"Bounded acceptance fixture\",\"col\":\"#FF5A4E\",\"t\":7.200000000000003,\"max\":8,\"key\":\"native-warning\",\"kind\":\"hazard\"},\"music\":{\"saved\":0.4,\"base\":0.4,\"duck\":0.35,\"volume\":0,\"paused\":true,\"muted\":true},\"bus\":0.4099999964237213,\"audioContext\":{\"state\":\"running\",\"currentTime\":0.011609977324263039},\"hidden\":false,\"menuOpen\":false,\"paused\":false,\"warningAudioBlocked\":false,\"demo\":false,\"over\":false}},{\"time\":634,\"pass\":false,\"state\":{\"banner\":{\"title\":\"Native warning\",\"sub\":\"Bounded acceptance fixture\",\"col\":\"#FF5A4E\",\"t\":7.200000000000003,\"max\":8,\"key\":\"native-warning\",\"kind\":\"hazard\"},\"music\":{\"saved\":0.4,\"base\":0.4,\"duck\":0.35,\"volume\":0,\"paused\":true,\"muted\":true},\"bus\":0.4099999964237213,\"audioContext\":{\"state\":\"running\",\"currentTime\":0.011609977324263039},\"hidden\":false,\"menuOpen\":false,\"paused\":false,\"warningAudioBlocked\":false,\"demo\":false,\"over\":false}},{\"time\":659.6000000014901,\"pass\":false,\"state\":{\"banner\":{\"title\":\"Native warning\",\"sub\":\"Bounded acceptance fixture\",\"col\":\"#FF5A4E\",\"t\":7.200000000000003,\"max\":8,\"key\":\"native-warning\",\"kind\":\"hazard\"},\"music\":{\"saved\":0.4,\"base\":0.4,\"duck\":0.35,\"volume\":0,\"paused\":true,\"muted\":true},\"bus\":0.4099999964237213,\"audioContext\":{\"state\":\"running\",\"currentTime\":0.011609977324263039},\"hidden\":false,\"menuOpen\":false,\"paused\":false,\"warningAudioBlocked\":false,\"demo\":false,\"over\":false}},{\"time\":685.5,\"pass\":false,\"state\":{\"banner\":{\"title\":\"Native warning\",\"sub\":\"Bounded acceptance fixture\",\"col\":\"#FF5A4E\",\"t\":7.200000000000003,\"max\":8,\"key\":\"native-warning\",\"kind\":\"hazard\"},\"music\":{\"saved\":0.4,\"base\":0.4,\"duck\":0.35,\"volume\":0,\"paused\":true,\"muted\":true},\"bus\":0.4099999964237213,\"audioContext\":{\"state\":\"running\",\"currentTime\":0.011609977324263039},\"hidden\":false,\"menuOpen\":false,\"paused\":false,\"warningAudioBlocked\":false,\"demo\":false,\"over\":false}},{\"time\":710.8000000007451,\"pass\":false,\"state\":{\"banner\":{\"title\":\"Native warning\",\"sub\":\"Bounded acceptance fixture\",\"col\":\"#FF5A4E\",\"t\":7.200000000000003,\"max\":8,\"key\":\"native-warning\",\"kind\":\"hazard\"},\"music\":{\"saved\":0.4,\"base\":0.4,\"duck\":0.35,\"volume\":0,\"paused\":true,\"muted\":true},\"bus\":0.4099999964237213,\"audioContext\":{\"state\":\"running\",\"currentTime\":0.011609977324263039},\"hidden\":false,\"menuOpen\":false,\"paused\":false,\"warningAudioBlocked\":false,\"demo\":false,\"over\":false}},{\"time\":736.5,\"pass\":false,\"state\":{\"banner\":{\"title\":\"Native warning\",\"sub\":\"Bounded acceptance fixture\",\"col\":\"#FF5A4E\",\"t\":7.200000000000003,\"max\":8,\"key\":\"native-warning\",\"kind\":\"hazard\"},\"music\":{\"saved\":0.4,\"base\":0.4,\"duck\":0.35,\"volume\":0,\"paused\":true,\"muted\":true},\"bus\":0.4099999964237213,\"audioContext\":{\"state\":\"running\",\"currentTime\":0.011609977324263039},\"hidden\":false,\"menuOpen\":false,\"paused\":false,\"warningAudioBlocked\":false,\"demo\":false,\"over\":false}},{\"time\":761.5,\"pass\":false,\"state\":{\"banner\":{\"title\":\"Native warning\",\"sub\":\"Bounded acceptance fixture\",\"col\":\"#FF5A4E\",\"t\":7.200000000000003,\"max\":8,\"key\":\"native-warning\",\"kind\":\"hazard\"},\"music\":{\"saved\":0.4,\"base\":0.4,\"duck\":0.35,\"volume\":0,\"paused\":true,\"muted\":true},\"bus\":0.4099999964237213,\"audioContext\":{\"state\":\"running\",\"currentTime\":0.011609977324263039},\"hidden\":false,\"menuOpen\":false,\"paused\":false,\"warningAudioBlocked\":false,\"demo\":false,\"over\":false}},{\"time\":787.1000000014901,\"pass\":false,\"state\":{\"banner\":{\"title\":\"Native warning\",\"sub\":\"Bounded acceptance fixture\",\"col\":\"#FF5A4E\",\"t\":7.200000000000003,\"max\":8,\"key\":\"native-warning\",\"kind\":\"hazard\"},\"music\":{\"saved\":0.4,\"base\":0.4,\"duck\":0.35,\"volume\":0,\"paused\":true,\"muted\":true},\"bus\":0.4099999964237213,\"audioContext\":{\"state\":\"running\",\"currentTime\":0.011609977324263039},\"hidden\":false,\"menuOpen\":false,\"paused\":false,\"warningAudioBlocked\":false,\"demo\":false,\"over\":false}},{\"time\":814.1000000014901,\"pass\":false,\"state\":{\"banner\":{\"title\":\"Native warning\",\"sub\":\"Bounded acceptance fixture\",\"col\":\"#FF5A4E\",\"t\":7.200000000000003,\"max\":8,\"key\":\"native-warning\",\"kind\":\"hazard\"},\"music\":{\"saved\":0.4,\"base\":0.4,\"duck\":0.35,\"volume\":0,\"paused\":true,\"muted\":true},\"bus\":0.4099999964237213,\"audioContext\":{\"state\":\"running\",\"currentTime\":0.011609977324263039},\"hidden\":false,\"menuOpen\":false,\"paused\":false,\"warningAudioBlocked\":false,\"demo\":false,\"over\":false}},{\"time\":840.1000000014901,\"pass\":false,\"state\":{\"banner\":{\"title\":\"Native warning\",\"sub\":\"Bounded acceptance fixture\",\"col\":\"#FF5A4E\",\"t\":7.200000000000003,\"max\":8,\"key\":\"native-warning\",\"kind\":\"hazard\"},\"music\":{\"saved\":0.4,\"base\":0.4,\"duck\":0.35,\"volume\":0,\"paused\":true,\"muted\":true},\"bus\":0.4099999964237213,\"audioContext\":{\"state\":\"running\",\"currentTime\":0.011609977324263039},\"hidden\":false,\"menuOpen\":false,\"paused\":false,\"warningAudioBlocked\":false,\"demo\":false,\"over\":false}},{\"time\":865.7000000029802,\"pass\":false,\"state\":{\"banner\":{\"title\":\"Native warning\",\"sub\":\"Bounded acceptance fixture\",\"col\":\"#FF5A4E\",\"t\":7.200000000000003,\"max\":8,\"key\":\"native-warning\",\"kind\":\"hazard\"},\"music\":{\"saved\":0.4,\"base\":0.4,\"duck\":0.35,\"volume\":0,\"paused\":true,\"muted\":true},\"bus\":0.4099999964237213,\"audioContext\":{\"state\":\"running\",\"currentTime\":0.011609977324263039},\"hidden\":false,\"menuOpen\":false,\"paused\":false,\"warningAudioBlocked\":false,\"demo\":false,\"over\":false}},{\"time\":891.4000000022352,\"pass\":false,\"state\":{\"banner\":{\"title\":\"Native warning\",\"sub\":\"Bounded acceptance fixture\",\"col\":\"#FF5A4E\",\"t\":7.200000000000003,\"max\":8,\"key\":\"native-warning\",\"kind\":\"hazard\"},\"music\":{\"saved\":0.4,\"base\":0.4,\"duck\":0.35,\"volume\":0,\"paused\":true,\"muted\":true},\"bus\":0.4099999964237213,\"audioContext\":{\"state\":\"running\",\"currentTime\":0.011609977324263039},\"hidden\":false,\"menuOpen\":false,\"paused\":false,\"warningAudioBlocked\":false,\"demo\":false,\"over\":false}},{\"time\":917.4000000022352,\"pass\":false,\"state\":{\"banner\":{\"title\":\"Native warning\",\"sub\":\"Bounded acceptance fixture\",\"col\":\"#FF5A4E\",\"t\":7.200000000000003,\"max\":8,\"key\":\"native-warning\",\"kind\":\"hazard\"},\"music\":{\"saved\":0.4,\"base\":0.4,\"duck\":0.35,\"volume\":0,\"paused\":true,\"muted\":true},\"bus\":0.4099999964237213,\"audioContext\":{\"state\":\"running\",\"currentTime\":0.011609977324263039},\"hidden\":false,\"menuOpen\":false,\"paused\":false,\"warningAudioBlocked\":false,\"demo\":false,\"over\":false}},{\"time\":942.7000000029802,\"pass\":false,\"state\":{\"banner\":{\"title\":\"Native warning\",\"sub\":\"Bounded acceptance fixture\",\"col\":\"#FF5A4E\",\"t\":7.200000000000003,\"max\":8,\"key\":\"native-warning\",\"kind\":\"hazard\"},\"music\":{\"saved\":0.4,\"base\":0.4,\"duck\":0.35,\"volume\":0,\"paused\":true,\"muted\":true},\"bus\":0.4099999964237213,\"audioContext\":{\"state\":\"running\",\"currentTime\":0.011609977324263039},\"hidden\":false,\"menuOpen\":false,\"paused\":false,\"warningAudioBlocked\":false,\"demo\":false,\"over\":false}},{\"time\":968,\"pass\":false,\"state\":{\"banner\":{\"title\":\"Native warning\",\"sub\":\"Bounded acceptance fixture\",\"col\":\"#FF5A4E\",\"t\":7.200000000000003,\"max\":8,\"key\":\"native-warning\",\"kind\":\"hazard\"},\"music\":{\"saved\":0.4,\"base\":0.4,\"duck\":0.35,\"volume\":0,\"paused\":true,\"muted\":true},\"bus\":0.4099999964237213,\"audioContext\":{\"state\":\"running\",\"currentTime\":0.011609977324263039},\"hidden\":false,\"menuOpen\":false,\"paused\":false,\"warningAudioBlocked\":false,\"demo\":false,\"over\":false}},{\"time\":994.3000000007451,\"pass\":false,\"state\":{\"banner\":{\"title\":\"Native warning\",\"sub\":\"Bounded acceptance fixture\",\"col\":\"#FF5A4E\",\"t\":7.200000000000003,\"max\":8,\"key\":\"native-warning\",\"kind\":\"hazard\"},\"music\":{\"saved\":0.4,\"base\":0.4,\"duck\":0.35,\"volume\":0,\"paused\":true,\"muted\":true},\"bus\":0.4099999964237213,\"audioContext\":{\"state\":\"running\",\"currentTime\":0.011609977324263039},\"hidden\":false,\"menuOpen\":false,\"paused\":false,\"warningAudioBlocked\":false,\"demo\":false,\"over\":false}},{\"time\":1022.8000000007451,\"pass\":true,\"state\":{\"banner\":{\"title\":\"Native warning\",\"sub\":\"Bounded acceptance fixture\",\"col\":\"#FF5A4E\",\"t\":7.200000000000003,\"max\":8,\"key\":\"native-warning\",\"kind\":\"hazard\"},\"music\":{\"saved\":0.4,\"base\":0.4,\"duck\":0.35,\"volume\":0,\"paused\":true,\"muted\":true},\"bus\":0,\"audioContext\":{\"state\":\"running\",\"currentTime\":0.040634920634920635},\"hidden\":false,\"menuOpen\":false,\"paused\":false,\"warningAudioBlocked\":false,\"demo\":false,\"over\":false}}]},{\"predicate\":\"()=>!music.paused&&musicBaseVolume===SET.music&&Math.abs(music.volume-.14)<.005&&Math.abs(sfxMixer.bus.gain.value-.41)<.005\",\"observations\":[{\"time\":1022.9000000022352,\"pass\":false,\"state\":{\"banner\":{\"title\":\"Native warning\",\"sub\":\"Bounded acceptance fixture\",\"col\":\"#FF5A4E\",\"t\":7.200000000000003,\"max\":8,\"key\":\"native-warning\",\"kind\":\"hazard\"},\"music\":{\"saved\":0.4,\"base\":0,\"duck\":0.35,\"volume\":0,\"paused\":false,\"muted\":false},\"bus\":0,\"audioContext\":{\"state\":\"running\",\"currentTime\":0.040634920634920635},\"hidden\":false,\"menuOpen\":false,\"paused\":false,\"warningAudioBlocked\":false,\"demo\":false,\"over\":false}},{\"time\":1048.7000000029802,\"pass\":false,\"state\":{\"banner\":{\"title\":\"Native warning\",\"sub\":\"Bounded acceptance fixture\",\"col\":\"#FF5A4E\",\"t\":7.200000000000003,\"max\":8,\"key\":\"native-warning\",\"kind\":\"hazard\"},\"music\":{\"saved\":0.4,\"base\":0,\"duck\":0.35,\"volume\":0,\"paused\":false,\"muted\":false},\"bus\":0.4099999964237213,\"audioContext\":{\"state\":\"running\",\"currentTime\":0.06095238095238095},\"hidden\":false,\"menuOpen\":false,\"paused\":false,\"warningAudioBlocked\":false,\"demo\":false,\"over\":false}},{\"time\":1074.6000000014901,\"pass\":false,\"state\":{\"banner\":{\"title\":\"Native warning\",\"sub\":\"Bounded acceptance fixture\",\"col\":\"#FF5A4E\",\"t\":7.200000000000003,\"max\":8,\"key\":\"native-warning\",\"kind\":\"hazard\"},\"music\":{\"saved\":0.4,\"base\":0,\"duck\":0.35,\"volume\":0,\"paused\":false,\"muted\":false},\"bus\":0.4099999964237213,\"audioContext\":{\"state\":\"running\",\"currentTime\":0.08126984126984127},\"hidden\":false,\"menuOpen\":false,\"paused\":false,\"warningAudioBlocked\":false,\"demo\":false,\"over\":false}},{\"time\":1100.9000000022352,\"pass\":false,\"state\":{\"banner\":{\"title\":\"Native warning\",\"sub\":\"Bounded acceptance fixture\",\"col\":\"#FF5A4E\",\"t\":7.200000000000003,\"max\":8,\"key\":\"native-warning\",\"kind\":\"hazard\"},\"music\":{\"saved\":0.4,\"base\":0.05,\"duck\":0.35,\"volume\":0.017499999999999998,\"paused\":false,\"muted\":false},\"bus\":0.4099999964237213,\"audioContext\":{\"state\":\"running\",\"currentTime\":0.11029478458049886},\"hidden\":false,\"menuOpen\":false,\"paused\":false,\"warningAudioBlocked\":false,\"demo\":false,\"over\":false}},{\"time\":1126.5,\"pass\":false,\"state\":{\"banner\":{\"title\":\"Native warning\",\"sub\":\"Bounded acceptance fixture\",\"col\":\"#FF5A4E\",\"t\":7.200000000000003,\"max\":8,\"key\":\"native-warning\",\"kind\":\"hazard\"},\"music\":{\"saved\":0.4,\"base\":0.05,\"duck\":0.35,\"volume\":0.017499999999999998,\"paused\":false,\"muted\":false},\"bus\":0.4099999964237213,\"audioContext\":{\"state\":\"running\",\"currentTime\":0.14222222222222222},\"hidden\":false,\"menuOpen\":false,\"paused\":false,\"warningAudioBlocked\":false,\"demo\":false,\"over\":false}},{\"time\":1155.1000000014901,\"pass\":false,\"state\":{\"banner\":{\"title\":\"Native warning\",\"sub\":\"Bounded acceptance fixture\",\"col\":\"#FF5A4E\",\"t\":7.200000000000003,\"max\":8,\"key\":\"native-warning\",\"kind\":\"hazard\"},\"music\":{\"saved\":0.4,\"base\":0.05,\"duck\":0.35,\"volume\":0.017499999999999998,\"paused\":false,\"muted\":false},\"bus\":0.4099999964237213,\"audioContext\":{\"state\":\"running\",\"currentTime\":0.16253968253968254},\"hidden\":false,\"menuOpen\":false,\"paused\":false,\"warningAudioBlocked\":false,\"demo\":false,\"over\":false}},{\"time\":1181.5,\"pass\":false,\"state\":{\"banner\":{\"title\":\"Native warning\",\"sub\":\"Bounded acceptance fixture\",\"col\":\"#FF5A4E\",\"t\":7.200000000000003,\"max\":8,\"key\":\"native-warning\",\"kind\":\"hazard\"},\"music\":{\"saved\":0.4,\"base\":0.1,\"duck\":0.35,\"volume\":0.034999999999999996,\"paused\":false,\"muted\":false},\"bus\":0.4099999964237213,\"audioContext\":{\"state\":\"running\",\"currentTime\":0.19156462585034015},\"hidden\":false,\"menuOpen\":false,\"paused\":false,\"warningAudioBlocked\":false,\"demo\":false,\"over\":false}},{\"time\":1207.1000000014901,\"pass\":false,\"state\":{\"banner\":{\"title\":\"Native warning\",\"sub\":\"Bounded acceptance fixture\",\"col\":\"#FF5A4E\",\"t\":7.200000000000003,\"max\":8,\"key\":\"native-warning\",\"kind\":\"hazard\"},\"music\":{\"saved\":0.4,\"base\":0.1,\"duck\":0.35,\"volume\":0.034999999999999996,\"paused\":false,\"muted\":false},\"bus\":0.4099999964237213,\"audioContext\":{\"state\":\"running\",\"currentTime\":0.22058956916099773},\"hidden\":false,\"menuOpen\":false,\"paused\":false,\"warningAudioBlocked\":false,\"demo\":false,\"over\":false}},{\"time\":1233.300000000745,\"pass\":false,\"state\":{\"banner\":{\"title\":\"Native warning\",\"sub\":\"Bounded acceptance fixture\",\"col\":\"#FF5A4E\",\"t\":7.200000000000003,\"max\":8,\"key\":\"native-warning\",\"kind\":\"hazard\"},\"music\":{\"saved\":0.4,\"base\":0.15000000000000002,\"duck\":0.35,\"volume\":0.052500000000000005,\"paused\":false,\"muted\":false},\"bus\":0.4099999964237213,\"audioContext\":{\"state\":\"running\",\"currentTime\":0.24090702947845805},\"hidden\":false,\"menuOpen\":false,\"paused\":false,\"warningAudioBlocked\":false,\"demo\":false,\"over\":false}},{\"time\":1259.800000000745,\"pass\":false,\"state\":{\"banner\":{\"title\":\"Native warning\",\"sub\":\"Bounded acceptance fixture\",\"col\":\"#FF5A4E\",\"t\":7.200000000000003,\"max\":8,\"key\":\"native-warning\",\"kind\":\"hazard\"},\"music\":{\"saved\":0.4,\"base\":0.15000000000000002,\"duck\":0.35,\"volume\":0.052500000000000005,\"paused\":false,\"muted\":false},\"bus\":0.4099999964237213,\"audioContext\":{\"state\":\"running\",\"currentTime\":0.2728344671201814},\"hidden\":false,\"menuOpen\":false,\"paused\":false,\"warningAudioBlocked\":false,\"demo\":false,\"over\":false}},{\"time\":1288.9000000022352,\"pass\":false,\"state\":{\"banner\":{\"title\":\"Native warning\",\"sub\":\"Bounded acceptance fixture\",\"col\":\"#FF5A4E\",\"t\":7.200000000000003,\"max\":8,\"key\":\"native-warning\",\"kind\":\"hazard\"},\"music\":{\"saved\":0.4,\"base\":0.2,\"duck\":0.35,\"volume\":0.06999999999999999,\"paused\":false,\"muted\":false},\"bus\":0.4099999964237213,\"audioContext\":{\"state\":\"running\",\"currentTime\":0.301859410430839},\"hidden\":false,\"menuOpen\":false,\"paused\":false,\"warningAudioBlocked\":false,\"demo\":false,\"over\":false}},{\"time\":1314.7000000029802,\"pass\":false,\"state\":{\"banner\":{\"title\":\"Native warning\",\"sub\":\"Bounded acceptance fixture\",\"col\":\"#FF5A4E\",\"t\":7.200000000000003,\"max\":8,\"key\":\"native-warning\",\"kind\":\"hazard\"},\"music\":{\"saved\":0.4,\"base\":0.2,\"duck\":0.35,\"volume\":0.06999999999999999,\"paused\":false,\"muted\":false},\"bus\":0.4099999964237213,\"audioContext\":{\"state\":\"running\",\"currentTime\":0.3221768707482993},\"hidden\":false,\"menuOpen\":false,\"paused\":false,\"warningAudioBlocked\":false,\"demo\":false,\"over\":false}},{\"time\":1339.800000000745,\"pass\":false,\"state\":{\"banner\":{\"title\":\"Native warning\",\"sub\":\"Bounded acceptance fixture\",\"col\":\"#FF5A4E\",\"t\":7.200000000000003,\"max\":8,\"key\":\"native-warning\",\"kind\":\"hazard\"},\"music\":{\"saved\":0.4,\"base\":0.25,\"duck\":0.35,\"volume\":0.0875,\"paused\":false,\"muted\":false},\"bus\":0.4099999964237213,\"audioContext\":{\"state\":\"running\",\"currentTime\":0.3512018140589569},\"hidden\":false,\"menuOpen\":false,\"paused\":false,\"warningAudioBlocked\":false,\"demo\":false,\"over\":false}},{\"time\":1365.5,\"pass\":false,\"state\":{\"banner\":{\"title\":\"Native warning\",\"sub\":\"Bounded acceptance fixture\",\"col\":\"#FF5A4E\",\"t\":7.200000000000003,\"max\":8,\"key\":\"native-warning\",\"kind\":\"hazard\"},\"music\":{\"saved\":0.4,\"base\":0.25,\"duck\":0.35,\"volume\":0.0875,\"paused\":false,\"muted\":false},\"bus\":0.4099999964237213,\"audioContext\":{\"state\":\"running\",\"currentTime\":0.37151927437641724},\"hidden\":false,\"menuOpen\":false,\"paused\":false,\"warningAudioBlocked\":false,\"demo\":false,\"over\":false}},{\"time\":1392.4000000022352,\"pass\":false,\"state\":{\"banner\":{\"title\":\"Native warning\",\"sub\":\"Bounded acceptance fixture\",\"col\":\"#FF5A4E\",\"t\":7.200000000000003,\"max\":8,\"key\":\"native-warning\",\"kind\":\"hazard\"},\"music\":{\"saved\":0.4,\"base\":0.25,\"duck\":0.35,\"volume\":0.0875,\"paused\":false,\"muted\":false},\"bus\":0.4099999964237213,\"audioContext\":{\"state\":\"running\",\"currentTime\":0.4005442176870748},\"hidden\":false,\"menuOpen\":false,\"paused\":false,\"warningAudioBlocked\":false,\"demo\":false,\"over\":false}},{\"time\":1421.9000000022352,\"pass\":false,\"state\":{\"banner\":{\"title\":\"Native warning\",\"sub\":\"Bounded acceptance fixture\",\"col\":\"#FF5A4E\",\"t\":7.200000000000003,\"max\":8,\"key\":\"native-warning\",\"kind\":\"hazard\"},\"music\":{\"saved\":0.4,\"base\":0.3,\"duck\":0.35,\"volume\":0.105,\"paused\":false,\"muted\":false},\"bus\":0.4099999964237213,\"audioContext\":{\"state\":\"running\",\"currentTime\":0.43247165532879817},\"hidden\":false,\"menuOpen\":false,\"paused\":false,\"warningAudioBlocked\":false,\"demo\":false,\"over\":false}},{\"time\":1447.800000000745,\"pass\":false,\"state\":{\"banner\":{\"title\":\"Native warning\",\"sub\":\"Bounded acceptance fixture\",\"col\":\"#FF5A4E\",\"t\":7.200000000000003,\"max\":8,\"key\":\"native-warning\",\"kind\":\"hazard\"},\"music\":{\"saved\":0.4,\"base\":0.3,\"duck\":0.35,\"volume\":0.105,\"paused\":false,\"muted\":false},\"bus\":0.4099999964237213,\"audioContext\":{\"state\":\"running\",\"currentTime\":0.4614965986394558},\"hidden\":false,\"menuOpen\":false,\"paused\":false,\"warningAudioBlocked\":false,\"demo\":false,\"over\":false}},{\"time\":1473.1000000014901,\"pass\":false,\"state\":{\"banner\":{\"title\":\"Native warning\",\"sub\":\"Bounded acceptance fixture\",\"col\":\"#FF5A4E\",\"t\":7.200000000000003,\"max\":8,\"key\":\"native-warning\",\"kind\":\"hazard\"},\"music\":{\"saved\":0.4,\"base\":0.35,\"duck\":0.35,\"volume\":0.12249999999999998,\"paused\":false,\"muted\":false},\"bus\":0.4099999964237213,\"audioContext\":{\"state\":\"running\",\"currentTime\":0.4818140589569161},\"hidden\":false,\"menuOpen\":false,\"paused\":false,\"warningAudioBlocked\":false,\"demo\":false,\"over\":false}},{\"time\":1498.2000000029802,\"pass\":false,\"state\":{\"banner\":{\"title\":\"Native warning\",\"sub\":\"Bounded acceptance fixture\",\"col\":\"#FF5A4E\",\"t\":7.200000000000003,\"max\":8,\"key\":\"native-warning\",\"kind\":\"hazard\"},\"music\":{\"saved\":0.4,\"base\":0.35,\"duck\":0.35,\"volume\":0.12249999999999998,\"paused\":false,\"muted\":false},\"bus\":0.4099999964237213,\"audioContext\":{\"state\":\"running\",\"currentTime\":0.5108390022675737},\"hidden\":false,\"menuOpen\":false,\"paused\":false,\"warningAudioBlocked\":false,\"demo\":false,\"over\":false}},{\"time\":1523.5,\"pass\":false,\"state\":{\"banner\":{\"title\":\"Native warning\",\"sub\":\"Bounded acceptance fixture\",\"col\":\"#FF5A4E\",\"t\":7.200000000000003,\"max\":8,\"key\":\"native-warning\",\"kind\":\"hazard\"},\"music\":{\"saved\":0.4,\"base\":0.39999999999999997,\"duck\":0.35,\"volume\":0.13999999999999999,\"paused\":false,\"muted\":false},\"bus\":0.4099999964237213,\"audioContext\":{\"state\":\"running\",\"currentTime\":0.531156462585034},\"hidden\":false,\"menuOpen\":false,\"paused\":false,\"warningAudioBlocked\":false,\"demo\":false,\"over\":false}},{\"time\":1549.5,\"pass\":false,\"state\":{\"banner\":{\"title\":\"Native warning\",\"sub\":\"Bounded acceptance fixture\",\"col\":\"#FF5A4E\",\"t\":7.200000000000003,\"max\":8,\"key\":\"native-warning\",\"kind\":\"hazard\"},\"music\":{\"saved\":0.4,\"base\":0.39999999999999997,\"duck\":0.35,\"volume\":0.13999999999999999,\"paused\":false,\"muted\":false},\"bus\":0.4099999964237213,\"audioContext\":{\"state\":\"running\",\"currentTime\":0.5601814058956917},\"hidden\":false,\"menuOpen\":false,\"paused\":false,\"warningAudioBlocked\":false,\"demo\":false,\"over\":false}},{\"time\":1575.7000000029802,\"pass\":false,\"state\":{\"banner\":{\"title\":\"Native warning\",\"sub\":\"Bounded acceptance fixture\",\"col\":\"#FF5A4E\",\"t\":7.200000000000003,\"max\":8,\"key\":\"native-warning\",\"kind\":\"hazard\"},\"music\":{\"saved\":0.4,\"base\":0.39999999999999997,\"duck\":0.35,\"volume\":0.13999999999999999,\"paused\":false,\"muted\":false},\"bus\":0.4099999964237213,\"audioContext\":{\"state\":\"running\",\"currentTime\":0.5804988662131519},\"hidden\":false,\"menuOpen\":false,\"paused\":false,\"warningAudioBlocked\":false,\"demo\":false,\"over\":false}},{\"time\":1601.1000000014901,\"pass\":true,\"state\":{\"banner\":{\"title\":\"Native warning\",\"sub\":\"Bounded acceptance fixture\",\"col\":\"#FF5A4E\",\"t\":7.200000000000003,\"max\":8,\"key\":\"native-warning\",\"kind\":\"hazard\"},\"music\":{\"saved\":0.4,\"base\":0.4,\"duck\":0.35,\"volume\":0.13999999999999999,\"paused\":false,\"muted\":false},\"bus\":0.4099999964237213,\"audioContext\":{\"state\":\"running\",\"currentTime\":0.6124263038548753},\"hidden\":false,\"menuOpen\":false,\"paused\":false,\"warningAudioBlocked\":false,\"demo\":false,\"over\":false}}]},{\"predicate\":\"()=>musicBaseVolume===SET.music&&Math.abs(music.volume-.4)<.005\",\"observations\":[{\"time\":1602.9000000022352,\"pass\":false,\"state\":{\"banner\":{\"title\":\"Native warning\",\"sub\":\"Bounded acceptance fixture\",\"col\":\"#FF5A4E\",\"t\":7.200000000000003,\"max\":8,\"key\":\"native-warning\",\"kind\":\"hazard\"},\"music\":{\"saved\":0.4,\"base\":0,\"duck\":1,\"volume\":0,\"paused\":false,\"muted\":false},\"bus\":0.4099999964237213,\"audioContext\":{\"state\":\"running\",\"currentTime\":0.6124263038548753},\"hidden\":false,\"menuOpen\":false,\"paused\":true,\"warningAudioBlocked\":true,\"demo\":false,\"over\":false}},{\"time\":1628.6000000014901,\"pass\":false,\"state\":{\"banner\":{\"title\":\"Native warning\",\"sub\":\"Bounded acceptance fixture\",\"col\":\"#FF5A4E\",\"t\":7.200000000000003,\"max\":8,\"key\":\"native-warning\",\"kind\":\"hazard\"},\"music\":{\"saved\":0.4,\"base\":0,\"duck\":1,\"volume\":0,\"paused\":false,\"muted\":false},\"bus\":0.4099999964237213,\"audioContext\":{\"state\":\"running\",\"currentTime\":0.6414512471655329},\"hidden\":false,\"menuOpen\":false,\"paused\":true,\"warningAudioBlocked\":true,\"demo\":false,\"over\":false}},{\"time\":1654.800000000745,\"pass\":false,\"state\":{\"banner\":{\"title\":\"Native warning\",\"sub\":\"Bounded acceptance fixture\",\"col\":\"#FF5A4E\",\"t\":7.200000000000003,\"max\":8,\"key\":\"native-warning\",\"kind\":\"hazard\"},\"music\":{\"saved\":0.4,\"base\":0,\"duck\":1,\"volume\":0,\"paused\":false,\"muted\":false},\"bus\":0.4099999964237213,\"audioContext\":{\"state\":\"running\",\"currentTime\":0.6617687074829932},\"hidden\":false,\"menuOpen\":false,\"paused\":true,\"warningAudioBlocked\":true,\"demo\":false,\"over\":false}},{\"time\":1680.9000000022352,\"pass\":false,\"state\":{\"banner\":{\"title\":\"Native warning\",\"sub\":\"Bounded acceptance fixture\",\"col\":\"#FF5A4E\",\"t\":7.200000000000003,\"max\":8,\"key\":\"native-warning\",\"kind\":\"hazard\"},\"music\":{\"saved\":0.4,\"base\":0.05,\"duck\":1,\"volume\":0.05,\"paused\":false,\"muted\":false},\"bus\":0.4099999964237213,\"audioContext\":{\"state\":\"running\",\"currentTime\":0.6907936507936508},\"hidden\":false,\"menuOpen\":false,\"paused\":true,\"warningAudioBlocked\":true,\"demo\":false,\"over\":false}},{\"time\":1706.800000000745,\"pass\":false,\"state\":{\"banner\":{\"title\":\"Native warning\",\"sub\":\"Bounded acceptance fixture\",\"col\":\"#FF5A4E\",\"t\":7.200000000000003,\"max\":8,\"key\":\"native-warning\",\"kind\":\"hazard\"},\"music\":{\"saved\":0.4,\"base\":0.05,\"duck\":1,\"volume\":0.05,\"paused\":false,\"muted\":false},\"bus\":0.4099999964237213,\"audioContext\":{\"state\":\"running\",\"currentTime\":0.7227210884353742},\"hidden\":false,\"menuOpen\":false,\"paused\":true,\"warningAudioBlocked\":true,\"demo\":false,\"over\":false}},{\"time\":1732.5,\"pass\":false,\"state\":{\"banner\":{\"title\":\"Native warning\",\"sub\":\"Bounded acceptance fixture\",\"col\":\"#FF5A4E\",\"t\":7.200000000000003,\"max\":8,\"key\":\"native-warning\",\"kind\":\"hazard\"},\"music\":{\"saved\":0.4,\"base\":0.05,\"duck\":1,\"volume\":0.05,\"paused\":false,\"muted\":false},\"bus\":0.4099999964237213,\"audioContext\":{\"state\":\"running\",\"currentTime\":0.7401360544217687},\"hidden\":false,\"menuOpen\":false,\"paused\":true,\"warningAudioBlocked\":true,\"demo\":false,\"over\":false}},{\"time\":1758.5,\"pass\":false,\"state\":{\"banner\":{\"title\":\"Native warning\",\"sub\":\"Bounded acceptance fixture\",\"col\":\"#FF5A4E\",\"t\":7.200000000000003,\"max\":8,\"key\":\"native-warning\",\"kind\":\"hazard\"},\"music\":{\"saved\":0.4,\"base\":0.1,\"duck\":1,\"volume\":0.1,\"paused\":false,\"muted\":false},\"bus\":0.4099999964237213,\"audioContext\":{\"state\":\"running\",\"currentTime\":0.7720634920634921},\"hidden\":false,\"menuOpen\":false,\"paused\":true,\"warningAudioBlocked\":true,\"demo\":false,\"over\":false}},{\"time\":1784.4000000022352,\"pass\":false,\"state\":{\"banner\":{\"title\":\"Native warning\",\"sub\":\"Bounded acceptance fixture\",\"col\":\"#FF5A4E\",\"t\":7.200000000000003,\"max\":8,\"key\":\"native-warning\",\"kind\":\"hazard\"},\"music\":{\"saved\":0.4,\"base\":0.1,\"duck\":1,\"volume\":0.1,\"paused\":false,\"muted\":false},\"bus\":0.4099999964237213,\"audioContext\":{\"state\":\"running\",\"currentTime\":0.7923809523809524},\"hidden\":false,\"menuOpen\":false,\"paused\":true,\"warningAudioBlocked\":true,\"demo\":false,\"over\":false}},{\"time\":1810.4000000022352,\"pass\":false,\"state\":{\"banner\":{\"title\":\"Native warning\",\"sub\":\"Bounded acceptance fixture\",\"col\":\"#FF5A4E\",\"t\":7.200000000000003,\"max\":8,\"key\":\"native-warning\",\"kind\":\"hazard\"},\"music\":{\"saved\":0.4,\"base\":0.15000000000000002,\"duck\":1,\"volume\":0.15000000000000002,\"paused\":false,\"muted\":false},\"bus\":0.4099999964237213,\"audioContext\":{\"state\":\"running\",\"currentTime\":0.8214058956916099},\"hidden\":false,\"menuOpen\":false,\"paused\":true,\"warningAudioBlocked\":true,\"demo\":false,\"over\":false}},{\"time\":1837.4000000022352,\"pass\":false,\"state\":{\"banner\":{\"title\":\"Native warning\",\"sub\":\"Bounded acceptance fixture\",\"col\":\"#FF5A4E\",\"t\":7.200000000000003,\"max\":8,\"key\":\"native-warning\",\"kind\":\"hazard\"},\"music\":{\"saved\":0.4,\"base\":0.15000000000000002,\"duck\":1,\"volume\":0.15000000000000002,\"paused\":false,\"muted\":false},\"bus\":0.4099999964237213,\"audioContext\":{\"state\":\"running\",\"currentTime\":0.8504308390022676},\"hidden\":false,\"menuOpen\":false,\"paused\":true,\"warningAudioBlocked\":true,\"demo\":false,\"over\":false}},{\"time\":1864.5,\"pass\":false,\"state\":{\"banner\":{\"title\":\"Native warning\",\"sub\":\"Bounded acceptance fixture\",\"col\":\"#FF5A4E\",\"t\":7.200000000000003,\"max\":8,\"key\":\"native-warning\",\"kind\":\"hazard\"},\"music\":{\"saved\":0.4,\"base\":0.2,\"duck\":1,\"volume\":0.2,\"paused\":false,\"muted\":false},\"bus\":0.4099999964237213,\"audioContext\":{\"state\":\"running\",\"currentTime\":0.8707482993197279},\"hidden\":false,\"menuOpen\":false,\"paused\":true,\"warningAudioBlocked\":true,\"demo\":false,\"over\":false}},{\"time\":1890.5,\"pass\":false,\"state\":{\"banner\":{\"title\":\"Native warning\",\"sub\":\"Bounded acceptance fixture\",\"col\":\"#FF5A4E\",\"t\":7.200000000000003,\"max\":8,\"key\":\"native-warning\",\"kind\":\"hazard\"},\"music\":{\"saved\":0.4,\"base\":0.2,\"duck\":1,\"volume\":0.2,\"paused\":false,\"muted\":false},\"bus\":0.4099999964237213,\"audioContext\":{\"state\":\"running\",\"currentTime\":0.9026757369614512},\"hidden\":false,\"menuOpen\":false,\"paused\":true,\"warningAudioBlocked\":true,\"demo\":false,\"over\":false}},{\"time\":1916.9000000022352,\"pass\":false,\"state\":{\"banner\":{\"title\":\"Native warning\",\"sub\":\"Bounded acceptance fixture\",\"col\":\"#FF5A4E\",\"t\":7.200000000000003,\"max\":8,\"key\":\"native-warning\",\"kind\":\"hazard\"},\"music\":{\"saved\":0.4,\"base\":0.2,\"duck\":1,\"volume\":0.2,\"paused\":false,\"muted\":false},\"bus\":0.4099999964237213,\"audioContext\":{\"state\":\"running\",\"currentTime\":0.9317006802721088},\"hidden\":false,\"menuOpen\":false,\"paused\":true,\"warningAudioBlocked\":true,\"demo\":false,\"over\":false}},{\"time\":1942.9000000022352,\"pass\":false,\"state\":{\"banner\":{\"title\":\"Native warning\",\"sub\":\"Bounded acceptance fixture\",\"col\":\"#FF5A4E\",\"t\":7.200000000000003,\"max\":8,\"key\":\"native-warning\",\"kind\":\"hazard\"},\"music\":{\"saved\":0.4,\"base\":0.25,\"duck\":1,\"volume\":0.25,\"paused\":false,\"muted\":false},\"bus\":0.4099999964237213,\"audioContext\":{\"state\":\"running\",\"currentTime\":0.9520181405895691},\"hidden\":false,\"menuOpen\":false,\"paused\":true,\"warningAudioBlocked\":true,\"demo\":false,\"over\":false}},{\"time\":1971.4000000022352,\"pass\":false,\"state\":{\"banner\":{\"title\":\"Native warning\",\"sub\":\"Bounded acceptance fixture\",\"col\":\"#FF5A4E\",\"t\":7.200000000000003,\"max\":8,\"key\":\"native-warning\",\"kind\":\"hazard\"},\"music\":{\"saved\":0.4,\"base\":0.25,\"duck\":1,\"volume\":0.25,\"paused\":false,\"muted\":false},\"bus\":0.4099999964237213,\"audioContext\":{\"state\":\"running\",\"currentTime\":0.9810430839002268},\"hidden\":false,\"menuOpen\":false,\"paused\":true,\"warningAudioBlocked\":true,\"demo\":false,\"over\":false}},{\"time\":1997.5,\"pass\":false,\"state\":{\"banner\":{\"title\":\"Native warning\",\"sub\":\"Bounded acceptance fixture\",\"col\":\"#FF5A4E\",\"t\":7.200000000000003,\"max\":8,\"key\":\"native-warning\",\"kind\":\"hazard\"},\"music\":{\"saved\":0.4,\"base\":0.3,\"duck\":1,\"volume\":0.3,\"paused\":false,\"muted\":false},\"bus\":0.4099999964237213,\"audioContext\":{\"state\":\"running\",\"currentTime\":1.0100680272108844},\"hidden\":false,\"menuOpen\":false,\"paused\":true,\"warningAudioBlocked\":true,\"demo\":false,\"over\":false}},{\"time\":2023.7000000029802,\"pass\":false,\"state\":{\"banner\":{\"title\":\"Native warning\",\"sub\":\"Bounded acceptance fixture\",\"col\":\"#FF5A4E\",\"t\":7.200000000000003,\"max\":8,\"key\":\"native-warning\",\"kind\":\"hazard\"},\"music\":{\"saved\":0.4,\"base\":0.3,\"duck\":1,\"volume\":0.3,\"paused\":false,\"muted\":false},\"bus\":0.4099999964237213,\"audioContext\":{\"state\":\"running\",\"currentTime\":1.0303854875283447},\"hidden\":false,\"menuOpen\":false,\"paused\":true,\"warningAudioBlocked\":true,\"demo\":false,\"over\":false}},{\"time\":2049.5,\"pass\":false,\"state\":{\"banner\":{\"title\":\"Native warning\",\"sub\":\"Bounded acceptance fixture\",\"col\":\"#FF5A4E\",\"t\":7.200000000000003,\"max\":8,\"key\":\"native-warning\",\"kind\":\"hazard\"},\"music\":{\"saved\":0.4,\"base\":0.35,\"duck\":1,\"volume\":0.35,\"paused\":false,\"muted\":false},\"bus\":0.4099999964237213,\"audioContext\":{\"state\":\"running\",\"currentTime\":1.062312925170068},\"hidden\":false,\"menuOpen\":false,\"paused\":true,\"warningAudioBlocked\":true,\"demo\":false,\"over\":false}},{\"time\":2075.400000002235,\"pass\":false,\"state\":{\"banner\":{\"title\":\"Native warning\",\"sub\":\"Bounded acceptance fixture\",\"col\":\"#FF5A4E\",\"t\":7.200000000000003,\"max\":8,\"key\":\"native-warning\",\"kind\":\"hazard\"},\"music\":{\"saved\":0.4,\"base\":0.35,\"duck\":1,\"volume\":0.35,\"paused\":false,\"muted\":false},\"bus\":0.4099999964237213,\"audioContext\":{\"state\":\"running\",\"currentTime\":1.0826303854875283},\"hidden\":false,\"menuOpen\":false,\"paused\":true,\"warningAudioBlocked\":true,\"demo\":false,\"over\":false}},{\"time\":2100.7000000029802,\"pass\":false,\"state\":{\"banner\":{\"title\":\"Native warning\",\"sub\":\"Bounded acceptance fixture\",\"col\":\"#FF5A4E\",\"t\":7.200000000000003,\"max\":8,\"key\":\"native-warning\",\"kind\":\"hazard\"},\"music\":{\"saved\":0.4,\"base\":0.39999999999999997,\"duck\":1,\"volume\":0.39999999999999997,\"paused\":false,\"muted\":false},\"bus\":0.4099999964237213,\"audioContext\":{\"state\":\"running\",\"currentTime\":1.1116553287981858},\"hidden\":false,\"menuOpen\":false,\"paused\":true,\"warningAudioBlocked\":true,\"demo\":false,\"over\":false}},{\"time\":2126.400000002235,\"pass\":false,\"state\":{\"banner\":{\"title\":\"Native warning\",\"sub\":\"Bounded acceptance fixture\",\"col\":\"#FF5A4E\",\"t\":7.200000000000003,\"max\":8,\"key\":\"native-warning\",\"kind\":\"hazard\"},\"music\":{\"saved\":0.4,\"base\":0.39999999999999997,\"duck\":1,\"volume\":0.39999999999999997,\"paused\":false,\"muted\":false},\"bus\":0.4099999964237213,\"audioContext\":{\"state\":\"running\",\"currentTime\":1.1406802721088436},\"hidden\":false,\"menuOpen\":false,\"paused\":true,\"warningAudioBlocked\":true,\"demo\":false,\"over\":false}},{\"time\":2154.400000002235,\"pass\":false,\"state\":{\"banner\":{\"title\":\"Native warning\",\"sub\":\"Bounded acceptance fixture\",\"col\":\"#FF5A4E\",\"t\":7.200000000000003,\"max\":8,\"key\":\"native-warning\",\"kind\":\"hazard\"},\"music\":{\"saved\":0.4,\"base\":0.39999999999999997,\"duck\":1,\"volume\":0.39999999999999997,\"paused\":false,\"muted\":false},\"bus\":0.4099999964237213,\"audioContext\":{\"state\":\"running\",\"currentTime\":1.1609977324263039},\"hidden\":false,\"menuOpen\":false,\"paused\":true,\"warningAudioBlocked\":true,\"demo\":false,\"over\":false}},{\"time\":2180.300000000745,\"pass\":true,\"state\":{\"banner\":{\"title\":\"Native warning\",\"sub\":\"Bounded acceptance fixture\",\"col\":\"#FF5A4E\",\"t\":7.200000000000003,\"max\":8,\"key\":\"native-warning\",\"kind\":\"hazard\"},\"music\":{\"saved\":0.4,\"base\":0.4,\"duck\":1,\"volume\":0.4,\"paused\":false,\"muted\":false},\"bus\":0.4099999964237213,\"audioContext\":{\"state\":\"running\",\"currentTime\":1.1900226757369614},\"hidden\":false,\"menuOpen\":false,\"paused\":true,\"warningAudioBlocked\":true,\"demo\":false,\"over\":false}}]},{\"predicate\":\"()=>warningDuck===.35&&musicBaseVolume===SET.music\",\"observations\":[{\"time\":2180.5,\"pass\":true,\"state\":{\"banner\":{\"title\":\"Native warning\",\"sub\":\"Bounded acceptance fixture\",\"col\":\"#FF5A4E\",\"t\":7.200000000000003,\"max\":8,\"key\":\"native-warning\",\"kind\":\"hazard\"},\"music\":{\"saved\":0.4,\"base\":0.4,\"duck\":0.35,\"volume\":0.13999999999999999,\"paused\":false,\"muted\":false},\"bus\":0.4099999964237213,\"audioContext\":{\"state\":\"running\",\"currentTime\":1.1900226757369614},\"hidden\":false,\"menuOpen\":false,\"paused\":false,\"warningAudioBlocked\":false,\"demo\":false,\"over\":false}}]}],\"origin\":\"custard://game\",\"mutedState\":{\"muted\":true,\"musicPaused\":true,\"bus\":0},\"mixer\":{\"active\":0,\"ordinary\":0,\"warning\":0,\"max\":64,\"reserved\":8,\"ordinaryMax\":56,\"droppedOrdinary\":0,\"droppedWarning\":0},\"settings\":{\"music\":0.4,\"sfx\":0.41},\"fixture\":\"Programmatic UI and direct production showBanner/clearBanner; no CK helpers, gameplay completion or input-only acceptance.\",\"rendererFixture\":{\"indexOriginalSha256\":\"6f5565642e4f5e33b6df126704f0b1e63af9519e47a0f811c9e54aa924d967eb\",\"indexInstrumentedSha256\":\"9e000a17874e5334a4e5ac3506855fd264aae3cea669e70e32dd0a06f3618e82\",\"insertion\":\"Bounded asynchronous acceptance fixture inserted at unique final closure marker; other native assets unchanged\",\"asarUnchanged\":true}}\n",
+  "stderr": "Debugger listening on ws://127.0.0.1:54811/045be6de-e8ec-40f9-adf3-56117b8a96c6\r\nFor help, see: https://nodejs.org/learn/getting-started/debugging\r\nDebugger attached.\r\nDebugger ending on ws://127.0.0.1:54811/045be6de-e8ec-40f9-adf3-56117b8a96c6\r\nFor help, see: https://nodejs.org/learn/getting-started/debugging\r\n",
+  "gates": [
+    {
+      "predicate": "()=>!!document.getElementById('onboardingJump')&&!document.hidden",
+      "observations": [
+        {
+          "time": 27.600000001490116,
+          "pass": true,
+          "state": {
+            "banner": null,
+            "music": {
+              "saved": 0.55,
+              "base": 0,
+              "duck": 1,
+              "volume": 0,
+              "paused": false,
+              "muted": false
+            },
+            "audioContext": {},
+            "hidden": false,
+            "paused": false,
+            "warningAudioBlocked": true,
+            "demo": true,
+            "over": false
+          }
+        }
+      ]
+    },
+    {
+      "predicate": "()=>!document.getElementById('pauseBtn').hidden&&!!sfxMixer",
+      "observations": [
+        {
+          "time": 44.400000002235174,
+          "pass": true,
+          "state": {
+            "banner": {
+              "title": "FIGHT!",
+              "sub": "Custard Bog. Free-for-all. Every knight for themselves.",
+              "col": "#FFD23F",
+              "t": 2,
+              "max": 2,
+              "key": "match:start",
+              "kind": "objective"
+            },
+            "music": {
+              "saved": 0.23,
+              "base": 0,
+              "duck": 0.35,
+              "volume": 0,
+              "paused": false,
+              "muted": false
+            },
+            "bus": 1,
+            "audioContext": {
+              "state": "running",
+              "currentTime": 0
+            },
+            "hidden": false,
+            "menuOpen": false,
+            "paused": false,
+            "warningAudioBlocked": false,
+            "demo": false,
+            "over": false
+          }
+        }
+      ]
+    },
+    {
+      "predicate": "()=>musicBaseVolume===SET.music&&Math.abs(music.volume-.0805)<.005",
+      "observations": [
+        {
+          "time": 44.900000002235174,
+          "pass": false,
+          "state": {
+            "banner": {
+              "title": "Native warning",
+              "sub": "Bounded acceptance fixture",
+              "col": "#FF5A4E",
+              "t": 7.200000000000003,
+              "max": 8,
+              "key": "native-warning",
+              "kind": "hazard"
+            },
+            "music": {
+              "saved": 0.23,
+              "base": 0,
+              "duck": 0.35,
+              "volume": 0,
+              "paused": false,
+              "muted": false
+            },
+            "bus": 1,
+            "audioContext": {
+              "state": "running",
+              "currentTime": 0
+            },
+            "hidden": false,
+            "menuOpen": false,
+            "paused": false,
+            "warningAudioBlocked": false,
+            "demo": false,
+            "over": false
+          }
+        },
+        {
+          "time": 70.60000000149012,
+          "pass": false,
+          "state": {
+            "banner": {
+              "title": "Native warning",
+              "sub": "Bounded acceptance fixture",
+              "col": "#FF5A4E",
+              "t": 7.200000000000003,
+              "max": 8,
+              "key": "native-warning",
+              "kind": "hazard"
+            },
+            "music": {
+              "saved": 0.23,
+              "base": 0,
+              "duck": 0.35,
+              "volume": 0,
+              "paused": false,
+              "muted": false
+            },
+            "bus": 0.4099999964237213,
+            "audioContext": {
+              "state": "running",
+              "currentTime": 0.011609977324263039
+            },
+            "hidden": false,
+            "menuOpen": false,
+            "paused": false,
+            "warningAudioBlocked": false,
+            "demo": false,
+            "over": false
+          }
+        },
+        {
+          "time": 167.20000000298023,
+          "pass": false,
+          "state": {
+            "banner": {
+              "title": "Native warning",
+              "sub": "Bounded acceptance fixture",
+              "col": "#FF5A4E",
+              "t": 7.200000000000003,
+              "max": 8,
+              "key": "native-warning",
+              "kind": "hazard"
+            },
+            "music": {
+              "saved": 0.23,
+              "base": 0,
+              "duck": 0.35,
+              "volume": 0,
+              "paused": false,
+              "muted": false
+            },
+            "bus": 0.4099999964237213,
+            "audioContext": {
+              "state": "running",
+              "currentTime": 0.011609977324263039
+            },
+            "hidden": false,
+            "menuOpen": false,
+            "paused": false,
+            "warningAudioBlocked": false,
+            "demo": false,
+            "over": false
+          }
+        },
+        {
+          "time": 193,
+          "pass": false,
+          "state": {
+            "banner": {
+              "title": "Native warning",
+              "sub": "Bounded acceptance fixture",
+              "col": "#FF5A4E",
+              "t": 7.200000000000003,
+              "max": 8,
+              "key": "native-warning",
+              "kind": "hazard"
+            },
+            "music": {
+              "saved": 0.23,
+              "base": 0.05,
+              "duck": 0.35,
+              "volume": 0.017499999999999998,
+              "paused": false,
+              "muted": false
+            },
+            "bus": 0.4099999964237213,
+            "audioContext": {
+              "state": "running",
+              "currentTime": 0.011609977324263039
+            },
+            "hidden": false,
+            "menuOpen": false,
+            "paused": false,
+            "warningAudioBlocked": false,
+            "demo": false,
+            "over": false
+          }
+        },
+        {
+          "time": 219.90000000223517,
+          "pass": false,
+          "state": {
+            "banner": {
+              "title": "Native warning",
+              "sub": "Bounded acceptance fixture",
+              "col": "#FF5A4E",
+              "t": 7.200000000000003,
+              "max": 8,
+              "key": "native-warning",
+              "kind": "hazard"
+            },
+            "music": {
+              "saved": 0.23,
+              "base": 0.05,
+              "duck": 0.35,
+              "volume": 0.017499999999999998,
+              "paused": false,
+              "muted": false
+            },
+            "bus": 0.4099999964237213,
+            "audioContext": {
+              "state": "running",
+              "currentTime": 0.011609977324263039
+            },
+            "hidden": false,
+            "menuOpen": false,
+            "paused": false,
+            "warningAudioBlocked": false,
+            "demo": false,
+            "over": false
+          }
+        },
+        {
+          "time": 247.5,
+          "pass": false,
+          "state": {
+            "banner": {
+              "title": "Native warning",
+              "sub": "Bounded acceptance fixture",
+              "col": "#FF5A4E",
+              "t": 7.200000000000003,
+              "max": 8,
+              "key": "native-warning",
+              "kind": "hazard"
+            },
+            "music": {
+              "saved": 0.23,
+              "base": 0.1,
+              "duck": 0.35,
+              "volume": 0.034999999999999996,
+              "paused": false,
+              "muted": false
+            },
+            "bus": 0.4099999964237213,
+            "audioContext": {
+              "state": "running",
+              "currentTime": 0.011609977324263039
+            },
+            "hidden": false,
+            "menuOpen": false,
+            "paused": false,
+            "warningAudioBlocked": false,
+            "demo": false,
+            "over": false
+          }
+        },
+        {
+          "time": 273.20000000298023,
+          "pass": false,
+          "state": {
+            "banner": {
+              "title": "Native warning",
+              "sub": "Bounded acceptance fixture",
+              "col": "#FF5A4E",
+              "t": 7.200000000000003,
+              "max": 8,
+              "key": "native-warning",
+              "kind": "hazard"
+            },
+            "music": {
+              "saved": 0.23,
+              "base": 0.1,
+              "duck": 0.35,
+              "volume": 0.034999999999999996,
+              "paused": false,
+              "muted": false
+            },
+            "bus": 0.4099999964237213,
+            "audioContext": {
+              "state": "running",
+              "currentTime": 0.011609977324263039
+            },
+            "hidden": false,
+            "menuOpen": false,
+            "paused": false,
+            "warningAudioBlocked": false,
+            "demo": false,
+            "over": false
+          }
+        },
+        {
+          "time": 298.30000000074506,
+          "pass": false,
+          "state": {
+            "banner": {
+              "title": "Native warning",
+              "sub": "Bounded acceptance fixture",
+              "col": "#FF5A4E",
+              "t": 7.200000000000003,
+              "max": 8,
+              "key": "native-warning",
+              "kind": "hazard"
+            },
+            "music": {
+              "saved": 0.23,
+              "base": 0.15000000000000002,
+              "duck": 0.35,
+              "volume": 0.052500000000000005,
+              "paused": false,
+              "muted": false
+            },
+            "bus": 0.4099999964237213,
+            "audioContext": {
+              "state": "running",
+              "currentTime": 0.011609977324263039
+            },
+            "hidden": false,
+            "menuOpen": false,
+            "paused": false,
+            "warningAudioBlocked": false,
+            "demo": false,
+            "over": false
+          }
+        },
+        {
+          "time": 324.30000000074506,
+          "pass": false,
+          "state": {
+            "banner": {
+              "title": "Native warning",
+              "sub": "Bounded acceptance fixture",
+              "col": "#FF5A4E",
+              "t": 7.200000000000003,
+              "max": 8,
+              "key": "native-warning",
+              "kind": "hazard"
+            },
+            "music": {
+              "saved": 0.23,
+              "base": 0.15000000000000002,
+              "duck": 0.35,
+              "volume": 0.052500000000000005,
+              "paused": false,
+              "muted": false
+            },
+            "bus": 0.4099999964237213,
+            "audioContext": {
+              "state": "running",
+              "currentTime": 0.011609977324263039
+            },
+            "hidden": false,
+            "menuOpen": false,
+            "paused": false,
+            "warningAudioBlocked": false,
+            "demo": false,
+            "over": false
+          }
+        },
+        {
+          "time": 351.30000000074506,
+          "pass": false,
+          "state": {
+            "banner": {
+              "title": "Native warning",
+              "sub": "Bounded acceptance fixture",
+              "col": "#FF5A4E",
+              "t": 7.200000000000003,
+              "max": 8,
+              "key": "native-warning",
+              "kind": "hazard"
+            },
+            "music": {
+              "saved": 0.23,
+              "base": 0.15000000000000002,
+              "duck": 0.35,
+              "volume": 0.052500000000000005,
+              "paused": false,
+              "muted": false
+            },
+            "bus": 0.4099999964237213,
+            "audioContext": {
+              "state": "running",
+              "currentTime": 0.011609977324263039
+            },
+            "hidden": false,
+            "menuOpen": false,
+            "paused": false,
+            "warningAudioBlocked": false,
+            "demo": false,
+            "over": false
+          }
+        },
+        {
+          "time": 377,
+          "pass": false,
+          "state": {
+            "banner": {
+              "title": "Native warning",
+              "sub": "Bounded acceptance fixture",
+              "col": "#FF5A4E",
+              "t": 7.200000000000003,
+              "max": 8,
+              "key": "native-warning",
+              "kind": "hazard"
+            },
+            "music": {
+              "saved": 0.23,
+              "base": 0.2,
+              "duck": 0.35,
+              "volume": 0.06999999999999999,
+              "paused": false,
+              "muted": false
+            },
+            "bus": 0.4099999964237213,
+            "audioContext": {
+              "state": "running",
+              "currentTime": 0.011609977324263039
+            },
+            "hidden": false,
+            "menuOpen": false,
+            "paused": false,
+            "warningAudioBlocked": false,
+            "demo": false,
+            "over": false
+          }
+        },
+        {
+          "time": 402.4000000022352,
+          "pass": false,
+          "state": {
+            "banner": {
+              "title": "Native warning",
+              "sub": "Bounded acceptance fixture",
+              "col": "#FF5A4E",
+              "t": 7.200000000000003,
+              "max": 8,
+              "key": "native-warning",
+              "kind": "hazard"
+            },
+            "music": {
+              "saved": 0.23,
+              "base": 0.2,
+              "duck": 0.35,
+              "volume": 0.06999999999999999,
+              "paused": false,
+              "muted": false
+            },
+            "bus": 0.4099999964237213,
+            "audioContext": {
+              "state": "running",
+              "currentTime": 0.011609977324263039
+            },
+            "hidden": false,
+            "menuOpen": false,
+            "paused": false,
+            "warningAudioBlocked": false,
+            "demo": false,
+            "over": false
+          }
+        },
+        {
+          "time": 428.1000000014901,
+          "pass": true,
+          "state": {
+            "banner": {
+              "title": "Native warning",
+              "sub": "Bounded acceptance fixture",
+              "col": "#FF5A4E",
+              "t": 7.200000000000003,
+              "max": 8,
+              "key": "native-warning",
+              "kind": "hazard"
+            },
+            "music": {
+              "saved": 0.23,
+              "base": 0.23,
+              "duck": 0.35,
+              "volume": 0.0805,
+              "paused": false,
+              "muted": false
+            },
+            "bus": 0.4099999964237213,
+            "audioContext": {
+              "state": "running",
+              "currentTime": 0.011609977324263039
+            },
+            "hidden": false,
+            "menuOpen": false,
+            "paused": false,
+            "warningAudioBlocked": false,
+            "demo": false,
+            "over": false
+          }
+        }
+      ]
+    },
+    {
+      "predicate": "()=>muted&&music.paused&&sfxMixer.bus.gain.value===0",
+      "observations": [
+        {
+          "time": 428.4000000022352,
+          "pass": false,
+          "state": {
+            "banner": {
+              "title": "Native warning",
+              "sub": "Bounded acceptance fixture",
+              "col": "#FF5A4E",
+              "t": 7.200000000000003,
+              "max": 8,
+              "key": "native-warning",
+              "kind": "hazard"
+            },
+            "music": {
+              "saved": 0.4,
+              "base": 0.4,
+              "duck": 0.35,
+              "volume": 0,
+              "paused": true,
+              "muted": true
+            },
+            "bus": 0.4099999964237213,
+            "audioContext": {
+              "state": "running",
+              "currentTime": 0.011609977324263039
+            },
+            "hidden": false,
+            "menuOpen": false,
+            "paused": false,
+            "warningAudioBlocked": false,
+            "demo": false,
+            "over": false
+          }
+        },
+        {
+          "time": 455.1000000014901,
+          "pass": false,
+          "state": {
+            "banner": {
+              "title": "Native warning",
+              "sub": "Bounded acceptance fixture",
+              "col": "#FF5A4E",
+              "t": 7.200000000000003,
+              "max": 8,
+              "key": "native-warning",
+              "kind": "hazard"
+            },
+            "music": {
+              "saved": 0.4,
+              "base": 0.4,
+              "duck": 0.35,
+              "volume": 0,
+              "paused": true,
+              "muted": true
+            },
+            "bus": 0.4099999964237213,
+            "audioContext": {
+              "state": "running",
+              "currentTime": 0.011609977324263039
+            },
+            "hidden": false,
+            "menuOpen": false,
+            "paused": false,
+            "warningAudioBlocked": false,
+            "demo": false,
+            "over": false
+          }
+        },
+        {
+          "time": 480.70000000298023,
+          "pass": false,
+          "state": {
+            "banner": {
+              "title": "Native warning",
+              "sub": "Bounded acceptance fixture",
+              "col": "#FF5A4E",
+              "t": 7.200000000000003,
+              "max": 8,
+              "key": "native-warning",
+              "kind": "hazard"
+            },
+            "music": {
+              "saved": 0.4,
+              "base": 0.4,
+              "duck": 0.35,
+              "volume": 0,
+              "paused": true,
+              "muted": true
+            },
+            "bus": 0.4099999964237213,
+            "audioContext": {
+              "state": "running",
+              "currentTime": 0.011609977324263039
+            },
+            "hidden": false,
+            "menuOpen": false,
+            "paused": false,
+            "warningAudioBlocked": false,
+            "demo": false,
+            "over": false
+          }
+        },
+        {
+          "time": 505.9000000022352,
+          "pass": false,
+          "state": {
+            "banner": {
+              "title": "Native warning",
+              "sub": "Bounded acceptance fixture",
+              "col": "#FF5A4E",
+              "t": 7.200000000000003,
+              "max": 8,
+              "key": "native-warning",
+              "kind": "hazard"
+            },
+            "music": {
+              "saved": 0.4,
+              "base": 0.4,
+              "duck": 0.35,
+              "volume": 0,
+              "paused": true,
+              "muted": true
+            },
+            "bus": 0.4099999964237213,
+            "audioContext": {
+              "state": "running",
+              "currentTime": 0.011609977324263039
+            },
+            "hidden": false,
+            "menuOpen": false,
+            "paused": false,
+            "warningAudioBlocked": false,
+            "demo": false,
+            "over": false
+          }
+        },
+        {
+          "time": 531,
+          "pass": false,
+          "state": {
+            "banner": {
+              "title": "Native warning",
+              "sub": "Bounded acceptance fixture",
+              "col": "#FF5A4E",
+              "t": 7.200000000000003,
+              "max": 8,
+              "key": "native-warning",
+              "kind": "hazard"
+            },
+            "music": {
+              "saved": 0.4,
+              "base": 0.4,
+              "duck": 0.35,
+              "volume": 0,
+              "paused": true,
+              "muted": true
+            },
+            "bus": 0.4099999964237213,
+            "audioContext": {
+              "state": "running",
+              "currentTime": 0.011609977324263039
+            },
+            "hidden": false,
+            "menuOpen": false,
+            "paused": false,
+            "warningAudioBlocked": false,
+            "demo": false,
+            "over": false
+          }
+        },
+        {
+          "time": 556.9000000022352,
+          "pass": false,
+          "state": {
+            "banner": {
+              "title": "Native warning",
+              "sub": "Bounded acceptance fixture",
+              "col": "#FF5A4E",
+              "t": 7.200000000000003,
+              "max": 8,
+              "key": "native-warning",
+              "kind": "hazard"
+            },
+            "music": {
+              "saved": 0.4,
+              "base": 0.4,
+              "duck": 0.35,
+              "volume": 0,
+              "paused": true,
+              "muted": true
+            },
+            "bus": 0.4099999964237213,
+            "audioContext": {
+              "state": "running",
+              "currentTime": 0.011609977324263039
+            },
+            "hidden": false,
+            "menuOpen": false,
+            "paused": false,
+            "warningAudioBlocked": false,
+            "demo": false,
+            "over": false
+          }
+        },
+        {
+          "time": 582.5,
+          "pass": false,
+          "state": {
+            "banner": {
+              "title": "Native warning",
+              "sub": "Bounded acceptance fixture",
+              "col": "#FF5A4E",
+              "t": 7.200000000000003,
+              "max": 8,
+              "key": "native-warning",
+              "kind": "hazard"
+            },
+            "music": {
+              "saved": 0.4,
+              "base": 0.4,
+              "duck": 0.35,
+              "volume": 0,
+              "paused": true,
+              "muted": true
+            },
+            "bus": 0.4099999964237213,
+            "audioContext": {
+              "state": "running",
+              "currentTime": 0.011609977324263039
+            },
+            "hidden": false,
+            "menuOpen": false,
+            "paused": false,
+            "warningAudioBlocked": false,
+            "demo": false,
+            "over": false
+          }
+        },
+        {
+          "time": 608.1000000014901,
+          "pass": false,
+          "state": {
+            "banner": {
+              "title": "Native warning",
+              "sub": "Bounded acceptance fixture",
+              "col": "#FF5A4E",
+              "t": 7.200000000000003,
+              "max": 8,
+              "key": "native-warning",
+              "kind": "hazard"
+            },
+            "music": {
+              "saved": 0.4,
+              "base": 0.4,
+              "duck": 0.35,
+              "volume": 0,
+              "paused": true,
+              "muted": true
+            },
+            "bus": 0.4099999964237213,
+            "audioContext": {
+              "state": "running",
+              "currentTime": 0.011609977324263039
+            },
+            "hidden": false,
+            "menuOpen": false,
+            "paused": false,
+            "warningAudioBlocked": false,
+            "demo": false,
+            "over": false
+          }
+        },
+        {
+          "time": 634,
+          "pass": false,
+          "state": {
+            "banner": {
+              "title": "Native warning",
+              "sub": "Bounded acceptance fixture",
+              "col": "#FF5A4E",
+              "t": 7.200000000000003,
+              "max": 8,
+              "key": "native-warning",
+              "kind": "hazard"
+            },
+            "music": {
+              "saved": 0.4,
+              "base": 0.4,
+              "duck": 0.35,
+              "volume": 0,
+              "paused": true,
+              "muted": true
+            },
+            "bus": 0.4099999964237213,
+            "audioContext": {
+              "state": "running",
+              "currentTime": 0.011609977324263039
+            },
+            "hidden": false,
+            "menuOpen": false,
+            "paused": false,
+            "warningAudioBlocked": false,
+            "demo": false,
+            "over": false
+          }
+        },
+        {
+          "time": 659.6000000014901,
+          "pass": false,
+          "state": {
+            "banner": {
+              "title": "Native warning",
+              "sub": "Bounded acceptance fixture",
+              "col": "#FF5A4E",
+              "t": 7.200000000000003,
+              "max": 8,
+              "key": "native-warning",
+              "kind": "hazard"
+            },
+            "music": {
+              "saved": 0.4,
+              "base": 0.4,
+              "duck": 0.35,
+              "volume": 0,
+              "paused": true,
+              "muted": true
+            },
+            "bus": 0.4099999964237213,
+            "audioContext": {
+              "state": "running",
+              "currentTime": 0.011609977324263039
+            },
+            "hidden": false,
+            "menuOpen": false,
+            "paused": false,
+            "warningAudioBlocked": false,
+            "demo": false,
+            "over": false
+          }
+        },
+        {
+          "time": 685.5,
+          "pass": false,
+          "state": {
+            "banner": {
+              "title": "Native warning",
+              "sub": "Bounded acceptance fixture",
+              "col": "#FF5A4E",
+              "t": 7.200000000000003,
+              "max": 8,
+              "key": "native-warning",
+              "kind": "hazard"
+            },
+            "music": {
+              "saved": 0.4,
+              "base": 0.4,
+              "duck": 0.35,
+              "volume": 0,
+              "paused": true,
+              "muted": true
+            },
+            "bus": 0.4099999964237213,
+            "audioContext": {
+              "state": "running",
+              "currentTime": 0.011609977324263039
+            },
+            "hidden": false,
+            "menuOpen": false,
+            "paused": false,
+            "warningAudioBlocked": false,
+            "demo": false,
+            "over": false
+          }
+        },
+        {
+          "time": 710.8000000007451,
+          "pass": false,
+          "state": {
+            "banner": {
+              "title": "Native warning",
+              "sub": "Bounded acceptance fixture",
+              "col": "#FF5A4E",
+              "t": 7.200000000000003,
+              "max": 8,
+              "key": "native-warning",
+              "kind": "hazard"
+            },
+            "music": {
+              "saved": 0.4,
+              "base": 0.4,
+              "duck": 0.35,
+              "volume": 0,
+              "paused": true,
+              "muted": true
+            },
+            "bus": 0.4099999964237213,
+            "audioContext": {
+              "state": "running",
+              "currentTime": 0.011609977324263039
+            },
+            "hidden": false,
+            "menuOpen": false,
+            "paused": false,
+            "warningAudioBlocked": false,
+            "demo": false,
+            "over": false
+          }
+        },
+        {
+          "time": 736.5,
+          "pass": false,
+          "state": {
+            "banner": {
+              "title": "Native warning",
+              "sub": "Bounded acceptance fixture",
+              "col": "#FF5A4E",
+              "t": 7.200000000000003,
+              "max": 8,
+              "key": "native-warning",
+              "kind": "hazard"
+            },
+            "music": {
+              "saved": 0.4,
+              "base": 0.4,
+              "duck": 0.35,
+              "volume": 0,
+              "paused": true,
+              "muted": true
+            },
+            "bus": 0.4099999964237213,
+            "audioContext": {
+              "state": "running",
+              "currentTime": 0.011609977324263039
+            },
+            "hidden": false,
+            "menuOpen": false,
+            "paused": false,
+            "warningAudioBlocked": false,
+            "demo": false,
+            "over": false
+          }
+        },
+        {
+          "time": 761.5,
+          "pass": false,
+          "state": {
+            "banner": {
+              "title": "Native warning",
+              "sub": "Bounded acceptance fixture",
+              "col": "#FF5A4E",
+              "t": 7.200000000000003,
+              "max": 8,
+              "key": "native-warning",
+              "kind": "hazard"
+            },
+            "music": {
+              "saved": 0.4,
+              "base": 0.4,
+              "duck": 0.35,
+              "volume": 0,
+              "paused": true,
+              "muted": true
+            },
+            "bus": 0.4099999964237213,
+            "audioContext": {
+              "state": "running",
+              "currentTime": 0.011609977324263039
+            },
+            "hidden": false,
+            "menuOpen": false,
+            "paused": false,
+            "warningAudioBlocked": false,
+            "demo": false,
+            "over": false
+          }
+        },
+        {
+          "time": 787.1000000014901,
+          "pass": false,
+          "state": {
+            "banner": {
+              "title": "Native warning",
+              "sub": "Bounded acceptance fixture",
+              "col": "#FF5A4E",
+              "t": 7.200000000000003,
+              "max": 8,
+              "key": "native-warning",
+              "kind": "hazard"
+            },
+            "music": {
+              "saved": 0.4,
+              "base": 0.4,
+              "duck": 0.35,
+              "volume": 0,
+              "paused": true,
+              "muted": true
+            },
+            "bus": 0.4099999964237213,
+            "audioContext": {
+              "state": "running",
+              "currentTime": 0.011609977324263039
+            },
+            "hidden": false,
+            "menuOpen": false,
+            "paused": false,
+            "warningAudioBlocked": false,
+            "demo": false,
+            "over": false
+          }
+        },
+        {
+          "time": 814.1000000014901,
+          "pass": false,
+          "state": {
+            "banner": {
+              "title": "Native warning",
+              "sub": "Bounded acceptance fixture",
+              "col": "#FF5A4E",
+              "t": 7.200000000000003,
+              "max": 8,
+              "key": "native-warning",
+              "kind": "hazard"
+            },
+            "music": {
+              "saved": 0.4,
+              "base": 0.4,
+              "duck": 0.35,
+              "volume": 0,
+              "paused": true,
+              "muted": true
+            },
+            "bus": 0.4099999964237213,
+            "audioContext": {
+              "state": "running",
+              "currentTime": 0.011609977324263039
+            },
+            "hidden": false,
+            "menuOpen": false,
+            "paused": false,
+            "warningAudioBlocked": false,
+            "demo": false,
+            "over": false
+          }
+        },
+        {
+          "time": 840.1000000014901,
+          "pass": false,
+          "state": {
+            "banner": {
+              "title": "Native warning",
+              "sub": "Bounded acceptance fixture",
+              "col": "#FF5A4E",
+              "t": 7.200000000000003,
+              "max": 8,
+              "key": "native-warning",
+              "kind": "hazard"
+            },
+            "music": {
+              "saved": 0.4,
+              "base": 0.4,
+              "duck": 0.35,
+              "volume": 0,
+              "paused": true,
+              "muted": true
+            },
+            "bus": 0.4099999964237213,
+            "audioContext": {
+              "state": "running",
+              "currentTime": 0.011609977324263039
+            },
+            "hidden": false,
+            "menuOpen": false,
+            "paused": false,
+            "warningAudioBlocked": false,
+            "demo": false,
+            "over": false
+          }
+        },
+        {
+          "time": 865.7000000029802,
+          "pass": false,
+          "state": {
+            "banner": {
+              "title": "Native warning",
+              "sub": "Bounded acceptance fixture",
+              "col": "#FF5A4E",
+              "t": 7.200000000000003,
+              "max": 8,
+              "key": "native-warning",
+              "kind": "hazard"
+            },
+            "music": {
+              "saved": 0.4,
+              "base": 0.4,
+              "duck": 0.35,
+              "volume": 0,
+              "paused": true,
+              "muted": true
+            },
+            "bus": 0.4099999964237213,
+            "audioContext": {
+              "state": "running",
+              "currentTime": 0.011609977324263039
+            },
+            "hidden": false,
+            "menuOpen": false,
+            "paused": false,
+            "warningAudioBlocked": false,
+            "demo": false,
+            "over": false
+          }
+        },
+        {
+          "time": 891.4000000022352,
+          "pass": false,
+          "state": {
+            "banner": {
+              "title": "Native warning",
+              "sub": "Bounded acceptance fixture",
+              "col": "#FF5A4E",
+              "t": 7.200000000000003,
+              "max": 8,
+              "key": "native-warning",
+              "kind": "hazard"
+            },
+            "music": {
+              "saved": 0.4,
+              "base": 0.4,
+              "duck": 0.35,
+              "volume": 0,
+              "paused": true,
+              "muted": true
+            },
+            "bus": 0.4099999964237213,
+            "audioContext": {
+              "state": "running",
+              "currentTime": 0.011609977324263039
+            },
+            "hidden": false,
+            "menuOpen": false,
+            "paused": false,
+            "warningAudioBlocked": false,
+            "demo": false,
+            "over": false
+          }
+        },
+        {
+          "time": 917.4000000022352,
+          "pass": false,
+          "state": {
+            "banner": {
+              "title": "Native warning",
+              "sub": "Bounded acceptance fixture",
+              "col": "#FF5A4E",
+              "t": 7.200000000000003,
+              "max": 8,
+              "key": "native-warning",
+              "kind": "hazard"
+            },
+            "music": {
+              "saved": 0.4,
+              "base": 0.4,
+              "duck": 0.35,
+              "volume": 0,
+              "paused": true,
+              "muted": true
+            },
+            "bus": 0.4099999964237213,
+            "audioContext": {
+              "state": "running",
+              "currentTime": 0.011609977324263039
+            },
+            "hidden": false,
+            "menuOpen": false,
+            "paused": false,
+            "warningAudioBlocked": false,
+            "demo": false,
+            "over": false
+          }
+        },
+        {
+          "time": 942.7000000029802,
+          "pass": false,
+          "state": {
+            "banner": {
+              "title": "Native warning",
+              "sub": "Bounded acceptance fixture",
+              "col": "#FF5A4E",
+              "t": 7.200000000000003,
+              "max": 8,
+              "key": "native-warning",
+              "kind": "hazard"
+            },
+            "music": {
+              "saved": 0.4,
+              "base": 0.4,
+              "duck": 0.35,
+              "volume": 0,
+              "paused": true,
+              "muted": true
+            },
+            "bus": 0.4099999964237213,
+            "audioContext": {
+              "state": "running",
+              "currentTime": 0.011609977324263039
+            },
+            "hidden": false,
+            "menuOpen": false,
+            "paused": false,
+            "warningAudioBlocked": false,
+            "demo": false,
+            "over": false
+          }
+        },
+        {
+          "time": 968,
+          "pass": false,
+          "state": {
+            "banner": {
+              "title": "Native warning",
+              "sub": "Bounded acceptance fixture",
+              "col": "#FF5A4E",
+              "t": 7.200000000000003,
+              "max": 8,
+              "key": "native-warning",
+              "kind": "hazard"
+            },
+            "music": {
+              "saved": 0.4,
+              "base": 0.4,
+              "duck": 0.35,
+              "volume": 0,
+              "paused": true,
+              "muted": true
+            },
+            "bus": 0.4099999964237213,
+            "audioContext": {
+              "state": "running",
+              "currentTime": 0.011609977324263039
+            },
+            "hidden": false,
+            "menuOpen": false,
+            "paused": false,
+            "warningAudioBlocked": false,
+            "demo": false,
+            "over": false
+          }
+        },
+        {
+          "time": 994.3000000007451,
+          "pass": false,
+          "state": {
+            "banner": {
+              "title": "Native warning",
+              "sub": "Bounded acceptance fixture",
+              "col": "#FF5A4E",
+              "t": 7.200000000000003,
+              "max": 8,
+              "key": "native-warning",
+              "kind": "hazard"
+            },
+            "music": {
+              "saved": 0.4,
+              "base": 0.4,
+              "duck": 0.35,
+              "volume": 0,
+              "paused": true,
+              "muted": true
+            },
+            "bus": 0.4099999964237213,
+            "audioContext": {
+              "state": "running",
+              "currentTime": 0.011609977324263039
+            },
+            "hidden": false,
+            "menuOpen": false,
+            "paused": false,
+            "warningAudioBlocked": false,
+            "demo": false,
+            "over": false
+          }
+        },
+        {
+          "time": 1022.8000000007451,
+          "pass": true,
+          "state": {
+            "banner": {
+              "title": "Native warning",
+              "sub": "Bounded acceptance fixture",
+              "col": "#FF5A4E",
+              "t": 7.200000000000003,
+              "max": 8,
+              "key": "native-warning",
+              "kind": "hazard"
+            },
+            "music": {
+              "saved": 0.4,
+              "base": 0.4,
+              "duck": 0.35,
+              "volume": 0,
+              "paused": true,
+              "muted": true
+            },
+            "bus": 0,
+            "audioContext": {
+              "state": "running",
+              "currentTime": 0.040634920634920635
+            },
+            "hidden": false,
+            "menuOpen": false,
+            "paused": false,
+            "warningAudioBlocked": false,
+            "demo": false,
+            "over": false
+          }
+        }
+      ]
+    },
+    {
+      "predicate": "()=>!music.paused&&musicBaseVolume===SET.music&&Math.abs(music.volume-.14)<.005&&Math.abs(sfxMixer.bus.gain.value-.41)<.005",
+      "observations": [
+        {
+          "time": 1022.9000000022352,
+          "pass": false,
+          "state": {
+            "banner": {
+              "title": "Native warning",
+              "sub": "Bounded acceptance fixture",
+              "col": "#FF5A4E",
+              "t": 7.200000000000003,
+              "max": 8,
+              "key": "native-warning",
+              "kind": "hazard"
+            },
+            "music": {
+              "saved": 0.4,
+              "base": 0,
+              "duck": 0.35,
+              "volume": 0,
+              "paused": false,
+              "muted": false
+            },
+            "bus": 0,
+            "audioContext": {
+              "state": "running",
+              "currentTime": 0.040634920634920635
+            },
+            "hidden": false,
+            "menuOpen": false,
+            "paused": false,
+            "warningAudioBlocked": false,
+            "demo": false,
+            "over": false
+          }
+        },
+        {
+          "time": 1048.7000000029802,
+          "pass": false,
+          "state": {
+            "banner": {
+              "title": "Native warning",
+              "sub": "Bounded acceptance fixture",
+              "col": "#FF5A4E",
+              "t": 7.200000000000003,
+              "max": 8,
+              "key": "native-warning",
+              "kind": "hazard"
+            },
+            "music": {
+              "saved": 0.4,
+              "base": 0,
+              "duck": 0.35,
+              "volume": 0,
+              "paused": false,
+              "muted": false
+            },
+            "bus": 0.4099999964237213,
+            "audioContext": {
+              "state": "running",
+              "currentTime": 0.06095238095238095
+            },
+            "hidden": false,
+            "menuOpen": false,
+            "paused": false,
+            "warningAudioBlocked": false,
+            "demo": false,
+            "over": false
+          }
+        },
+        {
+          "time": 1074.6000000014901,
+          "pass": false,
+          "state": {
+            "banner": {
+              "title": "Native warning",
+              "sub": "Bounded acceptance fixture",
+              "col": "#FF5A4E",
+              "t": 7.200000000000003,
+              "max": 8,
+              "key": "native-warning",
+              "kind": "hazard"
+            },
+            "music": {
+              "saved": 0.4,
+              "base": 0,
+              "duck": 0.35,
+              "volume": 0,
+              "paused": false,
+              "muted": false
+            },
+            "bus": 0.4099999964237213,
+            "audioContext": {
+              "state": "running",
+              "currentTime": 0.08126984126984127
+            },
+            "hidden": false,
+            "menuOpen": false,
+            "paused": false,
+            "warningAudioBlocked": false,
+            "demo": false,
+            "over": false
+          }
+        },
+        {
+          "time": 1100.9000000022352,
+          "pass": false,
+          "state": {
+            "banner": {
+              "title": "Native warning",
+              "sub": "Bounded acceptance fixture",
+              "col": "#FF5A4E",
+              "t": 7.200000000000003,
+              "max": 8,
+              "key": "native-warning",
+              "kind": "hazard"
+            },
+            "music": {
+              "saved": 0.4,
+              "base": 0.05,
+              "duck": 0.35,
+              "volume": 0.017499999999999998,
+              "paused": false,
+              "muted": false
+            },
+            "bus": 0.4099999964237213,
+            "audioContext": {
+              "state": "running",
+              "currentTime": 0.11029478458049886
+            },
+            "hidden": false,
+            "menuOpen": false,
+            "paused": false,
+            "warningAudioBlocked": false,
+            "demo": false,
+            "over": false
+          }
+        },
+        {
+          "time": 1126.5,
+          "pass": false,
+          "state": {
+            "banner": {
+              "title": "Native warning",
+              "sub": "Bounded acceptance fixture",
+              "col": "#FF5A4E",
+              "t": 7.200000000000003,
+              "max": 8,
+              "key": "native-warning",
+              "kind": "hazard"
+            },
+            "music": {
+              "saved": 0.4,
+              "base": 0.05,
+              "duck": 0.35,
+              "volume": 0.017499999999999998,
+              "paused": false,
+              "muted": false
+            },
+            "bus": 0.4099999964237213,
+            "audioContext": {
+              "state": "running",
+              "currentTime": 0.14222222222222222
+            },
+            "hidden": false,
+            "menuOpen": false,
+            "paused": false,
+            "warningAudioBlocked": false,
+            "demo": false,
+            "over": false
+          }
+        },
+        {
+          "time": 1155.1000000014901,
+          "pass": false,
+          "state": {
+            "banner": {
+              "title": "Native warning",
+              "sub": "Bounded acceptance fixture",
+              "col": "#FF5A4E",
+              "t": 7.200000000000003,
+              "max": 8,
+              "key": "native-warning",
+              "kind": "hazard"
+            },
+            "music": {
+              "saved": 0.4,
+              "base": 0.05,
+              "duck": 0.35,
+              "volume": 0.017499999999999998,
+              "paused": false,
+              "muted": false
+            },
+            "bus": 0.4099999964237213,
+            "audioContext": {
+              "state": "running",
+              "currentTime": 0.16253968253968254
+            },
+            "hidden": false,
+            "menuOpen": false,
+            "paused": false,
+            "warningAudioBlocked": false,
+            "demo": false,
+            "over": false
+          }
+        },
+        {
+          "time": 1181.5,
+          "pass": false,
+          "state": {
+            "banner": {
+              "title": "Native warning",
+              "sub": "Bounded acceptance fixture",
+              "col": "#FF5A4E",
+              "t": 7.200000000000003,
+              "max": 8,
+              "key": "native-warning",
+              "kind": "hazard"
+            },
+            "music": {
+              "saved": 0.4,
+              "base": 0.1,
+              "duck": 0.35,
+              "volume": 0.034999999999999996,
+              "paused": false,
+              "muted": false
+            },
+            "bus": 0.4099999964237213,
+            "audioContext": {
+              "state": "running",
+              "currentTime": 0.19156462585034015
+            },
+            "hidden": false,
+            "menuOpen": false,
+            "paused": false,
+            "warningAudioBlocked": false,
+            "demo": false,
+            "over": false
+          }
+        },
+        {
+          "time": 1207.1000000014901,
+          "pass": false,
+          "state": {
+            "banner": {
+              "title": "Native warning",
+              "sub": "Bounded acceptance fixture",
+              "col": "#FF5A4E",
+              "t": 7.200000000000003,
+              "max": 8,
+              "key": "native-warning",
+              "kind": "hazard"
+            },
+            "music": {
+              "saved": 0.4,
+              "base": 0.1,
+              "duck": 0.35,
+              "volume": 0.034999999999999996,
+              "paused": false,
+              "muted": false
+            },
+            "bus": 0.4099999964237213,
+            "audioContext": {
+              "state": "running",
+              "currentTime": 0.22058956916099773
+            },
+            "hidden": false,
+            "menuOpen": false,
+            "paused": false,
+            "warningAudioBlocked": false,
+            "demo": false,
+            "over": false
+          }
+        },
+        {
+          "time": 1233.300000000745,
+          "pass": false,
+          "state": {
+            "banner": {
+              "title": "Native warning",
+              "sub": "Bounded acceptance fixture",
+              "col": "#FF5A4E",
+              "t": 7.200000000000003,
+              "max": 8,
+              "key": "native-warning",
+              "kind": "hazard"
+            },
+            "music": {
+              "saved": 0.4,
+              "base": 0.15000000000000002,
+              "duck": 0.35,
+              "volume": 0.052500000000000005,
+              "paused": false,
+              "muted": false
+            },
+            "bus": 0.4099999964237213,
+            "audioContext": {
+              "state": "running",
+              "currentTime": 0.24090702947845805
+            },
+            "hidden": false,
+            "menuOpen": false,
+            "paused": false,
+            "warningAudioBlocked": false,
+            "demo": false,
+            "over": false
+          }
+        },
+        {
+          "time": 1259.800000000745,
+          "pass": false,
+          "state": {
+            "banner": {
+              "title": "Native warning",
+              "sub": "Bounded acceptance fixture",
+              "col": "#FF5A4E",
+              "t": 7.200000000000003,
+              "max": 8,
+              "key": "native-warning",
+              "kind": "hazard"
+            },
+            "music": {
+              "saved": 0.4,
+              "base": 0.15000000000000002,
+              "duck": 0.35,
+              "volume": 0.052500000000000005,
+              "paused": false,
+              "muted": false
+            },
+            "bus": 0.4099999964237213,
+            "audioContext": {
+              "state": "running",
+              "currentTime": 0.2728344671201814
+            },
+            "hidden": false,
+            "menuOpen": false,
+            "paused": false,
+            "warningAudioBlocked": false,
+            "demo": false,
+            "over": false
+          }
+        },
+        {
+          "time": 1288.9000000022352,
+          "pass": false,
+          "state": {
+            "banner": {
+              "title": "Native warning",
+              "sub": "Bounded acceptance fixture",
+              "col": "#FF5A4E",
+              "t": 7.200000000000003,
+              "max": 8,
+              "key": "native-warning",
+              "kind": "hazard"
+            },
+            "music": {
+              "saved": 0.4,
+              "base": 0.2,
+              "duck": 0.35,
+              "volume": 0.06999999999999999,
+              "paused": false,
+              "muted": false
+            },
+            "bus": 0.4099999964237213,
+            "audioContext": {
+              "state": "running",
+              "currentTime": 0.301859410430839
+            },
+            "hidden": false,
+            "menuOpen": false,
+            "paused": false,
+            "warningAudioBlocked": false,
+            "demo": false,
+            "over": false
+          }
+        },
+        {
+          "time": 1314.7000000029802,
+          "pass": false,
+          "state": {
+            "banner": {
+              "title": "Native warning",
+              "sub": "Bounded acceptance fixture",
+              "col": "#FF5A4E",
+              "t": 7.200000000000003,
+              "max": 8,
+              "key": "native-warning",
+              "kind": "hazard"
+            },
+            "music": {
+              "saved": 0.4,
+              "base": 0.2,
+              "duck": 0.35,
+              "volume": 0.06999999999999999,
+              "paused": false,
+              "muted": false
+            },
+            "bus": 0.4099999964237213,
+            "audioContext": {
+              "state": "running",
+              "currentTime": 0.3221768707482993
+            },
+            "hidden": false,
+            "menuOpen": false,
+            "paused": false,
+            "warningAudioBlocked": false,
+            "demo": false,
+            "over": false
+          }
+        },
+        {
+          "time": 1339.800000000745,
+          "pass": false,
+          "state": {
+            "banner": {
+              "title": "Native warning",
+              "sub": "Bounded acceptance fixture",
+              "col": "#FF5A4E",
+              "t": 7.200000000000003,
+              "max": 8,
+              "key": "native-warning",
+              "kind": "hazard"
+            },
+            "music": {
+              "saved": 0.4,
+              "base": 0.25,
+              "duck": 0.35,
+              "volume": 0.0875,
+              "paused": false,
+              "muted": false
+            },
+            "bus": 0.4099999964237213,
+            "audioContext": {
+              "state": "running",
+              "currentTime": 0.3512018140589569
+            },
+            "hidden": false,
+            "menuOpen": false,
+            "paused": false,
+            "warningAudioBlocked": false,
+            "demo": false,
+            "over": false
+          }
+        },
+        {
+          "time": 1365.5,
+          "pass": false,
+          "state": {
+            "banner": {
+              "title": "Native warning",
+              "sub": "Bounded acceptance fixture",
+              "col": "#FF5A4E",
+              "t": 7.200000000000003,
+              "max": 8,
+              "key": "native-warning",
+              "kind": "hazard"
+            },
+            "music": {
+              "saved": 0.4,
+              "base": 0.25,
+              "duck": 0.35,
+              "volume": 0.0875,
+              "paused": false,
+              "muted": false
+            },
+            "bus": 0.4099999964237213,
+            "audioContext": {
+              "state": "running",
+              "currentTime": 0.37151927437641724
+            },
+            "hidden": false,
+            "menuOpen": false,
+            "paused": false,
+            "warningAudioBlocked": false,
+            "demo": false,
+            "over": false
+          }
+        },
+        {
+          "time": 1392.4000000022352,
+          "pass": false,
+          "state": {
+            "banner": {
+              "title": "Native warning",
+              "sub": "Bounded acceptance fixture",
+              "col": "#FF5A4E",
+              "t": 7.200000000000003,
+              "max": 8,
+              "key": "native-warning",
+              "kind": "hazard"
+            },
+            "music": {
+              "saved": 0.4,
+              "base": 0.25,
+              "duck": 0.35,
+              "volume": 0.0875,
+              "paused": false,
+              "muted": false
+            },
+            "bus": 0.4099999964237213,
+            "audioContext": {
+              "state": "running",
+              "currentTime": 0.4005442176870748
+            },
+            "hidden": false,
+            "menuOpen": false,
+            "paused": false,
+            "warningAudioBlocked": false,
+            "demo": false,
+            "over": false
+          }
+        },
+        {
+          "time": 1421.9000000022352,
+          "pass": false,
+          "state": {
+            "banner": {
+              "title": "Native warning",
+              "sub": "Bounded acceptance fixture",
+              "col": "#FF5A4E",
+              "t": 7.200000000000003,
+              "max": 8,
+              "key": "native-warning",
+              "kind": "hazard"
+            },
+            "music": {
+              "saved": 0.4,
+              "base": 0.3,
+              "duck": 0.35,
+              "volume": 0.105,
+              "paused": false,
+              "muted": false
+            },
+            "bus": 0.4099999964237213,
+            "audioContext": {
+              "state": "running",
+              "currentTime": 0.43247165532879817
+            },
+            "hidden": false,
+            "menuOpen": false,
+            "paused": false,
+            "warningAudioBlocked": false,
+            "demo": false,
+            "over": false
+          }
+        },
+        {
+          "time": 1447.800000000745,
+          "pass": false,
+          "state": {
+            "banner": {
+              "title": "Native warning",
+              "sub": "Bounded acceptance fixture",
+              "col": "#FF5A4E",
+              "t": 7.200000000000003,
+              "max": 8,
+              "key": "native-warning",
+              "kind": "hazard"
+            },
+            "music": {
+              "saved": 0.4,
+              "base": 0.3,
+              "duck": 0.35,
+              "volume": 0.105,
+              "paused": false,
+              "muted": false
+            },
+            "bus": 0.4099999964237213,
+            "audioContext": {
+              "state": "running",
+              "currentTime": 0.4614965986394558
+            },
+            "hidden": false,
+            "menuOpen": false,
+            "paused": false,
+            "warningAudioBlocked": false,
+            "demo": false,
+            "over": false
+          }
+        },
+        {
+          "time": 1473.1000000014901,
+          "pass": false,
+          "state": {
+            "banner": {
+              "title": "Native warning",
+              "sub": "Bounded acceptance fixture",
+              "col": "#FF5A4E",
+              "t": 7.200000000000003,
+              "max": 8,
+              "key": "native-warning",
+              "kind": "hazard"
+            },
+            "music": {
+              "saved": 0.4,
+              "base": 0.35,
+              "duck": 0.35,
+              "volume": 0.12249999999999998,
+              "paused": false,
+              "muted": false
+            },
+            "bus": 0.4099999964237213,
+            "audioContext": {
+              "state": "running",
+              "currentTime": 0.4818140589569161
+            },
+            "hidden": false,
+            "menuOpen": false,
+            "paused": false,
+            "warningAudioBlocked": false,
+            "demo": false,
+            "over": false
+          }
+        },
+        {
+          "time": 1498.2000000029802,
+          "pass": false,
+          "state": {
+            "banner": {
+              "title": "Native warning",
+              "sub": "Bounded acceptance fixture",
+              "col": "#FF5A4E",
+              "t": 7.200000000000003,
+              "max": 8,
+              "key": "native-warning",
+              "kind": "hazard"
+            },
+            "music": {
+              "saved": 0.4,
+              "base": 0.35,
+              "duck": 0.35,
+              "volume": 0.12249999999999998,
+              "paused": false,
+              "muted": false
+            },
+            "bus": 0.4099999964237213,
+            "audioContext": {
+              "state": "running",
+              "currentTime": 0.5108390022675737
+            },
+            "hidden": false,
+            "menuOpen": false,
+            "paused": false,
+            "warningAudioBlocked": false,
+            "demo": false,
+            "over": false
+          }
+        },
+        {
+          "time": 1523.5,
+          "pass": false,
+          "state": {
+            "banner": {
+              "title": "Native warning",
+              "sub": "Bounded acceptance fixture",
+              "col": "#FF5A4E",
+              "t": 7.200000000000003,
+              "max": 8,
+              "key": "native-warning",
+              "kind": "hazard"
+            },
+            "music": {
+              "saved": 0.4,
+              "base": 0.39999999999999997,
+              "duck": 0.35,
+              "volume": 0.13999999999999999,
+              "paused": false,
+              "muted": false
+            },
+            "bus": 0.4099999964237213,
+            "audioContext": {
+              "state": "running",
+              "currentTime": 0.531156462585034
+            },
+            "hidden": false,
+            "menuOpen": false,
+            "paused": false,
+            "warningAudioBlocked": false,
+            "demo": false,
+            "over": false
+          }
+        },
+        {
+          "time": 1549.5,
+          "pass": false,
+          "state": {
+            "banner": {
+              "title": "Native warning",
+              "sub": "Bounded acceptance fixture",
+              "col": "#FF5A4E",
+              "t": 7.200000000000003,
+              "max": 8,
+              "key": "native-warning",
+              "kind": "hazard"
+            },
+            "music": {
+              "saved": 0.4,
+              "base": 0.39999999999999997,
+              "duck": 0.35,
+              "volume": 0.13999999999999999,
+              "paused": false,
+              "muted": false
+            },
+            "bus": 0.4099999964237213,
+            "audioContext": {
+              "state": "running",
+              "currentTime": 0.5601814058956917
+            },
+            "hidden": false,
+            "menuOpen": false,
+            "paused": false,
+            "warningAudioBlocked": false,
+            "demo": false,
+            "over": false
+          }
+        },
+        {
+          "time": 1575.7000000029802,
+          "pass": false,
+          "state": {
+            "banner": {
+              "title": "Native warning",
+              "sub": "Bounded acceptance fixture",
+              "col": "#FF5A4E",
+              "t": 7.200000000000003,
+              "max": 8,
+              "key": "native-warning",
+              "kind": "hazard"
+            },
+            "music": {
+              "saved": 0.4,
+              "base": 0.39999999999999997,
+              "duck": 0.35,
+              "volume": 0.13999999999999999,
+              "paused": false,
+              "muted": false
+            },
+            "bus": 0.4099999964237213,
+            "audioContext": {
+              "state": "running",
+              "currentTime": 0.5804988662131519
+            },
+            "hidden": false,
+            "menuOpen": false,
+            "paused": false,
+            "warningAudioBlocked": false,
+            "demo": false,
+            "over": false
+          }
+        },
+        {
+          "time": 1601.1000000014901,
+          "pass": true,
+          "state": {
+            "banner": {
+              "title": "Native warning",
+              "sub": "Bounded acceptance fixture",
+              "col": "#FF5A4E",
+              "t": 7.200000000000003,
+              "max": 8,
+              "key": "native-warning",
+              "kind": "hazard"
+            },
+            "music": {
+              "saved": 0.4,
+              "base": 0.4,
+              "duck": 0.35,
+              "volume": 0.13999999999999999,
+              "paused": false,
+              "muted": false
+            },
+            "bus": 0.4099999964237213,
+            "audioContext": {
+              "state": "running",
+              "currentTime": 0.6124263038548753
+            },
+            "hidden": false,
+            "menuOpen": false,
+            "paused": false,
+            "warningAudioBlocked": false,
+            "demo": false,
+            "over": false
+          }
+        }
+      ]
+    },
+    {
+      "predicate": "()=>musicBaseVolume===SET.music&&Math.abs(music.volume-.4)<.005",
+      "observations": [
+        {
+          "time": 1602.9000000022352,
+          "pass": false,
+          "state": {
+            "banner": {
+              "title": "Native warning",
+              "sub": "Bounded acceptance fixture",
+              "col": "#FF5A4E",
+              "t": 7.200000000000003,
+              "max": 8,
+              "key": "native-warning",
+              "kind": "hazard"
+            },
+            "music": {
+              "saved": 0.4,
+              "base": 0,
+              "duck": 1,
+              "volume": 0,
+              "paused": false,
+              "muted": false
+            },
+            "bus": 0.4099999964237213,
+            "audioContext": {
+              "state": "running",
+              "currentTime": 0.6124263038548753
+            },
+            "hidden": false,
+            "menuOpen": false,
+            "paused": true,
+            "warningAudioBlocked": true,
+            "demo": false,
+            "over": false
+          }
+        },
+        {
+          "time": 1628.6000000014901,
+          "pass": false,
+          "state": {
+            "banner": {
+              "title": "Native warning",
+              "sub": "Bounded acceptance fixture",
+              "col": "#FF5A4E",
+              "t": 7.200000000000003,
+              "max": 8,
+              "key": "native-warning",
+              "kind": "hazard"
+            },
+            "music": {
+              "saved": 0.4,
+              "base": 0,
+              "duck": 1,
+              "volume": 0,
+              "paused": false,
+              "muted": false
+            },
+            "bus": 0.4099999964237213,
+            "audioContext": {
+              "state": "running",
+              "currentTime": 0.6414512471655329
+            },
+            "hidden": false,
+            "menuOpen": false,
+            "paused": true,
+            "warningAudioBlocked": true,
+            "demo": false,
+            "over": false
+          }
+        },
+        {
+          "time": 1654.800000000745,
+          "pass": false,
+          "state": {
+            "banner": {
+              "title": "Native warning",
+              "sub": "Bounded acceptance fixture",
+              "col": "#FF5A4E",
+              "t": 7.200000000000003,
+              "max": 8,
+              "key": "native-warning",
+              "kind": "hazard"
+            },
+            "music": {
+              "saved": 0.4,
+              "base": 0,
+              "duck": 1,
+              "volume": 0,
+              "paused": false,
+              "muted": false
+            },
+            "bus": 0.4099999964237213,
+            "audioContext": {
+              "state": "running",
+              "currentTime": 0.6617687074829932
+            },
+            "hidden": false,
+            "menuOpen": false,
+            "paused": true,
+            "warningAudioBlocked": true,
+            "demo": false,
+            "over": false
+          }
+        },
+        {
+          "time": 1680.9000000022352,
+          "pass": false,
+          "state": {
+            "banner": {
+              "title": "Native warning",
+              "sub": "Bounded acceptance fixture",
+              "col": "#FF5A4E",
+              "t": 7.200000000000003,
+              "max": 8,
+              "key": "native-warning",
+              "kind": "hazard"
+            },
+            "music": {
+              "saved": 0.4,
+              "base": 0.05,
+              "duck": 1,
+              "volume": 0.05,
+              "paused": false,
+              "muted": false
+            },
+            "bus": 0.4099999964237213,
+            "audioContext": {
+              "state": "running",
+              "currentTime": 0.6907936507936508
+            },
+            "hidden": false,
+            "menuOpen": false,
+            "paused": true,
+            "warningAudioBlocked": true,
+            "demo": false,
+            "over": false
+          }
+        },
+        {
+          "time": 1706.800000000745,
+          "pass": false,
+          "state": {
+            "banner": {
+              "title": "Native warning",
+              "sub": "Bounded acceptance fixture",
+              "col": "#FF5A4E",
+              "t": 7.200000000000003,
+              "max": 8,
+              "key": "native-warning",
+              "kind": "hazard"
+            },
+            "music": {
+              "saved": 0.4,
+              "base": 0.05,
+              "duck": 1,
+              "volume": 0.05,
+              "paused": false,
+              "muted": false
+            },
+            "bus": 0.4099999964237213,
+            "audioContext": {
+              "state": "running",
+              "currentTime": 0.7227210884353742
+            },
+            "hidden": false,
+            "menuOpen": false,
+            "paused": true,
+            "warningAudioBlocked": true,
+            "demo": false,
+            "over": false
+          }
+        },
+        {
+          "time": 1732.5,
+          "pass": false,
+          "state": {
+            "banner": {
+              "title": "Native warning",
+              "sub": "Bounded acceptance fixture",
+              "col": "#FF5A4E",
+              "t": 7.200000000000003,
+              "max": 8,
+              "key": "native-warning",
+              "kind": "hazard"
+            },
+            "music": {
+              "saved": 0.4,
+              "base": 0.05,
+              "duck": 1,
+              "volume": 0.05,
+              "paused": false,
+              "muted": false
+            },
+            "bus": 0.4099999964237213,
+            "audioContext": {
+              "state": "running",
+              "currentTime": 0.7401360544217687
+            },
+            "hidden": false,
+            "menuOpen": false,
+            "paused": true,
+            "warningAudioBlocked": true,
+            "demo": false,
+            "over": false
+          }
+        },
+        {
+          "time": 1758.5,
+          "pass": false,
+          "state": {
+            "banner": {
+              "title": "Native warning",
+              "sub": "Bounded acceptance fixture",
+              "col": "#FF5A4E",
+              "t": 7.200000000000003,
+              "max": 8,
+              "key": "native-warning",
+              "kind": "hazard"
+            },
+            "music": {
+              "saved": 0.4,
+              "base": 0.1,
+              "duck": 1,
+              "volume": 0.1,
+              "paused": false,
+              "muted": false
+            },
+            "bus": 0.4099999964237213,
+            "audioContext": {
+              "state": "running",
+              "currentTime": 0.7720634920634921
+            },
+            "hidden": false,
+            "menuOpen": false,
+            "paused": true,
+            "warningAudioBlocked": true,
+            "demo": false,
+            "over": false
+          }
+        },
+        {
+          "time": 1784.4000000022352,
+          "pass": false,
+          "state": {
+            "banner": {
+              "title": "Native warning",
+              "sub": "Bounded acceptance fixture",
+              "col": "#FF5A4E",
+              "t": 7.200000000000003,
+              "max": 8,
+              "key": "native-warning",
+              "kind": "hazard"
+            },
+            "music": {
+              "saved": 0.4,
+              "base": 0.1,
+              "duck": 1,
+              "volume": 0.1,
+              "paused": false,
+              "muted": false
+            },
+            "bus": 0.4099999964237213,
+            "audioContext": {
+              "state": "running",
+              "currentTime": 0.7923809523809524
+            },
+            "hidden": false,
+            "menuOpen": false,
+            "paused": true,
+            "warningAudioBlocked": true,
+            "demo": false,
+            "over": false
+          }
+        },
+        {
+          "time": 1810.4000000022352,
+          "pass": false,
+          "state": {
+            "banner": {
+              "title": "Native warning",
+              "sub": "Bounded acceptance fixture",
+              "col": "#FF5A4E",
+              "t": 7.200000000000003,
+              "max": 8,
+              "key": "native-warning",
+              "kind": "hazard"
+            },
+            "music": {
+              "saved": 0.4,
+              "base": 0.15000000000000002,
+              "duck": 1,
+              "volume": 0.15000000000000002,
+              "paused": false,
+              "muted": false
+            },
+            "bus": 0.4099999964237213,
+            "audioContext": {
+              "state": "running",
+              "currentTime": 0.8214058956916099
+            },
+            "hidden": false,
+            "menuOpen": false,
+            "paused": true,
+            "warningAudioBlocked": true,
+            "demo": false,
+            "over": false
+          }
+        },
+        {
+          "time": 1837.4000000022352,
+          "pass": false,
+          "state": {
+            "banner": {
+              "title": "Native warning",
+              "sub": "Bounded acceptance fixture",
+              "col": "#FF5A4E",
+              "t": 7.200000000000003,
+              "max": 8,
+              "key": "native-warning",
+              "kind": "hazard"
+            },
+            "music": {
+              "saved": 0.4,
+              "base": 0.15000000000000002,
+              "duck": 1,
+              "volume": 0.15000000000000002,
+              "paused": false,
+              "muted": false
+            },
+            "bus": 0.4099999964237213,
+            "audioContext": {
+              "state": "running",
+              "currentTime": 0.8504308390022676
+            },
+            "hidden": false,
+            "menuOpen": false,
+            "paused": true,
+            "warningAudioBlocked": true,
+            "demo": false,
+            "over": false
+          }
+        },
+        {
+          "time": 1864.5,
+          "pass": false,
+          "state": {
+            "banner": {
+              "title": "Native warning",
+              "sub": "Bounded acceptance fixture",
+              "col": "#FF5A4E",
+              "t": 7.200000000000003,
+              "max": 8,
+              "key": "native-warning",
+              "kind": "hazard"
+            },
+            "music": {
+              "saved": 0.4,
+              "base": 0.2,
+              "duck": 1,
+              "volume": 0.2,
+              "paused": false,
+              "muted": false
+            },
+            "bus": 0.4099999964237213,
+            "audioContext": {
+              "state": "running",
+              "currentTime": 0.8707482993197279
+            },
+            "hidden": false,
+            "menuOpen": false,
+            "paused": true,
+            "warningAudioBlocked": true,
+            "demo": false,
+            "over": false
+          }
+        },
+        {
+          "time": 1890.5,
+          "pass": false,
+          "state": {
+            "banner": {
+              "title": "Native warning",
+              "sub": "Bounded acceptance fixture",
+              "col": "#FF5A4E",
+              "t": 7.200000000000003,
+              "max": 8,
+              "key": "native-warning",
+              "kind": "hazard"
+            },
+            "music": {
+              "saved": 0.4,
+              "base": 0.2,
+              "duck": 1,
+              "volume": 0.2,
+              "paused": false,
+              "muted": false
+            },
+            "bus": 0.4099999964237213,
+            "audioContext": {
+              "state": "running",
+              "currentTime": 0.9026757369614512
+            },
+            "hidden": false,
+            "menuOpen": false,
+            "paused": true,
+            "warningAudioBlocked": true,
+            "demo": false,
+            "over": false
+          }
+        },
+        {
+          "time": 1916.9000000022352,
+          "pass": false,
+          "state": {
+            "banner": {
+              "title": "Native warning",
+              "sub": "Bounded acceptance fixture",
+              "col": "#FF5A4E",
+              "t": 7.200000000000003,
+              "max": 8,
+              "key": "native-warning",
+              "kind": "hazard"
+            },
+            "music": {
+              "saved": 0.4,
+              "base": 0.2,
+              "duck": 1,
+              "volume": 0.2,
+              "paused": false,
+              "muted": false
+            },
+            "bus": 0.4099999964237213,
+            "audioContext": {
+              "state": "running",
+              "currentTime": 0.9317006802721088
+            },
+            "hidden": false,
+            "menuOpen": false,
+            "paused": true,
+            "warningAudioBlocked": true,
+            "demo": false,
+            "over": false
+          }
+        },
+        {
+          "time": 1942.9000000022352,
+          "pass": false,
+          "state": {
+            "banner": {
+              "title": "Native warning",
+              "sub": "Bounded acceptance fixture",
+              "col": "#FF5A4E",
+              "t": 7.200000000000003,
+              "max": 8,
+              "key": "native-warning",
+              "kind": "hazard"
+            },
+            "music": {
+              "saved": 0.4,
+              "base": 0.25,
+              "duck": 1,
+              "volume": 0.25,
+              "paused": false,
+              "muted": false
+            },
+            "bus": 0.4099999964237213,
+            "audioContext": {
+              "state": "running",
+              "currentTime": 0.9520181405895691
+            },
+            "hidden": false,
+            "menuOpen": false,
+            "paused": true,
+            "warningAudioBlocked": true,
+            "demo": false,
+            "over": false
+          }
+        },
+        {
+          "time": 1971.4000000022352,
+          "pass": false,
+          "state": {
+            "banner": {
+              "title": "Native warning",
+              "sub": "Bounded acceptance fixture",
+              "col": "#FF5A4E",
+              "t": 7.200000000000003,
+              "max": 8,
+              "key": "native-warning",
+              "kind": "hazard"
+            },
+            "music": {
+              "saved": 0.4,
+              "base": 0.25,
+              "duck": 1,
+              "volume": 0.25,
+              "paused": false,
+              "muted": false
+            },
+            "bus": 0.4099999964237213,
+            "audioContext": {
+              "state": "running",
+              "currentTime": 0.9810430839002268
+            },
+            "hidden": false,
+            "menuOpen": false,
+            "paused": true,
+            "warningAudioBlocked": true,
+            "demo": false,
+            "over": false
+          }
+        },
+        {
+          "time": 1997.5,
+          "pass": false,
+          "state": {
+            "banner": {
+              "title": "Native warning",
+              "sub": "Bounded acceptance fixture",
+              "col": "#FF5A4E",
+              "t": 7.200000000000003,
+              "max": 8,
+              "key": "native-warning",
+              "kind": "hazard"
+            },
+            "music": {
+              "saved": 0.4,
+              "base": 0.3,
+              "duck": 1,
+              "volume": 0.3,
+              "paused": false,
+              "muted": false
+            },
+            "bus": 0.4099999964237213,
+            "audioContext": {
+              "state": "running",
+              "currentTime": 1.0100680272108844
+            },
+            "hidden": false,
+            "menuOpen": false,
+            "paused": true,
+            "warningAudioBlocked": true,
+            "demo": false,
+            "over": false
+          }
+        },
+        {
+          "time": 2023.7000000029802,
+          "pass": false,
+          "state": {
+            "banner": {
+              "title": "Native warning",
+              "sub": "Bounded acceptance fixture",
+              "col": "#FF5A4E",
+              "t": 7.200000000000003,
+              "max": 8,
+              "key": "native-warning",
+              "kind": "hazard"
+            },
+            "music": {
+              "saved": 0.4,
+              "base": 0.3,
+              "duck": 1,
+              "volume": 0.3,
+              "paused": false,
+              "muted": false
+            },
+            "bus": 0.4099999964237213,
+            "audioContext": {
+              "state": "running",
+              "currentTime": 1.0303854875283447
+            },
+            "hidden": false,
+            "menuOpen": false,
+            "paused": true,
+            "warningAudioBlocked": true,
+            "demo": false,
+            "over": false
+          }
+        },
+        {
+          "time": 2049.5,
+          "pass": false,
+          "state": {
+            "banner": {
+              "title": "Native warning",
+              "sub": "Bounded acceptance fixture",
+              "col": "#FF5A4E",
+              "t": 7.200000000000003,
+              "max": 8,
+              "key": "native-warning",
+              "kind": "hazard"
+            },
+            "music": {
+              "saved": 0.4,
+              "base": 0.35,
+              "duck": 1,
+              "volume": 0.35,
+              "paused": false,
+              "muted": false
+            },
+            "bus": 0.4099999964237213,
+            "audioContext": {
+              "state": "running",
+              "currentTime": 1.062312925170068
+            },
+            "hidden": false,
+            "menuOpen": false,
+            "paused": true,
+            "warningAudioBlocked": true,
+            "demo": false,
+            "over": false
+          }
+        },
+        {
+          "time": 2075.400000002235,
+          "pass": false,
+          "state": {
+            "banner": {
+              "title": "Native warning",
+              "sub": "Bounded acceptance fixture",
+              "col": "#FF5A4E",
+              "t": 7.200000000000003,
+              "max": 8,
+              "key": "native-warning",
+              "kind": "hazard"
+            },
+            "music": {
+              "saved": 0.4,
+              "base": 0.35,
+              "duck": 1,
+              "volume": 0.35,
+              "paused": false,
+              "muted": false
+            },
+            "bus": 0.4099999964237213,
+            "audioContext": {
+              "state": "running",
+              "currentTime": 1.0826303854875283
+            },
+            "hidden": false,
+            "menuOpen": false,
+            "paused": true,
+            "warningAudioBlocked": true,
+            "demo": false,
+            "over": false
+          }
+        },
+        {
+          "time": 2100.7000000029802,
+          "pass": false,
+          "state": {
+            "banner": {
+              "title": "Native warning",
+              "sub": "Bounded acceptance fixture",
+              "col": "#FF5A4E",
+              "t": 7.200000000000003,
+              "max": 8,
+              "key": "native-warning",
+              "kind": "hazard"
+            },
+            "music": {
+              "saved": 0.4,
+              "base": 0.39999999999999997,
+              "duck": 1,
+              "volume": 0.39999999999999997,
+              "paused": false,
+              "muted": false
+            },
+            "bus": 0.4099999964237213,
+            "audioContext": {
+              "state": "running",
+              "currentTime": 1.1116553287981858
+            },
+            "hidden": false,
+            "menuOpen": false,
+            "paused": true,
+            "warningAudioBlocked": true,
+            "demo": false,
+            "over": false
+          }
+        },
+        {
+          "time": 2126.400000002235,
+          "pass": false,
+          "state": {
+            "banner": {
+              "title": "Native warning",
+              "sub": "Bounded acceptance fixture",
+              "col": "#FF5A4E",
+              "t": 7.200000000000003,
+              "max": 8,
+              "key": "native-warning",
+              "kind": "hazard"
+            },
+            "music": {
+              "saved": 0.4,
+              "base": 0.39999999999999997,
+              "duck": 1,
+              "volume": 0.39999999999999997,
+              "paused": false,
+              "muted": false
+            },
+            "bus": 0.4099999964237213,
+            "audioContext": {
+              "state": "running",
+              "currentTime": 1.1406802721088436
+            },
+            "hidden": false,
+            "menuOpen": false,
+            "paused": true,
+            "warningAudioBlocked": true,
+            "demo": false,
+            "over": false
+          }
+        },
+        {
+          "time": 2154.400000002235,
+          "pass": false,
+          "state": {
+            "banner": {
+              "title": "Native warning",
+              "sub": "Bounded acceptance fixture",
+              "col": "#FF5A4E",
+              "t": 7.200000000000003,
+              "max": 8,
+              "key": "native-warning",
+              "kind": "hazard"
+            },
+            "music": {
+              "saved": 0.4,
+              "base": 0.39999999999999997,
+              "duck": 1,
+              "volume": 0.39999999999999997,
+              "paused": false,
+              "muted": false
+            },
+            "bus": 0.4099999964237213,
+            "audioContext": {
+              "state": "running",
+              "currentTime": 1.1609977324263039
+            },
+            "hidden": false,
+            "menuOpen": false,
+            "paused": true,
+            "warningAudioBlocked": true,
+            "demo": false,
+            "over": false
+          }
+        },
+        {
+          "time": 2180.300000000745,
+          "pass": true,
+          "state": {
+            "banner": {
+              "title": "Native warning",
+              "sub": "Bounded acceptance fixture",
+              "col": "#FF5A4E",
+              "t": 7.200000000000003,
+              "max": 8,
+              "key": "native-warning",
+              "kind": "hazard"
+            },
+            "music": {
+              "saved": 0.4,
+              "base": 0.4,
+              "duck": 1,
+              "volume": 0.4,
+              "paused": false,
+              "muted": false
+            },
+            "bus": 0.4099999964237213,
+            "audioContext": {
+              "state": "running",
+              "currentTime": 1.1900226757369614
+            },
+            "hidden": false,
+            "menuOpen": false,
+            "paused": true,
+            "warningAudioBlocked": true,
+            "demo": false,
+            "over": false
+          }
+        }
+      ]
+    },
+    {
+      "predicate": "()=>warningDuck===.35&&musicBaseVolume===SET.music",
+      "observations": [
+        {
+          "time": 2180.5,
+          "pass": true,
+          "state": {
+            "banner": {
+              "title": "Native warning",
+              "sub": "Bounded acceptance fixture",
+              "col": "#FF5A4E",
+              "t": 7.200000000000003,
+              "max": 8,
+              "key": "native-warning",
+              "kind": "hazard"
+            },
+            "music": {
+              "saved": 0.4,
+              "base": 0.4,
+              "duck": 0.35,
+              "volume": 0.13999999999999999,
+              "paused": false,
+              "muted": false
+            },
+            "bus": 0.4099999964237213,
+            "audioContext": {
+              "state": "running",
+              "currentTime": 1.1900226757369614
+            },
+            "hidden": false,
+            "menuOpen": false,
+            "paused": false,
+            "warningAudioBlocked": false,
+            "demo": false,
+            "over": false
+          }
+        }
+      ]
+    }
+  ],
+  "origin": "custard://game",
+  "mutedState": {
+    "muted": true,
+    "musicPaused": true,
+    "bus": 0
+  },
+  "mixer": {
+    "active": 0,
+    "ordinary": 0,
+    "warning": 0,
+    "max": 64,
+    "reserved": 8,
+    "ordinaryMax": 56,
+    "droppedOrdinary": 0,
+    "droppedWarning": 0
+  },
+  "settings": {
+    "music": 0.4,
+    "sfx": 0.41
+  },
+  "fixture": "Programmatic UI and direct production showBanner/clearBanner; no CK helpers, gameplay completion or input-only acceptance.",
+  "rendererFixture": {
+    "indexOriginalSha256": "6f5565642e4f5e33b6df126704f0b1e63af9519e47a0f811c9e54aa924d967eb",
+    "indexInstrumentedSha256": "9e000a17874e5334a4e5ac3506855fd264aae3cea669e70e32dd0a06f3618e82",
+    "insertion": "Bounded asynchronous acceptance fixture inserted at unique final closure marker; other native assets unchanged",
+    "asarUnchanged": true
+  },
+  "pass": true
+}

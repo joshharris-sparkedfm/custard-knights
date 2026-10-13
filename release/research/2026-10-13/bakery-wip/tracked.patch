@@ -1,0 +1,169 @@
+diff --git a/game/campaign-integration.js b/game/campaign-integration.js
+index 4b9072b..8082826 100644
+--- a/game/campaign-integration.js
++++ b/game/campaign-integration.js
+@@ -5,10 +5,11 @@
+   let ui,productRound=null;
+   // Reporting is optional and must never interrupt play or rewards.
+   const report=(name,fields)=>{try{options.onProductEvent?.(name,fields);}catch(_){}};
+-  const campaign=root.CKCampaign.create({storage:options.storage,onFinish:r=>{if(productRound){const round=productRound;productRound=null;report('round_completed',{...round,result:r.won?'completed':'failed'});}engine.finished&&engine.finished(r);if(ui)ui.ended(r);},onReward:options.onReward});
++  const campaign=root.CKCampaign.create({storage:options.storage,onPrelude:()=>{engine.sceneStarted?.();ui.brief('banquet',false);},onFinish:r=>{if(productRound){const round=productRound;productRound=null;report('round_completed',{...round,result:r.won?'completed':'failed'});}engine.finished&&engine.finished(r);if(ui)ui.ended(r);},onReward:options.onReward});
+   function launch(id,resume=true){ui.close();const node=root.CKCampaign.byId[id],g=engine.boot(node.map);campaign.begin(id,g,engine,resume);productRound={roundId:g.roundId,format:'story',mode:'campaign',map:node.map,encounter:id,difficulty:campaign.save.difficulty,humanCount:1,botCount:g.ents.filter(e=>!e.human).length};report('round_started',productRound);engine.play&&engine.play();ui.refresh();return g;}
+-  ui=root.CKCampaignUI.mount({campaign,host:options.host,start:launch,drawStoryKnight:engine.drawStoryKnight,reducedMotion:engine.reducedMotion,onOpen:()=>{engine.mapOpened&&engine.mapOpened();},onExit:()=>{campaign.stop();engine.menu&&engine.menu();}});
+-  return {campaign,ui,launch,open:id=>ui.open(id),tick:dt=>{campaign.tick(dt);ui.refresh();},event:(k,data)=>campaign.event(k,data),input:(e,dt)=>campaign.input(e,dt),draw:ctx=>campaign.draw(ctx),stop:()=>{campaign.stop();ui.close();}};
++  function opening(){ui.close();productRound=null;const g=engine.boot('courtyard');campaign.beginPrelude(g,engine);engine.play?.();ui.refresh();return g;}
++  ui=root.CKCampaignUI.mount({campaign,host:options.host,start:launch,opening,drawStoryKnight:engine.drawStoryKnight,reducedMotion:engine.reducedMotion,onOpen:()=>{engine.mapOpened&&engine.mapOpened();},onExit:()=>{campaign.stop();engine.menu&&engine.menu();}});
++  return {campaign,ui,launch,opening,open:id=>ui.open(id),tick:dt=>{campaign.tick(dt);ui.refresh();},event:(k,data)=>campaign.event(k,data),input:(e,dt)=>campaign.input(e,dt),draw:ctx=>campaign.draw(ctx),stop:()=>{campaign.stop();ui.close();}};
+  }
+  root.CKCampaignIntegration={connect};
+ })(typeof globalThis!=='undefined'?globalThis:this);
+diff --git a/game/campaign-ui.js b/game/campaign-ui.js
+index d0fab94..3e48ef9 100644
+--- a/game/campaign-ui.js
++++ b/game/campaign-ui.js
+@@ -11,7 +11,7 @@
+   .campaign-world svg{position:absolute;inset:0;width:100%;height:100%}.campaign-node{position:absolute;transform:translate(-50%,-50%);width:92px;padding:6px 3px;font:700 12px Nunito,sans-serif;color:#fff7e0;background:#3D2B57;border:3px solid #221733;border-radius:12px;cursor:pointer}
+   .campaign-node b{display:block;font-size:21px}.campaign-node.completed{background:#245b52}.campaign-node[aria-pressed=true]{outline:3px solid #FFD23F;outline-offset:3px}.campaign-node:disabled{opacity:.45;cursor:default}.campaign-brief{background:#221733;padding:12px;border-radius:12px;min-height:110px}.campaign-brief h3{margin:0 0 7px;color:#FFD23F}.campaign-spoons{margin:8px 0;padding-left:24px;font-size:14px}.campaign-spoons li{padding:2px 0}.campaign-dialogue{padding:18px 12px;background:#221733;border-radius:12px;font-size:18px;min-height:100px}.campaign-story-actions{display:flex;gap:8px;flex-wrap:wrap}.campaign-next{color:#2EC4B6;font-weight:800}.campaign-save-warning{color:#FF8FB1;font-weight:800}
+   #campaignHUD{position:absolute;top:82px;left:50%;transform:translateX(-50%);max-width:80%;pointer-events:none;z-index:2;background:#221733e6;border:2px solid #FFD23F;border-radius:10px;padding:6px 12px;text-align:center;font-weight:900;font-size:14px;color:#FFF7E0}
+-  .campaign-factions{font-size:13px}.campaign-factions p{margin:6px 0}.campaign-panel .btn{min-height:42px}
++  #campaignSpeech{position:absolute;bottom:28px;left:50%;transform:translateX(-50%);width:min(740px,90%);box-sizing:border-box;z-index:3;background:#221733ee;border-left:4px solid #FFD23F;border-radius:8px;padding:12px 18px;color:#FFF7E0;font:700 17px Nunito,sans-serif;pointer-events:none}.campaign-factions{font-size:13px}.campaign-factions p{margin:6px 0}.campaign-panel .btn{min-height:42px}
+   .campaign-theatre{display:block;box-sizing:border-box;width:100%;max-height:46vh;aspect-ratio:1000/560;object-fit:contain;background:#291c31;border:2px solid #775b70;border-radius:12px}.campaign-captions{min-height:72px;padding:10px 14px;background:#221733;border-radius:10px}.campaign-captions strong{display:block;color:#FFD23F;margin-bottom:3px}.campaign-timeline{display:flex;align-items:center;gap:10px;min-width:0}.campaign-timeline input{min-width:0;flex:1;accent-color:#FFD23F}.campaign-timeline output{font-variant-numeric:tabular-nums;white-space:nowrap;font-size:13px}.campaign-scene-status{font-size:13px;color:#C9B9E6}.campaign-story-meta{font-size:13px}.campaign-story-meta .campaign-spoons{font-size:12px;margin:3px 0}.campaign-story-actions .btn:disabled{opacity:.5;cursor:default}
+   @media(max-height:640px){#campaignStory .campaign-panel{gap:7px;padding:12px}.campaign-theatre{max-height:35vh}.campaign-captions{min-height:58px;font-size:14px}.campaign-story-meta .campaign-spoons{display:flex;flex-wrap:wrap;gap:0 24px}}
+   @media(max-width:650px){.campaign-world{height:270px}.campaign-node{width:65px;font-size:10px}.campaign-node b{font-size:17px}.campaign-panel{padding:12px}.campaign-panel h2{font-size:25px}.campaign-scroll-hint{display:block;font-size:12px;color:#C9B9E6}#campaignHUD{font-size:12px;max-width:92%;top:74px}}
+@@ -20,6 +20,7 @@
+   function el(tag,text,className){const e=doc.createElement(tag);if(text!==undefined)e.textContent=text;if(className)e.className=className;return e;}
+   function screen(id){const e=el('div',undefined,'overlay');e.id=id;e.hidden=true;const p=el('section',undefined,'panel wide campaign-panel');p.setAttribute('aria-label','The Great Pudding War');e.appendChild(p);host.appendChild(e);return {e,p};}
+   const map=screen('campaignMap'),story=screen('campaignStory'),result=screen('campaignResult'),hud=el('div');hud.id='campaignHUD';hud.hidden=true;hud.setAttribute('aria-live','polite');host.appendChild(hud);
++  const speech=el('div');speech.id='campaignSpeech';speech.hidden=true;speech.setAttribute('role','status');host.appendChild(speech);
+   let selected=campaign.save.selected,dialogueIndex=0,pendingStart=null,lastHud='',scene=null;
+   const view=doc.defaultView||root;
+   function cancelSceneFrame(){if(scene&&scene.raf){view.cancelAnimationFrame(scene.raf);scene.raf=0;}if(scene)scene.last=null;}
+@@ -27,10 +28,10 @@
+   function sceneVisibility(){cancelSceneFrame();if(scene&&!doc.hidden&&!scene.paused&&!scene.complete)scene.schedule();}
+   doc.addEventListener('visibilitychange',sceneVisibility);
+   function button(label,action,back=false){const b=el('button',label,'btn');b.type='button';b.onclick=action;if(back)b.dataset.back='true';return b;}
+-  function show(s){if(s!==story)stopScene();[map,story,result].forEach(x=>x.e.hidden=x!==s);hud.hidden=true;const b=s.p.querySelector('.campaign-node[aria-pressed="true"]')||s.p.querySelector('button:not(:disabled)');if(b)b.focus();}
+-  function close(){stopScene();[map,story,result].forEach(x=>x.e.hidden=true);hud.hidden=true;}
++  function show(s){if(s!==story)stopScene();[map,story,result].forEach(x=>x.e.hidden=x!==s);hud.hidden=true;speech.hidden=true;const b=s.p.querySelector('.campaign-node[aria-pressed="true"]')||s.p.querySelector('button:not(:disabled)');if(b)b.focus();}
++  function close(){stopScene();[map,story,result].forEach(x=>x.e.hidden=true);hud.hidden=true;speech.hidden=true;}
+   function saveWarning(p){if(campaign.saveError)p.appendChild(el('p','Progress is available this session. Your browser could not save it; keep this game open to retain it.','campaign-save-warning'));}
+-  function describe(n){const box=el('div',undefined,'campaign-brief');box.appendChild(el('h3',(n.optional?'Optional · ':'')+n.title));box.appendChild(el('p',n.objective));const list=el('ol',undefined,'campaign-spoons');const owned=campaign.save.results[n.id];n.spoons.forEach((s,i)=>list.appendChild(el('li',(owned&&owned.spoons[i]?'✓ ':'')+s)));box.appendChild(list);const checkpoint=campaign.save.checkpoint;box.appendChild(button(checkpoint&&checkpoint.id===n.id?'Continue: '+C.checkpointLabel(checkpoint):'Play encounter',()=>brief(n.id,true)));if(owned&&owned.spoons[0])box.appendChild(button('Replay from beginning',()=>brief(n.id,false)));box.appendChild(button('Replay opening scene',()=>storyCard(n.dialogue,()=>open(n.id),'Return to map',n.id,'intro')));return box;}
++  function describe(n){const box=el('div',undefined,'campaign-brief');box.appendChild(el('h3',(n.optional?'Optional · ':'')+n.title));box.appendChild(el('p',n.objective));const list=el('ol',undefined,'campaign-spoons');const owned=campaign.save.results[n.id];n.spoons.forEach((s,i)=>list.appendChild(el('li',(owned&&owned.spoons[i]?'✓ ':'')+s)));box.appendChild(list);const checkpoint=campaign.save.checkpoint;const firstOpening=n.id==='banquet'&&!(owned&&owned.spoons[0])&&options.opening;box.appendChild(button(firstOpening?'Begin at the bakery':checkpoint&&checkpoint.id===n.id?'Continue: '+C.checkpointLabel(checkpoint):'Play encounter',()=>firstOpening?options.opening():brief(n.id,true)));if(n.id==='banquet'&&options.opening)box.appendChild(button(firstOpening?'Skip to the banquet':'Replay bakery opening',()=>firstOpening?brief(n.id,false):options.opening()));if(owned&&owned.spoons[0])box.appendChild(button('Replay from beginning',()=>brief(n.id,false)));box.appendChild(button('Replay opening scene',()=>storyCard(n.dialogue,()=>open(n.id),'Return to map',n.id,'intro')));return box;}
+   function open(id){options.onOpen&&options.onOpen();close();selected=id&&campaign.unlocked(id)?id:campaign.unlocked(campaign.save.selected)?campaign.save.selected:(campaign.next()||C.nodes[0]).id;campaign.select(selected);map.p.replaceChildren();map.p.appendChild(el('h2','The Great Pudding War'));map.p.appendChild(el('p','A Very Bad Banquet · recover the Golden Spoon and save the bakery.'));const next=campaign.next();map.p.appendChild(el('p',next?'Next destination: '+next.title:'The rice road is open. Replay encounters to earn the remaining spoons.','campaign-next'));
+    const world=el('div',undefined,'campaign-world'),route=el('div',undefined,'campaign-route');world.appendChild(route);const ns='http://www.w3.org/2000/svg',svg=doc.createElementNS(ns,'svg');svg.setAttribute('viewBox','0 0 100 100');svg.setAttribute('preserveAspectRatio','none');svg.setAttribute('aria-hidden','true');
+    for(const n of C.nodes)for(const from of n.requires){const a=C.byId[from],path=doc.createElementNS(ns,'path');path.setAttribute('d',`M ${a.at[0]} ${a.at[1]} Q ${(a.at[0]+n.at[0])/2} ${Math.min(a.at[1],n.at[1])-9} ${n.at[0]} ${n.at[1]}`);path.setAttribute('stroke',n.optional?'#C9B9E6':'#FFD23F');path.setAttribute('stroke-width','1.2');path.setAttribute('fill','none');if(n.optional)path.setAttribute('stroke-dasharray','2 2');svg.appendChild(path);}
+@@ -63,11 +64,11 @@
+   }
+   function brief(id,resume=true){selected=id;campaign.select(id);const n=C.byId[id];pendingStart=()=>{close();options.start(id,resume);hud.hidden=false;refresh();};storyCard(n.dialogue,pendingStart,'Start encounter',id,'intro');const meta=el('div',undefined,'campaign-story-meta'),ol=el('ol',undefined,'campaign-spoons');n.spoons.forEach(s=>ol.appendChild(el('li',s)));meta.appendChild(el('p',n.objective));meta.appendChild(ol);const cp=campaign.save.checkpoint;if(resume&&cp&&cp.id===id)meta.appendChild(el('p','Continue at '+C.checkpointLabel(cp)+'. Health is restored when you retry.','campaign-next'));story.p.appendChild(meta);}
+   function ended(r){close();result.p.replaceChildren();const n=C.byId[r.id];result.p.appendChild(el('h2',r.won?'Encounter complete':'Try again'));result.p.appendChild(el('p',n.title));result.p.appendChild(el('p',r.won?r.added.length+' new spoon'+(r.added.length===1?'':'s')+' earned. Your spoons are saved independently.':r.reason||n.tip));const list=el('ol',undefined,'campaign-spoons');const saved=campaign.save.results[r.id];n.spoons.forEach((s,i)=>list.appendChild(el('li',(saved&&saved.spoons[i]?'✓ ':'')+s)));result.p.appendChild(list);if(r.assisted)result.p.appendChild(el('p','Assistance was enabled.','note'));saveWarning(result.p);
+-   if(r.won){result.p.appendChild(button('Watch what happens next',()=>storyCard(r.outro,()=>open(r.next||r.id),'Open story map',r.id,'outro')));if(r.next)result.p.appendChild(button('Continue: '+C.byId[r.next].title,()=>brief(r.next,false)));result.p.appendChild(button('Replay for spoons',()=>brief(r.id,false)));}else{if(r.checkpoint)result.p.appendChild(el('p','Saved checkpoint: '+C.checkpointLabel(r.checkpoint)+'. Health is restored when you retry.','campaign-next'));result.p.appendChild(button(r.checkpoint?'Retry: '+C.checkpointLabel(r.checkpoint):'Retry now',()=>{close();options.start(r.id,true);hud.hidden=false;refresh();}));result.p.appendChild(button('Retry with assistance',()=>{campaign.assist(true);close();options.start(r.id,true);hud.hidden=false;refresh();}));result.p.appendChild(el('p',n.tip,'note'));}
++   if(r.won){result.p.appendChild(button('Watch what happens next',()=>storyCard(r.outro,()=>open(r.next||r.id),'Open story map',r.id,'outro')));if(r.next)result.p.prepend(button('Continue: '+C.byId[r.next].title,()=>storyCard(r.outro,()=>brief(r.next,false),'Continue to '+C.byId[r.next].title,r.id,'outro')));result.p.appendChild(button('Replay for spoons',()=>brief(r.id,false)));}else{if(r.checkpoint)result.p.appendChild(el('p','Saved checkpoint: '+C.checkpointLabel(r.checkpoint)+'. Health is restored when you retry.','campaign-next'));result.p.appendChild(button(r.checkpoint?'Retry: '+C.checkpointLabel(r.checkpoint):'Retry now',()=>{close();options.start(r.id,true);hud.hidden=false;refresh();}));result.p.appendChild(button('Retry with assistance',()=>{campaign.assist(true);close();options.start(r.id,true);hud.hidden=false;refresh();}));result.p.appendChild(el('p',n.tip,'note'));}
+    result.p.appendChild(button('Story map',()=>open(r.next||r.id),true));show(result);
+   }
+-  function refresh(){const r=campaign.run;if(!r||r.status!=='playing'){hud.hidden=true;return;}const text=C.difficulties[r.difficulty].label+' · '+campaign.objective();if(text!==lastHud){hud.textContent=text;lastHud=text;}hud.hidden=false;}
+-  return {open,close,brief,ended,refresh,screens:['campaignMap','campaignStory','campaignResult'],destroy(){close();doc.removeEventListener('visibilitychange',sceneVisibility);[map.e,story.e,result.e,hud,style].forEach(e=>e.remove());}};
++  function refresh(){const r=campaign.run;if(!r||r.status!=='playing'){hud.hidden=true;speech.hidden=true;return;}speech.hidden=!r.prelude;if(r.prelude&&speech.textContent!==r.speech)speech.textContent=r.speech;const text=C.difficulties[r.difficulty].label+' · '+campaign.objective();if(text!==lastHud){hud.textContent=text;lastHud=text;}hud.hidden=false;}
++  return {open,close,brief,ended,refresh,screens:['campaignMap','campaignStory','campaignResult'],destroy(){close();doc.removeEventListener('visibilitychange',sceneVisibility);[map.e,story.e,result.e,hud,speech,style].forEach(e=>e.remove());}};
+  }
+  root.CKCampaignUI={mount};
+ })(typeof globalThis!=='undefined'?globalThis:this);
+diff --git a/game/campaign.js b/game/campaign.js
+index 1bc02bf..8c35867 100644
+--- a/game/campaign.js
++++ b/game/campaign.js
+@@ -94,6 +94,25 @@
+     if(run.hold>=6&&enemies.length===0){run.phase=3;run.phaseT=0;run.hold=0;banner('EVERYONE IS OUT','Reach the green pantry exit. Your bakery is next.');}
+    }else if(run.phase===3){run.hold=distance(run.player,run.zone)<run.zone.r?run.hold+dt:0;if(run.hold>=1.5)finish(true);}
+   }
++  function beginPrelude(g,api){
++   begin('banquet',g,api);grid(g);g.ents=[run.player];g.pickups=[];g.proj=[];g.banner=null;
++   run.prelude=true;run.phase=0;run.hold=0;run.staff=[];run.cage=null;run.zone=null;
++   run.player.x=220;run.player.y=500;run.mabel={x:455,y:424};
++   for(let r=2;r<=6;r++)for(let c=3;c<=12;c++)g.grid[r][c]='#';
++   for(let r=3;r<=7;r++)for(let c=20;c<=26;c++)g.grid[r][c]='#';
++   run.speech='Mabel: Peace banquet. Six trays. Bring back seven.';rebuild();return run;
++  }
++  function preludeTick(dt){
++   // Quiet exploration has no failure clock or progression rewards. The
++   // combat encounter starts with its own timer, counters and receipt.
++   run.g.time=run.node.limit;
++   const target=run.phase===0?run.mabel:run.phase===1?{x:605,y:505}:{x:1130,y:500};
++   run.hold=distance(run.player,target)<72?run.hold+dt:0;
++   if(run.hold<.65)return;run.hold=0;
++   if(run.phase===0){run.phase=1;run.speech='Recruit: Seven?  Mabel: They still have one from the last war.';}
++   else if(run.phase===1){run.phase=2;run.speech='Mabel: Take these to the banquet. And keep them away from Steve.';}
++   else{run.status='prelude-complete';run.g.over=true;options.onPrelude&&options.onPrelude();}
++  }
+   function begin(id,g,api,resume=false){if(!unlocked(save,id))throw Error('Campaign encounter is locked: '+id);engine=api;const n=byId[id];freshArena(g,n);grid(g);
+    const receipt=(g.roundId||'campaign')+':'+id+':'+(++serial);run={node:n,g,difficulty:save.difficulty,player:g.ents[0],receipt,elapsed:0,phase:0,phaseT:0,status:'playing',hits:0,falls:0,blocks:0,parries:0,reflects:0,heavies:0,dashes:0,hold:0,route:0,checkpoint:{x:180,y:440},wave:1,guardsHit:0,bonus:[false,false],warnings:[],effects:[],result:null};
+    save.selected=id;const cp=resume&&save.checkpoint&&save.checkpoint.id===id?save.checkpoint.phase:0;run.resumed=cp>0;if(!resume&&save.checkpoint&&save.checkpoint.id===id)save.checkpoint=null;persist();
+@@ -107,7 +126,7 @@
+    if(id==='rind'){run.boss=spawn('marshal',800,440,8,'Marshal Rind');run.boss.r=28;run.boss.blade='spoon';run.boss.kit={helm:'crest',plume:'brush',metal:'steel'};run.boss.emblem='crown';if(cp===2)rescue();else if(cp){run.boss.hp=4;bossPhase(1);}else bossPhase(0);}
+    rebuild();banner(n.title,n.objective);return run;
+   }
+-  function finish(won,reason){if(!run||run.status!=='playing')return null;run.status=won?'won':'failed';run.g.over=true;const id=run.node.id;let bonus;
++  function finish(won,reason){if(!run||run.status!=='playing'||run.prelude)return null;run.status=won?'won':'failed';run.g.over=true;const id=run.node.id;let bonus;
+    if(id==='banquet')bonus=[run.hits===0&&run.falls===0,run.elapsed<=90];
+    if(id==='puddings')bonus=[run.stands.every(s=>s.hp===4),run.blocks>=3];
+    if(id==='guard')bonus=[run.heavies>0,run.hits===0&&run.falls===0];
+@@ -123,6 +142,7 @@
+   }
+   function attackCircle(x,y,r,source,allies=false){const g=run.g;for(const e of g.ents){if(e===source||!living(e)||distance(e,{x,y})>r+e.r||e.dashT>.06||e.inv>0||e.protect>0||e.hitLock>0)continue;if(e.human||allies){const before=e.hp;engine.hurt(e,source,1,{src:'heavy',kb:allies?650:300,dx:e.x-x,dy:e.y-y});if(!e.human&&e.hp<before)run.guardsHit++;}}}
+   function tick(dt){if(!run||run.status!=='playing'||!Number.isFinite(dt)||dt<=0)return;run.elapsed+=dt;run.phaseT+=dt;const g=run.g,p=run.player,id=run.node.id;run.warnings=run.warnings.filter(w=>(w.t-=dt)>0&&(w.actor===undefined||living(g.ents[w.actor])&&!(g.ents[w.actor].stun>0)));run.effects=run.effects.filter(f=>(f.t-=dt)>0);
++   if(run.prelude){preludeTick(dt);return;}
+    if(g.time<=0){finish(false,'Time ran out. '+run.node.tip);return;}
+    if(!living(p))return;
+    const enemies=g.ents.filter(e=>!e.human&&living(e));
+@@ -147,6 +167,7 @@
+    return out;
+   }
+   function event(k,data={}){if(!run||run.status!=='playing')return;const p=run.player,g=run.g,id=run.node.id;
++   if(run.prelude)return;
+    if(k==='ko'){const e=g.ents.find(q=>q.id===data.v);if(e&&!e.human){e.respawn=Infinity;if(e.campaignRole==='archer'||e.campaignRole==='examiner'){e.dead=false;e.hp=e.campaignMaxHp;e.inv=1;}return;}if(data.v===p.id){if(data.src==='pit')run.falls++;if(id==='bridge'&&run.falls<3){banner('BACK TO THE CHECKPOINT',(3-run.falls)+' falls remaining. Take the outer path if needed.');}else finish(false,data.src==='pit'?'You fell from the route.':'You were bonked. '+run.node.tip);}}
+    if(k==='respawn'&&data.id===p.id){p.x=run.checkpoint.x;p.y=run.checkpoint.y;p.hp=p.campaignMaxHp;p.vx=p.vy=0;}
+    if(k==='block'&&data.id===p.id){run.blocks++;run.testBlocks=(run.testBlocks||0)+1;}
+@@ -156,6 +177,7 @@
+    if(k==='crate'&&run.cage&&data.c===run.cage.c&&data.r===run.cage.r&&data.destroyed){if(id==='banquet'&&!run.barricadeOpen&&g.grid[data.r][data.c]==='.'){run.barricadeOpen=true;g.pickups=g.pickups.filter(q=>distance(q,run.cage)>45);banner('PANTRY OPEN',g.ents.some(e=>!e.human&&living(e))?'Bonk the two banquet guards so the cooks can move.':'Walk near the three cooks. Stay close to lead them through.');}if(id==='steve'&&run.eggOpened===undefined){run.eggOpened=run.elapsed;g.pickups=g.pickups.filter(q=>distance(q,run.cage)>45);g.pickups.push({x:run.cage.x,y:run.cage.y,kind:'steve',tier:4,t:0});banner('STEVE IS FREE','Collect the golden egg. Ride through the gold gates in order.');}if(id==='rind'&&run.phase===2)finish(true);}
+   }
+   function objective(){if(!run)return '';const id=run.node.id,aliveEnemies=run.g.ents.filter(e=>!e.human&&living(e)).length;
++   if(run.prelude)return ['Before the pie · Walk over to Mabel','The last delivery · Collect the tray from the table','To the banquet · Carry the tray along the lane'][run.phase];
+    if(id==='banquet'){if(run.phase===0)return `1/4 · ${run.barricadeOpen?'Barricade open':'Swing at barricade: '+Math.max(0,run.g.crateHp[run.cage.r*32+run.cage.c])+'/3 hits left'} · ${2-aliveEnemies}/2 guards bonked`;if(run.phase===1)return `2/4 · ${run.staff.filter(s=>s.rescued).length}/3 cooks safe · Walk near each cook; stay close`;if(run.phase===2)return `3/4 · Hold pantry: ${run.hold.toFixed(1)}/6s · ${aliveEnemies} guards left`;return `4/4 · Leave through pantry: ${Math.min(1.5,run.hold).toFixed(1)}/1.5s`;}
+    if(id==='puddings')return `Wave ${run.wave}/2 · ${run.stands.filter(s=>s.hp>0).length}/3 stands standing`;
+    if(id==='guard')return `Rice guard: ${run.guard.hp}/5 health`;
+@@ -167,6 +189,7 @@
+    return run.node.objective;
+   }
+   function draw(ctx){if(!run||!run.g.campaign)return;ctx.save();ctx.font='bold 16px Nunito, sans-serif';ctx.textAlign='center';ctx.lineWidth=4;
++   if(run.prelude){if(typeof globalThis!=='undefined')globalThis.CKBakeryOpening?.draw(ctx,run);ctx.restore();return;}
+    const bounded=p=>Math.max(0,Math.min(1,p||0));
+    function progressRing(o,color,progress){ctx.beginPath();ctx.strokeStyle=color;ctx.lineWidth=6;ctx.arc(o.x,o.y,(o.r||38)+6,-Math.PI/2,-Math.PI/2+Math.PI*2*bounded(progress));ctx.stroke();ctx.lineWidth=4;}
+    function marker(o,color,label,progress){ctx.beginPath();ctx.arc(o.x,o.y,o.r||38,0,Math.PI*2);ctx.fillStyle=color+'30';ctx.strokeStyle=color;ctx.fill();ctx.stroke();if(progress!==undefined)progressRing(o,'#FFF7E0',progress);ctx.fillStyle='#FFF7E0';ctx.strokeStyle='#221733';ctx.lineWidth=4;ctx.strokeText(label,o.labelX||o.x,o.y-(o.labelOffset||(o.r||38)+12));ctx.fillText(label,o.labelX||o.x,o.y-(o.labelOffset||(o.r||38)+12));}
+@@ -199,7 +222,7 @@
+   }
+   function stop(){run=null;}
+   function restore(raw){save=normalize(raw);persist();return save;}
+-  return {begin,tick,input,event,draw,finish,stop,select,assist,difficulty,restore,objective,get save(){return save;},get run(){return run;},get saveError(){return saveError;},unlocked:id=>unlocked(save,id),next:()=>next(save)};
++  return {begin,beginPrelude,tick,input,event,draw,finish,stop,select,assist,difficulty,restore,objective,get save(){return save;},get run(){return run;},get saveError(){return saveError;},unlocked:id=>unlocked(save,id),next:()=>next(save)};
+  }
+  return {KEY,difficulties,nodes,byId,factions,checkpointLabel,normalize,merge,unlocked,next,award,create};
+ });
+diff --git a/index.html b/index.html
+index d1454b8..94a0086 100644
+--- a/index.html
++++ b/index.html
+@@ -407,6 +407,7 @@ body[data-input=pad] :is(button,.card,.tile,input,select):focus{outline:4px soli
+ <script src="game/collection.js"></script>
+ <script src="game/collection-art.js"></script>
+ <script src="game/collection-ui.js"></script>
++<script src="game/bakery-opening.js"></script>
+ <script src="game/campaign.js"></script>
+ <script src="game/story-scenes.js"></script>
+ <script src="game/campaign-ui.js"></script>
+@@ -3130,6 +3131,7 @@ ADVENTURE=CKCampaignIntegration.connect({
+  reducedMotion:()=>!SET.flash||matchMedia('(prefers-reduced-motion: reduce)').matches,
+  drawStoryKnight:(target,p)=>{const old=ctx,oldG=G;const e=mkKnight({id:42,hero:1,human:0,x:0,y:0,color:p.color||CUST,plume:p.plume||CUST,kit:{helm:p.role==='rice'?'riceGuard':p.role==='stirling'?'crest':'great',plume:'feather',metal:p.role==='king'?'gold':'steel',visor:loadProfile(1).visor},face:p.face,walk:p.walk||0,vx:p.walk?50:0,vy:0,blocking:!!p.block});if(p.attack){e.swingKind='light';e.swingDur=SWINGS.light.dur;e.swing=SWINGS.light.dur*.48;}target.save();try{ctx=target;G={...oldG,clock:p.walk||0,demo:true,over:false,ev:null,mode:'ffa'};target.translate(p.x,p.y-22.5*p.scale);target.scale(p.scale*1.5,p.scale*1.5);drawKnight(e);}finally{target.restore();ctx=old;G=oldG;}},
+  boot:map=>{firstFightFinish('abandoned');collectionUnlocks=[];cancelCup();SEATS=null;partyGo=false;const saved={...cfg};Object.assign(cfg,{players:1,map,mode:'ffa',diff:'chill',length:360,chaosPlus:false,chaosSpeed:'normal',arenaSize:'classic'});audio();menuMusic(false);newGame(false);Object.assign(cfg,saved);return G;},
++ sceneStarted:()=>{paused=false;$('pauseBtn').hidden=true;showTouch(false);menuMusic(true);},
+  play:()=>{showScreen(null);paused=false;$('pauseBtn').hidden=false;showTouch(true);matchMusic();},
+  finished:r=>{if(r.won)campaignCollectionReward(r,ADVENTURE.campaign.save);else collectionUnlocks=[];queueMicrotask(()=>showCollectionReward($('campaignResult').querySelector('.panel')));paused=false;$('pauseBtn').hidden=true;showTouch(false);cueMusic(r.won?'victory':'defeat');},
+  mapOpened:()=>{if(NET.role)return;firstFightFinish('abandoned');cancelCup();if(G&&!G.demo)G.over=true;showScreen(null);$('pauseBtn').hidden=true;showTouch(false);menuMusic(true);},

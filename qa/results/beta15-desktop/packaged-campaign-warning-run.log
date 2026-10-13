@@ -1,0 +1,3 @@
+PASS Actual stand-raider prehit tell has hazard banner/cue before damage
+PASS Stun cancels tell; new attempt emits once; impact clears hazard without second cue
+C:\Users\Joshua\Documents\Codex\2026-10-08\rea\work\custard-knights-room\qa\results\beta15-packaged-warning-campaign

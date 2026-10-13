@@ -1,0 +1,41 @@
+/* The quiet place the recruit is trying to save. Drawing is cosmetic; the
+ * campaign supplies collision tiles and all objective state. */
+(function(root,factory){const api=factory();if(typeof module==='object'&&module.exports)module.exports=api;else root.CKBakeryOpening=api;})(typeof globalThis!=='undefined'?globalThis:this,()=>{
+ 'use strict';
+ function draw(c,run){
+  c.save();c.lineJoin='round';c.lineCap='round';
+  const box=(x,y,w,h,color)=>{c.fillStyle=color;c.fillRect(x,y,w,h);c.strokeStyle='#34253e';c.lineWidth=3;c.strokeRect(x,y,w,h);};
+  const oval=(x,y,rx,ry,color)=>{c.beginPath();c.ellipse(x,y,rx,ry,0,0,Math.PI*2);c.fillStyle=color;c.fill();};
+  const text=(s,x,y,size=17,color='#fff2cf')=>{c.font=`bold ${size}px Nunito,sans-serif`;c.textAlign='center';c.strokeStyle='#34253e';c.lineWidth=4;c.strokeText(s,x,y);c.fillStyle=color;c.fillText(s,x,y);};
+  c.fillStyle='#718367';c.fillRect(40,120,1200,640);
+  c.fillStyle='#c5ae83';c.fillRect(40,440,1200,110);c.fillRect(450,350,140,310);
+  for(let i=0;i<28;i++){c.fillStyle=i%2?'#a99473':'#ddc59b';c.fillRect(55+i*42,470+i%3*23,20,3);}
+  // The building fits exactly over solid cells c3..12, r2..6.
+  box(120,160,400,200,'#e7c394');box(264,275,72,85,'#754843');
+  c.beginPath();c.moveTo(111,192);c.lineTo(320,133);c.lineTo(529,192);c.closePath();c.fillStyle='#965662';c.fill();c.stroke();
+  for(const x of [151,373]){box(x,222,94,73,'#634643');oval(x+24,278,17,8,'#e8bd74');oval(x+62,278,17,8,'#e8bd74');}
+  box(145,186,350,37,'#544047');text('MABEL’S BAKERY',320,212,23);
+  for(let i=0;i<10;i++)box(120+i*40,304,40,18,i%2?'#f9e6bc':'#b7646b');
+  // Steve's enclosure is deliberately outside the delivery route.
+  box(800,200,280,200,'#879774');
+  const t=run.elapsed,bob=run.phase>0?Math.sin(t*3)*2:0;
+  oval(941,337,53,20,'#28352644');oval(933,304,44,34,'#fff0cb');oval(969,276+bob,21,24,'#fff0cb');
+  oval(961,248+bob,9,10,'#c95664');oval(976,248+bob,7,9,'#c95664');oval(976,270+bob,3,4,'#34253e');
+  c.beginPath();c.moveTo(987,280+bob);c.lineTo(1004,289+bob);c.lineTo(985,293+bob);c.closePath();c.fillStyle='#edb55d';c.fill();
+  for(let i=0;i<9;i++)box(798+i*35,367,6,37,'#a78860');box(800,375,280,6,'#c6a476');
+  text('STEVE · no banquet invitation',940,184,15);
+  box(550,474,110,23,'#785645');box(560,497,10,30,'#785645');box(640,497,10,30,'#785645');
+  const tray=run.phase>=2?{x:run.player.x,y:run.player.y-48}:{x:605,y:464};
+  oval(tray.x,tray.y+5,28,8,'#c6d1d6');for(let i=-1;i<=1;i++)oval(tray.x+i*15,tray.y,10,8,'#e9bd75');
+  box(1060,370,140,46,'#615141');text('BANQUET →',1130,400,18);
+  if(run.phase===2){c.save();c.setLineDash([8,12]);c.beginPath();c.moveTo(680,500);c.lineTo(1130,500);c.strokeStyle='#ffe28a';c.lineWidth=4;c.stroke();c.restore();}
+  // Mabel is not a combat entity. This matches the pantry's cook silhouette.
+  const m=run.mabel;oval(m.x,m.y+4,20,7,'#34253e55');box(m.x-15,m.y-34,30,29,'#dc8fa2');box(m.x-9,m.y-30,18,24,'#fff2cf');
+  oval(m.x,m.y-46,12,12,'#e9b889');box(m.x-14,m.y-65,28,11,'#fff2cf');for(let i=-1;i<=1;i++)oval(m.x+i*9,m.y-67,9,9,'#fff2cf');
+  text('Mabel',m.x,m.y-91,16);
+  const target=run.phase===0?m:run.phase===1?{x:605,y:505}:{x:1130,y:500};
+  c.beginPath();c.ellipse(target.x,target.y+8,40,15,0,0,Math.PI*2);c.strokeStyle='#ffe28a';c.lineWidth=3;c.stroke();
+  c.restore();
+ }
+ return Object.freeze({draw});
+});

@@ -1,4 +1,32 @@
 const test=require('node:test'),assert=require('node:assert/strict'),C=require('../game/campaign.js');
+test('Rind warning priority keeps exact authored tell expiry and releases the punish objective',()=>{
+ for(const difficulty of ['easy','medium','hard','steve'])for(const assisted of [false,true]){
+  const h=harness('rind');h.c.difficulty(difficulty);h.c.assist(assisted);h.c.begin('rind',h.g,h.api);h.tick(2.5);
+  const b=h.c.run.boss;assert.equal(h.g.banner.kind,'hazard');assert.equal(h.g.banner.key,'campaign:rind:boss-tell');assert.equal(h.g.banner.max,b.timer);
+  const W=require('../game/warnings.js'),result=W.offer(h.g.banner,{title:'Egg!',sub:'',col:'#FFD23F',t:2.8,max:2.8,kind:'reward',key:'pickup:steve'});
+  assert.equal(result.accepted,false);assert.equal(h.g.banner.title,'SPOON SLAM');
+  h.p.x=100;h.p.y=100;h.tick(b.timer+.01);assert.equal(h.g.banner.title,'SPOON STUCK');assert.equal(h.g.banner.kind,'objective');
+  h.c.finish(false,'fixture');assert.equal(h.g.banner,null);
+ }
+});
+test('Rind phase change and rescue replace obsolete warnings while preserving the real script',()=>{
+ const h=harness('rind');h.tick(2.5);h.c.run.boss.hp=4;h.tick(.01);
+ assert.equal(h.g.banner.title,'THE SHIELD WALL');assert.equal(h.c.run.boss.step,'stalk');
+ h.tick(2.5);assert.equal(h.g.banner.title,'SPOON SWEEP');h.c.run.boss.dead=true;h.tick(.01);
+ assert.equal(h.g.banner.kind,'objective');assert.equal(h.c.run.phase,2);
+ h.tick(2.1);assert.equal(h.g.banner.title,'SKIN LASH');assert.equal(h.g.banner.max,h.c.run.skinTimer);
+ h.c.stop();assert.equal(h.g.banner,null);
+});
+test('pudding danger is announced before damage and canceled tells get a fresh authored cue key',()=>{
+ const h=harness('puddings'),e=h.g.ents.find(e=>e.campaignRole==='stand-raider'),stand=h.c.run.stands[0],shown=[];
+ h.api.showBanner=(b,kind,key,cue)=>{shown.push({b,kind,key,cue,hp:stand.hp});h.g.banner={...b,kind,key};};
+ h.api.clearBanner=key=>{if(!key||h.g.banner?.key===key)h.g.banner=null;};
+ e.x=stand.x;e.y=stand.y;h.c.input(e,.01);
+ assert.equal(shown[0].kind,'hazard');assert.equal(shown[0].cue,'alarm');assert.equal(shown[0].hp,4);assert.equal(shown[0].b.max,1.4);
+ const originalKey=shown[0].key;e.x+=100;h.c.input(e,.01);assert.equal(h.g.banner,null);assert.equal(stand.hp,4);
+ e.x=stand.x;h.c.input(e,.01);assert.notEqual(shown[1].key,originalKey);assert.equal(shown[1].hp,4);
+ h.c.input(e,1.4);assert.equal(stand.hp,3);assert.equal(h.g.banner.kind,'objective');assert.equal(shown.at(-1).cue,null);
+});
 test('all story difficulties preserve health, objectives, checkpoints and legacy spoons',()=>{
  for(const difficulty of Object.keys(C.difficulties))for(const node of C.nodes){
   const h=harness(node.id),before=h.c.save.results;h.c.difficulty(difficulty);

@@ -1,0 +1,43 @@
+{
+  "createdAt": "2026-10-13T13:33:23.2922757Z",
+  "originalCheckout": "C:\\Users\\Joshua\\Documents\\Codex\\2026-10-08\\rea\\work\\custard-knights",
+  "baseCommit": "937cb80c200c7a00507d278eb80a8dc1fc6e7a60",
+  "branch": "codex/playable-bakery-opening",
+  "snapshot": "C:\\Users\\Joshua\\Documents\\Codex\\2026-10-08\\rea\\outputs\\Bakery-WIP-20261013-preserved",
+  "files": [
+    {
+      "path": "game/campaign-integration.js",
+      "bytes": 1867,
+      "sha256": "a1e42c70401ca3143b0bfd6695762ea9c2ed977da3774bbc6f25fe9bd698767f",
+      "sourceUnchanged": true
+    },
+    {
+      "path": "game/campaign-ui.js",
+      "bytes": 18515,
+      "sha256": "0e1a15fae846821cdfa76dc2193d9ef7ad6e96e6904ec7ddd7b612fbfbe419fb",
+      "sourceUnchanged": true
+    },
+    {
+      "path": "game/campaign.js",
+      "bytes": 37744,
+      "sha256": "c449819683b53df953146b81f6a04f98bbc2a378bbfede1928133f53876ff073",
+      "sourceUnchanged": true
+    },
+    {
+      "path": "index.html",
+      "bytes": 378284,
+      "sha256": "909be8d15adfd13a0ec7c3168961badcaf2405a20b87377afbc75a7caa6ca2a9",
+      "sourceUnchanged": true
+    },
+    {
+      "path": "game/bakery-opening.js",
+      "bytes": 3343,
+      "sha256": "82d4f2296b31ee2280d154b51eb564c8127c51a20f319342ec7799d0ae9f5d88",
+      "sourceUnchanged": true
+    }
+  ],
+  "trackedPatchSha256": "2efff63baf1ac0698cd1a580da9b9bb303888717ebb6581ce480c38aca480d9b",
+  "gameplayTested": false,
+  "integratedIntoRuntime": false,
+  "normalSavesAccessed": false
+}

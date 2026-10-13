@@ -1,0 +1,14 @@
+{
+  "attempt": 1,
+  "executable": "C:\\Users\\Joshua\\Documents\\Codex\\2026-10-08\\rea\\work\\custard-knights-room\\dist\\Custard Knights-win32-x64\\Custard Knights.exe",
+  "profile": "C:\\Users\\Joshua\\AppData\\Local\\Temp\\custard-acceptance-oUCA4G\\user-data",
+  "checks": [],
+  "limitations": [
+    "Actual EXE, isolated marked profile. Programmatic DOM clicks/slider inputs and direct production showBanner/clearBanner fixtures. Observed readiness predicates bounded to 10 seconds. No CK query helpers. Native warning/UI music-volume/mute/reset smoke; not physical/input-only, combat completion, human listening, real transport, Steam Input, responsiveness or usability acceptance. In-memory acceptance.run replacement; ASAR unchanged."
+  ],
+  "exitCode": 1,
+  "stdout": "\r\n",
+  "stderr": "Debugger listening on ws://127.0.0.1:49352/792eb410-5d2f-4367-bb01-a62b82d0f109\r\nFor help, see: https://nodejs.org/learn/getting-started/debugging\r\nDebugger attached.\r\nDebugger ending on ws://127.0.0.1:49352/792eb410-5d2f-4367-bb01-a62b82d0f109\r\nFor help, see: https://nodejs.org/learn/getting-started/debugging\r\nACTUAL_DEVICE_FAIL Error: sfxMixer is not defined\n[35660:1013/145823.274:ERROR:gpu\\ipc\\client\\command_buffer_proxy_impl.cc:490] GPU state invalid after WaitForGetOffsetInRange.\r\n[35660:1013/145823.274:ERROR:gpu\\ipc\\client\\command_buffer_proxy_impl.cc:490] GPU state invalid after WaitForGetOffsetInRange.\r\n",
+  "pass": false,
+  "error": "Error: Actual device smoke failed: Debugger listening on ws://127.0.0.1:49352/792eb410-5d2f-4367-bb01-a62b82d0f109\r\nFor help, see: https://nodejs.org/learn/getting-started/debugging\r\nDebugger attached.\r\nDebugger ending on ws://127.0.0.1:49352/792eb410-5d2f-4367-bb01-a62b82d0f109\r\nFor help, see: https://nodejs.org/learn/getting-started/debugging\r\nACTUAL_DEVICE_FAIL Error: sfxMixer is not defined\n[35660:1013/145823.274:ERROR:gpu\\ipc\\client\\command_buffer_proxy_impl.cc:490] GPU state invalid after WaitForGetOffsetInRange.\r\n[35660:1013/145823.274:ERROR:gpu\\ipc\\client\\command_buffer_proxy_impl.cc:490] GPU state invalid after WaitForGetOffsetInRange.\r\n \r\n\n    at C:\\Users\\Joshua\\Documents\\Codex\\2026-10-08\\rea\\work\\custard-knights-room\\qa\\results\\beta15-desktop\\actual-warning.cjs:59:104\n    at process.processTicksAndRejections (node:internal/process/task_queues:104:5)"
+}

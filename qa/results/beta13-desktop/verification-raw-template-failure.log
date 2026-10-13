@@ -1,0 +1,5 @@
+Traceback (most recent call last):
+  File "C:\Users\Joshua\Documents\Codex\2026-10-08\rea\work\custard-knights-controls\qa\results\beta13-desktop\verify-exports.py", line 34, in <module>
+    assert frozen==(repo/'release/playtest'/material).read_bytes()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError

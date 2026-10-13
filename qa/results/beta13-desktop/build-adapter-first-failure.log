@@ -1,0 +1,40 @@
+Soundtrack: 13/13 tracks available.
+Packaging app for platform win32 x64 using electron v44.7.0
+  File "<string>", line 15
+    out.write_text(json.dumps(dict(zip=str(zpath),zipSha256=hashlib.file_digest(zpath.open('rb'),'sha256').hexdigest(),crcPassed=True,template=str(target),files=files),indent=2)+'
+                                                                                                                                                                                  ^
+SyntaxError: unterminated string literal (detected at line 15)
+Error: Command failed: C:/Users/Joshua/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/python.exe -c from pathlib import Path
+import zipfile,hashlib,json,sys,os,time
+zpath,target,out=map(Path,sys.argv[1:])
+with zipfile.ZipFile(zpath) as z:
+ assert z.testzip() is None
+ z.extractall(target)
+ files=[]
+ for info in z.infolist():
+  if info.is_dir():continue
+  p=target/info.filename;data=z.read(info.filename)
+  assert p.read_bytes()==data
+  os.utime(p,None)
+  files.append(dict(path=info.filename,bytes=len(data),sha256=hashlib.sha256(data).hexdigest()))
+assert next(f for f in files if f['path']=='electron.exe')['sha256']=='2529b494f4123f152bce346051f7bd855ef95006424a561953cf17c49a3d1ba8'
+out.write_text(json.dumps(dict(zip=str(zpath),zipSha256=hashlib.file_digest(zpath.open('rb'),'sha256').hexdigest(),crcPassed=True,template=str(target),files=files),indent=2)+'
+')
+ C:\Users\Joshua\AppData\Local\electron\Cache\5a625dfd3df3efc3971556afe64989f9aa6ea0f4cd6e33889c1951789041498f\electron-v44.7.0-win32-x64.zip C:\Users\Joshua\AppData\Local\Temp\electron-packager\win32-x64-template-gtUEs0 C:\Users\Joshua\Documents\Codex\2026-10-08\rea\work\custard-knights-controls\qa\results\beta13-desktop\python-template.json
+    at genericNodeError (node:internal/errors:985:15)
+    at wrappedFn (node:internal/errors:539:14)
+    at checkExecSyncError (node:child_process:942:11)
+    at execFileSync (node:child_process:978:15)
+    at Packager.extractElectronZip (C:\Users\Joshua\Documents\Codex\2026-10-08\rea\work\custard-knights-controls\qa\results\beta13-desktop\build-python-extract.cjs:26:3)
+    at Packager.createApp (file:///C:/Users/Joshua/Documents/Codex/2026-10-08/rea/work/custard-knights-controls/node_modules/@electron/packager/dist/packager.js:118:20)
+    at async Promise.all (index 0)
+    at async packager (file:///C:/Users/Joshua/Documents/Codex/2026-10-08/rea/work/custard-knights-controls/node_modules/@electron/packager/dist/packager.js:244:22)
+    at async Object.packageWindows (C:\Users\Joshua\Documents\Codex\2026-10-08\rea\work\custard-knights-controls\scripts\package.cjs:32:15)
+    at async C:\Users\Joshua\Documents\Codex\2026-10-08\rea\work\custard-knights-controls\qa\results\beta13-desktop\build-python-extract.cjs:28:2 {
+  status: 1,
+  signal: null,
+  output: [ null, null, null ],
+  pid: 32680,
+  stdout: null,
+  stderr: null
+}

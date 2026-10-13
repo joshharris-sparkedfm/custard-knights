@@ -2,9 +2,17 @@
 
 13 October 2026 · Durable handoff for the explicitly renewed 30-minute build loop. Active automation ID: `custard-knights-build-orchestrator` (verified by root; every 30 minutes).
 
-The user renewed automation authorization after the earlier removal. Historical removal remains true; its no-recreation instruction is superseded for this requested build loop. The root orchestrator owns coordination, integration and this queue. [FULL-EXPERIENCE-PLAN.md](FULL-EXPERIENCE-PLAN.md) and [ACCEPTANCE-MATRIX.md](ACCEPTANCE-MATRIX.md) remain the scope and acceptance authority. Documentation is not a gameplay pass. Latest friends beta.12 is frozen at `be03b64f6ba3104bfcaa6b1154d4348cb2565fb5`; earlier exports remain preserved.
+The user renewed automation authorization after the earlier removal. Historical removal remains true; its no-recreation instruction is superseded for this requested build loop. The root orchestrator owns coordination, integration and this queue. [FULL-EXPERIENCE-PLAN.md](FULL-EXPERIENCE-PLAN.md) and [ACCEPTANCE-MATRIX.md](ACCEPTANCE-MATRIX.md) remain the scope and acceptance authority. Documentation is not a gameplay pass. Latest friends beta.13 is frozen at `dd4906bcae1266355a11e50072bdccaff930f6f8`; earlier exports remain preserved.
 
-Latest verified export: beta.12 frozen be03b64f6ba3104bfcaa6b1154d4348cb2565fb5 in PR29. PR29 merged at fcc94548781ea559dfde82913074ce1983f18d86 and origin/main was verified before this controls task. Earlier version/task labels are historical.
+Latest verified export: beta.13 frozen dd4906bcae1266355a11e50072bdccaff930f6f8 in PR30. Earlier version/task labels below are historical. Exact archive identity is in PREVIEW-BUILD.md and qa/results/beta13-desktop/exports.json.
+
+## FE04 remapping final handoff
+
+Implementation, independent source/browser QA and beta.13 packaging are complete. Source and extracted-ASAR remapping each pass 33 checks; native programmatic editor/storage/reload smoke passes 9, and isolated EXE lifecycle acceptance passes. All 63 package entries and 73 Friends game files match; both ZIP integrity/hash checks pass. CI38388857005 passes all six jobs at frozen dd4906b on its first attempt. Retained helper failures concern Python newline escaping and a UTF-8 guide comparison decoded with Windows defaults; corrections changed evidence helpers only, not runtime or archives. Native extraction uses the documented reviewed adapter, not a claimed native-fault fix. Root completes final review/evidence push and PR30 merge before the next implementation.
+
+Friends beta.13 is a private testing build. Physical controllers, human ergonomics, native combat timing, WAN and Steam acceptance remain open. Remapping applies to arena/Cup/Story/practice; Faction controls stay separately fixed. Original bakery WIP and older exports remain preserved.
+
+Next bounded engineering is FE05 stable room/Cup identity: deliberate middle-seat Leave currently compacts devices/profiles. The completed read-only Luna/high audit is [room-continuity-audit.md](research/2026-10-13/room-continuity-audit.md). Use fixed logical local slots, retain historical Cup points while clearing departed readiness/votes, preserve beta.12 recovery and beta.13 maps, and verify three rounds plus a second Cup. Native guest multiseat/authenticated persistence remain separate. Audit involved no code changes or tests; do not count it as implementation acceptance.
 
 ## Active FE04 remappable-controls task — 13 October 2026
 
@@ -154,3 +162,7 @@ Final keyboard nuance: three editable profiles (Solo, keyboard half1, keyboard h
 Controls candidate2:108 affected tests before final selector correction,12 focused afterwards. Alias-option restoration bug fixed. Independent candidate1 retained wrong expected Solo-versus-joined-half prompt fixture failure. Candidate2 correctly renders saved mappings but found actual HowTo Back covered by global Sound control at800x600/500; runtime owner resumed bounded layout repair, source not approved/frozen. QA adding actual sampled d-pad selector/A Apply case. /root/controls_package (gpt-6.1-sol medium) prepared beta.13 version/playtest guide/deps only; awaiting root final40SHA, no package/export yet. All earlier beta12 exports preserved.
 
 Controls finalcandidate3 sourceclear: indexe8d08e7589c9222d5753f8f57b5f1b8424807d2827b46bff3f1745b9b7d58b6f, controlsa65a941fbe3614ab467207d8b216eecdffa77668d1f1bb171f4ad4a6c2405b40.108affected tests before targetedfixes;12then21 scopedchecks; final33browserpasszeroexceptions and independentsourceclear. Rootfreeze/push/CI next; controls_package beta13preparedawaits exact40SHA. No physical/WAN/humanacceptance or wholeFE04completion.
+
+Controls freeze dd4906bcae1266355a11e50072bdccaff930f6f8 pushed in PR30 (attached), hosted CI38388857005 running. Source/QA/review complete. /root/controls_package resumed from preparation with exactfreeze for63entry/newmodule inventory, actualEXE lifecycle/remap smoke, extracted33 and additivebeta13exports; knownbeta12Pythonextractionworkaroundusedwithcontentverification ratherthanretryingunchangednativefault. LatestverifiedFriendsremainsbeta12untilfinalexportrecord. Rootwillmergeonlyafterpackagechecks/review/CI.
+
+Parallel next-task read-only preparation: /root/room_contract_audit, gpt-6-luna high, owns nofiles. Inspect currentparty/Cup/net FE05 deliberateLeave identity/readiness and propose bounded compatiblecontract; noimplementationuntilPR30merged, noFE13guestmultiseatorexpandedranking. Rootretainsnextdispatchdecision.

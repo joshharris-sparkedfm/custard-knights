@@ -1,0 +1,12 @@
+{
+  "sourceCommit": "dd4906bcae1266355a11e50072bdccaff930f6f8",
+  "adapter": "qa/results/beta13-desktop/build-python-extract.cjs",
+  "adapterSha256": "d00b38740e9344e8b10b1ae2d6c9fd28dacf5ff2ac2a5b49d8a0e1c898e2427f",
+  "derivedFrom": "qa/results/beta12-desktop/build-python-extract.cjs",
+  "derivedFromSha256": "24c2d133c07a3f62521600146b489db5df1ba15583c8891b51c097f6a2a0f64e",
+  "packageConfigUnchanged": true,
+  "nativeExtractionRetry": false,
+  "retainedFailure": "build-adapter-first-failure.log",
+  "correction": "Escaped Python trailing newline as double backslash inside JavaScript template literal; evidence output only. No game/packager/dependency patch.",
+  "contentIdentity": "Cached ZIP CRC and SHA256 verified; all template files byte-compared; timestamps are extraction-time, not original ZIP mtimes."
+}

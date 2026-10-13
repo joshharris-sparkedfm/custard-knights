@@ -30,3 +30,9 @@ The passed cases include actual controller d-pad profile/field edits and A Apply
 Screenshots of candidate 3's How To Play header and saved keyboard controls at 800×500 were also visually inspected: Back clears the Sound toolbar, remap text is readable, and ordinary panel scrolling reaches it. No broad prior soaks were rerun. The currently retained beta.12 package is not new acceptance; a later beta.13/extracted-ASAR or packaged EXE run must identify its own hashes and evidence.
 
 Evidence: `qa/results/controls-remap-2026-10-13/candidate3/report.json` and sibling PNG files. Runner: `qa/controls-remap-browser.cjs`.
+
+## Frozen package review
+
+Beta.13 frozen dd4906bcae1266355a11e50072bdccaff930f6f8 now has its own acceptance: 63 source/metadata entries, 33 extracted-ASAR remapping checks, 9 native-origin programmatic editor/storage/reload checks and isolated desktop lifecycle acceptance. All six hosted CI jobs passed at this exact freeze. All 73 Friends game files, preview ZIP payloads, both ZIP hashes/CRC and exact rendered materials match the recorded inventory. The template comparison explicitly follows the standard bundler's UTF-8/CRLF-to-LF transformation.
+
+Independent final read-only review by /root/controls_review (gpt-6-luna, high) cleared source and these final exports with no blocker. It inspected helpers, identities, reports and limitations without rerunning tests. ASAR5cc759db8a29a1d415bf4785e5991b55538e56682ec76e85b67613ca66d5bcfd. The evidence-only Python extraction adapter, inherited newline-escaping failure, UTF-8 comparator failure and raw-Git-versus-checkout newline comparison failure are preserved in qa/results/beta13-desktop. Corrected verifiers did not change the runtime or ZIPs. Prior native faults remain unresolved; scoped synthetic/programmatic tests are not physical-controller, WAN, human usability or Steam acceptance.

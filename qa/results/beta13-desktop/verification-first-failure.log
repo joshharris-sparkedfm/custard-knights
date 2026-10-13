@@ -1,0 +1,5 @@
+Traceback (most recent call last):
+  File "C:\Users\Joshua\Documents\Codex\2026-10-08\rea\work\custard-knights-controls\qa\results\beta13-desktop\verify-exports.py", line 27, in <module>
+    assert z.read('START-HERE.txt').decode() == (repo / 'release/playtest/START-HERE.txt').read_text().replace('{{VERSION}}',preview['version'])
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError

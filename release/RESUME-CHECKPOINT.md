@@ -1,4 +1,14 @@
-# Remappable controls source checkpoint — 13 October 2026
+# Beta.13 remappable controls export — 13 October 2026
+
+Frozen runtime dd4906bcae1266355a11e50072bdccaff930f6f8, PR30. Friends ZIP outputs/Custard-Knights-Friends-0.3.0-beta.13.zip: 547153491 bytes, SHA256344c9698f79eeafbc9fe4e501e4a793e79e00d6d2b54a7e46e6444520122fe1f. Preview ZIP547160415 bytes, SHA2567d1753cc9906df916dd767a699a59318d9c9d564c9d0922a6c5c4140cc3184d3. ASAR5cc759db8a29a1d415bf4785e5991b55538e56682ec76e85b67613ca66d5bcfd. Exact paths, evidence and limits: PREVIEW-BUILD.md and qa/results/beta13-desktop.
+
+All63 package entries/73 Friends game files and both ZIP CRC/hash checks pass. Final source33/extracted33 remapping checks, native programmatic editor/storage/reload9 and isolated lifecycle pass. CI38388857005 all6 jobs passed first attempt at exact frozen source. Preserve helper failures and their evidence-only fixes: inherited Python newline escaping and Windows default decoding of a UTF-8 guide. Reviewed Python extraction adapter does not establish native extractor/runtime fault resolution. Source review cleared; root finishes final export review, evidence push and PR30 merge. Verify remote status before new implementation.
+
+Options supports saved Solo/two-keyboard-half and four logical controller combat profiles, validation, draft Apply/Cancel/default reset and held-input release. Help follows bindings; Faction retains fixed controls. Physical-pad/human/WAN/Steam acceptance remains open. No upload or sending to testers; original bakery WIP, normal saves and older exports untouched. Extract entire Friends ZIP, close older copies normally, run Game/Custard Knights.exe.
+
+Next: FE05 deliberate Leave without logical seat/profile compaction, room/readiness/Cup continuity. Completed read-only audit: release/research/2026-10-13/room-continuity-audit.md. No next implementation until this checked task is merged. Keep native two-sofa and200-combatant work explicit and unfinished; use local media pipeline for concrete story/faction needs after preserving prior media.
+
+# Historical remappable controls source checkpoint — 13 October 2026
 
 Worktree work/custard-knights-controls, branch codex/remappable-controls from verified PR29 merge fcc94548781ea559dfde82913074ce1983f18d86. Beta.13 prepared; latest verified export remains beta.12 until package evidence records the new build. Original bakery WIP, normal saves and prior exports unchanged.
 

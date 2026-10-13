@@ -1,0 +1,57 @@
+[
+  {
+    "path": "audio/soundtrack.js",
+    "changed": false,
+    "sha256": "980aa9b350ae77aaba7e9f81ae3d4820588218434a0f23e1fa365fdae01df8fa"
+  },
+  {
+    "path": "vendor/fonts.css",
+    "changed": false,
+    "sha256": "1663ead62e96d1c6cc5c98cbd7625bd89ba1b6f29a669a00e725760b39b16eb3"
+  },
+  {
+    "path": "vendor/lilita-one-LICENSE.txt",
+    "changed": false,
+    "sha256": "2db08f46f614cf63e96dc99390112b2a1d2c4171370443f510e2163fd4ad40eb"
+  },
+  {
+    "path": "vendor/lilita-one-latin-400-normal.woff2",
+    "changed": false,
+    "sha256": "d2575d4fa3632580aafcbcdf6978b3b57e144b90cf5bd9c2c98194f28b869704"
+  },
+  {
+    "path": "vendor/nunito-LICENSE.txt",
+    "changed": false,
+    "sha256": "40991bfa02ac620aae16dc527f3c47765a25e43f270d4c301ee6ab663a8d9015"
+  },
+  {
+    "path": "vendor/nunito-latin-600-normal.woff2",
+    "changed": false,
+    "sha256": "45f437de32ff5973eb5616b43c1308bf9fe897442f3d78a603c4cd0a06d66573"
+  },
+  {
+    "path": "vendor/nunito-latin-800-normal.woff2",
+    "changed": false,
+    "sha256": "2363d3ed037283ebb961e8c4b4917e40a8bc8853cf9965cf1ea7b4daa1df630a"
+  },
+  {
+    "path": "vendor/nunito-latin-900-normal.woff2",
+    "changed": false,
+    "sha256": "9ca32f5d8334579387361096944286df451272a557bb09bd906254a623aba99e"
+  },
+  {
+    "path": "vendor/peerjs-LICENSE.txt",
+    "changed": false,
+    "sha256": "9407807dba7f47a79bfb3ac55759d63d77c9371ebd0616d5a093e97d3e810397"
+  },
+  {
+    "path": "vendor/peerjs-THIRD-PARTY-NOTICES.txt",
+    "changed": false,
+    "sha256": "876e475c6816a63e25d444006fa8fd16ed1ba66f7d67123bdfd99648572aac75"
+  },
+  {
+    "path": "vendor/peerjs.min.js",
+    "changed": false,
+    "sha256": "ad5d8870d1e389914f9cba8d35be313c4327c69ee0a221e482e9bf7621136fe5"
+  }
+]

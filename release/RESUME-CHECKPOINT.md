@@ -1,3 +1,9 @@
+# FE07 warning arbitration active — 13 October 2026
+
+PR32 merged at `f900cf01e9bc12e8fa05b0985b0a619a1d57cecc`; the clean integration checkout matched origin/main before branch `codex/warning-priority` was created in work/custard-knights-room. The completed FE06 copy correction is below. Latest playable archive remains beta.14, unchanged; original bakery WIP and saves remain preserved.
+
+Current owners: /root/warning_implementation (Sol high) runtime/modules/campaign/tests; /root/warning_qa (Sol medium) independent browser/rendered/audio/replication evidence; /root/warning_contract_audit (Luna high) read-only review; root (Sol Extra High) coordination/docs/Git/package integration. Read release/research/2026-10-13/warning-priority-audit.md and queue for scope. Protect authored hazards/objectives from lower-priority overwrites, bounded/coalesced expiry, reserved warning voices and temporary settings-aware music ducking, with cleanup and host/client policy. No new audio generation or combat changes. Inspect agents/current status before competing edits. Finish affected checks/review and coherent new package before task merge; do not count this dispatch as implemented or accepted.
+
 # FE06 sword guidance checked — 13 October 2026
 
 PR31 is merged at `8e3a8b15ae13f611e24461c4a25abad4e6d4c2c1`; remote main and the clean integration checkout were verified before creating branch `codex/sword-charge-guidance` in work/custard-knights-room. Beta.14 below remains the latest verified playable export. Original bakery WIP and normal saves are preserved.

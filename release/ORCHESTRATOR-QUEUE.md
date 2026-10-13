@@ -1,5 +1,18 @@
 # Orchestrator execution queue
 
+## Active FE07 warning arbitration — 13 October 2026
+
+PR32 merged the checked sword guidance at `f900cf01e9bc12e8fa05b0985b0a619a1d57cecc`. The clean integration checkout matched origin/main before creating `codex/warning-priority` in work/custard-knights-room. All charge workers completed. Beta.14 remains the current verified downloadable archive; subsequent source corrections are not in that archive. Original bakery WIP remains unchanged.
+
+| Task | Owner / model / effort | Files | Progress / next action |
+|---|---|---|---|
+| Warning arbitration and audio | /root/warning_implementation / gpt-6.1-sol / high | index.html, bounded game/audio module(s), campaign integration, source tests, package registration if required | Implement protected hazard/objective banners, bounded/coalesced lifetime, warning admission and temporary user-volume-aware ducking; preserve combat and authored tells |
+| Independent behavior/rendered/audio QA | /root/warning_qa / gpt-6.1-sol / medium | qa/warning-priority-browser.cjs and dated results/review | Prepare forced overlaps, saturation, settings/reset/expiry and actual same-host replication; final acceptance waits stable source |
+| Independent source/evidence review | /root/warning_contract_audit / gpt-6-luna / high | Read-only | Review final policy, every producer entry, cleanup/authority and evidence; do not repeat prior read-only audit |
+| Integration and package | /root / Sol Extra High | Queue/checkpoint, Git/CI and eventual package dispatch | Obtain checked source review, freeze coherent increment and verify new Friends package; push/attach/merge completed task before subsequent implementation |
+
+The bounded audit is research/2026-10-13/warning-priority-audit.md. Name separate Faction/story format limitations rather than claiming all CK-09 acceptance. Keep original mechanics, reduced-flash/motion settings and saved user volume; no generated sound/music, public transmission, native-fault retries or unchanged soaks. New physical/human/minimum-hardware acceptance remains open. Causal story and distinct live faction art follow the queue; native two-sofa/200-total commitments remain unfinished.
+
 ## Checked FE06 sword guidance — 13 October 2026
 
 PR31 merged at `8e3a8b15ae13f611e24461c4a25abad4e6d4c2c1`. The clean room checkout matched current remote main before switching to `codex/sword-charge-guidance`. Beta.14 remains the latest verified Friends export; its exact identities and packaging workaround are recorded below and in PREVIEW-BUILD.md. All prior room workers completed. Original bakery WIP remains isolated and unchanged.

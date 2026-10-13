@@ -1,6 +1,22 @@
 # Orchestrator execution queue
 
-## Active FE08 playable bakery slice — 13 October 2026
+## Checked FE08 and Friends beta.16 — 13 October 2026
+
+Runtime `a7e5ed4b653823ee2a84cb6df84d425206c46072` is frozen and pushed in attached PR34. Source, independent QA/review, actual package/export and final independent evidence review are complete; root finishes checked documentation push/merge before the next task. Later changes are evidence/docs and one QA-helper EOF whitespace correction only. Runtime bytes are unchanged.
+
+- Friends ZIP: outputs/Custard-Knights-Friends-0.3.0-beta.16.zip, 800720142 bytes, SHA256 `af8c7c69dbf3db2d7aa6dab4edfc3655547805a7b6bda14c27579b7f265e0024`.
+- Preview folder: outputs/Custard-Knights-Windows-0.3.0-beta.16-preview; adjacent ZIP 800745130 bytes, SHA256 `5e84a7849d1e7e4e837c6f96f5d28b202a8592245a5a4c282c1e8ad67321911f`.
+- ASAR: `860e6aaef17248ca0e9c99b393c3b4d26e48b80b08911da3546ec8c4313494b1`; EXE: `eb271f2acf7aefae39ab99c21b78e15e1aa187ad9a4b11f7a6f34b635f24ee35`.
+
+All 66 package entries and 73 Friends game files match. Final extracted story harness passes 36; focused final corrections pass 7 and overlap the broad suite, so they are not 43 unique journey assertions. Isolated EXE save/restart/launcher/relocation passes. Native programmatic UI passes 8 on the unchanged renderer after a separately recorded acceptance `?qa=1` bootstrap and explicit fresh `custard://game/index.html` reload. The checked document has no query or window.CK; original index/ASAR hashes are recorded and ASAR stays unchanged. This is clean-reload native programmatic UI, not ordinary production startup, input-only combat or physical-device acceptance. Two pre-run helper assumptions were corrected after independent review; no failed native invocation occurred. Python and independent .NET verify CRC/SHA for all 75 preview/76 Friends archive members. Direct ZIP_STORED and the byte-identical reviewed extraction adapter avoid previously implicated paths without claiming fault resolution.
+
+Hosted CI 38418272612 passes all six jobs on attempt 1 at the exact freeze. It includes the existing configured full suites, loopback and journal steps; no manual unchanged soak or unchanged soundtrack workflow was requested. Final evidence is qa/results/beta16-desktop/README.md and exports.json. Source/package reviewer /root/bakery_review (Luna high) clears the evidence; /root/room_package (Sol medium) is complete. Source fixture failures and all staged guards/stuns/save/pad setups remain disclosed. Original WIP, normal saves and previous exports remain untouched. No public upload or tester sending occurred.
+
+**Latest owner decision:** retain 50v50 as the first-release maximum, meaning 100 total combatants including bots. Defer 100v100/200 total to later scope. This supersedes earlier required 200-total statements in historical records and the previous heartbeat prompt; root updated the existing 30-minute automation with this scope while preserving its timing and quiet-notification policy. Native two-sofa still requires engineering. Keep actual 100-total performance, human/WAN/minimum-PC acceptance and all other advertised commitments open.
+
+Next: one bounded Astra Ultra story/experience review to refine FE09's causal middle, alliance, finale and homecoming before Sol implementation/Luna checks. Use exact source and captures, prioritised findings, compatible eight-node/replay mapping and concrete acceptance criteria; no repeated broad Astra runs. The fuller story, distinct live faction art, native two-sofa/service/rankings, warning follow-ups, human/device/music/WAN/minimum hardware and Steam gates remain unfinished. Merge PR34 before the next integrated task. Extract the whole Friends ZIP and run Game/Custard Knights.exe after closing older copies normally; never close the user's game for QA.
+
+## Historical FE08 dispatch and source handoff — 13 October 2026
 
 PR33 is merged at `ee1942f41b3965db73d41741b6bd776f2f104350`. Root verified origin/main, worktrees and completed warning workers before creating clean branch `codex/playable-bakery-slice` in work/custard-knights-room. Beta.15 remains the verified playable export below; no FE08 source is accepted or packaged yet. The original bakery WIP remains isolated and its exact preservation record is in research/2026-10-13/bakery-wip.
 

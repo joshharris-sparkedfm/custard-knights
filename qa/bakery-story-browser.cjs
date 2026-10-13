@@ -63,4 +63,3 @@ async function cases(){
 }
 const watchdog=setTimeout(()=>{report.failure='240 second watchdog';chrome?.kill();process.exitCode=1;},240000);
 main().catch(async e=>{report.failure=e.stack;console.error(e);try{report.failureState=await snap();await shot('initial-failure');}catch{}process.exitCode=1;}).finally(()=>{clearTimeout(watchdog);report.finishedAt=new Date().toISOString();report.sourceHashesAfter=hashes();report.stableSources=JSON.stringify(report.sourceHashes)===JSON.stringify(report.sourceHashesAfter);report.counts={pass:report.checks.filter(c=>c.pass).length,fail:report.checks.filter(c=>!c.pass).length};if(report.counts.fail||!report.stableSources)process.exitCode=1;fs.writeFileSync(path.join(OUT,'report.json'),JSON.stringify(report,null,2)+'\n');ws?.close();chrome?.kill();console.log(OUT);});
-

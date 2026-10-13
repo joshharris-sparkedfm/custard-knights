@@ -1,0 +1,37 @@
+PASS Fresh Play encounter opens playable bakery instead of generic scene
+PASS Compact bakery-first objective stays inside viewport
+PASS Actual Escape pauses quiet objective time
+PASS Options Back returns to paused game
+PASS Compact bakery-talk objective stays inside viewport
+PASS Held interaction does not automatically pick up next tray
+PASS Pickup attaches delivery tray to player
+PASS Compact tray-carried objective stays inside viewport
+PASS Independent Steve scrap theft progresses while carrying tray
+PASS Compact steve-stolen-bun objective stays inside viewport
+PASS Quiet opening does not award spoons or change save
+PASS Actual Space sword contacts destroy reachable pantry blockade
+PASS Mabel Alf Pip physically escorted through pantry doorway
+PASS Pantry hold and reachable green exit save completion
+PASS Compact aftermath objective stays inside viewport
+PASS Default continuation visibly returns same named rescued cooks
+PASS Cooks contribute supplies before onward siege objective
+PASS Aftermath leads next existing encounter without new rewards
+PASS Compact actual-siege objective stays inside viewport
+PASS Actual siege fight retains bakery and same named cook supply stations
+PASS Live raider traverses authored forecourt to a supply stand
+PASS Actual WASD reaches all three named siege station approaches
+PASS Explicit pause skip displays next scene without continuing quiet simulation
+PASS Explicitly skipped aftermath starts next combat only after scene action
+PASS Aftermath replay and skip do not duplicate reward receipts
+PASS Retry starts combat directly with short context
+PASS Quit clears quiet/combat runtime and returns home
+PASS Reload preserves legacy node IDs independent spoons checkpoint and receipt
+PASS Checkpoint continuation restores phase after explicit scene skip
+PASS Legacy duplicate receipt cannot mutate spoons
+PASS Default Space cannot activate remapped interaction
+PASS Remapped Q activates owned quiet interaction
+PASS Explicit quiet replay resets opening without save mutation
+PASS Explicit bakery skip reaches combat directly
+PASS Sampled owned standard pad A activates quiet interaction
+PASS No browser exceptions
+C:\Users\Joshua\Documents\Codex\2026-10-08\rea\work\custard-knights-room\qa\results\beta16-packaged-bakery

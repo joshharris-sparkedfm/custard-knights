@@ -1,0 +1,8 @@
+PASS Explicit pause skip displays next scene without continuing quiet simulation
+PASS Explicitly skipped aftermath starts next combat only after scene action
+PASS Natural aftermath terminal clears quiet runtime without save mutation
+PASS Compact corrected-talk objective stays inside viewport
+PASS Compact corrected-aftermath objective stays inside viewport
+PASS Compact corrected-siege-doorwork objective stays inside viewport
+PASS No browser exceptions
+C:\Users\Joshua\Documents\Codex\2026-10-08\rea\work\custard-knights-room\qa\results\beta16-packaged-bakery-followup

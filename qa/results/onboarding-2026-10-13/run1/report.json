@@ -1,0 +1,816 @@
+{
+  "startedAt": "2026-10-13T09:26:03.974Z",
+  "runtime": {
+    "node": "C:\\Users\\Joshua\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\node\\bin\\node.exe",
+    "chrome": "C:/Program Files/Google/Chrome/Application/chrome.exe",
+    "root": "C:\\Users\\Joshua\\Documents\\Codex\\2026-10-08\\rea\\work\\custard-knights-onboarding"
+  },
+  "checks": [
+    {
+      "profile": "fresh",
+      "name": "Fresh profile receives optional setup with visible skip",
+      "pass": true,
+      "details": {
+        "pass": true,
+        "state": {
+          "active": "onboardingMusic",
+          "overlays": [
+            "firstLaunch"
+          ],
+          "playing": null,
+          "seats": null,
+          "cfg": null
+        }
+      }
+    },
+    {
+      "profile": "fresh",
+      "name": "Skip dismisses offer and persists through reload",
+      "pass": true,
+      "details": {
+        "pass": true,
+        "storage": {}
+      }
+    },
+    {
+      "profile": "fresh",
+      "name": "Optional practice reachable through How to Play",
+      "pass": true,
+      "details": {
+        "pass": true,
+        "practice": {
+          "stage": "move",
+          "completed": false,
+          "aimed": false
+        }
+      }
+    },
+    {
+      "profile": "fresh",
+      "name": "Idle time alone never completes movement",
+      "pass": true,
+      "details": {
+        "pass": true,
+        "practice": {
+          "stage": "move",
+          "completed": false,
+          "aimed": false
+        }
+      }
+    },
+    {
+      "profile": "fresh",
+      "name": "Real keyboard movement advances the movement lesson",
+      "pass": true,
+      "details": {
+        "pass": true,
+        "before": {
+          "stage": "move",
+          "completed": false,
+          "aimed": false
+        },
+        "after": {
+          "stage": "swing",
+          "completed": false,
+          "aimed": false
+        },
+        "stats": {
+          "swings": {
+            "h": 0,
+            "b": 0
+          },
+          "swingHits": {
+            "h": 0,
+            "b": 0
+          },
+          "shots": {
+            "h": 0,
+            "b": 0
+          },
+          "shotHits": {
+            "h": 0,
+            "b": 0
+          },
+          "blocks": 0,
+          "dashes": 0,
+          "frames": 180,
+          "parries": 0,
+          "guardBreaks": 0,
+          "heavies": 0,
+          "stabs": 0,
+          "bashes": 0,
+          "protectedHits": 0
+        }
+      }
+    },
+    {
+      "profile": "fresh",
+      "name": "Real keyboard swing advances the swing lesson",
+      "pass": true,
+      "details": {
+        "pass": true,
+        "before": {
+          "stage": "swing",
+          "completed": false,
+          "aimed": false
+        },
+        "after": {
+          "stage": "guard",
+          "completed": false,
+          "aimed": false
+        },
+        "stats": {
+          "swings": {
+            "h": 1,
+            "b": 0
+          },
+          "swingHits": {
+            "h": 0,
+            "b": 0
+          },
+          "shots": {
+            "h": 0,
+            "b": 0
+          },
+          "shotHits": {
+            "h": 0,
+            "b": 0
+          },
+          "blocks": 0,
+          "dashes": 0,
+          "frames": 202,
+          "parries": 0,
+          "guardBreaks": 0,
+          "heavies": 0,
+          "stabs": 0,
+          "bashes": 0,
+          "protectedHits": 0
+        }
+      }
+    },
+    {
+      "profile": "fresh",
+      "name": "Actual held guard advances the guard lesson",
+      "pass": true,
+      "details": {
+        "pass": true,
+        "before": {
+          "stage": "guard",
+          "completed": false,
+          "aimed": false
+        },
+        "after": {
+          "stage": "dash",
+          "completed": false,
+          "aimed": false
+        },
+        "stats": {
+          "swings": {
+            "h": 1,
+            "b": 0
+          },
+          "swingHits": {
+            "h": 0,
+            "b": 0
+          },
+          "shots": {
+            "h": 0,
+            "b": 0
+          },
+          "shotHits": {
+            "h": 0,
+            "b": 0
+          },
+          "blocks": 0,
+          "dashes": 0,
+          "frames": 237,
+          "parries": 0,
+          "guardBreaks": 0,
+          "heavies": 0,
+          "stabs": 0,
+          "bashes": 0,
+          "protectedHits": 0
+        }
+      }
+    },
+    {
+      "profile": "fresh",
+      "name": "Actual dash advances the dash lesson",
+      "pass": true,
+      "details": {
+        "pass": true,
+        "before": {
+          "stage": "dash",
+          "completed": false,
+          "aimed": false
+        },
+        "after": {
+          "stage": "ranged",
+          "completed": false,
+          "aimed": false
+        },
+        "stats": {
+          "swings": {
+            "h": 1,
+            "b": 0
+          },
+          "swingHits": {
+            "h": 0,
+            "b": 0
+          },
+          "shots": {
+            "h": 0,
+            "b": 0
+          },
+          "shotHits": {
+            "h": 0,
+            "b": 0
+          },
+          "blocks": 0,
+          "dashes": 1,
+          "frames": 254,
+          "parries": 0,
+          "guardBreaks": 0,
+          "heavies": 0,
+          "stabs": 0,
+          "bashes": 0,
+          "protectedHits": 0
+        }
+      }
+    },
+    {
+      "profile": "fresh",
+      "name": "Ranged waits for aim and genuine fire rather than timer",
+      "pass": true,
+      "details": {
+        "pass": true,
+        "practice": {
+          "stage": "ranged",
+          "completed": false,
+          "aimed": false
+        }
+      }
+    },
+    {
+      "profile": "fresh",
+      "name": "Changed mouse aim and real bow fire completes practice",
+      "pass": true,
+      "details": {
+        "pass": true,
+        "before": {
+          "stage": "ranged",
+          "completed": false,
+          "aimed": false
+        },
+        "after": {
+          "stage": "complete",
+          "completed": true,
+          "aimed": true
+        },
+        "stats": {
+          "swings": {
+            "h": 1,
+            "b": 0
+          },
+          "swingHits": {
+            "h": 0,
+            "b": 0
+          },
+          "shots": {
+            "h": 1,
+            "b": 0
+          },
+          "shotHits": {
+            "h": 0,
+            "b": 0
+          },
+          "blocks": 0,
+          "dashes": 1,
+          "frames": 369,
+          "parries": 0,
+          "guardBreaks": 0,
+          "heavies": 0,
+          "stabs": 0,
+          "bashes": 0,
+          "protectedHits": 0
+        }
+      }
+    },
+    {
+      "profile": "fresh",
+      "name": "Completed practice shows Retry and Leave",
+      "pass": true,
+      "details": {
+        "pass": true,
+        "state": {
+          "active": "practiceRetry",
+          "overlays": [
+            "practiceResult"
+          ],
+          "playing": false,
+          "seats": null,
+          "cfg": {
+            "mode": "ffa",
+            "players": 1,
+            "diff": "medium",
+            "map": "random",
+            "chaosPlus": false,
+            "chaosSpeed": "normal",
+            "length": 180,
+            "teamSplit": false,
+            "arenaSize": "classic"
+          }
+        }
+      }
+    },
+    {
+      "profile": "fresh",
+      "name": "Retry resets action evidence and idle does not advance",
+      "pass": true,
+      "details": {
+        "pass": true,
+        "practice": {
+          "stage": "move",
+          "completed": false,
+          "aimed": false
+        }
+      }
+    },
+    {
+      "profile": "fresh",
+      "name": "Pause freezes training and Escape resumes",
+      "pass": true,
+      "details": {
+        "pass": true,
+        "practice": {
+          "stage": "move",
+          "completed": false,
+          "aimed": false
+        }
+      }
+    },
+    {
+      "profile": "fresh",
+      "name": "Blur releases held gameplay inputs",
+      "pass": true,
+      "details": {
+        "pass": true,
+        "keys": {
+          "KeyD": false,
+          "Space": false,
+          "KeyE": false,
+          "ShiftLeft": false,
+          "Escape": false
+        }
+      }
+    },
+    {
+      "profile": "fresh",
+      "name": "Leaving move restores normal config and couch seats without rewards/events",
+      "pass": true,
+      "details": {
+        "pass": true,
+        "reached": {
+          "stage": "move",
+          "completed": false,
+          "aimed": false
+        },
+        "after": {
+          "cfg": "{\"mode\":\"flags\",\"players\":2,\"diff\":\"hard\",\"map\":\"frost\",\"chaosPlus\":false,\"chaosSpeed\":\"normal\",\"length\":180,\"teamSplit\":false,\"arenaSize\":\"roomier\"}",
+          "seats": "[{\"dev\":\"kb1\",\"idx\":0},{\"dev\":\"kb2\",\"idx\":1}]",
+          "events": [],
+          "cup": null,
+          "study": null,
+          "practice": null,
+          "saved": {}
+        }
+      }
+    },
+    {
+      "profile": "fresh",
+      "name": "Leaving swing restores normal config and couch seats without rewards/events",
+      "pass": false,
+      "details": {
+        "pass": false,
+        "reached": {
+          "stage": "move",
+          "completed": false,
+          "aimed": false
+        },
+        "after": {
+          "cfg": "{\"mode\":\"flags\",\"players\":2,\"diff\":\"hard\",\"map\":\"frost\",\"chaosPlus\":false,\"chaosSpeed\":\"normal\",\"length\":180,\"teamSplit\":false,\"arenaSize\":\"roomier\"}",
+          "seats": "[{\"dev\":\"kb1\",\"idx\":0},{\"dev\":\"kb2\",\"idx\":1}]",
+          "events": [],
+          "cup": null,
+          "study": null,
+          "practice": null,
+          "saved": {}
+        }
+      }
+    },
+    {
+      "profile": "fresh",
+      "name": "Leaving guard restores normal config and couch seats without rewards/events",
+      "pass": false,
+      "details": {
+        "pass": false,
+        "reached": {
+          "stage": "move",
+          "completed": false,
+          "aimed": false
+        },
+        "after": {
+          "cfg": "{\"mode\":\"flags\",\"players\":2,\"diff\":\"hard\",\"map\":\"frost\",\"chaosPlus\":false,\"chaosSpeed\":\"normal\",\"length\":180,\"teamSplit\":false,\"arenaSize\":\"roomier\"}",
+          "seats": "[{\"dev\":\"kb1\",\"idx\":0},{\"dev\":\"kb2\",\"idx\":1}]",
+          "events": [],
+          "cup": null,
+          "study": null,
+          "practice": null,
+          "saved": {}
+        }
+      }
+    },
+    {
+      "profile": "fresh",
+      "name": "Leaving dash restores normal config and couch seats without rewards/events",
+      "pass": false,
+      "details": {
+        "pass": false,
+        "reached": {
+          "stage": "move",
+          "completed": false,
+          "aimed": false
+        },
+        "after": {
+          "cfg": "{\"mode\":\"flags\",\"players\":2,\"diff\":\"hard\",\"map\":\"frost\",\"chaosPlus\":false,\"chaosSpeed\":\"normal\",\"length\":180,\"teamSplit\":false,\"arenaSize\":\"roomier\"}",
+          "seats": "[{\"dev\":\"kb1\",\"idx\":0},{\"dev\":\"kb2\",\"idx\":1}]",
+          "events": [],
+          "cup": null,
+          "study": null,
+          "practice": null,
+          "saved": {}
+        }
+      }
+    },
+    {
+      "profile": "fresh",
+      "name": "Leaving ranged restores normal config and couch seats without rewards/events",
+      "pass": false,
+      "details": {
+        "pass": false,
+        "reached": {
+          "stage": "move",
+          "completed": false,
+          "aimed": false
+        },
+        "after": {
+          "cfg": "{\"mode\":\"flags\",\"players\":2,\"diff\":\"hard\",\"map\":\"frost\",\"chaosPlus\":false,\"chaosSpeed\":\"normal\",\"length\":180,\"teamSplit\":false,\"arenaSize\":\"roomier\"}",
+          "seats": "[{\"dev\":\"kb1\",\"idx\":0},{\"dev\":\"kb2\",\"idx\":1}]",
+          "events": [],
+          "cup": null,
+          "study": null,
+          "practice": null,
+          "saved": {}
+        }
+      }
+    },
+    {
+      "profile": "fresh",
+      "name": "Practice produced no progression or collection writes",
+      "pass": true,
+      "details": {
+        "pass": true,
+        "before": {},
+        "after": {}
+      }
+    },
+    {
+      "profile": "fresh",
+      "name": "Practice controls fit 1280x800",
+      "pass": true,
+      "details": {
+        "pass": true,
+        "rects": [
+          {
+            "id": "practiceHud",
+            "rect": {
+              "x": 28,
+              "y": 685,
+              "width": 1224,
+              "height": 95,
+              "top": 685,
+              "right": 1252,
+              "bottom": 780,
+              "left": 28
+            }
+          },
+          {
+            "id": "practicePrompt",
+            "rect": {
+              "x": 47,
+              "y": 721,
+              "width": 1186,
+              "height": 23,
+              "top": 721,
+              "right": 1233,
+              "bottom": 744,
+              "left": 47
+            }
+          }
+        ]
+      }
+    },
+    {
+      "profile": "fresh",
+      "name": "Practice controls fit 800x600",
+      "pass": true,
+      "details": {
+        "pass": true,
+        "rects": [
+          {
+            "id": "practiceHud",
+            "rect": {
+              "x": 28,
+              "y": 485,
+              "width": 744,
+              "height": 95,
+              "top": 485,
+              "right": 772,
+              "bottom": 580,
+              "left": 28
+            }
+          },
+          {
+            "id": "practicePrompt",
+            "rect": {
+              "x": 47,
+              "y": 521,
+              "width": 706,
+              "height": 23,
+              "top": 521,
+              "right": 753,
+              "bottom": 544,
+              "left": 47
+            }
+          }
+        ]
+      }
+    },
+    {
+      "profile": "returning",
+      "name": "Genuine existing profile bypasses setup without reset",
+      "pass": true,
+      "details": {
+        "pass": true,
+        "state": {
+          "active": "tQuick",
+          "overlays": [
+            "menu"
+          ],
+          "playing": false,
+          "seats": null,
+          "cfg": {
+            "mode": "flags",
+            "players": 2,
+            "diff": "hard",
+            "map": "frost",
+            "chaosPlus": false,
+            "chaosSpeed": "normal",
+            "length": 180,
+            "teamSplit": false,
+            "arenaSize": "roomier"
+          }
+        }
+      }
+    },
+    {
+      "profile": "setup",
+      "name": "Setup saves actual range and checkbox preferences",
+      "pass": true,
+      "details": {
+        "pass": true,
+        "saved": {
+          "music": 0.56,
+          "sfx": 1,
+          "shake": 1,
+          "flash": false,
+          "names": "near",
+          "classic": false,
+          "whole": false
+        },
+        "loaded": {
+          "music": 56,
+          "sfx": 100,
+          "shake": 100,
+          "flash": true
+        }
+      }
+    },
+    {
+      "profile": "setup",
+      "name": "Synthetic standard pad moves real knight and advances movement",
+      "pass": true,
+      "details": {
+        "pass": true,
+        "practice": {
+          "stage": "swing",
+          "completed": false,
+          "aimed": false
+        }
+      }
+    },
+    {
+      "profile": "setup",
+      "name": "Synthetic standard pad action 0 advances to guard",
+      "pass": true,
+      "details": {
+        "pass": true,
+        "practice": {
+          "stage": "guard",
+          "completed": false,
+          "aimed": false
+        }
+      }
+    },
+    {
+      "profile": "setup",
+      "name": "Synthetic standard pad action 2 advances to dash",
+      "pass": true,
+      "details": {
+        "pass": true,
+        "practice": {
+          "stage": "dash",
+          "completed": false,
+          "aimed": false
+        }
+      }
+    },
+    {
+      "profile": "setup",
+      "name": "Synthetic standard pad action 1 advances to ranged",
+      "pass": true,
+      "details": {
+        "pass": true,
+        "practice": {
+          "stage": "ranged",
+          "completed": false,
+          "aimed": false
+        }
+      }
+    },
+    {
+      "profile": "setup",
+      "name": "Actual right-stick aim and pad shot complete ranged lesson",
+      "pass": true,
+      "details": {
+        "pass": true,
+        "practice": {
+          "stage": "complete",
+          "completed": true,
+          "aimed": true
+        }
+      }
+    },
+    {
+      "profile": "setup",
+      "name": "Completed Leave returns focus to the How to Play practice trigger",
+      "pass": true,
+      "details": {
+        "pass": true,
+        "state": {
+          "active": "practiceStart",
+          "overlays": [
+            "howto"
+          ],
+          "playing": false,
+          "seats": null,
+          "cfg": {
+            "mode": "ffa",
+            "players": 1,
+            "diff": "medium",
+            "map": "random",
+            "chaosPlus": false,
+            "chaosSpeed": "normal",
+            "length": 180,
+            "teamSplit": false,
+            "arenaSize": "classic"
+          }
+        }
+      }
+    },
+    {
+      "profile": "setup",
+      "name": "Held entry Space never carries into swing after movement",
+      "pass": true,
+      "details": {
+        "pass": true,
+        "held": {
+          "stage": "swing",
+          "completed": false,
+          "aimed": false
+        }
+      }
+    },
+    {
+      "profile": "storage-denied",
+      "name": "Storage denial keeps game navigable without compulsory setup",
+      "pass": true,
+      "details": {
+        "pass": true,
+        "state": {
+          "active": "tQuick",
+          "overlays": [
+            "menu"
+          ],
+          "playing": false,
+          "seats": null,
+          "cfg": {
+            "mode": "ffa",
+            "players": 1,
+            "diff": "medium",
+            "map": "random",
+            "chaosPlus": false,
+            "chaosSpeed": "normal",
+            "length": 180,
+            "teamSplit": false,
+            "arenaSize": "classic"
+          }
+        }
+      }
+    },
+    {
+      "profile": "storage-denied",
+      "name": "Practice works when storage is denied",
+      "pass": true,
+      "details": {
+        "pass": true,
+        "practice": {
+          "stage": "move",
+          "completed": false,
+          "aimed": false
+        }
+      }
+    },
+    {
+      "profile": "storage-corrupt",
+      "name": "Corrupt onboarding record does not force reset or block menu",
+      "pass": true,
+      "details": {
+        "pass": true,
+        "state": {
+          "active": "tQuick",
+          "overlays": [
+            "menu"
+          ],
+          "playing": false,
+          "seats": null,
+          "cfg": {
+            "mode": "ffa",
+            "players": 1,
+            "diff": "medium",
+            "map": "random",
+            "chaosPlus": false,
+            "chaosSpeed": "normal",
+            "length": 180,
+            "teamSplit": false,
+            "arenaSize": "classic"
+          }
+        }
+      }
+    }
+  ],
+  "consoleErrors": [],
+  "limitations": [
+    "Actual isolated Chrome with CDP mouse/keyboard and synthetic standard gamepad.",
+    "No physical controllers, human usability, external networking, packaged EXE, second Windows PC, or Steam testing.",
+    "Fixtures write only to temporary Chrome profiles; the user game and normal saves are untouched."
+  ],
+  "sourceHashes": {
+    "index.html": "bbcdaa656e5fe5ee886e23aecaf91fda4611ef7fbb496130e49f04ae47d50923",
+    "game/onboarding.js": "9d4d863d67ae860c509f4198c8870b92051333db70870f47384a6e9bfe17be90"
+  },
+  "environment": {
+    "platform": "win32",
+    "arch": "x64",
+    "node": "v24.19.0",
+    "browser": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/154.0.0.0 Safari/537.36"
+  },
+  "finishedAt": "2026-10-13T09:26:38.145Z",
+  "screenshots": {
+    "fresh-completed-1600x1000.png": "989be03529e58cba47c0306488c5dd7e9ebf11b6500188e53db0a9c5721ff154",
+    "fresh-failure-16.png": "b0384b9ef7fa8dc0a9be9dac04bd872314cc2bfab1a6a94b1c02fe9879c347a2",
+    "fresh-failure-17.png": "a195212e02654dd04f1075b3392518c9ccdf05e316b183402564677c4a5d98e3",
+    "fresh-failure-18.png": "3fb675e5594bc83ca6a6ce61ff6058a87134ac84847715457f619a2c3355a2f2",
+    "fresh-failure-19.png": "1c2ac805a844bbc12d9c63f1861a2ed815a1b28d2d943898ed9b290162ee3ac5",
+    "fresh-offer-1600x1000.png": "a91e743f0eae8cc6ee7abafa9a90636896016e26ce87084a606def10a7b233cd",
+    "fresh-practice-1280x800.png": "722a61ba3ef3be10624ee8d8785c46f0452310d1c012add5da22e06978fe78e9",
+    "fresh-practice-800x600.png": "9c769fb62c8344af680a7c428f37c3841b541d55f41239419d688912baadca1e",
+    "returning-returning-home.png": "41ca013b92ed549e0791c0080c43bafdddf3f92fcaebc1cf83be15e0fa80e8e0",
+    "setup-pad-completed.png": "ae9a208505d69b4087fb69ef5e4cf85ce6ed8d8662a8c3a56bc18cfe1c0b7238"
+  },
+  "sourceHashesAfter": {
+    "index.html": "bbcdaa656e5fe5ee886e23aecaf91fda4611ef7fbb496130e49f04ae47d50923",
+    "game/onboarding.js": "9d4d863d67ae860c509f4198c8870b92051333db70870f47384a6e9bfe17be90"
+  },
+  "stableSourceHashes": true
+}

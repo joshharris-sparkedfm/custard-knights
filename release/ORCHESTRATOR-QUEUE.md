@@ -64,3 +64,17 @@ Beta.9 release owner: /root/home_package, gpt-6.1-sol medium, same branch; packa
 PR26 records the four-route home increment from e162741. Frozen runtime ae262b505ca9758de008df53418a06e26695a8a7; source64 focused tests, independent Chrome44, packaged44, actual EXE routes/Quit cancel13 and save/restart/launcher/relocation passed. All60 package entries/73 Friends files and both ZIPs verified; all6 hosted jobs passed run38373900190. Independent /root/home_review (gpt-6.1-sol medium) cleared after focus, held-A and minimum-window fixes. Owners completed; source/package evidence is in qa/results/home-navigation-2026-10-13 and beta9-desktop. Root verifies PR26 merged before next integration; don't resume completed agents or repeat unchanged checks.
 
 Next bounded engineering: remaining FE-03 first-launch accessible setup and optional learning path, reusing existing settings and never forcing reporting, signup or tutorial. Also retain remaining loading/failure/online-match-menu acceptance as explicit FE-03 work. Then complete FE-04/05 couch ownership/persistent rooms and FE-06 before the causal story slice. The four-route home alone does not close FE-03; physical/human acceptance remains pending. Existing video location remains unresolved; menu engineering needs no new generation.
+
+## Active onboarding task — 13 October 2026
+
+PR26 verified merged at4e00591703de06cff0fb2c1e6dd46722fe2fdfea; beta.9 is frozen and its agents are complete. New clean worktree work/custard-knights-onboarding, branch codex/first-launch-practice, starts from that main commit. Original bakery WIP preserved unchanged.
+
+| Task | Owner/model/effort | Files | State / next action |
+|---|---|---|---|
+| First-launch setup and real-action practice | /root/onboarding_implementation; gpt-6.1-sol high | index.html, scoped new game modules and unit tests | Active; skippable existing settings, replayable safe practice, restore normal state and exclude training rewards/reports |
+| Browser QA | /root/onboarding_qa; gpt-6.1-sol medium | qa/onboarding-browser.cjs, dated results/review | Prepare isolated fresh/returning/skip/replay/input/progression/state restoration checks, then verify stable final source |
+| Independent source audit | /root/onboarding_review; gpt-6-luna high | Read-only runtime/evidence | Audit state/reward/report boundaries; review final diff, escalate specific complex uncertainty if needed |
+
+Root owns integration/checkpoint/Git. No generation, version/package freeze or merge until affected checks and independent review pass. First-launch setup exposes existing audio/motion/flashing only, not an invented remapping/text-scale claim. Normal saves and running user games must not be used. Human/device learning acceptance remains separate.
+
+Onboarding source implementation complete: owner reports65 affected tests; independent actual Chrome finalrun4 passes38/38 with unchanged source hashes and no Runtime exceptions. /root/onboarding_review (gpt-6-luna high) cleared the scoped state/reward/event boundaries. /root/onboarding_package (gpt-6.1-sol medium) owns beta.10 manifests/guide and qa/results/beta10-* only; prep ready, awaiting frozenSHA before exports. No human/device acceptance claimed; root integrates each checked PR before next work.

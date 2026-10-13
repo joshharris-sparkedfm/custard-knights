@@ -1,0 +1,921 @@
+{
+  "startedAt": "2026-10-13T09:27:44.688Z",
+  "runtime": {
+    "node": "C:\\Users\\Joshua\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\node\\bin\\node.exe",
+    "chrome": "C:/Program Files/Google/Chrome/Application/chrome.exe",
+    "root": "C:\\Users\\Joshua\\Documents\\Codex\\2026-10-08\\rea\\work\\custard-knights-onboarding"
+  },
+  "checks": [
+    {
+      "profile": "fresh",
+      "name": "Fresh profile receives optional setup with visible skip",
+      "pass": true,
+      "details": {
+        "pass": true,
+        "state": {
+          "active": "onboardingMusic",
+          "overlays": [
+            "firstLaunch"
+          ],
+          "playing": null,
+          "seats": null,
+          "cfg": null
+        }
+      }
+    },
+    {
+      "profile": "fresh",
+      "name": "Skip dismisses offer and persists through reload",
+      "pass": true,
+      "details": {
+        "pass": true,
+        "storage": {}
+      }
+    },
+    {
+      "profile": "fresh",
+      "name": "Isolated reporting is opted in before event-exclusion checks",
+      "pass": true,
+      "details": {
+        "pass": true,
+        "events": [
+          {
+            "name": "session_start",
+            "build": "0.3.0-beta.7",
+            "sessionId": "e821ff6bfd36b6eb8eadf209d5a63545",
+            "at": 1791883666873,
+            "fields": {
+              "qa": true
+            }
+          }
+        ]
+      }
+    },
+    {
+      "profile": "fresh",
+      "name": "Optional practice reachable through How to Play",
+      "pass": true,
+      "details": {
+        "pass": true,
+        "practice": {
+          "stage": "move",
+          "completed": false,
+          "aimed": false
+        }
+      }
+    },
+    {
+      "profile": "fresh",
+      "name": "Idle time alone never completes movement",
+      "pass": true,
+      "details": {
+        "pass": true,
+        "practice": {
+          "stage": "move",
+          "completed": false,
+          "aimed": false
+        }
+      }
+    },
+    {
+      "profile": "fresh",
+      "name": "Real keyboard movement advances the movement lesson",
+      "pass": true,
+      "details": {
+        "pass": true,
+        "before": {
+          "stage": "move",
+          "completed": false,
+          "aimed": false
+        },
+        "after": {
+          "stage": "swing",
+          "completed": false,
+          "aimed": false
+        },
+        "stats": {
+          "swings": {
+            "h": 0,
+            "b": 0
+          },
+          "swingHits": {
+            "h": 0,
+            "b": 0
+          },
+          "shots": {
+            "h": 0,
+            "b": 0
+          },
+          "shotHits": {
+            "h": 0,
+            "b": 0
+          },
+          "blocks": 0,
+          "dashes": 0,
+          "frames": 182,
+          "parries": 0,
+          "guardBreaks": 0,
+          "heavies": 0,
+          "stabs": 0,
+          "bashes": 0,
+          "protectedHits": 0
+        }
+      }
+    },
+    {
+      "profile": "fresh",
+      "name": "Real keyboard swing advances the swing lesson",
+      "pass": true,
+      "details": {
+        "pass": true,
+        "before": {
+          "stage": "swing",
+          "completed": false,
+          "aimed": false
+        },
+        "after": {
+          "stage": "guard",
+          "completed": false,
+          "aimed": false
+        },
+        "stats": {
+          "swings": {
+            "h": 1,
+            "b": 0
+          },
+          "swingHits": {
+            "h": 0,
+            "b": 0
+          },
+          "shots": {
+            "h": 0,
+            "b": 0
+          },
+          "shotHits": {
+            "h": 0,
+            "b": 0
+          },
+          "blocks": 0,
+          "dashes": 0,
+          "frames": 201,
+          "parries": 0,
+          "guardBreaks": 0,
+          "heavies": 0,
+          "stabs": 0,
+          "bashes": 0,
+          "protectedHits": 0
+        }
+      }
+    },
+    {
+      "profile": "fresh",
+      "name": "Actual held guard advances the guard lesson",
+      "pass": true,
+      "details": {
+        "pass": true,
+        "before": {
+          "stage": "guard",
+          "completed": false,
+          "aimed": false
+        },
+        "after": {
+          "stage": "dash",
+          "completed": false,
+          "aimed": false
+        },
+        "stats": {
+          "swings": {
+            "h": 1,
+            "b": 0
+          },
+          "swingHits": {
+            "h": 0,
+            "b": 0
+          },
+          "shots": {
+            "h": 0,
+            "b": 0
+          },
+          "shotHits": {
+            "h": 0,
+            "b": 0
+          },
+          "blocks": 0,
+          "dashes": 0,
+          "frames": 237,
+          "parries": 0,
+          "guardBreaks": 0,
+          "heavies": 0,
+          "stabs": 0,
+          "bashes": 0,
+          "protectedHits": 0
+        }
+      }
+    },
+    {
+      "profile": "fresh",
+      "name": "Actual dash advances the dash lesson",
+      "pass": true,
+      "details": {
+        "pass": true,
+        "before": {
+          "stage": "dash",
+          "completed": false,
+          "aimed": false
+        },
+        "after": {
+          "stage": "ranged",
+          "completed": false,
+          "aimed": false
+        },
+        "stats": {
+          "swings": {
+            "h": 1,
+            "b": 0
+          },
+          "swingHits": {
+            "h": 0,
+            "b": 0
+          },
+          "shots": {
+            "h": 0,
+            "b": 0
+          },
+          "shotHits": {
+            "h": 0,
+            "b": 0
+          },
+          "blocks": 0,
+          "dashes": 1,
+          "frames": 253,
+          "parries": 0,
+          "guardBreaks": 0,
+          "heavies": 0,
+          "stabs": 0,
+          "bashes": 0,
+          "protectedHits": 0
+        }
+      }
+    },
+    {
+      "profile": "fresh",
+      "name": "Ranged waits for aim and genuine fire rather than timer",
+      "pass": true,
+      "details": {
+        "pass": true,
+        "practice": {
+          "stage": "ranged",
+          "completed": false,
+          "aimed": false
+        }
+      }
+    },
+    {
+      "profile": "fresh",
+      "name": "Changed mouse aim and real bow fire completes practice",
+      "pass": true,
+      "details": {
+        "pass": true,
+        "before": {
+          "stage": "ranged",
+          "completed": false,
+          "aimed": false
+        },
+        "after": {
+          "stage": "complete",
+          "completed": true,
+          "aimed": true
+        },
+        "stats": {
+          "swings": {
+            "h": 1,
+            "b": 0
+          },
+          "swingHits": {
+            "h": 0,
+            "b": 0
+          },
+          "shots": {
+            "h": 1,
+            "b": 0
+          },
+          "shotHits": {
+            "h": 0,
+            "b": 0
+          },
+          "blocks": 0,
+          "dashes": 1,
+          "frames": 369,
+          "parries": 0,
+          "guardBreaks": 0,
+          "heavies": 0,
+          "stabs": 0,
+          "bashes": 0,
+          "protectedHits": 0
+        }
+      }
+    },
+    {
+      "profile": "fresh",
+      "name": "Completed practice shows Retry and Leave",
+      "pass": true,
+      "details": {
+        "pass": true,
+        "state": {
+          "active": "practiceRetry",
+          "overlays": [
+            "practiceResult"
+          ],
+          "playing": false,
+          "seats": null,
+          "cfg": {
+            "mode": "ffa",
+            "players": 1,
+            "diff": "medium",
+            "map": "random",
+            "chaosPlus": false,
+            "chaosSpeed": "normal",
+            "length": 180,
+            "teamSplit": false,
+            "arenaSize": "classic"
+          }
+        }
+      }
+    },
+    {
+      "profile": "fresh",
+      "name": "Completed genuine actions emit no normal-match product events",
+      "pass": true,
+      "details": {
+        "pass": true,
+        "events": [
+          {
+            "name": "session_start",
+            "build": "0.3.0-beta.7",
+            "sessionId": "e821ff6bfd36b6eb8eadf209d5a63545",
+            "at": 1791883666873,
+            "fields": {
+              "qa": true
+            }
+          }
+        ]
+      }
+    },
+    {
+      "profile": "fresh",
+      "name": "Retry resets action evidence and idle does not advance",
+      "pass": true,
+      "details": {
+        "pass": true,
+        "practice": {
+          "stage": "move",
+          "completed": false,
+          "aimed": false
+        }
+      }
+    },
+    {
+      "profile": "fresh",
+      "name": "Pause freezes training and Escape resumes",
+      "pass": true,
+      "details": {
+        "pass": true,
+        "practice": {
+          "stage": "move",
+          "completed": false,
+          "aimed": false
+        }
+      }
+    },
+    {
+      "profile": "fresh",
+      "name": "Blur releases held gameplay inputs",
+      "pass": true,
+      "details": {
+        "pass": true,
+        "keys": {
+          "Escape": false,
+          "KeyD": false,
+          "Space": false,
+          "KeyE": false,
+          "ShiftLeft": false
+        }
+      }
+    },
+    {
+      "profile": "fresh",
+      "name": "Leaving move restores normal config and couch seats without rewards/events",
+      "pass": true,
+      "details": {
+        "pass": true,
+        "reached": {
+          "stage": "move",
+          "completed": false,
+          "aimed": false
+        },
+        "after": {
+          "cfg": "{\"mode\":\"flags\",\"players\":2,\"diff\":\"hard\",\"map\":\"frost\",\"chaosPlus\":false,\"chaosSpeed\":\"normal\",\"length\":180,\"teamSplit\":false,\"arenaSize\":\"roomier\"}",
+          "seats": "[{\"dev\":\"kb1\",\"idx\":0},{\"dev\":\"kb2\",\"idx\":1}]",
+          "events": [
+            {
+              "name": "session_start",
+              "build": "0.3.0-beta.7",
+              "sessionId": "e821ff6bfd36b6eb8eadf209d5a63545",
+              "at": 1791883666873,
+              "fields": {
+                "qa": true
+              }
+            }
+          ],
+          "cup": null,
+          "study": null,
+          "practice": null,
+          "saved": {
+            "ck.product-events.v1.consent": "true",
+            "ck.product-events.v1": "{\"version\":1,\"installId\":\"c22d5a94101338758f822fa4d522a723\",\"truncated\":0,\"duplicates\":0,\"rejected\":0,\"records\":[{\"name\":\"session_start\",\"build\":\"0.3.0-beta.7\",\"sessionId\":\"e821ff6bfd36b6eb8eadf209d5a63545\",\"at\":1791883666873,\"fields\":{\"qa\":true}}]}"
+          }
+        }
+      }
+    },
+    {
+      "profile": "fresh",
+      "name": "Leaving swing restores normal config and couch seats without rewards/events",
+      "pass": true,
+      "details": {
+        "pass": true,
+        "reached": {
+          "stage": "swing",
+          "completed": false,
+          "aimed": false
+        },
+        "after": {
+          "cfg": "{\"mode\":\"flags\",\"players\":2,\"diff\":\"hard\",\"map\":\"frost\",\"chaosPlus\":false,\"chaosSpeed\":\"normal\",\"length\":180,\"teamSplit\":false,\"arenaSize\":\"roomier\"}",
+          "seats": "[{\"dev\":\"kb1\",\"idx\":0},{\"dev\":\"kb2\",\"idx\":1}]",
+          "events": [
+            {
+              "name": "session_start",
+              "build": "0.3.0-beta.7",
+              "sessionId": "e821ff6bfd36b6eb8eadf209d5a63545",
+              "at": 1791883666873,
+              "fields": {
+                "qa": true
+              }
+            }
+          ],
+          "cup": null,
+          "study": null,
+          "practice": null,
+          "saved": {
+            "ck.product-events.v1.consent": "true",
+            "ck.product-events.v1": "{\"version\":1,\"installId\":\"c22d5a94101338758f822fa4d522a723\",\"truncated\":0,\"duplicates\":0,\"rejected\":0,\"records\":[{\"name\":\"session_start\",\"build\":\"0.3.0-beta.7\",\"sessionId\":\"e821ff6bfd36b6eb8eadf209d5a63545\",\"at\":1791883666873,\"fields\":{\"qa\":true}}]}"
+          }
+        }
+      }
+    },
+    {
+      "profile": "fresh",
+      "name": "Leaving guard restores normal config and couch seats without rewards/events",
+      "pass": true,
+      "details": {
+        "pass": true,
+        "reached": {
+          "stage": "guard",
+          "completed": false,
+          "aimed": false
+        },
+        "after": {
+          "cfg": "{\"mode\":\"flags\",\"players\":2,\"diff\":\"hard\",\"map\":\"frost\",\"chaosPlus\":false,\"chaosSpeed\":\"normal\",\"length\":180,\"teamSplit\":false,\"arenaSize\":\"roomier\"}",
+          "seats": "[{\"dev\":\"kb1\",\"idx\":0},{\"dev\":\"kb2\",\"idx\":1}]",
+          "events": [
+            {
+              "name": "session_start",
+              "build": "0.3.0-beta.7",
+              "sessionId": "e821ff6bfd36b6eb8eadf209d5a63545",
+              "at": 1791883666873,
+              "fields": {
+                "qa": true
+              }
+            }
+          ],
+          "cup": null,
+          "study": null,
+          "practice": null,
+          "saved": {
+            "ck.product-events.v1.consent": "true",
+            "ck.product-events.v1": "{\"version\":1,\"installId\":\"c22d5a94101338758f822fa4d522a723\",\"truncated\":0,\"duplicates\":0,\"rejected\":0,\"records\":[{\"name\":\"session_start\",\"build\":\"0.3.0-beta.7\",\"sessionId\":\"e821ff6bfd36b6eb8eadf209d5a63545\",\"at\":1791883666873,\"fields\":{\"qa\":true}}]}"
+          }
+        }
+      }
+    },
+    {
+      "profile": "fresh",
+      "name": "Leaving dash restores normal config and couch seats without rewards/events",
+      "pass": true,
+      "details": {
+        "pass": true,
+        "reached": {
+          "stage": "dash",
+          "completed": false,
+          "aimed": false
+        },
+        "after": {
+          "cfg": "{\"mode\":\"flags\",\"players\":2,\"diff\":\"hard\",\"map\":\"frost\",\"chaosPlus\":false,\"chaosSpeed\":\"normal\",\"length\":180,\"teamSplit\":false,\"arenaSize\":\"roomier\"}",
+          "seats": "[{\"dev\":\"kb1\",\"idx\":0},{\"dev\":\"kb2\",\"idx\":1}]",
+          "events": [
+            {
+              "name": "session_start",
+              "build": "0.3.0-beta.7",
+              "sessionId": "e821ff6bfd36b6eb8eadf209d5a63545",
+              "at": 1791883666873,
+              "fields": {
+                "qa": true
+              }
+            }
+          ],
+          "cup": null,
+          "study": null,
+          "practice": null,
+          "saved": {
+            "ck.product-events.v1.consent": "true",
+            "ck.product-events.v1": "{\"version\":1,\"installId\":\"c22d5a94101338758f822fa4d522a723\",\"truncated\":0,\"duplicates\":0,\"rejected\":0,\"records\":[{\"name\":\"session_start\",\"build\":\"0.3.0-beta.7\",\"sessionId\":\"e821ff6bfd36b6eb8eadf209d5a63545\",\"at\":1791883666873,\"fields\":{\"qa\":true}}]}"
+          }
+        }
+      }
+    },
+    {
+      "profile": "fresh",
+      "name": "Leaving ranged restores normal config and couch seats without rewards/events",
+      "pass": true,
+      "details": {
+        "pass": true,
+        "reached": {
+          "stage": "ranged",
+          "completed": false,
+          "aimed": false
+        },
+        "after": {
+          "cfg": "{\"mode\":\"flags\",\"players\":2,\"diff\":\"hard\",\"map\":\"frost\",\"chaosPlus\":false,\"chaosSpeed\":\"normal\",\"length\":180,\"teamSplit\":false,\"arenaSize\":\"roomier\"}",
+          "seats": "[{\"dev\":\"kb1\",\"idx\":0},{\"dev\":\"kb2\",\"idx\":1}]",
+          "events": [
+            {
+              "name": "session_start",
+              "build": "0.3.0-beta.7",
+              "sessionId": "e821ff6bfd36b6eb8eadf209d5a63545",
+              "at": 1791883666873,
+              "fields": {
+                "qa": true
+              }
+            }
+          ],
+          "cup": null,
+          "study": null,
+          "practice": null,
+          "saved": {
+            "ck.product-events.v1.consent": "true",
+            "ck.product-events.v1": "{\"version\":1,\"installId\":\"c22d5a94101338758f822fa4d522a723\",\"truncated\":0,\"duplicates\":0,\"rejected\":0,\"records\":[{\"name\":\"session_start\",\"build\":\"0.3.0-beta.7\",\"sessionId\":\"e821ff6bfd36b6eb8eadf209d5a63545\",\"at\":1791883666873,\"fields\":{\"qa\":true}}]}"
+          }
+        }
+      }
+    },
+    {
+      "profile": "fresh",
+      "name": "Practice produced no progression or collection writes",
+      "pass": true,
+      "details": {
+        "pass": true,
+        "before": {
+          "ck.product-events.v1.consent": "true",
+          "ck.product-events.v1": "{\"version\":1,\"installId\":\"c22d5a94101338758f822fa4d522a723\",\"truncated\":0,\"duplicates\":0,\"rejected\":0,\"records\":[{\"name\":\"session_start\",\"build\":\"0.3.0-beta.7\",\"sessionId\":\"e821ff6bfd36b6eb8eadf209d5a63545\",\"at\":1791883666873,\"fields\":{\"qa\":true}}]}"
+        },
+        "after": {
+          "ck.product-events.v1.consent": "true",
+          "ck.product-events.v1": "{\"version\":1,\"installId\":\"c22d5a94101338758f822fa4d522a723\",\"truncated\":0,\"duplicates\":0,\"rejected\":0,\"records\":[{\"name\":\"session_start\",\"build\":\"0.3.0-beta.7\",\"sessionId\":\"e821ff6bfd36b6eb8eadf209d5a63545\",\"at\":1791883666873,\"fields\":{\"qa\":true}}]}"
+        }
+      }
+    },
+    {
+      "profile": "fresh",
+      "name": "Practice controls fit 1280x800",
+      "pass": true,
+      "details": {
+        "pass": true,
+        "rects": [
+          {
+            "id": "practiceHud",
+            "rect": {
+              "x": 28,
+              "y": 685,
+              "width": 1224,
+              "height": 95,
+              "top": 685,
+              "right": 1252,
+              "bottom": 780,
+              "left": 28
+            }
+          },
+          {
+            "id": "practicePrompt",
+            "rect": {
+              "x": 47,
+              "y": 721,
+              "width": 1186,
+              "height": 23,
+              "top": 721,
+              "right": 1233,
+              "bottom": 744,
+              "left": 47
+            }
+          }
+        ]
+      }
+    },
+    {
+      "profile": "fresh",
+      "name": "Practice controls fit 800x600",
+      "pass": true,
+      "details": {
+        "pass": true,
+        "rects": [
+          {
+            "id": "practiceHud",
+            "rect": {
+              "x": 28,
+              "y": 485,
+              "width": 744,
+              "height": 95,
+              "top": 485,
+              "right": 772,
+              "bottom": 580,
+              "left": 28
+            }
+          },
+          {
+            "id": "practicePrompt",
+            "rect": {
+              "x": 47,
+              "y": 521,
+              "width": 706,
+              "height": 23,
+              "top": 521,
+              "right": 753,
+              "bottom": 544,
+              "left": 47
+            }
+          }
+        ]
+      }
+    },
+    {
+      "profile": "returning",
+      "name": "Genuine existing profile bypasses setup without reset",
+      "pass": true,
+      "details": {
+        "pass": true,
+        "state": {
+          "active": "tQuick",
+          "overlays": [
+            "menu"
+          ],
+          "playing": false,
+          "seats": null,
+          "cfg": {
+            "mode": "flags",
+            "players": 2,
+            "diff": "hard",
+            "map": "frost",
+            "chaosPlus": false,
+            "chaosSpeed": "normal",
+            "length": 180,
+            "teamSplit": false,
+            "arenaSize": "roomier"
+          }
+        }
+      }
+    },
+    {
+      "profile": "setup",
+      "name": "Setup saves actual range and checkbox preferences",
+      "pass": true,
+      "details": {
+        "pass": true,
+        "saved": {
+          "music": 0.56,
+          "sfx": 1,
+          "shake": 1,
+          "flash": false,
+          "names": "near",
+          "classic": false,
+          "whole": false
+        },
+        "loaded": {
+          "music": 56,
+          "sfx": 100,
+          "shake": 100,
+          "flash": true
+        }
+      }
+    },
+    {
+      "profile": "setup",
+      "name": "Synthetic standard pad moves real knight and advances movement",
+      "pass": true,
+      "details": {
+        "pass": true,
+        "practice": {
+          "stage": "swing",
+          "completed": false,
+          "aimed": false
+        }
+      }
+    },
+    {
+      "profile": "setup",
+      "name": "Synthetic standard pad action 0 advances to guard",
+      "pass": true,
+      "details": {
+        "pass": true,
+        "practice": {
+          "stage": "guard",
+          "completed": false,
+          "aimed": false
+        }
+      }
+    },
+    {
+      "profile": "setup",
+      "name": "Synthetic standard pad action 2 advances to dash",
+      "pass": true,
+      "details": {
+        "pass": true,
+        "practice": {
+          "stage": "dash",
+          "completed": false,
+          "aimed": false
+        }
+      }
+    },
+    {
+      "profile": "setup",
+      "name": "Synthetic standard pad action 1 advances to ranged",
+      "pass": true,
+      "details": {
+        "pass": true,
+        "practice": {
+          "stage": "ranged",
+          "completed": false,
+          "aimed": false
+        }
+      }
+    },
+    {
+      "profile": "setup",
+      "name": "Actual right-stick aim and pad shot complete ranged lesson",
+      "pass": true,
+      "details": {
+        "pass": true,
+        "practice": {
+          "stage": "complete",
+          "completed": true,
+          "aimed": true
+        }
+      }
+    },
+    {
+      "profile": "setup",
+      "name": "Completed Leave returns focus to the How to Play practice trigger",
+      "pass": true,
+      "details": {
+        "pass": true,
+        "state": {
+          "active": "practiceStart",
+          "overlays": [
+            "howto"
+          ],
+          "playing": false,
+          "seats": null,
+          "cfg": {
+            "mode": "ffa",
+            "players": 1,
+            "diff": "medium",
+            "map": "random",
+            "chaosPlus": false,
+            "chaosSpeed": "normal",
+            "length": 180,
+            "teamSplit": false,
+            "arenaSize": "classic"
+          }
+        }
+      }
+    },
+    {
+      "profile": "setup",
+      "name": "Held entry Space never carries into swing after movement",
+      "pass": true,
+      "details": {
+        "pass": true,
+        "held": {
+          "stage": "swing",
+          "completed": false,
+          "aimed": false
+        }
+      }
+    },
+    {
+      "profile": "storage-denied",
+      "name": "Storage denial keeps game navigable without compulsory setup",
+      "pass": true,
+      "details": {
+        "pass": true,
+        "state": {
+          "active": "tQuick",
+          "overlays": [
+            "menu"
+          ],
+          "playing": false,
+          "seats": null,
+          "cfg": {
+            "mode": "ffa",
+            "players": 1,
+            "diff": "medium",
+            "map": "random",
+            "chaosPlus": false,
+            "chaosSpeed": "normal",
+            "length": 180,
+            "teamSplit": false,
+            "arenaSize": "classic"
+          }
+        }
+      }
+    },
+    {
+      "profile": "storage-denied",
+      "name": "Practice works when storage is denied",
+      "pass": true,
+      "details": {
+        "pass": true,
+        "practice": {
+          "stage": "move",
+          "completed": false,
+          "aimed": false
+        }
+      }
+    },
+    {
+      "profile": "storage-corrupt",
+      "name": "Corrupt onboarding record does not force reset or block menu",
+      "pass": true,
+      "details": {
+        "pass": true,
+        "state": {
+          "active": "tQuick",
+          "overlays": [
+            "menu"
+          ],
+          "playing": false,
+          "seats": null,
+          "cfg": {
+            "mode": "ffa",
+            "players": 1,
+            "diff": "medium",
+            "map": "random",
+            "chaosPlus": false,
+            "chaosSpeed": "normal",
+            "length": 180,
+            "teamSplit": false,
+            "arenaSize": "classic"
+          }
+        }
+      }
+    }
+  ],
+  "consoleErrors": [],
+  "limitations": [
+    "Actual isolated Chrome with CDP mouse/keyboard and synthetic standard gamepad.",
+    "No physical controllers, human usability, external networking, packaged EXE, second Windows PC, or Steam testing.",
+    "Fixtures write only to temporary Chrome profiles; the user game and normal saves are untouched."
+  ],
+  "sourceHashes": {
+    "index.html": "7d46b89df2553d1249e244b6e20df0d77f09692123a36dbac59f2aa72322556f",
+    "game/onboarding.js": "9d4d863d67ae860c509f4198c8870b92051333db70870f47384a6e9bfe17be90"
+  },
+  "environment": {
+    "platform": "win32",
+    "arch": "x64",
+    "node": "v24.19.0",
+    "browser": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/154.0.0.0 Safari/537.36"
+  },
+  "finishedAt": "2026-10-13T09:28:18.317Z",
+  "screenshots": {
+    "fresh-completed-1600x1000.png": "1774c960bc1535ebe41aa36ac0ca76f636375bb2032e58004bc2e761e205ff0c",
+    "fresh-offer-1600x1000.png": "aa9e17b898e013b356e4a2884e51ea143129db34158882a60814706799c6ad6d",
+    "fresh-practice-1280x800.png": "26b188dc56b20cebe9fe5b08442cc99f1be5e8ada6c83f2e38d9d58cb949274d",
+    "fresh-practice-800x600.png": "3b0960aaaf7801d162bcbb80f0ae6bf014b095ac7f7e30aeebe3536adb8821df",
+    "returning-returning-home.png": "b1647574f63ed197cf41a7962d1418a8994ce783af6d06014f8484ba0656860d",
+    "setup-pad-completed.png": "067c0357b692d744bceb837705874a6d29695ff726db5f1e848cdc5937f38ea7"
+  },
+  "sourceHashesAfter": {
+    "index.html": "7d46b89df2553d1249e244b6e20df0d77f09692123a36dbac59f2aa72322556f",
+    "game/onboarding.js": "9d4d863d67ae860c509f4198c8870b92051333db70870f47384a6e9bfe17be90"
+  },
+  "stableSourceHashes": true
+}

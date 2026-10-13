@@ -1,0 +1,54 @@
+{
+  "runId": 38381138348,
+  "url": "https://github.com/joshharris-sparkedfm/custard-knights/actions/runs/38381138348",
+  "sourceCommit": "e43c8f92af6609c4961ea583e4b066fe56e2c7fc",
+  "allSixPassed": true,
+  "jobs": [
+    {
+      "name": "core (windows-latest, 22)",
+      "status": "completed",
+      "conclusion": "success",
+      "headSha": "e43c8f92af6609c4961ea583e4b066fe56e2c7fc",
+      "url": "https://github.com/joshharris-sparkedfm/custard-knights/actions/runs/38381138348/job/115241564490"
+    },
+    {
+      "name": "core (ubuntu-latest, 22)",
+      "status": "completed",
+      "conclusion": "success",
+      "headSha": "e43c8f92af6609c4961ea583e4b066fe56e2c7fc",
+      "url": "https://github.com/joshharris-sparkedfm/custard-knights/actions/runs/38381138348/job/115241564594"
+    },
+    {
+      "name": "core (windows-latest, 24)",
+      "status": "completed",
+      "conclusion": "success",
+      "headSha": "e43c8f92af6609c4961ea583e4b066fe56e2c7fc",
+      "url": "https://github.com/joshharris-sparkedfm/custard-knights/actions/runs/38381138348/job/115241564658"
+    },
+    {
+      "name": "core (ubuntu-latest, 24)",
+      "status": "completed",
+      "conclusion": "success",
+      "headSha": "e43c8f92af6609c4961ea583e4b066fe56e2c7fc",
+      "url": "https://github.com/joshharris-sparkedfm/custard-knights/actions/runs/38381138348/job/115241564664"
+    },
+    {
+      "name": "server (ubuntu-latest)",
+      "status": "completed",
+      "conclusion": "success",
+      "headSha": "e43c8f92af6609c4961ea583e4b066fe56e2c7fc",
+      "url": "https://github.com/joshharris-sparkedfm/custard-knights/actions/runs/38381138348/job/115241564716"
+    },
+    {
+      "name": "server (windows-latest)",
+      "status": "completed",
+      "conclusion": "success",
+      "headSha": "e43c8f92af6609c4961ea583e4b066fe56e2c7fc",
+      "url": "https://github.com/joshharris-sparkedfm/custard-knights/actions/runs/38381138348/job/115241564769"
+    }
+  ],
+  "scope": "All runtime JavaScript/server logic checked at e43c8f9. Later source freeze adds only scoped compact-layout CSS in index.html; 32 affected tests and final7-visible 38 browser checks verify that final layout. No claim CI ran the later hash.",
+  "limitations": [
+    "Not physical-device, WAN, human or Steam acceptance; historical local native faults unresolved."
+  ]
+}

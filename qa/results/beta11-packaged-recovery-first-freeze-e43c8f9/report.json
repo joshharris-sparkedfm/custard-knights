@@ -1,0 +1,1084 @@
+{
+  "startedAt": "2026-10-13T10:08:16.827Z",
+  "runtime": {
+    "node": "C:\\Users\\Joshua\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\node\\bin\\node.exe",
+    "chrome": "C:/Program Files/Google/Chrome/Application/chrome.exe",
+    "root": "C:\\Users\\Joshua\\Documents\\Codex\\2026-10-08\\rea\\work\\custard-knights-recovery\\build\\beta11-packaged-payload"
+  },
+  "checks": [
+    {
+      "profile": "faults",
+      "name": "Mouse opens Online and invalid code remains recoverable",
+      "pass": true,
+      "details": {
+        "pass": true,
+        "state": {
+          "active": "codeIn",
+          "overlays": [
+            "online"
+          ],
+          "playing": false,
+          "seats": [
+            {
+              "dev": "kb1",
+              "idx": 0
+            },
+            {
+              "dev": "pad",
+              "idx": 0
+            }
+          ],
+          "cfg": {
+            "mode": "flags",
+            "players": 2,
+            "diff": "hard",
+            "map": "frost",
+            "chaosPlus": false,
+            "chaosSpeed": "normal",
+            "length": 180,
+            "teamSplit": false,
+            "arenaSize": "roomier"
+          }
+        }
+      }
+    },
+    {
+      "profile": "faults",
+      "name": "Hosting pending exposes status and Escape cancels",
+      "pass": true,
+      "details": {
+        "pass": true,
+        "state": {
+          "active": "hostBtn",
+          "overlays": [
+            "online"
+          ],
+          "playing": false,
+          "seats": [
+            {
+              "dev": "kb1",
+              "idx": 0
+            },
+            {
+              "dev": "pad",
+              "idx": 0
+            }
+          ],
+          "cfg": {
+            "mode": "flags",
+            "players": 2,
+            "diff": "hard",
+            "map": "frost",
+            "chaosPlus": false,
+            "chaosSpeed": "normal",
+            "length": 180,
+            "teamSplit": false,
+            "arenaSize": "roomier"
+          }
+        }
+      }
+    },
+    {
+      "profile": "faults",
+      "name": "Cancelled host late callbacks cannot reopen or replace room",
+      "pass": true,
+      "details": {
+        "pass": true,
+        "state": {
+          "active": "hostBtn",
+          "overlays": [
+            "online"
+          ],
+          "playing": false,
+          "seats": [
+            {
+              "dev": "kb1",
+              "idx": 0
+            },
+            {
+              "dev": "pad",
+              "idx": 0
+            }
+          ],
+          "cfg": {
+            "mode": "flags",
+            "players": 2,
+            "diff": "hard",
+            "map": "frost",
+            "chaosPlus": false,
+            "chaosSpeed": "normal",
+            "length": 180,
+            "teamSplit": false,
+            "arenaSize": "roomier"
+          }
+        }
+      }
+    },
+    {
+      "profile": "faults",
+      "name": "Keyboard starts a join and Back cancels pending peer",
+      "pass": true,
+      "details": {
+        "pass": true,
+        "state": {
+          "active": "joinBtn",
+          "overlays": [
+            "online"
+          ],
+          "playing": false,
+          "seats": [
+            {
+              "dev": "kb1",
+              "idx": 0
+            },
+            {
+              "dev": "pad",
+              "idx": 0
+            }
+          ],
+          "cfg": {
+            "mode": "flags",
+            "players": 2,
+            "diff": "hard",
+            "map": "frost",
+            "chaosPlus": false,
+            "chaosSpeed": "normal",
+            "length": 180,
+            "teamSplit": false,
+            "arenaSize": "roomier"
+          }
+        }
+      }
+    },
+    {
+      "profile": "faults",
+      "name": "Cancelled guest late open cannot create a connection",
+      "pass": true,
+      "details": {
+        "pass": true,
+        "state": {
+          "active": "joinBtn",
+          "overlays": [
+            "online"
+          ],
+          "playing": false,
+          "seats": [
+            {
+              "dev": "kb1",
+              "idx": 0
+            },
+            {
+              "dev": "pad",
+              "idx": 0
+            }
+          ],
+          "cfg": {
+            "mode": "flags",
+            "players": 2,
+            "diff": "hard",
+            "map": "frost",
+            "chaosPlus": false,
+            "chaosSpeed": "normal",
+            "length": 180,
+            "teamSplit": false,
+            "arenaSize": "roomier"
+          }
+        }
+      }
+    },
+    {
+      "profile": "faults",
+      "name": "Injected peer-unavailable produces visible retryable recovery",
+      "pass": true,
+      "details": {
+        "pass": true,
+        "details": {
+          "role": null,
+          "msg": "There is no room with the code ABCDE. Check the code and try again.",
+          "status": "There is no room with the code ABCDE. Check the code and try again.",
+          "online": true,
+          "focus": true
+        }
+      }
+    },
+    {
+      "profile": "faults",
+      "name": "Injected network produces visible retryable recovery",
+      "pass": true,
+      "details": {
+        "pass": true,
+        "details": {
+          "role": null,
+          "msg": "Connection problem (network). Try again or play locally.",
+          "status": "Connection problem (network). Try again or play locally.",
+          "online": true,
+          "focus": true
+        }
+      }
+    },
+    {
+      "profile": "faults",
+      "name": "Injected browser-incompatible produces visible retryable recovery",
+      "pass": true,
+      "details": {
+        "pass": true,
+        "details": {
+          "role": null,
+          "msg": "Connection problem (browser-incompatible). Try again or play locally.",
+          "status": "Connection problem (browser-incompatible). Try again or play locally.",
+          "online": true,
+          "focus": true
+        }
+      }
+    },
+    {
+      "profile": "faults",
+      "name": "Injected full response refuses admission without rewards",
+      "pass": true,
+      "details": {
+        "pass": true,
+        "state": {
+          "active": "onlineRetry",
+          "overlays": [
+            "online"
+          ],
+          "playing": false,
+          "seats": [
+            {
+              "dev": "kb1",
+              "idx": 0
+            },
+            {
+              "dev": "pad",
+              "idx": 0
+            }
+          ],
+          "cfg": {
+            "mode": "flags",
+            "players": 2,
+            "diff": "hard",
+            "map": "frost",
+            "chaosPlus": false,
+            "chaosSpeed": "normal",
+            "length": 180,
+            "teamSplit": false,
+            "arenaSize": "roomier"
+          }
+        }
+      }
+    },
+    {
+      "profile": "faults",
+      "name": "Synthetic pad activates Host then B cancels pending operation",
+      "pass": true,
+      "details": {
+        "pass": true,
+        "state": {
+          "active": "hostBtn",
+          "overlays": [
+            "online"
+          ],
+          "playing": false,
+          "seats": [
+            {
+              "dev": "kb1",
+              "idx": 0
+            },
+            {
+              "dev": "pad",
+              "idx": 0
+            }
+          ],
+          "cfg": {
+            "mode": "flags",
+            "players": 2,
+            "diff": "hard",
+            "map": "frost",
+            "chaosPlus": false,
+            "chaosSpeed": "normal",
+            "length": 180,
+            "teamSplit": false,
+            "arenaSize": "roomier"
+          }
+        }
+      }
+    },
+    {
+      "profile": "faults",
+      "name": "Recovery preserves remembered rules, seats, outfit and progression",
+      "pass": true,
+      "details": {
+        "pass": true,
+        "before": "{\"cfg\":{\"mode\":\"flags\",\"players\":2,\"diff\":\"hard\",\"map\":\"frost\",\"chaosPlus\":false,\"chaosSpeed\":\"normal\",\"length\":180,\"teamSplit\":false,\"arenaSize\":\"roomier\"},\"seats\":[{\"dev\":\"kb1\",\"idx\":0},{\"dev\":\"pad\",\"idx\":0}],\"kit\":{\"visor\":\"open\",\"helm\":\"great\",\"plume\":\"feather\",\"metal\":\"steel\",\"emblem\":\"star\",\"color\":\"#FF5A4E\",\"cape\":\"plain\",\"blade\":\"steel\",\"chick\":\"hen\",\"pose\":\"plain\"},\"settings\":\"{\\\"music\\\":0.21,\\\"sfx\\\":0.32,\\\"shake\\\":0.43,\\\"flash\\\":false,\\\"whole\\\":true}\",\"progress\":null,\"collection\":null}",
+        "after": "{\"cfg\":{\"mode\":\"flags\",\"players\":2,\"diff\":\"hard\",\"map\":\"frost\",\"chaosPlus\":false,\"chaosSpeed\":\"normal\",\"length\":180,\"teamSplit\":false,\"arenaSize\":\"roomier\"},\"seats\":[{\"dev\":\"kb1\",\"idx\":0},{\"dev\":\"pad\",\"idx\":0}],\"kit\":{\"visor\":\"open\",\"helm\":\"great\",\"plume\":\"feather\",\"metal\":\"steel\",\"emblem\":\"star\",\"color\":\"#FF5A4E\",\"cape\":\"plain\",\"blade\":\"steel\",\"chick\":\"hen\",\"pose\":\"plain\"},\"settings\":\"{\\\"music\\\":0.21,\\\"sfx\\\":0.32,\\\"shake\\\":0.43,\\\"flash\\\":false,\\\"whole\\\":true}\",\"progress\":null,\"collection\":null}"
+      }
+    },
+    {
+      "profile": "faults",
+      "name": "Script load is cancellable before Peer exists",
+      "pass": true,
+      "details": {
+        "pass": true,
+        "state": {
+          "active": "hostBtn",
+          "overlays": [
+            "online"
+          ],
+          "playing": false,
+          "seats": [
+            {
+              "dev": "kb1",
+              "idx": 0
+            },
+            {
+              "dev": "pad",
+              "idx": 0
+            }
+          ],
+          "cfg": {
+            "mode": "flags",
+            "players": 2,
+            "diff": "hard",
+            "map": "frost",
+            "chaosPlus": false,
+            "chaosSpeed": "normal",
+            "length": 180,
+            "teamSplit": false,
+            "arenaSize": "roomier"
+          }
+        }
+      }
+    },
+    {
+      "profile": "faults",
+      "name": "Cancelled script late load does not create a room",
+      "pass": true,
+      "details": {
+        "pass": true,
+        "state": {
+          "active": "hostBtn",
+          "overlays": [
+            "online"
+          ],
+          "playing": false,
+          "seats": [
+            {
+              "dev": "kb1",
+              "idx": 0
+            },
+            {
+              "dev": "pad",
+              "idx": 0
+            }
+          ],
+          "cfg": {
+            "mode": "flags",
+            "players": 2,
+            "diff": "hard",
+            "map": "frost",
+            "chaosPlus": false,
+            "chaosSpeed": "normal",
+            "length": 180,
+            "teamSplit": false,
+            "arenaSize": "roomier"
+          }
+        }
+      }
+    },
+    {
+      "profile": "faults",
+      "name": "Injected host transport failure exposes Retry",
+      "pass": true,
+      "details": {
+        "pass": true,
+        "state": {
+          "active": "onlineRetry",
+          "overlays": [
+            "online"
+          ],
+          "playing": false,
+          "seats": [
+            {
+              "dev": "kb1",
+              "idx": 0
+            },
+            {
+              "dev": "pad",
+              "idx": 0
+            }
+          ],
+          "cfg": {
+            "mode": "flags",
+            "players": 2,
+            "diff": "hard",
+            "map": "frost",
+            "chaosPlus": false,
+            "chaosSpeed": "normal",
+            "length": 180,
+            "teamSplit": false,
+            "arenaSize": "roomier"
+          }
+        }
+      }
+    },
+    {
+      "profile": "faults",
+      "name": "Retry starts a fresh operation and old error cannot overwrite it",
+      "pass": true,
+      "details": {
+        "pass": true,
+        "state": {
+          "active": "lobbyLeave",
+          "overlays": [
+            "lobby"
+          ],
+          "playing": false,
+          "seats": [
+            {
+              "dev": "kb1",
+              "idx": 0
+            },
+            {
+              "dev": "pad",
+              "idx": 0
+            }
+          ],
+          "cfg": {
+            "mode": "flags",
+            "players": 2,
+            "diff": "hard",
+            "map": "frost",
+            "chaosPlus": false,
+            "chaosSpeed": "normal",
+            "length": 180,
+            "teamSplit": false,
+            "arenaSize": "roomier"
+          }
+        }
+      }
+    },
+    {
+      "profile": "faults",
+      "name": "Pending host cannot start, configure, copy or claim an open room",
+      "pass": true,
+      "details": {
+        "pass": true,
+        "state": {
+          "active": "lobbyLeave",
+          "overlays": [
+            "lobby"
+          ],
+          "playing": false,
+          "seats": [
+            {
+              "dev": "kb1",
+              "idx": 0
+            },
+            {
+              "dev": "pad",
+              "idx": 0
+            }
+          ],
+          "cfg": {
+            "mode": "flags",
+            "players": 2,
+            "diff": "hard",
+            "map": "frost",
+            "chaosPlus": false,
+            "chaosSpeed": "normal",
+            "length": 180,
+            "teamSplit": false,
+            "arenaSize": "roomier"
+          }
+        }
+      }
+    },
+    {
+      "profile": "faults",
+      "name": "Pending Cancel remains focusable and visible at 800x600",
+      "pass": true,
+      "details": {
+        "pass": true,
+        "rect": {
+          "x": 439.48992919921875,
+          "y": 460.1904296875,
+          "width": 184.452880859375,
+          "height": 43.98876953125,
+          "top": 460.1904296875,
+          "right": 623.9428100585938,
+          "bottom": 504.17919921875,
+          "left": 439.48992919921875
+        }
+      }
+    },
+    {
+      "profile": "faults",
+      "name": "Actual admission deadline recovers a silent injected peer",
+      "pass": true,
+      "details": {
+        "pass": true,
+        "state": {
+          "active": "onlineRetry",
+          "overlays": [
+            "online"
+          ],
+          "playing": false,
+          "seats": [
+            {
+              "dev": "kb1",
+              "idx": 0
+            },
+            {
+              "dev": "pad",
+              "idx": 0
+            }
+          ],
+          "cfg": {
+            "mode": "flags",
+            "players": 2,
+            "diff": "hard",
+            "map": "frost",
+            "chaosPlus": false,
+            "chaosSpeed": "normal",
+            "length": 180,
+            "teamSplit": false,
+            "arenaSize": "roomier"
+          }
+        }
+      }
+    },
+    {
+      "profile": "script-fault",
+      "name": "Injected script error produces visible local-play and retry recovery",
+      "pass": true,
+      "details": {
+        "pass": true,
+        "state": {
+          "active": "onlineRetry",
+          "overlays": [
+            "online"
+          ],
+          "playing": false,
+          "seats": null,
+          "cfg": {
+            "mode": "ffa",
+            "players": 1,
+            "diff": "medium",
+            "map": "random",
+            "chaosPlus": false,
+            "chaosSpeed": "normal",
+            "length": 180,
+            "teamSplit": false,
+            "arenaSize": "classic"
+          }
+        }
+      }
+    },
+    {
+      "profile": "faults",
+      "name": "Affected offline pause still freezes arena and Resume restores play",
+      "pass": true,
+      "details": {
+        "pass": true,
+        "state": {
+          "active": "Sound: on\n    Pause\n  \n\n  Turn your phone sidewaysThe arena needs the ",
+          "overlays": [],
+          "playing": true,
+          "seats": [
+            {
+              "dev": "kb1",
+              "idx": 0
+            },
+            {
+              "dev": "pad",
+              "idx": 0
+            }
+          ],
+          "cfg": {
+            "mode": "flags",
+            "players": 2,
+            "diff": "hard",
+            "map": "frost",
+            "chaosPlus": false,
+            "chaosSpeed": "normal",
+            "length": 180,
+            "teamSplit": false,
+            "arenaSize": "roomier"
+          }
+        }
+      }
+    },
+    {
+      "profile": "faults",
+      "name": "Affected practice pause Resume and Leave restore menu without rewards",
+      "pass": true,
+      "details": {
+        "pass": true,
+        "state": {
+          "active": "practiceStart",
+          "overlays": [
+            "howto"
+          ],
+          "playing": false,
+          "seats": [
+            {
+              "dev": "kb1",
+              "idx": 0
+            },
+            {
+              "dev": "pad",
+              "idx": 0
+            }
+          ],
+          "cfg": {
+            "mode": "flags",
+            "players": 2,
+            "diff": "hard",
+            "map": "frost",
+            "chaosPlus": false,
+            "chaosSpeed": "normal",
+            "length": 180,
+            "teamSplit": false,
+            "arenaSize": "roomier"
+          }
+        }
+      }
+    },
+    {
+      "profile": "real-host",
+      "name": "Actual PeerJS signaling opens same-host room",
+      "pass": true,
+      "details": {
+        "pass": true,
+        "code": "CCVPG"
+      }
+    },
+    {
+      "profile": "real-guest",
+      "name": "Mouse join establishes real PeerJS DataConnection",
+      "pass": true,
+      "details": {
+        "pass": true,
+        "state": {
+          "active": "lobbyLeave",
+          "overlays": [
+            "lobby"
+          ],
+          "playing": false,
+          "seats": null,
+          "cfg": {
+            "mode": "ffa",
+            "players": 1,
+            "diff": "medium",
+            "map": "random",
+            "chaosPlus": false,
+            "chaosSpeed": "normal",
+            "length": 180,
+            "teamSplit": false,
+            "arenaSize": "classic"
+          }
+        }
+      }
+    },
+    {
+      "profile": "real-rejected",
+      "name": "Real full room refuses ninth knight with visible recovery",
+      "pass": true,
+      "details": {
+        "pass": true,
+        "state": {
+          "active": "onlineRetry",
+          "overlays": [
+            "online"
+          ],
+          "playing": false,
+          "seats": null,
+          "cfg": {
+            "mode": "ffa",
+            "players": 1,
+            "diff": "medium",
+            "map": "random",
+            "chaosPlus": false,
+            "chaosSpeed": "normal",
+            "length": 180,
+            "teamSplit": false,
+            "arenaSize": "classic"
+          }
+        }
+      }
+    },
+    {
+      "profile": "real-rejected",
+      "name": "Real missing room produces recoverable unavailable response",
+      "pass": true,
+      "details": {
+        "pass": true,
+        "state": {
+          "active": "onlineRetry",
+          "overlays": [
+            "online"
+          ],
+          "playing": false,
+          "seats": null,
+          "cfg": {
+            "mode": "ffa",
+            "players": 1,
+            "diff": "medium",
+            "map": "random",
+            "chaosPlus": false,
+            "chaosSpeed": "normal",
+            "length": 180,
+            "teamSplit": false,
+            "arenaSize": "classic"
+          }
+        }
+      }
+    },
+    {
+      "profile": "real-host",
+      "name": "Legacy hello over real transport blocks Roomier with an actionable message",
+      "pass": true,
+      "details": {
+        "pass": true,
+        "state": {
+          "active": "lobbyStart",
+          "overlays": [
+            "lobby"
+          ],
+          "playing": false,
+          "seats": null,
+          "cfg": {
+            "mode": "ffa",
+            "players": 1,
+            "diff": "medium",
+            "map": "courtyard",
+            "chaosPlus": false,
+            "chaosSpeed": "simple",
+            "length": 180,
+            "teamSplit": false,
+            "arenaSize": "roomier"
+          }
+        }
+      }
+    },
+    {
+      "profile": "real-guest",
+      "name": "Visible guest mouse Menu keeps simulation live and releases input",
+      "pass": true,
+      "details": {
+        "pass": true,
+        "state": {
+          "active": "Sound: on\n    Menu\n  \n\n  Turn your phone sidewaysThe arena needs the l",
+          "overlays": [],
+          "playing": true,
+          "seats": null,
+          "cfg": {
+            "mode": "ffa",
+            "players": 1,
+            "diff": "medium",
+            "map": "random",
+            "chaosPlus": false,
+            "chaosSpeed": "normal",
+            "length": 180,
+            "teamSplit": false,
+            "arenaSize": "classic"
+          }
+        }
+      }
+    },
+    {
+      "profile": "real-guest",
+      "name": "Synthetic standard pad Start opens online menu and A resumes",
+      "pass": true,
+      "details": {
+        "pass": true,
+        "state": {
+          "active": "Sound: on\n    Menu\n  \n\n  Turn your phone sidewaysThe arena needs the l",
+          "overlays": [],
+          "playing": true,
+          "seats": null,
+          "cfg": {
+            "mode": "ffa",
+            "players": 1,
+            "diff": "medium",
+            "map": "random",
+            "chaosPlus": false,
+            "chaosSpeed": "normal",
+            "length": 180,
+            "teamSplit": false,
+            "arenaSize": "classic"
+          }
+        }
+      }
+    },
+    {
+      "profile": "real-host",
+      "name": "Visible host mouse Menu suppresses both keyboard seats and next start restores input",
+      "pass": true,
+      "details": {
+        "pass": true,
+        "input": {
+          "mx": 1,
+          "my": 0,
+          "atk": false,
+          "dash": false,
+          "block": false,
+          "faceTo": null
+        },
+        "state": {
+          "active": "Sound: on\n    Menu\n  \n\n  Turn your phone sidewaysThe arena needs the l",
+          "overlays": [],
+          "playing": true,
+          "seats": [
+            {
+              "dev": "kb1",
+              "idx": 0
+            },
+            {
+              "dev": "kb2",
+              "idx": 1
+            }
+          ],
+          "cfg": {
+            "mode": "ffa",
+            "players": 2,
+            "diff": "medium",
+            "map": "courtyard",
+            "chaosPlus": false,
+            "chaosSpeed": "simple",
+            "length": 180,
+            "teamSplit": false,
+            "arenaSize": "classic"
+          }
+        }
+      }
+    },
+    {
+      "profile": "real-guest",
+      "name": "Natural authoritative results while Options is open restores usable results focus",
+      "pass": true,
+      "details": {
+        "pass": true,
+        "state": {
+          "active": "setupBtn",
+          "overlays": [
+            "end"
+          ],
+          "playing": false,
+          "seats": null,
+          "cfg": {
+            "mode": "ffa",
+            "players": 1,
+            "diff": "medium",
+            "map": "random",
+            "chaosPlus": false,
+            "chaosSpeed": "normal",
+            "length": 180,
+            "teamSplit": false,
+            "arenaSize": "classic"
+          }
+        }
+      }
+    },
+    {
+      "profile": "real-guest",
+      "name": "Real host departure from match returns usable menu without invented reward",
+      "pass": true,
+      "details": {
+        "pass": true,
+        "state": {
+          "active": "onlineRetry",
+          "overlays": [
+            "online"
+          ],
+          "playing": false,
+          "seats": null,
+          "cfg": {
+            "mode": "ffa",
+            "players": 1,
+            "diff": "medium",
+            "map": "random",
+            "chaosPlus": false,
+            "chaosSpeed": "normal",
+            "length": 180,
+            "teamSplit": false,
+            "arenaSize": "classic"
+          }
+        },
+        "before": "{\"progress\":{\"version\":1,\"earned\":5,\"matches\":1,\"wins\":0,\"ch\":{\"firstWin\":0,\"parry10\":0,\"ringout3\":0,\"raceWin\":0,\"lksWin\":0,\"lava5\":0},\"unlocked\":[],\"receipts\":[\"ebead1d1-c895-4fd5-8a95-2be5bb9b89c0\"]},\"collection\":{\"version\":1,\"completed\":1,\"choice\":null,\"pinned\":null,\"progress\":{\"tea-towel\":0,\"burnt-toast\":0,\"golden-whisk\":0,\"rooster-crown\":0,\"rice-guard\":0,\"steve-strut\":0},\"owned\":[],\"receipts\":[\"ebead1d1-c895-4fd5-8a95-2be5bb9b89c0\"],\"milestones\":[],\"presets\":[null,null,null]}}",
+        "after": "{\"progress\":{\"version\":1,\"earned\":5,\"matches\":1,\"wins\":0,\"ch\":{\"firstWin\":0,\"parry10\":0,\"ringout3\":0,\"raceWin\":0,\"lksWin\":0,\"lava5\":0},\"unlocked\":[],\"receipts\":[\"ebead1d1-c895-4fd5-8a95-2be5bb9b89c0\"]},\"collection\":{\"version\":1,\"completed\":1,\"choice\":null,\"pinned\":null,\"progress\":{\"tea-towel\":0,\"burnt-toast\":0,\"golden-whisk\":0,\"rooster-crown\":0,\"rice-guard\":0,\"steve-strut\":0},\"owned\":[],\"receipts\":[\"ebead1d1-c895-4fd5-8a95-2be5bb9b89c0\"],\"milestones\":[],\"presets\":[null,null,null]}}",
+        "hostRules": "{\"mode\":\"ffa\",\"players\":2,\"diff\":\"medium\",\"map\":\"courtyard\",\"chaosPlus\":false,\"chaosSpeed\":\"simple\",\"length\":180,\"teamSplit\":false,\"arenaSize\":\"classic\"}",
+        "hostRulesAfter": "{\"mode\":\"ffa\",\"players\":2,\"diff\":\"medium\",\"map\":\"courtyard\",\"chaosPlus\":false,\"chaosSpeed\":\"simple\",\"length\":180,\"teamSplit\":false,\"arenaSize\":\"classic\"}"
+      }
+    },
+    {
+      "profile": "real-guest",
+      "name": "Real host departure from results returns usable menu without invented reward",
+      "pass": true,
+      "details": {
+        "pass": true,
+        "state": {
+          "active": "onlineRetry",
+          "overlays": [
+            "online"
+          ],
+          "playing": false,
+          "seats": null,
+          "cfg": {
+            "mode": "ffa",
+            "players": 1,
+            "diff": "medium",
+            "map": "random",
+            "chaosPlus": false,
+            "chaosSpeed": "normal",
+            "length": 180,
+            "teamSplit": false,
+            "arenaSize": "classic"
+          }
+        },
+        "before": "{\"progress\":{\"version\":1,\"earned\":5,\"matches\":1,\"wins\":0,\"ch\":{\"firstWin\":0,\"parry10\":0,\"ringout3\":0,\"raceWin\":0,\"lksWin\":0,\"lava5\":0},\"unlocked\":[],\"receipts\":[\"ebead1d1-c895-4fd5-8a95-2be5bb9b89c0\"]},\"collection\":{\"version\":1,\"completed\":1,\"choice\":null,\"pinned\":null,\"progress\":{\"tea-towel\":0,\"burnt-toast\":0,\"golden-whisk\":0,\"rooster-crown\":0,\"rice-guard\":0,\"steve-strut\":0},\"owned\":[],\"receipts\":[\"ebead1d1-c895-4fd5-8a95-2be5bb9b89c0\"],\"milestones\":[],\"presets\":[null,null,null]}}",
+        "after": "{\"progress\":{\"version\":1,\"earned\":10,\"matches\":2,\"wins\":0,\"ch\":{\"firstWin\":0,\"parry10\":0,\"ringout3\":0,\"raceWin\":0,\"lksWin\":0,\"lava5\":0},\"unlocked\":[],\"receipts\":[\"ebead1d1-c895-4fd5-8a95-2be5bb9b89c0\",\"c5b32d27-9233-41c1-a317-a05da3c76e9c\"]},\"collection\":{\"version\":1,\"completed\":2,\"choice\":null,\"pinned\":null,\"progress\":{\"tea-towel\":0,\"burnt-toast\":0,\"golden-whisk\":0,\"rooster-crown\":0,\"rice-guard\":0,\"steve-strut\":0},\"owned\":[],\"receipts\":[\"ebead1d1-c895-4fd5-8a95-2be5bb9b89c0\",\"c5b32d27-9233-41c1-a317-a05da3c76e9c\"],\"milestones\":[],\"presets\":[null,null,null]}}",
+        "hostRules": "{\"mode\":\"ffa\",\"players\":2,\"diff\":\"medium\",\"map\":\"courtyard\",\"chaosPlus\":false,\"chaosSpeed\":\"simple\",\"length\":180,\"teamSplit\":false,\"arenaSize\":\"classic\"}",
+        "hostRulesAfter": "{\"mode\":\"ffa\",\"players\":2,\"diff\":\"medium\",\"map\":\"courtyard\",\"chaosPlus\":false,\"chaosSpeed\":\"simple\",\"length\":180,\"teamSplit\":false,\"arenaSize\":\"classic\"}"
+      }
+    },
+    {
+      "profile": "real-guest",
+      "name": "Real host departure from cup returns usable menu without invented reward",
+      "pass": true,
+      "details": {
+        "pass": true,
+        "state": {
+          "active": "onlineRetry",
+          "overlays": [
+            "online"
+          ],
+          "playing": false,
+          "seats": null,
+          "cfg": {
+            "mode": "ffa",
+            "players": 1,
+            "diff": "medium",
+            "map": "random",
+            "chaosPlus": false,
+            "chaosSpeed": "normal",
+            "length": 180,
+            "teamSplit": false,
+            "arenaSize": "classic"
+          }
+        },
+        "before": "{\"progress\":{\"version\":1,\"earned\":10,\"matches\":2,\"wins\":0,\"ch\":{\"firstWin\":0,\"parry10\":0,\"ringout3\":0,\"raceWin\":0,\"lksWin\":0,\"lava5\":0},\"unlocked\":[],\"receipts\":[\"ebead1d1-c895-4fd5-8a95-2be5bb9b89c0\",\"c5b32d27-9233-41c1-a317-a05da3c76e9c\"]},\"collection\":{\"version\":1,\"completed\":2,\"choice\":null,\"pinned\":null,\"progress\":{\"tea-towel\":0,\"burnt-toast\":0,\"golden-whisk\":0,\"rooster-crown\":0,\"rice-guard\":0,\"steve-strut\":0},\"owned\":[],\"receipts\":[\"ebead1d1-c895-4fd5-8a95-2be5bb9b89c0\",\"c5b32d27-9233-41c1-a317-a05da3c76e9c\"],\"milestones\":[],\"presets\":[null,null,null]}}",
+        "after": "{\"progress\":{\"version\":1,\"earned\":10,\"matches\":2,\"wins\":0,\"ch\":{\"firstWin\":0,\"parry10\":0,\"ringout3\":0,\"raceWin\":0,\"lksWin\":0,\"lava5\":0},\"unlocked\":[],\"receipts\":[\"ebead1d1-c895-4fd5-8a95-2be5bb9b89c0\",\"c5b32d27-9233-41c1-a317-a05da3c76e9c\"]},\"collection\":{\"version\":1,\"completed\":2,\"choice\":null,\"pinned\":null,\"progress\":{\"tea-towel\":0,\"burnt-toast\":0,\"golden-whisk\":0,\"rooster-crown\":0,\"rice-guard\":0,\"steve-strut\":0},\"owned\":[],\"receipts\":[\"ebead1d1-c895-4fd5-8a95-2be5bb9b89c0\",\"c5b32d27-9233-41c1-a317-a05da3c76e9c\"],\"milestones\":[],\"presets\":[null,null,null]}}",
+        "hostRules": "{\"mode\":\"ffa\",\"players\":2,\"diff\":\"medium\",\"map\":\"courtyard\",\"chaosPlus\":false,\"chaosSpeed\":\"simple\",\"length\":180,\"teamSplit\":false,\"arenaSize\":\"classic\"}",
+        "hostRulesAfter": "{\"mode\":\"ffa\",\"players\":2,\"diff\":\"medium\",\"map\":\"courtyard\",\"chaosPlus\":false,\"chaosSpeed\":\"simple\",\"length\":180,\"teamSplit\":false,\"arenaSize\":\"classic\"}"
+      }
+    },
+    {
+      "profile": "real-host",
+      "name": "Real controlled signaling disconnect retains admitted DataConnection and lobby Start",
+      "pass": true,
+      "details": {
+        "pass": true,
+        "state": {
+          "active": "lobbyLeave",
+          "overlays": [
+            "lobby"
+          ],
+          "playing": false,
+          "seats": [
+            {
+              "dev": "kb1",
+              "idx": 0
+            },
+            {
+              "dev": "kb2",
+              "idx": 1
+            }
+          ],
+          "cfg": {
+            "mode": "ffa",
+            "players": 2,
+            "diff": "medium",
+            "map": "courtyard",
+            "chaosPlus": false,
+            "chaosSpeed": "simple",
+            "length": 180,
+            "teamSplit": false,
+            "arenaSize": "classic"
+          }
+        }
+      }
+    },
+    {
+      "profile": "real-guest",
+      "name": "Injected hidden-page boundary resets snapshot recovery allowance on return",
+      "pass": true,
+      "details": {
+        "pass": true,
+        "state": {
+          "active": "Sound: on\n    Menu\n  \n\n  Turn your phone sidewaysThe arena needs the l",
+          "overlays": [],
+          "playing": true,
+          "seats": null,
+          "cfg": {
+            "mode": "ffa",
+            "players": 1,
+            "diff": "medium",
+            "map": "random",
+            "chaosPlus": false,
+            "chaosSpeed": "normal",
+            "length": 180,
+            "teamSplit": false,
+            "arenaSize": "classic"
+          }
+        }
+      }
+    },
+    {
+      "profile": "real-guest",
+      "name": "Injected snapshot silence on live DataConnection ends interrupted match without award",
+      "pass": true,
+      "details": {
+        "pass": true,
+        "state": {
+          "active": "onlineRetry",
+          "overlays": [
+            "online"
+          ],
+          "playing": false,
+          "seats": null,
+          "cfg": {
+            "mode": "ffa",
+            "players": 1,
+            "diff": "medium",
+            "map": "random",
+            "chaosPlus": false,
+            "chaosSpeed": "normal",
+            "length": 180,
+            "teamSplit": false,
+            "arenaSize": "classic"
+          }
+        }
+      }
+    }
+  ],
+  "consoleErrors": [],
+  "limitations": [
+    "Actual isolated Chrome with CDP mouse/keyboard and synthetic standard gamepad.",
+    "No physical controllers, human usability, household/WAN networking, packaged EXE, second Windows PC, or Steam testing.",
+    "Fixtures write only to temporary Chrome profiles; the user game and normal saves are untouched."
+  ],
+  "sourceHashes": {
+    "index.html": "ad01612f5643d2c0bef5958b3c2c0b39c643e938ca06578a04eeee44d416e12b",
+    "game/online-recovery.js": "54d36241bbdc607a18a451cb590cbf268e41238ed304c5f252e21c9b07fbd5f2"
+  },
+  "realPeerJS": "same-host actual bundled PeerJS",
+  "finishedAt": "2026-10-13T10:09:20.763Z",
+  "finalSourceHashes": {
+    "index.html": "ad01612f5643d2c0bef5958b3c2c0b39c643e938ca06578a04eeee44d416e12b",
+    "game/online-recovery.js": "54d36241bbdc607a18a451cb590cbf268e41238ed304c5f252e21c9b07fbd5f2"
+  },
+  "sourceStable": true,
+  "passed": 36,
+  "failed": 0
+}

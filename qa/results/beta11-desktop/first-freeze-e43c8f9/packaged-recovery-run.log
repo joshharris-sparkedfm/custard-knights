@@ -1,0 +1,36 @@
+PASS faults: Mouse opens Online and invalid code remains recoverable
+PASS faults: Hosting pending exposes status and Escape cancels
+PASS faults: Cancelled host late callbacks cannot reopen or replace room
+PASS faults: Keyboard starts a join and Back cancels pending peer
+PASS faults: Cancelled guest late open cannot create a connection
+PASS faults: Injected peer-unavailable produces visible retryable recovery
+PASS faults: Injected network produces visible retryable recovery
+PASS faults: Injected browser-incompatible produces visible retryable recovery
+PASS faults: Injected full response refuses admission without rewards
+PASS faults: Synthetic pad activates Host then B cancels pending operation
+PASS faults: Recovery preserves remembered rules, seats, outfit and progression
+PASS faults: Script load is cancellable before Peer exists
+PASS faults: Cancelled script late load does not create a room
+PASS faults: Injected host transport failure exposes Retry
+PASS faults: Retry starts a fresh operation and old error cannot overwrite it
+PASS faults: Pending host cannot start, configure, copy or claim an open room
+PASS faults: Pending Cancel remains focusable and visible at 800x600
+PASS faults: Actual admission deadline recovers a silent injected peer
+PASS script-fault: Injected script error produces visible local-play and retry recovery
+PASS faults: Affected offline pause still freezes arena and Resume restores play
+PASS faults: Affected practice pause Resume and Leave restore menu without rewards
+PASS real-host: Actual PeerJS signaling opens same-host room
+PASS real-guest: Mouse join establishes real PeerJS DataConnection
+PASS real-rejected: Real full room refuses ninth knight with visible recovery
+PASS real-rejected: Real missing room produces recoverable unavailable response
+PASS real-host: Legacy hello over real transport blocks Roomier with an actionable message
+PASS real-guest: Visible guest mouse Menu keeps simulation live and releases input
+PASS real-guest: Synthetic standard pad Start opens online menu and A resumes
+PASS real-host: Visible host mouse Menu suppresses both keyboard seats and next start restores input
+PASS real-guest: Natural authoritative results while Options is open restores usable results focus
+PASS real-guest: Real host departure from match returns usable menu without invented reward
+PASS real-guest: Real host departure from results returns usable menu without invented reward
+PASS real-guest: Real host departure from cup returns usable menu without invented reward
+PASS real-host: Real controlled signaling disconnect retains admitted DataConnection and lobby Start
+PASS real-guest: Injected hidden-page boundary resets snapshot recovery allowance on return
+PASS real-guest: Injected snapshot silence on live DataConnection ends interrupted match without award

@@ -188,6 +188,10 @@ body[data-input=pad] :is(button,.card,.tile,input,select):focus{outline:4px soli
 @media (min-height:860px) and (min-width:821px){.mchips{flex-wrap:wrap;overflow:visible} .chip{width:104px}}
 @media (max-height:520px){.mgrid .mrow .btn{font-size:13px;padding:4px 6px;line-height:1.1}}
 @media (max-width:820px){.mgrid .mrow .btn{font-size:14px}}
+/* Connection outcomes and live-match instructions stay readable in compact layouts. */
+#lobbyMsg,#menuMsg:not(:empty),#pauseNote:not([hidden]){display:block}
+:is(#online,#lobby,#pause)>.panel{max-height:100%;overflow-y:auto;overscroll-behavior:contain}
+:is(#online,#lobby,#pause)>.panel>*{flex-shrink:0}
 
 
 /* couch party */

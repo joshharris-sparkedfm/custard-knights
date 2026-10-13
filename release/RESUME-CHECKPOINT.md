@@ -1,4 +1,12 @@
-# Optional first-launch setup and friends beta.10 — 13 October 2026
+# Arena online recovery source checkpoint — 13 October 2026
+
+Worktree work/custard-knights-recovery, branch codex/menu-online-recovery from verified PR27 merge5d32e0960c1321e1cd694e5bafbf006ecfb9a187. Beta.11 source is checked; package/CI identities follow after root freezes it. Latest exported playable version remains beta.10 until PREVIEW-BUILD.md records completed beta.11 exports.
+
+Arena create/join now has bounded loading/admission, visible cancellation/retry and attempt-owned callbacks. Established peer connections survive signaling-service loss. Online Menu/Options/Leave says the match continues and neutralizes all seats on this PC, not remote guests. Host/connection loss interrupts guest rounds without awarding a fabricated result; completed rewards persist. Host seats survive lobby/rematch/Cup starts at the same count; deliberate count changes clear old bindings. Original bakery WIP and normal saves remain untouched.
+
+70 affected tests and independent actual-browser final6 36/36 pass with stable source hashes and zero Runtime exceptions. Source review cleared. Real PeerJS is same-host; library/loading/deadline faults are controlled injections. Final5's real host-seat failure and earlier fixture/mixed-source attempts remain recorded. Packaging/hosted CI are pending at this source checkpoint; no physical/WAN/human/Steam acceptance is implied. Root must complete export/evidence/push/merge before the next integrated task. See qa/reviews/online-recovery-2026-10-13.md and ORCHESTRATOR-QUEUE.md.
+
+# Historical optional first-launch setup and friends beta.10 — 13 October 2026
 
 PR27 contains the checked onboarding increment on codex/first-launch-practice in work/custard-knights-onboarding. Frozen runtime: 88a974bc1b5ec1166c1cae62e03d3aa9b1d7f61e. Fresh profiles can adjust existing sound/effect preferences, skip to home, or learn through real arena movement, swing, guard, dash and ranged aim/fire. Existing profiles and room invites bypass the offer. How to Play replays practice. Practice restores normal rules/seats and excludes normal played counts, rewards and product reports. No text-scale/remapping or human-learning acceptance is claimed.
 

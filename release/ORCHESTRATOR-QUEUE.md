@@ -2,7 +2,27 @@
 
 13 October 2026 · Durable handoff for the explicitly renewed 30-minute build loop. Active automation ID: `custard-knights-build-orchestrator` (verified by root; every 30 minutes).
 
-The user renewed automation authorization after the earlier removal. Historical removal remains true; its no-recreation instruction is superseded for this requested build loop. The root orchestrator owns coordination, integration and this queue. [FULL-EXPERIENCE-PLAN.md](FULL-EXPERIENCE-PLAN.md) and [ACCEPTANCE-MATRIX.md](ACCEPTANCE-MATRIX.md) remain the scope and acceptance authority. Documentation is not a gameplay pass. Latest friends beta.9 is frozen at `ae262b505ca9758de008df53418a06e26695a8a7`; earlier exports remain preserved.
+The user renewed automation authorization after the earlier removal. Historical removal remains true; its no-recreation instruction is superseded for this requested build loop. The root orchestrator owns coordination, integration and this queue. [FULL-EXPERIENCE-PLAN.md](FULL-EXPERIENCE-PLAN.md) and [ACCEPTANCE-MATRIX.md](ACCEPTANCE-MATRIX.md) remain the scope and acceptance authority. Documentation is not a gameplay pass. Latest friends beta.10 is frozen at `88a974bc1b5ec1166c1cae62e03d3aa9b1d7f61e`; earlier exports remain preserved.
+
+Latest verified increment: beta.10 frozen at88a974bc1b5ec1166c1cae62e03d3aa9b1d7f61e; PR27 merged at5d32e0960c1321e1cd694e5bafbf006ecfb9a187, verified origin/main on13 October09:47UTC. Earlier beta/version/task labels are historical.
+
+## Active arena recovery task — 13 October 2026
+
+Clean worktree work/custard-knights-recovery, branch codex/menu-online-recovery from verified main5d32e09. No prior agents active; original bakery WIP remains preserved. Root owns queue/checkpoint and Git. Complete/push/merge this task before the next integration.
+
+| Task | Owner/model/effort | Files | Current progress / next action |
+|---|---|---|---|
+| FE03 arena pending/failure and match-menu recovery | /root/recovery_implementation, gpt-6.1-sol high | index.html, relevant game modules, focused unit tests | Inspect current paths, then fix concrete cancel/retry/stale callback/host-loss/menu gaps; preserve rules/seats/rewards and truthful no-migration policy |
+| Independent browser/network QA | /root/recovery_qa, gpt-6.1-sol medium | qa/online-recovery-browser.cjs, dated results/review | Prepare isolated input/fault/actual same-host PeerJS cases, verify stable final source; distinguish injected failures from real transport |
+| Independent source review | /root/recovery_review, gpt-6-luna high | Read-only runtime and evidence | Review stale callback, lifecycle/cleanup, reward and focus boundaries; no speculative protocol rewrite |
+
+Scope includes honest online 'Match menu — match continues' with neutral input and Resume/Options/Leave while retaining offline/couch pause. Broader persistent-room and native two-sofa admission remain following tasks. No physical/WAN/human acceptance implied. Packaging follows a coherent checked increment; beta.10 remains latest exported until an additive verified export is recorded.
+
+Source owner completed68 affected tests and released stable runtime for final QA/review. Concrete changes cover bounded PeerJS loading/admission, attempt-owned callbacks/cancel/retry, signaling versus P2P separation, online Menu/Options/Leave with all local seats neutral and simulation continuing, interrupted-result messaging, and Cup rule cleanup. Independent browser QA and final source review still pending. /root/recovery_package (gpt-6.1-sol medium) owns beta.11 version/guide/PREVIEW and qa/results/beta11-* preparation only; waits for root frozen commit before building. Root retains integration/checkpoint/Git ownership.
+
+Final5 browser QA found an actual two-seat continuity bug: host Menu→lobby→next Start cleared SEATS because the first start consumed partyGo. 35 checks passed and this check failed; the candidate is not approved/frozen. Source owner resumed a bounded repair, reviewer withheld clearance, packaging remains preparation. Keep this failure evidence and rerun the affected final candidate after the fix.
+
+Final6 supersedes that block: the exact host seats now persist while the configured count matches, explicit count changes clear stale bindings, and offline launch behavior remains unchanged.70 affected tests and36 independent browser checks pass at index SHA256 ad01612f5643d2c0bef5958b3c2c0b39c643e938ca06578a04eeee44d416e12b, recovery module54d36241bbdc607a18a451cb590cbf268e41238ed304c5f252e21c9b07fbd5f2. Zero browser exceptions and stable hashes. Source reviewer cleared final6; real transport evidence is same-host PeerJS, fault injections separately labelled. Root freezes and pushes the checked source for CI; beta.11 packaging follows. No broader human/device/WAN acceptance claimed.
 
 ## FE-01 bounded inventory
 

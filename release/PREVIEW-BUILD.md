@@ -1,4 +1,10 @@
-# Private friends beta - 0.3.0-beta.10
+# Private friends beta - 0.3.0-beta.11
+
+Arena Online room adds visible pending connection status, cancellation, Retry after failed admission, and guest recovery to the menu after host or snapshot loss. Interrupted guest rounds do not grant rewards. Menu or Escape / P / Start opens an online Match menu with Options, Resume and Leave while the simulation continues and players on this PC remain neutral. Host Close room ends the room for guests. Existing offline modes and first-launch practice remain included. Faction Front uses its separate service.
+
+Packaging evidence and exact frozen source/hash details will be recorded after the final source freeze in [beta.11 package evidence](../qa/results/beta11-desktop/README.md). Extract the complete Friends ZIP and run `Game/Custard Knights.exe`, after closing older copies normally. Use matching builds for Roomier rooms. Human usability, physical controllers, WAN/second-PC, minimum hardware and Steam acceptance remain open.
+
+# Historical private friends beta - 0.3.0-beta.10
 
 Frozen runtime `88a974bc1b5ec1166c1cae62e03d3aa9b1d7f61e` adds an optional first-launch welcome with sound/effect preferences and safe controls practice. New profiles can choose Learn by playing or Jump straight in; existing profiles keep the home menu. How to Play replays practice. Practice uses real arena movement, swing, guard, dash and bow aim without rewards, and restores remembered rules and couch seats afterwards.
 

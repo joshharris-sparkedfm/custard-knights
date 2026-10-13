@@ -1,0 +1,67 @@
+{
+  "attempt": 2,
+  "executable": "C:\\Users\\Joshua\\Documents\\Codex\\2026-10-08\\rea\\work\\custard-knights-couch\\dist\\Custard Knights-win32-x64\\Custard Knights.exe",
+  "profile": "C:\\Users\\Joshua\\AppData\\Local\\Temp\\custard-acceptance-AbqUkE\\user-data",
+  "checks": [
+    {
+      "name": "Actual desktop native origin without QA helpers",
+      "pass": true
+    },
+    {
+      "name": "Synthetic pads join in deliberate reverse order",
+      "pass": true
+    },
+    {
+      "name": "Lobby prompts include real trigger and shoulder aliases",
+      "pass": true
+    },
+    {
+      "name": "Lobby missing seat retained and start blocked",
+      "pass": true
+    },
+    {
+      "name": "Deliberate A reclaim retains two seats and unlocks start",
+      "pass": true
+    },
+    {
+      "name": "Reclaimed lobby launches arena",
+      "pass": true
+    },
+    {
+      "name": "Offline loss opens pause and reserved recovery status",
+      "pass": true
+    },
+    {
+      "name": "Same-index replug requires deliberate reclaim",
+      "pass": true
+    },
+    {
+      "name": "Deliberate reclaim removes recovery but retains pause",
+      "pass": true
+    },
+    {
+      "name": "Explicit Resume returns to arena",
+      "pass": true
+    },
+    {
+      "name": "Free keyboard takeover recovers missing seat",
+      "pass": true
+    },
+    {
+      "name": "Quit returns to home after recovery",
+      "pass": true
+    }
+  ],
+  "limitations": [
+    "Synthetic standard pads injected only at navigator boundary; programmatic DOM clicks and poller-driven edges. This checks native presentation/recovery, not physical input, timing, action neutrality, real transport or responsiveness.",
+    "Actual packaged desktop origin with programmatic click smoke; hidden window uses bounded observed poll gates after preserved unsampled fixedwait failures. No responsiveness, physical-device or human acceptance.",
+    "In-memory inspector replacement of acceptance.run only; packaged bytes are not edited."
+  ],
+  "exitCode": 0,
+  "stdout": "\r\nACTUAL_DEVICE_PASS {\"checks\":[{\"name\":\"Actual desktop native origin without QA helpers\",\"pass\":true},{\"name\":\"Synthetic pads join in deliberate reverse order\",\"pass\":true},{\"name\":\"Lobby prompts include real trigger and shoulder aliases\",\"pass\":true},{\"name\":\"Lobby missing seat retained and start blocked\",\"pass\":true},{\"name\":\"Deliberate A reclaim retains two seats and unlocks start\",\"pass\":true},{\"name\":\"Reclaimed lobby launches arena\",\"pass\":true},{\"name\":\"Offline loss opens pause and reserved recovery status\",\"pass\":true},{\"name\":\"Same-index replug requires deliberate reclaim\",\"pass\":true},{\"name\":\"Deliberate reclaim removes recovery but retains pause\",\"pass\":true},{\"name\":\"Explicit Resume returns to arena\",\"pass\":true},{\"name\":\"Free keyboard takeover recovers missing seat\",\"pass\":true},{\"name\":\"Quit returns to home after recovery\",\"pass\":true}],\"origin\":\"custard://game\",\"syntheticPolls\":69,\"inputGates\":\"At least3observed navigator polls per synthetic neutral/press/neutral phase, bounded10seconds; hidden native window\"}\n",
+  "stderr": "Debugger listening on ws://127.0.0.1:49467/fdbb5fd5-f470-48c0-8316-6644d63c666d\r\nFor help, see: https://nodejs.org/learn/getting-started/debugging\r\nDebugger attached.\r\nDebugger ending on ws://127.0.0.1:49467/fdbb5fd5-f470-48c0-8316-6644d63c666d\r\nFor help, see: https://nodejs.org/learn/getting-started/debugging\r\n",
+  "origin": "custard://game",
+  "syntheticPolls": 69,
+  "inputGates": "At least3observed navigator polls per synthetic neutral/press/neutral phase, bounded10seconds; hidden native window",
+  "pass": true
+}

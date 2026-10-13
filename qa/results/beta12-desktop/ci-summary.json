@@ -1,0 +1,48 @@
+{
+  "runId": 38384519905,
+  "sourceCommit": "be03b64f6ba3104bfcaa6b1154d4348cb2565fb5",
+  "jobs": [
+    {
+      "id": 115252873975,
+      "name": "server (ubuntu-latest)",
+      "status": "completed",
+      "conclusion": "success",
+      "url": "https://github.com/joshharris-sparkedfm/custard-knights/actions/runs/38384519905/job/115252873975"
+    },
+    {
+      "id": 115252874189,
+      "name": "core (ubuntu-latest, 22)",
+      "status": "completed",
+      "conclusion": "success",
+      "url": "https://github.com/joshharris-sparkedfm/custard-knights/actions/runs/38384519905/job/115252874189"
+    },
+    {
+      "id": 115252874198,
+      "name": "core (windows-latest, 22)",
+      "status": "completed",
+      "conclusion": "success",
+      "url": "https://github.com/joshharris-sparkedfm/custard-knights/actions/runs/38384519905/job/115252874198"
+    },
+    {
+      "id": 115252874267,
+      "name": "core (windows-latest, 24)",
+      "status": "completed",
+      "conclusion": "success",
+      "url": "https://github.com/joshharris-sparkedfm/custard-knights/actions/runs/38384519905/job/115252874267"
+    },
+    {
+      "id": 115252874344,
+      "name": "server (windows-latest)",
+      "status": "completed",
+      "conclusion": "success",
+      "url": "https://github.com/joshharris-sparkedfm/custard-knights/actions/runs/38384519905/job/115252874344"
+    },
+    {
+      "id": 115252874388,
+      "name": "core (ubuntu-latest, 24)",
+      "status": "completed",
+      "conclusion": "success",
+      "url": "https://github.com/joshharris-sparkedfm/custard-knights/actions/runs/38384519905/job/115252874388"
+    }
+  ]
+}

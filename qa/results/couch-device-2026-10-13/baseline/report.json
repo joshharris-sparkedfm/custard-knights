@@ -1,0 +1,78 @@
+{
+  "startedAt": "2026-10-13T10:24:56.022Z",
+  "root": "C:\\Users\\Joshua\\Documents\\Codex\\2026-10-08\\rea\\work\\custard-knights-couch",
+  "sourceHashes": {
+    "index.html": "b448f0d799c3a5a686b30428b64d22de42284c7bd7d2ed8987d446e5db49c0f6",
+    "game/input-aim.js": "54040dd96e1360a46cd36c5fc6f92b05abeeb7db34af7f5cca3d75a9dcb9baee",
+    "game/cup.js": "790949bce5c2ce54f5a93aa5d13d226fddb735e1426475e9a7c5297987422a12"
+  },
+  "checks": [],
+  "errors": [
+    {
+      "name": "local",
+      "details": {
+        "exceptionId": 1,
+        "text": "Uncaught",
+        "lineNumber": 1189,
+        "columnNumber": 0,
+        "scriptId": "30",
+        "url": "file:///C:/Users/Joshua/Documents/Codex/2026-10-08/rea/work/custard-knights-couch/index.html?qa=1",
+        "stackTrace": {
+          "callFrames": [
+            {
+              "functionName": "",
+              "scriptId": "30",
+              "url": "file:///C:/Users/Joshua/Documents/Codex/2026-10-08/rea/work/custard-knights-couch/index.html?qa=1",
+              "lineNumber": 1189,
+              "columnNumber": 0
+            },
+            {
+              "functionName": "",
+              "scriptId": "30",
+              "url": "file:///C:/Users/Joshua/Documents/Codex/2026-10-08/rea/work/custard-knights-couch/index.html?qa=1",
+              "lineNumber": 3424,
+              "columnNumber": 2
+            }
+          ]
+        },
+        "exception": {
+          "type": "object",
+          "subtype": "error",
+          "className": "ReferenceError",
+          "description": "ReferenceError: Cannot access '$' before initialization\n    at file:///C:/Users/Joshua/Documents/Codex/2026-10-08/rea/work/custard-knights-couch/index.html?qa=1:1190:1\n    at file:///C:/Users/Joshua/Documents/Codex/2026-10-08/rea/work/custard-knights-couch/index.html?qa=1:3425:3",
+          "objectId": "7004795794511954480.2.1",
+          "preview": {
+            "type": "object",
+            "subtype": "error",
+            "description": "ReferenceError: Cannot access '$' before initialization\n    at file:///C:/Users/Joshua/Documents/Codex/2026-10-08/rea/work/custard-knights-couch/index.html?qa=1:1190:1\n    at file:///C:/Users/Joshua/Documents/Codex/2026-10-08/rea/work/custard-knights-couch/index.html?qa=1:3425:3",
+            "overflow": false,
+            "properties": [
+              {
+                "name": "stack",
+                "type": "string",
+                "value": "ReferenceError: Cannot access '$' before initializ…work/custard-knights-couch/index.html?qa=1:3425:3"
+              },
+              {
+                "name": "message",
+                "type": "string",
+                "value": "Cannot access '$' before initialization"
+              }
+            ]
+          }
+        },
+        "executionContextId": 2
+      }
+    }
+  ],
+  "limitations": [
+    "Actual Chrome; CDP keyboard/mouse and injected standard pad objects. No physical controllers, Steam Input, human couch or packaged EXE acceptance.",
+    "Direct CK start/endMatch/rematch and shortened Cup fixtures are labeled; these are continuity checks, not input-only completion or gameplay balance.",
+    "Profiles are isolated temporary QA saves. Actual PeerJS, when run, is same-host only."
+  ],
+  "failure": "Error: Timed out: !!window.CK\n    at wait (C:\\Users\\Joshua\\Documents\\Codex\\2026-10-08\\rea\\work\\custard-knights-couch\\qa\\couch-device-browser.cjs:22:131)\n    at async reset (C:\\Users\\Joshua\\Documents\\Codex\\2026-10-08\\rea\\work\\custard-knights-couch\\qa\\couch-device-browser.cjs:23:135)\n    at async browser (C:\\Users\\Joshua\\Documents\\Codex\\2026-10-08\\rea\\work\\custard-knights-couch\\qa\\couch-device-browser.cjs:32:264)\n    at async main (C:\\Users\\Joshua\\Documents\\Codex\\2026-10-08\\rea\\work\\custard-knights-couch\\qa\\couch-device-browser.cjs:39:10)",
+  "finishedAt": "2026-10-13T10:25:11.569Z",
+  "counts": {
+    "pass": 0,
+    "fail": 0
+  }
+}

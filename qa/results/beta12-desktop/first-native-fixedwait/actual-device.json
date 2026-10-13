@@ -1,0 +1,16 @@
+{
+  "attempt": 1,
+  "executable": "C:\\Users\\Joshua\\Documents\\Codex\\2026-10-08\\rea\\work\\custard-knights-couch\\dist\\Custard Knights-win32-x64\\Custard Knights.exe",
+  "profile": "C:\\Users\\Joshua\\AppData\\Local\\Temp\\custard-acceptance-2DgtO9\\user-data",
+  "checks": [],
+  "limitations": [
+    "Synthetic standard pads injected only at navigator boundary; programmatic DOM clicks and poller-driven edges. This checks native presentation/recovery, not physical input, timing, action neutrality, real transport or responsiveness.",
+    "Actual packaged desktop origin with programmatic click smoke; physical-device and human acceptance remain open.",
+    "In-memory inspector replacement of acceptance.run only; packaged bytes are not edited."
+  ],
+  "exitCode": 1,
+  "stdout": "\r\n",
+  "stderr": "Debugger listening on ws://127.0.0.1:60062/76912475-d60d-4fae-9016-c113daf0f1d2\r\nFor help, see: https://nodejs.org/learn/getting-started/debugging\r\nDebugger attached.\r\nDebugger ending on ws://127.0.0.1:60062/76912475-d60d-4fae-9016-c113daf0f1d2\r\nFor help, see: https://nodejs.org/learn/getting-started/debugging\r\nACTUAL_DEVICE_FAIL Error: Synthetic pads join in deliberate reverse order\n",
+  "pass": false,
+  "error": "Error: Actual device smoke failed: Debugger listening on ws://127.0.0.1:60062/76912475-d60d-4fae-9016-c113daf0f1d2\r\nFor help, see: https://nodejs.org/learn/getting-started/debugging\r\nDebugger attached.\r\nDebugger ending on ws://127.0.0.1:60062/76912475-d60d-4fae-9016-c113daf0f1d2\r\nFor help, see: https://nodejs.org/learn/getting-started/debugging\r\nACTUAL_DEVICE_FAIL Error: Synthetic pads join in deliberate reverse order\n \r\n\n    at C:\\Users\\Joshua\\Documents\\Codex\\2026-10-08\\rea\\work\\custard-knights-couch\\qa\\results\\beta12-desktop\\actual-device.cjs:74:104\n    at process.processTicksAndRejections (node:internal/process/task_queues:104:5)"
+}

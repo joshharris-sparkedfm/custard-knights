@@ -111,8 +111,20 @@ Faction Front uses different controls: WASD/arrows move, mouse aims,
 click/J attacks, L/Shift heavy attacks, right-click/K guards, Space dashes,
 E uses your role ability. Controller: left/right sticks move/aim,
 A attacks, B dashes, LT guards, RT heavy attacks, X uses your role ability.
-Couch play: up to four seats. Two can share a keyboard; the lobby explains
-F/G/H for player one and J/K/L for player two. Additional seats need pads.
+Couch play: up to four seats. Keyboard player one uses WASD and F/G/H
+(swing/dash/block), with mouse aim/click fire/right-click block. Player two
+uses arrows and J/K/L. Additional seats need pads. Controller aliases are
+A or RT swing/fire, B or LB dash, X/RB/LT block; right stick aims.
+A missing controller keeps its knight, seat and outfit reserved. Offline
+arena/Cup pauses for recovery; online play continues with only that lost
+seat neutral (the Match menu still neutralizes all seats on this PC).
+Release sticks and buttons on an unassigned controller, use left/right to
+choose the missing knight, then press A to reclaim. Browser controller
+numbers can change, so choose your original knight deliberately. Recovery
+also offers keyboard takeover when that keyboard is unassigned. Release
+held controls after recovery before playing. Recover all missing lobby
+controllers before starting. Deliberately leaving a seat still compacts
+the party; persistent room/seat continuity is a later feature.
 Physical-controller compatibility is part of this test, not yet signed off.
 
 WHAT YOU CAN PLAY

@@ -1,0 +1,24 @@
+FAIL Actual keyboard couch joins preserve reverse pad order
+FAIL Four mixed seats route keyboard mouse and pad actions independently
+FAIL Actual mouse attack follows kb1 seat and never pad or second keyboard
+FAIL Reordering navigator array does not transfer pad ownership or generate Start edge
+PASS Held Start retains one edge across pad array reorder
+FAIL Offline device loss freezes actual timer and keeps four seat identities
+PASS Index reuse by a different device cannot seize disconnected seat
+PASS Five direct rematch fixtures preserve seat identity device outfit and team
+PASS Same-model pads remain distinct without ambiguous automatic rebind
+PASS Solo pad loss is detected through polling without disconnect event
+PASS Recovery status and keyboard control are actually rendered at minimum windows
+PASS Keyboard Tab and Enter recover without mouse or replacement pad
+PASS Same-index replug requires deliberate A and fresh action after release
+PASS Occupied device cannot reclaim another seat and free keyboard can recover it
+PASS Setup disconnect retains reserved seat and blocks launch until actual pad reclaim
+PASS Results disconnect and explicit recovery preserve seat before real Rematch click
+PASS Four pads survive three direct Cup outcomes and second Cup with device recovery
+PASS Classic solo pad can recover to keyboard without null-seat crash
+PASS Custom setup fixed binding prompts are truthful and rendered at minimum windows
+PASS How To Play controller ownership and fixed aliases are truthful and rendered
+PASS Actual bundled PeerJS signaling and guest admission
+PASS Online pad loss neutralizes affected seat while timer other local and real guest continue
+PASS Online recovery status and button render at minimum windows
+C:\Users\Joshua\Documents\Codex\2026-10-08\rea\work\custard-knights-couch\qa\results\beta12-packaged-couch

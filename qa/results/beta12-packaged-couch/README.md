@@ -1,0 +1,7 @@
+# Frozen beta.12 extracted-ASAR couch acceptance
+
+Final observed-poll harness passes23/23 on the frozen package with no Runtime exceptions and stable source hashes. Root: build/beta12-packaged-payload; sourcebe03b64f6ba3104bfcaa6b1154d4348cb2565fb5, index07a3c1be07ab18f3fe1625ed5a3a06e15f24aad6e37210f8fb15c7132c246e8a. Canonical report/screenshots copied from independent QA final-extracted-observed, not a second invocation.
+
+Initial fixedwait package invocation had18passes/5failures: first pad join was absent, then four dependent mixed-input checks failed. Full report/screenshots retained in ../beta12-packaged-couch-first-fixedwait; it is not final acceptance. An extracted single-case diagnostic joined both pads with sampled pulses; this does not establish the cause of the earlier missed pulse. Native isolated diagnostic separately proved its own230ms pulses went unobserved; that finding does not retroactively prove the extracted failure's cause.
+
+Final fixture gates synthetic neutral/press/release on at least two actual navigator polls within a10second bound and records each observed phase. The later23pass run verifies the unchanged payload with observed inputs; it does not measure responsiveness, establish physical controller behavior, identify the historical unsampled source or claim a runtime repair. Shortened Cup/direct match fixtures remain labelled. Actual bundled PeerJS is a same-host DataConnection only. Human couch/fun/balance, WAN/second-PC, Steam Input, minimum hardware and long soak remain open.

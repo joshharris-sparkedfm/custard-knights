@@ -2,15 +2,16 @@
 
 13 October 2026 · Durable handoff for the explicitly renewed 30-minute build loop. Active automation ID: `custard-knights-build-orchestrator` (verified by root; every 30 minutes).
 
-The user renewed automation authorization after the earlier removal. Historical removal remains true; its no-recreation instruction is superseded for this requested build loop. The root orchestrator owns coordination, integration and this queue. [FULL-EXPERIENCE-PLAN.md](FULL-EXPERIENCE-PLAN.md) and [ACCEPTANCE-MATRIX.md](ACCEPTANCE-MATRIX.md) remain the scope and acceptance authority. Documentation is not a gameplay pass. Latest friends beta.11 is frozen at `5c8549db9d5293005fe3b5bd83998a5e66ac32df`; earlier exports remain preserved.
+The user renewed automation authorization after the earlier removal. Historical removal remains true; its no-recreation instruction is superseded for this requested build loop. The root orchestrator owns coordination, integration and this queue. [FULL-EXPERIENCE-PLAN.md](FULL-EXPERIENCE-PLAN.md) and [ACCEPTANCE-MATRIX.md](ACCEPTANCE-MATRIX.md) remain the scope and acceptance authority. Documentation is not a gameplay pass. Latest friends beta.12 is frozen at `be03b64f6ba3104bfcaa6b1154d4348cb2565fb5`; earlier exports remain preserved.
 
-Latest verified increment: beta.11 frozen at 5c8549db9d5293005fe3b5bd83998a5e66ac32df; PR28 merged at 48456ccaf63d5f0719352fa3d48f3b5f12536d29, verified origin/main before this couch-device task. Earlier beta/version/task labels are historical.
+Latest verified export: beta.12 frozen be03b64f6ba3104bfcaa6b1154d4348cb2565fb5 in PR29. Root finalizes evidence push/merge and verifies origin/main before the next integrated task. PR28 merge48456cc was the checked base; earlier version/task labels are historical.
 
 ## Completed arena recovery task — 13 October 2026
 PR28 verified merged at48456ccaf63d5f0719352fa3d48f3b5f12536d29 before this next task. Latest exported beta.11 frozen5c8549db9d5293005fe3b5bd83998a5e66ac32df; prior version references are historical.
 
-## Active FE04 couch-device task — 13 October 2026
+## Completed FE04 couch-device increment — 13 October 2026
 
+Final status supersedes dispatch rows below: implementation, independent browser QA and package completed; independent source review cleared.60 affected tests plus focused help assertions, source23/extracted23/native12, lifecycle,62payload/73Friends files and ZIP integrity pass. CI38384519905 all6 passed exactbe03b64. Package failures/workaround and sampled-poll limits preserved in qa/results/beta12-desktop. Exact beta.12 identity in PREVIEW-BUILD.md; no public upload or human/device/Steam acceptance. Remaining FE04 remap/options engineering comes next, then FE05 room/Cup/departure identity; this task did not finish those milestones.
 Fresh branch codex/couch-device-continuity in work/custard-knights-couch from verified main48456cc. Prior recovery agents completed; original bakery WIP remains untouched. Root coordinates queue/checkpoint/Git and completes checked push/PR/merge before subsequent engineering.
 
 | Task | Owner/model/effort | Owned files | Progress / next action |
@@ -129,3 +130,7 @@ The owner table above records the initial dispatch, now superseded: all four onb
 Root finalizes checked evidence and merges PR27 before the next integrated task; verify PR/remote state on resume. Do not repeat completed aim/home/onboarding tests without an affected change. Next bounded engineering: remaining FE03 loading/failure and online-match-menu contract, then FE04/05 couch ownership/persistent rooms and FE06. Story causal slice, native two-sofa and200-combatant milestones remain explicit unfinished scope. Original bakery WIP must be preserved and separately reconciled in its story task.
 
 FE04 device source ready: final index07a3c1be07ab18f3fe1625ed5a3a06e15f24aad6e37210f8fb15c7132c246e8a,60 affected tests plus focused help assertions, independent final23 browser checks and Luna review clear. Runtime owner completed. /root/couch_package (gpt-6.1-sol medium) owns beta.12 manifests/guide/PREVIEW and qa/results/beta12-*; awaits root freeze then package verification. Root owns Git/CI/queue/checkpoint. No remapping UI or physical acceptance; retain those FE04 gaps before FE05 room/Cup work.
+
+Parallel read-only media inventory: /root/local_media_inventory, gpt-6-luna high, owns no files; inspect existing story video/art paths and user-provided LocalAI templates for one bounded future integrated asset. No generation during package GPU checks. Runtime remains frozen be03b64f6ba3104bfcaa6b1154d4348cb2565fb5 in PR29; package first attempt native Electron extractor checksum failure retained, investigation found cached ZIP CRC/hash and template binary agree with prior tested runtime. Evidence-only alternate extraction being verified; this is not a native-fault resolution.
+
+PR29 source be03b64 is pushed; hosted CI38384519905 all6 jobs passed at exact frozen source. Package62 entries and native lifecycle passed. Initial extracted-controller fixture missed first join (18pass/5cascadefail); native hidden-window trace reproduced 230ms presses entirely between gamepad polls. Bounded sampled-neutral/press/neutral QA now passes extracted23 with same runtime; historical extracted miss cause is not independently established and no responsiveness/nativefault fix is claimed. Final native-device/export verification remains pending. Media inventory completed read-only at release/research/2026-10-13/local-media-inventory.md; no generated asset integrated or GPU job submitted.

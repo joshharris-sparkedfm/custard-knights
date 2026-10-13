@@ -1,0 +1,13 @@
+{
+  "frozenSource": "be03b64f6ba3104bfcaa6b1154d4348cb2565fb5",
+  "adapterSha256": "24c2d133c07a3f62521600146b489db5df1ba15583c8891b51c097f6a2a0f64e",
+  "standardPackageScriptSha256": "4c207a26c30215f0baf15b025e82dac4487330c33ba0f1c21edcb0506503c006",
+  "configuration": "Exact scripts/package.cjs packageWindows and createStage; in-memory Packager.prototype.extractElectronZip only; Electron44.7.0 Windowsx64 ASAR, original icon/metadata unchanged",
+  "templateEntries": 73,
+  "templateZipSha256": "eee30dc8fa1f5ea95490e59f44e46ea68dd24c6e93d22facf70fe5c2d4c2665c",
+  "templateFullCRC": true,
+  "nativeExtractionFailure": "build-run.log retained; Invalid checksum writing electron.exe; Python passes CRC with identical exe2529b494f4123f152bce346051f7bd855ef95006424a561953cf17c49a3d1ba8 from zip/deps/recovery",
+  "packageCRLFFailure": "package-crlf-restore-failure.log retained; git restore rewrote frozen blobs to CRLF after LF staging; restored only named generated files with git show exact bytes",
+  "nativeFaultFixed": false,
+  "evidenceNewlineCorrection": "Adapter initially emitted literal backslash-n after JSON; normalized python-template.json and corrected evidence newline output only after build, no extraction/configuration behavior changed."
+}

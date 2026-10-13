@@ -1,0 +1,10 @@
+{
+  "cache": "C:\\Users\\Joshua\\AppData\\Local\\electron\\Cache\\5a625dfd3df3efc3971556afe64989f9aa6ea0f4cd6e33889c1951789041498f\\electron-v44.7.0-win32-x64.zip",
+  "zipSha256": "eee30dc8fa1f5ea95490e59f44e46ea68dd24c6e93d22facf70fe5c2d4c2665c",
+  "crcPassed": true,
+  "electronExeSha256": "2529b494f4123f152bce346051f7bd855ef95006424a561953cf17c49a3d1ba8",
+  "zipExeBytes": 246302208,
+  "zipExeCRC": "0xbe30d685",
+  "dependencyExeSha256": "2529b494f4123f152bce346051f7bd855ef95006424a561953cf17c49a3d1ba8",
+  "recoveryExeSha256": "2529b494f4123f152bce346051f7bd855ef95006424a561953cf17c49a3d1ba8"
+}

@@ -1,0 +1,362 @@
+{
+  "startedAt": "2026-10-13T10:42:58.995Z",
+  "root": "C:\\Users\\Joshua\\Documents\\Codex\\2026-10-08\\rea\\work\\custard-knights-couch\\build\\beta12-packaged-payload",
+  "sourceHashes": {
+    "index.html": "07a3c1be07ab18f3fe1625ed5a3a06e15f24aad6e37210f8fb15c7132c246e8a",
+    "game/input-aim.js": "54040dd96e1360a46cd36c5fc6f92b05abeeb7db34af7f5cca3d75a9dcb9baee",
+    "game/cup.js": "790949bce5c2ce54f5a93aa5d13d226fddb735e1426475e9a7c5297987422a12"
+  },
+  "checks": [
+    {
+      "name": "Actual keyboard couch joins preserve reverse pad order",
+      "profile": "Actual keyboard couch joins preserve reverse pad order",
+      "pass": true,
+      "details": {
+        "pass": true,
+        "seats": [
+          {
+            "dev": "pad",
+            "idx": 1,
+            "padId": "QA Beta",
+            "missing": false
+          },
+          {
+            "dev": "kb1"
+          },
+          {
+            "dev": "pad",
+            "idx": 0,
+            "padId": "QA Alpha",
+            "missing": false
+          },
+          {
+            "dev": "kb2"
+          }
+        ]
+      }
+    }
+  ],
+  "errors": [],
+  "limitations": [
+    "Actual Chrome; CDP keyboard/mouse and injected standard pad objects. No physical controllers, Steam Input, human couch or packaged EXE acceptance.",
+    "Direct CK start/endMatch/rematch and shortened Cup fixtures are labeled; these are continuity checks, not input-only completion or gameplay balance.",
+    "Profiles are isolated temporary QA saves. Actual PeerJS, when run, is same-host only."
+  ],
+  "padPulses": [
+    {
+      "index": 1,
+      "button": 0,
+      "before": {
+        "time": 748.6999999992549,
+        "trace": 8
+      },
+      "during": {
+        "time": 861.1999999992549,
+        "polls": [
+          {
+            "time": 759.0999999996275,
+            "tag": "local-0-1-0",
+            "visible": "visible",
+            "party": true,
+            "buttons": [
+              {
+                "index": 0,
+                "a": false,
+                "start": false
+              },
+              {
+                "index": 1,
+                "a": true,
+                "start": false
+              }
+            ]
+          },
+          {
+            "time": 776,
+            "tag": "local-0-1-0",
+            "visible": "visible",
+            "party": true,
+            "buttons": [
+              {
+                "index": 0,
+                "a": false,
+                "start": false
+              },
+              {
+                "index": 1,
+                "a": true,
+                "start": false
+              }
+            ]
+          },
+          {
+            "time": 792.6999999992549,
+            "tag": "local-0-1-0",
+            "visible": "visible",
+            "party": true,
+            "buttons": [
+              {
+                "index": 0,
+                "a": false,
+                "start": false
+              },
+              {
+                "index": 1,
+                "a": true,
+                "start": false
+              }
+            ]
+          },
+          {
+            "time": 809.1999999992549,
+            "tag": "local-0-1-0",
+            "visible": "visible",
+            "party": true,
+            "buttons": [
+              {
+                "index": 0,
+                "a": false,
+                "start": false
+              },
+              {
+                "index": 1,
+                "a": true,
+                "start": false
+              }
+            ]
+          },
+          {
+            "time": 825.7999999988824,
+            "tag": "local-0-1-0",
+            "visible": "visible",
+            "party": true,
+            "buttons": [
+              {
+                "index": 0,
+                "a": false,
+                "start": false
+              },
+              {
+                "index": 1,
+                "a": true,
+                "start": false
+              }
+            ]
+          },
+          {
+            "time": 842.4000000003725,
+            "tag": "local-0-1-0",
+            "visible": "visible",
+            "party": true,
+            "buttons": [
+              {
+                "index": 0,
+                "a": false,
+                "start": false
+              },
+              {
+                "index": 1,
+                "a": true,
+                "start": false
+              }
+            ]
+          },
+          {
+            "time": 859.2999999988824,
+            "tag": "local-0-1-0",
+            "visible": "visible",
+            "party": true,
+            "buttons": [
+              {
+                "index": 0,
+                "a": false,
+                "start": false
+              },
+              {
+                "index": 1,
+                "a": true,
+                "start": false
+              }
+            ]
+          }
+        ],
+        "seats": [
+          {
+            "dev": "pad",
+            "idx": 1,
+            "padId": "QA Beta",
+            "missing": false
+          }
+        ]
+      }
+    },
+    {
+      "index": 0,
+      "button": 0,
+      "before": {
+        "time": 1075.0999999996275,
+        "trace": 27
+      },
+      "during": {
+        "time": 1191.699999999255,
+        "polls": [
+          {
+            "time": 1075.7999999988824,
+            "tag": "local-1-0-0",
+            "visible": "visible",
+            "party": true,
+            "buttons": [
+              {
+                "index": 0,
+                "a": true,
+                "start": false
+              },
+              {
+                "index": 1,
+                "a": false,
+                "start": false
+              }
+            ]
+          },
+          {
+            "time": 1092.5999999996275,
+            "tag": "local-1-0-0",
+            "visible": "visible",
+            "party": true,
+            "buttons": [
+              {
+                "index": 0,
+                "a": true,
+                "start": false
+              },
+              {
+                "index": 1,
+                "a": false,
+                "start": false
+              }
+            ]
+          },
+          {
+            "time": 1109.0999999996275,
+            "tag": "local-1-0-0",
+            "visible": "visible",
+            "party": true,
+            "buttons": [
+              {
+                "index": 0,
+                "a": true,
+                "start": false
+              },
+              {
+                "index": 1,
+                "a": false,
+                "start": false
+              }
+            ]
+          },
+          {
+            "time": 1125.7999999988824,
+            "tag": "local-1-0-0",
+            "visible": "visible",
+            "party": true,
+            "buttons": [
+              {
+                "index": 0,
+                "a": true,
+                "start": false
+              },
+              {
+                "index": 1,
+                "a": false,
+                "start": false
+              }
+            ]
+          },
+          {
+            "time": 1142.699999999255,
+            "tag": "local-1-0-0",
+            "visible": "visible",
+            "party": true,
+            "buttons": [
+              {
+                "index": 0,
+                "a": true,
+                "start": false
+              },
+              {
+                "index": 1,
+                "a": false,
+                "start": false
+              }
+            ]
+          },
+          {
+            "time": 1159.2999999988824,
+            "tag": "local-1-0-0",
+            "visible": "visible",
+            "party": true,
+            "buttons": [
+              {
+                "index": 0,
+                "a": true,
+                "start": false
+              },
+              {
+                "index": 1,
+                "a": false,
+                "start": false
+              }
+            ]
+          },
+          {
+            "time": 1175.7999999988824,
+            "tag": "local-1-0-0",
+            "visible": "visible",
+            "party": true,
+            "buttons": [
+              {
+                "index": 0,
+                "a": true,
+                "start": false
+              },
+              {
+                "index": 1,
+                "a": false,
+                "start": false
+              }
+            ]
+          }
+        ],
+        "seats": [
+          {
+            "dev": "pad",
+            "idx": 1,
+            "padId": "QA Beta",
+            "missing": false
+          },
+          {
+            "dev": "kb1"
+          },
+          {
+            "dev": "pad",
+            "idx": 0,
+            "padId": "QA Alpha",
+            "missing": false
+          }
+        ]
+      }
+    }
+  ],
+  "diagnostic": "One instrumented reverse-join case only; not acceptance rerun",
+  "sourceHashesAfter": {
+    "index.html": "07a3c1be07ab18f3fe1625ed5a3a06e15f24aad6e37210f8fb15c7132c246e8a",
+    "game/input-aim.js": "54040dd96e1360a46cd36c5fc6f92b05abeeb7db34af7f5cca3d75a9dcb9baee",
+    "game/cup.js": "790949bce5c2ce54f5a93aa5d13d226fddb735e1426475e9a7c5297987422a12"
+  },
+  "stableSources": true,
+  "finishedAt": "2026-10-13T10:43:00.751Z",
+  "counts": {
+    "pass": 1,
+    "fail": 0
+  }
+}

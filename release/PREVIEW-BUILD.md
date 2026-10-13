@@ -1,4 +1,20 @@
-# Private friends beta - 0.3.0-beta.11
+# Private friends beta - 0.3.0-beta.12
+
+Frozen runtime `be03b64f6ba3104bfcaa6b1154d4348cb2565fb5` reserves missing couch controller seats and outfits. Offline arena/Custard Cup pauses for recovery; online play continues with only the lost seat neutral. Release controls on an unassigned pad, choose the missing knight with left/right, then A deliberately reclaims it. Keyboard takeover is available when unassigned. Stable pad edges and fixed binding prompts are included; no remapping UI. Deliberate Leave still compacts seats (FE05 remains open).
+
+- Friends ZIP: `outputs/Custard-Knights-Friends-0.3.0-beta.12.zip`, 547149989 bytes, SHA256 `5a47aff5138b8e03ef5253195e30fd93b5ade34e322cd24cfe6c6c5ed6bc071a`.
+- Preview folder: `outputs/Custard-Knights-Windows-0.3.0-beta.12-preview`.
+- Preview ZIP: `outputs/Custard-Knights-Windows-0.3.0-beta.12-preview.zip`, 547155103 bytes, SHA256 `f6c54018fc22ddd3479afa49142f8d706ba9162339f391a0475f98d4e7d1b842`.
+- ASAR SHA256: `579c961f45bd09e04f7bae9af57937e4b0751568d8bdeb93c47303b3b187e257`.
+- EXE SHA256: `4a4fe584829d3483d53eb1c3e5c71ace8681c37cd04044794f5d783627de6b4f`.
+
+Both ZIP CRC/hash checks and all73 Friends game files match frozen dist, preview and BUILD-INFO inventory bytes. All62 packaged entries match checked source/metadata. Standard isolated actual EXE save/restart/launcher/relocation passes first invocation. Final extracted-ASAR couch23 and native synthetic/programmatic device12 pass with bounded observed-poll input fixtures after retained failures. All6 hosted CI jobs pass at the exact frozen source in run38384519905. [Package evidence](../qa/results/beta12-desktop/README.md) and [extracted couch evidence](../qa/results/beta12-packaged-couch/README.md) record commands, failed attempts and limits.
+
+The native ZIP extractor failed a template electron.exe checksum despite valid cached ZIP CRC and identical Electron bytes; an independently reviewed in-memory Python extraction adapter built with unchanged standard staging/configuration. A source/payload newline restoration mismatch was corrected and retained. Native fixed230ms pulses were traced as unobserved between sparse polls; its final hidden-window fixture waits for observed polls. The initial extracted run missed the first pad join and cascaded; later sampled-poll acceptance passes, but the historical extracted cause remains unproved. These fixture/workaround corrections do not repair or certify native responsiveness. Preview's bundled RESUME-CHECKPOINT is its earlier documentation snapshot; this verified summary supersedes its latest-build status. Runtime bytes remain frozen.
+
+Extract the complete Friends ZIP and run `Game/Custard Knights.exe` after closing older copies normally. Saves stay local and shared across versions. No sending/public upload occurred; older outputs remain preserved. Physical controllers, Steam Input, human couch/usability/fun/balance, WAN/second-PC, minimum hardware, long soak and Steam acceptance remain open. Same-host PeerJS is bounded transport evidence; earlier native anomalies remain unresolved.
+
+# Historical private friends beta - 0.3.0-beta.11
 
 Frozen runtime `5c8549db9d5293005fe3b5bd83998a5e66ac32df` adds visible pending/cancel, failed-admission Retry, guest recovery after host/snapshot loss, and an online Match menu. Menu or Escape / P / Start opens Options, Resume and Leave while the simulation continues and players on this PC stay neutral. Host Close room ends the room for guests. Interrupted guest rounds grant no invented rewards; completed rewards remain. Compact windows retain critical status text. Offline modes and first-launch practice remain included; Faction Front is a separate service.
 

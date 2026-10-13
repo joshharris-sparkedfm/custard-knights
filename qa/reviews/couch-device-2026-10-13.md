@@ -2,6 +2,8 @@
 
 13 October 2026. Frozen final source: **23 checks passed, 0 failed, 0 browser runtime exceptions**. Before/after source hashes matched. Evidence: `qa/results/couch-device-2026-10-13/final/report.json` and its eight minimum-window screenshots. Harness: `qa/couch-device-browser.cjs`; `CK_QA_ROOT` accepts an extracted packaged runtime without editing that runtime.
 
+The final extracted-ASAR run also passed the same **23-case protocol**, without runtime exceptions or source changes: `qa/results/couch-device-2026-10-13/final-extracted-observed/report.json` and eight rendered screenshots. These are separate runs, not 46 distinct checks. After the retained packaged fixture failures described below, the harness uses bounded sampled-neutral → sampled-press → sampled-neutral phases. Its navigator getter recorded 25 button actions / 52 phases, each with at least four actual game polls in this run. It stops at the first observed-input failure. This confirms functional input observation; it does not accept frame pacing or responsiveness.
+
 The implementation owner separately reported 60 focused unit checks plus one focused How To Play text/alias assertion passing. Those are owner-run evidence and are not included in this review's independent 23-browser-check count.
 
 Actual Chrome animation-frame polling and browser input handlers were exercised using CDP keyboard/mouse plus injected standard gamepad objects. Actual input joined four mixed seats in reverse controller order, routed mouse attack to the WASD seat, retained ownership through navigator-array reorder and a held Start button, and deliberately reclaimed devices with A or keyboard Tab/Enter. Disconnect tests covered event and polling-only loss, held attack release, different-device index reuse, same-model ambiguity, occupied-controller refusal, setup launch blocking, results recovery and a real Rematch button click. Offline loss stopped the actual match timer; recovery required fresh input.
@@ -14,11 +16,16 @@ Computed styles, ancestor clipping, text rectangles, viewport bounds and element
 
 Earlier evidence is retained. `baseline` loaded a mid-edit candidate and recorded the new recovery handler's `$` initialization error, which was corrected; it is **not original-base evidence**. `candidate1` recorded 21/22 passes: its setup visibility failure came from scrolling the note to the viewport bottom and demanding that the later button already be visible. The harness now scrolls the button normally and then measures both rendered regions; source remained unchanged for `candidate2` (22/22). The final text-only How To Play correction removed the false controller-number/player-number equivalence; the added rendered assertion and complete final harness passed on its frozen new hash.
 
+The original fixed-timer extracted package run (`qa/results/beta12-packaged-couch`) retained 18 passes / five failures. Its first pad join was absent, giving three seats instead of four; the next ownership/loss failures used that invalid initial setup. Its slot-reuse pass did not establish the intended missing-pad scenario. This historical extracted miss had no poll trace and remains unexplained; no GPU cause is claimed.
+
+A separate native first-join diagnostic retained at `qa/results/beta12-desktop/diagnose-native-join` reproduced the failure with the original 230ms pulses and recorded no gamepad polls during either pressed interval. For example, pad 1 was pressed at 757.9ms and released at 990ms, between polls at 105.2ms and 1141.4ms. The native synthetic pulse was therefore never observed by the poller. The isolated extracted first-join diagnostic at `diagnose-extracted-join/report.json` observed both pulses seven times and joined immediately. These findings justify correcting the fixtures to await actual sampled input, without changing frozen runtime bytes or asserting that the sparse native frame schedule is acceptable performance. The package owner runs the native observed-poll smoke separately.
+
 Frozen SHA-256 values:
 
 - `index.html`: `07a3c1be07ab18f3fe1625ed5a3a06e15f24aad6e37210f8fb15c7132c246e8a`
 - `game/input-aim.js`: `54040dd96e1360a46cd36c5fc6f92b05abeeb7db34af7f5cca3d75a9dcb9baee`
 - `game/cup.js`: `790949bce5c2ce54f5a93aa5d13d226fddb735e1426475e9a7c5297987422a12`
-- Harness: `5baf3511b63844a1a1052be1b51947f0ba4407990fbab34f82b293ac24dced94`
+- Final observed-poll harness: `571492030426159b94f1da2103b7c51b0c9829256493ae018e6bb4f1c94fcc7c`
+- Earlier fixed-timer source harness: `5baf3511b63844a1a1052be1b51947f0ba4407990fbab34f82b293ac24dced94`
 
 Limits: no physical controller, Steam Input, touch, human couch ergonomics, minimum-PC performance, exported EXE or second Windows PC was accepted here. Explicit Leave still compacts party seats; leave/rejoin identity persistence remains a separate FE-05 gap. Fixed binding prompts were checked; no remapping UI was implemented or accepted. Four simultaneously missing seats and real-device ID/index behavior remain physical/expanded-device acceptance work. Temporary QA profiles were used; normal saves and the owner's game were untouched.

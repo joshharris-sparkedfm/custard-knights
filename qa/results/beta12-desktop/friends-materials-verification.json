@@ -1,0 +1,9 @@
+{
+  "exactStartGuide": true,
+  "exactFeedbackTemplateWithBuildIdentity": true,
+  "version": "0.3.0-beta.12",
+  "sourceCommit": "be03b64f6ba3104bfcaa6b1154d4348cb2565fb5",
+  "startSha256": "1dd6e7e37b159cf586a8850b2ada8d577cdb0f1a7e988a7b8511ec96a3e7ed0c",
+  "feedbackSha256": "ab51be6fcb1de6ee0ace113a5c1c3b2ead39a5ab11158b6c71fbe09097a919d4",
+  "physicalAcceptanceClaimed": false
+}

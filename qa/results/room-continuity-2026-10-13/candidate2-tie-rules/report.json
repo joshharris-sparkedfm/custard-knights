@@ -1,0 +1,1839 @@
+{
+  "startedAt": "2026-10-13T11:37:05.683Z",
+  "root": "C:\\Users\\Joshua\\Documents\\Codex\\2026-10-08\\rea\\work\\custard-knights-room",
+  "sourceHashes": {
+    "index.html": "aa0978bd91dfb8727e0f77c2853101adba2eed1361a3ef40ef5ebc0a1f2626fa",
+    "game/cup.js": "790949bce5c2ce54f5a93aa5d13d226fddb735e1426475e9a7c5297987422a12",
+    "game/cup-ui.js": "94c515d6a3549f6d06c0288f2457ae7d4b35f920e056e034fe7a141703bf4a00",
+    "game/controls.js": "a65a941fbe3614ab467207d8b216eecdffa77668d1f1bb171f4ad4a6c2405b40"
+  },
+  "checks": [
+    {
+      "name": "Actual UI tied arena vote selects first arena and carries selected room rules",
+      "profile": "vote-rules",
+      "pass": true,
+      "details": {
+        "pass": true,
+        "cfg": {
+          "mode": "kotp",
+          "players": 2,
+          "diff": "medium",
+          "map": "frost",
+          "chaosPlus": false,
+          "chaosSpeed": "simple",
+          "length": 120,
+          "teamSplit": false,
+          "arenaSize": "roomier"
+        },
+        "cup": {
+          "version": 1,
+          "id": "8c8d4528-c723-4b46-a570-b3a801664b84",
+          "round": 1,
+          "status": "playing",
+          "players": [
+            {
+              "key": "local:1",
+              "name": "Player 1",
+              "seat": 1,
+              "peer": null,
+              "points": 1,
+              "connected": true
+            },
+            {
+              "key": "local:2",
+              "name": "Player 2",
+              "seat": 2,
+              "peer": null,
+              "points": 1,
+              "connected": true
+            }
+          ],
+          "history": [
+            {
+              "id": "b73f0726-313d-4018-ae67-b645870da6a8",
+              "mode": "ffa",
+              "map": "courtyard",
+              "points": [
+                {
+                  "key": "local:1",
+                  "place": 1,
+                  "points": 1
+                },
+                {
+                  "key": "local:2",
+                  "place": 1,
+                  "points": 1
+                }
+              ],
+              "awards": []
+            }
+          ],
+          "ready": {},
+          "votes": {},
+          "choice": 0
+        },
+        "fixture": "Direct room-rule configuration and endMatch; actual vote/Ready/Start UI"
+      }
+    }
+  ],
+  "errors": [],
+  "limitations": [
+    "Actual Chrome; CDP keyboard/mouse and injected standard pad objects. No physical controllers, Steam Input, human couch or packaged EXE acceptance.",
+    "Direct CK start/endMatch/rematch and shortened Cup fixtures are labeled; these are continuity checks, not input-only completion or gameplay balance.",
+    "Profiles are isolated temporary QA saves. Actual PeerJS, when run, is same-host only."
+  ],
+  "padPulses": [
+    {
+      "profile": "vote-rules",
+      "index": 0,
+      "button": 0,
+      "phases": [
+        {
+          "start": 646.0999999996275,
+          "end": 732,
+          "pressed": false,
+          "polls": [
+            {
+              "time": 650.8000000007451,
+              "tag": "vote-rules-0-0-0-0",
+              "visible": "visible",
+              "party": true,
+              "buttons": [
+                {
+                  "index": 0,
+                  "pressed": [
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false
+                  ]
+                },
+                {
+                  "index": 1,
+                  "pressed": [
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false
+                  ]
+                }
+              ]
+            },
+            {
+              "time": 668.9000000003725,
+              "tag": "vote-rules-0-0-0-0",
+              "visible": "visible",
+              "party": true,
+              "buttons": [
+                {
+                  "index": 0,
+                  "pressed": [
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false
+                  ]
+                },
+                {
+                  "index": 1,
+                  "pressed": [
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false
+                  ]
+                }
+              ]
+            },
+            {
+              "time": 682.2000000011176,
+              "tag": "vote-rules-0-0-0-0",
+              "visible": "visible",
+              "party": true,
+              "buttons": [
+                {
+                  "index": 0,
+                  "pressed": [
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false
+                  ]
+                },
+                {
+                  "index": 1,
+                  "pressed": [
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false
+                  ]
+                }
+              ]
+            },
+            {
+              "time": 698.9000000003725,
+              "tag": "vote-rules-0-0-0-0",
+              "visible": "visible",
+              "party": true,
+              "buttons": [
+                {
+                  "index": 0,
+                  "pressed": [
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false
+                  ]
+                },
+                {
+                  "index": 1,
+                  "pressed": [
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false
+                  ]
+                }
+              ]
+            },
+            {
+              "time": 715.4000000003725,
+              "tag": "vote-rules-0-0-0-0",
+              "visible": "visible",
+              "party": true,
+              "buttons": [
+                {
+                  "index": 0,
+                  "pressed": [
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false
+                  ]
+                },
+                {
+                  "index": 1,
+                  "pressed": [
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false
+                  ]
+                }
+              ]
+            }
+          ],
+          "seats": [
+            null,
+            null,
+            null,
+            null
+          ]
+        },
+        {
+          "start": 733.9000000003725,
+          "end": 818.0999999996275,
+          "pressed": true,
+          "polls": [
+            {
+              "time": 748.8000000007451,
+              "tag": "vote-rules-0-0-0-1",
+              "visible": "visible",
+              "party": true,
+              "buttons": [
+                {
+                  "index": 0,
+                  "pressed": [
+                    true,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false
+                  ]
+                },
+                {
+                  "index": 1,
+                  "pressed": [
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false
+                  ]
+                }
+              ]
+            },
+            {
+              "time": 765.5999999996275,
+              "tag": "vote-rules-0-0-0-1",
+              "visible": "visible",
+              "party": true,
+              "buttons": [
+                {
+                  "index": 0,
+                  "pressed": [
+                    true,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false
+                  ]
+                },
+                {
+                  "index": 1,
+                  "pressed": [
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false
+                  ]
+                }
+              ]
+            },
+            {
+              "time": 782.4000000003725,
+              "tag": "vote-rules-0-0-0-1",
+              "visible": "visible",
+              "party": true,
+              "buttons": [
+                {
+                  "index": 0,
+                  "pressed": [
+                    true,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false
+                  ]
+                },
+                {
+                  "index": 1,
+                  "pressed": [
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false
+                  ]
+                }
+              ]
+            },
+            {
+              "time": 798.9000000003725,
+              "tag": "vote-rules-0-0-0-1",
+              "visible": "visible",
+              "party": true,
+              "buttons": [
+                {
+                  "index": 0,
+                  "pressed": [
+                    true,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false
+                  ]
+                },
+                {
+                  "index": 1,
+                  "pressed": [
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false
+                  ]
+                }
+              ]
+            },
+            {
+              "time": 815.8000000007451,
+              "tag": "vote-rules-0-0-0-1",
+              "visible": "visible",
+              "party": true,
+              "buttons": [
+                {
+                  "index": 0,
+                  "pressed": [
+                    true,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false
+                  ]
+                },
+                {
+                  "index": 1,
+                  "pressed": [
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false
+                  ]
+                }
+              ]
+            }
+          ],
+          "seats": [
+            {
+              "dev": "pad",
+              "idx": 0,
+              "padId": "Room pad 0",
+              "missing": false
+            },
+            null,
+            null,
+            null
+          ]
+        },
+        {
+          "start": 818.5999999996275,
+          "end": 914.4000000003725,
+          "pressed": false,
+          "polls": [
+            {
+              "time": 832.0999999996275,
+              "tag": "vote-rules-0-0-0-2",
+              "visible": "visible",
+              "party": true,
+              "buttons": [
+                {
+                  "index": 0,
+                  "pressed": [
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false
+                  ]
+                },
+                {
+                  "index": 1,
+                  "pressed": [
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false
+                  ]
+                }
+              ]
+            },
+            {
+              "time": 848.8000000007451,
+              "tag": "vote-rules-0-0-0-2",
+              "visible": "visible",
+              "party": true,
+              "buttons": [
+                {
+                  "index": 0,
+                  "pressed": [
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false
+                  ]
+                },
+                {
+                  "index": 1,
+                  "pressed": [
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false
+                  ]
+                }
+              ]
+            },
+            {
+              "time": 865.5,
+              "tag": "vote-rules-0-0-0-2",
+              "visible": "visible",
+              "party": true,
+              "buttons": [
+                {
+                  "index": 0,
+                  "pressed": [
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false
+                  ]
+                },
+                {
+                  "index": 1,
+                  "pressed": [
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false
+                  ]
+                }
+              ]
+            },
+            {
+              "time": 882.2000000011176,
+              "tag": "vote-rules-0-0-0-2",
+              "visible": "visible",
+              "party": true,
+              "buttons": [
+                {
+                  "index": 0,
+                  "pressed": [
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false
+                  ]
+                },
+                {
+                  "index": 1,
+                  "pressed": [
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false
+                  ]
+                }
+              ]
+            },
+            {
+              "time": 899.5,
+              "tag": "vote-rules-0-0-0-2",
+              "visible": "visible",
+              "party": true,
+              "buttons": [
+                {
+                  "index": 0,
+                  "pressed": [
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false
+                  ]
+                },
+                {
+                  "index": 1,
+                  "pressed": [
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false
+                  ]
+                }
+              ]
+            }
+          ],
+          "seats": [
+            {
+              "dev": "pad",
+              "idx": 0,
+              "padId": "Room pad 0",
+              "missing": false
+            },
+            null,
+            null,
+            null
+          ]
+        }
+      ]
+    },
+    {
+      "profile": "vote-rules",
+      "index": 1,
+      "button": 0,
+      "phases": [
+        {
+          "start": 914.7000000011176,
+          "end": 1000.4000000003725,
+          "pressed": false,
+          "polls": [
+            {
+              "time": 915.3000000007451,
+              "tag": "vote-rules-1-1-0-0",
+              "visible": "visible",
+              "party": true,
+              "buttons": [
+                {
+                  "index": 0,
+                  "pressed": [
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false
+                  ]
+                },
+                {
+                  "index": 1,
+                  "pressed": [
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false
+                  ]
+                }
+              ]
+            },
+            {
+              "time": 932,
+              "tag": "vote-rules-1-1-0-0",
+              "visible": "visible",
+              "party": true,
+              "buttons": [
+                {
+                  "index": 0,
+                  "pressed": [
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false
+                  ]
+                },
+                {
+                  "index": 1,
+                  "pressed": [
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false
+                  ]
+                }
+              ]
+            },
+            {
+              "time": 948.4000000003725,
+              "tag": "vote-rules-1-1-0-0",
+              "visible": "visible",
+              "party": true,
+              "buttons": [
+                {
+                  "index": 0,
+                  "pressed": [
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false
+                  ]
+                },
+                {
+                  "index": 1,
+                  "pressed": [
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false
+                  ]
+                }
+              ]
+            },
+            {
+              "time": 965.2000000011176,
+              "tag": "vote-rules-1-1-0-0",
+              "visible": "visible",
+              "party": true,
+              "buttons": [
+                {
+                  "index": 0,
+                  "pressed": [
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false
+                  ]
+                },
+                {
+                  "index": 1,
+                  "pressed": [
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false
+                  ]
+                }
+              ]
+            },
+            {
+              "time": 981.7000000011176,
+              "tag": "vote-rules-1-1-0-0",
+              "visible": "visible",
+              "party": true,
+              "buttons": [
+                {
+                  "index": 0,
+                  "pressed": [
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false
+                  ]
+                },
+                {
+                  "index": 1,
+                  "pressed": [
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false
+                  ]
+                }
+              ]
+            },
+            {
+              "time": 998.5999999996275,
+              "tag": "vote-rules-1-1-0-0",
+              "visible": "visible",
+              "party": true,
+              "buttons": [
+                {
+                  "index": 0,
+                  "pressed": [
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false
+                  ]
+                },
+                {
+                  "index": 1,
+                  "pressed": [
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false
+                  ]
+                }
+              ]
+            }
+          ],
+          "seats": [
+            {
+              "dev": "pad",
+              "idx": 0,
+              "padId": "Room pad 0",
+              "missing": false
+            },
+            null,
+            null,
+            null
+          ]
+        },
+        {
+          "start": 1000.9000000003725,
+          "end": 1084,
+          "pressed": true,
+          "polls": [
+            {
+              "time": 1015,
+              "tag": "vote-rules-1-1-0-1",
+              "visible": "visible",
+              "party": true,
+              "buttons": [
+                {
+                  "index": 0,
+                  "pressed": [
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false
+                  ]
+                },
+                {
+                  "index": 1,
+                  "pressed": [
+                    true,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false
+                  ]
+                }
+              ]
+            },
+            {
+              "time": 1031.800000000745,
+              "tag": "vote-rules-1-1-0-1",
+              "visible": "visible",
+              "party": true,
+              "buttons": [
+                {
+                  "index": 0,
+                  "pressed": [
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false
+                  ]
+                },
+                {
+                  "index": 1,
+                  "pressed": [
+                    true,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false
+                  ]
+                }
+              ]
+            },
+            {
+              "time": 1048.4000000003725,
+              "tag": "vote-rules-1-1-0-1",
+              "visible": "visible",
+              "party": true,
+              "buttons": [
+                {
+                  "index": 0,
+                  "pressed": [
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false
+                  ]
+                },
+                {
+                  "index": 1,
+                  "pressed": [
+                    true,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false
+                  ]
+                }
+              ]
+            },
+            {
+              "time": 1065.300000000745,
+              "tag": "vote-rules-1-1-0-1",
+              "visible": "visible",
+              "party": true,
+              "buttons": [
+                {
+                  "index": 0,
+                  "pressed": [
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false
+                  ]
+                },
+                {
+                  "index": 1,
+                  "pressed": [
+                    true,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false
+                  ]
+                }
+              ]
+            },
+            {
+              "time": 1081.7000000011176,
+              "tag": "vote-rules-1-1-0-1",
+              "visible": "visible",
+              "party": true,
+              "buttons": [
+                {
+                  "index": 0,
+                  "pressed": [
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false
+                  ]
+                },
+                {
+                  "index": 1,
+                  "pressed": [
+                    true,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false
+                  ]
+                }
+              ]
+            }
+          ],
+          "seats": [
+            {
+              "dev": "pad",
+              "idx": 0,
+              "padId": "Room pad 0",
+              "missing": false
+            },
+            {
+              "dev": "pad",
+              "idx": 1,
+              "padId": "Room pad 1",
+              "missing": false
+            },
+            null,
+            null
+          ]
+        },
+        {
+          "start": 1084.5,
+          "end": 1166.800000000745,
+          "pressed": false,
+          "polls": [
+            {
+              "time": 1098.300000000745,
+              "tag": "vote-rules-1-1-0-2",
+              "visible": "visible",
+              "party": true,
+              "buttons": [
+                {
+                  "index": 0,
+                  "pressed": [
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false
+                  ]
+                },
+                {
+                  "index": 1,
+                  "pressed": [
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false
+                  ]
+                }
+              ]
+            },
+            {
+              "time": 1115.0999999996275,
+              "tag": "vote-rules-1-1-0-2",
+              "visible": "visible",
+              "party": true,
+              "buttons": [
+                {
+                  "index": 0,
+                  "pressed": [
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false
+                  ]
+                },
+                {
+                  "index": 1,
+                  "pressed": [
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false
+                  ]
+                }
+              ]
+            },
+            {
+              "time": 1131.7000000011176,
+              "tag": "vote-rules-1-1-0-2",
+              "visible": "visible",
+              "party": true,
+              "buttons": [
+                {
+                  "index": 0,
+                  "pressed": [
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false
+                  ]
+                },
+                {
+                  "index": 1,
+                  "pressed": [
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false
+                  ]
+                }
+              ]
+            },
+            {
+              "time": 1148.4000000003725,
+              "tag": "vote-rules-1-1-0-2",
+              "visible": "visible",
+              "party": true,
+              "buttons": [
+                {
+                  "index": 0,
+                  "pressed": [
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false
+                  ]
+                },
+                {
+                  "index": 1,
+                  "pressed": [
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false
+                  ]
+                }
+              ]
+            },
+            {
+              "time": 1165,
+              "tag": "vote-rules-1-1-0-2",
+              "visible": "visible",
+              "party": true,
+              "buttons": [
+                {
+                  "index": 0,
+                  "pressed": [
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false
+                  ]
+                },
+                {
+                  "index": 1,
+                  "pressed": [
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false
+                  ]
+                }
+              ]
+            }
+          ],
+          "seats": [
+            {
+              "dev": "pad",
+              "idx": 0,
+              "padId": "Room pad 0",
+              "missing": false
+            },
+            {
+              "dev": "pad",
+              "idx": 1,
+              "padId": "Room pad 1",
+              "missing": false
+            },
+            null,
+            null
+          ]
+        }
+      ]
+    }
+  ],
+  "harnessSha256": "20708a0844ec8afecf142805918a12fc94ec915ad244162f0a957dd8482b1495",
+  "sourceHashesAfter": {
+    "index.html": "aa0978bd91dfb8727e0f77c2853101adba2eed1361a3ef40ef5ebc0a1f2626fa",
+    "game/cup.js": "790949bce5c2ce54f5a93aa5d13d226fddb735e1426475e9a7c5297987422a12",
+    "game/cup-ui.js": "94c515d6a3549f6d06c0288f2457ae7d4b35f920e056e034fe7a141703bf4a00",
+    "game/controls.js": "a65a941fbe3614ab467207d8b216eecdffa77668d1f1bb171f4ad4a6c2405b40"
+  },
+  "stableSources": true,
+  "finishedAt": "2026-10-13T11:37:08.089Z",
+  "counts": {
+    "pass": 1,
+    "fail": 0
+  }
+}

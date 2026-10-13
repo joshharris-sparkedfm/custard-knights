@@ -1,0 +1,24 @@
+PASS L1 actual sampled-pad joins and Cup entry
+PASS L1 three result fixtures plus UI readiness and second Cup retain identities rules
+PASS L2 actual sampled-pad joins and Cup entry
+PASS L2 three result fixtures plus UI readiness and second Cup retain identities rules
+PASS Actual Options control editor saves logical P3/P4 remaps
+PASS L4 actual sampled-pad joins and Cup entry
+PASS L4 three result fixtures plus UI readiness and second Cup retain identities rules
+PASS Middle Leave UI retains fixed P1 P3 P4 device slots and rejoin reclaims P2
+PASS P3/P4 surviving controls remain on their logical remaps after middle Leave
+PASS Temporary pad loss reserves P3; occupied P4 cannot steal it; UI pad reclaim preserves P3
+PASS Local Cup departure UI clears ready/vote retains past points and vacancy without relabelling
+PASS Departed P2 cannot score while surviving P1 P3 P4 complete next rounds
+PASS Direct P4+7 individual-guest state fixture fills human IDs1..8 without local profile/control theft
+PASS Last local departure leaves reachable exit and no false completed winner
+PASS H2+1 actual same-host PeerJS admits individual guest
+PASS Actual late guest observes current Cup and cannot acquire retroactive score
+PASS Actual guest disconnect removes absent readiness but retains scored history
+PASS Late individual guest enters fresh second Cup via actual transport
+PASS Actual host loss reports interruption without invented migration or completion
+PASS Sparse local P4 plus actual individual guest has unique actor IDs and correct local profile ownership
+PASS Duplicate pink profiles deconflict preview and actual Cup colours across vacancy three rounds and another Cup
+PASS Rejoined local P2 reclaims room slot but observes current Cup until fresh second Cup
+PASS Actual UI tied arena vote selects first arena and carries selected room rules
+C:\Users\Joshua\Documents\Codex\2026-10-08\rea\work\custard-knights-room\qa\results\beta14-packaged-room

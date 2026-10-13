@@ -129,6 +129,28 @@ old/new binding, mode, player seat and whether a held input or a conflict
 message was confusing. Physical pads, Steam Input and human usability still
 need playtest feedback.
 
+ROOM AND CUSTARD CUP CONTINUITY — BETA 14
+
+On this PC (Couch party) keeps fixed Player 1–4 slots when someone chooses
+Leave. A vacant Player 2 slot does not rename Player 3 or Player 4, move their
+controls or change their outfit. Missing controllers still reserve their
+original slot for recovery. Deliberate Leave makes a vacancy instead.
+
+At Cup results, Leave seat removes that player from the current Cup. Their
+past points stay visible as a vacant seat; their Ready and arena vote clear.
+Remaining connected players choose an arena and ready up before the host
+starts the next round. If everyone leaves, use Leave Cup to return safely.
+Room rejoin can reclaim a vacant local slot, but that player observes the
+current Cup; joining the next fresh Cup starts their points at zero. Late
+online arrivals also wait for a fresh Cup. A disconnected guest's current
+Cup seat stays vacant; rejoining the room does not restore Cup membership.
+
+Try a middle player's Leave, recovery of a missing pad, two Cups in a row
+and a between-round departure. Tell Joshua which player slot and round,
+which Ready/vote action you used, and whether the surviving controls/outfits
+or past points changed. This applies to supported couch and arena/Cup rooms;
+Faction Front remains a separate service. Human/device/WAN testing is open.
+
 CONTROLS (DEFAULTS)
 
 Solo arena/story: WASD or arrows move, mouse aims, left-click or Space
@@ -153,8 +175,9 @@ choose the missing knight, then press A to reclaim. Browser controller
 numbers can change, so choose your original knight deliberately. Recovery
 also offers keyboard takeover when that keyboard is unassigned. Release
 held controls after recovery before playing. Recover all missing lobby
-controllers before starting. Deliberately leaving a seat still compacts
-the party; persistent room/seat continuity is a later feature.
+controllers before starting. Deliberately leaving makes that logical slot
+vacant; surviving players keep their controls and outfits. Rejoining fills
+the first vacant slot.
 Physical-controller compatibility is part of this test, not yet signed off.
 
 WHAT YOU CAN PLAY

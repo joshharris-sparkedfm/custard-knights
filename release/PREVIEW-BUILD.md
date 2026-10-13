@@ -1,4 +1,22 @@
-# Private friends beta - 0.3.0-beta.13
+# Private friends beta - 0.3.0-beta.14
+
+Frozen runtime `14a5527b0cf56592ce752e74c4937aaba0625bb4` keeps fixed logical Player 1–4 room slots. Deliberate Leave leaves a vacancy while survivors retain controls/outfits; missing controllers still reserve their original seat. Cup results offer Leave seat, retaining past points and clearing that player's Ready/vote. Remaining connected players ready up before the next round. A room rejoin or late guest waits for a fresh Cup rather than acquiring current-Cup membership. These rules cover supported couch and arena/Cup rooms; Faction Front remains separate.
+
+- Friends ZIP: `outputs/Custard-Knights-Friends-0.3.0-beta.14.zip`, 800688106 bytes, SHA256 `bf539090dd7a2b17d6afebda7409d414310fcf9b8c5fe73ce64bebf6ce18351a`.
+- Preview folder: `outputs/Custard-Knights-Windows-0.3.0-beta.14-preview`.
+- Preview ZIP: `outputs/Custard-Knights-Windows-0.3.0-beta.14-preview.zip`, 800700407 bytes, SHA256 `47d7c2dae927da8fb5d588994d2dcdaf97996a9e9d18a1a98ee37305d43275e1`.
+- ASAR SHA256: `97703de7fe1daf699183fcfd86ed5fe9f83b3a8ae9f9944e056d690066eb5593`.
+- EXE SHA256: `53783b2fe8a30c05a15d5d17bfeb33446d421471236b2cc8b90556bf50f26fff`.
+
+All 63 packaged source/metadata entries and all 73 Friends game files match frozen dist/preview/BUILD-INFO. Both final ZIPs pass CRC/hash, including independent .NET reader/CRC32/SHA256 checks of every 75 preview and 76 Friends member. START-HERE/FEEDBACK match frozen UTF-8 templates after the standard bundler's CRLF-to-LF transformation and build substitutions. Isolated actual EXE save/restart/launcher/relocation, full extracted-ASAR room 23 and native programmatic room UI 7 pass on their first invocations. All six hosted CI jobs pass first attempt at this freeze in [run 38391808897](https://github.com/joshharris-sparkedfm/custard-knights/actions/runs/38391808897). [Package evidence](../qa/results/beta14-desktop/README.md) and [room report](../qa/results/beta14-packaged-room/report.json) record commands and limits.
+
+The native UI smoke uses programmatic clicks and synthetic navigator pads with bounded observed polls, no CK helpers. It verifies vacancy/rejoin/recovery/Cup entry, not physical/input-only play, combat completion, native Cup-result readiness or WAN. The extracted harness labels direct result/network-state fixtures and same-host actual PeerJS cases. Physical controllers, Steam Input, human couch/usability/fun/balance, WAN/second PC, minimum hardware, long soak and Steam acceptance remain open.
+
+The reviewed corrected Python extraction adapter was used directly without retrying the known native extraction failure; cached ZIP CRC/hash and template content are checked, with extraction-time timestamps. The first compressed preview export failed CRC; its 547162447-byte `.zip.partial` and logs remain preserved. Its app.asar member's DEFLATE roundtrip produced different bytes/length; the writer/reader/hardware root cause is unknown. The reviewed recovery uses **ZIP_STORED** for both final archives, bypassing compression/decompression and increasing their sizes. Friends uses the unchanged frozen standard bundler with exactly recorded in-memory compression/failed-partial-cleanup substitutions. Final verification passes; no runtime repair is claimed for this archive failure.
+
+Extract the complete Friends ZIP and run `Game/Custard Knights.exe` after closing older copies normally. Saves stay local and shared across versions. No sending/public upload occurred; older outputs remain preserved. Preview's bundled RESUME-CHECKPOINT is the earlier documentation snapshot; this summary and package evidence supersede its latest-build status. Later docs/evidence commits do not change frozen runtime bytes. Earlier native anomalies remain unresolved; this is a private test beta, not completion of the full-experience milestone.
+
+# Historical private friends beta - 0.3.0-beta.13
 
 Frozen runtime `dd4906bcae1266355a11e50072bdccaff930f6f8` adds Options > Remap gameplay controls for Solo keyboard, both keyboard halves and logical Player 1–4 controller combat profiles. Changes stay drafts until Apply; Cancel discards them, Reset all prepares defaults, and conflicts block Apply. Saved maps stay local and prompts follow active bindings. Release held controls after applying. A storage-failure message explicitly limits changes to this session.
 

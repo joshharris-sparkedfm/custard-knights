@@ -1,5 +1,12 @@
 # Orchestrator execution queue
 
+## PR36 merge awaiting exact owner approval — 13 October 2026
+
+FE09-A implementation, independent Luna source/evidence review, verified39/39 browser records and all six hosted CI jobs at frozen `c79dad537d50a4cb343c8d2c824705d6fab60487` are complete. PR36 is open and ready for review. Automatic approval review rejected the merge request because no trusted user message explicitly authorized this exact consequential mutation of the default branch. No merge occurred. The recovery chat asked the owner to approve PR36 specifically; approval is pending there.
+
+**Do not work around this rejection from another chat, CLI or tool. Do not begin another shared-file implementation or treat PR36 as merged.** Preserve this clean, committed `codex/story-causal-transitions` branch and frozen runtime while awaiting that approval. FE09-B read-only preflight may continue. All recovery workers are complete. After explicit owner approval, verify current main/PR head, merge the checked PR, synchronize clean main and hand control to the original Sol orchestrator. Beta.16 remains the verified downloadable build; no new package exists. The unchanged heartbeat should stay quiet about this unchanged pending approval and avoid duplicate work.
+
+
 ## Checked FE09-A source handoff — 13 October 2026
 
 The bounded Astra story review was already completed and merged in PR35 at `de18ebaea54ab339450b1a4909e74d76382f149a`; this recovery did not repeat that broad review. FE09-A runtime is frozen and pushed in PR36 at `c79dad537d50a4cb343c8d2c824705d6fab60487`. Final independent Luna source/evidence review clears the frozen candidate; root is finishing the checked PR36 merge; verify live merge state before starting another shared-file task. No new Friends package is claimed: beta.16 remains the checked downloadable build.

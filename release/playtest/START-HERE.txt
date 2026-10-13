@@ -50,6 +50,10 @@ hardest setting. All four difficulty levels still need human feedback.
 PLAYER FEEDBACK CHANGES
 
 Mouse aim and click attacks work alongside keyboard movement.
+Ranged weapons now keep movement separate from mouse or right-stick aim.
+A visible aim cue shows the active pointer or controller direction in arena
+and Faction Front play. A neutral right stick retains its last aim; keyboard
+movement can take facing again. Please report confusing aim or input switching.
 Chicken Race pecks shove opponents instead of knocking racing chickens out.
 Repeated weapon pickups retain levels through ammo exhaustion and swaps.
 Weapons and Long Sword reach cap at level III and reset on defeat.

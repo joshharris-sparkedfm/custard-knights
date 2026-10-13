@@ -420,6 +420,7 @@ body[data-input=pad] :is(button,.card,.tile,input,select):focus{outline:4px soli
 <link rel="stylesheet" href="game/mass-battle.css">
 <script src="game/mass-battle.js"></script>
 <script src="game/mass-battle-wire.js"></script>
+<script src="game/input-aim.js"></script>
 <script src="game/mass-battle-ui.js"></script>
 <script src="audio/soundtrack.js"></script>
 <script>
@@ -1012,19 +1013,41 @@ function startFall(e){ if(G.rareEvent?.ownerId===e.id)endRareEvent();e.falling=.
 const keys={};
 const joy={id:null,mx:0,my:0}, touch={atk:false,dash:false,block:false};
 const mouse={x:0,y:0,active:false,attack:false,guard:false};
+const localAim=new WeakMap(),classicPads=new WeakMap(),blockedArenaPads=new Map();let pointerAimSerial=0,arenaInputSuspended=false;
 function resetMouse(){mouse.active=false;mouse.attack=false;mouse.guard=false;}
-function mousePlayable(){return G&&!G.demo&&!G.over&&!paused&&!massBattleUI?.active();}
+function clearArenaInput(){resetMouse();for(const k of Object.keys(keys))keys[k]=false;touch.atk=touch.dash=touch.block=false;joy.mx=joy.my=0;for(let i=0;i<PADS.length;i++){const p=padState(i),blocked=blockedArenaPads.get(p.index)||new Set();for(const k of ['atk','dash','block'])if(p[k])blocked.add(k);blockedArenaPads.set(p.index,blocked);}}
+function gameplayPad(pd){if(!pd)return null;const blocked=blockedArenaPads.get(pd.index);if(!blocked)return pd;const out={...pd};for(const k of blocked){if(!pd[k])blocked.delete(k);out[k]=false;}return out;}
+function classicPad(n,ent){if(!ent)return null;if(!classicPads.has(ent)){const used=new Set(G.ents.filter(isMine).map(e=>classicPads.get(e))),preferred=PADS[n-1],gp=preferred&&!used.has(preferred.index)?preferred:PADS.find(p=>!used.has(p.index));if(gp)classicPads.set(ent,gp.index);}return classicPads.has(ent)?padStateIdx(classicPads.get(ent)):null;}
+function mousePlayable(){return G&&!G.demo&&!G.over&&!paused&&!arenaInputSuspended&&!document.hidden&&!massBattleUI?.active();}
 function mousePoint(){const r=cv.getBoundingClientRect();return {x:(mouse.x-r.left-offX)/scale,y:(mouse.y-r.top-offY)/scale};}
-function mouseInput(out,ent,owned=false){if(!mousePlayable()||(!owned&&INPUT!=='kbm')||!mouse.active||!ent)return out;const p=mousePoint();if(Number.isFinite(p.x)&&Number.isFinite(p.y)&&Math.hypot(p.x-ent.x,p.y-ent.y)>4)out.faceTo=Math.atan2(p.y-ent.y,p.x-ent.x);out.atk=!!out.atk||mouse.attack;out.block=!!out.block||mouse.guard;return out;}
-cv.addEventListener('pointermove',ev=>{if(ev.pointerType==='mouse'&&mousePlayable()){mouse.x=ev.clientX;mouse.y=ev.clientY;mouse.active=true;}});
-cv.addEventListener('pointerdown',ev=>{if(ev.pointerType!=='mouse'||!mousePlayable())return;mouse.x=ev.clientX;mouse.y=ev.clientY;mouse.active=true;if(ev.button===0)mouse.attack=true;if(ev.button===2)mouse.guard=true;});
+function rememberAim(ent,out,pd,keyboardMove,ownsMouse){
+ // Retain explicit aim per local entity. A parked pointer/stick cannot steal the
+ // other device's aim; deliberate changes reclaim it without changing combat.
+ if(!ent)return out;let state=localAim.get(ent)||{source:'move',angle:ent.face,pointerSerial:-1,padIndex:null,padX:0,padY:0,padActive:false};
+ const padMoved=pd&&pd.aim!==null&&(!state.padActive||Math.hypot(pd.aimX-state.padX,pd.aimY-state.padY)>.015);
+ const pointerChanged=ownsMouse&&mouse.active&&state.pointerSerial!==pointerAimSerial;
+ if(pointerChanged){state.source='mouse';state.pointerSerial=pointerAimSerial;}
+ else if(padMoved){state.source='pad';state.angle=pd.aim;state.padIndex=pd.index;}
+ else if(state.source==='pad'&&keyboardMove&&(!pd||pd.aim===null&&Math.hypot(pd.mx,pd.my)<.2)){state.source='move';}
+ if(state.source==='pad'&&(!pd||state.padIndex!==pd.index))state.source='move';
+ if(state.source==='mouse'&&(!ownsMouse||!mouse.active))state.source='move';
+ if(state.source==='mouse'){const p=mousePoint();if(Number.isFinite(p.x)&&Number.isFinite(p.y)&&Math.hypot(p.x-ent.x,p.y-ent.y)>4)state.angle=Math.atan2(p.y-ent.y,p.x-ent.x);out.atk=!!out.atk||mouse.attack;out.block=!!out.block||mouse.guard;}
+ if(state.source==='pad'&&pd&&pd.aim!==null)state.angle=pd.aim;
+ state.padActive=!!(pd&&pd.aim!==null);if(padMoved||pointerChanged||state.source==='pad'||!state.padActive){state.padX=pd?.aimX||0;state.padY=pd?.aimY||0;}
+ if(state.source==='mouse'||state.source==='pad')out.faceTo=state.angle;
+ localAim.set(ent,state);return out;
+}
+function mouseAimEvent(ev){mouse.x=ev.clientX;mouse.y=ev.clientY;mouse.active=true;pointerAimSerial++;}
+function arenaAimCue(e){if(!mousePlayable()||!isMine(e)||!alive(e))return null;const aim=localAim.get(e);if(!aim||aim.source==='move')return null;if(aim.source==='mouse'){const owned=NET.role==='client'||(SEATS?SEATS[e.human-1]?.dev==='kb1':e.human===1);return owned&&mouse.active?{...mousePoint(),source:'mouse'}:null;}const dx=Math.cos(aim.angle),dy=Math.sin(aim.angle),left=Math.max(0,-offX/scale)+17,right=Math.min(W,(stW-offX)/scale)-17,top=Math.max(OY,-offY/scale)+17,bottom=Math.min(H,(stH-offY)/scale)-17;let distance=110;if(dx>0)distance=Math.min(distance,(right-e.x)/dx);else if(dx<0)distance=Math.min(distance,(left-e.x)/dx);if(dy>0)distance=Math.min(distance,(bottom-e.y)/dy);else if(dy<0)distance=Math.min(distance,(top-e.y)/dy);distance=Math.max(0,distance);return {x:e.x+dx*distance,y:e.y+dy*distance,source:'pad',distance};}
+cv.addEventListener('pointermove',ev=>{if(ev.pointerType==='mouse'&&mousePlayable())mouseAimEvent(ev);});
+cv.addEventListener('pointerdown',ev=>{if(ev.pointerType!=='mouse'||!mousePlayable())return;mouseAimEvent(ev);if(ev.button===0)mouse.attack=true;if(ev.button===2)mouse.guard=true;});
 addEventListener('pointerup',ev=>{if(ev.button===0)mouse.attack=false;if(ev.button===2)mouse.guard=false;});
 // Mouse events also fire for secondary-button chords (Pointer Events do not).
-cv.addEventListener('mousedown',ev=>{if(!mousePlayable())return;mouse.x=ev.clientX;mouse.y=ev.clientY;mouse.active=true;if(ev.button===0)mouse.attack=true;if(ev.button===2)mouse.guard=true;ev.preventDefault();});
+cv.addEventListener('mousedown',ev=>{if(!mousePlayable())return;mouseAimEvent(ev);if(ev.button===0)mouse.attack=true;if(ev.button===2)mouse.guard=true;ev.preventDefault();});
 addEventListener('mouseup',ev=>{if(ev.button===0)mouse.attack=false;if(ev.button===2)mouse.guard=false;});
 cv.addEventListener('pointerleave',resetMouse);cv.addEventListener('pointercancel',resetMouse);
 cv.addEventListener('contextmenu',ev=>{if(mousePlayable())ev.preventDefault();});
-addEventListener('blur',resetMouse);document.addEventListener('visibilitychange',()=>{if(document.hidden)resetMouse();});
+addEventListener('blur',()=>{arenaInputSuspended=true;clearArenaInput();});addEventListener('focus',()=>{arenaInputSuspended=false;});document.addEventListener('visibilitychange',()=>{if(document.hidden)clearArenaInput();});
 
 // which device the player is using right now: 'touch', 'pad' or 'kbm'. It follows the last thing they pressed, so a
 // phone with a pad plugged in, or a touchscreen laptop, shows the right controls and hints at every moment.
@@ -1039,21 +1062,23 @@ let PADS=[]; const padPrev={};
 function pollPads(){ try{ PADS=navigator.getGamepads?Array.from(navigator.getGamepads()).filter(Boolean):[]; }catch(e){ PADS=[]; }
  for(const gp of PADS){ if(gp.buttons.some(b=>b&&b.pressed)||gp.axes.some(v=>Math.abs(v)>.5)){ setInput('pad'); break; } }
  if(PADS.length!==pollPads.n){ pollPads.n=PADS.length; const el=document.getElementById('partyPads'); if(el) el.textContent=PADS.length>=2?PADS.length+' controllers ready':'2 to 4 players on one screen'; if(typeof partyOpen==='function'&&partyOpen()) renderParty(); } }
-function padState(i){ const gp=PADS[i]; if(!gp) return null; const dz=v=>Math.abs(v)<.22?0:v, b=j=>!!(gp.buttons[j]&&gp.buttons[j].pressed), ax=dz(gp.axes[0]||0), ay=dz(gp.axes[1]||0), rx=dz(gp.axes[2]||0), ry=dz(gp.axes[3]||0);
- return {mx:ax+(b(15)?1:0)-(b(14)?1:0),my:ay+(b(13)?1:0)-(b(12)?1:0),atk:b(0)||b(7),dash:b(1)||b(4),block:b(2)||b(5)||b(6),shout:b(3),pause:b(9),up:b(12)||ay<-.5,down:b(13)||ay>.5,left:b(14)||ax<-.5,right:b(15)||ax>.5,a:b(0),back:b(1),aim:Math.hypot(rx,ry)>.5?Math.atan2(ry,rx):null}; }
+function padState(i){ const gp=PADS[i]; if(!gp) return null; const dz=v=>Math.abs(v)<.22?0:v, b=j=>!!(gp.buttons[j]&&gp.buttons[j].pressed), ax=dz(gp.axes[0]||0), ay=dz(gp.axes[1]||0), right=CKInputAim.stick(gp.axes[2],gp.axes[3]);
+ return {index:gp.index,mx:ax+(b(15)?1:0)-(b(14)?1:0),my:ay+(b(13)?1:0)-(b(12)?1:0),atk:b(0)||b(7),dash:b(1)||b(4),block:b(2)||b(5)||b(6),shout:b(3),pause:b(9),up:b(12)||ay<-.5,down:b(13)||ay>.5,left:b(14)||ax<-.5,right:b(15)||ax>.5,a:b(0),back:b(1),aim:right?right.angle:null,aimX:gp.axes[2]||0,aimY:gp.axes[3]||0}; }
 const anyPad=()=>PADS.length>0;
 // Couch party seats: SEATS[n-1] is the device player n joined with ({dev:'pad',idx:gamepad.index} | {dev:'kb1'} | {dev:'kb2'}).
 // Only set for matches started from the Couch party screen; other flows keep the classic mapping (pad n = player n).
 let SEATS=null, partyGo=false;
 function padStateIdx(idx){ const i=PADS.findIndex(g=>g.index===idx); return i<0?null:padState(i); }
 function seatInput(st){ const o={mx:0,my:0,atk:false,dash:false,block:false,faceTo:null}, k=keys;
- if(st.dev==='pad'){ const pd=padStateIdx(st.idx); if(pd){ o.mx=pd.mx; o.my=pd.my; o.atk=pd.atk; o.dash=pd.dash; o.block=pd.block; if(pd.aim!==null) o.faceTo=pd.aim; } }
+ if(st.dev==='pad'){ const pd=gameplayPad(padStateIdx(st.idx)); if(pd){ o.mx=pd.mx; o.my=pd.my; o.atk=pd.atk; o.dash=pd.dash; o.block=pd.block; } }
  else if(st.dev==='kb1'){ const solo=!SEATS.some(x=>x.dev==='kb2'); o.mx=(k.KeyD?1:0)-(k.KeyA?1:0); o.my=(k.KeyS?1:0)-(k.KeyW?1:0); o.atk=k.KeyF||(solo&&k.Space); o.dash=k.KeyG||(solo&&(k.ShiftLeft||k.ShiftRight)); o.block=k.KeyH||(solo&&k.KeyE); }
  else if(st.dev==='kb2'){ o.mx=(k.ArrowRight?1:0)-(k.ArrowLeft?1:0); o.my=(k.ArrowDown?1:0)-(k.ArrowUp?1:0); o.atk=k.KeyJ; o.dash=k.KeyK; o.block=k.KeyL; }
  return o; }
 function humanInput(n,ent){
- if(SEATS&&SEATS[n-1]&&!(ent&&ent.netId)&&NET.role!=='client') return SEATS[n-1].dev==='kb1'?mouseInput(seatInput(SEATS[n-1]),ent,true):seatInput(SEATS[n-1]);
- if(ent&&ent.netId){ const i=NET.inputs[ent.netId]||[0,0,0,0,0], L=NET.latch[ent.netId]||{}; const out={mx:i[0],my:i[1],atk:!!i[2]||!!L.a,dash:!!i[3]||!!L.d,block:!!i[4],faceTo:Number.isFinite(i[5])&&Math.abs(i[5])<=Math.PI?i[5]:null}; L.a=L.d=0; return out; }
+ if(ent&&ent.netId&&NET.role!=='client'){ const i=NET.inputs[ent.netId]||[0,0,0,0,0], L=NET.latch[ent.netId]||{}; const out={mx:i[0],my:i[1],atk:!!i[2]||!!L.a,dash:!!i[3]||!!L.d,block:!!i[4],faceTo:Number.isFinite(i[5])&&Math.abs(i[5])<=Math.PI?i[5]:null}; L.a=L.d=0; return out; }
+ ent=NET.role==='client'?G.ents[NET.me]:(ent||G.ents.find(e=>e.human===n&&!e.netId));
+ if(!mousePlayable())return {mx:0,my:0,atk:false,dash:false,block:false,faceTo:null};
+ if(SEATS&&SEATS[n-1]&&NET.role!=='client'){const st=SEATS[n-1],out=seatInput(st),pd=st.dev==='pad'?padStateIdx(st.idx):null;return rememberAim(ent,out,pd,st.dev!=='pad'&&Math.hypot(out.mx,out.my)>.2,st.dev==='kb1');}
  const k=keys,two=NET.role!=='client'&&G.ents.filter(e=>e.human&&!e.netId).length>1; let mx=0,my=0,atk=false,dash=false,block=false,faceTo=null;
  if(n===1){
   mx=(k.KeyD?1:0)-(k.KeyA?1:0); my=(k.KeyS?1:0)-(k.KeyW?1:0);
@@ -1063,8 +1088,8 @@ function humanInput(n,ent){
  } else if(n===2){
   mx=(k.ArrowRight?1:0)-(k.ArrowLeft?1:0); my=(k.ArrowDown?1:0)-(k.ArrowUp?1:0); atk=k.KeyJ; dash=k.KeyK; block=k.KeyL;
  }
- const pd=padState(n-1); if(pd){ mx+=pd.mx; my+=pd.my; atk=atk||pd.atk; dash=dash||pd.dash; block=block||pd.block; if(pd.aim!==null) faceTo=pd.aim; }
- const out={mx,my,atk,dash,block,faceTo};return n===1?mouseInput(out,ent||G.ents[NET.role==='client'?NET.me:0]):out;
+ const keyboardMove=Math.hypot(mx,my)>.2,pd=gameplayPad(classicPad(n,ent)); if(pd){ mx+=pd.mx; my+=pd.my; atk=atk||pd.atk; dash=dash||pd.dash; block=block||pd.block; }
+ return rememberAim(ent,{mx,my,atk,dash,block,faceTo},pd,keyboardMove,n===1);
 }
 
 /* ---------- bots ---------- */
@@ -2370,7 +2395,7 @@ function card(lines,col=CUST,y=HUD_H-108){ ctx.save(); ctx.font=`800 15px ${NUN}
  lines.forEach((l,i)=>{ ctx.font=(i?'700 14px ':'900 15px ')+NUN; ctx.textAlign='center'; ctx.textBaseline='middle'; ctx.lineWidth=3; ctx.strokeStyle=INK; ctx.strokeText(l,640,y-h/2+20+i*22); ctx.fillStyle=i?CREAM:col; ctx.fillText(l,640,y-h/2+20+i*22); }); ctx.restore(); }
 function controlLine(n){ const two=G.ents.filter(e=>e.human&&!e.netId).length>1;
  if(n===1&&!two&&INPUT==='touch') return 'Stick moves   SWING bonks (hold for a heavy)   DASH hops   BLOCK parries';
- if(anyPad()&&n<=PADS.length&&(INPUT==='pad'||two)) return `Move: left stick   Swing: A   Dash: B   Block: X   Pause: Start`;
+ if(anyPad()&&n<=PADS.length&&(INPUT==='pad'||two)) return `Move: left stick   Aim: right stick   Swing: A   Dash: B   Block: X   Pause: Start`;
  if(n===2) return 'P2   Move: Arrows   Swing: J   Dash: K   Block: L';
  return two?'P1   Move: WASD   Swing: F   Dash: G   Block: H':'WASD / Arrows move · Mouse aims · Click / Space attacks · Shift dash · E / right-click block'; }
 function drawCards(){
@@ -2459,7 +2484,7 @@ function draw(){
  for(const e of live) if(e.falling<=0) drawOverhead(e);
  for(const f of G.floaters){ ctx.globalAlpha=Math.min(1,f.t*2); if(f.small){ ctx.font=`900 13px ${NUN}`; ctx.textAlign='center'; ctx.textBaseline='middle'; const w=ctx.measureText(f.text).width+18; ctx.fillStyle=INK; rr(ctx,f.x-w/2,f.y-11,w,22,11); ctx.fill(); ctx.fillStyle=f.col; ctx.fillText(f.text,f.x,f.y+1); } else otext(f.text,f.x,f.y,f.big?20:13,f.col); } ctx.globalAlpha=1;
  for(const b of G.bubbles) drawBubble(b);
- if(mousePlayable()&&mouse.active&&(INPUT==='kbm'||SEATS?.some(s=>s.dev==='kb1'))){const aim=mousePoint();ctx.save();ctx.strokeStyle=CREAM;ctx.lineWidth=2;ctx.beginPath();ctx.arc(aim.x,aim.y,8,0,Math.PI*2);ctx.moveTo(aim.x-13,aim.y);ctx.lineTo(aim.x-4,aim.y);ctx.moveTo(aim.x+4,aim.y);ctx.lineTo(aim.x+13,aim.y);ctx.moveTo(aim.x,aim.y-13);ctx.lineTo(aim.x,aim.y-4);ctx.moveTo(aim.x,aim.y+4);ctx.lineTo(aim.x,aim.y+13);ctx.stroke();ctx.restore();}
+ if(mousePlayable())for(const e of live){const cue=arenaAimCue(e);if(!cue)continue;const aim=localAim.get(e);if(cue.source==='pad'&&cue.distance>32){ctx.save();ctx.strokeStyle=e.color||CREAM;ctx.lineWidth=2;ctx.setLineDash([4,6]);ctx.beginPath();ctx.moveTo(e.x+Math.cos(aim.angle)*32,e.y+Math.sin(aim.angle)*32);ctx.lineTo(cue.x,cue.y);ctx.stroke();ctx.restore();}CKInputAim.reticle(ctx,cue.x,cue.y,CREAM);}
  // ambient
  const th=G.map.theme;
  if(th==='grass'||th==='bog'||th==='dungeon'){ const [c1,c2]=th==='dungeon'?['255,140,40','255,210,120']:th==='bog'?['170,255,140','230,255,200']:['255,240,170','255,250,210']; ctx.save(); ctx.globalCompositeOperation='lighter'; for(const a of G.amb){ const tw=.35+.35*Math.sin(G.clock*3+a.p*5); circle(a.x,a.y,a.s*1.8,`rgba(${c1},${tw*.25})`); circle(a.x,a.y,a.s*.6,`rgba(${c2},${tw})`); } ctx.restore(); }
@@ -2782,7 +2807,7 @@ function start(){ resetMouse();if(!firstFightLaunching){firstFightFinish('abando
  for(const e of G.ents) if(isMine(e)) e.spot=2.6;
  if(NET.role==='host'){ $('pauseBtn').hidden=true; broadcast({t:'start',setup:netSetup()}); } }
 function toMenu(){ resetMouse();firstFightFinish('abandoned');firstFightResult=null;$('firstFightRecognition').hidden=true; if(ADVENTURE)ADVENTURE.stop(); cancelCup(); if(NET.role==='host'){ newGame(true); showLobby(); menuMusic(true); broadcast({t:'tolobby'}); return; } if(NET.role==='client'){ leaveOnline(); return; } menuMusic(true); newGame(true); paused=false; showScreen('menu'); $('pauseBtn').hidden=true; showTouch(false); }
-function setPause(p){ if(!G||G.demo||G.over||NET.role)return; resetMouse();paused=p; $('pause').hidden=!p; if(p){ const b=$('resumeBtn'); if(b) b.focus(); }else syncRareMusic(); }
+function setPause(p){ if(!G||G.demo||G.over||NET.role)return; clearArenaInput();paused=p; $('pause').hidden=!p; if(p){ const b=$('resumeBtn'); if(b) b.focus(); }else syncRareMusic(); }
 addEventListener('keydown',ev=>{ if(ev.code==='Escape'&&!(G&&!G.demo&&!G.over)){ const sc=visibleScreen(); if(sc&&sc.id!=='menu') menuBack(); } });
 function finalResults(sorted){
  return G.ents.filter(e=>e.human).map(e=>{
@@ -2833,7 +2858,7 @@ addEventListener('keydown',ev=>{
  const playing=G&&!G.demo&&!G.over;
  if(playing&&['ArrowUp','ArrowDown','ArrowLeft','ArrowRight','Space'].includes(ev.code)) ev.preventDefault();
  if(ev.code==='Backquote'&&!ev.repeat){ showHit=!showHit; return; }
- if(ev.repeat&&keys[ev.code])return; keys[ev.code]=true;
+ if(ev.repeat&&keys[ev.code])return; if(!paused)keys[ev.code]=true;
  if(!playing)return;
  if(ev.code==='KeyP'||ev.code==='Escape'){ setPause(!paused); return; }
  const d=['Digit1','Digit2','Digit3','Digit4'].indexOf(ev.code); if(d>=0) shout(1,d);
@@ -2848,7 +2873,7 @@ function padEdges(){
   if(playing){
    if(pause){setPause(!paused);return;}
    if(paused){if(up)menuNav(0,-1);if(down)menuNav(0,1);if(left)menuNav(-1,0);if(right)menuNav(1,0);if(a)menuActivate();else if(back)setPause(false);return;}
-   const who=SEATS?SEATS.findIndex(x=>x.dev==='pad'&&x.idx===gp.index)+1:i+1;if(sh&&who>0)shout(who,Math.floor(Math.random()*4));
+   if(!SEATS)G.ents?.filter(isMine).forEach(e=>classicPad(NET.role==='client'?1:e.human,e));const owner=SEATS?null:G.ents?.find(e=>isMine(e)&&classicPads.get(e)===gp.index),who=SEATS?SEATS.findIndex(x=>x.dev==='pad'&&x.idx===gp.index)+1:owner?(NET.role==='client'?1:owner.human):0;if(sh&&who>0)shout(who,Math.floor(Math.random()*4));
   }
   else if(partyOpen()){ partyPad(gp.index,{a,back,pause,up,down,left,right}); }
   else { if(up) menuNav(0,-1); if(down) menuNav(0,1); if(left) menuNav(-1,0); if(right) menuNav(1,0); if(a) menuActivate(); if(back) menuBack(); }
@@ -3176,6 +3201,7 @@ if(window.CKMassBattle&&window.CKMassBattleUI){
 }
 if(new URLSearchParams(location.search).has('qa')){
  window.CK={arenaGeometry:()=>({size:G.arenaSize,W,H,T,COLS,ROWS,OY,WB,worldFit:{scale:fitS,x:fitX,y:fitY},hudFit:{scale:hudS,x:hudX,y:hudY},camera:{...cam},backings:{bg:[bg.width,bg.height],wl:[wl.width,wl.height],darkness:[dk.width,dk.height],custard:[custCv.width,custCv.height]}}),mapThumb,validNetSetupShape,firstFight:()=>firstFight?Object.freeze({...firstFightFields(firstFight),config:Object.freeze({...firstFight.assignment.config})}):null,productReport:()=>productEvents?.report()||null,initArenaChaos,startRareEvent,endRareEvent,updateRareEvent,syncRareMusic,ko,startFall,setPause,spriteCacheEnabled:value=>{if(value!==undefined){sprFactionCacheEnabled=!!value;clearFactionSprites();}return sprFactionCacheEnabled;},spriteCompose: (e,i,open=false)=>sprCompose(e,i,open?SPR_OPEN.knight:SPR),spriteFrameCount:()=>SPR.per*5,spriteCache:()=>({entries:sprFactionCache.size,bytes:sprFactionCacheBytes,limit:sprFactionCacheLimit,hits:sprFactionCacheHits,misses:sprFactionCacheMisses}),clearFactionSprites,botInput,DIFFS,speedOf,MODES,massBattle:()=>massBattleUI,menuNav,menuActivate,combatBeat,bladeSweep,swingArc,sprFrame,headTop,applySnap,clientTick,presentationSettings:o=>Object.assign(SET,o),collection:()=>COLLECTION,setCollection:saveCollection,awardCollection,campaignCollectionReward,reloadWardrobeSaves,drawCollectionPreview,openWardrobe,owned,cleanKit,collectionUI:()=>collectionUI,adventure:ADVENTURE,hurt,startSwing,hitCrate,clang,doHit,fire,draw,toMenu,cup:()=>CUP,startCup,cupReady,nextCupRound,cancelCup,musicState:()=>({cue:musicCue,wanted:musicWant,src:music.getAttribute('src')}),cueMusic,audioStats:()=>({active:audioVoices,max:MAX_AUDIO_VOICES}),sfx,hostOnline,joinOnline,leaveOnline,G:()=>G,PROG,NET,clientRecv,hostRecv,hostDrop,snapshot,humanInput,endMatch,netSetup,rematch,seats:()=>SEATS,setSeats:v=>{SEATS=v;partyGo=true;},cfg,keys,touch,update,newGame,start,loadProfile,saveProfile,drawKnight:e=>drawKnight(e),sprites:v=>{ SET.classic=!v; },spritesReady:()=>sprReady,sprLoadAll:()=>sprLoadSet(SPR),sprLoadVisors:loadOpenVisors,visorAssets:()=>({requested:!!SPR_OPEN.promise,knightReady:SPR_OPEN.knightReady,heroReady:SPR_OPEN.heroReady}),mkKnight:o=>mkKnight(o),withCtx:(c,fn)=>{ const k=ctx; ctx=c; try{ fn(); }finally{ ctx=k; } },startEvent,startMayhem,applyPU,giveWeapon,spawnPickup,MAYHEM,PU,MAPS,WEAPONS,
+  inputAim:e=>{const a=localAim.get(e);return a?{source:a.source,angle:a.angle,padIndex:a.padIndex}:null;},arenaAimCue,pollPads,padState,
   adv:n=>{for(let i=0;i<n;i++)update(1/60)},freeze:v=>{paused=v},
   begin:(o={})=>{ Object.assign(cfg,o); if(o.humans!==undefined) cfg.players=o.humans; $('menu').hidden=true; audio(); menuMusic(false); newGame(false); paused=true; $('pauseBtn').hidden=true; G.banner=null;initArenaChaos(); return G; },
   zoom:(s,gx,gy)=>{ const r=document.getElementById('stage').getBoundingClientRect(); fitS=s; fitX=r.width/2-gx*s; fitY=r.height/2-gy*s; scale=s; offX=fitX; offY=fitY; }};

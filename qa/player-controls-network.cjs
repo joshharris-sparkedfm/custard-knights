@@ -70,6 +70,7 @@ const timer=setTimeout(()=>{report.failure=report.failure||'Overall network test
   await host.wait(`qaWire.some(p=>p.tag===${JSON.stringify(tag)})`,'invalid probe '+tag);
   check(await host.run(`qaWire.find(p=>p.tag===${JSON.stringify(tag)}).accepted?.[0]!==.731`),'Host rejects '+tag+' aim arriving through real transport');
  }
+ await guest.run('dispatchEvent(new Event("focus"));0');
  report.protocolProbes=await host.run('qaWire.filter(p=>p.tag)');report.shotSamples=await host.run('qaShots.slice(0,8)');
  await host.run(`clearInterval(qaSampling);CK.cfg.mode='race';CK.start();${stableArena}qaHuman=CK.G().ents.find(e=>e.netId===qaGuest);qaHuman.x=450;qaHuman.y=440;qaHuman.face=0;window.qaTarget=CK.G().ents.find(e=>e.human&&!e.netId);qaTarget.x=490;qaTarget.y=440;qaTarget.face=0;qaHuman.bawkCd=qaTarget.bawkCd=0;window.qaPeck=null;window.qaSampling=setInterval(()=>{if(qaHuman.bawkCd>0&&qaTarget.vx>100&&!qaPeck)qaPeck={hp:qaTarget.hp,dead:qaTarget.dead,vx:qaTarget.vx,bawkCd:qaHuman.bawkCd,ring:CK.G().parts.some(p=>p.kind==='ring'),x:qaTarget.x};},5);0`);
  round=await host.run('CK.G().roundId');await guest.wait(`CK.G().roundId===${JSON.stringify(round)}&&CK.G().mode==='race'&&Math.abs(CK.G().ents[CK.NET.me].x-450)<5`,'race setup and positions received');

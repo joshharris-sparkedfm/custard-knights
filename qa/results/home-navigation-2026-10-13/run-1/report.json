@@ -1,0 +1,635 @@
+{
+  "startedAt": "2026-10-13T08:53:40.354Z",
+  "runtime": {
+    "node": "C:\\Users\\Joshua\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\node\\bin\\node.exe",
+    "chrome": "C:/Program Files/Google/Chrome/Application/chrome.exe",
+    "root": "C:\\Users\\Joshua\\Documents\\Codex\\2026-10-08\\rea\\work\\custard-knights-home"
+  },
+  "checks": [
+    {
+      "profile": "fresh",
+      "name": "Actual game loads in isolated fresh Chrome profile",
+      "pass": true,
+      "details": {
+        "pass": true,
+        "state": {
+          "active": "Sound: on\n    Pause\n  \n\n  Turn your phone sidewaysThe arena needs the ",
+          "overlays": [
+            "menu"
+          ],
+          "playing": false,
+          "seats": null,
+          "cfg": {
+            "mode": "ffa",
+            "players": 1,
+            "diff": "medium",
+            "map": "random",
+            "chaosPlus": false,
+            "chaosSpeed": "normal",
+            "length": 180,
+            "teamSplit": false,
+            "arenaSize": "classic"
+          }
+        }
+      }
+    },
+    {
+      "profile": "fresh",
+      "name": "Exactly four primary routes; utilities remain separate",
+      "pass": true,
+      "details": {
+        "pass": true,
+        "state": {
+          "active": "Sound: on\n    Pause\n  \n\n  Turn your phone sidewaysThe arena needs the ",
+          "overlays": [
+            "menu"
+          ],
+          "playing": false,
+          "seats": null,
+          "cfg": {
+            "mode": "ffa",
+            "players": 1,
+            "diff": "medium",
+            "map": "random",
+            "chaosPlus": false,
+            "chaosSpeed": "normal",
+            "length": 180,
+            "teamSplit": false,
+            "arenaSize": "classic"
+          }
+        }
+      }
+    },
+    {
+      "profile": "fresh",
+      "name": "Fresh Story names solo adventure without Continue",
+      "pass": true,
+      "details": {
+        "pass": true,
+        "title": "Story"
+      }
+    },
+    {
+      "profile": "fresh",
+      "name": "Logical Tab cycle reaches four routes and utilities",
+      "pass": true,
+      "details": {
+        "pass": true,
+        "order": [
+          "tQuick",
+          "tAdventure",
+          "tFriends",
+          "tFactionBattle",
+          "tWardrobe",
+          "tSettings",
+          "tHowto"
+        ]
+      }
+    },
+    {
+      "profile": "fresh",
+      "name": "mouse opens tQuick and Back restores its focus",
+      "pass": true,
+      "details": {
+        "pass": true,
+        "during": {
+          "active": "quickStart",
+          "overlays": [
+            "quickRoute"
+          ],
+          "playing": false,
+          "seats": null,
+          "cfg": {
+            "mode": "ffa",
+            "players": 1,
+            "diff": "medium",
+            "map": "random",
+            "chaosPlus": false,
+            "chaosSpeed": "normal",
+            "length": 180,
+            "teamSplit": false,
+            "arenaSize": "classic"
+          }
+        },
+        "after": {
+          "active": "tQuick",
+          "overlays": [
+            "menu"
+          ],
+          "playing": false,
+          "seats": null,
+          "cfg": {
+            "mode": "ffa",
+            "players": 1,
+            "diff": "medium",
+            "map": "random",
+            "chaosPlus": false,
+            "chaosSpeed": "normal",
+            "length": 180,
+            "teamSplit": false,
+            "arenaSize": "classic"
+          }
+        }
+      }
+    },
+    {
+      "profile": "fresh",
+      "name": "mouse opens tAdventure and Back restores its focus",
+      "pass": false,
+      "error": "Error: {\"exceptionId\":1,\"text\":\"Uncaught\",\"lineNumber\":0,\"columnNumber\":117,\"scriptId\":\"45\",\"stackTrace\":{\"callFrames\":[{\"functionName\":\"\",\"scriptId\":\"45\",\"url\":\"\",\"lineNumber\":0,\"columnNumber\":123},{\"functionName\":\"\",\"scriptId\":\"45\",\"url\":\"\",\"lineNumber\":0,\"columnNumber\":240}]},\"exception\":{\"type\":\"object\",\"subtype\":\"error\",\"className\":\"Error\",\"description\":\"Error: Not an enabled visible target: #campaignMap button:last-child\\n    at <anonymous>:1:124\\n    at <anonymous>:1:241\",\"objectId\":\"-4201368682593585238.2.2\"}}\n    at run (C:\\Users\\Joshua\\Documents\\Codex\\2026-10-08\\rea\\work\\custard-knights-home\\qa\\home-navigation-browser.cjs:25:148)\n    at async click (C:\\Users\\Joshua\\Documents\\Codex\\2026-10-08\\rea\\work\\custard-knights-home\\qa\\home-navigation-browser.cjs:33:139)\n    at async C:\\Users\\Joshua\\Documents\\Codex\\2026-10-08\\rea\\work\\custard-knights-home\\qa\\home-navigation-browser.cjs:56:147\n    at async step (C:\\Users\\Joshua\\Documents\\Codex\\2026-10-08\\rea\\work\\custard-knights-home\\qa\\home-navigation-browser.cjs:37:49)\n    at async main (C:\\Users\\Joshua\\Documents\\Codex\\2026-10-08\\rea\\work\\custard-knights-home\\qa\\home-navigation-browser.cjs:53:3)"
+    },
+    {
+      "profile": "fresh",
+      "name": "mouse opens tFriends and Back restores its focus",
+      "pass": false,
+      "error": "Error: {\"exceptionId\":2,\"text\":\"Uncaught\",\"lineNumber\":0,\"columnNumber\":96,\"scriptId\":\"48\",\"stackTrace\":{\"callFrames\":[{\"functionName\":\"\",\"scriptId\":\"48\",\"url\":\"\",\"lineNumber\":0,\"columnNumber\":102},{\"functionName\":\"\",\"scriptId\":\"48\",\"url\":\"\",\"lineNumber\":0,\"columnNumber\":198}]},\"exception\":{\"type\":\"object\",\"subtype\":\"error\",\"className\":\"Error\",\"description\":\"Error: Not an enabled visible target: #tFriends\\n    at <anonymous>:1:103\\n    at <anonymous>:1:199\",\"objectId\":\"-4201368682593585238.2.4\"}}\n    at run (C:\\Users\\Joshua\\Documents\\Codex\\2026-10-08\\rea\\work\\custard-knights-home\\qa\\home-navigation-browser.cjs:25:148)\n    at async click (C:\\Users\\Joshua\\Documents\\Codex\\2026-10-08\\rea\\work\\custard-knights-home\\qa\\home-navigation-browser.cjs:33:139)\n    at async C:\\Users\\Joshua\\Documents\\Codex\\2026-10-08\\rea\\work\\custard-knights-home\\qa\\home-navigation-browser.cjs:54:44\n    at async step (C:\\Users\\Joshua\\Documents\\Codex\\2026-10-08\\rea\\work\\custard-knights-home\\qa\\home-navigation-browser.cjs:37:49)\n    at async main (C:\\Users\\Joshua\\Documents\\Codex\\2026-10-08\\rea\\work\\custard-knights-home\\qa\\home-navigation-browser.cjs:53:3)"
+    },
+    {
+      "profile": "fresh",
+      "name": "mouse opens tFactionBattle and Back restores its focus",
+      "pass": false,
+      "error": "Error: {\"exceptionId\":3,\"text\":\"Uncaught\",\"lineNumber\":0,\"columnNumber\":102,\"scriptId\":\"51\",\"stackTrace\":{\"callFrames\":[{\"functionName\":\"\",\"scriptId\":\"51\",\"url\":\"\",\"lineNumber\":0,\"columnNumber\":108},{\"functionName\":\"\",\"scriptId\":\"51\",\"url\":\"\",\"lineNumber\":0,\"columnNumber\":210}]},\"exception\":{\"type\":\"object\",\"subtype\":\"error\",\"className\":\"Error\",\"description\":\"Error: Not an enabled visible target: #tFactionBattle\\n    at <anonymous>:1:109\\n    at <anonymous>:1:211\",\"objectId\":\"-4201368682593585238.2.6\"}}\n    at run (C:\\Users\\Joshua\\Documents\\Codex\\2026-10-08\\rea\\work\\custard-knights-home\\qa\\home-navigation-browser.cjs:25:148)\n    at async click (C:\\Users\\Joshua\\Documents\\Codex\\2026-10-08\\rea\\work\\custard-knights-home\\qa\\home-navigation-browser.cjs:33:139)\n    at async C:\\Users\\Joshua\\Documents\\Codex\\2026-10-08\\rea\\work\\custard-knights-home\\qa\\home-navigation-browser.cjs:54:44\n    at async step (C:\\Users\\Joshua\\Documents\\Codex\\2026-10-08\\rea\\work\\custard-knights-home\\qa\\home-navigation-browser.cjs:37:49)\n    at async main (C:\\Users\\Joshua\\Documents\\Codex\\2026-10-08\\rea\\work\\custard-knights-home\\qa\\home-navigation-browser.cjs:53:3)"
+    },
+    {
+      "profile": "fresh",
+      "name": "keyboard opens tQuick and Back restores its focus",
+      "pass": false,
+      "details": {
+        "pass": false,
+        "during": {
+          "active": "1Banquet· · ·",
+          "overlays": [
+            "campaignMap"
+          ],
+          "playing": false,
+          "seats": null,
+          "cfg": {
+            "mode": "ffa",
+            "players": 1,
+            "diff": "medium",
+            "map": "random",
+            "chaosPlus": false,
+            "chaosSpeed": "normal",
+            "length": 180,
+            "teamSplit": false,
+            "arenaSize": "classic"
+          }
+        },
+        "after": {
+          "active": "tAdventure",
+          "overlays": [
+            "menu"
+          ],
+          "playing": false,
+          "seats": null,
+          "cfg": {
+            "mode": "ffa",
+            "players": 1,
+            "diff": "medium",
+            "map": "random",
+            "chaosPlus": false,
+            "chaosSpeed": "normal",
+            "length": 180,
+            "teamSplit": false,
+            "arenaSize": "classic"
+          }
+        }
+      }
+    },
+    {
+      "profile": "fresh",
+      "name": "keyboard opens tAdventure and Back restores its focus",
+      "pass": true,
+      "details": {
+        "pass": true,
+        "during": {
+          "active": "1Banquet· · ·",
+          "overlays": [
+            "campaignMap"
+          ],
+          "playing": false,
+          "seats": null,
+          "cfg": {
+            "mode": "ffa",
+            "players": 1,
+            "diff": "medium",
+            "map": "random",
+            "chaosPlus": false,
+            "chaosSpeed": "normal",
+            "length": 180,
+            "teamSplit": false,
+            "arenaSize": "classic"
+          }
+        },
+        "after": {
+          "active": "tAdventure",
+          "overlays": [
+            "menu"
+          ],
+          "playing": false,
+          "seats": null,
+          "cfg": {
+            "mode": "ffa",
+            "players": 1,
+            "diff": "medium",
+            "map": "random",
+            "chaosPlus": false,
+            "chaosSpeed": "normal",
+            "length": 180,
+            "teamSplit": false,
+            "arenaSize": "classic"
+          }
+        }
+      }
+    },
+    {
+      "profile": "fresh",
+      "name": "keyboard opens tFriends and Back restores its focus",
+      "pass": true,
+      "details": {
+        "pass": true,
+        "during": {
+          "active": "tParty",
+          "overlays": [
+            "friendsRoute"
+          ],
+          "playing": false,
+          "seats": null,
+          "cfg": {
+            "mode": "ffa",
+            "players": 1,
+            "diff": "medium",
+            "map": "random",
+            "chaosPlus": false,
+            "chaosSpeed": "normal",
+            "length": 180,
+            "teamSplit": false,
+            "arenaSize": "classic"
+          }
+        },
+        "after": {
+          "active": "tFriends",
+          "overlays": [
+            "menu"
+          ],
+          "playing": false,
+          "seats": null,
+          "cfg": {
+            "mode": "ffa",
+            "players": 1,
+            "diff": "medium",
+            "map": "random",
+            "chaosPlus": false,
+            "chaosSpeed": "normal",
+            "length": 180,
+            "teamSplit": false,
+            "arenaSize": "classic"
+          }
+        }
+      }
+    },
+    {
+      "profile": "fresh",
+      "name": "keyboard opens tFactionBattle and Back restores its focus",
+      "pass": true,
+      "details": {
+        "pass": true,
+        "during": {
+          "active": "Play with bots",
+          "overlays": [],
+          "playing": false,
+          "seats": null,
+          "cfg": {
+            "mode": "ffa",
+            "players": 1,
+            "diff": "medium",
+            "map": "random",
+            "chaosPlus": false,
+            "chaosSpeed": "normal",
+            "length": 180,
+            "teamSplit": false,
+            "arenaSize": "classic"
+          }
+        },
+        "after": {
+          "active": "tFactionBattle",
+          "overlays": [
+            "menu"
+          ],
+          "playing": false,
+          "seats": null,
+          "cfg": {
+            "mode": "ffa",
+            "players": 1,
+            "diff": "medium",
+            "map": "random",
+            "chaosPlus": false,
+            "chaosSpeed": "normal",
+            "length": 180,
+            "teamSplit": false,
+            "arenaSize": "classic"
+          }
+        }
+      }
+    },
+    {
+      "profile": "fresh",
+      "name": "pad opens tQuick and Back restores its focus",
+      "pass": true,
+      "details": {
+        "pass": true,
+        "during": {
+          "active": "Back",
+          "overlays": [
+            "quickRoute"
+          ],
+          "playing": false,
+          "seats": null,
+          "cfg": {
+            "mode": "ffa",
+            "players": 1,
+            "diff": "medium",
+            "map": "random",
+            "chaosPlus": false,
+            "chaosSpeed": "normal",
+            "length": 180,
+            "teamSplit": false,
+            "arenaSize": "classic"
+          }
+        },
+        "after": {
+          "active": "tQuick",
+          "overlays": [
+            "menu"
+          ],
+          "playing": false,
+          "seats": null,
+          "cfg": {
+            "mode": "ffa",
+            "players": 1,
+            "diff": "medium",
+            "map": "random",
+            "chaosPlus": false,
+            "chaosSpeed": "normal",
+            "length": 180,
+            "teamSplit": false,
+            "arenaSize": "classic"
+          }
+        }
+      }
+    },
+    {
+      "profile": "fresh",
+      "name": "pad opens tAdventure and Back restores its focus",
+      "pass": true,
+      "details": {
+        "pass": true,
+        "during": {
+          "active": "1Banquet· · ·",
+          "overlays": [
+            "campaignMap"
+          ],
+          "playing": false,
+          "seats": null,
+          "cfg": {
+            "mode": "ffa",
+            "players": 1,
+            "diff": "medium",
+            "map": "random",
+            "chaosPlus": false,
+            "chaosSpeed": "normal",
+            "length": 180,
+            "teamSplit": false,
+            "arenaSize": "classic"
+          }
+        },
+        "after": {
+          "active": "tAdventure",
+          "overlays": [
+            "menu"
+          ],
+          "playing": false,
+          "seats": null,
+          "cfg": {
+            "mode": "ffa",
+            "players": 1,
+            "diff": "medium",
+            "map": "random",
+            "chaosPlus": false,
+            "chaosSpeed": "normal",
+            "length": 180,
+            "teamSplit": false,
+            "arenaSize": "classic"
+          }
+        }
+      }
+    },
+    {
+      "profile": "fresh",
+      "name": "pad opens tFriends and Back restores its focus",
+      "pass": true,
+      "details": {
+        "pass": true,
+        "during": {
+          "active": "tParty",
+          "overlays": [
+            "friendsRoute"
+          ],
+          "playing": false,
+          "seats": null,
+          "cfg": {
+            "mode": "ffa",
+            "players": 1,
+            "diff": "medium",
+            "map": "random",
+            "chaosPlus": false,
+            "chaosSpeed": "normal",
+            "length": 180,
+            "teamSplit": false,
+            "arenaSize": "classic"
+          }
+        },
+        "after": {
+          "active": "tFriends",
+          "overlays": [
+            "menu"
+          ],
+          "playing": false,
+          "seats": null,
+          "cfg": {
+            "mode": "ffa",
+            "players": 1,
+            "diff": "medium",
+            "map": "random",
+            "chaosPlus": false,
+            "chaosSpeed": "normal",
+            "length": 180,
+            "teamSplit": false,
+            "arenaSize": "classic"
+          }
+        }
+      }
+    },
+    {
+      "profile": "fresh",
+      "name": "pad opens tFactionBattle and Back restores its focus",
+      "pass": false,
+      "details": {
+        "pass": false,
+        "during": {
+          "active": "",
+          "overlays": [],
+          "playing": false,
+          "seats": null,
+          "cfg": {
+            "mode": "ffa",
+            "players": 1,
+            "diff": "medium",
+            "map": "random",
+            "chaosPlus": false,
+            "chaosSpeed": "normal",
+            "length": 180,
+            "teamSplit": false,
+            "arenaSize": "classic"
+          }
+        },
+        "after": {
+          "active": "",
+          "overlays": [],
+          "playing": false,
+          "seats": null,
+          "cfg": {
+            "mode": "ffa",
+            "players": 1,
+            "diff": "medium",
+            "map": "random",
+            "chaosPlus": false,
+            "chaosSpeed": "normal",
+            "length": 180,
+            "teamSplit": false,
+            "arenaSize": "classic"
+          }
+        }
+      }
+    },
+    {
+      "profile": "fresh",
+      "name": "Utility tWardrobe opens and restores focus",
+      "pass": false,
+      "error": "Error: {\"exceptionId\":4,\"text\":\"Uncaught\",\"lineNumber\":0,\"columnNumber\":97,\"scriptId\":\"59\",\"stackTrace\":{\"callFrames\":[{\"functionName\":\"\",\"scriptId\":\"59\",\"url\":\"\",\"lineNumber\":0,\"columnNumber\":103},{\"functionName\":\"\",\"scriptId\":\"59\",\"url\":\"\",\"lineNumber\":0,\"columnNumber\":200}]},\"exception\":{\"type\":\"object\",\"subtype\":\"error\",\"className\":\"Error\",\"description\":\"Error: Not an enabled visible target: #tWardrobe\\n    at <anonymous>:1:104\\n    at <anonymous>:1:201\",\"objectId\":\"-4201368682593585238.2.8\"}}\n    at run (C:\\Users\\Joshua\\Documents\\Codex\\2026-10-08\\rea\\work\\custard-knights-home\\qa\\home-navigation-browser.cjs:25:148)\n    at async click (C:\\Users\\Joshua\\Documents\\Codex\\2026-10-08\\rea\\work\\custard-knights-home\\qa\\home-navigation-browser.cjs:33:139)\n    at async C:\\Users\\Joshua\\Documents\\Codex\\2026-10-08\\rea\\work\\custard-knights-home\\qa\\home-navigation-browser.cjs:60:161\n    at async step (C:\\Users\\Joshua\\Documents\\Codex\\2026-10-08\\rea\\work\\custard-knights-home\\qa\\home-navigation-browser.cjs:37:49)\n    at async main (C:\\Users\\Joshua\\Documents\\Codex\\2026-10-08\\rea\\work\\custard-knights-home\\qa\\home-navigation-browser.cjs:60:98)"
+    },
+    {
+      "profile": "fresh",
+      "name": "Utility tSettings opens and restores focus",
+      "pass": false,
+      "error": "Error: {\"exceptionId\":5,\"text\":\"Uncaught\",\"lineNumber\":0,\"columnNumber\":97,\"scriptId\":\"61\",\"stackTrace\":{\"callFrames\":[{\"functionName\":\"\",\"scriptId\":\"61\",\"url\":\"\",\"lineNumber\":0,\"columnNumber\":103},{\"functionName\":\"\",\"scriptId\":\"61\",\"url\":\"\",\"lineNumber\":0,\"columnNumber\":200}]},\"exception\":{\"type\":\"object\",\"subtype\":\"error\",\"className\":\"Error\",\"description\":\"Error: Not an enabled visible target: #tSettings\\n    at <anonymous>:1:104\\n    at <anonymous>:1:201\",\"objectId\":\"-4201368682593585238.2.10\"}}\n    at run (C:\\Users\\Joshua\\Documents\\Codex\\2026-10-08\\rea\\work\\custard-knights-home\\qa\\home-navigation-browser.cjs:25:148)\n    at async click (C:\\Users\\Joshua\\Documents\\Codex\\2026-10-08\\rea\\work\\custard-knights-home\\qa\\home-navigation-browser.cjs:33:139)\n    at async C:\\Users\\Joshua\\Documents\\Codex\\2026-10-08\\rea\\work\\custard-knights-home\\qa\\home-navigation-browser.cjs:60:161\n    at async step (C:\\Users\\Joshua\\Documents\\Codex\\2026-10-08\\rea\\work\\custard-knights-home\\qa\\home-navigation-browser.cjs:37:49)\n    at async main (C:\\Users\\Joshua\\Documents\\Codex\\2026-10-08\\rea\\work\\custard-knights-home\\qa\\home-navigation-browser.cjs:60:98)"
+    },
+    {
+      "profile": "fresh",
+      "name": "Utility tHowto opens and restores focus",
+      "pass": false,
+      "error": "Error: {\"exceptionId\":6,\"text\":\"Uncaught\",\"lineNumber\":0,\"columnNumber\":94,\"scriptId\":\"63\",\"stackTrace\":{\"callFrames\":[{\"functionName\":\"\",\"scriptId\":\"63\",\"url\":\"\",\"lineNumber\":0,\"columnNumber\":100},{\"functionName\":\"\",\"scriptId\":\"63\",\"url\":\"\",\"lineNumber\":0,\"columnNumber\":194}]},\"exception\":{\"type\":\"object\",\"subtype\":\"error\",\"className\":\"Error\",\"description\":\"Error: Not an enabled visible target: #tHowto\\n    at <anonymous>:1:101\\n    at <anonymous>:1:195\",\"objectId\":\"-4201368682593585238.2.12\"}}\n    at run (C:\\Users\\Joshua\\Documents\\Codex\\2026-10-08\\rea\\work\\custard-knights-home\\qa\\home-navigation-browser.cjs:25:148)\n    at async click (C:\\Users\\Joshua\\Documents\\Codex\\2026-10-08\\rea\\work\\custard-knights-home\\qa\\home-navigation-browser.cjs:33:139)\n    at async C:\\Users\\Joshua\\Documents\\Codex\\2026-10-08\\rea\\work\\custard-knights-home\\qa\\home-navigation-browser.cjs:60:161\n    at async step (C:\\Users\\Joshua\\Documents\\Codex\\2026-10-08\\rea\\work\\custard-knights-home\\qa\\home-navigation-browser.cjs:37:49)\n    at async main (C:\\Users\\Joshua\\Documents\\Codex\\2026-10-08\\rea\\work\\custard-knights-home\\qa\\home-navigation-browser.cjs:60:98)"
+    },
+    {
+      "profile": "fresh",
+      "name": "Space activation opens only one route; Escape returns only one level",
+      "pass": false,
+      "error": "Error: {\"exceptionId\":7,\"text\":\"Uncaught\",\"lineNumber\":0,\"columnNumber\":95,\"scriptId\":\"65\",\"stackTrace\":{\"callFrames\":[{\"functionName\":\"\",\"scriptId\":\"65\",\"url\":\"\",\"lineNumber\":0,\"columnNumber\":101},{\"functionName\":\"\",\"scriptId\":\"65\",\"url\":\"\",\"lineNumber\":0,\"columnNumber\":196}]},\"exception\":{\"type\":\"object\",\"subtype\":\"error\",\"className\":\"Error\",\"description\":\"Error: Not an enabled visible target: #tCustom\\n    at <anonymous>:1:102\\n    at <anonymous>:1:197\",\"objectId\":\"-4201368682593585238.2.14\"}}\n    at run (C:\\Users\\Joshua\\Documents\\Codex\\2026-10-08\\rea\\work\\custard-knights-home\\qa\\home-navigation-browser.cjs:25:148)\n    at async click (C:\\Users\\Joshua\\Documents\\Codex\\2026-10-08\\rea\\work\\custard-knights-home\\qa\\home-navigation-browser.cjs:33:139)\n    at async C:\\Users\\Joshua\\Documents\\Codex\\2026-10-08\\rea\\work\\custard-knights-home\\qa\\home-navigation-browser.cjs:61:136\n    at async step (C:\\Users\\Joshua\\Documents\\Codex\\2026-10-08\\rea\\work\\custard-knights-home\\qa\\home-navigation-browser.cjs:37:49)\n    at async main (C:\\Users\\Joshua\\Documents\\Codex\\2026-10-08\\rea\\work\\custard-knights-home\\qa\\home-navigation-browser.cjs:61:2)"
+    },
+    {
+      "profile": "fresh",
+      "name": "Custom rules retain selection and show honest Quick summary",
+      "pass": false,
+      "error": "Error: {\"exceptionId\":8,\"text\":\"Uncaught\",\"lineNumber\":0,\"columnNumber\":94,\"scriptId\":\"36\",\"stackTrace\":{\"callFrames\":[{\"functionName\":\"\",\"scriptId\":\"36\",\"url\":\"\",\"lineNumber\":0,\"columnNumber\":100},{\"functionName\":\"\",\"scriptId\":\"36\",\"url\":\"\",\"lineNumber\":0,\"columnNumber\":194}]},\"exception\":{\"type\":\"object\",\"subtype\":\"error\",\"className\":\"Error\",\"description\":\"Error: Not an enabled visible target: #tQuick\\n    at <anonymous>:1:101\\n    at <anonymous>:1:195\",\"objectId\":\"-4201368682593585238.2.16\"}}\n    at run (C:\\Users\\Joshua\\Documents\\Codex\\2026-10-08\\rea\\work\\custard-knights-home\\qa\\home-navigation-browser.cjs:25:148)\n    at async click (C:\\Users\\Joshua\\Documents\\Codex\\2026-10-08\\rea\\work\\custard-knights-home\\qa\\home-navigation-browser.cjs:33:139)\n    at async C:\\Users\\Joshua\\Documents\\Codex\\2026-10-08\\rea\\work\\custard-knights-home\\qa\\home-navigation-browser.cjs:62:85\n    at async step (C:\\Users\\Joshua\\Documents\\Codex\\2026-10-08\\rea\\work\\custard-knights-home\\qa\\home-navigation-browser.cjs:37:49)\n    at async main (C:\\Users\\Joshua\\Documents\\Codex\\2026-10-08\\rea\\work\\custard-knights-home\\qa\\home-navigation-browser.cjs:62:2)"
+    },
+    {
+      "profile": "fresh",
+      "name": "Social custom and online paths return to social origin",
+      "pass": false,
+      "error": "Error: {\"exceptionId\":9,\"text\":\"Uncaught\",\"lineNumber\":0,\"columnNumber\":96,\"scriptId\":\"48\",\"stackTrace\":{\"callFrames\":[{\"functionName\":\"\",\"scriptId\":\"48\",\"url\":\"\",\"lineNumber\":0,\"columnNumber\":102},{\"functionName\":\"\",\"scriptId\":\"48\",\"url\":\"\",\"lineNumber\":0,\"columnNumber\":198}]},\"exception\":{\"type\":\"object\",\"subtype\":\"error\",\"className\":\"Error\",\"description\":\"Error: Not an enabled visible target: #tFriends\\n    at <anonymous>:1:103\\n    at <anonymous>:1:199\",\"objectId\":\"-4201368682593585238.2.18\"}}\n    at run (C:\\Users\\Joshua\\Documents\\Codex\\2026-10-08\\rea\\work\\custard-knights-home\\qa\\home-navigation-browser.cjs:25:148)\n    at async click (C:\\Users\\Joshua\\Documents\\Codex\\2026-10-08\\rea\\work\\custard-knights-home\\qa\\home-navigation-browser.cjs:33:139)\n    at async C:\\Users\\Joshua\\Documents\\Codex\\2026-10-08\\rea\\work\\custard-knights-home\\qa\\home-navigation-browser.cjs:63:80\n    at async step (C:\\Users\\Joshua\\Documents\\Codex\\2026-10-08\\rea\\work\\custard-knights-home\\qa\\home-navigation-browser.cjs:37:49)\n    at async main (C:\\Users\\Joshua\\Documents\\Codex\\2026-10-08\\rea\\work\\custard-knights-home\\qa\\home-navigation-browser.cjs:63:2)"
+    },
+    {
+      "profile": "fresh",
+      "name": "Browse modes summary is reachable and activated by pad",
+      "pass": false,
+      "error": "Error: {\"exceptionId\":10,\"text\":\"Uncaught\",\"lineNumber\":0,\"columnNumber\":94,\"scriptId\":\"36\",\"stackTrace\":{\"callFrames\":[{\"functionName\":\"\",\"scriptId\":\"36\",\"url\":\"\",\"lineNumber\":0,\"columnNumber\":100},{\"functionName\":\"\",\"scriptId\":\"36\",\"url\":\"\",\"lineNumber\":0,\"columnNumber\":194}]},\"exception\":{\"type\":\"object\",\"subtype\":\"error\",\"className\":\"Error\",\"description\":\"Error: Not an enabled visible target: #tQuick\\n    at <anonymous>:1:101\\n    at <anonymous>:1:195\",\"objectId\":\"-4201368682593585238.2.20\"}}\n    at run (C:\\Users\\Joshua\\Documents\\Codex\\2026-10-08\\rea\\work\\custard-knights-home\\qa\\home-navigation-browser.cjs:25:148)\n    at async click (C:\\Users\\Joshua\\Documents\\Codex\\2026-10-08\\rea\\work\\custard-knights-home\\qa\\home-navigation-browser.cjs:33:139)\n    at async C:\\Users\\Joshua\\Documents\\Codex\\2026-10-08\\rea\\work\\custard-knights-home\\qa\\home-navigation-browser.cjs:64:80\n    at async step (C:\\Users\\Joshua\\Documents\\Codex\\2026-10-08\\rea\\work\\custard-knights-home\\qa\\home-navigation-browser.cjs:37:49)\n    at async main (C:\\Users\\Joshua\\Documents\\Codex\\2026-10-08\\rea\\work\\custard-knights-home\\qa\\home-navigation-browser.cjs:64:2)"
+    },
+    {
+      "profile": "fresh",
+      "name": "Options changes persist through reload",
+      "pass": false,
+      "error": "Error: {\"exceptionId\":11,\"text\":\"Uncaught\",\"lineNumber\":0,\"columnNumber\":97,\"scriptId\":\"61\",\"stackTrace\":{\"callFrames\":[{\"functionName\":\"\",\"scriptId\":\"61\",\"url\":\"\",\"lineNumber\":0,\"columnNumber\":103},{\"functionName\":\"\",\"scriptId\":\"61\",\"url\":\"\",\"lineNumber\":0,\"columnNumber\":200}]},\"exception\":{\"type\":\"object\",\"subtype\":\"error\",\"className\":\"Error\",\"description\":\"Error: Not an enabled visible target: #tSettings\\n    at <anonymous>:1:104\\n    at <anonymous>:1:201\",\"objectId\":\"-4201368682593585238.2.22\"}}\n    at run (C:\\Users\\Joshua\\Documents\\Codex\\2026-10-08\\rea\\work\\custard-knights-home\\qa\\home-navigation-browser.cjs:25:148)\n    at async click (C:\\Users\\Joshua\\Documents\\Codex\\2026-10-08\\rea\\work\\custard-knights-home\\qa\\home-navigation-browser.cjs:33:139)\n    at async C:\\Users\\Joshua\\Documents\\Codex\\2026-10-08\\rea\\work\\custard-knights-home\\qa\\home-navigation-browser.cjs:65:64\n    at async step (C:\\Users\\Joshua\\Documents\\Codex\\2026-10-08\\rea\\work\\custard-knights-home\\qa\\home-navigation-browser.cjs:37:49)\n    at async main (C:\\Users\\Joshua\\Documents\\Codex\\2026-10-08\\rea\\work\\custard-knights-home\\qa\\home-navigation-browser.cjs:65:2)"
+    },
+    {
+      "profile": "fresh",
+      "name": "Couch seats survive home route and utility navigation",
+      "pass": false,
+      "error": "Error: {\"exceptionId\":12,\"text\":\"Uncaught\",\"lineNumber\":0,\"columnNumber\":96,\"scriptId\":\"48\",\"stackTrace\":{\"callFrames\":[{\"functionName\":\"\",\"scriptId\":\"48\",\"url\":\"\",\"lineNumber\":0,\"columnNumber\":102},{\"functionName\":\"\",\"scriptId\":\"48\",\"url\":\"\",\"lineNumber\":0,\"columnNumber\":198}]},\"exception\":{\"type\":\"object\",\"subtype\":\"error\",\"className\":\"Error\",\"description\":\"Error: Not an enabled visible target: #tFriends\\n    at <anonymous>:1:103\\n    at <anonymous>:1:199\",\"objectId\":\"-4201368682593585238.2.24\"}}\n    at run (C:\\Users\\Joshua\\Documents\\Codex\\2026-10-08\\rea\\work\\custard-knights-home\\qa\\home-navigation-browser.cjs:25:148)\n    at async click (C:\\Users\\Joshua\\Documents\\Codex\\2026-10-08\\rea\\work\\custard-knights-home\\qa\\home-navigation-browser.cjs:33:139)\n    at async C:\\Users\\Joshua\\Documents\\Codex\\2026-10-08\\rea\\work\\custard-knights-home\\qa\\home-navigation-browser.cjs:66:79\n    at async step (C:\\Users\\Joshua\\Documents\\Codex\\2026-10-08\\rea\\work\\custard-knights-home\\qa\\home-navigation-browser.cjs:37:49)\n    at async main (C:\\Users\\Joshua\\Documents\\Codex\\2026-10-08\\rea\\work\\custard-knights-home\\qa\\home-navigation-browser.cjs:66:2)"
+    },
+    {
+      "profile": "fresh",
+      "name": "Friends Cup starts with two keyboard seats and pause Back works",
+      "pass": false,
+      "error": "Error: {\"exceptionId\":13,\"text\":\"Uncaught\",\"lineNumber\":0,\"columnNumber\":96,\"scriptId\":\"48\",\"stackTrace\":{\"callFrames\":[{\"functionName\":\"\",\"scriptId\":\"48\",\"url\":\"\",\"lineNumber\":0,\"columnNumber\":102},{\"functionName\":\"\",\"scriptId\":\"48\",\"url\":\"\",\"lineNumber\":0,\"columnNumber\":198}]},\"exception\":{\"type\":\"object\",\"subtype\":\"error\",\"className\":\"Error\",\"description\":\"Error: Not an enabled visible target: #tFriends\\n    at <anonymous>:1:103\\n    at <anonymous>:1:199\",\"objectId\":\"-4201368682593585238.2.26\"}}\n    at run (C:\\Users\\Joshua\\Documents\\Codex\\2026-10-08\\rea\\work\\custard-knights-home\\qa\\home-navigation-browser.cjs:25:148)\n    at async click (C:\\Users\\Joshua\\Documents\\Codex\\2026-10-08\\rea\\work\\custard-knights-home\\qa\\home-navigation-browser.cjs:33:139)\n    at async C:\\Users\\Joshua\\Documents\\Codex\\2026-10-08\\rea\\work\\custard-knights-home\\qa\\home-navigation-browser.cjs:67:89\n    at async step (C:\\Users\\Joshua\\Documents\\Codex\\2026-10-08\\rea\\work\\custard-knights-home\\qa\\home-navigation-browser.cjs:37:49)\n    at async main (C:\\Users\\Joshua\\Documents\\Codex\\2026-10-08\\rea\\work\\custard-knights-home\\qa\\home-navigation-browser.cjs:67:2)"
+    },
+    {
+      "profile": "fresh",
+      "name": "Solo Cup clears couch ownership and uses one solo human",
+      "pass": false,
+      "error": "Error: {\"exceptionId\":14,\"text\":\"Uncaught\",\"lineNumber\":0,\"columnNumber\":94,\"scriptId\":\"36\",\"stackTrace\":{\"callFrames\":[{\"functionName\":\"\",\"scriptId\":\"36\",\"url\":\"\",\"lineNumber\":0,\"columnNumber\":100},{\"functionName\":\"\",\"scriptId\":\"36\",\"url\":\"\",\"lineNumber\":0,\"columnNumber\":194}]},\"exception\":{\"type\":\"object\",\"subtype\":\"error\",\"className\":\"Error\",\"description\":\"Error: Not an enabled visible target: #tQuick\\n    at <anonymous>:1:101\\n    at <anonymous>:1:195\",\"objectId\":\"-4201368682593585238.2.28\"}}\n    at run (C:\\Users\\Joshua\\Documents\\Codex\\2026-10-08\\rea\\work\\custard-knights-home\\qa\\home-navigation-browser.cjs:25:148)\n    at async click (C:\\Users\\Joshua\\Documents\\Codex\\2026-10-08\\rea\\work\\custard-knights-home\\qa\\home-navigation-browser.cjs:33:139)\n    at async C:\\Users\\Joshua\\Documents\\Codex\\2026-10-08\\rea\\work\\custard-knights-home\\qa\\home-navigation-browser.cjs:68:81\n    at async step (C:\\Users\\Joshua\\Documents\\Codex\\2026-10-08\\rea\\work\\custard-knights-home\\qa\\home-navigation-browser.cjs:37:49)\n    at async main (C:\\Users\\Joshua\\Documents\\Codex\\2026-10-08\\rea\\work\\custard-knights-home\\qa\\home-navigation-browser.cjs:68:2)"
+    },
+    {
+      "profile": "fresh",
+      "name": "Quick start uses displayed retained safe rules and results return home",
+      "pass": false,
+      "error": "Error: {\"exceptionId\":15,\"text\":\"Uncaught\",\"lineNumber\":0,\"columnNumber\":94,\"scriptId\":\"36\",\"stackTrace\":{\"callFrames\":[{\"functionName\":\"\",\"scriptId\":\"36\",\"url\":\"\",\"lineNumber\":0,\"columnNumber\":100},{\"functionName\":\"\",\"scriptId\":\"36\",\"url\":\"\",\"lineNumber\":0,\"columnNumber\":194}]},\"exception\":{\"type\":\"object\",\"subtype\":\"error\",\"className\":\"Error\",\"description\":\"Error: Not an enabled visible target: #tQuick\\n    at <anonymous>:1:101\\n    at <anonymous>:1:195\",\"objectId\":\"-4201368682593585238.2.30\"}}\n    at run (C:\\Users\\Joshua\\Documents\\Codex\\2026-10-08\\rea\\work\\custard-knights-home\\qa\\home-navigation-browser.cjs:25:148)\n    at async click (C:\\Users\\Joshua\\Documents\\Codex\\2026-10-08\\rea\\work\\custard-knights-home\\qa\\home-navigation-browser.cjs:33:139)\n    at async C:\\Users\\Joshua\\Documents\\Codex\\2026-10-08\\rea\\work\\custard-knights-home\\qa\\home-navigation-browser.cjs:69:96\n    at async step (C:\\Users\\Joshua\\Documents\\Codex\\2026-10-08\\rea\\work\\custard-knights-home\\qa\\home-navigation-browser.cjs:37:49)\n    at async main (C:\\Users\\Joshua\\Documents\\Codex\\2026-10-08\\rea\\work\\custard-knights-home\\qa\\home-navigation-browser.cjs:69:2)"
+    },
+    {
+      "profile": "fresh",
+      "name": "Quit browser hides unavailable bridge",
+      "pass": true,
+      "details": {
+        "pass": true
+      }
+    },
+    {
+      "profile": "fresh",
+      "name": "Quit modal isolates focus and activation, Escape restores Quit focus",
+      "pass": false,
+      "error": "Error: {\"exceptionId\":16,\"text\":\"Uncaught\",\"lineNumber\":0,\"columnNumber\":93,\"scriptId\":\"69\",\"stackTrace\":{\"callFrames\":[{\"functionName\":\"\",\"scriptId\":\"69\",\"url\":\"\",\"lineNumber\":0,\"columnNumber\":99},{\"functionName\":\"\",\"scriptId\":\"69\",\"url\":\"\",\"lineNumber\":0,\"columnNumber\":192}]},\"exception\":{\"type\":\"object\",\"subtype\":\"error\",\"className\":\"Error\",\"description\":\"Error: Not an enabled visible target: #tQuit\\n    at <anonymous>:1:100\\n    at <anonymous>:1:193\",\"objectId\":\"-4201368682593585238.2.32\"}}\n    at run (C:\\Users\\Joshua\\Documents\\Codex\\2026-10-08\\rea\\work\\custard-knights-home\\qa\\home-navigation-browser.cjs:25:148)\n    at async click (C:\\Users\\Joshua\\Documents\\Codex\\2026-10-08\\rea\\work\\custard-knights-home\\qa\\home-navigation-browser.cjs:33:139)\n    at async C:\\Users\\Joshua\\Documents\\Codex\\2026-10-08\\rea\\work\\custard-knights-home\\qa\\home-navigation-browser.cjs:74:62\n    at async step (C:\\Users\\Joshua\\Documents\\Codex\\2026-10-08\\rea\\work\\custard-knights-home\\qa\\home-navigation-browser.cjs:37:49)\n    at async main (C:\\Users\\Joshua\\Documents\\Codex\\2026-10-08\\rea\\work\\custard-knights-home\\qa\\home-navigation-browser.cjs:71:2)"
+    },
+    {
+      "profile": "fresh",
+      "name": "1280x800 menu controls visible or scrollable without horizontal clipping",
+      "pass": true,
+      "details": {
+        "pass": true,
+        "info": {
+          "width": 1280,
+          "height": 800,
+          "scroll": false,
+          "overflow": "auto",
+          "controls": []
+        }
+      }
+    }
+  ],
+  "consoleErrors": [],
+  "limitations": [
+    "Actual isolated Chrome with CDP mouse/keyboard and synthetic standard gamepad.",
+    "No physical controllers, human usability, external networking, packaged EXE, second Windows PC, or Steam testing.",
+    "Fixtures write only to temporary Chrome profiles; the user game and normal saves are untouched."
+  ],
+  "sourceHashes": {
+    "index.html": "2e43cd85673ea5870f88c2c88a1a83edcdb4dfbdc6b1ea9ccdcdcabc3352cda4",
+    "game/campaign-ui.js": "3289bd972a67e7b4d070a59d07c0a36beaf56ec9a323a3936f775d9b2ed41a9f",
+    "game/mass-battle-ui.js": "5f69c8ecae07bda014a9a649e704201b928f03a592d8176f62188a42d1ec2143"
+  },
+  "failure": "Error: {\"exceptionId\":17,\"text\":\"Uncaught\",\"lineNumber\":0,\"columnNumber\":94,\"scriptId\":\"36\",\"stackTrace\":{\"callFrames\":[{\"functionName\":\"\",\"scriptId\":\"36\",\"url\":\"\",\"lineNumber\":0,\"columnNumber\":100},{\"functionName\":\"\",\"scriptId\":\"36\",\"url\":\"\",\"lineNumber\":0,\"columnNumber\":194}]},\"exception\":{\"type\":\"object\",\"subtype\":\"error\",\"className\":\"Error\",\"description\":\"Error: Not an enabled visible target: #tQuick\\n    at <anonymous>:1:101\\n    at <anonymous>:1:195\",\"objectId\":\"-4201368682593585238.2.34\"}}\n    at run (C:\\Users\\Joshua\\Documents\\Codex\\2026-10-08\\rea\\work\\custard-knights-home\\qa\\home-navigation-browser.cjs:25:148)\n    at async click (C:\\Users\\Joshua\\Documents\\Codex\\2026-10-08\\rea\\work\\custard-knights-home\\qa\\home-navigation-browser.cjs:33:139)\n    at async main (C:\\Users\\Joshua\\Documents\\Codex\\2026-10-08\\rea\\work\\custard-knights-home\\qa\\home-navigation-browser.cjs:83:19)",
+  "finishedAt": "2026-10-13T08:53:49.790Z",
+  "sourceHashesAfter": {
+    "index.html": "2e43cd85673ea5870f88c2c88a1a83edcdb4dfbdc6b1ea9ccdcdcabc3352cda4",
+    "game/campaign-ui.js": "3289bd972a67e7b4d070a59d07c0a36beaf56ec9a323a3936f775d9b2ed41a9f",
+    "game/mass-battle-ui.js": "5f69c8ecae07bda014a9a649e704201b928f03a592d8176f62188a42d1ec2143"
+  }
+}

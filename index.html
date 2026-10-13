@@ -90,6 +90,18 @@ kbd{font-family:Nunito,sans-serif;font-weight:900;font-size:11px;background:var(
 @keyframes wob{0%,100%{transform:rotate(-3deg)}50%{transform:rotate(-1deg)}} @keyframes drip{0%{transform:scaleY(.2);opacity:1}70%{transform:scaleY(1);opacity:1}100%{transform:scaleY(1.2) translateY(14px);opacity:0}}
 /* home screen */
 .home-ov{background:#1C1330}
+.home-routes{display:flex;flex-direction:column;gap:10px}
+.home-left{padding:20px;border-radius:24px;background:rgba(34,23,51,.9);border:2px solid rgba(255,210,63,.35)}
+.home-routes .mbtn{min-height:70px;padding:10px 14px}
+.home-routes .mbtn b{font-size:25px}
+.home-utilities{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+.home-utilities .btn{font-size:15px;padding:8px 10px}
+.route-panel h2{margin:0;font:36px 'Lilita One',Impact,sans-serif;color:var(--custard)}
+.route-panel .mbtn small{line-height:1.4}
+.route-summary{margin:0;padding:12px 14px;background:var(--ink);border-radius:14px;font-size:15px;line-height:1.5;color:var(--cream)}
+#quitDialog{z-index:30;background:rgba(20,12,34,.9)}
+@media(max-height:720px){.home-left{gap:10px;padding:14px}.home .logo.xl{font-size:clamp(44px,7vw,72px)}.home-routes{gap:8px}.home-routes .mbtn{min-height:60px}.home-routes .mbtn b{font-size:23px}.home-routes .mbtn small{font-size:12px}.home-left .tag{font-size:14px}}
+@media(max-width:820px){.home-routes .mbtn{min-height:60px}.home-left{padding:14px}.home-right{order:0}#heroCv{max-width:200px}.home-ov{place-items:start center}.home-right{display:none}}
 .keyart{position:absolute;inset:0;background:url(art/keyart/home.webp) 72% 40%/cover no-repeat}
 .keyart::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(20,12,34,.9) 0%,rgba(20,12,34,.72) 34%,rgba(20,12,34,.12) 58%,rgba(20,12,34,0) 70%),linear-gradient(0deg,rgba(20,12,34,.55),rgba(20,12,34,0) 30%)}
 .home{position:relative}
@@ -192,6 +204,22 @@ body[data-input=pad] :is(button,.card,.tile,input,select):focus{outline:4px soli
 .mchips.wrap{flex-wrap:wrap;overflow:visible} .seg.wrap{flex-wrap:wrap}
 .partygo{display:flex;align-items:center;gap:14px;flex-wrap:wrap;margin-top:6px}
 @media (max-width:820px){.seats{grid-template-columns:repeat(2,minmax(0,1fr))} .seat{min-height:180px} .seat canvas{width:110px;height:110px}}
+/* Keep the four routes together at the desktop's smallest window. */
+#homeStatus:empty{display:none}
+@media(max-width:820px){
+ .home-ov{place-items:start center}
+ .home{grid-template-columns:minmax(0,1fr);padding:8px;gap:0}
+ .home-right{display:none}
+ .home-left{padding:14px;gap:12px}
+ .home-left .hero{display:block;padding-bottom:4px}
+ .home-left .logo.xl{font-size:44px;line-height:1.05;transform:none;animation:none}
+ .home-left .drip{display:none}
+ .home-routes{gap:10px}
+ .home-routes .mbtn{min-height:62px;padding:10px 14px}
+ .home-routes .mbtn b{font-size:24px}
+ .home-routes .mbtn small{display:block;font-size:12px}
+ .home-utilities .btn{min-height:38px}
+}
 </style>
 </head>
 <body>
@@ -232,18 +260,18 @@ body[data-input=pad] :is(button,.card,.tile,input,select):focus{outline:4px soli
     <div class="home">
       <div class="home-left">
         <div class="hero"><h1 class="logo xl">Custard <span>Knights</span></h1><span class="drip" aria-hidden="true"></span><span class="drip d2" aria-hidden="true"></span></div>
-        <p class="tag">Eight knights, one arena, and power-ups that start sensible and end with everyone as chickens.</p>
-        <nav class="mm" aria-label="Main menu">
-          <button class="mbtn primary" id="tQuick" type="button"><i><svg viewBox="0 0 24 24"><path d="M4 20 L14 10 M12 4 L20 4 L20 12 M9 15 L5 19" stroke="currentColor" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></i><span><b>Quick brawl</b><small>You against seven bots. One click.</small></span></button>
-          <div class="mgrid">
-            <button class="mbtn" id="tCustom" type="button"><i><svg viewBox="0 0 24 24"><path d="M4 7h10M18 7h2M4 17h2M10 17h10" stroke="currentColor" stroke-width="3" stroke-linecap="round"/><circle cx="16" cy="7" r="2.6" fill="none" stroke="currentColor" stroke-width="2.6"/><circle cx="8" cy="17" r="2.6" fill="none" stroke="currentColor" stroke-width="2.6"/></svg></i><span><b>Modes &amp; arenas</b><small>8 modes, 6 arenas, bots, up to 4 on one screen</small></span></button>
-            <button class="mbtn" id="tOnline" type="button"><i><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5" fill="none" stroke="currentColor" stroke-width="2.6"/><path d="M3.5 12h17M12 3.5c3 3 3 14 0 17M12 3.5c-3 3-3 14 0 17" fill="none" stroke="currentColor" stroke-width="2.2"/></svg></i><span><b>Online</b><small>Host a room. Invite your friends.</small></span></button>
-            <button class="mbtn" id="tWardrobe" type="button"><i><svg viewBox="0 0 24 24"><path d="M6 20V11a6 6 0 0 1 12 0v9Z" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linejoin="round"/><path d="M8 12h8" stroke="currentColor" stroke-width="3" stroke-linecap="round"/><path d="M12 5V2" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"/></svg></i><span><b>Wardrobe</b><small>Helms, plumes, capes, blades, chickens</small></span></button>
-            <button class="mbtn" id="tParty" type="button"><i><svg viewBox="0 0 24 24"><path d="M7 8h10a4 4 0 0 1 4 4v3a3 3 0 0 1-5.4 1.8L14.5 15h-5l-1.1 1.8A3 3 0 0 1 3 15v-3a4 4 0 0 1 4-4Z" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linejoin="round"/><path d="M8 10.5v3M6.5 12h3" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/><circle cx="16" cy="11" r="1.2" fill="currentColor"/><circle cx="18" cy="13.2" r="1.2" fill="currentColor"/></svg></i><span><b>Couch party</b><small id="partyPads">2 to 4 players on one screen</small></span></button>
-          </div>
-          <div class="mrow"><button class="btn" id="tHowto" type="button">How to play</button><button class="btn" id="tSettings" type="button">Settings</button></div>
-          <div class="mstrip"><span class="lab">Jump into a mode</span><div class="mchips" id="modeChips"></div></div>
+        <p class="tag">A knight, a little custard, and your next adventure.</p>
+        <nav class="home-routes" aria-label="Main menu">
+          <button class="mbtn primary" id="tQuick" type="button"><span><b>Quick Brawl</b><small>A solo match, your own rules, or a Custard Cup</small></span></button>
+          <button class="mbtn" id="tAdventure" type="button"><span><b id="homeStoryTitle">Story</b><small id="homeStorySummary">The Great Pudding War · a solo adventure</small></span></button>
+          <button class="mbtn" id="tFriends" type="button"><span><b>Play with Friends</b><small>This PC or an online room · single match or Cup</small></span></button>
+          <button class="mbtn" id="tFactionBattle" type="button"><span><b>Faction Front</b><small>Bot practice or a hosted battle · preview</small></span></button>
         </nav>
+        <nav class="home-utilities" aria-label="Utilities">
+          <button class="btn" id="tWardrobe" type="button">Wardrobe</button><button class="btn" id="tSettings" type="button">Options</button>
+          <button class="btn" id="tHowto" type="button">How to Play</button><button class="btn" id="tQuit" type="button" hidden>Quit</button>
+        </nav>
+        <p class="note" id="homeStatus" role="status"></p>
         <p class="note" id="menuHint">Keyboard, touch or a pad. Press any button on a pad and it just works.</p>
       </div>
       <div class="home-right" aria-hidden="true">
@@ -251,6 +279,35 @@ body[data-input=pad] :is(button,.card,.tile,input,select):focus{outline:4px soli
         <div class="plate"><b id="plateName">Your knight</b><span id="plateTier">Tier 0 of 18</span><div class="bar"><i id="plateBar"></i></div></div>
       </div>
     </div>
+  </div>
+
+  <div id="quickRoute" class="overlay" hidden>
+    <section class="panel route-panel" aria-labelledby="quickTitle">
+      <div class="head"><h2 id="quickTitle">Quick Brawl</h2><button class="btn" type="button" data-back>Back</button></div>
+      <p class="tag">Pick a quick solo match or make it your own.</p>
+      <p class="route-summary" id="quickSummary"></p>
+      <button class="mbtn primary" id="quickStart" type="button"><span><b>Start quick brawl</b><small>You against seven bots · the rules above</small></span></button>
+      <button class="mbtn" id="tCustom" type="button"><span><b>Custom brawl</b><small>All 8 modes, 6 arenas, difficulty, chaos and local players</small></span></button>
+      <button class="mbtn" id="tCup" type="button"><span><b>Solo Custard Cup</b><small>FFA, King of the Pie, Hot Pie · three rounds, up to 2 minutes each</small></span></button>
+      <details><summary>Browse all modes</summary><div class="mchips wrap" id="modeChips"></div></details>
+    </section>
+  </div>
+  <div id="friendsRoute" class="overlay" hidden>
+    <section class="panel route-panel" aria-labelledby="friendsTitle">
+      <div class="head"><h2 id="friendsTitle">Play with Friends</h2><button class="btn" type="button" data-back>Back</button></div>
+      <p class="tag">Choose where your friends are playing.</p>
+      <button class="mbtn primary" id="tParty" type="button"><span><b>On this PC</b><small id="partyPads">Join up to 4 local seats · one brawl or a Custard Cup</small></span></button>
+      <button class="mbtn" id="tOnline" type="button"><span><b>Online room</b><small>Host or join by code · up to 8 knights, bots fill the gaps</small></span></button>
+      <button class="mbtn" id="friendsCup" type="button"><span><b>Custard Cup with friends</b><small>Join seats on this PC, then play three rounds together</small></span></button>
+      <button class="btn" id="friendsCustom" type="button">Set custom arena rules</button>
+      <p class="route-summary">Online guests each control one knight. A host can add local players in Custom brawl. Host a Cup from the room lobby.</p>
+    </section>
+  </div>
+  <div id="quitDialog" class="overlay" role="dialog" aria-modal="true" aria-labelledby="quitTitle" hidden>
+    <section class="panel route-panel">
+      <h2 id="quitTitle">Quit Custard Knights?</h2><p class="tag">Close the game and return to your desktop.</p>
+      <div class="row"><button id="quitCancel" class="btn big" type="button" data-back>Keep playing</button><button id="quitConfirm" class="btn" type="button">Quit game</button></div>
+    </section>
   </div>
 
   <div id="setup" class="overlay" hidden>
@@ -2629,10 +2686,22 @@ const parseV=v=>v==='true'?true:v==='false'?false:(/^-?\d+$/.test(v)?+v:v);
 document.querySelectorAll('.seg[data-k]').forEach(seg=>{ seg.addEventListener('click',ev=>{ const b=ev.target.closest('button'); if(!b)return; seg.querySelectorAll('button').forEach(x=>x.setAttribute('aria-pressed',String(x===b))); cfg[seg.dataset.k]=parseV(b.dataset.v); saveCfg(); refreshSetup(); }); });
 function syncSegs(){ document.querySelectorAll('.seg[data-k]').forEach(seg=>{ const k=seg.dataset.k; seg.querySelectorAll('button').forEach(x=>x.setAttribute('aria-pressed',String(parseV(x.dataset.v)===cfg[k]))); }); }
 /* ---------- screens ---------- */
-const SCREENS=['menu','setup','online','lobby','wardrobe','howto','settings','pause','end','party','cupResults'];
+const SCREENS=['menu','quickRoute','friendsRoute','setup','online','lobby','wardrobe','howto','settings','pause','end','party','cupResults'];
+const menuFocus=new Map(),screenReturn=new Map();
 const esc=t=>String(t).replace(/[&<>]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;'}[c]));
-function showScreen(id){ if(id)cueMusic(id==='wardrobe'?'wardrobe':'menu'); SCREENS.forEach(k=>{ const el=$(k); if(el) el.hidden=(k!==id); }); if(id){ const el=$(id); const f=el.querySelector('.tile,button.big,button'); if(f) setTimeout(()=>f.focus(),0); } }
-document.querySelectorAll('[data-back]').forEach(b=>b.addEventListener('click',()=>{ if(NET.role==='client'){ leaveOnline(); return; } if(NET.role==='host'&&$('setup')&&!$('setup').hidden){ showLobby(); return; } showScreen('menu'); }));
+function menuControls(sc){return [...sc.querySelectorAll('button,input,select,summary,[tabindex="0"]')].filter(el=>!el.hidden&&el.getClientRects().length&&!el.disabled);}
+function rememberMenuFocus(){const sc=visibleScreen();if(sc&&sc.contains(document.activeElement))menuFocus.set(sc.id,document.activeElement);return sc;}
+function focusScreen(el){if(!el||el.hidden)return;const controls=menuControls(el),saved=menuFocus.get(el.id),target=controls.includes(saved)?saved:controls.find(b=>!b.hasAttribute('data-back'))||controls[0];if(target){target.focus();target.scrollIntoView({block:'nearest'});}}
+function showScreen(id){ const from=rememberMenuFocus();if(id&&from&&from.id!==id&&['menu','quickRoute','friendsRoute','lobby'].includes(from.id)&&id!=='menu')screenReturn.set(id,from.id); if(id)cueMusic(id==='wardrobe'?'wardrobe':'menu'); SCREENS.forEach(k=>{ const el=$(k); if(el) el.hidden=(k!==id); }); if(id==='menu')refreshHome();if(id==='quickRoute')refreshQuick(); if(id)queueMicrotask(()=>focusScreen($(id))); }
+function backScreen(){if(NET.role==='client'){leaveOnline();return;}const sc=visibleScreen();if(NET.role==='host'&&sc?.id==='setup'){showLobby();return;}showScreen(screenReturn.get(sc?.id)||'menu');}
+document.querySelectorAll('[data-back]').forEach(b=>{if(b.closest('#quitDialog'))return;b.addEventListener('click',backScreen);});
+function quickRules(){let played=0;try{played=+localStorage.getItem('ck-played')||0;}catch(_){}return {mode:cfg.mode==='teams'?'teams':'ffa',diff:played<2?'easy':cfg.diff,first:played<2};}
+function refreshQuick(){const r=quickRules(),arena=cfg.map==='random'?'Random arena':MAPS[cfg.map]?.name||'Random arena';$('quickSummary').textContent=`${MODES[r.mode].name} · ${r.diff==='steve'?'STEVE':r.diff[0].toUpperCase()+r.diff.slice(1)} bots · ${arena} · ${arenaSize(cfg.arenaSize)==='roomier'?'Roomier':'Classic'} · ${cfg.length} seconds · ${cfg.chaosSpeed[0].toUpperCase()+cfg.chaosSpeed.slice(1)} chaos${cfg.chaosPlus?' + Mirror Curse / Swap Party':''}.`+(r.first?' Your first two quick brawls use Easy bots.':' Remembered arena rules.');}
+function homeStory(){if(!ADVENTURE)return null;const c=ADVENTURE.campaign,s=c.save,id=s.checkpoint?.id||(c.next()||CKCampaign.byId[s.selected]).id;return {id,node:CKCampaign.byId[id],started:!!s.checkpoint||Object.values(s.results).some(r=>r.attempts>0),checkpoint:s.checkpoint};}
+function refreshHome(){const story=homeStory();if(story){$('homeStoryTitle').textContent=story.started?'Continue Story':'Story';$('homeStorySummary').textContent=story.started?`${story.node.title} · ${story.checkpoint?CKCampaign.checkpointLabel(story.checkpoint):story.node.objective}`:'The Great Pudding War · a solo adventure';}refreshQuick();}
+function openQuit(){rememberMenuFocus();$('menu').inert=true;$('quitDialog').hidden=false;$('quitCancel').focus();}
+function closeQuit(){$('quitDialog').hidden=true;$('menu').inert=false;focusScreen($('menu'));}
+$('tQuit').hidden=location.protocol!=='custard:';$('tQuit').onclick=openQuit;$('quitCancel').onclick=closeQuit;$('quitConfirm').onclick=()=>window.close();
 let thumbs={};
 function mapThumb(key){
  const size=arenaSize(cfg.arenaSize),cacheKey=size+':'+key;if(thumbs[cacheKey])return thumbs[cacheKey];
@@ -2672,7 +2741,11 @@ function refreshSetup(){
  $('setupControls').textContent=t;
  $('startBtn').textContent=NET.role==='host'?'Back to the lobby with these settings':'Start the brawl';
 }
-$('tQuick').onclick=()=>{ cfg.players=1; let played=0; try{ played=+localStorage.getItem('ck-played')||0; }catch(e){} if(played<2){ cfg.diff='easy'; } if(!MODES[cfg.mode]||cfg.mode!=='ffa'&&cfg.mode!=='teams'){ cfg.mode='ffa'; } saveCfg(); start(); };
+$('tQuick').onclick=()=>{refreshQuick();showScreen('quickRoute');};
+$('quickStart').onclick=()=>{ cfg.players=1; let played=0; try{ played=+localStorage.getItem('ck-played')||0; }catch(e){} if(played<2){ cfg.diff='easy'; } if(!MODES[cfg.mode]||cfg.mode!=='ffa'&&cfg.mode!=='teams'){ cfg.mode='ffa'; } saveCfg(); start(); };
+$('tFriends').onclick=()=>showScreen('friendsRoute');
+$('friendsCustom').onclick=()=>{buildSetup();showScreen('setup');};
+$('friendsCup').onclick=()=>{openParty();queueMicrotask(()=>{if(partyOpen())$('partyCup').focus();});};
 $('tCustom').onclick=()=>{ buildSetup(); showScreen('setup'); };
 // ---------- couch party: join with a controller or a keyboard half, pick together/versus, mode and arena, go
 const PARTY={seats:[],style:'together',mode:'teams',map:'random',ents:[0,1,2,3].map(i=>mkKnight({id:60+i,hero:1}))};
@@ -2688,6 +2761,7 @@ function partyPad(idx,e){ const i=PARTY.seats.findIndex(x=>x.dev==='pad'&&x.idx=
  if(e.up) menuNav(0,-1); if(e.down) menuNav(0,1); if(e.left) menuNav(-1,0); if(e.right) menuNav(1,0); if(e.a) menuActivate(); }
 function partyModes(){ return PARTY.style==='together'?TEAM_MODES:Object.keys(MODES); }
 function renderParty(){
+ const focused=document.activeElement,modeFocus=focused?.closest('#partyModes')?focused.title:null,seatFocus=focused?.matches('#seats .leave')?[...$('seats').querySelectorAll('.leave')].indexOf(focused):-1;
  syncSegs();
  const box=$('seats'); box.innerHTML='';
  for(let i=0;i<4;i++){ const d=PARTY.seats[i], el=document.createElement('div'); el.className='seat'+(d?' on':'');
@@ -2701,7 +2775,8 @@ function renderParty(){
  pm.querySelectorAll('button').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.v===PARTY.map)));
  const n=PARTY.seats.length; $('partyGo').disabled=!n;
  $('partyMsg').textContent=!n?'Nobody has joined yet.':PARTY.style==='together'?`${n} on the same team against bots.`:`${n} knight${n>1?'s':''} against each other, bots fill the rest.`;
- const pads=PADS.length; $('partyPads').textContent=pads>=2?`${pads} controllers ready`:'2 to 4 players on one screen'; }
+ const pads=PADS.length; $('partyPads').textContent=pads>=2?`${pads} controllers ready · one brawl or a Cup`:'Join up to 4 local seats · one brawl or a Custard Cup';
+ if(partyOpen()&&!focused?.isConnected){const target=modeFocus?[...mb.querySelectorAll('button')].find(b=>b.title===modeFocus):seatFocus>=0?$('seats').querySelectorAll('.leave')[Math.min(seatFocus,PARTY.seats.length-1)]:null;if(target)target.focus();else focusScreen($('party'));} }
 function partyStart(){ const n=PARTY.seats.length; if(!n||NET.role==='client') return;
  cfg.players=n; cfg.mode=PARTY.mode; cfg.map=PARTY.map; cfg.teamSplit=PARTY.style==='versus'&&n>1; saveCfg();
  SEATS=PARTY.seats.map(d=>Object.assign({},d)); partyGo=true; if(partyCupRequested){partyCupRequested=false;startCup();}else start(); }
@@ -2710,7 +2785,7 @@ function drawParty(){ if(!partyOpen()||!G) return; const cvs=[...$('seats').quer
  cvs.forEach((c,i)=>{ const e=PARTY.ents[i], pr=seatLook(i), px=c.getContext('2d'); px.setTransform(1,0,0,1,0,0); px.fillStyle='#5FA84E'; px.fillRect(0,0,300,300);
   px.setTransform(3.1,0,0,3.1,0,0); e.x=48.4; e.y=61; e.kit={helm:pr.helm,plume:pr.plume,metal:pr.metal,visor:pr.visor}; e.emblem=pr.emblem; e.color=pr.color; e.cape=pr.cape; e.blade=pr.blade;e.pose=pr.pose; e.plume=pr.color===CUST?PINK:CUST; e.face=Math.PI/2+Math.sin(G.clock*.8+i)*.6; e.vx=e.vy=0;
   const keep=ctx; ctx=px; try{ drawKnight(e); }finally{ ctx=keep; } }); }
-function openParty(){ PARTY.seats=PARTY.seats.filter(d=>d.dev!=='pad'||PADS.some(g=>g.index===d.idx)); renderParty(); showScreen('party'); setTimeout(()=>{ const b=$('partyGo'); if(b&&!b.disabled) b.focus(); },60); }
+function openParty(){ PARTY.seats=PARTY.seats.filter(d=>d.dev!=='pad'||PADS.some(g=>g.index===d.idx)); renderParty(); showScreen('party'); }
 $('tParty').onclick=()=>openParty();
 $('partyGo').onclick=()=>partyStart();
 document.querySelector('.seg[data-p="style"]').addEventListener('click',ev=>{ const b=ev.target.closest('button'); if(!b) return; PARTY.style=b.dataset.v; renderParty(); });
@@ -2844,7 +2919,7 @@ function endMatch(remoteResults){
   li.children[2].textContent=e.name; ol.appendChild(li); });
  productEvent('round_completed',{roundId:G.roundId,result:G.winners.length?(G.winners.some(isMine)?'win':'loss'):'draw'});
  cueMusic(G.winners.some(isMine)?'victory':'defeat');
- $('end').hidden=false;
+ $('end').hidden=false;queueMicrotask(()=>focusScreen($('end')));
  if(G.firstFight){firstFightFinish('completed');for(const el of $('end').querySelectorAll('.collectionReward,.collectionPodium'))el.remove();return;}
  finishCupRound();if(!CUP)showCollectionReward($('end').querySelector('.panel'));
 }
@@ -2880,16 +2955,27 @@ function padEdges(){
  });
 }
 addEventListener('gamepaddisconnected',ev=>{ if(G&&!G.demo&&!G.over&&SEATS&&SEATS.some(x=>x.dev==='pad'&&x.idx===ev.gamepad.index)){ setPause(true); feed('A controller disconnected. Plug it back in and press A.'); } if(partyOpen()){ partyLeavePad(ev.gamepad.index); } });
-function visibleScreen(){ return [...document.querySelectorAll('.overlay')].find(o=>!o.hidden); }
-function menuNav(dx,dy){ const sc=visibleScreen(); if(!sc) return; const els=[...sc.querySelectorAll('button,input,select,[tabindex="0"]')].filter(el=>!el.hidden&&el.offsetParent!==null&&!el.disabled); if(!els.length) return;
+function visibleScreen(){ const overlays=[...document.querySelectorAll('.overlay')].filter(o=>!o.hidden);return overlays.find(o=>o.getAttribute('aria-modal')==='true')||overlays.at(-1); }
+function menuNav(dx,dy){ const sc=visibleScreen(); if(!sc) return; const els=menuControls(sc); if(!els.length) return;
  let cur=document.activeElement; if(!els.includes(cur)){ els[0].focus(); return; }
  if(dx&&cur.parentElement?.matches('.seg[data-w=visor]')){const choices=[...cur.parentElement.querySelectorAll('button')],next=choices[clamp(choices.indexOf(cur)+Math.sign(dx),0,choices.length-1)];next.focus();next.scrollIntoView({block:'nearest'});return;}
  if(dx&&cur.matches('input[type=range]')){const before=cur.value;dx>0?cur.stepUp():cur.stepDown();if(cur.value!==before){cur.dispatchEvent(new Event('input',{bubbles:true}));cur.dispatchEvent(new Event('change',{bubbles:true}));}return;}
  const cr=cur.getBoundingClientRect(), cx0=cr.left+cr.width/2, cy0=cr.top+cr.height/2; let best=null,bs=1e9;
  for(const el of els){ if(el===cur) continue; const r=el.getBoundingClientRect(), ex=r.left+r.width/2-cx0, ey=r.top+r.height/2-cy0; const along=ex*dx+ey*dy, across=Math.abs(ex*dy)+Math.abs(ey*dx); if(along<8) continue; const sc2=along+across*2.5; if(sc2<bs){bs=sc2;best=el} }
  if(best){ best.focus(); best.scrollIntoView({block:'nearest'}); } }
-function menuActivate(){ const el=document.activeElement; if(el&&!el.disabled&&(el.tagName==='BUTTON'||el.matches('input[type=checkbox],input[type=radio]'))) el.click(); }
-function menuBack(){ const sc=visibleScreen(); if(!sc) return; const b=sc.querySelector('[data-back]'); if(b) b.click(); }
+function menuActivate(){ const sc=visibleScreen(),el=document.activeElement; if(sc&&sc.contains(el)&&!el.disabled&&(el.tagName==='BUTTON'||el.tagName==='SUMMARY'||el.matches('input[type=checkbox],input[type=radio]'))) el.click(); }
+function menuBack(){ const sc=visibleScreen(); if(!sc) return;if(sc.id==='pause'){setPause(false);return;}if(sc.id==='end'){toMenu();return;}if(sc.id==='lobby'){leaveOnline();return;} const b=sc.querySelector('[data-back]'); if(b) b.click(); }
+addEventListener('keydown',ev=>{
+ if(massBattleUI?.active())return;
+ const sc=visibleScreen();if(!sc||(G&&!G.demo&&!G.over&&!paused))return;
+ if(ev.code==='Escape'){ev.preventDefault();ev.stopImmediatePropagation();if(!ev.repeat)menuBack();return;}
+ const typing=ev.target?.matches('input,select,textarea');
+ if(ev.code==='Tab'){const controls=menuControls(sc);if(!controls.length)return;const index=controls.indexOf(document.activeElement);if(index<0||ev.shiftKey&&index===0||!ev.shiftKey&&index===controls.length-1){ev.preventDefault();controls[ev.shiftKey?controls.length-1:0].focus();}return;}
+ if(typing)return;
+ const arrows={ArrowUp:[0,-1],ArrowDown:[0,1],ArrowLeft:[-1,0],ArrowRight:[1,0]};
+ if(arrows[ev.code]){ev.preventDefault();ev.stopImmediatePropagation();menuNav(...arrows[ev.code]);return;}
+ if(ev.code==='Enter'||ev.code==='Space'){ev.preventDefault();ev.stopImmediatePropagation();if(!ev.repeat)menuActivate();}
+},true);
 addEventListener('keyup',ev=>{ keys[ev.code]=false; });
 addEventListener('blur',()=>{ for(const k in keys)keys[k]=false; });
 const joyEl=$('joy'),knob=$('knob');
@@ -2934,7 +3020,7 @@ function renderLobby(){
  if(host) lobbyMsg(NET.peer&&NET.peer.open?`${NET.players.length-1+cfg.players} of 8 knights. Bots fill the empty spots. Arena, mode and bots come from the main menu.`:'Opening the room…');
 }
 function netReset(){ CUP=null;cupUI.hide();const peer=NET.peer; Object.assign(NET,{role:null,peer:null,conn:null,conns:new Map(),code:'',players:[],me:-1,inputs:{},latch:{},fxq:[],lastIn:'',lastInT:0,an:0,dn:0,pa:false,pd:false,waiting:false}); try{ if(peer) peer.destroy(); }catch(e){} }
-function leaveOnline(msg){ productJoinEnd('join_failed',msg?'disconnected':'cancelled');netReset(); $('lobby').hidden=true; toMenu(); $('menuMsg').textContent=msg||''; }
+function leaveOnline(msg){ productJoinEnd('join_failed',msg?'disconnected':'cancelled');netReset(); $('lobby').hidden=true; toMenu(); $('menuMsg').textContent=msg||'';$('homeStatus').textContent=msg||''; }
 function broadcast(m){ for(const c of NET.conns.values()) if(c.open) try{ c.send(m); }catch(e){} }
 function sendLobby(){ broadcast({t:'lobby',code:NET.code,players:NET.players.map(p=>({name:p.name}))}); renderLobby(); }
 
@@ -3144,12 +3230,12 @@ function finishCupRound(){
 function cupReady(key,choice,ready){if(!CUP)return;if(NET.role==='client'){if(NET.conn&&NET.conn.open)NET.conn.send({t:'cup-ready',cupId:CUP.id,round:CUP.round,choice,ready});}else{CKCup.ready(CUP,key,choice,ready);syncCup();}}
 function nextCupRound(){if(NET.role!=='client'&&CUP&&CKCup.advance(CUP))runCupRound();}
 function cancelCup(){if(!CUP)return;CUP=null;cupUI.hide();if(NET.role==='host')broadcast({t:'cup',state:null});}
-const cupMenu=document.createElement('button');cupMenu.type='button';cupMenu.className='mbtn';cupMenu.id='tCup';cupMenu.innerHTML='<span><b>Custard Cup</b><small>Three rounds. One trophy. Local or online.</small></span>';cupMenu.onclick=()=>{cfg.players=1;SEATS=null;startCup();};document.querySelector('.mgrid').append(cupMenu);
+$('tCup').onclick=()=>{cfg.players=1;SEATS=null;startCup();};
 const cupParty=document.createElement('button');cupParty.type='button';cupParty.className='btn';cupParty.id='partyCup';cupParty.textContent='Play a Custard Cup';cupParty.onclick=()=>{if(!PARTY.seats.length){$('partyMsg').textContent='Join a seat first.';return;}partyCupRequested=true;partyStart();};$('partyGo').after(cupParty);
 const cupLobby=document.createElement('button');cupLobby.type='button';cupLobby.className='btn';cupLobby.id='lobbyCup';cupLobby.textContent='Host a Custard Cup';cupLobby.onclick=startCup;$('lobbyStart').after(cupLobby);
 
 /* ---------- Great Pudding War ---------- */
-const adventureMenu=document.createElement('button');adventureMenu.type='button';adventureMenu.className='mbtn';adventureMenu.id='tAdventure';adventureMenu.innerHTML='<span><b>The Great Pudding War</b><small>Story adventure · Eight encounters</small></span>';document.querySelector('.mgrid').append(adventureMenu);
+const adventureMenu=$('tAdventure');
 ADVENTURE=CKCampaignIntegration.connect({
  makeKnight:mkKnight,steer,hurt,redraw:drawBg,
  reducedMotion:()=>!SET.flash||matchMedia('(prefers-reduced-motion: reduce)').matches,
@@ -3161,7 +3247,8 @@ ADVENTURE=CKCampaignIntegration.connect({
  menu:toMenu
 },{onReward:campaignCollectionReward,onProductEvent:productEvent});
 SCREENS.push(...ADVENTURE.ui.screens);
-adventureMenu.onclick=()=>{if(!NET.role)ADVENTURE.open();};
+adventureMenu.onclick=()=>{if(!NET.role){rememberMenuFocus();ADVENTURE.open(homeStory()?.id);}};
+refreshHome();
 newGame(true);
 /* ---------- larger faction battles: separate simulation, shared accepted art ---------- */
 if(window.CKMassBattle&&window.CKMassBattleUI){
@@ -3194,11 +3281,11 @@ if(window.CKMassBattle&&window.CKMassBattleUI){
    try{ctx=battleCtx;G.clock=p.elapsed||0;G.over=false;G.mode='ffa';drawKnight(e);}finally{ctx=oldCtx;G.clock=oldClock;G.over=oldOver;G.mode=oldMode;}
   }
  });
- const battleButton=document.createElement('button');battleButton.type='button';battleButton.className='mbtn';battleButton.id='tFactionBattle';
- battleButton.innerHTML='<span><b>Faction Front</b><small>Brawl · Capture the flag · Castle siege · Preview</small></span>';
- battleButton.onclick=()=>massBattleUI.open();document.querySelector('.mgrid').append(battleButton);
+ const battleButton=$('tFactionBattle');
+ battleButton.onclick=()=>{rememberMenuFocus();massBattleUI.open();};
  if(new URLSearchParams(location.search).get('battle')==='1')massBattleUI.open();
-}
+}else{ $('tFactionBattle').disabled=true;$('tFactionBattle').querySelector('small').textContent='Battle files unavailable. Restart the game or reinstall this build.'; }
+queueMicrotask(()=>focusScreen(visibleScreen()));
 if(new URLSearchParams(location.search).has('qa')){
  window.CK={arenaGeometry:()=>({size:G.arenaSize,W,H,T,COLS,ROWS,OY,WB,worldFit:{scale:fitS,x:fitX,y:fitY},hudFit:{scale:hudS,x:hudX,y:hudY},camera:{...cam},backings:{bg:[bg.width,bg.height],wl:[wl.width,wl.height],darkness:[dk.width,dk.height],custard:[custCv.width,custCv.height]}}),mapThumb,validNetSetupShape,firstFight:()=>firstFight?Object.freeze({...firstFightFields(firstFight),config:Object.freeze({...firstFight.assignment.config})}):null,productReport:()=>productEvents?.report()||null,initArenaChaos,startRareEvent,endRareEvent,updateRareEvent,syncRareMusic,ko,startFall,setPause,spriteCacheEnabled:value=>{if(value!==undefined){sprFactionCacheEnabled=!!value;clearFactionSprites();}return sprFactionCacheEnabled;},spriteCompose: (e,i,open=false)=>sprCompose(e,i,open?SPR_OPEN.knight:SPR),spriteFrameCount:()=>SPR.per*5,spriteCache:()=>({entries:sprFactionCache.size,bytes:sprFactionCacheBytes,limit:sprFactionCacheLimit,hits:sprFactionCacheHits,misses:sprFactionCacheMisses}),clearFactionSprites,botInput,DIFFS,speedOf,MODES,massBattle:()=>massBattleUI,menuNav,menuActivate,combatBeat,bladeSweep,swingArc,sprFrame,headTop,applySnap,clientTick,presentationSettings:o=>Object.assign(SET,o),collection:()=>COLLECTION,setCollection:saveCollection,awardCollection,campaignCollectionReward,reloadWardrobeSaves,drawCollectionPreview,openWardrobe,owned,cleanKit,collectionUI:()=>collectionUI,adventure:ADVENTURE,hurt,startSwing,hitCrate,clang,doHit,fire,draw,toMenu,cup:()=>CUP,startCup,cupReady,nextCupRound,cancelCup,musicState:()=>({cue:musicCue,wanted:musicWant,src:music.getAttribute('src')}),cueMusic,audioStats:()=>({active:audioVoices,max:MAX_AUDIO_VOICES}),sfx,hostOnline,joinOnline,leaveOnline,G:()=>G,PROG,NET,clientRecv,hostRecv,hostDrop,snapshot,humanInput,endMatch,netSetup,rematch,seats:()=>SEATS,setSeats:v=>{SEATS=v;partyGo=true;},cfg,keys,touch,update,newGame,start,loadProfile,saveProfile,drawKnight:e=>drawKnight(e),sprites:v=>{ SET.classic=!v; },spritesReady:()=>sprReady,sprLoadAll:()=>sprLoadSet(SPR),sprLoadVisors:loadOpenVisors,visorAssets:()=>({requested:!!SPR_OPEN.promise,knightReady:SPR_OPEN.knightReady,heroReady:SPR_OPEN.heroReady}),mkKnight:o=>mkKnight(o),withCtx:(c,fn)=>{ const k=ctx; ctx=c; try{ fn(); }finally{ ctx=k; } },startEvent,startMayhem,applyPU,giveWeapon,spawnPickup,MAYHEM,PU,MAPS,WEAPONS,
   inputAim:e=>{const a=localAim.get(e);return a?{source:a.source,angle:a.angle,padIndex:a.padIndex}:null;},arenaAimCue,pollPads,padState,

@@ -1,0 +1,6 @@
+FAIL Rendered compact Fight and default keyboard guidance explain complete sword sequence
+Error: Stopped after observed-input failure: Rendered compact Fight and default keyboard guidance explain complete sword sequence
+    at Object.step (C:\Users\Joshua\Documents\Codex\2026-10-08\rea\work\custard-knights-room\qa\charge-guidance-browser.cjs:34:515)
+    at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+    at async main (C:\Users\Joshua\Documents\Codex\2026-10-08\rea\work\custard-knights-room\qa\charge-guidance-browser.cjs:56:2)
+C:\Users\Joshua\Documents\Codex\2026-10-08\rea\work\custard-knights-room\qa\results\charge-guidance-2026-10-13

@@ -1,0 +1,7 @@
+FAIL Mouse hold passes initial light recovery charge and release heavy: Timed out: qaTrace.some(t=>t.input&&t.kind==="light"&&t.swing>0&&t.charge===0)
+Error: Stopped after observed-input failure: Mouse hold passes initial light recovery charge and release heavy
+    at Object.step (C:\Users\Joshua\Documents\Codex\2026-10-08\rea\work\custard-knights-room\qa\charge-guidance-browser.cjs:34:723)
+    at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+    at async transition (C:\Users\Joshua\Documents\Codex\2026-10-08\rea\work\custard-knights-room\qa\charge-guidance-browser.cjs:45:50)
+    at async main (C:\Users\Joshua\Documents\Codex\2026-10-08\rea\work\custard-knights-room\qa\charge-guidance-browser.cjs:61:290)
+C:\Users\Joshua\Documents\Codex\2026-10-08\rea\work\custard-knights-room\qa\results\charge-guidance-2026-10-13\mouse-diagnostic

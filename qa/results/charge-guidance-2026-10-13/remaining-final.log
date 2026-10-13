@@ -1,0 +1,6 @@
+PASS Mouse hold passes initial light recovery charge and release heavy
+PASS Sampled standard pad hold passes initial light recovery charge and release heavy
+Error: {"exceptionId":1,"text":"Uncaught","lineNumber":0,"columnNumber":182,"scriptId":"63","stackTrace":{"callFrames":[{"functionName":"","scriptId":"63","url":"","lineNumber":0,"columnNumber":182}]},"exception":{"type":"object","subtype":"error","className":"TypeError","description":"TypeError: Cannot set properties of null (setting 'value')\n    at <anonymous>:1:183","objectId":"5066292642052609460.2.2"}}
+    at Object.run (C:\Users\Joshua\Documents\Codex\2026-10-08\rea\work\custard-knights-room\qa\charge-guidance-browser.cjs:21:148)
+    at async main (C:\Users\Joshua\Documents\Codex\2026-10-08\rea\work\custard-knights-room\qa\charge-guidance-browser.cjs:67:2)
+C:\Users\Joshua\Documents\Codex\2026-10-08\rea\work\custard-knights-room\qa\results\charge-guidance-2026-10-13\remaining-final

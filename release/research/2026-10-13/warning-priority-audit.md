@@ -1,0 +1,11 @@
+# FE07 warning priority preparation
+
+Read-only audit by /root/warning_contract_audit (gpt-6-luna, high), 13 October 2026, while FE06 instruction work was active. No implementation, generation or tests were performed by the auditor. Begin implementation only after the checked FE06 task is merged.
+
+CK-09 remains partial: both SFX graph types in index.html connect directly to the AudioContext destination; the 64-voice limit supplies no priority reservation or music ducking. Arena events, powers, objectives and match start directly replace G.banner. Campaign's helper also writes that singleton. See BUILD-PLAN.md CK-09 and FULL-EXPERIENCE-PLAN.md FE07 for acceptance criteria.
+
+The bounded next task should route banner producers through one explicit policy, classify authored warning/objective/flavour messages, prevent lower-priority replacement of live critical warnings, coalesce repeated keys, retain authored expiry and avoid an unbounded queue or delayed stale jokes. Existing alarm cues can serve appropriate hazards; do not generate more music or sounds merely to implement arbitration. Route SFX through a shared bus with reserved warning admission under the existing voice ceiling, and multiply the user's music volume by a temporary warning duck rather than overwriting their setting. Mute and reduced flashing must preserve visual warning readability.
+
+Snapshots already carry the current banner and SFX effects. Preserve host authority, carry/sanitize warning metadata, emit warning audio once through existing replication and apply each client's own settings. Expiry, pause/menu, leave, new match and result paths must restore audio state. All relevant writers need to enter the policy; leaving a direct writer able to replace a protected warning would defeat it. Separate Faction/story format boundaries must be named rather than silently covered by arena evidence.
+
+Independent checks should force hazard/objective versus flavour/reward overlap, repeated warnings, saturation, expiry, user volume/mute, reduced flashing, pause/reset and host/client replication. Record actual rendered frames and audio envelopes; human audibility, recognition and minimum-hardware acceptance remain separate. This audit is task preparation, not a FE07 pass.

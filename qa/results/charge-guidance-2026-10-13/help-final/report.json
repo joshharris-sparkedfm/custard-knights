@@ -1,0 +1,131 @@
+{
+  "startedAt": "2026-10-13T13:19:00.567Z",
+  "root": "C:\\Users\\Joshua\\Documents\\Codex\\2026-10-08\\rea\\work\\custard-knights-room",
+  "harnessSha256": "0407899b5348ebb898b50d73049cac642577317c147f2590af8a831f5009bc47",
+  "sourceHashes": {
+    "index.html": "8342eb96fef62905b7e42de81bfe922416666730997044fa0eb74385208dd42f",
+    "game/preferences.js": "88462d6520d725e9b525ffbb0c744370327d4959075559bb33ed4e2b9b0d6d4a",
+    "game/controls.js": "a65a941fbe3614ab467207d8b216eecdffa77668d1f1bb171f4ad4a6c2405b40",
+    "game/mass-battle-ui.js": "5b944edec7ebab0ff54fab38a34308e8a8123a04290a8eda969f021292b0e260",
+    "game/input-aim.js": "54040dd96e1360a46cd36c5fc6f92b05abeeb7db34af7f5cca3d75a9dcb9baee"
+  },
+  "checks": [
+    {
+      "name": "Rendered compact Fight and default keyboard guidance explain complete sword sequence",
+      "profile": "guidance",
+      "pass": true,
+      "details": {
+        "pass": true,
+        "fight": {
+          "text": "FightWith a sword, press Swing for a light swing. Keep holding through that swing and its recovery to start charging, then release Swing for a heavy. A heavy normally takes one heart, flings knights further and breaks guard; fill the charge arc for extra reach. With a pickup weapon, Swing fires it. Block stops swords and bounces arrows back; block just as they swing to parry and stun them. Holding block drains your guard. Swing while blocking to shield-bash. Dash hops pits and dodges; attack right after a dash for a stab. Knights get flung further the more hurt they are. Three hearts and you're out for a couple of seconds.",
+          "rect": {
+            "x": 52.739990234375,
+            "y": 84.23999786376953,
+            "width": 220.19000244140625,
+            "height": 472.875,
+            "top": 84.23999786376953,
+            "right": 272.92999267578125,
+            "bottom": 557.1149978637695,
+            "left": 52.739990234375
+          },
+          "textRect": {
+            "x": 67.28999328613281,
+            "y": 96.8499984741211,
+            "width": 191.0900115966797,
+            "height": 446.1999816894531,
+            "top": 96.8499984741211,
+            "right": 258.3800048828125,
+            "bottom": 543.0499801635742,
+            "left": 67.28999328613281
+          },
+          "font": "700 13px / 19.5px Nunito, \"Trebuchet MS\", system-ui, sans-serif",
+          "visible": false,
+          "guidance": {
+            "text": "FightWith a sword, press Swing for a light swing. Keep holding through that swing and its recovery to start charging, then release Swing for a heavy. A heavy normally takes one heart, flings knights further and breaks guard; fill the charge arc for extra reach. With a pickup weapon, Swing fires it.",
+            "rect": {
+              "x": 67.28999328613281,
+              "y": 96.8499984741211,
+              "width": 191.0900115966797,
+              "height": 238.13497924804688,
+              "top": 96.8499984741211,
+              "right": 258.3800048828125,
+              "bottom": 334.98497772216797,
+              "left": 67.28999328613281
+            },
+            "visible": true
+          }
+        },
+        "keyboard": {
+          "text": "Solo keyboard: Move: W / Up arrow, A / Left arrow, S / Down arrow, D / Right arrow · Swing: Space / J / F · Dash: Left Shift / Right Shift / K / G · Block: E / L / H. Mouse aims, left click swings or fires, right click blocks. Keyboard half 1: Move: W, A, S, D · Swing: F · Dash: G · Block: H. Keyboard half 2: Move: Up arrow, Left arrow, Down arrow, Right arrow · Swing: J · Dash: K · Block: L. Sword: press Swing / left click for a light swing; keep holding through its recovery to charge, then release for a heavy. Pickup weapons: Swing / left click fires. Shout 1-4 / 7-0. Escape / P opens the match menu.",
+          "rect": {
+            "x": 41.74666976928711,
+            "y": 317.1104736328125,
+            "width": 701.49609375,
+            "height": 158.61212158203125,
+            "top": 317.1104736328125,
+            "right": 743.2427635192871,
+            "bottom": 475.72259521484375,
+            "left": 41.74666976928711
+          },
+          "textRect": {
+            "x": 54.75586700439453,
+            "y": 330.11962890625,
+            "width": 667.2531127929688,
+            "height": 131.84326171875,
+            "top": 330.11962890625,
+            "right": 722.0089797973633,
+            "bottom": 461.962890625,
+            "left": 54.75586700439453
+          },
+          "font": "13px / 22.75px Nunito, \"Trebuchet MS\", system-ui, sans-serif",
+          "visible": true
+        },
+        "back": {
+          "text": "Back",
+          "rect": {
+            "x": 676.390625,
+            "y": 60,
+            "width": 66.609375,
+            "height": 44,
+            "top": 60,
+            "right": 743,
+            "bottom": 104,
+            "left": 676.390625
+          },
+          "textRect": {
+            "x": 691.390625,
+            "y": 71,
+            "width": 36.609375,
+            "height": 22,
+            "top": 71,
+            "right": 728,
+            "bottom": 93,
+            "left": 691.390625
+          },
+          "font": "800 16px Nunito, \"Trebuchet MS\", system-ui, sans-serif",
+          "visible": true
+        },
+        "returned": true
+      }
+    }
+  ],
+  "errors": [],
+  "limitations": [
+    "Actual Chrome; CDP keyboard/mouse and sampled injected standard pad objects. No physical controllers, human comprehension, responsiveness, packaged EXE or WAN acceptance.",
+    "CK start/setSeats, inert opponent and weapon setup are direct fixtures. Sword transitions use actual browser input and the live animation-frame simulation; no direct update/startSwing calls.",
+    "Touch presentation uses an explicitly labeled pointer-event fixture. Canvas instruction capture uses the actual draw path at a direct early-clock fixture. Profiles are isolated temporary QA saves."
+  ],
+  "sourceHashesAfter": {
+    "index.html": "8342eb96fef62905b7e42de81bfe922416666730997044fa0eb74385208dd42f",
+    "game/preferences.js": "88462d6520d725e9b525ffbb0c744370327d4959075559bb33ed4e2b9b0d6d4a",
+    "game/controls.js": "a65a941fbe3614ab467207d8b216eecdffa77668d1f1bb171f4ad4a6c2405b40",
+    "game/mass-battle-ui.js": "5b944edec7ebab0ff54fab38a34308e8a8123a04290a8eda969f021292b0e260",
+    "game/input-aim.js": "54040dd96e1360a46cd36c5fc6f92b05abeeb7db34af7f5cca3d75a9dcb9baee"
+  },
+  "stableSources": true,
+  "finishedAt": "2026-10-13T13:19:01.862Z",
+  "counts": {
+    "pass": 1,
+    "fail": 0
+  }
+}

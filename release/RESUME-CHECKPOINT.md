@@ -1,3 +1,9 @@
+# Active bounded Astra story review — 13 October 2026
+
+PR34 merged at `261fec1eec36bb2300719e3dcc698c9c640feb37`; clean main/origin/main verified. Current branch `codex/astra-story-review` in work/custard-knights-room. All beta.16 workers completed; latest exports below remain frozen and checked. No new runtime/package/tests yet.
+
+/root/astra_story_review (gpt-6-astra ultra) owns only release/ASTRA-STORY-REVIEW.md for one bounded evidence-backed story/experience and compatible FE09 sequence. /root/story_compatibility_audit (gpt-6-luna high) is read-only on saves/prerequisites/replays/checkpoints/spoons/receipts and independently reviews mapping. Root owns queue/checkpoint/Git, then checked review PR push/attach/merge before first Sol implementation. Inspect active progress rather than duplicate edits. Owner cap50v50/100 total;200 deferred. Preserve original WIP/saves/exports; no unchanged retests, GPU generation or publication.
+
 # Checked Friends beta.16 — 13 October 2026
 
 Frozen runtime `a7e5ed4b653823ee2a84cb6df84d425206c46072` is pushed in PR34. Implementation, independent source/journey review, package/lifecycle/archive checks and final package evidence review are complete. Root finishes the evidence/docs push and checked merge, then verifies main/origin/main before the next task. Subsequent changes are docs/evidence and a QA-only EOF whitespace correction; runtime bytes are frozen.

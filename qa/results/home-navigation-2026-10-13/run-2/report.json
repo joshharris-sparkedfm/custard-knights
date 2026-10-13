@@ -1,0 +1,2202 @@
+{
+  "startedAt": "2026-10-13T08:55:51.741Z",
+  "runtime": {
+    "node": "C:\\Users\\Joshua\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\node\\bin\\node.exe",
+    "chrome": "C:/Program Files/Google/Chrome/Application/chrome.exe",
+    "root": "C:\\Users\\Joshua\\Documents\\Codex\\2026-10-08\\rea\\work\\custard-knights-home"
+  },
+  "checks": [
+    {
+      "profile": "fresh",
+      "name": "Actual game loads in isolated fresh Chrome profile",
+      "pass": true,
+      "details": {
+        "pass": true,
+        "state": {
+          "active": "tQuick",
+          "overlays": [
+            "menu"
+          ],
+          "playing": false,
+          "seats": null,
+          "cfg": {
+            "mode": "ffa",
+            "players": 1,
+            "diff": "medium",
+            "map": "random",
+            "chaosPlus": false,
+            "chaosSpeed": "normal",
+            "length": 180,
+            "teamSplit": false,
+            "arenaSize": "classic"
+          }
+        }
+      }
+    },
+    {
+      "profile": "fresh",
+      "name": "Exactly four primary routes; utilities remain separate",
+      "pass": true,
+      "details": {
+        "pass": true,
+        "state": {
+          "active": "tQuick",
+          "overlays": [
+            "menu"
+          ],
+          "playing": false,
+          "seats": null,
+          "cfg": {
+            "mode": "ffa",
+            "players": 1,
+            "diff": "medium",
+            "map": "random",
+            "chaosPlus": false,
+            "chaosSpeed": "normal",
+            "length": 180,
+            "teamSplit": false,
+            "arenaSize": "classic"
+          }
+        }
+      }
+    },
+    {
+      "profile": "fresh",
+      "name": "Fresh Story names solo adventure without Continue",
+      "pass": true,
+      "details": {
+        "pass": true,
+        "title": "Story"
+      }
+    },
+    {
+      "profile": "fresh",
+      "name": "Logical Tab cycle reaches four routes and utilities",
+      "pass": true,
+      "details": {
+        "pass": true,
+        "order": [
+          "tQuick",
+          "tAdventure",
+          "tFriends",
+          "tFactionBattle",
+          "tWardrobe",
+          "tSettings",
+          "tHowto"
+        ]
+      }
+    },
+    {
+      "profile": "fresh",
+      "name": "mouse opens tQuick and Back restores its focus",
+      "pass": true,
+      "details": {
+        "pass": true,
+        "during": {
+          "active": "quickStart",
+          "overlays": [
+            "quickRoute"
+          ],
+          "playing": false,
+          "seats": null,
+          "cfg": {
+            "mode": "ffa",
+            "players": 1,
+            "diff": "medium",
+            "map": "random",
+            "chaosPlus": false,
+            "chaosSpeed": "normal",
+            "length": 180,
+            "teamSplit": false,
+            "arenaSize": "classic"
+          }
+        },
+        "after": {
+          "active": "tQuick",
+          "overlays": [
+            "menu"
+          ],
+          "playing": false,
+          "seats": null,
+          "cfg": {
+            "mode": "ffa",
+            "players": 1,
+            "diff": "medium",
+            "map": "random",
+            "chaosPlus": false,
+            "chaosSpeed": "normal",
+            "length": 180,
+            "teamSplit": false,
+            "arenaSize": "classic"
+          }
+        }
+      }
+    },
+    {
+      "profile": "fresh",
+      "name": "mouse opens tAdventure and Back restores its focus",
+      "pass": true,
+      "details": {
+        "pass": true,
+        "during": {
+          "active": "1Banquet· · ·",
+          "overlays": [
+            "campaignMap"
+          ],
+          "playing": false,
+          "seats": null,
+          "cfg": {
+            "mode": "ffa",
+            "players": 1,
+            "diff": "medium",
+            "map": "random",
+            "chaosPlus": false,
+            "chaosSpeed": "normal",
+            "length": 180,
+            "teamSplit": false,
+            "arenaSize": "classic"
+          }
+        },
+        "after": {
+          "active": "tAdventure",
+          "overlays": [
+            "menu"
+          ],
+          "playing": false,
+          "seats": null,
+          "cfg": {
+            "mode": "ffa",
+            "players": 1,
+            "diff": "medium",
+            "map": "random",
+            "chaosPlus": false,
+            "chaosSpeed": "normal",
+            "length": 180,
+            "teamSplit": false,
+            "arenaSize": "classic"
+          }
+        }
+      }
+    },
+    {
+      "profile": "fresh",
+      "name": "mouse opens tFriends and Back restores its focus",
+      "pass": true,
+      "details": {
+        "pass": true,
+        "during": {
+          "active": "tParty",
+          "overlays": [
+            "friendsRoute"
+          ],
+          "playing": false,
+          "seats": null,
+          "cfg": {
+            "mode": "ffa",
+            "players": 1,
+            "diff": "medium",
+            "map": "random",
+            "chaosPlus": false,
+            "chaosSpeed": "normal",
+            "length": 180,
+            "teamSplit": false,
+            "arenaSize": "classic"
+          }
+        },
+        "after": {
+          "active": "tFriends",
+          "overlays": [
+            "menu"
+          ],
+          "playing": false,
+          "seats": null,
+          "cfg": {
+            "mode": "ffa",
+            "players": 1,
+            "diff": "medium",
+            "map": "random",
+            "chaosPlus": false,
+            "chaosSpeed": "normal",
+            "length": 180,
+            "teamSplit": false,
+            "arenaSize": "classic"
+          }
+        }
+      }
+    },
+    {
+      "profile": "fresh",
+      "name": "mouse opens tFactionBattle and Back restores its focus",
+      "pass": true,
+      "details": {
+        "pass": true,
+        "during": {
+          "active": "Play with bots",
+          "overlays": [],
+          "playing": false,
+          "seats": null,
+          "cfg": {
+            "mode": "ffa",
+            "players": 1,
+            "diff": "medium",
+            "map": "random",
+            "chaosPlus": false,
+            "chaosSpeed": "normal",
+            "length": 180,
+            "teamSplit": false,
+            "arenaSize": "classic"
+          }
+        },
+        "after": {
+          "active": "tFactionBattle",
+          "overlays": [
+            "menu"
+          ],
+          "playing": false,
+          "seats": null,
+          "cfg": {
+            "mode": "ffa",
+            "players": 1,
+            "diff": "medium",
+            "map": "random",
+            "chaosPlus": false,
+            "chaosSpeed": "normal",
+            "length": 180,
+            "teamSplit": false,
+            "arenaSize": "classic"
+          }
+        }
+      }
+    },
+    {
+      "profile": "fresh",
+      "name": "keyboard opens tQuick and Back restores its focus",
+      "pass": true,
+      "details": {
+        "pass": true,
+        "during": {
+          "active": "Back",
+          "overlays": [
+            "quickRoute"
+          ],
+          "playing": false,
+          "seats": null,
+          "cfg": {
+            "mode": "ffa",
+            "players": 1,
+            "diff": "medium",
+            "map": "random",
+            "chaosPlus": false,
+            "chaosSpeed": "normal",
+            "length": 180,
+            "teamSplit": false,
+            "arenaSize": "classic"
+          }
+        },
+        "after": {
+          "active": "tQuick",
+          "overlays": [
+            "menu"
+          ],
+          "playing": false,
+          "seats": null,
+          "cfg": {
+            "mode": "ffa",
+            "players": 1,
+            "diff": "medium",
+            "map": "random",
+            "chaosPlus": false,
+            "chaosSpeed": "normal",
+            "length": 180,
+            "teamSplit": false,
+            "arenaSize": "classic"
+          }
+        }
+      }
+    },
+    {
+      "profile": "fresh",
+      "name": "keyboard opens tAdventure and Back restores its focus",
+      "pass": true,
+      "details": {
+        "pass": true,
+        "during": {
+          "active": "1Banquet· · ·",
+          "overlays": [
+            "campaignMap"
+          ],
+          "playing": false,
+          "seats": null,
+          "cfg": {
+            "mode": "ffa",
+            "players": 1,
+            "diff": "medium",
+            "map": "random",
+            "chaosPlus": false,
+            "chaosSpeed": "normal",
+            "length": 180,
+            "teamSplit": false,
+            "arenaSize": "classic"
+          }
+        },
+        "after": {
+          "active": "tAdventure",
+          "overlays": [
+            "menu"
+          ],
+          "playing": false,
+          "seats": null,
+          "cfg": {
+            "mode": "ffa",
+            "players": 1,
+            "diff": "medium",
+            "map": "random",
+            "chaosPlus": false,
+            "chaosSpeed": "normal",
+            "length": 180,
+            "teamSplit": false,
+            "arenaSize": "classic"
+          }
+        }
+      }
+    },
+    {
+      "profile": "fresh",
+      "name": "keyboard opens tFriends and Back restores its focus",
+      "pass": true,
+      "details": {
+        "pass": true,
+        "during": {
+          "active": "Back",
+          "overlays": [
+            "friendsRoute"
+          ],
+          "playing": false,
+          "seats": null,
+          "cfg": {
+            "mode": "ffa",
+            "players": 1,
+            "diff": "medium",
+            "map": "random",
+            "chaosPlus": false,
+            "chaosSpeed": "normal",
+            "length": 180,
+            "teamSplit": false,
+            "arenaSize": "classic"
+          }
+        },
+        "after": {
+          "active": "tFriends",
+          "overlays": [
+            "menu"
+          ],
+          "playing": false,
+          "seats": null,
+          "cfg": {
+            "mode": "ffa",
+            "players": 1,
+            "diff": "medium",
+            "map": "random",
+            "chaosPlus": false,
+            "chaosSpeed": "normal",
+            "length": 180,
+            "teamSplit": false,
+            "arenaSize": "classic"
+          }
+        }
+      }
+    },
+    {
+      "profile": "fresh",
+      "name": "keyboard opens tFactionBattle and Back restores its focus",
+      "pass": true,
+      "details": {
+        "pass": true,
+        "during": {
+          "active": "Play with bots",
+          "overlays": [],
+          "playing": false,
+          "seats": null,
+          "cfg": {
+            "mode": "ffa",
+            "players": 1,
+            "diff": "medium",
+            "map": "random",
+            "chaosPlus": false,
+            "chaosSpeed": "normal",
+            "length": 180,
+            "teamSplit": false,
+            "arenaSize": "classic"
+          }
+        },
+        "after": {
+          "active": "tFactionBattle",
+          "overlays": [
+            "menu"
+          ],
+          "playing": false,
+          "seats": null,
+          "cfg": {
+            "mode": "ffa",
+            "players": 1,
+            "diff": "medium",
+            "map": "random",
+            "chaosPlus": false,
+            "chaosSpeed": "normal",
+            "length": 180,
+            "teamSplit": false,
+            "arenaSize": "classic"
+          }
+        }
+      }
+    },
+    {
+      "profile": "fresh",
+      "name": "pad opens tQuick and Back restores its focus",
+      "pass": true,
+      "details": {
+        "pass": true,
+        "during": {
+          "active": "Back",
+          "overlays": [
+            "quickRoute"
+          ],
+          "playing": false,
+          "seats": null,
+          "cfg": {
+            "mode": "ffa",
+            "players": 1,
+            "diff": "medium",
+            "map": "random",
+            "chaosPlus": false,
+            "chaosSpeed": "normal",
+            "length": 180,
+            "teamSplit": false,
+            "arenaSize": "classic"
+          }
+        },
+        "after": {
+          "active": "tQuick",
+          "overlays": [
+            "menu"
+          ],
+          "playing": false,
+          "seats": null,
+          "cfg": {
+            "mode": "ffa",
+            "players": 1,
+            "diff": "medium",
+            "map": "random",
+            "chaosPlus": false,
+            "chaosSpeed": "normal",
+            "length": 180,
+            "teamSplit": false,
+            "arenaSize": "classic"
+          }
+        }
+      }
+    },
+    {
+      "profile": "fresh",
+      "name": "pad opens tAdventure and Back restores its focus",
+      "pass": true,
+      "details": {
+        "pass": true,
+        "during": {
+          "active": "1Banquet· · ·",
+          "overlays": [
+            "campaignMap"
+          ],
+          "playing": false,
+          "seats": null,
+          "cfg": {
+            "mode": "ffa",
+            "players": 1,
+            "diff": "medium",
+            "map": "random",
+            "chaosPlus": false,
+            "chaosSpeed": "normal",
+            "length": 180,
+            "teamSplit": false,
+            "arenaSize": "classic"
+          }
+        },
+        "after": {
+          "active": "tAdventure",
+          "overlays": [
+            "menu"
+          ],
+          "playing": false,
+          "seats": null,
+          "cfg": {
+            "mode": "ffa",
+            "players": 1,
+            "diff": "medium",
+            "map": "random",
+            "chaosPlus": false,
+            "chaosSpeed": "normal",
+            "length": 180,
+            "teamSplit": false,
+            "arenaSize": "classic"
+          }
+        }
+      }
+    },
+    {
+      "profile": "fresh",
+      "name": "pad opens tFriends and Back restores its focus",
+      "pass": true,
+      "details": {
+        "pass": true,
+        "during": {
+          "active": "Back",
+          "overlays": [
+            "friendsRoute"
+          ],
+          "playing": false,
+          "seats": null,
+          "cfg": {
+            "mode": "ffa",
+            "players": 1,
+            "diff": "medium",
+            "map": "random",
+            "chaosPlus": false,
+            "chaosSpeed": "normal",
+            "length": 180,
+            "teamSplit": false,
+            "arenaSize": "classic"
+          }
+        },
+        "after": {
+          "active": "tFriends",
+          "overlays": [
+            "menu"
+          ],
+          "playing": false,
+          "seats": null,
+          "cfg": {
+            "mode": "ffa",
+            "players": 1,
+            "diff": "medium",
+            "map": "random",
+            "chaosPlus": false,
+            "chaosSpeed": "normal",
+            "length": 180,
+            "teamSplit": false,
+            "arenaSize": "classic"
+          }
+        }
+      }
+    },
+    {
+      "profile": "fresh",
+      "name": "pad opens tFactionBattle and Back restores its focus",
+      "pass": true,
+      "details": {
+        "pass": true,
+        "during": {
+          "active": "Play with bots",
+          "overlays": [],
+          "playing": false,
+          "seats": null,
+          "cfg": {
+            "mode": "ffa",
+            "players": 1,
+            "diff": "medium",
+            "map": "random",
+            "chaosPlus": false,
+            "chaosSpeed": "normal",
+            "length": 180,
+            "teamSplit": false,
+            "arenaSize": "classic"
+          }
+        },
+        "after": {
+          "active": "tFactionBattle",
+          "overlays": [
+            "menu"
+          ],
+          "playing": false,
+          "seats": null,
+          "cfg": {
+            "mode": "ffa",
+            "players": 1,
+            "diff": "medium",
+            "map": "random",
+            "chaosPlus": false,
+            "chaosSpeed": "normal",
+            "length": 180,
+            "teamSplit": false,
+            "arenaSize": "classic"
+          }
+        }
+      }
+    },
+    {
+      "profile": "fresh",
+      "name": "Utility tWardrobe opens and restores focus",
+      "pass": true,
+      "details": {
+        "pass": true,
+        "state": {
+          "active": "tWardrobe",
+          "overlays": [
+            "menu"
+          ],
+          "playing": false,
+          "seats": null,
+          "cfg": {
+            "mode": "ffa",
+            "players": 1,
+            "diff": "medium",
+            "map": "random",
+            "chaosPlus": false,
+            "chaosSpeed": "normal",
+            "length": 180,
+            "teamSplit": false,
+            "arenaSize": "classic"
+          }
+        }
+      }
+    },
+    {
+      "profile": "fresh",
+      "name": "Utility tSettings opens and restores focus",
+      "pass": true,
+      "details": {
+        "pass": true,
+        "state": {
+          "active": "tSettings",
+          "overlays": [
+            "menu"
+          ],
+          "playing": false,
+          "seats": null,
+          "cfg": {
+            "mode": "ffa",
+            "players": 1,
+            "diff": "medium",
+            "map": "random",
+            "chaosPlus": false,
+            "chaosSpeed": "normal",
+            "length": 180,
+            "teamSplit": false,
+            "arenaSize": "classic"
+          }
+        }
+      }
+    },
+    {
+      "profile": "fresh",
+      "name": "Utility tHowto opens and restores focus",
+      "pass": true,
+      "details": {
+        "pass": true,
+        "state": {
+          "active": "tHowto",
+          "overlays": [
+            "menu"
+          ],
+          "playing": false,
+          "seats": null,
+          "cfg": {
+            "mode": "ffa",
+            "players": 1,
+            "diff": "medium",
+            "map": "random",
+            "chaosPlus": false,
+            "chaosSpeed": "normal",
+            "length": 180,
+            "teamSplit": false,
+            "arenaSize": "classic"
+          }
+        }
+      }
+    },
+    {
+      "profile": "fresh",
+      "name": "Space activation opens only one route; Escape returns only one level",
+      "pass": true,
+      "details": {
+        "pass": true,
+        "parent": {
+          "active": "tCustom",
+          "overlays": [
+            "quickRoute"
+          ],
+          "playing": false,
+          "seats": null,
+          "cfg": {
+            "mode": "ffa",
+            "players": 1,
+            "diff": "medium",
+            "map": "random",
+            "chaosPlus": false,
+            "chaosSpeed": "normal",
+            "length": 180,
+            "teamSplit": false,
+            "arenaSize": "classic"
+          }
+        },
+        "home": {
+          "active": "tQuick",
+          "overlays": [
+            "menu"
+          ],
+          "playing": false,
+          "seats": null,
+          "cfg": {
+            "mode": "ffa",
+            "players": 1,
+            "diff": "medium",
+            "map": "random",
+            "chaosPlus": false,
+            "chaosSpeed": "normal",
+            "length": 180,
+            "teamSplit": false,
+            "arenaSize": "classic"
+          }
+        }
+      }
+    },
+    {
+      "profile": "fresh",
+      "name": "Custom rules retain selection and show honest Quick summary",
+      "pass": true,
+      "details": {
+        "pass": true,
+        "text": "Free-for-all · Hard bots · Random arena · Roomier · 180 seconds · Normal chaos. Remembered arena rules."
+      }
+    },
+    {
+      "profile": "fresh",
+      "name": "Social custom and online paths return to social origin",
+      "pass": true,
+      "details": {
+        "pass": true,
+        "custom": {
+          "active": "friendsCustom",
+          "overlays": [
+            "friendsRoute"
+          ],
+          "playing": false,
+          "seats": null,
+          "cfg": {
+            "mode": "ffa",
+            "players": 1,
+            "diff": "hard",
+            "map": "random",
+            "chaosPlus": false,
+            "chaosSpeed": "normal",
+            "length": 180,
+            "teamSplit": false,
+            "arenaSize": "roomier"
+          }
+        },
+        "online": {
+          "active": "tOnline",
+          "overlays": [
+            "friendsRoute"
+          ],
+          "playing": false,
+          "seats": null,
+          "cfg": {
+            "mode": "ffa",
+            "players": 1,
+            "diff": "hard",
+            "map": "random",
+            "chaosPlus": false,
+            "chaosSpeed": "normal",
+            "length": 180,
+            "teamSplit": false,
+            "arenaSize": "roomier"
+          }
+        }
+      }
+    },
+    {
+      "profile": "fresh",
+      "name": "Browse modes summary is reachable and activated by pad",
+      "pass": true,
+      "details": {
+        "pass": true,
+        "active": "SUMMARY",
+        "open": true
+      }
+    },
+    {
+      "profile": "fresh",
+      "name": "Options changes persist through reload",
+      "pass": true,
+      "details": {
+        "pass": true,
+        "saved": "{\"music\":0.56,\"sfx\":1,\"shake\":1,\"flash\":true,\"names\":\"near\",\"classic\":false,\"whole\":true}",
+        "after": {
+          "whole": true,
+          "music": 56,
+          "saved": "{\"music\":0.56,\"sfx\":1,\"shake\":1,\"flash\":true,\"names\":\"near\",\"classic\":false,\"whole\":true}"
+        }
+      }
+    },
+    {
+      "profile": "fresh",
+      "name": "Couch seats survive home route and utility navigation",
+      "pass": true,
+      "details": {
+        "pass": true,
+        "before": [
+          "Keyboard: WASD, F G H",
+          "Keyboard: arrows, J K L"
+        ],
+        "after": [
+          "Keyboard: WASD, F G H",
+          "Keyboard: arrows, J K L"
+        ]
+      }
+    },
+    {
+      "profile": "fresh",
+      "name": "Friends Cup starts with two keyboard seats and pause Back works",
+      "pass": false,
+      "details": {
+        "pass": false,
+        "seats": [
+          {
+            "dev": "kb1"
+          },
+          {
+            "dev": "kb2"
+          }
+        ],
+        "cup": false,
+        "paused": true,
+        "resumed": true
+      }
+    },
+    {
+      "profile": "fresh",
+      "name": "Solo Cup clears couch ownership and uses one solo human",
+      "pass": true,
+      "details": {
+        "pass": true,
+        "seats": null,
+        "humans": 1,
+        "cup": true
+      }
+    },
+    {
+      "profile": "fresh",
+      "name": "Quick start uses displayed retained safe rules and results return home",
+      "pass": true,
+      "details": {
+        "pass": true,
+        "summary": "Free-for-all · Hard bots · Castle Courtyard · Roomier · 120 seconds · Normal chaos. Remembered arena rules.",
+        "game": {
+          "mode": "ffa",
+          "diff": "hard",
+          "arenaSize": "roomier",
+          "humanCount": 1
+        },
+        "results": true,
+        "resultFocus": true
+      }
+    },
+    {
+      "profile": "fresh",
+      "name": "Quit browser hides unavailable bridge",
+      "pass": true,
+      "details": {
+        "pass": true
+      }
+    },
+    {
+      "profile": "fresh",
+      "name": "Quit modal isolates focus and activation, Escape restores Quit focus",
+      "pass": false,
+      "details": {
+        "pass": false,
+        "guarded": {
+          "active": "tQuit",
+          "overlays": [
+            "menu"
+          ],
+          "playing": false,
+          "seats": null,
+          "cfg": {
+            "mode": "ffa",
+            "players": 1,
+            "diff": "hard",
+            "map": "courtyard",
+            "chaosPlus": false,
+            "chaosSpeed": "normal",
+            "length": 120,
+            "teamSplit": false,
+            "arenaSize": "roomier"
+          }
+        },
+        "trapped": false,
+        "after": {
+          "active": "tQuick",
+          "overlays": [
+            "menu"
+          ],
+          "playing": false,
+          "seats": null,
+          "cfg": {
+            "mode": "ffa",
+            "players": 1,
+            "diff": "hard",
+            "map": "courtyard",
+            "chaosPlus": false,
+            "chaosSpeed": "normal",
+            "length": 120,
+            "teamSplit": false,
+            "arenaSize": "roomier"
+          }
+        }
+      }
+    },
+    {
+      "profile": "fresh",
+      "name": "1280x800 menu controls visible or scrollable without horizontal clipping",
+      "pass": true,
+      "details": {
+        "pass": true,
+        "info": {
+          "width": 1280,
+          "height": 800,
+          "scroll": true,
+          "overflow": "auto",
+          "controls": [
+            {
+              "id": "tQuick",
+              "text": "Quick BrawlA solo match, your own r",
+              "rect": {
+                "x": 132.5,
+                "y": 279.171875,
+                "width": 416,
+                "height": 73,
+                "top": 279.171875,
+                "right": 548.5,
+                "bottom": 352.171875,
+                "left": 132.5
+              }
+            },
+            {
+              "id": "tAdventure",
+              "text": "StoryThe Great Pudding War · a solo",
+              "rect": {
+                "x": 124.5,
+                "y": 362.171875,
+                "width": 416,
+                "height": 73,
+                "top": 362.171875,
+                "right": 540.5,
+                "bottom": 435.171875,
+                "left": 124.5
+              }
+            },
+            {
+              "id": "tFriends",
+              "text": "Play with FriendsThis PC or an onli",
+              "rect": {
+                "x": 124.5,
+                "y": 445.171875,
+                "width": 416,
+                "height": 73,
+                "top": 445.171875,
+                "right": 540.5,
+                "bottom": 518.171875,
+                "left": 124.5
+              }
+            },
+            {
+              "id": "tFactionBattle",
+              "text": "Faction FrontBot practice or a host",
+              "rect": {
+                "x": 124.5,
+                "y": 528.171875,
+                "width": 416,
+                "height": 73,
+                "top": 528.171875,
+                "right": 540.5,
+                "bottom": 601.171875,
+                "left": 124.5
+              }
+            },
+            {
+              "id": "tWardrobe",
+              "text": "Wardrobe",
+              "rect": {
+                "x": 124.5,
+                "y": 617.171875,
+                "width": 204,
+                "height": 42,
+                "top": 617.171875,
+                "right": 328.5,
+                "bottom": 659.171875,
+                "left": 124.5
+              }
+            },
+            {
+              "id": "tSettings",
+              "text": "Options",
+              "rect": {
+                "x": 336.5,
+                "y": 617.171875,
+                "width": 204,
+                "height": 42,
+                "top": 617.171875,
+                "right": 540.5,
+                "bottom": 659.171875,
+                "left": 336.5
+              }
+            },
+            {
+              "id": "tHowto",
+              "text": "How to Play",
+              "rect": {
+                "x": 124.5,
+                "y": 667.171875,
+                "width": 204,
+                "height": 42,
+                "top": 667.171875,
+                "right": 328.5,
+                "bottom": 709.171875,
+                "left": 124.5
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "profile": "fresh",
+      "name": "1280x800 quickRoute controls visible or scrollable without horizontal clipping",
+      "pass": true,
+      "details": {
+        "pass": true,
+        "info": {
+          "width": 1280,
+          "height": 800,
+          "scroll": false,
+          "overflow": "auto",
+          "controls": [
+            {
+              "id": "",
+              "text": "Back",
+              "rect": {
+                "x": 797.351318359375,
+                "y": 157.22628784179688,
+                "width": 66.59271240234375,
+                "height": 43.989013671875,
+                "top": 157.22628784179688,
+                "right": 863.9440307617188,
+                "bottom": 201.21530151367188,
+                "left": 797.351318359375
+              }
+            },
+            {
+              "id": "quickStart",
+              "text": "Start quick brawlYou against seven ",
+              "rect": {
+                "x": 423.9228820800781,
+                "y": 334.57257080078125,
+                "width": 447.8880310058594,
+                "height": 78.16796875,
+                "top": 334.57257080078125,
+                "right": 871.8109130859375,
+                "bottom": 412.74053955078125,
+                "left": 423.9228820800781
+              }
+            },
+            {
+              "id": "tCustom",
+              "text": "Custom brawlAll 8 modes, 6 arenas, ",
+              "rect": {
+                "x": 416.0559997558594,
+                "y": 426.7370300292969,
+                "width": 447.8880310058594,
+                "height": 78.16796875,
+                "top": 426.7370300292969,
+                "right": 863.9440307617188,
+                "bottom": 504.9049987792969,
+                "left": 416.0559997558594
+              }
+            },
+            {
+              "id": "tCup",
+              "text": "Solo Custard CupFFA, King of the Pi",
+              "rect": {
+                "x": 416.0559997558594,
+                "y": 518.9014892578125,
+                "width": 447.8880310058594,
+                "height": 78.16796875,
+                "top": 518.9014892578125,
+                "right": 863.9440307617188,
+                "bottom": 597.0694580078125,
+                "left": 416.0559997558594
+              }
+            },
+            {
+              "id": "",
+              "text": "Free-for-all",
+              "rect": {
+                "x": 418.0555114746094,
+                "y": 647.0569458007812,
+                "width": 91.97698974609375,
+                "height": 91.25848388671875,
+                "top": 647.0569458007812,
+                "right": 510.0325012207031,
+                "bottom": 738.3154296875,
+                "left": 418.0555114746094
+              }
+            },
+            {
+              "id": "",
+              "text": "Red vs Blue",
+              "rect": {
+                "x": 518.030517578125,
+                "y": 647.0569458007812,
+                "width": 91.97698974609375,
+                "height": 91.25848388671875,
+                "top": 647.0569458007812,
+                "right": 610.0075073242188,
+                "bottom": 738.3154296875,
+                "left": 518.030517578125
+              }
+            },
+            {
+              "id": "",
+              "text": "Last Knight Standing",
+              "rect": {
+                "x": 618.0054931640625,
+                "y": 647.0569458007812,
+                "width": 91.97705078125,
+                "height": 91.25848388671875,
+                "top": 647.0569458007812,
+                "right": 709.9825439453125,
+                "bottom": 738.3154296875,
+                "left": 618.0054931640625
+              }
+            },
+            {
+              "id": "",
+              "text": "King of the Pie",
+              "rect": {
+                "x": 717.9805297851562,
+                "y": 647.0569458007812,
+                "width": 91.97698974609375,
+                "height": 91.25848388671875,
+                "top": 647.0569458007812,
+                "right": 809.95751953125,
+                "bottom": 738.3154296875,
+                "left": 717.9805297851562
+              }
+            },
+            {
+              "id": "",
+              "text": "Pie Heist",
+              "rect": {
+                "x": 418.0555114746094,
+                "y": 746.3134155273438,
+                "width": 91.97698974609375,
+                "height": 91.2584228515625,
+                "top": 746.3134155273438,
+                "right": 510.0325012207031,
+                "bottom": 837.5718383789062,
+                "left": 418.0555114746094
+              }
+            },
+            {
+              "id": "",
+              "text": "Chicken Racing",
+              "rect": {
+                "x": 518.030517578125,
+                "y": 746.3134155273438,
+                "width": 91.97698974609375,
+                "height": 91.2584228515625,
+                "top": 746.3134155273438,
+                "right": 610.0075073242188,
+                "bottom": 837.5718383789062,
+                "left": 518.030517578125
+              }
+            },
+            {
+              "id": "",
+              "text": "Flag Frenzy",
+              "rect": {
+                "x": 618.0054931640625,
+                "y": 746.3134155273438,
+                "width": 91.97705078125,
+                "height": 91.2584228515625,
+                "top": 746.3134155273438,
+                "right": 709.9825439453125,
+                "bottom": 837.5718383789062,
+                "left": 618.0054931640625
+              }
+            },
+            {
+              "id": "",
+              "text": "Hot Pie",
+              "rect": {
+                "x": 717.9805297851562,
+                "y": 746.3134155273438,
+                "width": 91.97698974609375,
+                "height": 91.2584228515625,
+                "top": 746.3134155273438,
+                "right": 809.95751953125,
+                "bottom": 837.5718383789062,
+                "left": 717.9805297851562
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "profile": "fresh",
+      "name": "1280x800 friendsRoute controls visible or scrollable without horizontal clipping",
+      "pass": true,
+      "details": {
+        "pass": true,
+        "info": {
+          "width": 1280,
+          "height": 800,
+          "scroll": false,
+          "overflow": "auto",
+          "controls": [
+            {
+              "id": "",
+              "text": "Back",
+              "rect": {
+                "x": 797.3524780273438,
+                "y": 152.2213592529297,
+                "width": 66.59320068359375,
+                "height": 43.98931884765625,
+                "top": 152.2213592529297,
+                "right": 863.9456787109375,
+                "bottom": 196.21067810058594,
+                "left": 797.3524780273438
+              }
+            },
+            {
+              "id": "tParty",
+              "text": "On this PC2 to 4 players on one scr",
+              "rect": {
+                "x": 416.0543518066406,
+                "y": 246.58908081054688,
+                "width": 447.8913269042969,
+                "height": 78.16854858398438,
+                "top": 246.58908081054688,
+                "right": 863.9456787109375,
+                "bottom": 324.75762939453125,
+                "left": 416.0543518066406
+              }
+            },
+            {
+              "id": "tOnline",
+              "text": "Online roomHost or join by code · u",
+              "rect": {
+                "x": 416.0543518066406,
+                "y": 338.75421142578125,
+                "width": 447.8913269042969,
+                "height": 78.16854858398438,
+                "top": 338.75421142578125,
+                "right": 863.9456787109375,
+                "bottom": 416.9227600097656,
+                "left": 416.0543518066406
+              }
+            },
+            {
+              "id": "friendsCup",
+              "text": "Custard Cup with friendsJoin seats ",
+              "rect": {
+                "x": 416.0543518066406,
+                "y": 430.9193420410156,
+                "width": 447.8913269042969,
+                "height": 78.16854858398438,
+                "top": 430.9193420410156,
+                "right": 863.9456787109375,
+                "bottom": 509.087890625,
+                "left": 416.0543518066406
+              }
+            },
+            {
+              "id": "friendsCustom",
+              "text": "Set custom arena rules",
+              "rect": {
+                "x": 416.0543518066406,
+                "y": 523.08447265625,
+                "width": 447.8913269042969,
+                "height": 43.9893798828125,
+                "top": 523.08447265625,
+                "right": 863.9456787109375,
+                "bottom": 567.0738525390625,
+                "left": 416.0543518066406
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "profile": "fresh",
+      "name": "960x640 menu controls visible or scrollable without horizontal clipping",
+      "pass": true,
+      "details": {
+        "pass": true,
+        "info": {
+          "width": 960,
+          "height": 640,
+          "scroll": true,
+          "overflow": "auto",
+          "controls": [
+            {
+              "id": "tQuick",
+              "text": "Quick BrawlA solo match, your own r",
+              "rect": {
+                "x": 42.668373107910156,
+                "y": 239.2759246826172,
+                "width": 306.52337646484375,
+                "height": 68.89286804199219,
+                "top": 239.2759246826172,
+                "right": 349.1917495727539,
+                "bottom": 308.1687927246094,
+                "left": 42.668373107910156
+              }
+            },
+            {
+              "id": "tAdventure",
+              "text": "StoryThe Great Pudding War · a solo",
+              "rect": {
+                "x": 42.668373107910156,
+                "y": 316.1563720703125,
+                "width": 306.52337646484375,
+                "height": 68.89288330078125,
+                "top": 316.1563720703125,
+                "right": 349.1917495727539,
+                "bottom": 385.04925537109375,
+                "left": 42.668373107910156
+              }
+            },
+            {
+              "id": "tFriends",
+              "text": "Play with FriendsThis PC or an onli",
+              "rect": {
+                "x": 50.16385269165039,
+                "y": 393.0368347167969,
+                "width": 306.52337646484375,
+                "height": 84.8680419921875,
+                "top": 393.0368347167969,
+                "right": 356.68722915649414,
+                "bottom": 477.9048767089844,
+                "left": 50.16385269165039
+              }
+            },
+            {
+              "id": "tFactionBattle",
+              "text": "Faction FrontBot practice or a host",
+              "rect": {
+                "x": 42.668373107910156,
+                "y": 485.8924560546875,
+                "width": 306.52337646484375,
+                "height": 68.89288330078125,
+                "top": 485.8924560546875,
+                "right": 349.1917495727539,
+                "bottom": 554.7853393554688,
+                "left": 42.668373107910156
+              }
+            },
+            {
+              "id": "tWardrobe",
+              "text": "Wardrobe",
+              "rect": {
+                "x": 42.668373107910156,
+                "y": 570.760498046875,
+                "width": 149.26791381835938,
+                "height": 41.93475341796875,
+                "top": 570.760498046875,
+                "right": 191.93628692626953,
+                "bottom": 612.6952514648438,
+                "left": 42.668373107910156
+              }
+            },
+            {
+              "id": "tSettings",
+              "text": "Options",
+              "rect": {
+                "x": 199.92385864257812,
+                "y": 570.760498046875,
+                "width": 149.26788330078125,
+                "height": 41.93475341796875,
+                "top": 570.760498046875,
+                "right": 349.1917419433594,
+                "bottom": 612.6952514648438,
+                "left": 199.92385864257812
+              }
+            },
+            {
+              "id": "tHowto",
+              "text": "How to Play",
+              "rect": {
+                "x": 42.668373107910156,
+                "y": 620.682861328125,
+                "width": 149.26791381835938,
+                "height": 41.934814453125,
+                "top": 620.682861328125,
+                "right": 191.93628692626953,
+                "bottom": 662.61767578125,
+                "left": 42.668373107910156
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "profile": "fresh",
+      "name": "960x640 quickRoute controls visible or scrollable without horizontal clipping",
+      "pass": true,
+      "details": {
+        "pass": true,
+        "info": {
+          "width": 960,
+          "height": 640,
+          "scroll": false,
+          "overflow": "auto",
+          "controls": [
+            {
+              "id": "",
+              "text": "Back",
+              "rect": {
+                "x": 637.4637451171875,
+                "y": 76.62395477294922,
+                "width": 66.64031982421875,
+                "height": 44.02043914794922,
+                "top": 76.62395477294922,
+                "right": 704.1040649414062,
+                "bottom": 120.64439392089844,
+                "left": 637.4637451171875
+              }
+            },
+            {
+              "id": "quickStart",
+              "text": "Start quick brawlYou against seven ",
+              "rect": {
+                "x": 255.8959503173828,
+                "y": 254.09698486328125,
+                "width": 448.2081298828125,
+                "height": 78.22381591796875,
+                "top": 254.09698486328125,
+                "right": 704.1040802001953,
+                "bottom": 332.32080078125,
+                "left": 255.8959503173828
+              }
+            },
+            {
+              "id": "tCustom",
+              "text": "Custom brawlAll 8 modes, 6 arenas, ",
+              "rect": {
+                "x": 255.8959503173828,
+                "y": 346.3273010253906,
+                "width": 448.2081298828125,
+                "height": 78.22384643554688,
+                "top": 346.3273010253906,
+                "right": 704.1040802001953,
+                "bottom": 424.5511474609375,
+                "left": 255.8959503173828
+              }
+            },
+            {
+              "id": "tCup",
+              "text": "Solo Custard CupFFA, King of the Pi",
+              "rect": {
+                "x": 255.8959503173828,
+                "y": 438.5576477050781,
+                "width": 448.2081298828125,
+                "height": 78.22384643554688,
+                "top": 438.5576477050781,
+                "right": 704.1040802001953,
+                "bottom": 516.781494140625,
+                "left": 255.8959503173828
+              }
+            },
+            {
+              "id": "",
+              "text": "Free-for-all",
+              "rect": {
+                "x": 257.8968811035156,
+                "y": 566.8046875,
+                "width": 92.042724609375,
+                "height": 91.32366943359375,
+                "top": 566.8046875,
+                "right": 349.9396057128906,
+                "bottom": 658.1283569335938,
+                "left": 257.8968811035156
+              }
+            },
+            {
+              "id": "",
+              "text": "Red vs Blue",
+              "rect": {
+                "x": 357.9433288574219,
+                "y": 566.8046875,
+                "width": 92.04275512695312,
+                "height": 91.32366943359375,
+                "top": 566.8046875,
+                "right": 449.986083984375,
+                "bottom": 658.1283569335938,
+                "left": 357.9433288574219
+              }
+            },
+            {
+              "id": "",
+              "text": "Last Knight Standing",
+              "rect": {
+                "x": 457.98980712890625,
+                "y": 566.8046875,
+                "width": 92.042724609375,
+                "height": 91.32366943359375,
+                "top": 566.8046875,
+                "right": 550.0325317382812,
+                "bottom": 658.1283569335938,
+                "left": 457.98980712890625
+              }
+            },
+            {
+              "id": "",
+              "text": "King of the Pie",
+              "rect": {
+                "x": 558.0362548828125,
+                "y": 566.8046875,
+                "width": 92.042724609375,
+                "height": 91.32366943359375,
+                "top": 566.8046875,
+                "right": 650.0789794921875,
+                "bottom": 658.1283569335938,
+                "left": 558.0362548828125
+              }
+            },
+            {
+              "id": "",
+              "text": "Pie Heist",
+              "rect": {
+                "x": 257.8968811035156,
+                "y": 666.132080078125,
+                "width": 92.042724609375,
+                "height": 91.32366943359375,
+                "top": 666.132080078125,
+                "right": 349.9396057128906,
+                "bottom": 757.4557495117188,
+                "left": 257.8968811035156
+              }
+            },
+            {
+              "id": "",
+              "text": "Chicken Racing",
+              "rect": {
+                "x": 357.9433288574219,
+                "y": 666.132080078125,
+                "width": 92.04275512695312,
+                "height": 91.32366943359375,
+                "top": 666.132080078125,
+                "right": 449.986083984375,
+                "bottom": 757.4557495117188,
+                "left": 357.9433288574219
+              }
+            },
+            {
+              "id": "",
+              "text": "Flag Frenzy",
+              "rect": {
+                "x": 457.98980712890625,
+                "y": 666.132080078125,
+                "width": 92.042724609375,
+                "height": 91.32366943359375,
+                "top": 666.132080078125,
+                "right": 550.0325317382812,
+                "bottom": 757.4557495117188,
+                "left": 457.98980712890625
+              }
+            },
+            {
+              "id": "",
+              "text": "Hot Pie",
+              "rect": {
+                "x": 558.0362548828125,
+                "y": 666.132080078125,
+                "width": 92.042724609375,
+                "height": 91.32366943359375,
+                "top": 666.132080078125,
+                "right": 650.0789794921875,
+                "bottom": 757.4557495117188,
+                "left": 558.0362548828125
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "profile": "fresh",
+      "name": "960x640 friendsRoute controls visible or scrollable without horizontal clipping",
+      "pass": true,
+      "details": {
+        "pass": true,
+        "info": {
+          "width": 960,
+          "height": 640,
+          "scroll": false,
+          "overflow": "auto",
+          "controls": [
+            {
+              "id": "",
+              "text": "Back",
+              "rect": {
+                "x": 637.46484375,
+                "y": 71.6156005859375,
+                "width": 66.64080810546875,
+                "height": 44.020751953125,
+                "top": 71.6156005859375,
+                "right": 704.1056518554688,
+                "bottom": 115.6363525390625,
+                "left": 637.46484375
+              }
+            },
+            {
+              "id": "tParty",
+              "text": "On this PC2 to 4 players on one scr",
+              "rect": {
+                "x": 255.8943328857422,
+                "y": 166.05075073242188,
+                "width": 448.2113037109375,
+                "height": 78.22438049316406,
+                "top": 166.05075073242188,
+                "right": 704.1056365966797,
+                "bottom": 244.27513122558594,
+                "left": 255.8943328857422
+              }
+            },
+            {
+              "id": "tOnline",
+              "text": "Online roomHost or join by code · u",
+              "rect": {
+                "x": 255.8943328857422,
+                "y": 258.28173828125,
+                "width": 448.2113037109375,
+                "height": 78.224365234375,
+                "top": 258.28173828125,
+                "right": 704.1056365966797,
+                "bottom": 336.506103515625,
+                "left": 255.8943328857422
+              }
+            },
+            {
+              "id": "friendsCup",
+              "text": "Custard Cup with friendsJoin seats ",
+              "rect": {
+                "x": 255.8943328857422,
+                "y": 350.5127258300781,
+                "width": 448.2113037109375,
+                "height": 78.224365234375,
+                "top": 350.5127258300781,
+                "right": 704.1056365966797,
+                "bottom": 428.7370910644531,
+                "left": 255.8943328857422
+              }
+            },
+            {
+              "id": "friendsCustom",
+              "text": "Set custom arena rules",
+              "rect": {
+                "x": 255.8943328857422,
+                "y": 442.74371337890625,
+                "width": 448.2113037109375,
+                "height": 44.020751953125,
+                "top": 442.74371337890625,
+                "right": 704.1056365966797,
+                "bottom": 486.76446533203125,
+                "left": 255.8943328857422
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "profile": "fresh",
+      "name": "800x600 menu controls visible or scrollable without horizontal clipping",
+      "pass": true,
+      "details": {
+        "pass": true,
+        "info": {
+          "width": 800,
+          "height": 600,
+          "scroll": true,
+          "overflow": "auto",
+          "controls": [
+            {
+              "id": "tQuick",
+              "text": "Quick BrawlA solo match, your own r",
+              "rect": {
+                "x": 42.55425262451172,
+                "y": 353.4366760253906,
+                "width": 699.8915405273438,
+                "height": 68.890869140625,
+                "top": 353.4366760253906,
+                "right": 742.4457931518555,
+                "bottom": 422.3275451660156,
+                "left": 42.55425262451172
+              }
+            },
+            {
+              "id": "tAdventure",
+              "text": "StoryThe Great Pudding War · a solo",
+              "rect": {
+                "x": 42.55425262451172,
+                "y": 430.3149108886719,
+                "width": 699.8915405273438,
+                "height": 68.89089965820312,
+                "top": 430.3149108886719,
+                "right": 742.4457931518555,
+                "bottom": 499.205810546875,
+                "left": 42.55425262451172
+              }
+            },
+            {
+              "id": "tFriends",
+              "text": "Play with FriendsThis PC or an onli",
+              "rect": {
+                "x": 50.040855407714844,
+                "y": 507.1931457519531,
+                "width": 699.8915405273438,
+                "height": 68.89089965820312,
+                "top": 507.1931457519531,
+                "right": 749.9323959350586,
+                "bottom": 576.0840454101562,
+                "left": 50.040855407714844
+              }
+            },
+            {
+              "id": "tFactionBattle",
+              "text": "Faction FrontBot practice or a host",
+              "rect": {
+                "x": 42.55425262451172,
+                "y": 584.0714111328125,
+                "width": 699.8915405273438,
+                "height": 68.890869140625,
+                "top": 584.0714111328125,
+                "right": 742.4457931518555,
+                "bottom": 652.9622802734375,
+                "left": 42.55425262451172
+              }
+            },
+            {
+              "id": "tWardrobe",
+              "text": "Wardrobe",
+              "rect": {
+                "x": 42.55425262451172,
+                "y": 662.9464721679688,
+                "width": 345.9520568847656,
+                "height": 41.93359375,
+                "top": 662.9464721679688,
+                "right": 388.50630950927734,
+                "bottom": 704.8800659179688,
+                "left": 42.55425262451172
+              }
+            },
+            {
+              "id": "tSettings",
+              "text": "Options",
+              "rect": {
+                "x": 396.4936828613281,
+                "y": 662.9464721679688,
+                "width": 345.9521179199219,
+                "height": 41.93359375,
+                "top": 662.9464721679688,
+                "right": 742.44580078125,
+                "bottom": 704.8800659179688,
+                "left": 396.4936828613281
+              }
+            },
+            {
+              "id": "tHowto",
+              "text": "How to Play",
+              "rect": {
+                "x": 42.55425262451172,
+                "y": 712.8673706054688,
+                "width": 345.9520568847656,
+                "height": 41.93359375,
+                "top": 712.8673706054688,
+                "right": 388.50630950927734,
+                "bottom": 754.8009643554688,
+                "left": 42.55425262451172
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "profile": "fresh",
+      "name": "800x600 quickRoute controls visible or scrollable without horizontal clipping",
+      "pass": true,
+      "details": {
+        "pass": true,
+        "info": {
+          "width": 800,
+          "height": 600,
+          "scroll": false,
+          "overflow": "auto",
+          "controls": [
+            {
+              "id": "",
+              "text": "Back",
+              "rect": {
+                "x": 557.4635620117188,
+                "y": 74.83658599853516,
+                "width": 66.64019775390625,
+                "height": 44.0203857421875,
+                "top": 74.83658599853516,
+                "right": 624.103759765625,
+                "bottom": 118.85697174072266,
+                "left": 557.4635620117188
+              }
+            },
+            {
+              "id": "quickStart",
+              "text": "Start quick brawlYou against seven ",
+              "rect": {
+                "x": 175.89620971679688,
+                "y": 215.90191650390625,
+                "width": 448.2075500488281,
+                "height": 78.2237548828125,
+                "top": 215.90191650390625,
+                "right": 624.103759765625,
+                "bottom": 294.12567138671875,
+                "left": 175.89620971679688
+              }
+            },
+            {
+              "id": "tCustom",
+              "text": "Custom brawlAll 8 modes, 6 arenas, ",
+              "rect": {
+                "x": 183.89642333984375,
+                "y": 308.13214111328125,
+                "width": 448.20758056640625,
+                "height": 78.2237548828125,
+                "top": 308.13214111328125,
+                "right": 632.10400390625,
+                "bottom": 386.35589599609375,
+                "left": 183.89642333984375
+              }
+            },
+            {
+              "id": "tCup",
+              "text": "Solo Custard CupFFA, King of the Pi",
+              "rect": {
+                "x": 175.89620971679688,
+                "y": 400.36236572265625,
+                "width": 448.2075500488281,
+                "height": 78.22369384765625,
+                "top": 400.36236572265625,
+                "right": 624.103759765625,
+                "bottom": 478.5860595703125,
+                "left": 175.89620971679688
+              }
+            },
+            {
+              "id": "",
+              "text": "Free-for-all",
+              "rect": {
+                "x": 177.89712524414062,
+                "y": 528.6092529296875,
+                "width": 92.04263305664062,
+                "height": 91.32354736328125,
+                "top": 528.6092529296875,
+                "right": 269.93975830078125,
+                "bottom": 619.9328002929688,
+                "left": 177.89712524414062
+              }
+            },
+            {
+              "id": "",
+              "text": "Red vs Blue",
+              "rect": {
+                "x": 277.9434814453125,
+                "y": 528.6092529296875,
+                "width": 92.0426025390625,
+                "height": 91.32354736328125,
+                "top": 528.6092529296875,
+                "right": 369.986083984375,
+                "bottom": 619.9328002929688,
+                "left": 277.9434814453125
+              }
+            },
+            {
+              "id": "",
+              "text": "Last Knight Standing",
+              "rect": {
+                "x": 377.98980712890625,
+                "y": 528.6092529296875,
+                "width": 92.04263305664062,
+                "height": 91.32354736328125,
+                "top": 528.6092529296875,
+                "right": 470.0324401855469,
+                "bottom": 619.9328002929688,
+                "left": 377.98980712890625
+              }
+            },
+            {
+              "id": "",
+              "text": "King of the Pie",
+              "rect": {
+                "x": 478.0361328125,
+                "y": 528.6092529296875,
+                "width": 92.0426025390625,
+                "height": 91.32354736328125,
+                "top": 528.6092529296875,
+                "right": 570.0787353515625,
+                "bottom": 619.9328002929688,
+                "left": 478.0361328125
+              }
+            },
+            {
+              "id": "",
+              "text": "Pie Heist",
+              "rect": {
+                "x": 177.89712524414062,
+                "y": 627.9364624023438,
+                "width": 92.04263305664062,
+                "height": 91.32354736328125,
+                "top": 627.9364624023438,
+                "right": 269.93975830078125,
+                "bottom": 719.260009765625,
+                "left": 177.89712524414062
+              }
+            },
+            {
+              "id": "",
+              "text": "Chicken Racing",
+              "rect": {
+                "x": 277.9434814453125,
+                "y": 627.9364624023438,
+                "width": 92.0426025390625,
+                "height": 91.32354736328125,
+                "top": 627.9364624023438,
+                "right": 369.986083984375,
+                "bottom": 719.260009765625,
+                "left": 277.9434814453125
+              }
+            },
+            {
+              "id": "",
+              "text": "Flag Frenzy",
+              "rect": {
+                "x": 377.98980712890625,
+                "y": 627.9364624023438,
+                "width": 92.04263305664062,
+                "height": 91.32354736328125,
+                "top": 627.9364624023438,
+                "right": 470.0324401855469,
+                "bottom": 719.260009765625,
+                "left": 377.98980712890625
+              }
+            },
+            {
+              "id": "",
+              "text": "Hot Pie",
+              "rect": {
+                "x": 478.0361328125,
+                "y": 627.9364624023438,
+                "width": 92.0426025390625,
+                "height": 91.32354736328125,
+                "top": 627.9364624023438,
+                "right": 570.0787353515625,
+                "bottom": 719.260009765625,
+                "left": 478.0361328125
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "profile": "fresh",
+      "name": "800x600 friendsRoute controls visible or scrollable without horizontal clipping",
+      "pass": true,
+      "details": {
+        "pass": true,
+        "info": {
+          "width": 800,
+          "height": 600,
+          "scroll": false,
+          "overflow": "auto",
+          "controls": [
+            {
+              "id": "",
+              "text": "Back",
+              "rect": {
+                "x": 557.3538818359375,
+                "y": 70.4122314453125,
+                "width": 66.5938720703125,
+                "height": 43.98973846435547,
+                "top": 70.4122314453125,
+                "right": 623.94775390625,
+                "bottom": 114.40196990966797,
+                "left": 557.3538818359375
+              }
+            },
+            {
+              "id": "tParty",
+              "text": "On this PC2 to 4 players on one scr",
+              "rect": {
+                "x": 176.05223083496094,
+                "y": 128.39871215820312,
+                "width": 447.8955078125,
+                "height": 78.16926574707031,
+                "top": 128.39871215820312,
+                "right": 623.9477386474609,
+                "bottom": 206.56797790527344,
+                "left": 176.05223083496094
+              }
+            },
+            {
+              "id": "tOnline",
+              "text": "Online roomHost or join by code · u",
+              "rect": {
+                "x": 176.05223083496094,
+                "y": 220.56471252441406,
+                "width": 447.8955078125,
+                "height": 78.16926574707031,
+                "top": 220.56471252441406,
+                "right": 623.9477386474609,
+                "bottom": 298.7339782714844,
+                "left": 176.05223083496094
+              }
+            },
+            {
+              "id": "friendsCup",
+              "text": "Custard Cup with friendsJoin seats ",
+              "rect": {
+                "x": 176.05223083496094,
+                "y": 312.730712890625,
+                "width": 447.8955078125,
+                "height": 78.16925048828125,
+                "top": 312.730712890625,
+                "right": 623.9477386474609,
+                "bottom": 390.89996337890625,
+                "left": 176.05223083496094
+              }
+            },
+            {
+              "id": "friendsCustom",
+              "text": "Set custom arena rules",
+              "rect": {
+                "x": 176.05223083496094,
+                "y": 404.896728515625,
+                "width": 447.8955078125,
+                "height": 43.98974609375,
+                "top": 404.896728515625,
+                "right": 623.9477386474609,
+                "bottom": 448.886474609375,
+                "left": 176.05223083496094
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "profile": "returning",
+      "name": "Returning Story names next objective without changing save settings",
+      "pass": true,
+      "details": {
+        "pass": true,
+        "info": {
+          "title": "Continue Story",
+          "summary": "Protect the Puddings · Protect three pudding stands through two waves. One must survive.",
+          "save": {
+            "version": 1,
+            "results": {
+              "banquet": {
+                "spoons": [
+                  true,
+                  true,
+                  false
+                ],
+                "attempts": 1,
+                "best": 62,
+                "assisted": false
+              }
+            },
+            "selected": "puddings",
+            "assist": true,
+            "difficulty": "hard",
+            "checkpoint": null,
+            "receipts": [
+              "qa-only"
+            ]
+          }
+        }
+      }
+    },
+    {
+      "profile": "returning",
+      "name": "Returning Story opens remembered unlocked destination",
+      "pass": true,
+      "details": {
+        "pass": true,
+        "info": {
+          "selected": "2Puddings· · ·",
+          "save": {
+            "version": 1,
+            "results": {
+              "banquet": {
+                "spoons": [
+                  true,
+                  true,
+                  false
+                ],
+                "attempts": 1,
+                "best": 62,
+                "assisted": false
+              }
+            },
+            "selected": "puddings",
+            "assist": true,
+            "difficulty": "hard",
+            "checkpoint": null,
+            "receipts": [
+              "qa-only"
+            ]
+          }
+        }
+      }
+    }
+  ],
+  "consoleErrors": [],
+  "limitations": [
+    "Actual isolated Chrome with CDP mouse/keyboard and synthetic standard gamepad.",
+    "No physical controllers, human usability, external networking, packaged EXE, second Windows PC, or Steam testing.",
+    "Fixtures write only to temporary Chrome profiles; the user game and normal saves are untouched."
+  ],
+  "sourceHashes": {
+    "index.html": "2945f5a667f5af927540121171e0e81d727a407d5bddc28a6cccae0599506d41",
+    "game/campaign-ui.js": "3289bd972a67e7b4d070a59d07c0a36beaf56ec9a323a3936f775d9b2ed41a9f",
+    "game/mass-battle-ui.js": "5b944edec7ebab0ff54fab38a34308e8a8123a04290a8eda969f021292b0e260"
+  },
+  "environment": {
+    "platform": "win32",
+    "arch": "x64",
+    "node": "v24.19.0",
+    "browser": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/154.0.0.0 Safari/537.36"
+  },
+  "finishedAt": "2026-10-13T08:56:20.524Z",
+  "sourceHashesAfter": {
+    "index.html": "2945f5a667f5af927540121171e0e81d727a407d5bddc28a6cccae0599506d41",
+    "game/campaign-ui.js": "3289bd972a67e7b4d070a59d07c0a36beaf56ec9a323a3936f775d9b2ed41a9f",
+    "game/mass-battle-ui.js": "5b944edec7ebab0ff54fab38a34308e8a8123a04290a8eda969f021292b0e260"
+  }
+}

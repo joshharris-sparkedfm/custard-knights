@@ -1,0 +1,21 @@
+{
+  "version": "0.3.0-beta.9",
+  "sourceCommit": "ae262b505ca9758de008df53418a06e26695a8a7",
+  "asarSha256": "52101c3ec673f2fa1a95d49f28d9d489c27cace18489b6e4ca17ef78102abb90",
+  "executableSha256": "2f82ae7605d75effd1562534548c777b162a8479c47eedf557da2c2b3d61f965",
+  "packageEntries": 60,
+  "friendsGameFiles": 73,
+  "preview": {
+    "bytes": 547141725,
+    "sha256": "206abfa4d127898cb0c26a3ae66e641cd305abc1236ec7754c28163fe2f5cbf8"
+  },
+  "friends": {
+    "bytes": 547139965,
+    "sha256": "9616aa60d5cefc45086618236db060804f4dbe432b8e9d7926414f2a1f23b400"
+  },
+  "zipIntegrity": true,
+  "exactCopiedGameBytes": true,
+  "packagedHomeChecks": 44,
+  "actualDesktopHomeChecks": 13,
+  "publiclyUploaded": false
+}

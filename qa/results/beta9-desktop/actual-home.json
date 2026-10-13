@@ -1,0 +1,68 @@
+{
+  "attempt": 2,
+  "executable": "C:\\Users\\Joshua\\Documents\\Codex\\2026-10-08\\rea\\work\\custard-knights-home\\dist\\Custard Knights-win32-x64\\Custard Knights.exe",
+  "profile": "C:\\Users\\Joshua\\AppData\\Local\\Temp\\custard-acceptance-HngAc1\\user-data",
+  "checks": [
+    {
+      "name": "Actual desktop origin",
+      "pass": true
+    },
+    {
+      "name": "Four primary routes",
+      "pass": true
+    },
+    {
+      "name": "Desktop opens tQuick",
+      "pass": true
+    },
+    {
+      "name": "Desktop returns focus tQuick",
+      "pass": true
+    },
+    {
+      "name": "Desktop opens tAdventure",
+      "pass": true
+    },
+    {
+      "name": "Desktop returns focus tAdventure",
+      "pass": true
+    },
+    {
+      "name": "Desktop opens tFriends",
+      "pass": true
+    },
+    {
+      "name": "Desktop returns focus tFriends",
+      "pass": true
+    },
+    {
+      "name": "Desktop opens tFactionBattle",
+      "pass": true
+    },
+    {
+      "name": "Desktop returns focus tFactionBattle",
+      "pass": true
+    },
+    {
+      "name": "Desktop Quit visible",
+      "pass": true
+    },
+    {
+      "name": "Quit opens confirmation",
+      "pass": true
+    },
+    {
+      "name": "Keep playing cancels Quit",
+      "pass": true
+    }
+  ],
+  "limitations": [
+    "Actual packaged desktop origin with programmatic click smoke; physical-device and human acceptance remain open.",
+    "In-memory inspector replacement of acceptance.run only; packaged bytes are not edited."
+  ],
+  "exitCode": 0,
+  "stdout": "\r\nACTUAL_HOME_PASS {\"checks\":[{\"name\":\"Actual desktop origin\",\"pass\":true},{\"name\":\"Four primary routes\",\"pass\":true},{\"name\":\"Desktop opens tQuick\",\"pass\":true},{\"name\":\"Desktop returns focus tQuick\",\"pass\":true},{\"name\":\"Desktop opens tAdventure\",\"pass\":true},{\"name\":\"Desktop returns focus tAdventure\",\"pass\":true},{\"name\":\"Desktop opens tFriends\",\"pass\":true},{\"name\":\"Desktop returns focus tFriends\",\"pass\":true},{\"name\":\"Desktop opens tFactionBattle\",\"pass\":true},{\"name\":\"Desktop returns focus tFactionBattle\",\"pass\":true},{\"name\":\"Desktop Quit visible\",\"pass\":true},{\"name\":\"Quit opens confirmation\",\"pass\":true},{\"name\":\"Keep playing cancels Quit\",\"pass\":true}],\"origin\":\"custard://game\"}\n",
+  "stderr": "Debugger listening on ws://127.0.0.1:58923/2c3573c0-f0b2-42f4-8d29-dba9f9ab6ca0\r\nFor help, see: https://nodejs.org/learn/getting-started/debugging\r\nDebugger attached.\r\nDebugger ending on ws://127.0.0.1:58923/2c3573c0-f0b2-42f4-8d29-dba9f9ab6ca0\r\nFor help, see: https://nodejs.org/learn/getting-started/debugging\r\n",
+  "origin": "custard://game",
+  "pass": true
+}

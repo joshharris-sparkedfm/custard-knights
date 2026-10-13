@@ -1,0 +1,15 @@
+{
+  "attempt": 1,
+  "executable": "C:\\Users\\Joshua\\Documents\\Codex\\2026-10-08\\rea\\work\\custard-knights-home\\dist\\Custard Knights-win32-x64\\Custard Knights.exe",
+  "profile": "C:\\Users\\Joshua\\AppData\\Local\\Temp\\custard-acceptance-ZODW71\\user-data",
+  "checks": [],
+  "limitations": [
+    "Actual packaged desktop origin with programmatic click smoke; physical-device and human acceptance remain open.",
+    "In-memory inspector replacement of acceptance.run only; packaged bytes are not edited."
+  ],
+  "exitCode": 1,
+  "stdout": "\r\n",
+  "stderr": "Debugger listening on ws://127.0.0.1:54854/6e23b47b-80dc-4fba-9f53-2509801526f6\r\nFor help, see: https://nodejs.org/learn/getting-started/debugging\r\nDebugger attached.\r\nDebugger ending on ws://127.0.0.1:54854/6e23b47b-80dc-4fba-9f53-2509801526f6\r\nFor help, see: https://nodejs.org/learn/getting-started/debugging\r\nACTUAL_HOME_FAIL Error: Desktop returns focus tAdventure\n",
+  "pass": false,
+  "error": "Error: Actual home failed: Debugger listening on ws://127.0.0.1:54854/6e23b47b-80dc-4fba-9f53-2509801526f6\r\nFor help, see: https://nodejs.org/learn/getting-started/debugging\r\nDebugger attached.\r\nDebugger ending on ws://127.0.0.1:54854/6e23b47b-80dc-4fba-9f53-2509801526f6\r\nFor help, see: https://nodejs.org/learn/getting-started/debugging\r\nACTUAL_HOME_FAIL Error: Desktop returns focus tAdventure\n \r\n\n    at C:\\Users\\Joshua\\Documents\\Codex\\2026-10-08\\rea\\work\\custard-knights-home\\qa\\results\\beta9-desktop\\actual-home.cjs:55:102\n    at process.processTicksAndRejections (node:internal/process/task_queues:104:5)"
+}

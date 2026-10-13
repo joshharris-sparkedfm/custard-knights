@@ -1,0 +1,44 @@
+PASS fresh: Actual game loads in isolated fresh Chrome profile
+PASS fresh: Exactly four primary routes; utilities remain separate
+PASS fresh: Atlas sprites are loaded before visual capture
+PASS fresh: Fresh Story names solo adventure without Continue
+PASS fresh: Logical Tab cycle reaches four routes and utilities
+PASS fresh: mouse opens tQuick and Back restores its focus
+PASS fresh: mouse opens tAdventure and Back restores its focus
+PASS fresh: mouse opens tFriends and Back restores its focus
+PASS fresh: mouse opens tFactionBattle and Back restores its focus
+PASS fresh: keyboard opens tQuick and Back restores its focus
+PASS fresh: keyboard opens tAdventure and Back restores its focus
+PASS fresh: keyboard opens tFriends and Back restores its focus
+PASS fresh: keyboard opens tFactionBattle and Back restores its focus
+PASS fresh: pad opens tQuick and Back restores its focus
+PASS fresh: pad opens tAdventure and Back restores its focus
+PASS fresh: pad opens tFriends and Back restores its focus
+PASS fresh: pad opens tFactionBattle and Back restores its focus
+PASS fresh: Utility tWardrobe opens and restores focus
+PASS fresh: Utility tSettings opens and restores focus
+PASS fresh: Utility tHowto opens and restores focus
+PASS fresh: Mouse Story restores clicked trigger after stale Quick focus
+PASS fresh: Synthetic d-pad spatial navigation visits every primary route
+PASS fresh: Space activation opens only one route; Escape returns only one level
+PASS fresh: Custom rules retain selection and show honest Quick summary
+PASS fresh: Social custom and online paths return to social origin
+PASS fresh: Browse modes summary is reachable and activated by pad
+PASS fresh: Options changes persist through reload
+PASS fresh: Couch seats survive home route and utility navigation
+PASS fresh: Friends Cup starts with two keyboard seats and pause Back works
+PASS fresh: Solo Cup clears couch ownership and uses one solo human
+PASS fresh: Quick start uses displayed retained safe rules and results return home
+PASS fresh: Quit browser hides unavailable bridge
+PASS fresh: Quit modal isolates focus and activation, Escape restores Quit focus
+PASS fresh: 1280x800 menu controls visible or scrollable without horizontal clipping
+PASS fresh: 1280x800 quickRoute controls visible or scrollable without horizontal clipping
+PASS fresh: 1280x800 friendsRoute controls visible or scrollable without horizontal clipping
+PASS fresh: 960x640 menu controls visible or scrollable without horizontal clipping
+PASS fresh: 960x640 quickRoute controls visible or scrollable without horizontal clipping
+PASS fresh: 960x640 friendsRoute controls visible or scrollable without horizontal clipping
+PASS fresh: 800x600 menu controls visible or scrollable without horizontal clipping
+PASS fresh: 800x600 quickRoute controls visible or scrollable without horizontal clipping
+PASS fresh: 800x600 friendsRoute controls visible or scrollable without horizontal clipping
+PASS returning: Returning Story names next objective without changing save settings
+PASS returning: Returning Story opens remembered unlocked destination

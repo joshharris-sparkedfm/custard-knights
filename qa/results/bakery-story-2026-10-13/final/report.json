@@ -1,0 +1,2808 @@
+{
+  "startedAt": "2026-10-13T14:44:59.191Z",
+  "root": "C:\\Users\\Joshua\\Documents\\Codex\\2026-10-08\\rea\\work\\custard-knights-room",
+  "harness": "C:\\Users\\Joshua\\Documents\\Codex\\2026-10-08\\rea\\work\\custard-knights-room\\qa\\bakery-story-browser.cjs",
+  "harnessSha256": "7d0891c24832150689f052949da067f68b8b4830356c1869441335606974fdfc",
+  "sourceHashes": {
+    "index.html": "c140afd3e72185bdedbabecf91f4e776c68fa040c61a1a9212ad06dfe9994163",
+    "game/campaign.js": "014c31e1a9bb842f0f370a921dc7035a063f3fdd3d457ee6733a9f02d2aff8db",
+    "game/campaign-ui.js": "0cac734ea9e87f8a207049cc3deb026b3e82150f7f15d61749d6b57bcb4c8a90",
+    "game/campaign-integration.js": "df567f9ab1d199b3e4b8a0801dc92ab7725e3ac5619c401bb538868edf3bfdc4",
+    "game/story-scenes.js": "ee84901ced69557e22fda8105cc254f05c05da486873f31756561e39608e508c",
+    "game/bakery-opening.js": "9732108d5b9f0f9a7c5c105156739dddfa71941d79c131de8b92da6d9399c6af"
+  },
+  "checks": [
+    {
+      "name": "Fresh Play encounter opens playable bakery instead of generic scene",
+      "pass": true,
+      "details": {
+        "run": {
+          "id": "banquet",
+          "phase": 0,
+          "status": "playing",
+          "quietKind": "opening",
+          "prelude": true,
+          "elapsed": 0.09999999999999999,
+          "player": {
+            "x": 220,
+            "y": 500
+          },
+          "staff": [],
+          "speech": "Mabel: Peace banquet. Six trays. Bring back seven.",
+          "hold": 0
+        },
+        "save": {
+          "version": 1,
+          "results": {},
+          "selected": "banquet",
+          "assist": false,
+          "difficulty": "medium",
+          "checkpoint": null,
+          "receipts": []
+        },
+        "visible": [],
+        "hud": "Talk to Mabel · Space / left click"
+      }
+    },
+    {
+      "name": "Compact bakery-first objective stays inside viewport",
+      "pass": true,
+      "details": {
+        "hud": {
+          "x": 280.078125,
+          "y": 56,
+          "width": 239.84375,
+          "height": 29.5,
+          "top": 56,
+          "right": 519.921875,
+          "bottom": 85.5,
+          "left": 280.078125
+        },
+        "text": "Talk to Mabel · Space / left click",
+        "scroll": {
+          "width": 800,
+          "height": 500
+        },
+        "viewport": {
+          "width": 800,
+          "height": 500
+        },
+        "visible": true
+      }
+    },
+    {
+      "name": "Actual Escape pauses quiet objective time",
+      "pass": true,
+      "details": {
+        "run": {
+          "id": "banquet",
+          "phase": 0,
+          "status": "playing",
+          "quietKind": "opening",
+          "prelude": true,
+          "elapsed": 0.6833333333333338,
+          "player": {
+            "x": 220,
+            "y": 500
+          },
+          "staff": [],
+          "speech": "Mabel: Peace banquet. Six trays. Bring back seven.",
+          "hold": 0
+        },
+        "save": {
+          "version": 1,
+          "results": {},
+          "selected": "banquet",
+          "assist": false,
+          "difficulty": "medium",
+          "checkpoint": null,
+          "receipts": []
+        },
+        "visible": [
+          "pause"
+        ],
+        "hud": "Talk to Mabel · Space / left click"
+      }
+    },
+    {
+      "name": "Options Back returns to paused game",
+      "pass": true,
+      "details": {
+        "run": {
+          "id": "banquet",
+          "phase": 0,
+          "status": "playing",
+          "quietKind": "opening",
+          "prelude": true,
+          "elapsed": 0.6833333333333338,
+          "player": {
+            "x": 220,
+            "y": 500
+          },
+          "staff": [],
+          "speech": "Mabel: Peace banquet. Six trays. Bring back seven.",
+          "hold": 0
+        },
+        "save": {
+          "version": 1,
+          "results": {},
+          "selected": "banquet",
+          "assist": false,
+          "difficulty": "medium",
+          "checkpoint": null,
+          "receipts": []
+        },
+        "visible": [
+          "pause"
+        ],
+        "hud": "Talk to Mabel · Space / left click"
+      }
+    },
+    {
+      "name": "Compact bakery-talk objective stays inside viewport",
+      "pass": true,
+      "details": {
+        "hud": {
+          "x": 286.0859375,
+          "y": 56,
+          "width": 227.828125,
+          "height": 29.5,
+          "top": 56,
+          "right": 513.9140625,
+          "bottom": 85.5,
+          "left": 286.0859375
+        },
+        "text": "Pick up tray · Space / left click",
+        "scroll": {
+          "width": 800,
+          "height": 500
+        },
+        "viewport": {
+          "width": 800,
+          "height": 500
+        },
+        "visible": true
+      }
+    },
+    {
+      "name": "Held interaction does not automatically pick up next tray",
+      "pass": true,
+      "details": {
+        "run": {
+          "id": "banquet",
+          "phase": 1,
+          "status": "playing",
+          "quietKind": "opening",
+          "prelude": true,
+          "elapsed": 3.433333333333326,
+          "player": {
+            "x": 608.5263626683358,
+            "y": 560.4537466762192
+          },
+          "staff": [],
+          "speech": "Recruit: Seven?  Mabel: They still have one from the last war. Pick up the covered tray.",
+          "hold": 0
+        },
+        "save": {
+          "version": 1,
+          "results": {},
+          "selected": "banquet",
+          "assist": false,
+          "difficulty": "medium",
+          "checkpoint": null,
+          "receipts": []
+        },
+        "visible": [],
+        "hud": "Pick up tray · Space / left click"
+      }
+    },
+    {
+      "name": "Pickup attaches delivery tray to player",
+      "pass": true,
+      "details": {
+        "run": {
+          "id": "banquet",
+          "phase": 2,
+          "status": "playing",
+          "quietKind": "opening",
+          "prelude": true,
+          "elapsed": 3.6166666666666587,
+          "player": {
+            "x": 608.6590318795627,
+            "y": 560.4538567117912
+          },
+          "staff": [],
+          "speech": "Mabel: Take it to the banquet. I’ll bring Alf and Pip. Keep the scraps away from Steve.",
+          "hold": 0
+        },
+        "save": {
+          "version": 1,
+          "results": {},
+          "selected": "banquet",
+          "assist": false,
+          "difficulty": "medium",
+          "checkpoint": null,
+          "receipts": []
+        },
+        "visible": [],
+        "hud": "Deliver tray · Space / left click"
+      }
+    },
+    {
+      "name": "Compact tray-carried objective stays inside viewport",
+      "pass": true,
+      "details": {
+        "hud": {
+          "x": 286.359375,
+          "y": 56,
+          "width": 227.28125,
+          "height": 29.5,
+          "top": 56,
+          "right": 513.640625,
+          "bottom": 85.5,
+          "left": 286.359375
+        },
+        "text": "Deliver tray · Space / left click",
+        "scroll": {
+          "width": 800,
+          "height": 500
+        },
+        "viewport": {
+          "width": 800,
+          "height": 500
+        },
+        "visible": true
+      }
+    },
+    {
+      "name": "Independent Steve scrap theft progresses while carrying tray",
+      "pass": true,
+      "details": {
+        "run": {
+          "id": "banquet",
+          "phase": 2,
+          "status": "playing",
+          "quietKind": "opening",
+          "prelude": true,
+          "elapsed": 5.416666666666653,
+          "player": {
+            "x": 608.6665733034237,
+            "y": 560.4538629666325
+          },
+          "staff": [],
+          "speech": "Mabel: Not you, Steve. I’ll take Alf and Pip ahead. Meet us inside the pantry.",
+          "hold": 0
+        },
+        "save": {
+          "version": 1,
+          "results": {},
+          "selected": "banquet",
+          "assist": false,
+          "difficulty": "medium",
+          "checkpoint": null,
+          "receipts": []
+        },
+        "visible": [],
+        "hud": "Deliver tray · Space / left click"
+      }
+    },
+    {
+      "name": "Compact steve-stolen-bun objective stays inside viewport",
+      "pass": true,
+      "details": {
+        "hud": {
+          "x": 286.359375,
+          "y": 56,
+          "width": 227.28125,
+          "height": 29.5,
+          "top": 56,
+          "right": 513.640625,
+          "bottom": 85.5,
+          "left": 286.359375
+        },
+        "text": "Deliver tray · Space / left click",
+        "scroll": {
+          "width": 800,
+          "height": 500
+        },
+        "viewport": {
+          "width": 800,
+          "height": 500
+        },
+        "visible": true
+      }
+    },
+    {
+      "name": "Quiet opening does not award spoons or change save",
+      "pass": true,
+      "details": {
+        "run": {
+          "id": "banquet",
+          "phase": 2,
+          "status": "playing",
+          "quietKind": "opening",
+          "prelude": true,
+          "elapsed": 8.51666666666667,
+          "player": {
+            "x": 1079.6641932007162,
+            "y": 498.4173278889727
+          },
+          "staff": [],
+          "speech": "Mabel: Not you, Steve. I’ll take Alf and Pip ahead. Meet us inside the pantry.",
+          "hold": 0
+        },
+        "save": {
+          "version": 1,
+          "results": {},
+          "selected": "banquet",
+          "assist": false,
+          "difficulty": "medium",
+          "checkpoint": null,
+          "receipts": []
+        },
+        "visible": [],
+        "hud": "Deliver tray · Space / left click"
+      }
+    },
+    {
+      "name": "Actual Space sword contacts destroy reachable pantry blockade",
+      "pass": true,
+      "details": [
+        {
+          "hp": 2,
+          "open": false,
+          "phase": 0
+        },
+        {
+          "hp": 1,
+          "open": false,
+          "phase": 0
+        },
+        {
+          "hp": 0,
+          "open": true,
+          "phase": 1
+        }
+      ]
+    },
+    {
+      "name": "Mabel Alf Pip physically escorted through pantry doorway",
+      "pass": true,
+      "details": {
+        "run": {
+          "id": "banquet",
+          "phase": 2,
+          "status": "playing",
+          "elapsed": 12.850000000000218,
+          "player": {
+            "x": 1060.1547108806765,
+            "y": 420.79916421229916
+          },
+          "staff": [
+            {
+              "x": 1170,
+              "y": 330,
+              "name": "Mabel",
+              "color": "#FF8FB1",
+              "following": true,
+              "rescued": true,
+              "route": 3,
+              "walk": 38.95673308974944,
+              "waiting": false
+            },
+            {
+              "x": 1170,
+              "y": 420,
+              "name": "Alf",
+              "color": "#FFD23F",
+              "following": true,
+              "rescued": true,
+              "route": 3,
+              "walk": 39.19999999999989,
+              "waiting": false
+            },
+            {
+              "x": 1170,
+              "y": 510,
+              "name": "Pip",
+              "color": "#2EC4B6",
+              "following": true,
+              "rescued": true,
+              "route": 3,
+              "walk": 38.95673308974934,
+              "waiting": false
+            }
+          ],
+          "barricadeOpen": true,
+          "hold": 0.2333333333333333
+        },
+        "save": {
+          "version": 1,
+          "results": {},
+          "selected": "banquet",
+          "assist": false,
+          "difficulty": "medium",
+          "checkpoint": null,
+          "receipts": []
+        },
+        "visible": [],
+        "hud": "Medium · 3/4 · Hold pantry: 0.2/6s · 2 guards left"
+      }
+    },
+    {
+      "name": "Pantry hold and reachable green exit save completion",
+      "pass": true,
+      "details": {
+        "run": {
+          "id": "banquet",
+          "phase": 3,
+          "status": "won",
+          "elapsed": 20.53333333333345,
+          "player": {
+            "x": 1095.40471086392,
+            "y": 420.79916421229916
+          },
+          "staff": [
+            {
+              "x": 1170,
+              "y": 330,
+              "name": "Mabel",
+              "color": "#FF8FB1",
+              "following": true,
+              "rescued": true,
+              "route": 3,
+              "walk": 38.95673308974944,
+              "waiting": false
+            },
+            {
+              "x": 1170,
+              "y": 420,
+              "name": "Alf",
+              "color": "#FFD23F",
+              "following": true,
+              "rescued": true,
+              "route": 3,
+              "walk": 39.19999999999989,
+              "waiting": false
+            },
+            {
+              "x": 1170,
+              "y": 510,
+              "name": "Pip",
+              "color": "#2EC4B6",
+              "following": true,
+              "rescued": true,
+              "route": 3,
+              "walk": 38.95673308974934,
+              "waiting": false
+            }
+          ],
+          "barricadeOpen": true,
+          "hold": 1.5166666666666662
+        },
+        "save": {
+          "version": 1,
+          "results": {
+            "banquet": {
+              "spoons": [
+                true,
+                true,
+                true
+              ],
+              "attempts": 1,
+              "best": 20.53333333333345,
+              "assisted": false
+            }
+          },
+          "selected": "puddings",
+          "assist": false,
+          "difficulty": "medium",
+          "checkpoint": null,
+          "receipts": [
+            "0bdb8cc9-82a6-4548-a40b-45348683fef0:banquet:1"
+          ]
+        },
+        "visible": [
+          "campaignResult"
+        ],
+        "hud": "Medium · 4/4 · Leave through pantry: 1.5/1.5s"
+      }
+    },
+    {
+      "name": "Compact aftermath objective stays inside viewport",
+      "pass": true,
+      "details": {
+        "hud": {
+          "x": 272.46875,
+          "y": 56,
+          "width": 255.0625,
+          "height": 29.5,
+          "top": 56,
+          "right": 527.53125,
+          "bottom": 85.5,
+          "left": 272.46875
+        },
+        "text": "Collect supplies · Space / left click",
+        "scroll": {
+          "width": 800,
+          "height": 500
+        },
+        "viewport": {
+          "width": 800,
+          "height": 500
+        },
+        "visible": true
+      }
+    },
+    {
+      "name": "Default continuation visibly returns same named rescued cooks",
+      "pass": true,
+      "details": {
+        "run": {
+          "id": "banquet",
+          "phase": 0,
+          "status": "playing",
+          "quietKind": "aftermath",
+          "prelude": true,
+          "elapsed": 0.6000000000000002,
+          "player": {
+            "x": 220,
+            "y": 500
+          },
+          "staff": [
+            {
+              "x": 455,
+              "y": 424,
+              "name": "Mabel",
+              "color": "#FF8FB1"
+            },
+            {
+              "x": 605,
+              "y": 410,
+              "name": "Alf",
+              "color": "#FFD23F"
+            },
+            {
+              "x": 750,
+              "y": 440,
+              "name": "Pip",
+              "color": "#2EC4B6"
+            }
+          ],
+          "speech": "Mabel: You got all three of us home. Alf, bring the flour. Pip, the cooling water.",
+          "hold": 0
+        },
+        "save": {
+          "version": 1,
+          "results": {
+            "banquet": {
+              "spoons": [
+                true,
+                true,
+                true
+              ],
+              "attempts": 1,
+              "best": 20.53333333333345,
+              "assisted": false
+            }
+          },
+          "selected": "puddings",
+          "assist": false,
+          "difficulty": "medium",
+          "checkpoint": null,
+          "receipts": [
+            "0bdb8cc9-82a6-4548-a40b-45348683fef0:banquet:1"
+          ]
+        },
+        "visible": [],
+        "hud": "Collect supplies · Space / left click"
+      }
+    },
+    {
+      "name": "Cooks contribute supplies before onward siege objective",
+      "pass": true,
+      "details": {
+        "run": {
+          "id": "banquet",
+          "phase": 1,
+          "status": "playing",
+          "quietKind": "aftermath",
+          "prelude": true,
+          "elapsed": 3.21666666666666,
+          "player": {
+            "x": 619.5381262419459,
+            "y": 577.2444426842474
+          },
+          "staff": [
+            {
+              "x": 455,
+              "y": 424,
+              "name": "Mabel",
+              "color": "#FF8FB1"
+            },
+            {
+              "x": 605,
+              "y": 410,
+              "name": "Alf",
+              "color": "#FFD23F"
+            },
+            {
+              "x": 750,
+              "y": 440,
+              "name": "Pip",
+              "color": "#2EC4B6"
+            }
+          ],
+          "speech": "Alf: Flour sacks for cover. Pip: Water for the cooling channel. Mabel: That siege bowl is coming for our ovens. Protect these puddings while we move the supplies.",
+          "hold": 0
+        },
+        "save": {
+          "version": 1,
+          "results": {
+            "banquet": {
+              "spoons": [
+                true,
+                true,
+                true
+              ],
+              "attempts": 1,
+              "best": 20.53333333333345,
+              "assisted": false
+            }
+          },
+          "selected": "puddings",
+          "assist": false,
+          "difficulty": "medium",
+          "checkpoint": null,
+          "receipts": [
+            "0bdb8cc9-82a6-4548-a40b-45348683fef0:banquet:1"
+          ]
+        },
+        "visible": [],
+        "hud": "Go to defence · Space / left click"
+      }
+    },
+    {
+      "name": "Aftermath leads next existing encounter without new rewards",
+      "pass": true,
+      "details": {
+        "run": {
+          "id": "banquet",
+          "phase": 1,
+          "status": "quiet-complete",
+          "quietKind": "aftermath",
+          "prelude": true,
+          "elapsed": 5.499999999999986,
+          "player": {
+            "x": 1085.936770391995,
+            "y": 494.1826479527348
+          },
+          "staff": [
+            {
+              "x": 455,
+              "y": 424,
+              "name": "Mabel",
+              "color": "#FF8FB1"
+            },
+            {
+              "x": 605,
+              "y": 410,
+              "name": "Alf",
+              "color": "#FFD23F"
+            },
+            {
+              "x": 750,
+              "y": 440,
+              "name": "Pip",
+              "color": "#2EC4B6"
+            }
+          ],
+          "speech": "Alf: Flour sacks for cover. Pip: Water for the cooling channel. Mabel: That siege bowl is coming for our ovens. Protect these puddings while we move the supplies.",
+          "hold": 0
+        },
+        "save": {
+          "version": 1,
+          "results": {
+            "banquet": {
+              "spoons": [
+                true,
+                true,
+                true
+              ],
+              "attempts": 1,
+              "best": 20.53333333333345,
+              "assisted": false
+            }
+          },
+          "selected": "puddings",
+          "assist": false,
+          "difficulty": "medium",
+          "checkpoint": null,
+          "receipts": [
+            "0bdb8cc9-82a6-4548-a40b-45348683fef0:banquet:1"
+          ]
+        },
+        "visible": [
+          "campaignStory"
+        ],
+        "hud": "Go to defence · Space / left click"
+      }
+    },
+    {
+      "name": "Compact actual-siege objective stays inside viewport",
+      "pass": true,
+      "details": {
+        "hud": {
+          "x": 208,
+          "y": 90,
+          "width": 384,
+          "height": 54,
+          "top": 90,
+          "right": 592,
+          "bottom": 144,
+          "left": 208
+        },
+        "text": "Medium · Bakery siege · Wave 1/2 · 3/3 cooks’ supply stations intact",
+        "scroll": {
+          "width": 800,
+          "height": 500
+        },
+        "viewport": {
+          "width": 800,
+          "height": 500
+        },
+        "visible": true
+      }
+    },
+    {
+      "name": "Actual siege fight retains bakery and same named cook supply stations",
+      "pass": true,
+      "details": {
+        "run": {
+          "id": "puddings",
+          "phase": 0,
+          "status": "playing",
+          "elapsed": 0.5666666666666668,
+          "player": {
+            "x": 180,
+            "y": 440
+          },
+          "staff": [
+            {
+              "x": 410,
+              "y": 382,
+              "name": "Mabel",
+              "color": "#FF8FB1",
+              "station": 0
+            },
+            {
+              "x": 640,
+              "y": 382,
+              "name": "Alf",
+              "color": "#FFD23F",
+              "station": 1
+            },
+            {
+              "x": 460,
+              "y": 562,
+              "name": "Pip",
+              "color": "#2EC4B6",
+              "station": 2
+            }
+          ],
+          "hold": 0
+        },
+        "save": {
+          "version": 1,
+          "results": {
+            "banquet": {
+              "spoons": [
+                true,
+                true,
+                true
+              ],
+              "attempts": 1,
+              "best": 20.53333333333345,
+              "assisted": false
+            }
+          },
+          "selected": "puddings",
+          "assist": false,
+          "difficulty": "medium",
+          "checkpoint": null,
+          "receipts": [
+            "0bdb8cc9-82a6-4548-a40b-45348683fef0:banquet:1"
+          ]
+        },
+        "visible": [],
+        "hud": "Medium · Bakery siege · Wave 1/2 · 3/3 cooks’ supply stations intact"
+      }
+    },
+    {
+      "name": "Live raider traverses authored forecourt to a supply stand",
+      "pass": true,
+      "details": {
+        "enemyStart": [
+          {
+            "id": 1,
+            "x": 981.479859122235,
+            "y": 499.38780158647575
+          },
+          {
+            "id": 2,
+            "x": 990.5653024893179,
+            "y": 600.0406815712104
+          }
+        ],
+        "observed": [
+          {
+            "id": 1,
+            "x": 672.9151181028018,
+            "y": 432.2155864622377,
+            "target": {
+              "x": 640,
+              "y": 440,
+              "label": "Alf · Chocolate"
+            }
+          },
+          {
+            "id": 2,
+            "x": 689.9467604918704,
+            "y": 465.48029078399406,
+            "target": {
+              "x": 640,
+              "y": 440,
+              "label": "Alf · Chocolate"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "name": "Actual WASD reaches all three named siege station approaches",
+      "pass": true,
+      "details": {
+        "run": {
+          "id": "puddings",
+          "phase": 0,
+          "status": "playing",
+          "elapsed": 5.699999999999985,
+          "player": {
+            "x": 456.657896938349,
+            "y": 617.1461856943247
+          },
+          "staff": [
+            {
+              "x": 410,
+              "y": 382,
+              "name": "Mabel",
+              "color": "#FF8FB1",
+              "station": 0
+            },
+            {
+              "x": 640,
+              "y": 382,
+              "name": "Alf",
+              "color": "#FFD23F",
+              "station": 1
+            },
+            {
+              "x": 460,
+              "y": 562,
+              "name": "Pip",
+              "color": "#2EC4B6",
+              "station": 2
+            }
+          ],
+          "hold": 0
+        },
+        "save": {
+          "version": 1,
+          "results": {
+            "banquet": {
+              "spoons": [
+                true,
+                true,
+                true
+              ],
+              "attempts": 1,
+              "best": 20.53333333333345,
+              "assisted": false
+            }
+          },
+          "selected": "puddings",
+          "assist": false,
+          "difficulty": "medium",
+          "checkpoint": null,
+          "receipts": [
+            "0bdb8cc9-82a6-4548-a40b-45348683fef0:banquet:1"
+          ]
+        },
+        "visible": [],
+        "hud": "Medium · Bakery siege · Wave 1/2 · 3/3 cooks’ supply stations intact"
+      }
+    },
+    {
+      "name": "Explicit pause skip bypasses playable aftermath",
+      "pass": false,
+      "details": {
+        "run": {
+          "id": "banquet",
+          "phase": 0,
+          "status": "playing",
+          "quietKind": "aftermath",
+          "prelude": true,
+          "elapsed": 0.11666666666666665,
+          "player": {
+            "x": 220,
+            "y": 500
+          },
+          "staff": [
+            {
+              "x": 455,
+              "y": 424,
+              "name": "Mabel",
+              "color": "#FF8FB1"
+            },
+            {
+              "x": 605,
+              "y": 410,
+              "name": "Alf",
+              "color": "#FFD23F"
+            },
+            {
+              "x": 750,
+              "y": 440,
+              "name": "Pip",
+              "color": "#2EC4B6"
+            }
+          ],
+          "speech": "Mabel: You got all three of us home. Alf, bring the flour. Pip, the cooling water.",
+          "hold": 0
+        },
+        "save": {
+          "version": 1,
+          "results": {
+            "banquet": {
+              "spoons": [
+                true,
+                true,
+                true
+              ],
+              "attempts": 2,
+              "best": 0,
+              "assisted": false
+            }
+          },
+          "selected": "puddings",
+          "assist": false,
+          "difficulty": "medium",
+          "checkpoint": null,
+          "receipts": [
+            "0bdb8cc9-82a6-4548-a40b-45348683fef0:banquet:1",
+            "c5619b78-61c5-4a79-99b9-167694962c35:banquet:3"
+          ]
+        },
+        "visible": [
+          "campaignStory"
+        ],
+        "hud": "Collect supplies · Space / left click"
+      }
+    },
+    {
+      "name": "Aftermath replay and skip do not duplicate reward receipts",
+      "pass": true,
+      "details": {
+        "run": {
+          "id": "banquet",
+          "phase": 0,
+          "status": "won",
+          "elapsed": 0,
+          "player": {
+            "x": 180,
+            "y": 440
+          },
+          "staff": [
+            {
+              "x": 560,
+              "y": 350,
+              "name": "Mabel",
+              "color": "#FF8FB1",
+              "following": false,
+              "rescued": false,
+              "route": 0,
+              "walk": 0
+            },
+            {
+              "x": 540,
+              "y": 420,
+              "name": "Alf",
+              "color": "#FFD23F",
+              "following": false,
+              "rescued": false,
+              "route": 0,
+              "walk": 0
+            },
+            {
+              "x": 560,
+              "y": 490,
+              "name": "Pip",
+              "color": "#2EC4B6",
+              "following": false,
+              "rescued": false,
+              "route": 0,
+              "walk": 0
+            }
+          ],
+          "barricadeOpen": false,
+          "hold": 0
+        },
+        "save": {
+          "version": 1,
+          "results": {
+            "banquet": {
+              "spoons": [
+                true,
+                true,
+                true
+              ],
+              "attempts": 3,
+              "best": 0,
+              "assisted": false
+            }
+          },
+          "selected": "puddings",
+          "assist": false,
+          "difficulty": "medium",
+          "checkpoint": null,
+          "receipts": [
+            "0bdb8cc9-82a6-4548-a40b-45348683fef0:banquet:1",
+            "c5619b78-61c5-4a79-99b9-167694962c35:banquet:3",
+            "d984d3fa-1940-4469-8d58-e2275a2ff40a:banquet:4"
+          ]
+        },
+        "visible": [
+          "campaignMap"
+        ],
+        "hud": "Medium · 1/4 · Swing at barricade: 3/3 hits left · 0/2 guards bonked"
+      }
+    },
+    {
+      "name": "Retry starts combat directly with short context",
+      "pass": true,
+      "details": {
+        "run": {
+          "id": "banquet",
+          "phase": 0,
+          "status": "playing",
+          "elapsed": 0.11666666666666665,
+          "player": {
+            "x": 180,
+            "y": 440
+          },
+          "staff": [
+            {
+              "x": 560,
+              "y": 350,
+              "name": "Mabel",
+              "color": "#FF8FB1",
+              "following": false,
+              "rescued": false,
+              "route": 0,
+              "walk": 0
+            },
+            {
+              "x": 540,
+              "y": 420,
+              "name": "Alf",
+              "color": "#FFD23F",
+              "following": false,
+              "rescued": false,
+              "route": 0,
+              "walk": 0
+            },
+            {
+              "x": 560,
+              "y": 490,
+              "name": "Pip",
+              "color": "#2EC4B6",
+              "following": false,
+              "rescued": false,
+              "route": 0,
+              "walk": 0
+            }
+          ],
+          "barricadeOpen": false,
+          "hold": 0
+        },
+        "save": {
+          "version": 1,
+          "results": {
+            "banquet": {
+              "spoons": [
+                true,
+                true,
+                true
+              ],
+              "attempts": 4,
+              "best": 0,
+              "assisted": false
+            }
+          },
+          "selected": "banquet",
+          "assist": false,
+          "difficulty": "medium",
+          "checkpoint": null,
+          "receipts": [
+            "0bdb8cc9-82a6-4548-a40b-45348683fef0:banquet:1",
+            "c5619b78-61c5-4a79-99b9-167694962c35:banquet:3",
+            "d984d3fa-1940-4469-8d58-e2275a2ff40a:banquet:4",
+            "84e88cdc-0629-4abf-b857-f6e40305adbe:banquet:5"
+          ]
+        },
+        "visible": [],
+        "hud": "Medium · 1/4 · Swing at barricade: 3/3 hits left · 0/2 guards bonked"
+      }
+    },
+    {
+      "name": "Quit clears quiet/combat runtime and returns home",
+      "pass": true,
+      "details": {
+        "run": null,
+        "save": {
+          "version": 1,
+          "results": {
+            "banquet": {
+              "spoons": [
+                true,
+                true,
+                true
+              ],
+              "attempts": 4,
+              "best": 0,
+              "assisted": false
+            }
+          },
+          "selected": "banquet",
+          "assist": false,
+          "difficulty": "medium",
+          "checkpoint": null,
+          "receipts": [
+            "0bdb8cc9-82a6-4548-a40b-45348683fef0:banquet:1",
+            "c5619b78-61c5-4a79-99b9-167694962c35:banquet:3",
+            "d984d3fa-1940-4469-8d58-e2275a2ff40a:banquet:4",
+            "84e88cdc-0629-4abf-b857-f6e40305adbe:banquet:5"
+          ]
+        },
+        "visible": [
+          "menu"
+        ],
+        "hud": "Medium · 1/4 · Swing at barricade: 3/3 hits left · 0/2 guards bonked"
+      }
+    },
+    {
+      "name": "Reload preserves legacy node IDs independent spoons checkpoint and receipt",
+      "pass": true,
+      "details": {
+        "run": null,
+        "save": {
+          "version": 1,
+          "results": {
+            "banquet": {
+              "spoons": [
+                true,
+                false,
+                true
+              ],
+              "attempts": 3,
+              "best": 90,
+              "assisted": false
+            },
+            "puddings": {
+              "spoons": [
+                true,
+                false,
+                true
+              ],
+              "attempts": 3,
+              "best": 90,
+              "assisted": false
+            },
+            "guard": {
+              "spoons": [
+                true,
+                false,
+                true
+              ],
+              "attempts": 3,
+              "best": 90,
+              "assisted": false
+            },
+            "biscuit": {
+              "spoons": [
+                true,
+                false,
+                true
+              ],
+              "attempts": 3,
+              "best": 90,
+              "assisted": false
+            },
+            "bridge": {
+              "spoons": [
+                true,
+                false,
+                true
+              ],
+              "attempts": 3,
+              "best": 90,
+              "assisted": false
+            },
+            "stirling": {
+              "spoons": [
+                false,
+                false,
+                true
+              ],
+              "attempts": 3,
+              "best": 90,
+              "assisted": false
+            },
+            "steve": {
+              "spoons": [
+                true,
+                false,
+                true
+              ],
+              "attempts": 3,
+              "best": 90,
+              "assisted": false
+            },
+            "rind": {
+              "spoons": [
+                true,
+                false,
+                true
+              ],
+              "attempts": 3,
+              "best": 90,
+              "assisted": false
+            }
+          },
+          "selected": "banquet",
+          "assist": false,
+          "difficulty": "medium",
+          "checkpoint": {
+            "id": "stirling",
+            "phase": 1
+          },
+          "receipts": [
+            "legacy-unique"
+          ]
+        },
+        "visible": [
+          "menu"
+        ],
+        "hud": ""
+      }
+    },
+    {
+      "name": "Checkpoint continuation restores phase after explicit scene skip",
+      "pass": true,
+      "details": {
+        "run": {
+          "id": "stirling",
+          "phase": 1,
+          "status": "playing",
+          "elapsed": 0.13333333333333333,
+          "player": {
+            "x": 360,
+            "y": 440
+          },
+          "hold": 0
+        },
+        "save": {
+          "version": 1,
+          "results": {
+            "banquet": {
+              "spoons": [
+                true,
+                false,
+                true
+              ],
+              "attempts": 3,
+              "best": 90,
+              "assisted": false
+            },
+            "puddings": {
+              "spoons": [
+                true,
+                false,
+                true
+              ],
+              "attempts": 3,
+              "best": 90,
+              "assisted": false
+            },
+            "guard": {
+              "spoons": [
+                true,
+                false,
+                true
+              ],
+              "attempts": 3,
+              "best": 90,
+              "assisted": false
+            },
+            "biscuit": {
+              "spoons": [
+                true,
+                false,
+                true
+              ],
+              "attempts": 3,
+              "best": 90,
+              "assisted": false
+            },
+            "bridge": {
+              "spoons": [
+                true,
+                false,
+                true
+              ],
+              "attempts": 3,
+              "best": 90,
+              "assisted": false
+            },
+            "stirling": {
+              "spoons": [
+                false,
+                false,
+                true
+              ],
+              "attempts": 3,
+              "best": 90,
+              "assisted": false
+            },
+            "steve": {
+              "spoons": [
+                true,
+                false,
+                true
+              ],
+              "attempts": 3,
+              "best": 90,
+              "assisted": false
+            },
+            "rind": {
+              "spoons": [
+                true,
+                false,
+                true
+              ],
+              "attempts": 3,
+              "best": 90,
+              "assisted": false
+            }
+          },
+          "selected": "stirling",
+          "assist": false,
+          "difficulty": "medium",
+          "checkpoint": {
+            "id": "stirling",
+            "phase": 1
+          },
+          "receipts": [
+            "legacy-unique"
+          ]
+        },
+        "visible": [],
+        "hud": "Medium · Counter: defeat Sir Stirling"
+      }
+    },
+    {
+      "name": "Legacy duplicate receipt cannot mutate spoons",
+      "pass": true,
+      "details": {
+        "applied": false,
+        "same": true
+      }
+    },
+    {
+      "name": "Default Space cannot activate remapped interaction",
+      "pass": true,
+      "details": {
+        "run": {
+          "id": "banquet",
+          "phase": 0,
+          "status": "playing",
+          "quietKind": "opening",
+          "prelude": true,
+          "elapsed": 1.1333333333333342,
+          "player": {
+            "x": 421.4336880525084,
+            "y": 458.4575024279644
+          },
+          "staff": [],
+          "speech": "Mabel: Peace banquet. Six trays. Bring back seven.",
+          "hold": 0
+        },
+        "save": {
+          "version": 1,
+          "results": {
+            "banquet": {
+              "spoons": [
+                true,
+                false,
+                true
+              ],
+              "attempts": 3,
+              "best": 90,
+              "assisted": false
+            },
+            "puddings": {
+              "spoons": [
+                true,
+                false,
+                true
+              ],
+              "attempts": 3,
+              "best": 90,
+              "assisted": false
+            },
+            "guard": {
+              "spoons": [
+                true,
+                false,
+                true
+              ],
+              "attempts": 3,
+              "best": 90,
+              "assisted": false
+            },
+            "biscuit": {
+              "spoons": [
+                true,
+                false,
+                true
+              ],
+              "attempts": 3,
+              "best": 90,
+              "assisted": false
+            },
+            "bridge": {
+              "spoons": [
+                true,
+                false,
+                true
+              ],
+              "attempts": 3,
+              "best": 90,
+              "assisted": false
+            },
+            "stirling": {
+              "spoons": [
+                false,
+                false,
+                true
+              ],
+              "attempts": 3,
+              "best": 90,
+              "assisted": false
+            },
+            "steve": {
+              "spoons": [
+                true,
+                false,
+                true
+              ],
+              "attempts": 3,
+              "best": 90,
+              "assisted": false
+            },
+            "rind": {
+              "spoons": [
+                true,
+                false,
+                true
+              ],
+              "attempts": 3,
+              "best": 90,
+              "assisted": false
+            }
+          },
+          "selected": "stirling",
+          "assist": false,
+          "difficulty": "medium",
+          "checkpoint": {
+            "id": "stirling",
+            "phase": 1
+          },
+          "receipts": [
+            "legacy-unique"
+          ]
+        },
+        "visible": [],
+        "hud": "Talk to Mabel · Q / left click"
+      }
+    },
+    {
+      "name": "Remapped Q activates owned quiet interaction",
+      "pass": true,
+      "details": {
+        "run": {
+          "id": "banquet",
+          "phase": 1,
+          "status": "playing",
+          "quietKind": "opening",
+          "prelude": true,
+          "elapsed": 1.2500000000000004,
+          "player": {
+            "x": 422.0180966219581,
+            "y": 458.457480625487
+          },
+          "staff": [],
+          "speech": "Recruit: Seven?  Mabel: They still have one from the last war. Pick up the covered tray.",
+          "hold": 0
+        },
+        "save": {
+          "version": 1,
+          "results": {
+            "banquet": {
+              "spoons": [
+                true,
+                false,
+                true
+              ],
+              "attempts": 3,
+              "best": 90,
+              "assisted": false
+            },
+            "puddings": {
+              "spoons": [
+                true,
+                false,
+                true
+              ],
+              "attempts": 3,
+              "best": 90,
+              "assisted": false
+            },
+            "guard": {
+              "spoons": [
+                true,
+                false,
+                true
+              ],
+              "attempts": 3,
+              "best": 90,
+              "assisted": false
+            },
+            "biscuit": {
+              "spoons": [
+                true,
+                false,
+                true
+              ],
+              "attempts": 3,
+              "best": 90,
+              "assisted": false
+            },
+            "bridge": {
+              "spoons": [
+                true,
+                false,
+                true
+              ],
+              "attempts": 3,
+              "best": 90,
+              "assisted": false
+            },
+            "stirling": {
+              "spoons": [
+                false,
+                false,
+                true
+              ],
+              "attempts": 3,
+              "best": 90,
+              "assisted": false
+            },
+            "steve": {
+              "spoons": [
+                true,
+                false,
+                true
+              ],
+              "attempts": 3,
+              "best": 90,
+              "assisted": false
+            },
+            "rind": {
+              "spoons": [
+                true,
+                false,
+                true
+              ],
+              "attempts": 3,
+              "best": 90,
+              "assisted": false
+            }
+          },
+          "selected": "stirling",
+          "assist": false,
+          "difficulty": "medium",
+          "checkpoint": {
+            "id": "stirling",
+            "phase": 1
+          },
+          "receipts": [
+            "legacy-unique"
+          ]
+        },
+        "visible": [],
+        "hud": "Pick up tray · Q / left click"
+      }
+    },
+    {
+      "name": "Explicit quiet replay resets opening without save mutation",
+      "pass": true,
+      "details": {
+        "run": {
+          "id": "banquet",
+          "phase": 0,
+          "status": "playing",
+          "quietKind": "opening",
+          "prelude": true,
+          "elapsed": 0.11666666666666665,
+          "player": {
+            "x": 220,
+            "y": 500
+          },
+          "staff": [],
+          "speech": "Mabel: Peace banquet. Six trays. Bring back seven.",
+          "hold": 0
+        },
+        "save": {
+          "version": 1,
+          "results": {
+            "banquet": {
+              "spoons": [
+                true,
+                false,
+                true
+              ],
+              "attempts": 3,
+              "best": 90,
+              "assisted": false
+            },
+            "puddings": {
+              "spoons": [
+                true,
+                false,
+                true
+              ],
+              "attempts": 3,
+              "best": 90,
+              "assisted": false
+            },
+            "guard": {
+              "spoons": [
+                true,
+                false,
+                true
+              ],
+              "attempts": 3,
+              "best": 90,
+              "assisted": false
+            },
+            "biscuit": {
+              "spoons": [
+                true,
+                false,
+                true
+              ],
+              "attempts": 3,
+              "best": 90,
+              "assisted": false
+            },
+            "bridge": {
+              "spoons": [
+                true,
+                false,
+                true
+              ],
+              "attempts": 3,
+              "best": 90,
+              "assisted": false
+            },
+            "stirling": {
+              "spoons": [
+                false,
+                false,
+                true
+              ],
+              "attempts": 3,
+              "best": 90,
+              "assisted": false
+            },
+            "steve": {
+              "spoons": [
+                true,
+                false,
+                true
+              ],
+              "attempts": 3,
+              "best": 90,
+              "assisted": false
+            },
+            "rind": {
+              "spoons": [
+                true,
+                false,
+                true
+              ],
+              "attempts": 3,
+              "best": 90,
+              "assisted": false
+            }
+          },
+          "selected": "stirling",
+          "assist": false,
+          "difficulty": "medium",
+          "checkpoint": {
+            "id": "stirling",
+            "phase": 1
+          },
+          "receipts": [
+            "legacy-unique"
+          ]
+        },
+        "visible": [],
+        "hud": "Talk to Mabel · Q / left click"
+      }
+    },
+    {
+      "name": "Explicit bakery skip reaches combat directly",
+      "pass": true,
+      "details": {
+        "run": {
+          "id": "banquet",
+          "phase": 0,
+          "status": "playing",
+          "elapsed": 0.11666666666666665,
+          "player": {
+            "x": 180,
+            "y": 440
+          },
+          "staff": [
+            {
+              "x": 560,
+              "y": 350,
+              "name": "Mabel",
+              "color": "#FF8FB1",
+              "following": false,
+              "rescued": false,
+              "route": 0,
+              "walk": 0
+            },
+            {
+              "x": 540,
+              "y": 420,
+              "name": "Alf",
+              "color": "#FFD23F",
+              "following": false,
+              "rescued": false,
+              "route": 0,
+              "walk": 0
+            },
+            {
+              "x": 560,
+              "y": 490,
+              "name": "Pip",
+              "color": "#2EC4B6",
+              "following": false,
+              "rescued": false,
+              "route": 0,
+              "walk": 0
+            }
+          ],
+          "barricadeOpen": false,
+          "hold": 0
+        },
+        "save": {
+          "version": 1,
+          "results": {
+            "banquet": {
+              "spoons": [
+                true,
+                false,
+                true
+              ],
+              "attempts": 3,
+              "best": 90,
+              "assisted": false
+            },
+            "puddings": {
+              "spoons": [
+                true,
+                false,
+                true
+              ],
+              "attempts": 3,
+              "best": 90,
+              "assisted": false
+            },
+            "guard": {
+              "spoons": [
+                true,
+                false,
+                true
+              ],
+              "attempts": 3,
+              "best": 90,
+              "assisted": false
+            },
+            "biscuit": {
+              "spoons": [
+                true,
+                false,
+                true
+              ],
+              "attempts": 3,
+              "best": 90,
+              "assisted": false
+            },
+            "bridge": {
+              "spoons": [
+                true,
+                false,
+                true
+              ],
+              "attempts": 3,
+              "best": 90,
+              "assisted": false
+            },
+            "stirling": {
+              "spoons": [
+                false,
+                false,
+                true
+              ],
+              "attempts": 3,
+              "best": 90,
+              "assisted": false
+            },
+            "steve": {
+              "spoons": [
+                true,
+                false,
+                true
+              ],
+              "attempts": 3,
+              "best": 90,
+              "assisted": false
+            },
+            "rind": {
+              "spoons": [
+                true,
+                false,
+                true
+              ],
+              "attempts": 3,
+              "best": 90,
+              "assisted": false
+            }
+          },
+          "selected": "banquet",
+          "assist": false,
+          "difficulty": "medium",
+          "checkpoint": {
+            "id": "stirling",
+            "phase": 1
+          },
+          "receipts": [
+            "legacy-unique"
+          ]
+        },
+        "visible": [],
+        "hud": "Medium · 1/4 · Swing at barricade: 3/3 hits left · 0/2 guards bonked"
+      }
+    },
+    {
+      "name": "Sampled owned standard pad A activates quiet interaction",
+      "pass": true,
+      "details": {
+        "polls": [
+          {
+            "time": 2043.2999999970198,
+            "attack": false
+          },
+          {
+            "time": 2056.199999999255,
+            "attack": false
+          },
+          {
+            "time": 2072.199999999255,
+            "attack": false
+          },
+          {
+            "time": 2088.7999999970198,
+            "attack": false
+          },
+          {
+            "time": 2105.2999999970198,
+            "attack": false
+          },
+          {
+            "time": 2122.099999997765,
+            "attack": true
+          },
+          {
+            "time": 2139.199999999255,
+            "attack": true
+          },
+          {
+            "time": 2155.39999999851,
+            "attack": true
+          },
+          {
+            "time": 2172.2999999970198,
+            "attack": true
+          }
+        ],
+        "phase": 1,
+        "interactWas": true
+      }
+    },
+    {
+      "name": "No browser exceptions",
+      "pass": true,
+      "details": []
+    }
+  ],
+  "errors": [],
+  "inputs": [
+    {
+      "type": "mouseClick",
+      "selector": "#tAdventure"
+    },
+    {
+      "type": "mouseClick",
+      "scope": "#campaignMap",
+      "text": "Begin at the bakery"
+    },
+    {
+      "type": "keyDown",
+      "code": "Escape",
+      "observed": {
+        "clock": 0.6833333333333338,
+        "elapsed": 0.6833333333333338,
+        "phase": 0,
+        "interactWas": false,
+        "held": false,
+        "rawAttack": false
+      }
+    },
+    {
+      "type": "keyUp",
+      "code": "Escape",
+      "observed": {
+        "clock": 0.6833333333333338,
+        "elapsed": 0.6833333333333338,
+        "phase": 0,
+        "interactWas": false,
+        "held": false,
+        "rawAttack": false
+      }
+    },
+    {
+      "type": "mouseClick",
+      "scope": "#pause",
+      "text": "Options"
+    },
+    {
+      "type": "keyDown",
+      "code": "Escape",
+      "observed": {
+        "clock": 0.6833333333333338,
+        "elapsed": 0.6833333333333338,
+        "phase": 0,
+        "interactWas": false,
+        "held": false,
+        "rawAttack": false
+      }
+    },
+    {
+      "type": "keyUp",
+      "code": "Escape",
+      "observed": {
+        "clock": 0.6833333333333338,
+        "elapsed": 0.6833333333333338,
+        "phase": 0,
+        "interactWas": false,
+        "held": false,
+        "rawAttack": false
+      }
+    },
+    {
+      "type": "mouseClick",
+      "scope": "#pause",
+      "text": "Resume"
+    },
+    {
+      "type": "keyDown",
+      "code": "KeyD"
+    },
+    {
+      "type": "keyDown",
+      "code": "KeyW"
+    },
+    {
+      "type": "keyUp",
+      "code": "KeyW"
+    },
+    {
+      "type": "keyUp",
+      "code": "KeyD"
+    },
+    {
+      "type": "keyDown",
+      "code": "Space"
+    },
+    {
+      "type": "keyDown",
+      "code": "KeyD"
+    },
+    {
+      "type": "keyDown",
+      "code": "KeyS"
+    },
+    {
+      "type": "keyUp",
+      "code": "KeyD"
+    },
+    {
+      "type": "keyUp",
+      "code": "KeyS"
+    },
+    {
+      "type": "keyDown",
+      "code": "KeyD"
+    },
+    {
+      "type": "keyUp",
+      "code": "KeyD"
+    },
+    {
+      "type": "keyUp",
+      "code": "Space"
+    },
+    {
+      "type": "keyDown",
+      "code": "Space",
+      "observed": {
+        "clock": 3.5499999999999923,
+        "elapsed": 3.5499999999999923,
+        "phase": 2,
+        "interactWas": true,
+        "held": true,
+        "rawAttack": true
+      }
+    },
+    {
+      "type": "keyUp",
+      "code": "Space",
+      "observed": {
+        "clock": 3.566666666666659,
+        "elapsed": 3.566666666666659,
+        "phase": 2,
+        "interactWas": false,
+        "held": false,
+        "rawAttack": false
+      }
+    },
+    {
+      "type": "keyDown",
+      "code": "KeyD"
+    },
+    {
+      "type": "keyUp",
+      "code": "KeyD"
+    },
+    {
+      "type": "keyDown",
+      "code": "KeyD"
+    },
+    {
+      "type": "keyUp",
+      "code": "KeyD"
+    },
+    {
+      "type": "keyDown",
+      "code": "KeyD"
+    },
+    {
+      "type": "keyDown",
+      "code": "KeyW"
+    },
+    {
+      "type": "keyUp",
+      "code": "KeyW"
+    },
+    {
+      "type": "keyUp",
+      "code": "KeyD"
+    },
+    {
+      "type": "keyDown",
+      "code": "Space",
+      "observed": {
+        "clock": 0,
+        "elapsed": 0,
+        "phase": 0,
+        "held": false,
+        "rawAttack": false
+      }
+    },
+    {
+      "type": "keyUp",
+      "code": "Space",
+      "observed": {
+        "clock": 0.05,
+        "elapsed": 0.05,
+        "phase": 0,
+        "held": false,
+        "rawAttack": false
+      }
+    },
+    {
+      "type": "keyDown",
+      "code": "KeyD"
+    },
+    {
+      "type": "keyDown",
+      "code": "KeyW"
+    },
+    {
+      "type": "keyUp",
+      "code": "KeyW"
+    },
+    {
+      "type": "keyUp",
+      "code": "KeyD"
+    },
+    {
+      "type": "keyDown",
+      "code": "KeyD"
+    },
+    {
+      "type": "keyUp",
+      "code": "KeyD"
+    },
+    {
+      "type": "keyDown",
+      "code": "Space",
+      "observed": {
+        "clock": 3.1499999999999937,
+        "elapsed": 3.1499999999999937,
+        "phase": 0,
+        "held": true,
+        "rawAttack": true
+      }
+    },
+    {
+      "type": "keyUp",
+      "code": "Space",
+      "observed": {
+        "clock": 3.1999999999999935,
+        "elapsed": 3.1999999999999935,
+        "phase": 0,
+        "held": false,
+        "rawAttack": false
+      }
+    },
+    {
+      "type": "keyDown",
+      "code": "Space",
+      "observed": {
+        "clock": 3.9333333333333242,
+        "elapsed": 3.9333333333333242,
+        "phase": 0,
+        "held": true,
+        "rawAttack": true
+      }
+    },
+    {
+      "type": "keyUp",
+      "code": "Space",
+      "observed": {
+        "clock": 3.9666666666666575,
+        "elapsed": 3.9666666666666575,
+        "phase": 0,
+        "held": false,
+        "rawAttack": false
+      }
+    },
+    {
+      "type": "keyDown",
+      "code": "Space",
+      "observed": {
+        "clock": 4.716666666666655,
+        "elapsed": 4.716666666666655,
+        "phase": 0,
+        "held": true,
+        "rawAttack": true
+      }
+    },
+    {
+      "type": "keyUp",
+      "code": "Space",
+      "observed": {
+        "clock": 4.7499999999999885,
+        "elapsed": 4.7499999999999885,
+        "phase": 0,
+        "held": false,
+        "rawAttack": false
+      }
+    },
+    {
+      "type": "keyDown",
+      "code": "KeyA"
+    },
+    {
+      "type": "keyUp",
+      "code": "KeyA"
+    },
+    {
+      "type": "keyDown",
+      "code": "KeyD"
+    },
+    {
+      "type": "keyUp",
+      "code": "KeyD"
+    },
+    {
+      "type": "keyDown",
+      "code": "KeyD"
+    },
+    {
+      "type": "keyUp",
+      "code": "KeyD"
+    },
+    {
+      "type": "keyDown",
+      "code": "KeyD"
+    },
+    {
+      "type": "keyUp",
+      "code": "KeyD"
+    },
+    {
+      "type": "keyDown",
+      "code": "KeyD"
+    },
+    {
+      "type": "keyUp",
+      "code": "KeyD"
+    },
+    {
+      "type": "keyDown",
+      "code": "KeyD"
+    },
+    {
+      "type": "keyUp",
+      "code": "KeyD"
+    },
+    {
+      "type": "keyDown",
+      "code": "KeyD"
+    },
+    {
+      "type": "keyUp",
+      "code": "KeyD"
+    },
+    {
+      "type": "keyDown",
+      "code": "KeyD"
+    },
+    {
+      "type": "keyUp",
+      "code": "KeyD"
+    },
+    {
+      "type": "keyDown",
+      "code": "KeyD"
+    },
+    {
+      "type": "keyUp",
+      "code": "KeyD"
+    },
+    {
+      "type": "keyDown",
+      "code": "KeyD"
+    },
+    {
+      "type": "keyUp",
+      "code": "KeyD"
+    },
+    {
+      "type": "keyDown",
+      "code": "KeyD"
+    },
+    {
+      "type": "keyUp",
+      "code": "KeyD"
+    },
+    {
+      "type": "keyDown",
+      "code": "KeyD"
+    },
+    {
+      "type": "keyUp",
+      "code": "KeyD"
+    },
+    {
+      "type": "keyDown",
+      "code": "KeyA"
+    },
+    {
+      "type": "keyUp",
+      "code": "KeyA"
+    },
+    {
+      "type": "keyDown",
+      "code": "KeyD"
+    },
+    {
+      "type": "keyUp",
+      "code": "KeyD"
+    },
+    {
+      "type": "mouseClick",
+      "scope": "#campaignResult",
+      "text": "Continue: Return to the bakery"
+    },
+    {
+      "type": "keyDown",
+      "code": "KeyD"
+    },
+    {
+      "type": "keyDown",
+      "code": "KeyW"
+    },
+    {
+      "type": "keyUp",
+      "code": "KeyW"
+    },
+    {
+      "type": "keyUp",
+      "code": "KeyD"
+    },
+    {
+      "type": "keyDown",
+      "code": "KeyD"
+    },
+    {
+      "type": "keyDown",
+      "code": "KeyS"
+    },
+    {
+      "type": "keyUp",
+      "code": "KeyD"
+    },
+    {
+      "type": "keyUp",
+      "code": "KeyS"
+    },
+    {
+      "type": "keyDown",
+      "code": "KeyD"
+    },
+    {
+      "type": "keyDown",
+      "code": "KeyW"
+    },
+    {
+      "type": "keyUp",
+      "code": "KeyW"
+    },
+    {
+      "type": "keyDown",
+      "code": "KeyS"
+    },
+    {
+      "type": "keyUp",
+      "code": "KeyD"
+    },
+    {
+      "type": "keyUp",
+      "code": "KeyS"
+    },
+    {
+      "type": "keyDown",
+      "code": "Space",
+      "observed": {
+        "clock": 2.933333333333328,
+        "elapsed": 2.933333333333328,
+        "phase": 1,
+        "interactWas": true,
+        "held": true,
+        "rawAttack": true
+      }
+    },
+    {
+      "type": "keyUp",
+      "code": "Space",
+      "observed": {
+        "clock": 2.966666666666661,
+        "elapsed": 2.966666666666661,
+        "phase": 1,
+        "interactWas": false,
+        "held": false,
+        "rawAttack": false
+      }
+    },
+    {
+      "type": "keyDown",
+      "code": "KeyD"
+    },
+    {
+      "type": "keyDown",
+      "code": "KeyW"
+    },
+    {
+      "type": "keyUp",
+      "code": "KeyW"
+    },
+    {
+      "type": "keyUp",
+      "code": "KeyD"
+    },
+    {
+      "type": "keyDown",
+      "code": "KeyD"
+    },
+    {
+      "type": "keyDown",
+      "code": "KeyW"
+    },
+    {
+      "type": "keyUp",
+      "code": "KeyW"
+    },
+    {
+      "type": "keyUp",
+      "code": "KeyD"
+    },
+    {
+      "type": "keyDown",
+      "code": "Space",
+      "observed": {
+        "clock": 5.499999999999986,
+        "elapsed": 5.499999999999986,
+        "phase": 1,
+        "interactWas": true,
+        "held": false,
+        "rawAttack": false
+      }
+    },
+    {
+      "type": "keyUp",
+      "code": "Space",
+      "observed": {
+        "clock": 5.499999999999986,
+        "elapsed": 5.499999999999986,
+        "phase": 1,
+        "interactWas": true,
+        "held": false,
+        "rawAttack": false
+      }
+    },
+    {
+      "type": "mouseClick",
+      "scope": "#campaignStory",
+      "text": "Skip story"
+    },
+    {
+      "type": "keyDown",
+      "code": "KeyD"
+    },
+    {
+      "type": "keyUp",
+      "code": "KeyD"
+    },
+    {
+      "type": "keyDown",
+      "code": "KeyD"
+    },
+    {
+      "type": "keyUp",
+      "code": "KeyD"
+    },
+    {
+      "type": "keyDown",
+      "code": "KeyA"
+    },
+    {
+      "type": "keyUp",
+      "code": "KeyA"
+    },
+    {
+      "type": "keyDown",
+      "code": "KeyA"
+    },
+    {
+      "type": "keyDown",
+      "code": "KeyS"
+    },
+    {
+      "type": "keyUp",
+      "code": "KeyA"
+    },
+    {
+      "type": "keyUp",
+      "code": "KeyS"
+    },
+    {
+      "type": "mouseClick",
+      "scope": "#campaignResult",
+      "text": "Continue: Return to the bakery"
+    },
+    {
+      "type": "keyDown",
+      "code": "Escape",
+      "observed": {
+        "clock": 0.11666666666666665,
+        "elapsed": 0.11666666666666665,
+        "phase": 0,
+        "interactWas": false,
+        "held": false,
+        "rawAttack": false
+      }
+    },
+    {
+      "type": "keyUp",
+      "code": "Escape",
+      "observed": {
+        "clock": 0.11666666666666665,
+        "elapsed": 0.11666666666666665,
+        "phase": 0,
+        "interactWas": false,
+        "held": false,
+        "rawAttack": false
+      }
+    },
+    {
+      "type": "mouseClick",
+      "selector": "#campaignQuietSkip"
+    },
+    {
+      "type": "mouseClick",
+      "scope": "#campaignResult",
+      "text": "Replay aftermath scene"
+    },
+    {
+      "type": "mouseClick",
+      "scope": "#campaignStory",
+      "text": "Replay scene"
+    },
+    {
+      "type": "mouseClick",
+      "scope": "#campaignStory",
+      "text": "Skip story"
+    },
+    {
+      "type": "mouseClick",
+      "scope": "#campaignResult",
+      "text": "Retry now"
+    },
+    {
+      "type": "keyDown",
+      "code": "Escape",
+      "observed": {
+        "clock": 0.11666666666666665,
+        "elapsed": 0.11666666666666665,
+        "phase": 0,
+        "held": false,
+        "rawAttack": false
+      }
+    },
+    {
+      "type": "keyUp",
+      "code": "Escape",
+      "observed": {
+        "clock": 0.11666666666666665,
+        "elapsed": 0.11666666666666665,
+        "phase": 0,
+        "held": false,
+        "rawAttack": false
+      }
+    },
+    {
+      "type": "mouseClick",
+      "scope": "#pause",
+      "text": "Quit to menu"
+    },
+    {
+      "type": "mouseClick",
+      "selector": "#tAdventure"
+    },
+    {
+      "type": "mouseClick",
+      "scope": "#campaignMap",
+      "text": "Continue: Counter test"
+    },
+    {
+      "type": "mouseClick",
+      "scope": "#campaignStory",
+      "text": "Skip story"
+    },
+    {
+      "type": "keyDown",
+      "code": "KeyD"
+    },
+    {
+      "type": "keyDown",
+      "code": "KeyW"
+    },
+    {
+      "type": "keyUp",
+      "code": "KeyW"
+    },
+    {
+      "type": "keyUp",
+      "code": "KeyD"
+    },
+    {
+      "type": "keyDown",
+      "code": "Space",
+      "observed": {
+        "clock": 1.0500000000000012,
+        "elapsed": 1.0500000000000012,
+        "phase": 0,
+        "interactWas": false,
+        "held": true,
+        "rawAttack": false
+      }
+    },
+    {
+      "type": "keyUp",
+      "code": "Space",
+      "observed": {
+        "clock": 1.0833333333333344,
+        "elapsed": 1.0833333333333344,
+        "phase": 0,
+        "interactWas": false,
+        "held": false,
+        "rawAttack": false
+      }
+    },
+    {
+      "type": "keyDown",
+      "code": "KeyQ",
+      "observed": {
+        "clock": 1.1666666666666674,
+        "elapsed": 1.1666666666666674,
+        "phase": 1,
+        "interactWas": true,
+        "held": true,
+        "rawAttack": true
+      }
+    },
+    {
+      "type": "keyUp",
+      "code": "KeyQ",
+      "observed": {
+        "clock": 1.2000000000000006,
+        "elapsed": 1.2000000000000006,
+        "phase": 1,
+        "interactWas": false,
+        "held": false,
+        "rawAttack": false
+      }
+    },
+    {
+      "type": "keyDown",
+      "code": "Escape",
+      "observed": {
+        "clock": 1.483333333333333,
+        "elapsed": 1.483333333333333,
+        "phase": 1,
+        "interactWas": false,
+        "held": false,
+        "rawAttack": false
+      }
+    },
+    {
+      "type": "keyUp",
+      "code": "Escape",
+      "observed": {
+        "clock": 1.483333333333333,
+        "elapsed": 1.483333333333333,
+        "phase": 1,
+        "interactWas": false,
+        "held": false,
+        "rawAttack": false
+      }
+    },
+    {
+      "type": "mouseClick",
+      "selector": "#campaignQuietReplay"
+    },
+    {
+      "type": "keyDown",
+      "code": "Escape",
+      "observed": {
+        "clock": 0.11666666666666665,
+        "elapsed": 0.11666666666666665,
+        "phase": 0,
+        "interactWas": false,
+        "held": false,
+        "rawAttack": false
+      }
+    },
+    {
+      "type": "keyUp",
+      "code": "Escape",
+      "observed": {
+        "clock": 0.11666666666666665,
+        "elapsed": 0.11666666666666665,
+        "phase": 0,
+        "interactWas": false,
+        "held": false,
+        "rawAttack": false
+      }
+    },
+    {
+      "type": "mouseClick",
+      "selector": "#campaignQuietSkip"
+    }
+  ],
+  "fixtures": [
+    "Pantry combat isolated by marking only nonhuman initial guards dead; no player positions, breakables or escort progress changed",
+    "Remove spawned pantry reinforcements to isolate defence/exit reachability",
+    "Stun living siege raiders for 99 seconds to isolate player station reachability without completing their wave",
+    "Direct completed banquet replay fixture for explicit result skip and reward invariance",
+    "Direct completed banquet fixture for replay",
+    "Direct failure fixture for retry path",
+    "Copied legacy v1 save fixture: all eight node IDs, independent spoons, unique receipt and Stirling checkpoint",
+    "Saved remapped solo Interact fixture: Q assigned to Swing through normal controls storage",
+    "Direct quiet replay launch for remapped interaction coverage",
+    "Sampled synthetic standard pad interaction only: direct quiet launch, owned pad seat and safe Mabel position; no physical pad acceptance",
+    "Clear synthetic pad and quiet run"
+  ],
+  "limitations": [
+    "Actual isolated headless Chrome with CDP keyboard/mouse and live animation frames. No human fun/comprehension, physical device, native EXE, Steam or WAN acceptance.",
+    "Opening movement uses real CDP keys after UI navigation. Pantry uses explicitly recorded inert-enemy setup; progression then uses game movement, breakable collision, escorts and hold/exit simulation. Later outcome/checkpoint/legacy cases use labeled direct setup."
+  ],
+  "profile": "C:\\Users\\Joshua\\AppData\\Local\\Temp\\ck-independent-bakery-8Y8FEk",
+  "resultButtons": [
+    "Continue: Return to the bakery",
+    "Replay aftermath scene",
+    "Replay for spoons",
+    "Story map",
+    "Choose Tea Towel",
+    "Choose Burnt Toast",
+    "Keep current look"
+  ],
+  "environment": {
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/154.0.0.0 Safari/537.36",
+    "width": 1280,
+    "height": 800
+  },
+  "finishedAt": "2026-10-13T14:45:45.129Z",
+  "sourceHashesAfter": {
+    "index.html": "c140afd3e72185bdedbabecf91f4e776c68fa040c61a1a9212ad06dfe9994163",
+    "game/campaign.js": "014c31e1a9bb842f0f370a921dc7035a063f3fdd3d457ee6733a9f02d2aff8db",
+    "game/campaign-ui.js": "0cac734ea9e87f8a207049cc3deb026b3e82150f7f15d61749d6b57bcb4c8a90",
+    "game/campaign-integration.js": "df567f9ab1d199b3e4b8a0801dc92ab7725e3ac5619c401bb538868edf3bfdc4",
+    "game/story-scenes.js": "ee84901ced69557e22fda8105cc254f05c05da486873f31756561e39608e508c",
+    "game/bakery-opening.js": "9732108d5b9f0f9a7c5c105156739dddfa71941d79c131de8b92da6d9399c6af"
+  },
+  "stableSources": true,
+  "counts": {
+    "pass": 34,
+    "fail": 1
+  }
+}

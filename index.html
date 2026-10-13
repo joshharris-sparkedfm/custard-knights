@@ -532,6 +532,7 @@ body[data-input=pad] :is(button,.card,.tile,input,select):focus{outline:4px soli
 <script src="game/collection-art.js"></script>
 <script src="game/collection-ui.js"></script>
 <script src="game/warnings.js"></script>
+<script src="game/bakery-opening.js"></script>
 <script src="game/campaign.js"></script>
 <script src="game/story-scenes.js"></script>
 <script src="game/campaign-ui.js"></script>
@@ -1390,7 +1391,7 @@ function moveInArena(e,dt,bx,by,rt,bouncy){
 }
 function update(dt){
  G.clock+=dt; G.stats.frames++; if(G.punch>0) G.punch-=dt;
- if(!G.demo){ G.time-=dt; G.chaos=G.practice?0:G.chaosPolicy?CKChaos.progress(G.chaos,dt,G.chaosPolicy):Math.min(1,G.chaos+dt/G.chaosRate);
+ if(!G.demo){ if(!G.quietStory)G.time-=dt; G.chaos=G.practice?0:G.chaosPolicy?CKChaos.progress(G.chaos,dt,G.chaosPolicy):Math.min(1,G.chaos+dt/G.chaosRate);
   const tier=G.chaos>=.66?2:G.chaos>=.33?1:0; if(tier>G.tierShown){ G.tierShown=tier; showBanner({title:tier===2?'CHAOS: UNHINGED':'CHAOS: SILLY',sub:tier===2?'Anything goes now. Chickens, meteors, the lot.':'The crates just got daft.',col:tier===2?CUST:PINK,t:2.2,max:2.2},'flavour','chaos:'+tier,'event'); }
   if(G.tipT>0) G.tipT-=dt; else if(G.tips.length){ if(G.tipGap>0) G.tipGap-=dt; else { G.tip=G.tips.shift(); G.tipT=2.6; G.tipGap=6; } } if(G.tipT<=0) G.tip=null; }
  else { G.chaos=Math.min(1,G.chaos+dt/38); if(G.chaos>=1){G.chaosHold+=dt; if(G.chaosHold>22){ newGame(true); return; }} }
@@ -1418,7 +1419,7 @@ function update(dt){
   for(const k in e.fx){ if(k==='big')continue; e.fx[k]-=dt; if(e.fx[k]<=0){ delete e.fx[k]; if(e.lvl) delete e.lvl[k]; if(k==='shield') e.shieldN=0; } }
   if(e.fx.regen){ e.regenT=(e.regenT||0)+dt; if(e.regenT>=6){ e.regenT=0; if(e.hp<maxHp(e)){ e.hp++; floater(e.x,e.y-50,'+1',CUST); burst(e.x,e.y-10,8,[CUST,CREAM],160); sfx('potion'); } } }
   if(e.hp>maxHp(e)) e.hp=maxHp(e);
-  const inp=e.human?humanInput(e.human,e):botInput(e,dt);if(e.human&&isMine(e))productControls(e,inp);
+  let inp=e.human?humanInput(e.human,e):botInput(e,dt);if(e.human&&G.quietStory&&ADVENTURE)inp=ADVENTURE.playerInput(inp);if(e.human&&isMine(e)&&!G.quietStory)productControls(e,inp);
   let {mx,my}=inp;
   if(mirror&&G.ev.owner!==e){mx=-mx;my=-my}
   if(e.stun>0){ mx=my=0; inp.atk=false; inp.dash=false; inp.block=false; }
@@ -2514,6 +2515,7 @@ function plaque(x,y,w,h,r,gold){
  ctx.fillStyle='rgba(255,255,255,.07)'; rr(ctx,x+4,y+4,w-8,(h-8)/2,Math.max(2,r-4)); ctx.fill();
 }
 function drawHUD(){
+ if(G.quietStory){plaque(430,2,420,40,12,true);otext(ADVENTURE?.campaign.run?.quietKind==='aftermath'?'HOME · THE COOKS ARE BACK':'MABEL’S BAKERY',640,23,24,CREAM);return;}
  if(G.practice){plaque(500,2,280,40,12,true);otext('CONTROLS PRACTICE',640,23,24,CREAM);return;}
  const W=HUD_W,H=HUD_H;
  const tm=Math.max(0,Math.ceil(G.time)), mm=Math.floor(tm/60), ss=String(tm%60).padStart(2,'0');
@@ -2595,6 +2597,7 @@ function draw(){
  ctx.setTransform(dpr*scale,0,0,dpr*scale,dpr*(offX+sx*scale),dpr*(offY+sy*scale));
  ctx.save(); if(G.punch>0&&SET.shake>0){ const k=1+.045*(G.punch/.28)*SET.shake; ctx.translate(G.px,G.py); ctx.scale(k,k); ctx.translate(-G.px,-G.py); }
  ctx.drawImage(bg,0,0,W,H);
+ if(G.campaign&&ADVENTURE)ADVENTURE.drawScenery(ctx);
  drawDynamicTiles();
  if(G.campaign&&ADVENTURE)ADVENTURE.draw(ctx);
  for(const d of G.decals){ const a=Math.min(1,d.t/2);
@@ -2616,10 +2619,11 @@ function draw(){
  const rows=Array.from({length:ROWS},()=>[]);
  for(const e of G.ents) if(!e.dead) rows[clamp(trow(e.y),0,ROWS-1)].push(e);
  for(let r=0;r<ROWS;r++){
-  ctx.drawImage(wl,0,r*WB*2,W*2,WB*2,0,OY+r*T-HH,W,WB);
+  if(!G.quietStory&&!(G.campaign&&['banquet','puddings'].includes(ADVENTURE?.campaign.run?.node.id)))ctx.drawImage(wl,0,r*WB*2,W*2,WB*2,0,OY+r*T-HH,W,WB);
   for(let c=0;c<COLS;c++) if(G.grid[r][c]==='x') drawCrate(c,r);
   const list=rows[r]; if(list.length>1) list.sort((a,b)=>a.y-b.y); for(const e of list) drawKnight(e);
  }
+ if(G.campaign&&ADVENTURE)ADVENTURE.drawForeground(ctx);
  for(const b of G.bees) drawBees(b); for(const c of G.flock) drawFlockChicken(c);
  for(const p of G.proj){
   ctx.save(); ctx.globalCompositeOperation='lighter'; const gr=p.k==='blob'?p.r*2.6:18, gg=ctx.createRadialGradient(p.x,p.y-16,1,p.x,p.y-16,gr); gg.addColorStop(0,p.k==='blob'?'rgba(255,210,63,.5)':'rgba(255,247,224,.35)'); gg.addColorStop(1,'rgba(255,210,63,0)'); ctx.fillStyle=gg; ctx.fillRect(p.x-gr,p.y-16-gr,gr*2,gr*2); ctx.restore();
@@ -2778,7 +2782,7 @@ $('reportExport').onclick=()=>{const content=productEvents?.exportJSON()||'';$('
 addEventListener('pagehide',()=>{try{if(firstFight||practice)toMenu();productEvents?.exit('pagehide');}catch(_){}});
 productReportStatus();
 const isTouch=matchMedia('(pointer:coarse)').matches;
-function showTouch(on){ touchWanted=on; $('touch').hidden=!(on&&INPUT==='touch'); checkRotate(); }
+function showTouch(on){ $('bSwing').textContent=G?.quietStory?'Interact':'Swing';touchWanted=on; $('touch').hidden=!(on&&INPUT==='touch'); checkRotate(); }
 function inputChanged(){ $('touch').hidden=!(touchWanted&&INPUT==='touch'); menuHintText(); checkRotate(); if(typeof refreshSetup==='function') refreshSetup(); }
 function menuHintText(){ const h=$('menuHint'); if(!h) return;
  h.textContent=INPUT==='touch'?'Touch: stick on the left, buttons on the right. Turn your phone sideways to play.':INPUT==='pad'?'Controller: stick or d-pad moves between buttons, A picks, B goes back. Join a couch seat to choose your knight.':'Keyboard and mouse, a controller or touch. Plug in a pad and press any button to use it.'; }
@@ -3041,7 +3045,7 @@ function start(){ if(SEATS&&SEATS.filter(Boolean).length===cfg.players&&SEATS.so
  for(const e of G.ents) if(isMine(e)) e.spot=2.6;
  $('pauseBtn').textContent=NET.role?'Menu':'Pause';if(NET.role==='host')broadcast({t:'start',setup:netSetup()}); }
 function toMenu(){ if(practice){leavePractice();return;}clearArenaInput();NET.menuOpen=false;firstFightFinish('abandoned');firstFightResult=null;$('firstFightRecognition').hidden=true; if(ADVENTURE)ADVENTURE.stop(); cancelCup(); if(NET.role==='host'){ newGame(true); showLobby(); menuMusic(true); broadcast({t:'tolobby'}); return; } if(NET.role==='client'){ leaveOnline(); return; } menuMusic(true); newGame(true); paused=false; showScreen('menu'); $('pauseBtn').hidden=true; showTouch(false); }
-function setPause(p){ if(!G||G.demo||G.over)return;if(!p&&!NET.role&&missingDevices().length){renderDeviceRecovery();return;} clearArenaInput();if(NET.role){NET.menuOpen=p;paused=false;$('pauseTitle').textContent='Match menu';$('pauseNote').hidden=false;$('matchOptions').hidden=false;$('quitBtn').textContent=NET.role==='host'?'Close room and leave':'Leave room';if(p){showTouch(false);showScreen('pause');$('resumeBtn').focus();}else{showScreen(null);matchMusic();showTouch(true);}return;}paused=p; $('pauseTitle').textContent='Paused';$('pauseNote').hidden=true;$('matchOptions').hidden=false;$('quitBtn').textContent='Quit to menu';showScreen(p?'pause':null);if(practice)$('practiceHud').hidden=p; if(p){ const b=$('resumeBtn'); if(b) b.focus(); }else syncRareMusic(); }
+function setPause(p){ if(!G||G.demo||G.over)return;if(!p&&!NET.role&&missingDevices().length){renderDeviceRecovery();return;} clearArenaInput();if(NET.role){NET.menuOpen=p;paused=false;$('pauseTitle').textContent='Match menu';$('pauseNote').hidden=false;$('matchOptions').hidden=false;$('quitBtn').textContent=NET.role==='host'?'Close room and leave':'Leave room';if(p){showTouch(false);showScreen('pause');$('resumeBtn').focus();}else{showScreen(null);matchMusic();showTouch(true);}return;}paused=p; $('pauseTitle').textContent='Paused';$('pauseNote').hidden=true;$('matchOptions').hidden=false;$('quitBtn').textContent='Quit to menu';showScreen(p?'pause':null);if(practice)$('practiceHud').hidden=p; if(p){ const b=$('resumeBtn'); if(b) b.focus(); }else syncRareMusic();if(G.quietStory)ADVENTURE?.ui.refresh(); }
 addEventListener('keydown',ev=>{ if(ev.code==='Escape'&&!(G&&!G.demo&&!G.over)){ const sc=visibleScreen(); if(sc&&sc.id!=='menu') menuBack(); } });
 function finalResults(sorted){
  return G.ents.filter(e=>e.human).map(e=>{
@@ -3422,8 +3426,11 @@ ADVENTURE=CKCampaignIntegration.connect({
  makeKnight:mkKnight,steer,hurt,redraw:drawBg,showBanner,clearBanner,
  reducedMotion:()=>!SET.flash||matchMedia('(prefers-reduced-motion: reduce)').matches,
  drawStoryKnight:(target,p)=>{const old=ctx,oldG=G;const e=mkKnight({id:42,hero:1,human:0,x:0,y:0,color:p.color||CUST,plume:p.plume||CUST,kit:{helm:p.role==='rice'?'riceGuard':p.role==='stirling'?'crest':'great',plume:'feather',metal:p.role==='king'?'gold':'steel',visor:loadProfile(1).visor},face:p.face,walk:p.walk||0,vx:p.walk?50:0,vy:0,blocking:!!p.block});if(p.attack){e.swingKind='light';e.swingDur=SWINGS.light.dur;e.swing=SWINGS.light.dur*.48;}target.save();try{ctx=target;G={...oldG,clock:p.walk||0,demo:true,over:false,ev:null,mode:'ffa'};target.translate(p.x,p.y-22.5*p.scale);target.scale(p.scale*1.5,p.scale*1.5);drawKnight(e);}finally{target.restore();ctx=old;G=oldG;}},
- boot:map=>{firstFightFinish('abandoned');collectionUnlocks=[];cancelCup();SEATS=null;partyGo=false;const saved={...cfg};Object.assign(cfg,{players:1,map,mode:'ffa',diff:'chill',length:360,chaosPlus:false,chaosSpeed:'normal',arenaSize:'classic'});audio();menuMusic(false);newGame(false);Object.assign(cfg,saved);return G;},
- play:()=>{showScreen(null);paused=false;$('pauseBtn').hidden=false;showTouch(true);matchMusic();},
+ boot:map=>{firstFightFinish('abandoned');collectionUnlocks=[];cancelCup();SEATS=null;partyGo=false;clearArenaInput();const saved={...cfg};Object.assign(cfg,{players:1,map,mode:'ffa',diff:'chill',length:360,chaosPlus:false,chaosSpeed:'normal',arenaSize:'classic'});audio();menuMusic(false);newGame(false);Object.assign(cfg,saved);return G;},
+ isPaused:()=>paused,
+ interactLabel:()=>{if(INPUT==='touch')return 'Interact';const seat=SEATS?.[0]||classicDevices.get(1);if(INPUT==='pad'||seat?.dev==='pad')return CKControls.label(CONTROLS.pads[0].atk[0]);const profile=seat?.dev==='kb2'?'kb2':seat?.dev==='kb1'?'kb1':'solo';return CKControls.label(CONTROLS.keyboard[profile].atk[0])+(profile==='kb2'?'':' / left click');},
+ sceneStarted:()=>{clearArenaInput();if(G)G.over=true;paused=false;$('pauseBtn').hidden=true;showTouch(false);showScreen(null);menuMusic(true);},
+ play:()=>{clearArenaInput();showScreen(null);paused=false;$('pauseBtn').hidden=false;showTouch(true);matchMusic();},
  finished:r=>{clearBanner();sfxMixer?.stopWarnings();if(r.won)campaignCollectionReward(r,ADVENTURE.campaign.save);else collectionUnlocks=[];queueMicrotask(()=>showCollectionReward($('campaignResult').querySelector('.panel')));paused=false;$('pauseBtn').hidden=true;showTouch(false);cueMusic(r.won?'victory':'defeat');},
  mapOpened:()=>{if(NET.role)return;firstFightFinish('abandoned');cancelCup();if(G&&!G.demo)G.over=true;clearBanner();showScreen(null);$('pauseBtn').hidden=true;showTouch(false);menuMusic(true);},
  menu:toMenu

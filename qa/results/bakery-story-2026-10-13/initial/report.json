@@ -1,0 +1,322 @@
+{
+  "startedAt": "2026-10-13T14:32:54.763Z",
+  "sourceHashes": {
+    "index.html": "b1ef9520b8df984b8fdf6d84733a7dc52f58e84de89690bce7b09accdb2fb594",
+    "game/campaign.js": "c1fa06ac1c5cdc1b5724a8afb50ded4fbd1abe2a670b408a8d9a6fc863cf8d08",
+    "game/campaign-ui.js": "7264acaf5b298832fd294a21211d60a5520d3886e22100e29e18218d4b6cedbc",
+    "game/campaign-integration.js": "df567f9ab1d199b3e4b8a0801dc92ab7725e3ac5619c401bb538868edf3bfdc4",
+    "game/story-scenes.js": "ee84901ced69557e22fda8105cc254f05c05da486873f31756561e39608e508c",
+    "game/bakery-opening.js": "38478213a1b8ff2657c8b1c250f901b30273bbe681bab408900e551612270c1b"
+  },
+  "checks": [
+    {
+      "name": "Fresh Play encounter opens playable bakery instead of generic scene",
+      "pass": true,
+      "details": {
+        "run": {
+          "id": "banquet",
+          "phase": 0,
+          "status": "playing",
+          "quietKind": "opening",
+          "prelude": true,
+          "elapsed": 0,
+          "player": {
+            "x": 220,
+            "y": 500
+          },
+          "staff": [],
+          "speech": "Mabel: Peace banquet. Six trays. Bring back seven.",
+          "hold": 0
+        },
+        "save": {
+          "version": 1,
+          "results": {},
+          "selected": "banquet",
+          "assist": false,
+          "difficulty": "medium",
+          "checkpoint": null,
+          "receipts": []
+        },
+        "visible": [],
+        "hud": "Interact: Space / J / F / left click · Walk to Mabel · press Interact to talk"
+      }
+    },
+    {
+      "name": "Compact bakery-first objective stays inside viewport",
+      "pass": true,
+      "details": {
+        "hud": {
+          "x": 208,
+          "y": 90,
+          "width": 384,
+          "height": 54,
+          "top": 90,
+          "right": 592,
+          "bottom": 144,
+          "left": 208
+        },
+        "text": "Interact: Space / J / F / left click · Walk to Mabel · press Interact to talk",
+        "scroll": {
+          "width": 800,
+          "height": 500
+        },
+        "viewport": {
+          "width": 800,
+          "height": 500
+        },
+        "visible": true
+      }
+    },
+    {
+      "name": "Actual Escape pauses quiet objective time",
+      "pass": true,
+      "details": {
+        "run": {
+          "id": "banquet",
+          "phase": 0,
+          "status": "playing",
+          "quietKind": "opening",
+          "prelude": true,
+          "elapsed": 0.6166666666666669,
+          "player": {
+            "x": 220,
+            "y": 500
+          },
+          "staff": [],
+          "speech": "Mabel: Peace banquet. Six trays. Bring back seven.",
+          "hold": 0
+        },
+        "save": {
+          "version": 1,
+          "results": {},
+          "selected": "banquet",
+          "assist": false,
+          "difficulty": "medium",
+          "checkpoint": null,
+          "receipts": []
+        },
+        "visible": [
+          "pause"
+        ],
+        "hud": "Interact: Space / J / F / left click · Walk to Mabel · press Interact to talk"
+      }
+    },
+    {
+      "name": "Options Back returns to paused game",
+      "pass": true,
+      "details": {
+        "run": {
+          "id": "banquet",
+          "phase": 0,
+          "status": "playing",
+          "quietKind": "opening",
+          "prelude": true,
+          "elapsed": 0.6166666666666669,
+          "player": {
+            "x": 220,
+            "y": 500
+          },
+          "staff": [],
+          "speech": "Mabel: Peace banquet. Six trays. Bring back seven.",
+          "hold": 0
+        },
+        "save": {
+          "version": 1,
+          "results": {},
+          "selected": "banquet",
+          "assist": false,
+          "difficulty": "medium",
+          "checkpoint": null,
+          "receipts": []
+        },
+        "visible": [
+          "pause"
+        ],
+        "hud": "Interact: Space / J / F / left click · Walk to Mabel · press Interact to talk"
+      }
+    },
+    {
+      "name": "Held interaction does not automatically pick up next tray",
+      "pass": true,
+      "details": {
+        "run": {
+          "id": "banquet",
+          "phase": 1,
+          "status": "playing",
+          "quietKind": "opening",
+          "prelude": true,
+          "elapsed": 3.1999999999999935,
+          "player": {
+            "x": 607.2420057522854,
+            "y": 546.1356404959788
+          },
+          "staff": [],
+          "speech": "Recruit: Seven?  Mabel: They still have one from the last war. Pick up the covered tray.",
+          "hold": 0
+        },
+        "save": {
+          "version": 1,
+          "results": {},
+          "selected": "banquet",
+          "assist": false,
+          "difficulty": "medium",
+          "checkpoint": null,
+          "receipts": []
+        },
+        "visible": [],
+        "hud": "Interact: Space / J / F / left click · Walk to the table · press Interact to pick up the tray"
+      }
+    }
+  ],
+  "errors": [],
+  "inputs": [
+    {
+      "type": "mouseClick",
+      "selector": "#tAdventure"
+    },
+    {
+      "type": "mouseClick",
+      "scope": "#campaignMap",
+      "text": "Begin at the bakery"
+    },
+    {
+      "type": "keyDown",
+      "code": "Escape"
+    },
+    {
+      "type": "keyUp",
+      "code": "Escape"
+    },
+    {
+      "type": "mouseClick",
+      "scope": "#pause",
+      "text": "Options"
+    },
+    {
+      "type": "keyDown",
+      "code": "Escape"
+    },
+    {
+      "type": "keyUp",
+      "code": "Escape"
+    },
+    {
+      "type": "mouseClick",
+      "scope": "#pause",
+      "text": "Resume"
+    },
+    {
+      "type": "keyDown",
+      "code": "KeyD"
+    },
+    {
+      "type": "keyDown",
+      "code": "KeyW"
+    },
+    {
+      "type": "keyUp",
+      "code": "KeyW"
+    },
+    {
+      "type": "keyUp",
+      "code": "KeyD"
+    },
+    {
+      "type": "keyDown",
+      "code": "Space"
+    },
+    {
+      "type": "keyDown",
+      "code": "KeyD"
+    },
+    {
+      "type": "keyDown",
+      "code": "KeyS"
+    },
+    {
+      "type": "keyUp",
+      "code": "KeyD"
+    },
+    {
+      "type": "keyUp",
+      "code": "KeyS"
+    },
+    {
+      "type": "keyDown",
+      "code": "KeyD"
+    },
+    {
+      "type": "keyDown",
+      "code": "KeyW"
+    },
+    {
+      "type": "keyUp",
+      "code": "KeyW"
+    },
+    {
+      "type": "keyUp",
+      "code": "KeyD"
+    },
+    {
+      "type": "keyUp",
+      "code": "Space"
+    },
+    {
+      "type": "keyDown",
+      "code": "Space"
+    },
+    {
+      "type": "keyUp",
+      "code": "Space"
+    }
+  ],
+  "fixtures": [],
+  "limitations": [
+    "Actual isolated headless Chrome with CDP keyboard/mouse and live animation frames. No human fun/comprehension, physical device, package, Steam or WAN acceptance.",
+    "Opening movement uses real CDP keys after UI navigation. Pantry uses explicitly recorded inert-enemy setup; progression then uses game movement, breakable collision, escorts and hold/exit simulation. Later outcome/checkpoint/legacy cases use labeled direct setup."
+  ],
+  "profile": "C:\\Users\\Joshua\\AppData\\Local\\Temp\\ck-independent-bakery-8MV78O",
+  "failure": "Error: Timed out: CK.adventure.campaign.run.phase===2 {\"run\":{\"id\":\"banquet\",\"phase\":1,\"status\":\"playing\",\"quietKind\":\"opening\",\"prelude\":true,\"elapsed\":13.36666666666691,\"player\":{\"x\":607.3225857806015,\"y\":546.1311838227878},\"staff\":[],\"speech\":\"Recruit: Seven?  Mabel: They still have one from the last war. Pick up the covered tray.\",\"hold\":0},\"save\":{\"version\":1,\"results\":{},\"selected\":\"banquet\",\"assist\":false,\"difficulty\":\"medium\",\"checkpoint\":null,\"receipts\":[]},\"visible\":[],\"hud\":\"Interact: Space / J / F / left click · Walk to the table · press Interact to pick up the tray\"}\n    at wait (C:\\Users\\Joshua\\Documents\\Codex\\2026-10-08\\rea\\work\\custard-knights-room\\qa\\bakery-story-browser.cjs:14:136)\n    at async cases (C:\\Users\\Joshua\\Documents\\Codex\\2026-10-08\\rea\\work\\custard-knights-room\\qa\\bakery-story-browser.cjs:29:368)\n    at async main (C:\\Users\\Joshua\\Documents\\Codex\\2026-10-08\\rea\\work\\custard-knights-room\\qa\\bakery-story-browser.cjs:23:36)",
+  "failureState": {
+    "run": {
+      "id": "banquet",
+      "phase": 1,
+      "status": "playing",
+      "quietKind": "opening",
+      "prelude": true,
+      "elapsed": 13.383333333333578,
+      "player": {
+        "x": 607.3225857806015,
+        "y": 546.1311838227878
+      },
+      "staff": [],
+      "speech": "Recruit: Seven?  Mabel: They still have one from the last war. Pick up the covered tray.",
+      "hold": 0
+    },
+    "save": {
+      "version": 1,
+      "results": {},
+      "selected": "banquet",
+      "assist": false,
+      "difficulty": "medium",
+      "checkpoint": null,
+      "receipts": []
+    },
+    "visible": [],
+    "hud": "Interact: Space / J / F / left click · Walk to the table · press Interact to pick up the tray"
+  },
+  "finishedAt": "2026-10-13T14:33:09.654Z",
+  "sourceHashesAfter": {
+    "index.html": "b1ef9520b8df984b8fdf6d84733a7dc52f58e84de89690bce7b09accdb2fb594",
+    "game/campaign.js": "c1fa06ac1c5cdc1b5724a8afb50ded4fbd1abe2a670b408a8d9a6fc863cf8d08",
+    "game/campaign-ui.js": "7264acaf5b298832fd294a21211d60a5520d3886e22100e29e18218d4b6cedbc",
+    "game/campaign-integration.js": "df567f9ab1d199b3e4b8a0801dc92ab7725e3ac5619c401bb538868edf3bfdc4",
+    "game/story-scenes.js": "ee84901ced69557e22fda8105cc254f05c05da486873f31756561e39608e508c",
+    "game/bakery-opening.js": "38478213a1b8ff2657c8b1c250f901b30273bbe681bab408900e551612270c1b"
+  },
+  "stableSources": true,
+  "counts": {
+    "pass": 5,
+    "fail": 0
+  }
+}

@@ -1,8 +1,23 @@
 # Orchestrator execution queue
 
+## Active FE08 playable bakery slice — 13 October 2026
+
+PR33 is merged at `ee1942f41b3965db73d41741b6bd776f2f104350`. Root verified origin/main, worktrees and completed warning workers before creating clean branch `codex/playable-bakery-slice` in work/custard-knights-room. Beta.15 remains the verified playable export below; no FE08 source is accepted or packaged yet. The original bakery WIP remains isolated and its exact preservation record is in research/2026-10-13/bakery-wip.
+
+| Task | Owner / model / effort | Branch / files | Progress / next action |
+|---|---|---|---|
+| Playable opening and consequence | /root/bakery_implementation / gpt-6.1-sol / high | codex/playable-bakery-slice; index.html, campaign modules, new bakery scene helper and focused source tests | Dispatched; selectively reconcile preserved WIP into current main, deliver movement/carrying, pantry rescue and named cooks helping at the visible bakery siege |
+| Independent browser and journey QA | /root/bakery_qa / gpt-6.1-sol / medium | Same branch; qa/bakery-story-browser.cjs, dated results/review only | Preparing focused input, transition, checkpoint/legacy-save, pause/exit and actual scene captures; final checks wait stable source |
+| Independent source and evidence review | /root/bakery_review / gpt-6-luna / high | Read-only | Audit WIP hazards and current contracts, then candidate and evidence; no duplicate source edits |
+| Integration | /root / Sol Extra High | Queue/checkpoint, version/package coordination and Git | Coordinate dependencies; obtain checks/review, export coherent increment, then push/attach/merge before next integrated task |
+
+Scope is the opening slice of Closing Time: meet Mabel, take the delivery, show Steve taking scraps, rescue three cooks through the pantry, and make those same people visibly contribute at the familiar bakery forecourt with a siege bowl in view. Player actions carry the cause and consequence; short dialogue and scenes support them. Returning players can skip the quiet opening; legacy banquet checkpoints resume combat, and the default success continuation includes aftermath with explicit skip/replay. Quiet exploration must not award combat completion or manufacture reporting outcomes. Preserve eight node IDs, saved spoons, assistance and once-only receipts, rounded art/both visors and ordinary saves. FE09's middle, alliance, finale and homecoming remain unfinished; this dispatch is not full-story or human-quality acceptance.
+
+Root applies the storytelling skill to authored causality, named characters, stakes and visible change, with its LinkedIn-specific format rules inapplicable to a playable game. Original WIP, media and previous exports remain preserved. Local raster/video generation is available for a concrete asset need, but no GPU job is dispatched by this task. No normal-save access/user-window closure, publication, tester messaging or unchanged native-fault retries. Warning age/spike-audio follow-ups, distinct live faction art, native two-sofa and200-total milestones remain explicit work.
+
 ## Verified warning increment and Friends beta.15 — 13 October 2026
 
-Frozen runtime `f201acab3ee61a7bcb6900d206b4dc9715cf9b41` is pushed in attached PR33. All source, QA, package and independent review work is complete; root finishes checked evidence push/merge before the next implementation. Later files are documentation/evidence only. Exact export record: qa/results/beta15-desktop/exports.json.
+Frozen runtime `f201acab3ee61a7bcb6900d206b4dc9715cf9b41` was pushed and merged in attached PR33 at `ee1942f41b3965db73d41741b6bd776f2f104350`. All source, QA, package and independent review work is complete. Later files are documentation/evidence only. Exact export record: qa/results/beta15-desktop/exports.json.
 
 - Friends ZIP outputs/Custard-Knights-Friends-0.3.0-beta.15.zip: 800700135 bytes, SHA256 `65c0ff3027eb176a9b9f4a42c5f09654beb7a0aa7a7c2563140a604e0dcd958e`.
 - Windows preview folder outputs/Custard-Knights-Windows-0.3.0-beta.15-preview; neighbouring ZIP 800718857 bytes, SHA256 `0a86368c9899d95b02e12d0355a094077701b9afa34ecfbc78fc2008382cb1ef`.

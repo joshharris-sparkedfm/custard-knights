@@ -120,7 +120,7 @@ Private ladder identities, SQLite ratings, duplicate-safe result replay and cumu
 
 ## Checked tasks should end in observable acceptance
 
-Implement in the following order, recording one reviewable task at a time. Dependencies name real prerequisites; asset location and platform inputs must not stop independent menu/combat/service work. The owner authorizes pushing and merging each completed checked repository task; the orchestrator handles Git. The removed automation must not be recreated. Research changed documentation only; it did not change/build the game, generate media or publish a release.
+Implement in the following order, recording one reviewable task at a time. Dependencies name real prerequisites; asset location and platform inputs must not stop independent menu/combat/service work. The owner authorizes pushing and merging each completed checked repository task; the orchestrator handles Git. The explicit renewed 13 October /loop request supersedes the earlier automation-removal instruction; active `custard-knights-build-orchestrator` runs every 30 minutes using [ORCHESTRATOR-QUEUE.md](ORCHESTRATOR-QUEUE.md), starting with the bounded ranged-aim prerequisite after the read-only FE-01 inventory. Research changed documentation only; it did not change/build the game, generate media or publish a release.
 
 | ID / priority | Work and dependencies | Definition of done |
 |---|---|---|

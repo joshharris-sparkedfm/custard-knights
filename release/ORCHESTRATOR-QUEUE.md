@@ -1,5 +1,19 @@
 # Orchestrator execution queue
 
+## Active bounded Astra story review — 13 October 2026
+
+PR34 merged at `261fec1eec36bb2300719e3dcc698c9c640feb37`. Root verified clean main/origin/main and completed agents before creating `codex/astra-story-review` in work/custard-knights-room. Beta.16 remains the checked playable export below; no runtime changes or repeat tests are part of this review.
+
+| Task | Owner / model / effort | Files | Progress / next action |
+|---|---|---|---|
+| Story and compatible FE09 closure | /root/astra_story_review / gpt-6-astra / ultra | release/ASTRA-STORY-REVIEW.md only | Complete; five evidence-backed findings and six bounded FE09 PRs, beginning with actual theatre/causal transition correction |
+| Save/replay compatibility audit | /root/story_compatibility_audit / gpt-6-luna / high | Read-only | Final source-fact/mapping review clear; genuine winning replays retain existing once-per-new-round collection policy, while viewing/quiet homecoming never awards |
+| Integration | /root / Sol Extra High | Queue/checkpoint and Git | Verify evidence/compatibility, push/attach/merge review before dispatching the first Sol implementation |
+
+The owner explicitly requested sparing Astra Ultra reviews. This is the single next story/experience pass, not a whole-repository retest or repeated expensive check-in. The release cap stays50v50/100 total;200 is deferred. Original WIP, ordinary saves and all exports remain untouched. Review must distinguish observable defects from creative judgement and human/device acceptance, then enable actionable FE09 engineering.
+
+Review handoff is complete and independently cleared in release/ASTRA-STORY-REVIEW.md. Keep all eight IDs/prerequisites/spoon positions, optional Biscuit and old completed-save entitlements. Stirling becomes support without a mandatory block exam, retaining phase1/2 resume meaning; Rind retains fight/rescue1/2 and later adds only phase3 for the sluice. A separate quiet homecoming must not use the banquet-afterward callback that leads to Puddings. Root merges checked PR35 before FE09-A. No runtime/tests/package/generation changed in this review. FE09-A aligns actual Puddings theatre/captions and causal route/guard identity, plus a short skippable first-delivery disruption while keeping direct pantry retries.
+
 ## Checked FE08 and Friends beta.16 — 13 October 2026
 
 Runtime `a7e5ed4b653823ee2a84cb6df84d425206c46072` is frozen and pushed in attached PR34. Source, independent QA/review, actual package/export and final independent evidence review are complete; root finishes checked documentation push/merge before the next task. Later changes are evidence/docs and one QA-helper EOF whitespace correction only. Runtime bytes are unchanged.

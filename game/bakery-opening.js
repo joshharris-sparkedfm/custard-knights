@@ -46,12 +46,16 @@
   // players reach every delivery objective through the clear southern lane.
   box(800,200,280,200,'#829270',7);for(let x=812;x<1075;x+=29){box(x,358,7,41,'#a78860',2);}box(800,372,280,8,'#c6a476',2);text('STEVE · SCRAPS ONLY',940,186,16);
   box(560,480,120,40,'#916c50',6);box(567,488,105,10,'#b69268',3);text(r.quietKind==='opening'?'DELIVERY TABLE':'COOKS’ SUPPLIES',620,565,17);
-  box(1060,419,150,32,'#615141',5);text(r.quietKind==='opening'?'BANQUET →':'PUDDINGS →',1135,442,18);
+  box(1060,419,150,32,'#615141',5);text(r.quietKind==='opening'?'BANQUET →':r.node.id==='puddings'?'SERVICE →':'PUDDINGS →',1135,442,18);
   c.strokeStyle='#e4c474';c.lineWidth=4;c.setLineDash([10,15]);c.beginPath();c.moveTo(695,559);c.lineTo(1140,559);c.stroke();c.setLineDash([]);
   if(r.quietKind==='aftermath'||r.node.id==='puddings'){
    // The closed siege approach has the exact extra solid footprint c27..30,
    // r3..7. Its stone rim makes the blockade readable even beside the bowl.
    box(1080,200,160,200,'#8e8b77',7);box(1080,200,160,12,'#c4b697',2);box(1080,388,160,12,'#c4b697',2);box(1080,212,10,176,'#b4a385',2);box(1230,212,10,176,'#b4a385',2);siege(c,r);
+   if(r.node.id==='puddings'){box(535,579,200,27,'#688a91',6);oval(578,591,37,14,'#b6a775');for(let i=0;i<5;i++){c.strokeStyle='#756b54';c.lineWidth=3;c.beginPath();c.moveTo(552+i*13,581);c.lineTo(561+i*13,602);c.stroke();}
+    box(194,539,292,31,'#443846',5);text('BOWL → OVENS · CHANNEL BLOCKED',340,560,14,'#ffe28a');
+    box(545,613,198,27,'#443846',5);text('COOLING ROUTE →',644,632,15,'#a9dce4');}
+
   }
   c.restore();
  }
@@ -76,11 +80,13 @@
  }
  function dName(r){return r.steve.stolen?'Mabel · to the pantry':'Mabel';}
  function foreground(c,r){if(r.tray.state==='carried'){c.save();tray(c,r.player.x+Math.cos(r.player.face)*18,r.player.y-34);c.restore();}}
+ function crossingShield(c,e){const {text}=tools(c);c.save();c.translate(e.x,e.y);
+  c.beginPath();c.ellipse(-23,-25,12,18,0,0,Math.PI*2);c.fillStyle='#9bafb9';c.strokeStyle=ink;c.lineWidth=2;c.fill();c.stroke();c.beginPath();c.moveTo(-31,-15);c.lineTo(-15,-35);c.strokeStyle=cream;c.lineWidth=4;c.stroke();text('Bran · striped shield',0,-91,13);c.restore();}
  function siegeStaff(c,r){c.save();const {box,oval,text}=tools(c);
   const routes=[[{x:410,y:405},{x:410,y:390},{x:320,y:390}],[{x:640,y:440},{x:690,y:440},{x:690,y:550},{x:420,y:550},{x:420,y:390},{x:360,y:390}],[{x:460,y:620},{x:420,y:620},{x:420,y:390},{x:400,y:390}]];
   function job(route,t){const lengths=route.slice(1).map((p,i)=>Math.hypot(p.x-route[i].x,p.y-route[i].y)),total=lengths.reduce((a,b)=>a+b,0);let d=(t*58)%(total*2);if(d>total)d=total*2-d;for(let i=0;i<lengths.length;i++){if(d>lengths[i]){d-=lengths[i];continue;}const f=d/lengths[i];return {x:route[i].x+(route[i+1].x-route[i].x)*f,y:route[i].y+(route[i+1].y-route[i].y)*f};}return route.at(-1);}
   for(const s of r.staff){const station=r.stands[s.station],working=station.hp>0,position=working?job(routes[s.station],r.elapsed+s.station*2):s;cook(c,{...s,...position},s.name);
    if(working){if(s.station===2){box(position.x-13,position.y-34,26,24,'#68a8bc',8);oval(position.x,position.y-34,12,4,'#a9dce4');}else if(s.station===0)tray(c,position.x,position.y-28,false);else{box(position.x-18,position.y-33,36,25,'#e0c99d',10);text('FLOUR',position.x,position.y-18,10,ink);}}
   }text('THE COOKS ARE MOVING YOUR SUPPLIES INTO COVER',640,720,19,'#ffe28a');c.restore();}
- return Object.freeze({layout,footprints,scenery,draw,foreground,siegeStaff});
+ return Object.freeze({layout,footprints,scenery,draw,foreground,crossingShield,siegeStaff});
 });

@@ -1,5 +1,12 @@
 # Orchestrator execution queue
 
+## FE09-A recovery owner — 13 October 2026, 15:50 UTC
+
+The new chat `01a135f2-88af-7bf0-adb2-09470cb8c45c` (Begin bounded story review) verified live main `de18ebaea54ab339450b1a4909e74d76382f149a`, merged PR34/PR35 and existing draft PR36. The original FE09-A implementation/QA/review turns were all interrupted at 15:47 UTC; none was accepted as complete. Their existing tracked and untracked work remains preserved in this checkout and is being finished, not restarted.
+
+**Active owner: this recovery chat. Do not dispatch duplicate FE09-A writers or change this branch while these workers run.** `/root/fe09_transitions_impl` (gpt-6.1-sol high) owns existing runtime/test changes; `/root/fe09_transitions_qa` (gpt-6.1-sol medium) owns the existing QA harness/results/review; `/root/fe09_transitions_review` (gpt-6-luna high) independently reviews read-only. Root owns queue/checkpoint/Git and will integrate PR36 after checks. Original chat `01a11aaa-ce28-7603-8304-92eff00fdb03` and its unchanged 30-minute heartbeat can inspect this handoff; no duplicate expensive Astra pass is needed. Reported earlier source checks are provisional until exact evidence/final candidate are reconciled. Beta.16 remains the verified export.
+
+
 ## Active FE09-A causal transitions — 13 October 2026
 
 The bounded Astra review and independent Luna compatibility audit merged in PR35 at `de18ebaea54ab339450b1a4909e74d76382f149a`. Root verified clean main/origin/main before branch `codex/story-causal-transitions` in work/custard-knights-room. Astra's single review is complete; routine continuation returns to Sol/Luna. Beta.16 remains the verified export; new source is not yet accepted or packaged.

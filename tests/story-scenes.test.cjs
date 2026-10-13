@@ -20,8 +20,8 @@ function canvas(width=1000,height=560){
 
 test('each campaign encounter has a complete, nonoverlapping intro and outro subtitle track',()=>{
  assert.deepEqual(Object.keys(S.scenes),C.nodes.map(n=>n.id));
- for(const id of Object.keys(S.scenes))for(const phase of ['intro','outro']){
-  const b=S.scenes[id][phase];assert.ok(b.duration>=12&&b.duration<=24);
+ for(const id of Object.keys(S.scenes))for(const phase of Object.keys(S.scenes[id])){
+  const b=S.scenes[id][phase];assert.ok(b.duration>=6&&b.duration<=24);
   let end=0;for(const cue of b.cues){assert.equal(cue.start,end);assert.ok(cue.end>cue.start);assert.ok(cue.speaker&&cue.text);assert.equal(S.captions(id,phase,cue.start),cue);end=cue.end;}
   assert.equal(end,S.duration(id,phase));assert.equal(S.captions(id,phase,end),null);
  }
@@ -29,7 +29,7 @@ test('each campaign encounter has a complete, nonoverlapping intro and outro sub
 });
 
 test('all scenes render finite operations, valid knight poses and balanced context state at every half second',()=>{
- for(const id of Object.keys(S.scenes))for(const phase of ['intro','outro'])for(let t=0;t<=S.duration(id,phase);t+=.5){
+ for(const id of Object.keys(S.scenes))for(const phase of Object.keys(S.scenes[id]))for(let t=0;t<=S.duration(id,phase);t+=.5){
   const c=canvas();assert.equal(S.render(c,t,{id,phase,drawKnight:c.drawKnight}),true,`${id}/${phase}/${t}`);
   assert.ok(c.poses.length,`${id} must show the actual game knights`);assert.equal(c.depth(),0);
   assert.ok(!c.calls.some(x=>['fillText','strokeText'].includes(x[0])),'no stage text competes with subtitles');

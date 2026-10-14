@@ -1,5 +1,12 @@
 # Orchestrator execution queue
 
+## Active FE09-D witnessed rescue - 14 October 2026
+
+PR38 is merged at e5b2312bda15b4efea2216c5de8b421e9083fb97; local main/origin matched clean before creating codex/rind-witnessed-rescue. /root/story_finish_impl (Sol high) owns campaign/scenery/theatre, narrow timer/reset seam and focused tests. /root/story_finish_review (Luna high) independently reviews source/evidence. /root/story_finish_qa (Sol medium) owns rind-rescue-browser.cjs and dated QA evidence. Root owns Git/CI/queue/checkpoint. D is being implemented; no acceptance or merge claimed yet.
+
+D preserves two boss phases and old Rind checkpoints1/2, makes Bran's real membrane rescue safe with a finite paused countdown, clears residual hazards, and shows neutral Rind witnessing Bran move clear then taking a support position. The old terminal remains temporarily after the rescue; E supplies the actual diversion and F the quiet homecoming before any new complete-chapter package. Older beta.16 remains unchanged.
+
+
 ## Checked Steve route; next is witnessed rescue - 14 October 2026
 
 FE09-C PR38 (https://github.com/joshharris-sparkedfm/custard-knights/pull/38) is checked at final runtime656974da0bace0c0af26be415205cce35ae9e80d. Bakery scraps, service-gate markings, persistent objectives and actual theatre now connect Steve's ride to the siege-bowl winch. Cage/egg timing, replenishment, ordered gate geometry, mount rules, saves/spoons and all eight IDs remain unchanged.

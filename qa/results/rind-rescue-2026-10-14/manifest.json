@@ -1,0 +1,160 @@
+{
+  "createdAt": "2026-10-14T10:31:22.350Z",
+  "files": [
+    {
+      "path": "qa/results/rind-rescue-2026-10-14/corrections/checkpoint-1-retried-800x500.png",
+      "bytes": 325587,
+      "sha256": "c94ae3be55d22cb67a5590398d61491582dcc1e88947394f7861ea2206d6f442"
+    },
+    {
+      "path": "qa/results/rind-rescue-2026-10-14/corrections/checkpoint-1-retried-wide.png",
+      "bytes": 645441,
+      "sha256": "f228f7eb8265d65f0f1873dc008c2a841b8f1feaf86042c5511e2caae3d37b7e"
+    },
+    {
+      "path": "qa/results/rind-rescue-2026-10-14/corrections/checkpoint-2-retried-800x500.png",
+      "bytes": 305731,
+      "sha256": "063604cacd0bdf7fdae96c2d797198606440770c010ea3fb96740df26a63e6ef"
+    },
+    {
+      "path": "qa/results/rind-rescue-2026-10-14/corrections/checkpoint-2-retried-wide.png",
+      "bytes": 780036,
+      "sha256": "6497faadf297a6f2fab687cacc03f0aa9e0b4c01d61ce8ad797ba4466adbd5d5"
+    },
+    {
+      "path": "qa/results/rind-rescue-2026-10-14/corrections/report.json",
+      "bytes": 34919,
+      "sha256": "9d58da1ee2235900f46afd26fe6c1991d0c427a3910b741019b0b93c00b9c431"
+    },
+    {
+      "path": "qa/results/rind-rescue-2026-10-14/run1/01-bran-crossing-800x500.png",
+      "bytes": 319011,
+      "sha256": "8507d97a0fe1f8a46087d3a035ae6ac7fb37ced34b9cce30262af26cc96e98c0"
+    },
+    {
+      "path": "qa/results/rind-rescue-2026-10-14/run1/01-bran-crossing-wide.png",
+      "bytes": 761223,
+      "sha256": "a4e48047c2e64d65d33fd98e087a77f8f1feaafc8164a287a667558810ebf072"
+    },
+    {
+      "path": "qa/results/rind-rescue-2026-10-14/run1/02-bran-trapped-800x500.png",
+      "bytes": 305698,
+      "sha256": "c2e18752649a9237b61dbc3367f160e5a4a293911f193c9ba6047769225cff62"
+    },
+    {
+      "path": "qa/results/rind-rescue-2026-10-14/run1/02-bran-trapped-wide.png",
+      "bytes": 779501,
+      "sha256": "9411bad25ee9601592f7936ae236d7a94e26031cb2e6032eb5507ce4e5aa68fa"
+    },
+    {
+      "path": "qa/results/rind-rescue-2026-10-14/run1/03-safe-witness-after-wait-800x500.png",
+      "bytes": 319976,
+      "sha256": "dfe8e992374f822bb2b333f46448f22505653c19957f967d47abab448ad87f2f"
+    },
+    {
+      "path": "qa/results/rind-rescue-2026-10-14/run1/03-safe-witness-after-wait-wide.png",
+      "bytes": 805558,
+      "sha256": "11b23af6963e03bbe87b39b1a9cc36da21bd877478aee4bb39786ba815246116"
+    },
+    {
+      "path": "qa/results/rind-rescue-2026-10-14/run1/04-membrane-cut-walk-800x500.png",
+      "bytes": 327996,
+      "sha256": "7ee84f389ee13fd898a5626da8b24a068ba54e73a0d5c653cdecdaec6aa3007a"
+    },
+    {
+      "path": "qa/results/rind-rescue-2026-10-14/run1/04-membrane-cut-walk-wide.png",
+      "bytes": 808644,
+      "sha256": "0625ad84f098da36d2497333233515334dd7fc5406e4231b01628f46704602dd"
+    },
+    {
+      "path": "qa/results/rind-rescue-2026-10-14/run1/05-witnessed-result-800x500.png",
+      "bytes": 63895,
+      "sha256": "73fd39e01e6b34a9518519acc605a76ac90b8f56850cb57363225ce1f3f6a3c4"
+    },
+    {
+      "path": "qa/results/rind-rescue-2026-10-14/run1/05-witnessed-result-wide.png",
+      "bytes": 164107,
+      "sha256": "a0fe7f9b4fabeb6f881dccc1b62598bc878a18c051dac57233e8c45765f5394e"
+    },
+    {
+      "path": "qa/results/rind-rescue-2026-10-14/run1/checkpoint-1-retried-800x500.png",
+      "bytes": 323689,
+      "sha256": "83e4af5c31cc91b9bcee7c01e808eef13dfabc8664b874bc4432aecfa052ce47"
+    },
+    {
+      "path": "qa/results/rind-rescue-2026-10-14/run1/checkpoint-1-retried-wide.png",
+      "bytes": 778972,
+      "sha256": "d0a4706b81589e901e9ec164d29e329563522c7f1508f0909bf0fb8bc4984ae0"
+    },
+    {
+      "path": "qa/results/rind-rescue-2026-10-14/run1/checkpoint-2-retried-800x500.png",
+      "bytes": 305414,
+      "sha256": "de52a1feff332fb5d62f6dedd4e272933f64fa9cb494511e631940bae08b93fb"
+    },
+    {
+      "path": "qa/results/rind-rescue-2026-10-14/run1/checkpoint-2-retried-wide.png",
+      "bytes": 780298,
+      "sha256": "9637efc8b91a5e80948f73aeaf4eb856bbf776fa5fb1fadc03f33609159ee4ff"
+    },
+    {
+      "path": "qa/results/rind-rescue-2026-10-14/run1/report.json",
+      "bytes": 83445,
+      "sha256": "fdf2e2d8446f1fbb92b345ea81254837f2f2e9522b5161aa388fb340ae4f0fcc"
+    },
+    {
+      "path": "qa/results/rind-rescue-2026-10-14/run1/theatre-guard-intro-800x500.png",
+      "bytes": 81378,
+      "sha256": "a67358336226f67f53ca87f62226241afe4a45e38093dc2b3e1dcda2c9c03b2d"
+    },
+    {
+      "path": "qa/results/rind-rescue-2026-10-14/run1/theatre-guard-intro-wide.png",
+      "bytes": 181377,
+      "sha256": "5867db17842e9bfac15f2724aed41e02d375ab1d1940355e77d1596e996cadb7"
+    },
+    {
+      "path": "qa/results/rind-rescue-2026-10-14/run1/theatre-guard-outro-800x500.png",
+      "bytes": 86078,
+      "sha256": "8917bf338a753ffa871c48a0a9d525a7140c616d96dab84bda337ef3279a2a38"
+    },
+    {
+      "path": "qa/results/rind-rescue-2026-10-14/run1/theatre-guard-outro-wide.png",
+      "bytes": 222975,
+      "sha256": "3b9f1bdb21c2fa2ecf35a6f04af00b9ee28b6668fe53ce2d7657d04779853a8d"
+    },
+    {
+      "path": "qa/results/rind-rescue-2026-10-14/run1/theatre-rind-intro-800x500.png",
+      "bytes": 84215,
+      "sha256": "528326c7d7a724827fb0a869357fba8747488d21959104247c23d495e9355db1"
+    },
+    {
+      "path": "qa/results/rind-rescue-2026-10-14/run1/theatre-rind-intro-wide.png",
+      "bytes": 253069,
+      "sha256": "d4b346a84651270a7efe387cb15f9c59b79b88176e960020b06c408ef78eb63e"
+    },
+    {
+      "path": "qa/results/rind-rescue-2026-10-14/run1/theatre-rind-outro-800x500.png",
+      "bytes": 88614,
+      "sha256": "6f9ee2d304bb5c2d0bae4d984e6118de81aa78f265c81113e045cb2922b54d56"
+    },
+    {
+      "path": "qa/results/rind-rescue-2026-10-14/run1/theatre-rind-outro-wide.png",
+      "bytes": 237459,
+      "sha256": "da45ff00f32cc36480a9ada1b6616e72f2f9616ad6e9b31bd72044526d5ecf0a"
+    },
+    {
+      "path": "qa/results/rind-rescue-2026-10-14/summary.json",
+      "bytes": 81287,
+      "sha256": "5930da182ff065adb3b25c78b2f411368495d5075b6cba8ada8522a312fef696"
+    },
+    {
+      "path": "qa/rind-rescue-browser.cjs",
+      "bytes": 22867,
+      "sha256": "fddd12e75ff9f189771206727c2d00f16310c329ee3acab9379326b619a2b416"
+    },
+    {
+      "path": "qa/reviews/rind-rescue-2026-10-14.md",
+      "bytes": 5043,
+      "sha256": "e4f69f3885f9889b49e4e46bfeccdd5a94e7cbe091d9d2d69332ed09dc4204ac"
+    }
+  ]
+}

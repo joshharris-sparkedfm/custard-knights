@@ -1,5 +1,12 @@
 # Orchestrator execution queue
 
+## Active FE09-E player-operated diversion - 14 October 2026
+
+PR39 is merged at 1ec508b0568a0eda85bf7c402f48e9a99c67be0d; local main/origin matched clean before branch codex/player-bowl-diversion. /root/story_finish_impl (Sol high) owns campaign/scenery/UI/theatre/narrow input seams and focused tests. /root/story_finish_review (Luna high) independently reviews source/evidence. /root/story_finish_qa (Sol medium) owns bowl-diversion-browser.cjs and dated QA. Root owns Git/CI/queue/checkpoint. E is being implemented; no completion claim yet.
+
+Move the terminal from rescue to an actual jam break plus deliberate released-then-held current Swing winch action. Tools delivery enables the winch; authored support covers separate approaches; one existing defender can contest. Add only Rind checkpoint3 with explicit per-node allowlists/reconstruction. Preserve old IDs/results/spoons/checkpoints1/2 and continuous counters; resumed finale gets fresh health/local budget and excludes flawless. No menu/animation-only win. F homecoming and a coherent fresh friends export follow E's checked merge.
+
+
 ## Checked FE09-D witnessed rescue - 14 October 2026
 
 PR39 (https://github.com/joshharris-sparkedfm/custard-knights/pull/39) implements the intermediate witnessed rescue. Frozen runtime is 706a31286c166517c268123c4183bb6f42e2590d, based on PR38 merge e5b2312bda15b4efea2216c5de8b421e9083fb97. The two boss phases remain; the actual membrane traps the same striped-shield Bran. Defeated Rind remains neutral and visible, sees Bran walk clear, then takes a support position. This stage still awards after rescue; E must move the terminal to the player-operated diversion before any complete-chapter export.

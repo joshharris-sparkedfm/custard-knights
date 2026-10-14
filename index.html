@@ -1392,7 +1392,7 @@ function moveInArena(e,dt,bx,by,rt,bouncy){
 }
 function update(dt){
  G.clock+=dt; G.stats.frames++; if(G.punch>0) G.punch-=dt;
- if(!G.demo){ if(!G.quietStory)G.time-=dt; G.chaos=G.practice?0:G.chaosPolicy?CKChaos.progress(G.chaos,dt,G.chaosPolicy):Math.min(1,G.chaos+dt/G.chaosRate);
+ if(!G.demo){ if(!G.quietStory&&!(G.campaign&&G.campaignRescuePaused))G.time-=dt; G.chaos=G.practice?0:G.chaosPolicy?CKChaos.progress(G.chaos,dt,G.chaosPolicy):Math.min(1,G.chaos+dt/G.chaosRate);
   const tier=G.chaos>=.66?2:G.chaos>=.33?1:0; if(tier>G.tierShown){ G.tierShown=tier; showBanner({title:tier===2?'CHAOS: UNHINGED':'CHAOS: SILLY',sub:tier===2?'Anything goes now. Chickens, meteors, the lot.':'The crates just got daft.',col:tier===2?CUST:PINK,t:2.2,max:2.2},'flavour','chaos:'+tier,'event'); }
   if(G.tipT>0) G.tipT-=dt; else if(G.tips.length){ if(G.tipGap>0) G.tipGap-=dt; else { G.tip=G.tips.shift(); G.tipT=2.6; G.tipGap=6; } } if(G.tipT<=0) G.tip=null; }
  else { G.chaos=Math.min(1,G.chaos+dt/38); if(G.chaos>=1){G.chaosHold+=dt; if(G.chaosHold>22){ newGame(true); return; }} }

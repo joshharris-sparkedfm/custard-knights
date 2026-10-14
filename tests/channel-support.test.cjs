@@ -24,3 +24,10 @@ test('Steve service scenery keeps the traversable arena unchanged and points foo
  for(const phase of ['intro','outro']){const text=S.scenes.steve[phase].cues.map(c=>c.text).join(' ');assert.match(text,/bakery scraps/i);assert.match(text,/winch/i);assert.doesNotMatch(text,/banners|fortress|dawn of time/i);}
  assert.match(C.byId.steve.objective,/service gates.*siege-bowl winch/);assert.deepEqual(C.byId.steve.requires,['stirling']);
 });
+test('safe rescue foreground keeps Bran inside the real tile until cut, then shows neutral support without mutating geometry',()=>{
+ const g=arena();g.grid[8][22]='x';const before=JSON.stringify(g.grid),labels=[];let depth=0;
+ const ctx=new Proxy({}, {get(target,key){if(key in target)return target[key];return (...args)=>{for(const a of args)if(typeof a==='number')assert.ok(Number.isFinite(a));if(key==='save')depth++;if(key==='restore')assert.ok(--depth>=0);if(key==='fillText')labels.push(args[0]);};}});
+ const r={node:{id:'rind'},g,elapsed:4,phase:2,cage:{x:900,y:420},rescue:{freed:false,guard:{x:900,y:420},rind:{x:800,y:440,supporting:false}}};
+ H.scenery(ctx,r);H.rescueForeground(ctx,r);assert.equal(JSON.stringify(g.grid),before);assert.equal(depth,0);assert.ok(labels.includes('BRAN · TRAPPED'));assert.ok(labels.includes('RIND · SPOON LOWERED'));
+ r.rescue.freed=true;r.rescue.guard={x:980,y:520};r.rescue.rind.supporting=true;H.rescueForeground(ctx,r);assert.equal(depth,0);assert.ok(labels.includes('BRAN · CLEAR OF THE SKIN'));assert.ok(labels.includes('RIND · AT THE WINCH SIDE'));assert.equal(JSON.stringify(g.grid),before);
+});

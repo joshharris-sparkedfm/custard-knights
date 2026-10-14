@@ -1,0 +1,2257 @@
+{
+  "behaviorCommit": "a8f92fef7ee41cae422e01fec1ce1e582af03b8d",
+  "cueCommit": "656974da0bace0c0af26be415205cce35ae9e80d",
+  "counts": {
+    "pass": 32,
+    "fail": 0
+  },
+  "checks": [
+    {
+      "name": "Actual intro captions connect food and service winch destination",
+      "pass": true,
+      "details": [
+        {
+          "scene": "steve",
+          "phase": "intro",
+          "caption": "Sir StirlingMabel’s bakery scraps. Steve followed them into the service shed."
+        },
+        {
+          "scene": "steve",
+          "phase": "intro",
+          "caption": "Sir StirlingMabel’s bakery scraps. Steve followed them into the service shed."
+        },
+        {
+          "scene": "steve",
+          "phase": "intro",
+          "caption": "RecruitThere are more scraps by the siege-bowl winch."
+        },
+        {
+          "scene": "steve",
+          "phase": "intro",
+          "caption": "Sir StirlingFree him, take the golden egg, then ride the three marked service gates."
+        },
+        {
+          "scene": "steve",
+          "phase": "intro",
+          "caption": "RecruitWe need that winch to turn the bowl away from home."
+        }
+      ],
+      "report": "run1/report.json"
+    },
+    {
+      "name": "Compact theatre-intro active surface stays inside viewport",
+      "pass": true,
+      "details": {
+        "selector": ".campaign-captions",
+        "bounds": {
+          "x": 47.0625,
+          "y": 262,
+          "width": 690.875,
+          "height": 78,
+          "top": 262,
+          "right": 737.9375,
+          "bottom": 340,
+          "left": 47.0625
+        },
+        "text": "RecruitWe need that winch to turn the bowl away from home.",
+        "viewport": {
+          "width": 800,
+          "height": 500
+        },
+        "visible": true
+      },
+      "report": "run1/report.json"
+    },
+    {
+      "name": "Actual outro captions connect food and service winch destination",
+      "pass": true,
+      "details": [
+        {
+          "scene": "steve",
+          "phase": "outro",
+          "caption": "The Official HistorySteve followed the bakery scraps along the service route."
+        },
+        {
+          "scene": "steve",
+          "phase": "outro",
+          "caption": "The Official HistorySteve followed the bakery scraps along the service route."
+        },
+        {
+          "scene": "steve",
+          "phase": "outro",
+          "caption": "RecruitThe bowl winch. And the bowl is still aimed at our ovens."
+        },
+        {
+          "scene": "steve",
+          "phase": "outro",
+          "caption": "Sir StirlingMarshal Rind is guarding it. Get us to that winch."
+        },
+        {
+          "scene": "steve",
+          "phase": "outro",
+          "caption": "Sir StirlingMarshal Rind is guarding it. Get us to that winch."
+        }
+      ],
+      "report": "run1/report.json"
+    },
+    {
+      "name": "Compact theatre-outro active surface stays inside viewport",
+      "pass": true,
+      "details": {
+        "selector": ".campaign-captions",
+        "bounds": {
+          "x": 47.0625,
+          "y": 262,
+          "width": 690.875,
+          "height": 78,
+          "top": 262,
+          "right": 737.9375,
+          "bottom": 340,
+          "left": 47.0625
+        },
+        "text": "Sir StirlingMarshal Rind is guarding it. Get us to that winch.",
+        "viewport": {
+          "width": 800,
+          "height": 500
+        },
+        "visible": true
+      },
+      "report": "run1/report.json"
+    },
+    {
+      "name": "Compact 01-cage-start active surface stays inside viewport",
+      "pass": true,
+      "details": {
+        "selector": "#campaignHUD",
+        "bounds": {
+          "x": 223.9453125,
+          "y": 90,
+          "width": 352.109375,
+          "height": 31,
+          "top": 90,
+          "right": 576.0546875,
+          "bottom": 121,
+          "left": 223.9453125
+        },
+        "text": "Medium · Swing at Steve’s cage → reach the bowl winch",
+        "viewport": {
+          "width": 800,
+          "height": 500
+        },
+        "visible": true
+      },
+      "report": "correction-cage-ride/report.json"
+    },
+    {
+      "name": "Original cage and ordered gate geometry retained",
+      "pass": true,
+      "details": {
+        "id": "steve",
+        "status": "playing",
+        "route": 0,
+        "elapsed": 0.6500000000000004,
+        "eggT": 0,
+        "cage": {
+          "c": 9,
+          "r": 8,
+          "x": 380,
+          "y": 420,
+          "label": "Steve’s cage"
+        },
+        "gates": [
+          {
+            "x": 580,
+            "y": 300,
+            "r": 65,
+            "label": "Shed exit"
+          },
+          {
+            "x": 820,
+            "y": 540,
+            "r": 65,
+            "label": "Channel bend"
+          },
+          {
+            "x": 1100,
+            "y": 440,
+            "r": 75,
+            "label": "Bowl winch"
+          }
+        ],
+        "player": {
+          "x": 180,
+          "y": 440,
+          "hp": 3
+        },
+        "pickup": [],
+        "result": null,
+        "save": {
+          "version": 1,
+          "results": {
+            "banquet": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "puddings": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "guard": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "bridge": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "stirling": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            }
+          },
+          "selected": "steve",
+          "assist": false,
+          "difficulty": "medium",
+          "checkpoint": null,
+          "receipts": []
+        },
+        "hud": "Medium · Swing at Steve’s cage → reach the bowl winch"
+      },
+      "report": "correction-cage-ride/report.json"
+    },
+    {
+      "name": "Gate rejects unmounted player before cage opening",
+      "pass": true,
+      "details": {
+        "id": "steve",
+        "status": "playing",
+        "route": 0,
+        "elapsed": 2.7666666666666617,
+        "eggT": 0,
+        "cage": {
+          "c": 9,
+          "r": 8,
+          "x": 380,
+          "y": 420,
+          "label": "Steve’s cage"
+        },
+        "gates": [
+          {
+            "x": 580,
+            "y": 300,
+            "r": 65,
+            "label": "Shed exit"
+          },
+          {
+            "x": 820,
+            "y": 540,
+            "r": 65,
+            "label": "Channel bend"
+          },
+          {
+            "x": 1100,
+            "y": 440,
+            "r": 75,
+            "label": "Bowl winch"
+          }
+        ],
+        "player": {
+          "x": 583.0074621082989,
+          "y": 298.7554899528865,
+          "hp": 3
+        },
+        "pickup": [],
+        "result": null,
+        "save": {
+          "version": 1,
+          "results": {
+            "banquet": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "puddings": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "guard": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "bridge": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "stirling": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            }
+          },
+          "selected": "steve",
+          "assist": false,
+          "difficulty": "medium",
+          "checkpoint": null,
+          "receipts": []
+        },
+        "hud": "Medium · Swing at Steve’s cage → reach the bowl winch"
+      },
+      "report": "correction-cage-ride/report.json"
+    },
+    {
+      "name": "Natural ten-second expiry preserves cage time and first gate",
+      "pass": true,
+      "details": {
+        "id": "steve",
+        "status": "playing",
+        "route": 1,
+        "elapsed": 15.283333333333672,
+        "eggOpened": 5.249999999999987,
+        "eggT": 1.9833333333333334,
+        "cage": {
+          "c": 9,
+          "r": 8,
+          "x": 380,
+          "y": 420,
+          "label": "Steve’s cage"
+        },
+        "gates": [
+          {
+            "x": 580,
+            "y": 300,
+            "r": 65,
+            "label": "Shed exit"
+          },
+          {
+            "x": 820,
+            "y": 540,
+            "r": 65,
+            "label": "Channel bend"
+          },
+          {
+            "x": 1100,
+            "y": 440,
+            "r": 75,
+            "label": "Bowl winch"
+          }
+        ],
+        "player": {
+          "x": 603.5927010543659,
+          "y": 315.04685344705206,
+          "hp": 3
+        },
+        "pickup": [
+          {
+            "x": 380,
+            "y": 420,
+            "kind": "steve",
+            "tier": 4,
+            "t": 0.016666666666666666
+          }
+        ],
+        "result": null,
+        "save": {
+          "version": 1,
+          "results": {
+            "banquet": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "puddings": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "guard": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "bridge": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "stirling": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            }
+          },
+          "selected": "steve",
+          "assist": false,
+          "difficulty": "medium",
+          "checkpoint": null,
+          "receipts": []
+        },
+        "hud": "Medium · Take golden egg at cage → ride to bowl winch"
+      },
+      "report": "corrections/report.json"
+    },
+    {
+      "name": "Unmounted second gate cannot advance",
+      "pass": true,
+      "details": {
+        "id": "steve",
+        "status": "playing",
+        "route": 1,
+        "elapsed": 16.733333333333665,
+        "eggOpened": 5.249999999999987,
+        "eggT": 0.5333333333333354,
+        "cage": {
+          "c": 9,
+          "r": 8,
+          "x": 380,
+          "y": 420,
+          "label": "Steve’s cage"
+        },
+        "gates": [
+          {
+            "x": 580,
+            "y": 300,
+            "r": 65,
+            "label": "Shed exit"
+          },
+          {
+            "x": 820,
+            "y": 540,
+            "r": 65,
+            "label": "Channel bend"
+          },
+          {
+            "x": 1100,
+            "y": 440,
+            "r": 75,
+            "label": "Bowl winch"
+          }
+        ],
+        "player": {
+          "x": 822.1921114282843,
+          "y": 533.605130938369,
+          "hp": 3
+        },
+        "pickup": [
+          {
+            "x": 380,
+            "y": 420,
+            "kind": "steve",
+            "tier": 4,
+            "t": 1.4666666666666663
+          }
+        ],
+        "result": null,
+        "save": {
+          "version": 1,
+          "results": {
+            "banquet": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "puddings": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "guard": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "bridge": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "stirling": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            }
+          },
+          "selected": "steve",
+          "assist": false,
+          "difficulty": "medium",
+          "checkpoint": null,
+          "receipts": []
+        },
+        "hud": "Medium · Take golden egg at cage → ride to bowl winch"
+      },
+      "report": "corrections/report.json"
+    },
+    {
+      "name": "Compact 05-lost-mount active surface stays inside viewport",
+      "pass": true,
+      "details": {
+        "selector": "#campaignHUD",
+        "bounds": {
+          "x": 224.28125,
+          "y": 90,
+          "width": 351.4375,
+          "height": 31,
+          "top": 90,
+          "right": 575.71875,
+          "bottom": 121,
+          "left": 224.28125
+        },
+        "text": "Medium · Take golden egg at cage → ride to bowl winch",
+        "viewport": {
+          "width": 800,
+          "height": 500
+        },
+        "visible": true
+      },
+      "report": "corrections/report.json"
+    },
+    {
+      "name": "Compact 03-second-gate active surface stays inside viewport",
+      "pass": true,
+      "details": {
+        "selector": "#campaignHUD",
+        "bounds": {
+          "x": 252.28125,
+          "y": 90,
+          "width": 295.4375,
+          "height": 31,
+          "top": 90,
+          "right": 547.71875,
+          "bottom": 121,
+          "left": 252.28125
+        },
+        "text": "Medium · Gate 3/3 · Bowl winch → bowl winch",
+        "viewport": {
+          "width": 800,
+          "height": 500
+        },
+        "visible": true
+      },
+      "report": "correction-cage-ride/report.json"
+    },
+    {
+      "name": "Compact 03-final-gate-approach active surface stays inside viewport",
+      "pass": true,
+      "details": {
+        "selector": "#campaignHUD",
+        "bounds": {
+          "x": 252.28125,
+          "y": 90,
+          "width": 295.4375,
+          "height": 31,
+          "top": 90,
+          "right": 547.71875,
+          "bottom": 121,
+          "left": 252.28125
+        },
+        "text": "Medium · Gate 3/3 · Bowl winch → bowl winch",
+        "viewport": {
+          "width": 800,
+          "height": 500
+        },
+        "visible": true
+      },
+      "report": "correction-cage-ride/report.json"
+    },
+    {
+      "name": "Compact 03-first-gate active surface stays inside viewport",
+      "pass": true,
+      "details": {
+        "selector": "#campaignHUD",
+        "bounds": {
+          "x": 246.125,
+          "y": 90,
+          "width": 307.75,
+          "height": 31,
+          "top": 90,
+          "right": 553.875,
+          "bottom": 121,
+          "left": 246.125
+        },
+        "text": "Medium · Gate 2/3 · Channel bend → bowl winch",
+        "viewport": {
+          "width": 800,
+          "height": 500
+        },
+        "visible": true
+      },
+      "report": "correction-cage-ride/report.json"
+    },
+    {
+      "name": "Timer failure produces no completion spoon",
+      "pass": true,
+      "details": {
+        "id": "steve",
+        "status": "failed",
+        "route": 0,
+        "elapsed": 3.7166666666666583,
+        "eggOpened": 2.9833333333333276,
+        "eggT": -0.7166666666666672,
+        "cage": {
+          "c": 9,
+          "r": 8,
+          "x": 380,
+          "y": 420,
+          "label": "Steve’s cage"
+        },
+        "gates": [
+          {
+            "x": 580,
+            "y": 300,
+            "r": 65,
+            "label": "Shed exit"
+          },
+          {
+            "x": 820,
+            "y": 540,
+            "r": 65,
+            "label": "Channel bend"
+          },
+          {
+            "x": 1100,
+            "y": 440,
+            "r": 75,
+            "label": "Bowl winch"
+          }
+        ],
+        "player": {
+          "x": 342.4,
+          "y": 415.07448596317437,
+          "hp": 3,
+          "mount": 9.283333333333298
+        },
+        "pickup": [],
+        "result": {
+          "id": "steve",
+          "won": false,
+          "reason": "Time ran out. Swing at Steve’s cage beside the bakery scraps. Take the golden egg and ride gates 1, 2, 3 to the winch. If the ride ends, another egg appears at the cage.",
+          "spoons": [
+            false,
+            false,
+            false
+          ],
+          "added": [],
+          "elapsed": 3.7166666666666583,
+          "assisted": false,
+          "outro": [
+            "Swing at Steve’s cage beside the bakery scraps. Take the golden egg and ride gates 1, 2, 3 to the winch. If the ride ends, another egg appears at the cage."
+          ],
+          "next": "steve",
+          "checkpoint": null
+        },
+        "save": {
+          "version": 1,
+          "results": {
+            "banquet": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "puddings": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "guard": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "bridge": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "stirling": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "steve": {
+              "spoons": [
+                false,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": null,
+              "assisted": false
+            }
+          },
+          "selected": "steve",
+          "assist": false,
+          "difficulty": "medium",
+          "checkpoint": null,
+          "receipts": [
+            "ae73fdec-d133-40ea-85d8-9ba25d2af0b9:steve:6"
+          ]
+        },
+        "hud": "Medium · Gate 1/3 · Shed exit → bowl winch"
+      },
+      "report": "run1/report.json"
+    },
+    {
+      "name": "UI retry restores intact cage, gate zero and unopened timer",
+      "pass": true,
+      "details": {
+        "id": "steve",
+        "status": "playing",
+        "route": 0,
+        "elapsed": 0.13333333333333333,
+        "eggT": 0,
+        "cage": {
+          "c": 9,
+          "r": 8,
+          "x": 380,
+          "y": 420,
+          "label": "Steve’s cage"
+        },
+        "gates": [
+          {
+            "x": 580,
+            "y": 300,
+            "r": 65,
+            "label": "Shed exit"
+          },
+          {
+            "x": 820,
+            "y": 540,
+            "r": 65,
+            "label": "Channel bend"
+          },
+          {
+            "x": 1100,
+            "y": 440,
+            "r": 75,
+            "label": "Bowl winch"
+          }
+        ],
+        "player": {
+          "x": 180,
+          "y": 440,
+          "hp": 3
+        },
+        "pickup": [],
+        "result": null,
+        "save": {
+          "version": 1,
+          "results": {
+            "banquet": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "puddings": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "guard": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "bridge": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "stirling": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "steve": {
+              "spoons": [
+                false,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": null,
+              "assisted": false
+            }
+          },
+          "selected": "steve",
+          "assist": false,
+          "difficulty": "medium",
+          "checkpoint": null,
+          "receipts": [
+            "ae73fdec-d133-40ea-85d8-9ba25d2af0b9:steve:6"
+          ]
+        },
+        "hud": "Medium · Swing at Steve’s cage → reach the bowl winch"
+      },
+      "report": "run1/report.json"
+    },
+    {
+      "name": "Quit/relaunch does not invent a Steve checkpoint",
+      "pass": true,
+      "details": {
+        "id": "steve",
+        "status": "playing",
+        "route": 0,
+        "elapsed": 0,
+        "eggT": 0,
+        "cage": {
+          "c": 9,
+          "r": 8,
+          "x": 380,
+          "y": 420,
+          "label": "Steve’s cage"
+        },
+        "gates": [
+          {
+            "x": 580,
+            "y": 300,
+            "r": 65,
+            "label": "Shed exit"
+          },
+          {
+            "x": 820,
+            "y": 540,
+            "r": 65,
+            "label": "Channel bend"
+          },
+          {
+            "x": 1100,
+            "y": 440,
+            "r": 75,
+            "label": "Bowl winch"
+          }
+        ],
+        "player": {
+          "x": 180,
+          "y": 440,
+          "hp": 3
+        },
+        "pickup": [],
+        "result": null,
+        "save": {
+          "version": 1,
+          "results": {
+            "banquet": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "puddings": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "guard": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "bridge": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "stirling": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "steve": {
+              "spoons": [
+                false,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": null,
+              "assisted": false
+            }
+          },
+          "selected": "steve",
+          "assist": false,
+          "difficulty": "medium",
+          "checkpoint": null,
+          "receipts": [
+            "ae73fdec-d133-40ea-85d8-9ba25d2af0b9:steve:6"
+          ]
+        },
+        "hud": "Medium · Swing at Steve’s cage → reach the bowl winch"
+      },
+      "report": "run1/report.json"
+    },
+    {
+      "name": "Reload retains historical ownership, best, attempts, assistance and receipts",
+      "pass": true,
+      "details": {
+        "before": "{\"save\":{\"version\":1,\"results\":{\"banquet\":{\"spoons\":[true,false,false],\"attempts\":1,\"best\":70,\"assisted\":false},\"puddings\":{\"spoons\":[true,false,false],\"attempts\":1,\"best\":70,\"assisted\":false},\"guard\":{\"spoons\":[true,false,false],\"attempts\":1,\"best\":70,\"assisted\":false},\"bridge\":{\"spoons\":[true,false,false],\"attempts\":1,\"best\":70,\"assisted\":false},\"stirling\":{\"spoons\":[true,false,false],\"attempts\":1,\"best\":70,\"assisted\":false},\"steve\":{\"spoons\":[true,true,true],\"attempts\":4,\"best\":31,\"assisted\":true}},\"selected\":\"steve\",\"assist\":false,\"difficulty\":\"medium\",\"checkpoint\":null,\"receipts\":[\"historical-steve\"]},\"collection\":{\"version\":1,\"completed\":3,\"choice\":null,\"pinned\":null,\"progress\":{\"tea-towel\":0,\"burnt-toast\":0,\"golden-whisk\":0,\"rooster-crown\":0,\"rice-guard\":0,\"steve-strut\":0},\"owned\":[\"steve-strut\"],\"receipts\":[\"671a5d44-81eb-43af-b8b6-12043b32a129:encounter\",\"0bfbdebb-6c72-4c69-b055-c13ff5d5fb92:encounter\",\"cd890c56-86e6-4491-abc7-3b2f8a89f06c:encounter\"],\"milestones\":[\"steve-rescue\"],\"presets\":[null,null,null]}}",
+        "after": "{\"save\":{\"version\":1,\"results\":{\"banquet\":{\"spoons\":[true,false,false],\"attempts\":1,\"best\":70,\"assisted\":false},\"puddings\":{\"spoons\":[true,false,false],\"attempts\":1,\"best\":70,\"assisted\":false},\"guard\":{\"spoons\":[true,false,false],\"attempts\":1,\"best\":70,\"assisted\":false},\"bridge\":{\"spoons\":[true,false,false],\"attempts\":1,\"best\":70,\"assisted\":false},\"stirling\":{\"spoons\":[true,false,false],\"attempts\":1,\"best\":70,\"assisted\":false},\"steve\":{\"spoons\":[true,true,true],\"attempts\":4,\"best\":31,\"assisted\":true}},\"selected\":\"steve\",\"assist\":false,\"difficulty\":\"medium\",\"checkpoint\":null,\"receipts\":[\"historical-steve\"]},\"collection\":{\"version\":1,\"completed\":3,\"choice\":null,\"pinned\":null,\"progress\":{\"tea-towel\":0,\"burnt-toast\":0,\"golden-whisk\":0,\"rooster-crown\":0,\"rice-guard\":0,\"steve-strut\":0},\"owned\":[\"steve-strut\"],\"receipts\":[\"671a5d44-81eb-43af-b8b6-12043b32a129:encounter\",\"0bfbdebb-6c72-4c69-b055-c13ff5d5fb92:encounter\",\"cd890c56-86e6-4491-abc7-3b2f8a89f06c:encounter\"],\"milestones\":[\"steve-rescue\"],\"presets\":[null,null,null]}}"
+      },
+      "report": "run1/report.json"
+    },
+    {
+      "name": "Opening completed map cannot award again",
+      "pass": true,
+      "report": "run1/report.json"
+    },
+    {
+      "name": "No uncaught browser exceptions",
+      "pass": true,
+      "details": [],
+      "report": "final-cue-correction/report.json"
+    },
+    {
+      "name": "Actual sword inputs open cage and start local ride measure",
+      "pass": true,
+      "details": {
+        "id": "steve",
+        "status": "playing",
+        "route": 0,
+        "elapsed": 7.583333333333312,
+        "eggOpened": 6.883333333333314,
+        "eggT": -0.7000000000000005,
+        "cage": {
+          "c": 9,
+          "r": 8,
+          "x": 380,
+          "y": 420,
+          "label": "Steve’s cage"
+        },
+        "gates": [
+          {
+            "x": 580,
+            "y": 300,
+            "r": 65,
+            "label": "Shed exit"
+          },
+          {
+            "x": 820,
+            "y": 540,
+            "r": 65,
+            "label": "Channel bend"
+          },
+          {
+            "x": 1100,
+            "y": 440,
+            "r": 75,
+            "label": "Bowl winch"
+          }
+        ],
+        "player": {
+          "x": 342.4,
+          "y": 423.30146412811166,
+          "hp": 3,
+          "mount": 9.316666666666633
+        },
+        "pickup": [],
+        "result": null,
+        "save": {
+          "version": 1,
+          "results": {
+            "banquet": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "puddings": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "guard": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "bridge": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "stirling": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            }
+          },
+          "selected": "steve",
+          "assist": false,
+          "difficulty": "medium",
+          "checkpoint": null,
+          "receipts": []
+        },
+        "hud": "Medium · Gate 1/3 · Shed exit → bowl winch"
+      },
+      "report": "correction-cage-ride/report.json"
+    },
+    {
+      "name": "Compact 02-cage-open-egg active surface stays inside viewport",
+      "pass": true,
+      "details": {
+        "selector": "#campaignHUD",
+        "bounds": {
+          "x": 258.8046875,
+          "y": 90,
+          "width": 282.390625,
+          "height": 31,
+          "top": 90,
+          "right": 541.1953125,
+          "bottom": 121,
+          "left": 258.8046875
+        },
+        "text": "Medium · Gate 1/3 · Shed exit → bowl winch",
+        "viewport": {
+          "width": 800,
+          "height": 500
+        },
+        "visible": true
+      },
+      "report": "correction-cage-ride/report.json"
+    },
+    {
+      "name": "Gate rejects unmounted player after cage opens",
+      "pass": true,
+      "details": {
+        "id": "steve",
+        "status": "playing",
+        "route": 0,
+        "elapsed": 19.20000000000019,
+        "eggOpened": 6.883333333333314,
+        "eggT": -0.2999999999999979,
+        "cage": {
+          "c": 9,
+          "r": 8,
+          "x": 380,
+          "y": 420,
+          "label": "Steve’s cage"
+        },
+        "gates": [
+          {
+            "x": 580,
+            "y": 300,
+            "r": 65,
+            "label": "Shed exit"
+          },
+          {
+            "x": 820,
+            "y": 540,
+            "r": 65,
+            "label": "Channel bend"
+          },
+          {
+            "x": 1100,
+            "y": 440,
+            "r": 75,
+            "label": "Bowl winch"
+          }
+        ],
+        "player": {
+          "x": 1095.0107053625438,
+          "y": 440.27124372432576,
+          "hp": 3
+        },
+        "pickup": [
+          {
+            "x": 380,
+            "y": 420,
+            "kind": "steve",
+            "tier": 4,
+            "t": 2.2999999999999967
+          }
+        ],
+        "result": null,
+        "save": {
+          "version": 1,
+          "results": {
+            "banquet": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "puddings": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "guard": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "bridge": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "stirling": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            }
+          },
+          "selected": "steve",
+          "assist": false,
+          "difficulty": "medium",
+          "checkpoint": null,
+          "receipts": []
+        },
+        "hud": "Medium · Take golden egg at cage → ride to bowl winch"
+      },
+      "report": "correction-cage-ride/report.json"
+    },
+    {
+      "name": "Actual egg collection starts ordinary ten-second mount",
+      "pass": true,
+      "details": {
+        "id": "steve",
+        "status": "playing",
+        "route": 0,
+        "elapsed": 22.583333333333332,
+        "eggOpened": 6.883333333333314,
+        "eggT": -3.6833333333333234,
+        "cage": {
+          "c": 9,
+          "r": 8,
+          "x": 380,
+          "y": 420,
+          "label": "Steve’s cage"
+        },
+        "gates": [
+          {
+            "x": 580,
+            "y": 300,
+            "r": 65,
+            "label": "Shed exit"
+          },
+          {
+            "x": 820,
+            "y": 540,
+            "r": 65,
+            "label": "Channel bend"
+          },
+          {
+            "x": 1100,
+            "y": 440,
+            "r": 75,
+            "label": "Bowl winch"
+          }
+        ],
+        "player": {
+          "x": 369.9998563932138,
+          "y": 412.75022727555285,
+          "hp": 3,
+          "mount": 9.79999999999999
+        },
+        "pickup": [],
+        "result": null,
+        "save": {
+          "version": 1,
+          "results": {
+            "banquet": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "puddings": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "guard": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "bridge": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "stirling": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            }
+          },
+          "selected": "steve",
+          "assist": false,
+          "difficulty": "medium",
+          "checkpoint": null,
+          "receipts": []
+        },
+        "hud": "Medium · Gate 1/3 · Shed exit → bowl winch"
+      },
+      "report": "correction-cage-ride/report.json"
+    },
+    {
+      "name": "Third gate cannot bypass first while mounted",
+      "pass": true,
+      "details": {
+        "id": "steve",
+        "status": "playing",
+        "route": 0,
+        "elapsed": 25.016666666666527,
+        "eggOpened": 6.883333333333314,
+        "eggT": -6.1166666666666485,
+        "cage": {
+          "c": 9,
+          "r": 8,
+          "x": 380,
+          "y": 420,
+          "label": "Steve’s cage"
+        },
+        "gates": [
+          {
+            "x": 580,
+            "y": 300,
+            "r": 65,
+            "label": "Shed exit"
+          },
+          {
+            "x": 820,
+            "y": 540,
+            "r": 65,
+            "label": "Channel bend"
+          },
+          {
+            "x": 1100,
+            "y": 440,
+            "r": 75,
+            "label": "Bowl winch"
+          }
+        ],
+        "player": {
+          "x": 1102.241419891258,
+          "y": 440.86066791786516,
+          "hp": 3,
+          "mount": 7.36666666666657
+        },
+        "pickup": [],
+        "result": null,
+        "save": {
+          "version": 1,
+          "results": {
+            "banquet": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "puddings": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "guard": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "bridge": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "stirling": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            }
+          },
+          "selected": "steve",
+          "assist": false,
+          "difficulty": "medium",
+          "checkpoint": null,
+          "receipts": []
+        },
+        "hud": "Medium · Gate 1/3 · Shed exit → bowl winch"
+      },
+      "report": "correction-cage-ride/report.json"
+    },
+    {
+      "name": "Second gate cannot bypass first while mounted",
+      "pass": true,
+      "details": {
+        "id": "steve",
+        "status": "playing",
+        "route": 0,
+        "elapsed": 26.13333333333313,
+        "eggOpened": 6.883333333333314,
+        "eggT": -7.233333333333311,
+        "cage": {
+          "c": 9,
+          "r": 8,
+          "x": 380,
+          "y": 420,
+          "label": "Steve’s cage"
+        },
+        "gates": [
+          {
+            "x": 580,
+            "y": 300,
+            "r": 65,
+            "label": "Shed exit"
+          },
+          {
+            "x": 820,
+            "y": 540,
+            "r": 65,
+            "label": "Channel bend"
+          },
+          {
+            "x": 1100,
+            "y": 440,
+            "r": 75,
+            "label": "Bowl winch"
+          }
+        ],
+        "player": {
+          "x": 815.5582564309935,
+          "y": 533.240500627993,
+          "hp": 3,
+          "mount": 6.249999999999908
+        },
+        "pickup": [],
+        "result": null,
+        "save": {
+          "version": 1,
+          "results": {
+            "banquet": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "puddings": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "guard": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "bridge": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "stirling": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            }
+          },
+          "selected": "steve",
+          "assist": false,
+          "difficulty": "medium",
+          "checkpoint": null,
+          "receipts": []
+        },
+        "hud": "Medium · Gate 1/3 · Shed exit → bowl winch"
+      },
+      "report": "correction-cage-ride/report.json"
+    },
+    {
+      "name": "Actual reacquisition finishes remaining ordered gates",
+      "pass": true,
+      "details": {
+        "id": "steve",
+        "status": "won",
+        "route": 3,
+        "elapsed": 23.666666666666604,
+        "eggOpened": 5.249999999999987,
+        "eggT": -6.399999999999981,
+        "cage": {
+          "c": 9,
+          "r": 8,
+          "x": 380,
+          "y": 420,
+          "label": "Steve’s cage"
+        },
+        "gates": [
+          {
+            "x": 580,
+            "y": 300,
+            "r": 65,
+            "label": "Shed exit"
+          },
+          {
+            "x": 820,
+            "y": 540,
+            "r": 65,
+            "label": "Channel bend"
+          },
+          {
+            "x": 1100,
+            "y": 440,
+            "r": 75,
+            "label": "Bowl winch"
+          }
+        ],
+        "player": {
+          "x": 1027.3719766675028,
+          "y": 428.27518029511145,
+          "hp": 3,
+          "mount": 6.333333333333241
+        },
+        "pickup": [],
+        "result": {
+          "id": "steve",
+          "won": true,
+          "reason": "",
+          "spoons": [
+            true,
+            true,
+            true
+          ],
+          "added": [
+            0,
+            1,
+            2
+          ],
+          "elapsed": 23.666666666666604,
+          "assisted": false,
+          "outro": [
+            "Steve follows the bakery scraps to the siege-bowl winch.",
+            "Recruit: There’s the bowl, still aimed at our ovens. Marshal Rind is guarding the winch."
+          ],
+          "next": "rind",
+          "checkpoint": null
+        },
+        "save": {
+          "version": 1,
+          "results": {
+            "banquet": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "puddings": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "guard": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "bridge": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "stirling": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "steve": {
+              "spoons": [
+                true,
+                true,
+                true
+              ],
+              "attempts": 1,
+              "best": 23.666666666666604,
+              "assisted": false
+            }
+          },
+          "selected": "rind",
+          "assist": false,
+          "difficulty": "medium",
+          "checkpoint": null,
+          "receipts": [
+            "b2d8d008-8daf-4639-8d5a-0f9c583a2197:steve:2"
+          ]
+        },
+        "hud": "Medium · Gate 3/3 · Bowl winch → bowl winch"
+      },
+      "report": "corrections/report.json"
+    },
+    {
+      "name": "Over-60 result earns completion but no timed spoon",
+      "pass": true,
+      "details": {
+        "id": "steve",
+        "status": "won",
+        "route": 3,
+        "elapsed": 69.68333333333308,
+        "eggOpened": 5.266666666666653,
+        "eggT": -5.266666666666653,
+        "cage": {
+          "c": 9,
+          "r": 8,
+          "x": 380,
+          "y": 420,
+          "label": "Steve’s cage"
+        },
+        "gates": [
+          {
+            "x": 580,
+            "y": 300,
+            "r": 65,
+            "label": "Shed exit"
+          },
+          {
+            "x": 820,
+            "y": 540,
+            "r": 65,
+            "label": "Channel bend"
+          },
+          {
+            "x": 1100,
+            "y": 440,
+            "r": 75,
+            "label": "Bowl winch"
+          }
+        ],
+        "player": {
+          "x": 1029.336499923605,
+          "y": 434.19170781835396,
+          "hp": 3,
+          "mount": 4.749999999999913
+        },
+        "pickup": [],
+        "result": {
+          "id": "steve",
+          "won": true,
+          "reason": "",
+          "spoons": [
+            true,
+            false,
+            true
+          ],
+          "added": [
+            0,
+            2
+          ],
+          "elapsed": 69.68333333333308,
+          "assisted": false,
+          "outro": [
+            "Steve follows the bakery scraps to the siege-bowl winch.",
+            "Recruit: There’s the bowl, still aimed at our ovens. Marshal Rind is guarding the winch."
+          ],
+          "next": "rind",
+          "checkpoint": null
+        },
+        "save": {
+          "version": 1,
+          "results": {
+            "banquet": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "puddings": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "guard": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "bridge": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "stirling": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "steve": {
+              "spoons": [
+                true,
+                false,
+                true
+              ],
+              "attempts": 1,
+              "best": 69.68333333333308,
+              "assisted": false
+            }
+          },
+          "selected": "rind",
+          "assist": false,
+          "difficulty": "medium",
+          "checkpoint": null,
+          "receipts": [
+            "d3e06ccc-2011-45a8-9296-574de994b6c4:steve:3"
+          ]
+        },
+        "hud": "Medium · Gate 3/3 · Bowl winch → bowl winch"
+      },
+      "report": "corrections/report.json"
+    },
+    {
+      "name": "Ordered actual ride wins and earns timed spoon from cage",
+      "pass": true,
+      "details": {
+        "id": "steve",
+        "status": "won",
+        "route": 3,
+        "elapsed": 37.78333333333247,
+        "eggOpened": 6.883333333333314,
+        "eggT": -3.399999999999991,
+        "cage": {
+          "c": 9,
+          "r": 8,
+          "x": 380,
+          "y": 420,
+          "label": "Steve’s cage"
+        },
+        "gates": [
+          {
+            "x": 580,
+            "y": 300,
+            "r": 65,
+            "label": "Shed exit"
+          },
+          {
+            "x": 820,
+            "y": 540,
+            "r": 65,
+            "label": "Channel bend"
+          },
+          {
+            "x": 1100,
+            "y": 440,
+            "r": 75,
+            "label": "Bowl winch"
+          }
+        ],
+        "player": {
+          "x": 1028.3658822306215,
+          "y": 431.6979395709964,
+          "hp": 3,
+          "mount": 5.483333333333244
+        },
+        "pickup": [],
+        "result": {
+          "id": "steve",
+          "won": true,
+          "reason": "",
+          "spoons": [
+            true,
+            true,
+            true
+          ],
+          "added": [
+            0,
+            1,
+            2
+          ],
+          "elapsed": 37.78333333333247,
+          "assisted": false,
+          "outro": [
+            "Steve follows the bakery scraps to the siege-bowl winch.",
+            "Recruit: There’s the bowl, still aimed at our ovens. Marshal Rind is guarding the winch."
+          ],
+          "next": "rind",
+          "checkpoint": null
+        },
+        "save": {
+          "version": 1,
+          "results": {
+            "banquet": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "puddings": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "guard": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "bridge": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "stirling": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "steve": {
+              "spoons": [
+                true,
+                true,
+                true
+              ],
+              "attempts": 1,
+              "best": 37.78333333333247,
+              "assisted": false
+            }
+          },
+          "selected": "rind",
+          "assist": false,
+          "difficulty": "medium",
+          "checkpoint": null,
+          "receipts": [
+            "17787673-47ee-4265-9844-1ea62e78c13b:steve:1"
+          ]
+        },
+        "hud": "Medium · Gate 3/3 · Bowl winch → bowl winch"
+      },
+      "report": "correction-cage-ride/report.json"
+    },
+    {
+      "name": "Duplicate finish leaves save and collection unchanged",
+      "pass": true,
+      "report": "correction-cage-ride/report.json"
+    },
+    {
+      "name": "Compact 04-route-result active surface stays inside viewport",
+      "pass": true,
+      "details": {
+        "selector": "#campaignResult .campaign-panel",
+        "bounds": {
+          "x": 31.0625,
+          "y": 20,
+          "width": 722.875,
+          "height": 723.78125,
+          "top": 20,
+          "right": 753.9375,
+          "bottom": 743.78125,
+          "left": 31.0625
+        },
+        "text": "Encounter completeRelease the Chicken3 new spoons earned. Your spoons are saved independently.✓ Release and ride Steve✓ Ride the route within 60 seconds of opening the cage✓ Finish without being bonkedContinue: Skin in the GameReplay aftermath sceneReplay for spoonsStory mapChoose your first costumeChoose Tea TowelChoose Burnt ToastKeep current look",
+        "viewport": {
+          "width": 800,
+          "height": 500
+        },
+        "visible": true
+      },
+      "report": "correction-cage-ride/report.json"
+    },
+    {
+      "name": "Final gate HUD is concise and names bowl winch once",
+      "pass": true,
+      "details": {
+        "id": "steve",
+        "status": "playing",
+        "route": 2,
+        "elapsed": 0.11666666666666665,
+        "eggOpened": 0,
+        "eggT": 0,
+        "cage": {
+          "c": 9,
+          "r": 8,
+          "x": 380,
+          "y": 420,
+          "label": "Steve’s cage"
+        },
+        "gates": [
+          {
+            "x": 580,
+            "y": 300,
+            "r": 65,
+            "label": "Shed exit"
+          },
+          {
+            "x": 820,
+            "y": 540,
+            "r": 65,
+            "label": "Channel bend"
+          },
+          {
+            "x": 1100,
+            "y": 440,
+            "r": 75,
+            "label": "Bowl winch"
+          }
+        ],
+        "player": {
+          "x": 1000,
+          "y": 440,
+          "hp": 3,
+          "mount": 10
+        },
+        "pickup": [],
+        "result": null,
+        "save": {
+          "version": 1,
+          "results": {
+            "banquet": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "puddings": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "guard": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "bridge": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "stirling": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            }
+          },
+          "selected": "steve",
+          "assist": false,
+          "difficulty": "medium",
+          "checkpoint": null,
+          "receipts": []
+        },
+        "hud": "Medium · Gate 3/3 · Bowl winch"
+      },
+      "report": "final-cue-correction/report.json"
+    },
+    {
+      "name": "Compact 08-final-cue-polish active surface stays inside viewport",
+      "pass": true,
+      "details": {
+        "selector": "#campaignHUD",
+        "bounds": {
+          "x": 294.2265625,
+          "y": 90,
+          "width": 211.546875,
+          "height": 31,
+          "top": 90,
+          "right": 505.7734375,
+          "bottom": 121,
+          "left": 294.2265625
+        },
+        "text": "Medium · Gate 3/3 · Bowl winch",
+        "viewport": {
+          "width": 800,
+          "height": 500
+        },
+        "visible": true
+      },
+      "report": "final-cue-correction/report.json"
+    }
+  ],
+  "retainedNonAuthoritativeReports": [
+    "initial/report.json",
+    "run1/report.json",
+    "corrections/report.json",
+    "final-cue-polish/report.json"
+  ],
+  "explanation": "The selected checks take the latest successfully corrected assertion for each named case, while retaining original errors. No runtime fix was needed for route behavior. Runtime cue-only correction has its own final report; full route was not repeated."
+}

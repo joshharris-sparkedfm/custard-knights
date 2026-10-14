@@ -1,0 +1,2269 @@
+{
+  "startedAt": "2026-10-14T10:14:07.953Z",
+  "root": "C:\\Users\\Joshua\\Documents\\Codex\\2026-10-08\\rea\\work\\custard-knights-room",
+  "harness": "C:\\Users\\Joshua\\Documents\\Codex\\2026-10-08\\rea\\work\\custard-knights-room\\qa\\steve-route-browser.cjs",
+  "harnessSha256": "0d735d3f1e4d0963af742cb6fbb247b145742e884919a147a55b39907aa207d3",
+  "sourceHashes": {
+    "index.html": "e0904ae54bbace909bfae3d963821599c665e2a5c53cb98df12ac42c72711820",
+    "game/campaign.js": "1b4e0acc3c07f91515b58b1ef77bf1e6f1db3c5275c05f69b2d0772b9489349b",
+    "game/campaign-ui.js": "9d9c4afea69e109dfca770c65e378045a37ce96a2ca90c61eefaa0806ed190d2",
+    "game/campaign-integration.js": "2b8050791432238cc3ec48cf7a71ca36f9a33ba335b1e3a2a0e730d22b06bbd9",
+    "game/story-scenes.js": "559b3f07c7ce651b77c01cf0d3f35ea2bb9ece4f2381bd93c5f27eeffb08cd68",
+    "game/bakery-opening.js": "49204ee38bda412fd62e78348968ce8bdec23f5a9d458d26d01557d5a28f8919",
+    "game/channel-support.js": "fc57f8204e0d83276676073d039a3d261c609185d77a262dd3d690a76a79c924"
+  },
+  "checks": [
+    {
+      "name": "Actual intro captions connect food and service winch destination",
+      "pass": true,
+      "details": [
+        {
+          "scene": "steve",
+          "phase": "intro",
+          "caption": "Sir StirlingMabel’s bakery scraps. Steve followed them into the service shed."
+        },
+        {
+          "scene": "steve",
+          "phase": "intro",
+          "caption": "Sir StirlingMabel’s bakery scraps. Steve followed them into the service shed."
+        },
+        {
+          "scene": "steve",
+          "phase": "intro",
+          "caption": "RecruitThere are more scraps by the siege-bowl winch."
+        },
+        {
+          "scene": "steve",
+          "phase": "intro",
+          "caption": "Sir StirlingFree him, take the golden egg, then ride the three marked service gates."
+        },
+        {
+          "scene": "steve",
+          "phase": "intro",
+          "caption": "RecruitWe need that winch to turn the bowl away from home."
+        }
+      ]
+    },
+    {
+      "name": "Compact theatre-intro active surface stays inside viewport",
+      "pass": true,
+      "details": {
+        "selector": ".campaign-captions",
+        "bounds": {
+          "x": 47.0625,
+          "y": 262,
+          "width": 690.875,
+          "height": 78,
+          "top": 262,
+          "right": 737.9375,
+          "bottom": 340,
+          "left": 47.0625
+        },
+        "text": "RecruitWe need that winch to turn the bowl away from home.",
+        "viewport": {
+          "width": 800,
+          "height": 500
+        },
+        "visible": true
+      }
+    },
+    {
+      "name": "Actual outro captions connect food and service winch destination",
+      "pass": true,
+      "details": [
+        {
+          "scene": "steve",
+          "phase": "outro",
+          "caption": "The Official HistorySteve followed the bakery scraps along the service route."
+        },
+        {
+          "scene": "steve",
+          "phase": "outro",
+          "caption": "The Official HistorySteve followed the bakery scraps along the service route."
+        },
+        {
+          "scene": "steve",
+          "phase": "outro",
+          "caption": "RecruitThe bowl winch. And the bowl is still aimed at our ovens."
+        },
+        {
+          "scene": "steve",
+          "phase": "outro",
+          "caption": "Sir StirlingMarshal Rind is guarding it. Get us to that winch."
+        },
+        {
+          "scene": "steve",
+          "phase": "outro",
+          "caption": "Sir StirlingMarshal Rind is guarding it. Get us to that winch."
+        }
+      ]
+    },
+    {
+      "name": "Compact theatre-outro active surface stays inside viewport",
+      "pass": true,
+      "details": {
+        "selector": ".campaign-captions",
+        "bounds": {
+          "x": 47.0625,
+          "y": 262,
+          "width": 690.875,
+          "height": 78,
+          "top": 262,
+          "right": 737.9375,
+          "bottom": 340,
+          "left": 47.0625
+        },
+        "text": "Sir StirlingMarshal Rind is guarding it. Get us to that winch.",
+        "viewport": {
+          "width": 800,
+          "height": 500
+        },
+        "visible": true
+      }
+    },
+    {
+      "name": "Compact 01-cage-start active surface stays inside viewport",
+      "pass": true,
+      "details": {
+        "selector": "#campaignHUD",
+        "bounds": {
+          "x": 223.9453125,
+          "y": 90,
+          "width": 352.109375,
+          "height": 31,
+          "top": 90,
+          "right": 576.0546875,
+          "bottom": 121,
+          "left": 223.9453125
+        },
+        "text": "Medium · Swing at Steve’s cage → reach the bowl winch",
+        "viewport": {
+          "width": 800,
+          "height": 500
+        },
+        "visible": true
+      }
+    },
+    {
+      "name": "Original cage and ordered gate geometry retained",
+      "pass": true,
+      "details": {
+        "id": "steve",
+        "status": "playing",
+        "route": 0,
+        "elapsed": 0.4666666666666666,
+        "eggT": 0,
+        "cage": {
+          "c": 9,
+          "r": 8,
+          "x": 380,
+          "y": 420,
+          "label": "Steve’s cage"
+        },
+        "gates": [
+          {
+            "x": 580,
+            "y": 300,
+            "r": 65,
+            "label": "Shed exit"
+          },
+          {
+            "x": 820,
+            "y": 540,
+            "r": 65,
+            "label": "Channel bend"
+          },
+          {
+            "x": 1100,
+            "y": 440,
+            "r": 75,
+            "label": "Bowl winch"
+          }
+        ],
+        "player": {
+          "x": 180,
+          "y": 440,
+          "hp": 3
+        },
+        "pickup": [],
+        "result": null,
+        "save": {
+          "version": 1,
+          "results": {
+            "banquet": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "puddings": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "guard": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "bridge": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "stirling": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            }
+          },
+          "selected": "steve",
+          "assist": false,
+          "difficulty": "medium",
+          "checkpoint": null,
+          "receipts": []
+        },
+        "hud": "Medium · Swing at Steve’s cage → reach the bowl winch"
+      }
+    },
+    {
+      "name": "Gate rejects unmounted player before cage opening",
+      "pass": true,
+      "details": {
+        "id": "steve",
+        "status": "playing",
+        "route": 0,
+        "elapsed": 2.5166666666666626,
+        "eggT": 0,
+        "cage": {
+          "c": 9,
+          "r": 8,
+          "x": 380,
+          "y": 420,
+          "label": "Steve’s cage"
+        },
+        "gates": [
+          {
+            "x": 580,
+            "y": 300,
+            "r": 65,
+            "label": "Shed exit"
+          },
+          {
+            "x": 820,
+            "y": 540,
+            "r": 65,
+            "label": "Channel bend"
+          },
+          {
+            "x": 1100,
+            "y": 440,
+            "r": 75,
+            "label": "Bowl winch"
+          }
+        ],
+        "player": {
+          "x": 575.3709261944801,
+          "y": 307.06390934839715,
+          "hp": 3
+        },
+        "pickup": [],
+        "result": null,
+        "save": {
+          "version": 1,
+          "results": {
+            "banquet": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "puddings": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "guard": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "bridge": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "stirling": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            }
+          },
+          "selected": "steve",
+          "assist": false,
+          "difficulty": "medium",
+          "checkpoint": null,
+          "receipts": []
+        },
+        "hud": "Medium · Swing at Steve’s cage → reach the bowl winch"
+      }
+    },
+    {
+      "name": "Actual cage, egg and ordered ride",
+      "pass": false,
+      "details": "Movement target 325,420 {\"run\":{\"id\":\"steve\",\"phase\":0,\"status\":\"playing\",\"elapsed\":12.583333333333538,\"player\":{\"x\":417.6,\"y\":426.152492201764},\"hold\":0},\"save\":{\"version\":1,\"results\":{\"banquet\":{\"spoons\":[true,false,false],\"attempts\":1,\"best\":70,\"assisted\":false},\"puddings\":{\"spoons\":[true,false,false],\"attempts\":1,\"best\":70,\"assisted\":false},\"guard\":{\"spoons\":[true,false,false],\"attempts\":1,\"best\":70,\"assisted\":false},\"bridge\":{\"spoons\":[true,false,false],\"attempts\":1,\"best\":70,\"assisted\":false},\"stirling\":{\"spoons\":[true,false,false],\"attempts\":1,\"best\":70,\"assisted\":false}},\"selected\":\"steve\",\"assist\":false,\"difficulty\":\"medium\",\"checkpoint\":null,\"receipts\":[]},\"visible\":[],\"hud\":\"Medium · Swing at Steve’s cage → reach the bowl winch\"}"
+    },
+    {
+      "name": "Natural ten-second expiry preserves cage time and first gate",
+      "pass": true,
+      "details": {
+        "id": "steve",
+        "status": "playing",
+        "route": 1,
+        "elapsed": 12.96666666666689,
+        "eggOpened": 2.9499999999999944,
+        "eggT": 2,
+        "cage": {
+          "c": 9,
+          "r": 8,
+          "x": 380,
+          "y": 420,
+          "label": "Steve’s cage"
+        },
+        "gates": [
+          {
+            "x": 580,
+            "y": 300,
+            "r": 65,
+            "label": "Shed exit"
+          },
+          {
+            "x": 820,
+            "y": 540,
+            "r": 65,
+            "label": "Channel bend"
+          },
+          {
+            "x": 1100,
+            "y": 440,
+            "r": 75,
+            "label": "Bowl winch"
+          }
+        ],
+        "player": {
+          "x": 586.1515951061463,
+          "y": 290.5853908570279,
+          "hp": 3
+        },
+        "pickup": [
+          {
+            "x": 380,
+            "y": 420,
+            "kind": "steve",
+            "tier": 4,
+            "t": 0
+          }
+        ],
+        "result": null,
+        "save": {
+          "version": 1,
+          "results": {
+            "banquet": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "puddings": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "guard": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "bridge": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "stirling": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            }
+          },
+          "selected": "steve",
+          "assist": false,
+          "difficulty": "medium",
+          "checkpoint": null,
+          "receipts": []
+        },
+        "hud": "Medium · Take golden egg at cage → ride to bowl winch"
+      }
+    },
+    {
+      "name": "Unmounted second gate cannot advance",
+      "pass": true,
+      "details": {
+        "id": "steve",
+        "status": "playing",
+        "route": 1,
+        "elapsed": 14.56666666666697,
+        "eggOpened": 2.9499999999999944,
+        "eggT": 0.400000000000002,
+        "cage": {
+          "c": 9,
+          "r": 8,
+          "x": 380,
+          "y": 420,
+          "label": "Steve’s cage"
+        },
+        "gates": [
+          {
+            "x": 580,
+            "y": 300,
+            "r": 65,
+            "label": "Shed exit"
+          },
+          {
+            "x": 820,
+            "y": 540,
+            "r": 65,
+            "label": "Channel bend"
+          },
+          {
+            "x": 1100,
+            "y": 440,
+            "r": 75,
+            "label": "Bowl winch"
+          }
+        ],
+        "player": {
+          "x": 826.0209558555571,
+          "y": 537.6272450715912,
+          "hp": 3
+        },
+        "pickup": [
+          {
+            "x": 380,
+            "y": 420,
+            "kind": "steve",
+            "tier": 4,
+            "t": 1.5999999999999992
+          }
+        ],
+        "result": null,
+        "save": {
+          "version": 1,
+          "results": {
+            "banquet": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "puddings": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "guard": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "bridge": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "stirling": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            }
+          },
+          "selected": "steve",
+          "assist": false,
+          "difficulty": "medium",
+          "checkpoint": null,
+          "receipts": []
+        },
+        "hud": "Medium · Take golden egg at cage → ride to bowl winch"
+      }
+    },
+    {
+      "name": "Compact 05-lost-mount active surface stays inside viewport",
+      "pass": true,
+      "details": {
+        "selector": "#campaignHUD",
+        "bounds": {
+          "x": 224.28125,
+          "y": 90,
+          "width": 351.4375,
+          "height": 31,
+          "top": 90,
+          "right": 575.71875,
+          "bottom": 121,
+          "left": 224.28125
+        },
+        "text": "Medium · Take golden egg at cage → ride to bowl winch",
+        "viewport": {
+          "width": 800,
+          "height": 500
+        },
+        "visible": true
+      }
+    },
+    {
+      "name": "Compact 03-second-gate active surface stays inside viewport",
+      "pass": true,
+      "details": {
+        "selector": "#campaignHUD",
+        "bounds": {
+          "x": 252.28125,
+          "y": 90,
+          "width": 295.4375,
+          "height": 31,
+          "top": 90,
+          "right": 547.71875,
+          "bottom": 121,
+          "left": 252.28125
+        },
+        "text": "Medium · Gate 3/3 · Bowl winch → bowl winch",
+        "viewport": {
+          "width": 800,
+          "height": 500
+        },
+        "visible": true
+      }
+    },
+    {
+      "name": "Compact 03-final-gate-approach active surface stays inside viewport",
+      "pass": true,
+      "details": {
+        "selector": "#campaignHUD",
+        "bounds": {
+          "x": 252.28125,
+          "y": 90,
+          "width": 295.4375,
+          "height": 31,
+          "top": 90,
+          "right": 547.71875,
+          "bottom": 121,
+          "left": 252.28125
+        },
+        "text": "Medium · Gate 3/3 · Bowl winch → bowl winch",
+        "viewport": {
+          "width": 800,
+          "height": 500
+        },
+        "visible": true
+      }
+    },
+    {
+      "name": "Ordinary mount expiry and real reacquisition",
+      "pass": false,
+      "details": "Movement target 1100,440 {\"run\":{\"id\":\"steve\",\"phase\":0,\"status\":\"won\",\"elapsed\":21.03333333333342,\"player\":{\"x\":1028.1420889141712,\"y\":431.0047357922388},\"hold\":0},\"save\":{\"version\":1,\"results\":{\"banquet\":{\"spoons\":[true,false,false],\"attempts\":1,\"best\":70,\"assisted\":false},\"puddings\":{\"spoons\":[true,false,false],\"attempts\":1,\"best\":70,\"assisted\":false},\"guard\":{\"spoons\":[true,false,false],\"attempts\":1,\"best\":70,\"assisted\":false},\"bridge\":{\"spoons\":[true,false,false],\"attempts\":1,\"best\":70,\"assisted\":false},\"stirling\":{\"spoons\":[true,false,false],\"attempts\":1,\"best\":70,\"assisted\":false},\"steve\":{\"spoons\":[true,true,true],\"attempts\":1,\"best\":21.03333333333342,\"assisted\":false}},\"selected\":\"rind\",\"assist\":false,\"difficulty\":\"medium\",\"checkpoint\":null,\"receipts\":[\"0bfbdebb-6c72-4c69-b055-c13ff5d5fb92:steve:4\"]},\"visible\":[\"campaignResult\"],\"hud\":\"Medium · Gate 3/3 · Bowl winch → bowl winch\"}"
+    },
+    {
+      "name": "Compact 03-first-gate active surface stays inside viewport",
+      "pass": true,
+      "details": {
+        "selector": "#campaignHUD",
+        "bounds": {
+          "x": 246.125,
+          "y": 90,
+          "width": 307.75,
+          "height": 31,
+          "top": 90,
+          "right": 553.875,
+          "bottom": 121,
+          "left": 246.125
+        },
+        "text": "Medium · Gate 2/3 · Channel bend → bowl winch",
+        "viewport": {
+          "width": 800,
+          "height": 500
+        },
+        "visible": true
+      }
+    },
+    {
+      "name": "Compact 03-second-gate active surface stays inside viewport",
+      "pass": true,
+      "details": {
+        "selector": "#campaignHUD",
+        "bounds": {
+          "x": 252.28125,
+          "y": 90,
+          "width": 295.4375,
+          "height": 31,
+          "top": 90,
+          "right": 547.71875,
+          "bottom": 121,
+          "left": 252.28125
+        },
+        "text": "Medium · Gate 3/3 · Bowl winch → bowl winch",
+        "viewport": {
+          "width": 800,
+          "height": 500
+        },
+        "visible": true
+      }
+    },
+    {
+      "name": "Compact 03-final-gate-approach active surface stays inside viewport",
+      "pass": true,
+      "details": {
+        "selector": "#campaignHUD",
+        "bounds": {
+          "x": 252.28125,
+          "y": 90,
+          "width": 295.4375,
+          "height": 31,
+          "top": 90,
+          "right": 547.71875,
+          "bottom": 121,
+          "left": 252.28125
+        },
+        "text": "Medium · Gate 3/3 · Bowl winch → bowl winch",
+        "viewport": {
+          "width": 800,
+          "height": 500
+        },
+        "visible": true
+      }
+    },
+    {
+      "name": "Slow cage-open timer excludes 60-second spoon",
+      "pass": false,
+      "details": "Movement target 1100,440 {\"run\":{\"id\":\"steve\",\"phase\":0,\"status\":\"won\",\"elapsed\":67.43333333333308,\"player\":{\"x\":1027.4290010837526,\"y\":426.7183996549624},\"hold\":0},\"save\":{\"version\":1,\"results\":{\"banquet\":{\"spoons\":[true,false,false],\"attempts\":1,\"best\":70,\"assisted\":false},\"puddings\":{\"spoons\":[true,false,false],\"attempts\":1,\"best\":70,\"assisted\":false},\"guard\":{\"spoons\":[true,false,false],\"attempts\":1,\"best\":70,\"assisted\":false},\"bridge\":{\"spoons\":[true,false,false],\"attempts\":1,\"best\":70,\"assisted\":false},\"stirling\":{\"spoons\":[true,false,false],\"attempts\":1,\"best\":70,\"assisted\":false},\"steve\":{\"spoons\":[true,false,true],\"attempts\":1,\"best\":67.43333333333308,\"assisted\":false}},\"selected\":\"rind\",\"assist\":false,\"difficulty\":\"medium\",\"checkpoint\":null,\"receipts\":[\"cd890c56-86e6-4491-abc7-3b2f8a89f06c:steve:5\"]},\"visible\":[\"campaignResult\"],\"hud\":\"Medium · Gate 3/3 · Bowl winch → bowl winch\"}"
+    },
+    {
+      "name": "Timer failure produces no completion spoon",
+      "pass": true,
+      "details": {
+        "id": "steve",
+        "status": "failed",
+        "route": 0,
+        "elapsed": 3.7166666666666583,
+        "eggOpened": 2.9833333333333276,
+        "eggT": -0.7166666666666672,
+        "cage": {
+          "c": 9,
+          "r": 8,
+          "x": 380,
+          "y": 420,
+          "label": "Steve’s cage"
+        },
+        "gates": [
+          {
+            "x": 580,
+            "y": 300,
+            "r": 65,
+            "label": "Shed exit"
+          },
+          {
+            "x": 820,
+            "y": 540,
+            "r": 65,
+            "label": "Channel bend"
+          },
+          {
+            "x": 1100,
+            "y": 440,
+            "r": 75,
+            "label": "Bowl winch"
+          }
+        ],
+        "player": {
+          "x": 342.4,
+          "y": 415.07448596317437,
+          "hp": 3,
+          "mount": 9.283333333333298
+        },
+        "pickup": [],
+        "result": {
+          "id": "steve",
+          "won": false,
+          "reason": "Time ran out. Swing at Steve’s cage beside the bakery scraps. Take the golden egg and ride gates 1, 2, 3 to the winch. If the ride ends, another egg appears at the cage.",
+          "spoons": [
+            false,
+            false,
+            false
+          ],
+          "added": [],
+          "elapsed": 3.7166666666666583,
+          "assisted": false,
+          "outro": [
+            "Swing at Steve’s cage beside the bakery scraps. Take the golden egg and ride gates 1, 2, 3 to the winch. If the ride ends, another egg appears at the cage."
+          ],
+          "next": "steve",
+          "checkpoint": null
+        },
+        "save": {
+          "version": 1,
+          "results": {
+            "banquet": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "puddings": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "guard": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "bridge": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "stirling": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "steve": {
+              "spoons": [
+                false,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": null,
+              "assisted": false
+            }
+          },
+          "selected": "steve",
+          "assist": false,
+          "difficulty": "medium",
+          "checkpoint": null,
+          "receipts": [
+            "ae73fdec-d133-40ea-85d8-9ba25d2af0b9:steve:6"
+          ]
+        },
+        "hud": "Medium · Gate 1/3 · Shed exit → bowl winch"
+      }
+    },
+    {
+      "name": "UI retry restores intact cage, gate zero and unopened timer",
+      "pass": true,
+      "details": {
+        "id": "steve",
+        "status": "playing",
+        "route": 0,
+        "elapsed": 0.13333333333333333,
+        "eggT": 0,
+        "cage": {
+          "c": 9,
+          "r": 8,
+          "x": 380,
+          "y": 420,
+          "label": "Steve’s cage"
+        },
+        "gates": [
+          {
+            "x": 580,
+            "y": 300,
+            "r": 65,
+            "label": "Shed exit"
+          },
+          {
+            "x": 820,
+            "y": 540,
+            "r": 65,
+            "label": "Channel bend"
+          },
+          {
+            "x": 1100,
+            "y": 440,
+            "r": 75,
+            "label": "Bowl winch"
+          }
+        ],
+        "player": {
+          "x": 180,
+          "y": 440,
+          "hp": 3
+        },
+        "pickup": [],
+        "result": null,
+        "save": {
+          "version": 1,
+          "results": {
+            "banquet": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "puddings": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "guard": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "bridge": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "stirling": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "steve": {
+              "spoons": [
+                false,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": null,
+              "assisted": false
+            }
+          },
+          "selected": "steve",
+          "assist": false,
+          "difficulty": "medium",
+          "checkpoint": null,
+          "receipts": [
+            "ae73fdec-d133-40ea-85d8-9ba25d2af0b9:steve:6"
+          ]
+        },
+        "hud": "Medium · Swing at Steve’s cage → reach the bowl winch"
+      }
+    },
+    {
+      "name": "Quit/relaunch does not invent a Steve checkpoint",
+      "pass": true,
+      "details": {
+        "id": "steve",
+        "status": "playing",
+        "route": 0,
+        "elapsed": 0,
+        "eggT": 0,
+        "cage": {
+          "c": 9,
+          "r": 8,
+          "x": 380,
+          "y": 420,
+          "label": "Steve’s cage"
+        },
+        "gates": [
+          {
+            "x": 580,
+            "y": 300,
+            "r": 65,
+            "label": "Shed exit"
+          },
+          {
+            "x": 820,
+            "y": 540,
+            "r": 65,
+            "label": "Channel bend"
+          },
+          {
+            "x": 1100,
+            "y": 440,
+            "r": 75,
+            "label": "Bowl winch"
+          }
+        ],
+        "player": {
+          "x": 180,
+          "y": 440,
+          "hp": 3
+        },
+        "pickup": [],
+        "result": null,
+        "save": {
+          "version": 1,
+          "results": {
+            "banquet": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "puddings": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "guard": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "bridge": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "stirling": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "steve": {
+              "spoons": [
+                false,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": null,
+              "assisted": false
+            }
+          },
+          "selected": "steve",
+          "assist": false,
+          "difficulty": "medium",
+          "checkpoint": null,
+          "receipts": [
+            "ae73fdec-d133-40ea-85d8-9ba25d2af0b9:steve:6"
+          ]
+        },
+        "hud": "Medium · Swing at Steve’s cage → reach the bowl winch"
+      }
+    },
+    {
+      "name": "Reload retains historical ownership, best, attempts, assistance and receipts",
+      "pass": true,
+      "details": {
+        "before": "{\"save\":{\"version\":1,\"results\":{\"banquet\":{\"spoons\":[true,false,false],\"attempts\":1,\"best\":70,\"assisted\":false},\"puddings\":{\"spoons\":[true,false,false],\"attempts\":1,\"best\":70,\"assisted\":false},\"guard\":{\"spoons\":[true,false,false],\"attempts\":1,\"best\":70,\"assisted\":false},\"bridge\":{\"spoons\":[true,false,false],\"attempts\":1,\"best\":70,\"assisted\":false},\"stirling\":{\"spoons\":[true,false,false],\"attempts\":1,\"best\":70,\"assisted\":false},\"steve\":{\"spoons\":[true,true,true],\"attempts\":4,\"best\":31,\"assisted\":true}},\"selected\":\"steve\",\"assist\":false,\"difficulty\":\"medium\",\"checkpoint\":null,\"receipts\":[\"historical-steve\"]},\"collection\":{\"version\":1,\"completed\":3,\"choice\":null,\"pinned\":null,\"progress\":{\"tea-towel\":0,\"burnt-toast\":0,\"golden-whisk\":0,\"rooster-crown\":0,\"rice-guard\":0,\"steve-strut\":0},\"owned\":[\"steve-strut\"],\"receipts\":[\"671a5d44-81eb-43af-b8b6-12043b32a129:encounter\",\"0bfbdebb-6c72-4c69-b055-c13ff5d5fb92:encounter\",\"cd890c56-86e6-4491-abc7-3b2f8a89f06c:encounter\"],\"milestones\":[\"steve-rescue\"],\"presets\":[null,null,null]}}",
+        "after": "{\"save\":{\"version\":1,\"results\":{\"banquet\":{\"spoons\":[true,false,false],\"attempts\":1,\"best\":70,\"assisted\":false},\"puddings\":{\"spoons\":[true,false,false],\"attempts\":1,\"best\":70,\"assisted\":false},\"guard\":{\"spoons\":[true,false,false],\"attempts\":1,\"best\":70,\"assisted\":false},\"bridge\":{\"spoons\":[true,false,false],\"attempts\":1,\"best\":70,\"assisted\":false},\"stirling\":{\"spoons\":[true,false,false],\"attempts\":1,\"best\":70,\"assisted\":false},\"steve\":{\"spoons\":[true,true,true],\"attempts\":4,\"best\":31,\"assisted\":true}},\"selected\":\"steve\",\"assist\":false,\"difficulty\":\"medium\",\"checkpoint\":null,\"receipts\":[\"historical-steve\"]},\"collection\":{\"version\":1,\"completed\":3,\"choice\":null,\"pinned\":null,\"progress\":{\"tea-towel\":0,\"burnt-toast\":0,\"golden-whisk\":0,\"rooster-crown\":0,\"rice-guard\":0,\"steve-strut\":0},\"owned\":[\"steve-strut\"],\"receipts\":[\"671a5d44-81eb-43af-b8b6-12043b32a129:encounter\",\"0bfbdebb-6c72-4c69-b055-c13ff5d5fb92:encounter\",\"cd890c56-86e6-4491-abc7-3b2f8a89f06c:encounter\"],\"milestones\":[\"steve-rescue\"],\"presets\":[null,null,null]}}"
+      }
+    },
+    {
+      "name": "Opening completed map cannot award again",
+      "pass": true
+    },
+    {
+      "name": "No uncaught browser exceptions",
+      "pass": true,
+      "details": []
+    }
+  ],
+  "errors": [],
+  "inputs": [
+    {
+      "type": "mouseClick",
+      "scope": "#campaignResult",
+      "text": "Replay aftermath scene"
+    },
+    {
+      "type": "keyDown",
+      "code": "KeyD"
+    },
+    {
+      "type": "keyDown",
+      "code": "KeyW"
+    },
+    {
+      "type": "keyUp",
+      "code": "KeyW"
+    },
+    {
+      "type": "keyDown",
+      "code": "KeyS"
+    },
+    {
+      "type": "keyUp",
+      "code": "KeyS"
+    },
+    {
+      "type": "keyUp",
+      "code": "KeyD"
+    },
+    {
+      "type": "keyDown",
+      "code": "KeyA"
+    },
+    {
+      "type": "keyDown",
+      "code": "KeyS"
+    },
+    {
+      "type": "keyUp",
+      "code": "KeyS"
+    },
+    {
+      "type": "keyUp",
+      "code": "KeyA"
+    },
+    {
+      "type": "keyDown",
+      "code": "KeyD"
+    },
+    {
+      "type": "keyDown",
+      "code": "KeyW"
+    },
+    {
+      "type": "keyUp",
+      "code": "KeyW"
+    },
+    {
+      "type": "keyUp",
+      "code": "KeyD"
+    },
+    {
+      "type": "keyDown",
+      "code": "KeyD"
+    },
+    {
+      "type": "keyUp",
+      "code": "KeyD"
+    },
+    {
+      "type": "keyDown",
+      "code": "Space",
+      "observed": {
+        "clock": 0.9333333333333346,
+        "elapsed": 0.9333333333333346,
+        "phase": 0,
+        "held": true,
+        "rawAttack": true
+      }
+    },
+    {
+      "type": "keyUp",
+      "code": "Space",
+      "observed": {
+        "clock": 0.9833333333333347,
+        "elapsed": 0.9833333333333347,
+        "phase": 0,
+        "held": false,
+        "rawAttack": false
+      }
+    },
+    {
+      "type": "keyDown",
+      "code": "KeyD"
+    },
+    {
+      "type": "keyUp",
+      "code": "KeyD"
+    },
+    {
+      "type": "keyDown",
+      "code": "Space",
+      "observed": {
+        "clock": 1.949999999999998,
+        "elapsed": 1.949999999999998,
+        "phase": 0,
+        "held": true,
+        "rawAttack": true
+      }
+    },
+    {
+      "type": "keyUp",
+      "code": "Space",
+      "observed": {
+        "clock": 1.9833333333333312,
+        "elapsed": 1.9833333333333312,
+        "phase": 0,
+        "held": false,
+        "rawAttack": false
+      }
+    },
+    {
+      "type": "keyDown",
+      "code": "KeyD"
+    },
+    {
+      "type": "keyUp",
+      "code": "KeyD"
+    },
+    {
+      "type": "keyDown",
+      "code": "Space",
+      "observed": {
+        "clock": 2.9499999999999944,
+        "elapsed": 2.9499999999999944,
+        "phase": 0,
+        "held": true,
+        "rawAttack": true
+      }
+    },
+    {
+      "type": "keyUp",
+      "code": "Space",
+      "observed": {
+        "clock": 2.9833333333333276,
+        "elapsed": 2.9833333333333276,
+        "phase": 0,
+        "held": false,
+        "rawAttack": false
+      }
+    },
+    {
+      "type": "keyDown",
+      "code": "KeyD"
+    },
+    {
+      "type": "keyUp",
+      "code": "KeyD"
+    },
+    {
+      "type": "keyDown",
+      "code": "KeyD"
+    },
+    {
+      "type": "keyDown",
+      "code": "KeyW"
+    },
+    {
+      "type": "keyUp",
+      "code": "KeyW"
+    },
+    {
+      "type": "keyUp",
+      "code": "KeyD"
+    },
+    {
+      "type": "keyDown",
+      "code": "KeyD"
+    },
+    {
+      "type": "keyDown",
+      "code": "KeyS"
+    },
+    {
+      "type": "keyUp",
+      "code": "KeyD"
+    },
+    {
+      "type": "keyUp",
+      "code": "KeyS"
+    },
+    {
+      "type": "keyDown",
+      "code": "KeyA"
+    },
+    {
+      "type": "keyDown",
+      "code": "KeyW"
+    },
+    {
+      "type": "keyUp",
+      "code": "KeyW"
+    },
+    {
+      "type": "keyDown",
+      "code": "KeyW"
+    },
+    {
+      "type": "keyUp",
+      "code": "KeyW"
+    },
+    {
+      "type": "keyUp",
+      "code": "KeyA"
+    },
+    {
+      "type": "keyDown",
+      "code": "KeyD"
+    },
+    {
+      "type": "keyDown",
+      "code": "KeyS"
+    },
+    {
+      "type": "keyUp",
+      "code": "KeyS"
+    },
+    {
+      "type": "keyDown",
+      "code": "KeyW"
+    },
+    {
+      "type": "keyUp",
+      "code": "KeyW"
+    },
+    {
+      "type": "keyDown",
+      "code": "KeyS"
+    },
+    {
+      "type": "keyUp",
+      "code": "KeyS"
+    },
+    {
+      "type": "keyDown",
+      "code": "KeyW"
+    },
+    {
+      "type": "keyUp",
+      "code": "KeyW"
+    },
+    {
+      "type": "keyDown",
+      "code": "KeyS"
+    },
+    {
+      "type": "keyUp",
+      "code": "KeyD"
+    },
+    {
+      "type": "keyUp",
+      "code": "KeyS"
+    },
+    {
+      "type": "keyDown",
+      "code": "KeyD"
+    },
+    {
+      "type": "keyDown",
+      "code": "KeyW"
+    },
+    {
+      "type": "keyUp",
+      "code": "KeyW"
+    },
+    {
+      "type": "keyUp",
+      "code": "KeyD"
+    },
+    {
+      "type": "keyDown",
+      "code": "KeyD"
+    },
+    {
+      "type": "keyDown",
+      "code": "KeyS"
+    },
+    {
+      "type": "keyUp",
+      "code": "KeyD"
+    },
+    {
+      "type": "keyUp",
+      "code": "KeyS"
+    },
+    {
+      "type": "keyDown",
+      "code": "KeyD"
+    },
+    {
+      "type": "keyDown",
+      "code": "KeyW"
+    },
+    {
+      "type": "keyUp",
+      "code": "KeyW"
+    },
+    {
+      "type": "keyUp",
+      "code": "KeyD"
+    },
+    {
+      "type": "keyDown",
+      "code": "KeyD"
+    },
+    {
+      "type": "keyUp",
+      "code": "KeyD"
+    },
+    {
+      "type": "keyDown",
+      "code": "Space",
+      "observed": {
+        "clock": 0.9833333333333347,
+        "elapsed": 0.9833333333333347,
+        "phase": 0,
+        "held": true,
+        "rawAttack": true
+      }
+    },
+    {
+      "type": "keyUp",
+      "code": "Space",
+      "observed": {
+        "clock": 1.016666666666668,
+        "elapsed": 1.016666666666668,
+        "phase": 0,
+        "held": false,
+        "rawAttack": false
+      }
+    },
+    {
+      "type": "keyDown",
+      "code": "KeyD"
+    },
+    {
+      "type": "keyUp",
+      "code": "KeyD"
+    },
+    {
+      "type": "keyDown",
+      "code": "Space",
+      "observed": {
+        "clock": 1.9666666666666646,
+        "elapsed": 1.9666666666666646,
+        "phase": 0,
+        "held": true,
+        "rawAttack": true
+      }
+    },
+    {
+      "type": "keyUp",
+      "code": "Space",
+      "observed": {
+        "clock": 1.9999999999999978,
+        "elapsed": 1.9999999999999978,
+        "phase": 0,
+        "held": false,
+        "rawAttack": false
+      }
+    },
+    {
+      "type": "keyDown",
+      "code": "KeyD"
+    },
+    {
+      "type": "keyUp",
+      "code": "KeyD"
+    },
+    {
+      "type": "keyDown",
+      "code": "Space",
+      "observed": {
+        "clock": 2.9499999999999944,
+        "elapsed": 2.9499999999999944,
+        "phase": 0,
+        "held": true,
+        "rawAttack": true
+      }
+    },
+    {
+      "type": "keyUp",
+      "code": "Space",
+      "observed": {
+        "clock": 2.9833333333333276,
+        "elapsed": 2.9833333333333276,
+        "phase": 0,
+        "held": false,
+        "rawAttack": false
+      }
+    },
+    {
+      "type": "keyDown",
+      "code": "KeyD"
+    },
+    {
+      "type": "keyUp",
+      "code": "KeyD"
+    },
+    {
+      "type": "keyDown",
+      "code": "KeyD"
+    },
+    {
+      "type": "keyDown",
+      "code": "KeyW"
+    },
+    {
+      "type": "keyUp",
+      "code": "KeyW"
+    },
+    {
+      "type": "keyDown",
+      "code": "KeyS"
+    },
+    {
+      "type": "keyUp",
+      "code": "KeyD"
+    },
+    {
+      "type": "keyUp",
+      "code": "KeyS"
+    },
+    {
+      "type": "keyDown",
+      "code": "KeyD"
+    },
+    {
+      "type": "keyDown",
+      "code": "KeyS"
+    },
+    {
+      "type": "keyUp",
+      "code": "KeyD"
+    },
+    {
+      "type": "keyUp",
+      "code": "KeyS"
+    },
+    {
+      "type": "keyDown",
+      "code": "KeyD"
+    },
+    {
+      "type": "keyDown",
+      "code": "KeyW"
+    },
+    {
+      "type": "keyUp",
+      "code": "KeyW"
+    },
+    {
+      "type": "keyUp",
+      "code": "KeyD"
+    },
+    {
+      "type": "keyDown",
+      "code": "KeyD"
+    },
+    {
+      "type": "keyDown",
+      "code": "KeyS"
+    },
+    {
+      "type": "keyUp",
+      "code": "KeyD"
+    },
+    {
+      "type": "keyUp",
+      "code": "KeyS"
+    },
+    {
+      "type": "keyDown",
+      "code": "KeyD"
+    },
+    {
+      "type": "keyDown",
+      "code": "KeyW"
+    },
+    {
+      "type": "keyUp",
+      "code": "KeyW"
+    },
+    {
+      "type": "keyUp",
+      "code": "KeyD"
+    },
+    {
+      "type": "keyDown",
+      "code": "KeyD"
+    },
+    {
+      "type": "keyUp",
+      "code": "KeyD"
+    },
+    {
+      "type": "keyDown",
+      "code": "Space",
+      "observed": {
+        "clock": 0.9833333333333347,
+        "elapsed": 0.9833333333333347,
+        "phase": 0,
+        "held": true,
+        "rawAttack": true
+      }
+    },
+    {
+      "type": "keyUp",
+      "code": "Space",
+      "observed": {
+        "clock": 1.016666666666668,
+        "elapsed": 1.016666666666668,
+        "phase": 0,
+        "held": false,
+        "rawAttack": false
+      }
+    },
+    {
+      "type": "keyDown",
+      "code": "KeyD"
+    },
+    {
+      "type": "keyUp",
+      "code": "KeyD"
+    },
+    {
+      "type": "keyDown",
+      "code": "Space",
+      "observed": {
+        "clock": 1.9666666666666646,
+        "elapsed": 1.9666666666666646,
+        "phase": 0,
+        "held": true,
+        "rawAttack": true
+      }
+    },
+    {
+      "type": "keyUp",
+      "code": "Space",
+      "observed": {
+        "clock": 1.9999999999999978,
+        "elapsed": 1.9999999999999978,
+        "phase": 0,
+        "held": false,
+        "rawAttack": false
+      }
+    },
+    {
+      "type": "keyDown",
+      "code": "KeyD"
+    },
+    {
+      "type": "keyUp",
+      "code": "KeyD"
+    },
+    {
+      "type": "keyDown",
+      "code": "Space",
+      "observed": {
+        "clock": 2.9499999999999944,
+        "elapsed": 2.9499999999999944,
+        "phase": 0,
+        "held": true,
+        "rawAttack": true
+      }
+    },
+    {
+      "type": "keyUp",
+      "code": "Space",
+      "observed": {
+        "clock": 2.9833333333333276,
+        "elapsed": 2.9833333333333276,
+        "phase": 0,
+        "held": false,
+        "rawAttack": false
+      }
+    },
+    {
+      "type": "mouseClick",
+      "scope": "#campaignResult",
+      "text": "Retry now"
+    },
+    {
+      "type": "keyDown",
+      "code": "Escape",
+      "observed": {
+        "clock": 0.13333333333333333,
+        "elapsed": 0.13333333333333333,
+        "phase": 0,
+        "held": false,
+        "rawAttack": false
+      }
+    },
+    {
+      "type": "keyUp",
+      "code": "Escape",
+      "observed": {
+        "clock": 0.13333333333333333,
+        "elapsed": 0.13333333333333333,
+        "phase": 0,
+        "held": false,
+        "rawAttack": false
+      }
+    },
+    {
+      "type": "mouseClick",
+      "selector": "#quitBtn"
+    }
+  ],
+  "fixtures": [
+    "Prerequisite-only normalized copied save, no Steve ownership",
+    "Living cage guards stunned for 999 seconds: traversal evidence, not combat acceptance",
+    "Actual UI intro preview",
+    "Prerequisite-only normalized copied save, no Steve ownership",
+    "Living cage guards stunned for 999 seconds: traversal evidence, not combat acceptance",
+    "Direct outcome fixture only to expose actual outro playback",
+    "Prerequisite-only normalized copied save, no Steve ownership",
+    "Living cage guards stunned for 999 seconds: traversal evidence, not combat acceptance",
+    "Prerequisite-only normalized copied save, no Steve ownership",
+    "Living cage guards stunned for 999 seconds: traversal evidence, not combat acceptance",
+    "Prerequisite-only normalized copied save, no Steve ownership",
+    "Living cage guards stunned for 999 seconds: traversal evidence, not combat acceptance",
+    "Elapsed-time boundary fixture advances only campaign elapsed to cage-open+60.1; no timer/mount override",
+    "Prerequisite-only normalized copied save, no Steve ownership",
+    "Living cage guards stunned for 999 seconds: traversal evidence, not combat acceptance",
+    "Set only encounter countdown to zero to trigger normal failure tick",
+    "Relaunch after quit through encounter API",
+    "Prerequisite-only normalized copied save, no Steve ownership",
+    "Living cage guards stunned for 999 seconds: traversal evidence, not combat acceptance",
+    "Copied old completed Steve save with historical three spoons, best31, attempts4, assisted provenance and receipt",
+    "Open completed map without encounter start"
+  ],
+  "limitations": [
+    "Actual CDP keyboard movement, sword attacks, pickup and gate traversal in a temporary isolated headless Chrome profile. Copied prerequisite saves, hostile stun, elapsed/countdown and direct result preview fixtures are recorded individually.",
+    "No physical controller, human comprehension, native production startup, WAN, Steam Input or packaging acceptance."
+  ],
+  "profile": "C:\\Users\\Joshua\\AppData\\Local\\Temp\\ck-steve-route-ZcBVya",
+  "chromeLog": "\r\nDevTools listening on ws://127.0.0.1:59452/devtools/browser/12e35894-493c-4bc0-98ce-d142e14f6bac\r\n[43264:40620:1014/111411.145:ERROR:services\\device\\usb\\usb_descriptors.cc:118] Failed to parse configuration descriptor.\r\n[43264:1900:1014/111411.473:ERROR:google_apis\\gcm\\engine\\registration_request.cc:291] Registration response error message: PHONE_REGISTRATION_ERROR\r\n[43264:1900:1014/111411.473:ERROR:google_apis\\gcm\\engine\\registration_request.cc:291] Registration response error message: PHONE_REGISTRATION_ERROR\r\n[43264:1900:1014/111411.474:ERROR:google_apis\\gcm\\engine\\registration_request.cc:291] Registration response error message: PHONE_REGISTRATION_ERROR\r\n[43264:1900:1014/111411.489:ERROR:google_apis\\gcm\\engine\\mcs_client.cc:702]   Error code: 401  Error message: Authentication Failed: wrong_secret\r\n[43264:1900:1014/111411.489:ERROR:google_apis\\gcm\\engine\\mcs_client.cc:704] Failed to log in to GCM, resetting connection.\r\nCreated TensorFlow Lite XNNPACK delegate for CPU.\r\n[43264:32756:1014/111427.068:ERROR:chrome\\updater\\ipc\\update_service_dialer_win.cc:75] Failed to open named pipe server process 44452: Access is denied. (0x5)\r\n[43264:45892:1014/111427.069:ERROR:chrome\\updater\\ipc\\update_service_dialer_win.cc:75] Failed to open named pipe server process 44452: Access is denied. (0x5)\r\n[43264:32756:1014/111429.119:ERROR:chrome\\updater\\ipc\\update_service_dialer_win.cc:75] Failed to open named pipe server process 38024: Access is denied. (0x5)\r\n[43264:45892:1014/111431.167:ERROR:chrome\\updater\\ipc\\update_service_dialer_win.cc:75] Failed to open named pipe server process 50144: Access is denied. (0x5)\r\n[43264:1900:1014/111431.872:ERROR:google_apis\\gcm\\engine\\registration_request.cc:291] Registration response error message: QUOTA_EXCEEDED\r\n[43264:32756:1014/111433.217:ERROR:chrome\\updater\\ipc\\update_service_dialer_win.cc:75] Failed to open named pipe server process 47388: Access is denied. (0x5)\r\n[43264:45892:1014/111435.269:ERROR:chrome\\updater\\ipc\\update_service_dialer_win.cc:75] Failed to open named pipe server process 46252: Access is denied. (0x5)\r\n",
+  "cdpTarget": {
+    "description": "",
+    "devtoolsFrontendUrl": "https://chrome-devtools-frontend.appspot.com/serve_rev/@b859317bf11f6be47f9b7799ec690a0a42a1fb33/inspector.html?ws=127.0.0.1:59452/devtools/page/290318C0927659FF1F7BFA1C8B285213",
+    "id": "290318C0927659FF1F7BFA1C8B285213",
+    "title": "",
+    "type": "page",
+    "url": "about:blank",
+    "webSocketDebuggerUrl": "ws://127.0.0.1:59452/devtools/page/290318C0927659FF1F7BFA1C8B285213"
+  },
+  "cdpMessages": 1321,
+  "theatre": [
+    {
+      "phase": "intro",
+      "samples": [
+        {
+          "scene": "steve",
+          "phase": "intro",
+          "caption": "Sir StirlingMabel’s bakery scraps. Steve followed them into the service shed."
+        },
+        {
+          "scene": "steve",
+          "phase": "intro",
+          "caption": "Sir StirlingMabel’s bakery scraps. Steve followed them into the service shed."
+        },
+        {
+          "scene": "steve",
+          "phase": "intro",
+          "caption": "RecruitThere are more scraps by the siege-bowl winch."
+        },
+        {
+          "scene": "steve",
+          "phase": "intro",
+          "caption": "Sir StirlingFree him, take the golden egg, then ride the three marked service gates."
+        },
+        {
+          "scene": "steve",
+          "phase": "intro",
+          "caption": "RecruitWe need that winch to turn the bowl away from home."
+        }
+      ]
+    },
+    {
+      "phase": "outro",
+      "samples": [
+        {
+          "scene": "steve",
+          "phase": "outro",
+          "caption": "The Official HistorySteve followed the bakery scraps along the service route."
+        },
+        {
+          "scene": "steve",
+          "phase": "outro",
+          "caption": "The Official HistorySteve followed the bakery scraps along the service route."
+        },
+        {
+          "scene": "steve",
+          "phase": "outro",
+          "caption": "RecruitThe bowl winch. And the bowl is still aimed at our ovens."
+        },
+        {
+          "scene": "steve",
+          "phase": "outro",
+          "caption": "Sir StirlingMarshal Rind is guarding it. Get us to that winch."
+        },
+        {
+          "scene": "steve",
+          "phase": "outro",
+          "caption": "Sir StirlingMarshal Rind is guarding it. Get us to that winch."
+        }
+      ]
+    }
+  ],
+  "fixtureFailures": [
+    {
+      "name": "Actual cage, egg and ordered ride",
+      "error": "Error: Movement target 325,420 {\"run\":{\"id\":\"steve\",\"phase\":0,\"status\":\"playing\",\"elapsed\":12.583333333333538,\"player\":{\"x\":417.6,\"y\":426.152492201764},\"hold\":0},\"save\":{\"version\":1,\"results\":{\"banquet\":{\"spoons\":[true,false,false],\"attempts\":1,\"best\":70,\"assisted\":false},\"puddings\":{\"spoons\":[true,false,false],\"attempts\":1,\"best\":70,\"assisted\":false},\"guard\":{\"spoons\":[true,false,false],\"attempts\":1,\"best\":70,\"assisted\":false},\"bridge\":{\"spoons\":[true,false,false],\"attempts\":1,\"best\":70,\"assisted\":false},\"stirling\":{\"spoons\":[true,false,false],\"attempts\":1,\"best\":70,\"assisted\":false}},\"selected\":\"steve\",\"assist\":false,\"difficulty\":\"medium\",\"checkpoint\":null,\"receipts\":[]},\"visible\":[],\"hud\":\"Medium · Swing at Steve’s cage → reach the bowl winch\"}\n    at go (C:\\Users\\Joshua\\Documents\\Codex\\2026-10-08\\rea\\work\\custard-knights-room\\qa\\steve-route-browser.cjs:21:557)\n    at async breakCage (C:\\Users\\Joshua\\Documents\\Codex\\2026-10-08\\rea\\work\\custard-knights-room\\qa\\steve-route-browser.cjs:28:28)\n    at async C:\\Users\\Joshua\\Documents\\Codex\\2026-10-08\\rea\\work\\custard-knights-room\\qa\\steve-route-browser.cjs:35:484\n    at async suite (C:\\Users\\Joshua\\Documents\\Codex\\2026-10-08\\rea\\work\\custard-knights-room\\qa\\steve-route-browser.cjs:32:35)\n    at async cases (C:\\Users\\Joshua\\Documents\\Codex\\2026-10-08\\rea\\work\\custard-knights-room\\qa\\steve-route-browser.cjs:35:1)\n    at async main (C:\\Users\\Joshua\\Documents\\Codex\\2026-10-08\\rea\\work\\custard-knights-room\\qa\\steve-route-browser.cjs:41:468)",
+      "state": {
+        "id": "steve",
+        "status": "playing",
+        "route": 0,
+        "elapsed": 12.63333333333354,
+        "eggT": 0,
+        "cage": {
+          "c": 9,
+          "r": 8,
+          "x": 380,
+          "y": 420,
+          "label": "Steve’s cage"
+        },
+        "gates": [
+          {
+            "x": 580,
+            "y": 300,
+            "r": 65,
+            "label": "Shed exit"
+          },
+          {
+            "x": 820,
+            "y": 540,
+            "r": 65,
+            "label": "Channel bend"
+          },
+          {
+            "x": 1100,
+            "y": 440,
+            "r": 75,
+            "label": "Bowl winch"
+          }
+        ],
+        "player": {
+          "x": 417.6,
+          "y": 426.152492201764,
+          "hp": 3
+        },
+        "pickup": [],
+        "result": null,
+        "save": {
+          "version": 1,
+          "results": {
+            "banquet": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "puddings": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "guard": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "bridge": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "stirling": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            }
+          },
+          "selected": "steve",
+          "assist": false,
+          "difficulty": "medium",
+          "checkpoint": null,
+          "receipts": []
+        },
+        "hud": "Medium · Swing at Steve’s cage → reach the bowl winch"
+      }
+    },
+    {
+      "name": "Ordinary mount expiry and real reacquisition",
+      "error": "Error: Movement target 1100,440 {\"run\":{\"id\":\"steve\",\"phase\":0,\"status\":\"won\",\"elapsed\":21.03333333333342,\"player\":{\"x\":1028.1420889141712,\"y\":431.0047357922388},\"hold\":0},\"save\":{\"version\":1,\"results\":{\"banquet\":{\"spoons\":[true,false,false],\"attempts\":1,\"best\":70,\"assisted\":false},\"puddings\":{\"spoons\":[true,false,false],\"attempts\":1,\"best\":70,\"assisted\":false},\"guard\":{\"spoons\":[true,false,false],\"attempts\":1,\"best\":70,\"assisted\":false},\"bridge\":{\"spoons\":[true,false,false],\"attempts\":1,\"best\":70,\"assisted\":false},\"stirling\":{\"spoons\":[true,false,false],\"attempts\":1,\"best\":70,\"assisted\":false},\"steve\":{\"spoons\":[true,true,true],\"attempts\":1,\"best\":21.03333333333342,\"assisted\":false}},\"selected\":\"rind\",\"assist\":false,\"difficulty\":\"medium\",\"checkpoint\":null,\"receipts\":[\"0bfbdebb-6c72-4c69-b055-c13ff5d5fb92:steve:4\"]},\"visible\":[\"campaignResult\"],\"hud\":\"Medium · Gate 3/3 · Bowl winch → bowl winch\"}\n    at go (C:\\Users\\Joshua\\Documents\\Codex\\2026-10-08\\rea\\work\\custard-knights-room\\qa\\steve-route-browser.cjs:21:557)\n    at async C:\\Users\\Joshua\\Documents\\Codex\\2026-10-08\\rea\\work\\custard-knights-room\\qa\\steve-route-browser.cjs:36:861\n    at async suite (C:\\Users\\Joshua\\Documents\\Codex\\2026-10-08\\rea\\work\\custard-knights-room\\qa\\steve-route-browser.cjs:32:35)\n    at async cases (C:\\Users\\Joshua\\Documents\\Codex\\2026-10-08\\rea\\work\\custard-knights-room\\qa\\steve-route-browser.cjs:36:1)\n    at async main (C:\\Users\\Joshua\\Documents\\Codex\\2026-10-08\\rea\\work\\custard-knights-room\\qa\\steve-route-browser.cjs:41:468)",
+      "state": {
+        "id": "steve",
+        "status": "won",
+        "route": 3,
+        "elapsed": 21.03333333333342,
+        "eggOpened": 2.9499999999999944,
+        "eggT": -6.066666666666649,
+        "cage": {
+          "c": 9,
+          "r": 8,
+          "x": 380,
+          "y": 420,
+          "label": "Steve’s cage"
+        },
+        "gates": [
+          {
+            "x": 580,
+            "y": 300,
+            "r": 65,
+            "label": "Shed exit"
+          },
+          {
+            "x": 820,
+            "y": 540,
+            "r": 65,
+            "label": "Channel bend"
+          },
+          {
+            "x": 1100,
+            "y": 440,
+            "r": 75,
+            "label": "Bowl winch"
+          }
+        ],
+        "player": {
+          "x": 1028.1420889141712,
+          "y": 431.0047357922388,
+          "hp": 3,
+          "mount": 6.2999999999999075
+        },
+        "pickup": [],
+        "result": {
+          "id": "steve",
+          "won": true,
+          "reason": "",
+          "spoons": [
+            true,
+            true,
+            true
+          ],
+          "added": [
+            0,
+            1,
+            2
+          ],
+          "elapsed": 21.03333333333342,
+          "assisted": false,
+          "outro": [
+            "Steve follows the bakery scraps to the siege-bowl winch.",
+            "Recruit: There’s the bowl, still aimed at our ovens. Marshal Rind is guarding the winch."
+          ],
+          "next": "rind",
+          "checkpoint": null
+        },
+        "save": {
+          "version": 1,
+          "results": {
+            "banquet": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "puddings": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "guard": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "bridge": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "stirling": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "steve": {
+              "spoons": [
+                true,
+                true,
+                true
+              ],
+              "attempts": 1,
+              "best": 21.03333333333342,
+              "assisted": false
+            }
+          },
+          "selected": "rind",
+          "assist": false,
+          "difficulty": "medium",
+          "checkpoint": null,
+          "receipts": [
+            "0bfbdebb-6c72-4c69-b055-c13ff5d5fb92:steve:4"
+          ]
+        },
+        "hud": "Medium · Gate 3/3 · Bowl winch → bowl winch"
+      }
+    },
+    {
+      "name": "Slow cage-open timer excludes 60-second spoon",
+      "error": "Error: Movement target 1100,440 {\"run\":{\"id\":\"steve\",\"phase\":0,\"status\":\"won\",\"elapsed\":67.43333333333308,\"player\":{\"x\":1027.4290010837526,\"y\":426.7183996549624},\"hold\":0},\"save\":{\"version\":1,\"results\":{\"banquet\":{\"spoons\":[true,false,false],\"attempts\":1,\"best\":70,\"assisted\":false},\"puddings\":{\"spoons\":[true,false,false],\"attempts\":1,\"best\":70,\"assisted\":false},\"guard\":{\"spoons\":[true,false,false],\"attempts\":1,\"best\":70,\"assisted\":false},\"bridge\":{\"spoons\":[true,false,false],\"attempts\":1,\"best\":70,\"assisted\":false},\"stirling\":{\"spoons\":[true,false,false],\"attempts\":1,\"best\":70,\"assisted\":false},\"steve\":{\"spoons\":[true,false,true],\"attempts\":1,\"best\":67.43333333333308,\"assisted\":false}},\"selected\":\"rind\",\"assist\":false,\"difficulty\":\"medium\",\"checkpoint\":null,\"receipts\":[\"cd890c56-86e6-4491-abc7-3b2f8a89f06c:steve:5\"]},\"visible\":[\"campaignResult\"],\"hud\":\"Medium · Gate 3/3 · Bowl winch → bowl winch\"}\n    at go (C:\\Users\\Joshua\\Documents\\Codex\\2026-10-08\\rea\\work\\custard-knights-room\\qa\\steve-route-browser.cjs:21:557)\n    at async route (C:\\Users\\Joshua\\Documents\\Codex\\2026-10-08\\rea\\work\\custard-knights-room\\qa\\steve-route-browser.cjs:30:285)\n    at async C:\\Users\\Joshua\\Documents\\Codex\\2026-10-08\\rea\\work\\custard-knights-room\\qa\\steve-route-browser.cjs:37:343\n    at async suite (C:\\Users\\Joshua\\Documents\\Codex\\2026-10-08\\rea\\work\\custard-knights-room\\qa\\steve-route-browser.cjs:32:35)\n    at async cases (C:\\Users\\Joshua\\Documents\\Codex\\2026-10-08\\rea\\work\\custard-knights-room\\qa\\steve-route-browser.cjs:37:1)\n    at async main (C:\\Users\\Joshua\\Documents\\Codex\\2026-10-08\\rea\\work\\custard-knights-room\\qa\\steve-route-browser.cjs:41:468)",
+      "state": {
+        "id": "steve",
+        "status": "won",
+        "route": 3,
+        "elapsed": 67.43333333333308,
+        "eggOpened": 2.9833333333333276,
+        "eggT": -5.249999999999987,
+        "cage": {
+          "c": 9,
+          "r": 8,
+          "x": 380,
+          "y": 420,
+          "label": "Steve’s cage"
+        },
+        "gates": [
+          {
+            "x": 580,
+            "y": 300,
+            "r": 65,
+            "label": "Shed exit"
+          },
+          {
+            "x": 820,
+            "y": 540,
+            "r": 65,
+            "label": "Channel bend"
+          },
+          {
+            "x": 1100,
+            "y": 440,
+            "r": 75,
+            "label": "Bowl winch"
+          }
+        ],
+        "player": {
+          "x": 1027.4290010837526,
+          "y": 426.7183996549624,
+          "hp": 3,
+          "mount": 4.76666666666658
+        },
+        "pickup": [],
+        "result": {
+          "id": "steve",
+          "won": true,
+          "reason": "",
+          "spoons": [
+            true,
+            false,
+            true
+          ],
+          "added": [
+            0,
+            2
+          ],
+          "elapsed": 67.43333333333308,
+          "assisted": false,
+          "outro": [
+            "Steve follows the bakery scraps to the siege-bowl winch.",
+            "Recruit: There’s the bowl, still aimed at our ovens. Marshal Rind is guarding the winch."
+          ],
+          "next": "rind",
+          "checkpoint": null
+        },
+        "save": {
+          "version": 1,
+          "results": {
+            "banquet": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "puddings": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "guard": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "bridge": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "stirling": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "steve": {
+              "spoons": [
+                true,
+                false,
+                true
+              ],
+              "attempts": 1,
+              "best": 67.43333333333308,
+              "assisted": false
+            }
+          },
+          "selected": "rind",
+          "assist": false,
+          "difficulty": "medium",
+          "checkpoint": null,
+          "receipts": [
+            "cd890c56-86e6-4491-abc7-3b2f8a89f06c:steve:5"
+          ]
+        },
+        "hud": "Medium · Gate 3/3 · Bowl winch → bowl winch"
+      }
+    }
+  ],
+  "pause": {
+    "visible": [
+      {
+        "id": "pause",
+        "text": "\n    \n      Paused\n      Match continues. Players on this PC stop accepting controls while this menu is open; other online players keep playing.\n      ResumeOptionsRetry practiceQuit to menu\n    Skip bakery openingReplay bakery opening\n  "
+      }
+    ]
+  },
+  "finishedAt": "2026-10-14T10:15:17.311Z",
+  "sourceHashesAfter": {
+    "index.html": "e0904ae54bbace909bfae3d963821599c665e2a5c53cb98df12ac42c72711820",
+    "game/campaign.js": "1b4e0acc3c07f91515b58b1ef77bf1e6f1db3c5275c05f69b2d0772b9489349b",
+    "game/campaign-ui.js": "9d9c4afea69e109dfca770c65e378045a37ce96a2ca90c61eefaa0806ed190d2",
+    "game/campaign-integration.js": "2b8050791432238cc3ec48cf7a71ca36f9a33ba335b1e3a2a0e730d22b06bbd9",
+    "game/story-scenes.js": "559b3f07c7ce651b77c01cf0d3f35ea2bb9ece4f2381bd93c5f27eeffb08cd68",
+    "game/bakery-opening.js": "49204ee38bda412fd62e78348968ce8bdec23f5a9d458d26d01557d5a28f8919",
+    "game/channel-support.js": "fc57f8204e0d83276676073d039a3d261c609185d77a262dd3d690a76a79c924"
+  },
+  "stableSources": true,
+  "counts": {
+    "pass": 21,
+    "fail": 3
+  }
+}

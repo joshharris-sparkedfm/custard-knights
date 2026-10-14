@@ -1,18 +1,21 @@
 # Orchestrator execution queue
 
-## Active story completion and friends beta - 14 October 2026
+## Checked Steve route; next is witnessed rescue - 14 October 2026
 
-Owner requested completion of the remaining story, individual checked push/merge, then a fresh shareable friends beta. Root verified GitHub main5a4901f048f93ee92db7f030f2d1b0dd790ed2bb and clean integration checkout after PR37. No active workers remained; current branch is codex/steve-service-route. Original WIP and beta.16 exports remain preserved.
+FE09-C PR38 (https://github.com/joshharris-sparkedfm/custard-knights/pull/38) is checked at final runtime656974da0bace0c0af26be415205cce35ae9e80d. Bakery scraps, service-gate markings, persistent objectives and actual theatre now connect Steve's ride to the siege-bowl winch. Cage/egg timing, replenishment, ordered gate geometry, mount rules, saves/spoons and all eight IDs remain unchanged.
 
-| Owner | Model/effort | Files and current action |
+Affected source suite45/45 passes; cue-only polish has one additional targeted passing assertion and syntax check. Independent browser summary selects32 distinct passing checks, with original interrupted reports retained and guard stuns/time/save/visual fixtures disclosed. Behavior was checked at a8f92fef7ee41cae422e01fec1ce1e582af03b8d; final objective-only change separately checked at656974d. Independent Luna source/evidence review clears both. CI38548684428 passes all six jobs at the final freeze. Evidence: qa/reviews/steve-route-2026-10-14.md and qa/results/steve-route-2026-10-14/{summary,manifest,ci-summary}.json. Some compact world labels crop/overlap; readable HUD is not human comprehension or physical-device acceptance.
+
+Root integrates/pushes/merges each checked task before dispatching the next shared-file implementation. After verified PR38 merge, FE09-D makes Bran's rescue safe and visibly witnessed by Rind, preserving old checkpoints1/2 and the intermediate terminal until E. Then E adds the player-operated diversion/checkpoint3 and F the non-awarding bakery homecoming; only the coherent completed sequence gets a new friends beta.
+
+| Owner | Model/effort | Scope and next action |
 |---|---|---|
-| /root/story_finish_impl | gpt-6.1-sol high | FE09-C only: campaign/scenery/theatre and focused tests; existing cage/egg/three-gate ride leads to winch; no later stages before merge |
-| /root/story_finish_review | gpt-6-luna high | Read-only compatibility/source/evidence review for each sequential stage |
-| /root/online_friends_audit | gpt-6-luna medium | Read-only current room support and evidence limits; release slot for independent story QA |
-| /root | Orchestrator | Queue/checkpoint/Git, sequential C/D/E/F integration then coherent beta packaging |
+| /root/story_finish_impl | gpt-6.1-sol high | C frozen; read-only D preflight complete; await C merge before D source/tests |
+| /root/story_finish_review | gpt-6-luna high | C independently clear; review each next bounded source/evidence increment |
+| /root/story_finish_qa | gpt-6.1-sol medium | C isolated browser evidence frozen; D QA follows its source contract |
+| /root | Orchestrator | Git/CI/queue/checkpoint, task-by-task integration, final version/package/export |
 
-C keeps cage-open timing, replenishment, ordered gates, mount behavior and all IDs/saves/spoons. D is safe witnessed rescue; E adds explicit Rind phase3 diversion/checkpoint; F settles original result before non-awarding homecoming. Follow ASTRA-STORY-REVIEW.md, preserve exact stage contracts and obtain independent checks/review before every merge. Do not package intermediate D as a complete ending. The planned final friends beta remains a private test candidate, not Steam/human/device/WAN acceptance. Source online rooms exist, but actual different-household connection evidence is pending; Story is solo and Faction uses a separate service. No public upload or tester sending authorized.
-
+Beta.16 remains the latest exported package and does not include FE09-C. Original WIP, old exports and normal player saves remain preserved. Online arena/Cup rooms support up to eight knights, one per remote guest; same-version host/code setup exists, but different-household/WAN has not been verified. Story is solo; Faction needs its separate service. Native two-sofa, public services and Steam/human/device acceptance remain open. No public upload or tester sending performed. Release cap remains50v50/100 total including bots.
 
 ## Checked FE09-B channel and Stirling support - 14 October 2026
 

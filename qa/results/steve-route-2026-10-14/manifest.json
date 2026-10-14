@@ -1,0 +1,285 @@
+{
+  "createdAt": "2026-10-14T10:20:10.868Z",
+  "files": [
+    {
+      "path": "qa/results/steve-route-2026-10-14/correction-cage-ride/01-cage-start-800x500.png",
+      "bytes": 282330,
+      "sha256": "ad1a6df56c54129e81b3881c7bdbd701b0a255d03ec8282556a848b9e3a1f44b"
+    },
+    {
+      "path": "qa/results/steve-route-2026-10-14/correction-cage-ride/01-cage-start-wide.png",
+      "bytes": 585857,
+      "sha256": "ba00f78d5b3585375668ddca38183602d622f98ec1bf9d19c4c3a3d64d5cb56e"
+    },
+    {
+      "path": "qa/results/steve-route-2026-10-14/correction-cage-ride/02-cage-open-egg-800x500.png",
+      "bytes": 282455,
+      "sha256": "c23dc3fd46b5f62b987dfcca1669113be349cc3173c3594d20bb1ef6ced59ab2"
+    },
+    {
+      "path": "qa/results/steve-route-2026-10-14/correction-cage-ride/02-cage-open-egg-wide.png",
+      "bytes": 729086,
+      "sha256": "db0769a1f64d021afd982c3232986cbfc7a9546c52f983d24a75fa5884a80023"
+    },
+    {
+      "path": "qa/results/steve-route-2026-10-14/correction-cage-ride/03-final-gate-approach-800x500.png",
+      "bytes": 272068,
+      "sha256": "07f87187aa29a99c3dd59ccf7dfd93f22356a2eaa56803f5ee93ba197f7ff6ac"
+    },
+    {
+      "path": "qa/results/steve-route-2026-10-14/correction-cage-ride/03-final-gate-approach-wide.png",
+      "bytes": 700284,
+      "sha256": "172599cbf15094db16f49fadeabe5482bb4521faa4484ecbd72de2bc5d855662"
+    },
+    {
+      "path": "qa/results/steve-route-2026-10-14/correction-cage-ride/03-first-gate-800x500.png",
+      "bytes": 282873,
+      "sha256": "d35c23c5f8f656690c6a1827635f6d828dcd239759b8b3cbc37c68400677b833"
+    },
+    {
+      "path": "qa/results/steve-route-2026-10-14/correction-cage-ride/03-first-gate-wide.png",
+      "bytes": 705406,
+      "sha256": "45bd3b5115b5b406de85c9c0e9e6e68ea35eb340adce98fc5710d2263637ce7c"
+    },
+    {
+      "path": "qa/results/steve-route-2026-10-14/correction-cage-ride/03-second-gate-800x500.png",
+      "bytes": 260185,
+      "sha256": "03b61afa34ff857ceff5906305a464a9c25f5a8f01a75572795a4510ffb6c069"
+    },
+    {
+      "path": "qa/results/steve-route-2026-10-14/correction-cage-ride/03-second-gate-wide.png",
+      "bytes": 721609,
+      "sha256": "77ceb4ef38a10c089d3640022d7f650e70fa83b1db34c34867dbcac07c86fb6f"
+    },
+    {
+      "path": "qa/results/steve-route-2026-10-14/correction-cage-ride/04-route-result-800x500.png",
+      "bytes": 64240,
+      "sha256": "3b6bd31fde156afb074cc111589ae75528c5587fdad3179b5145704728ab2aac"
+    },
+    {
+      "path": "qa/results/steve-route-2026-10-14/correction-cage-ride/04-route-result-wide.png",
+      "bytes": 146464,
+      "sha256": "6c8e5900c9800f6c3255bdd7f37ec6c1f60c15e6fc2d1e9ccb51036413a0e809"
+    },
+    {
+      "path": "qa/results/steve-route-2026-10-14/correction-cage-ride/report.json",
+      "bytes": 36153,
+      "sha256": "64709b1d776cf980c49f1ec6895fa4fa0d62b9526fd4085883669d11a2248c17"
+    },
+    {
+      "path": "qa/results/steve-route-2026-10-14/corrections/01-cage-start-800x500.png",
+      "bytes": 281963,
+      "sha256": "e760e1a1ecc386f7115f6c4868e282cc1669a5275f6b2a9ea709319fcba466da"
+    },
+    {
+      "path": "qa/results/steve-route-2026-10-14/corrections/01-cage-start-wide.png",
+      "bytes": 587183,
+      "sha256": "2417db7dfb2d0778d83ee2a0726861bd0a91e8151552f2e293af115613ac0f9c"
+    },
+    {
+      "path": "qa/results/steve-route-2026-10-14/corrections/02-cage-open-egg-800x500.png",
+      "bytes": 280647,
+      "sha256": "2f3c58bb7a2fe8f981300695dfe3f30d90e5925622426ee2da46317a43a1bb86"
+    },
+    {
+      "path": "qa/results/steve-route-2026-10-14/corrections/02-cage-open-egg-wide.png",
+      "bytes": 734633,
+      "sha256": "22699354e52d88038c22b7974688600b9dec4f20ac4839fd25c55f957d038e2a"
+    },
+    {
+      "path": "qa/results/steve-route-2026-10-14/corrections/03-final-gate-approach-800x500.png",
+      "bytes": 281398,
+      "sha256": "d5cae99cb4ef9eff999c5372ae8cdfd237d41685240f2e2147e5ad60d5b2b194"
+    },
+    {
+      "path": "qa/results/steve-route-2026-10-14/corrections/03-final-gate-approach-wide.png",
+      "bytes": 708025,
+      "sha256": "5d78066a7c4e62942b42483a9bee3c289d1e160e71a21554a9b46fa4ee54d17c"
+    },
+    {
+      "path": "qa/results/steve-route-2026-10-14/corrections/03-first-gate-800x500.png",
+      "bytes": 297332,
+      "sha256": "09e04e98cfaf5b10103144ba58ddd74ebb0182ad9f716f91916395be8ef3d1e2"
+    },
+    {
+      "path": "qa/results/steve-route-2026-10-14/corrections/03-first-gate-wide.png",
+      "bytes": 720683,
+      "sha256": "f5531b46bce9a8a44a67ab35c05f0de42196e66f38ddc603d9df9f9b59fd8f4d"
+    },
+    {
+      "path": "qa/results/steve-route-2026-10-14/corrections/03-second-gate-800x500.png",
+      "bytes": 268254,
+      "sha256": "d1b086c7e1b124d912b02bb25fc93661d950a6f1a11eb52684754ad4ebd0118c"
+    },
+    {
+      "path": "qa/results/steve-route-2026-10-14/corrections/03-second-gate-wide.png",
+      "bytes": 723548,
+      "sha256": "e569a83ba45602a117af625160e5abb65764a0cdbb1a2d4bdf52f957ea488bad"
+    },
+    {
+      "path": "qa/results/steve-route-2026-10-14/corrections/05-lost-mount-800x500.png",
+      "bytes": 259499,
+      "sha256": "fac5c7d95e899a89aa1788ddded8a48545d93417a9facbc385d5ec470c119ea4"
+    },
+    {
+      "path": "qa/results/steve-route-2026-10-14/corrections/05-lost-mount-wide.png",
+      "bytes": 699236,
+      "sha256": "133d7b85e0baf94dc342fde567464fe4f9faed9983e9038cb6aee6deef285125"
+    },
+    {
+      "path": "qa/results/steve-route-2026-10-14/corrections/failure-Actual-cage--egg-and-ordered-ride.png",
+      "bytes": 690585,
+      "sha256": "48aefb78b7f55efacf6a16fb08994d408ec802049664d7627af3608182f27c94"
+    },
+    {
+      "path": "qa/results/steve-route-2026-10-14/corrections/report.json",
+      "bytes": 59600,
+      "sha256": "ae689ea80c81082fe90672cc39243ebc83081bd59d52bef274343de2adffd239"
+    },
+    {
+      "path": "qa/results/steve-route-2026-10-14/final-cue-correction/08-final-cue-polish-800x500.png",
+      "bytes": 311406,
+      "sha256": "f507464b4103086953b86e09ac6708dde8c40e7b09ed20eb533c660fa24abaed"
+    },
+    {
+      "path": "qa/results/steve-route-2026-10-14/final-cue-correction/08-final-cue-polish-wide.png",
+      "bytes": 601393,
+      "sha256": "524c2ff1857b4548afd39eab9a1f9042a6095012d0d13e4b2bbf70409dbafee1"
+    },
+    {
+      "path": "qa/results/steve-route-2026-10-14/final-cue-correction/report.json",
+      "bytes": 6179,
+      "sha256": "1e0b504d017e4a5445e46c23e7b4521c52bd8bd770ae4c08d988855129ee9393"
+    },
+    {
+      "path": "qa/results/steve-route-2026-10-14/final-cue-polish/08-final-cue-polish-800x500.png",
+      "bytes": 312544,
+      "sha256": "dfdb3b57b51c5ec1c286e5b88b81feca85c663be3dfb0b15ec9e1eb7e9b04a32"
+    },
+    {
+      "path": "qa/results/steve-route-2026-10-14/final-cue-polish/08-final-cue-polish-wide.png",
+      "bytes": 603540,
+      "sha256": "0d3e68f4d2a9e7facb5136938ed6c2e480d565e72ff4b48f17a0b6e3bc458e6f"
+    },
+    {
+      "path": "qa/results/steve-route-2026-10-14/final-cue-polish/report.json",
+      "bytes": 6177,
+      "sha256": "f89169e6dcea1251e1c5711c316ebf72eaf220ed8ef044df0d1cab886aa9b08c"
+    },
+    {
+      "path": "qa/results/steve-route-2026-10-14/initial/report.json",
+      "bytes": 7591,
+      "sha256": "f43cc1b8dcbac645cebf45840314a980587e8b073fdfe6a8f7ea16a72856c296"
+    },
+    {
+      "path": "qa/results/steve-route-2026-10-14/run1/01-cage-start-800x500.png",
+      "bytes": 281355,
+      "sha256": "0434e4f1e253c4854324bac46875e5ab7f09b2ff9e937731195e651b5b2bf27d"
+    },
+    {
+      "path": "qa/results/steve-route-2026-10-14/run1/01-cage-start-wide.png",
+      "bytes": 696787,
+      "sha256": "c9d92c2aca199674159b27c1c9e7ad860f49c0ae3bd13be9b664ee8d3798275b"
+    },
+    {
+      "path": "qa/results/steve-route-2026-10-14/run1/03-final-gate-approach-800x500.png",
+      "bytes": 279204,
+      "sha256": "3ca20f243e2369acf30f89a111e21f81263fb84178090cd01ddb24c93fcf4da3"
+    },
+    {
+      "path": "qa/results/steve-route-2026-10-14/run1/03-final-gate-approach-wide.png",
+      "bytes": 709404,
+      "sha256": "27a5d7797ea5deb04b9c4437e315e57569bd63f8514722263360f6118879fe6d"
+    },
+    {
+      "path": "qa/results/steve-route-2026-10-14/run1/03-first-gate-800x500.png",
+      "bytes": 302438,
+      "sha256": "70b7e932723f9d20a0b46d58d0c526c35707d0d574081509f9bc4fd2fb78341e"
+    },
+    {
+      "path": "qa/results/steve-route-2026-10-14/run1/03-first-gate-wide.png",
+      "bytes": 731648,
+      "sha256": "d0a5ea241b28d0ffb86566cf8c88c1fc2ab760f93202331f40f92aa305ef079b"
+    },
+    {
+      "path": "qa/results/steve-route-2026-10-14/run1/03-second-gate-800x500.png",
+      "bytes": 268814,
+      "sha256": "59166a2679ae02a40e99146d0e147b6b2b6e2ba67525c876e99112b22f3b66da"
+    },
+    {
+      "path": "qa/results/steve-route-2026-10-14/run1/03-second-gate-wide.png",
+      "bytes": 722405,
+      "sha256": "71d55c6b7c1a62e955e76cd53264c6454332139b39f7b666edb5e8b39ed3b30f"
+    },
+    {
+      "path": "qa/results/steve-route-2026-10-14/run1/05-lost-mount-800x500.png",
+      "bytes": 261335,
+      "sha256": "865246cb8bd1b652506d3358619e2dc3bbe9e8e86faea18b06ac0896f5a765be"
+    },
+    {
+      "path": "qa/results/steve-route-2026-10-14/run1/05-lost-mount-wide.png",
+      "bytes": 708672,
+      "sha256": "c340d0afba393a2ca9bae3ec86598389f3c7997af1a5593ed99bf8e00c5be090"
+    },
+    {
+      "path": "qa/results/steve-route-2026-10-14/run1/06-pause-quit.png",
+      "bytes": 520009,
+      "sha256": "6a1742d91d5ed4f8e4c0685309ef1739aab75c465f9020e1950ad41d5e4294ad"
+    },
+    {
+      "path": "qa/results/steve-route-2026-10-14/run1/07-historical-map-wide.png",
+      "bytes": 289626,
+      "sha256": "75debe023bd6c003235e3ba9c754845eb969cf49365f8e02aeb8a828500138ad"
+    },
+    {
+      "path": "qa/results/steve-route-2026-10-14/run1/failure-Actual-cage--egg-and-ordered-ride.png",
+      "bytes": 701883,
+      "sha256": "691447ce8d41fafb498b15f7b39c896a1fa3c539e1a7a3186cb0d96b29c54b80"
+    },
+    {
+      "path": "qa/results/steve-route-2026-10-14/run1/failure-Ordinary-mount-expiry-and-real-reacquisition.png",
+      "bytes": 127353,
+      "sha256": "bab0c2fb4fbecd34f82aee4c518aeb30b17b30f15caea6278450489f8f28da9e"
+    },
+    {
+      "path": "qa/results/steve-route-2026-10-14/run1/failure-Slow-cage-open-timer-excludes-60-second-spoon.png",
+      "bytes": 126805,
+      "sha256": "033773a065205614bdd39e0035d68fe907d79ac29b27402e276b53f37b97facf"
+    },
+    {
+      "path": "qa/results/steve-route-2026-10-14/run1/report.json",
+      "bytes": 66314,
+      "sha256": "cf3cb5b896e6db24200878ba1bca8e724ad2db028833f19cfd30c34fc0688547"
+    },
+    {
+      "path": "qa/results/steve-route-2026-10-14/run1/theatre-intro-800x500.png",
+      "bytes": 79646,
+      "sha256": "98809bafb27c96116218879a24a383aec049a92c8ee8478654d4b037429cb123"
+    },
+    {
+      "path": "qa/results/steve-route-2026-10-14/run1/theatre-intro-wide.png",
+      "bytes": 182200,
+      "sha256": "e55e2d83f498865898c119552f5087050506f19ed07b763f7ac68ffdf46c25a2"
+    },
+    {
+      "path": "qa/results/steve-route-2026-10-14/run1/theatre-outro-800x500.png",
+      "bytes": 84054,
+      "sha256": "362cea326687bac9bc05b1b50c92b646a934cefbd9cb93c33996a57f039a3f3e"
+    },
+    {
+      "path": "qa/results/steve-route-2026-10-14/run1/theatre-outro-wide.png",
+      "bytes": 212077,
+      "sha256": "28df2900911c7f5c2a37f1fe8173d36cccd2c473021d36e76d78a670751ac2e2"
+    },
+    {
+      "path": "qa/results/steve-route-2026-10-14/summary.json",
+      "bytes": 57926,
+      "sha256": "c1cb0d114c3ca6adbf1b3f282727c7d456798b7d052ce11ec12f929d84148e52"
+    },
+    {
+      "path": "qa/steve-route-browser.cjs",
+      "bytes": 20223,
+      "sha256": "3e2589e5278264ae56a999a00bc4bbf6f1764485e1284b4089582d507fbeb3fc"
+    }
+  ]
+}

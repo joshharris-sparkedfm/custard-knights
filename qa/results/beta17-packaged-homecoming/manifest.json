@@ -1,0 +1,110 @@
+{
+  "createdAt": "2026-10-14T11:17:31.495Z",
+  "files": [
+    {
+      "path": "qa/results/beta17-packaged-homecoming/full/01-default-homecoming-800x500.png",
+      "bytes": 226156,
+      "sha256": "26daf1c0df50a3ded7eb89730a6dec3c17e63e76f1eb71b82f0463b3b2efc52a"
+    },
+    {
+      "path": "qa/results/beta17-packaged-homecoming/full/01-default-homecoming-wide.png",
+      "bytes": 522295,
+      "sha256": "ebe15df326fd0f7ae0017059a01a35d54d1ed7e42919e3a1d7f62fc3333a5271"
+    },
+    {
+      "path": "qa/results/beta17-packaged-homecoming/full/01-restored-cast-jobs-800x500.png",
+      "bytes": 227057,
+      "sha256": "42158180d114e5d285d5847014eddbba82f704b8a5b9cb6a53108e25900830f4"
+    },
+    {
+      "path": "qa/results/beta17-packaged-homecoming/full/01-restored-cast-jobs-wide.png",
+      "bytes": 616034,
+      "sha256": "eb3566270eef97f1fbdf0c18fe119a31f2fbc3ba5cdc7120f4b88a27c6b07f93"
+    },
+    {
+      "path": "qa/results/beta17-packaged-homecoming/full/02-homecoming-hook-800x500.png",
+      "bytes": 85151,
+      "sha256": "4929ad8b73a1927badacb2837318d03dbab6bfb5d5200543dea0d864825689cb"
+    },
+    {
+      "path": "qa/results/beta17-packaged-homecoming/full/02-homecoming-hook-wide.png",
+      "bytes": 230199,
+      "sha256": "1bae96289e9b5131b2463d3518c21ba4940e5243e4ebe50fde1dc980b7540fd8"
+    },
+    {
+      "path": "qa/results/beta17-packaged-homecoming/full/03-captured-original-result-800x500.png",
+      "bytes": 61502,
+      "sha256": "25e24621ff52fef41fa105302dfec2b11214bdc81075fe82fcd588d0221f18a6"
+    },
+    {
+      "path": "qa/results/beta17-packaged-homecoming/full/03-captured-original-result-wide.png",
+      "bytes": 148953,
+      "sha256": "424443a999d96732968e863637d90f28abc628ef1af541834289e93163c4160e"
+    },
+    {
+      "path": "qa/results/beta17-packaged-homecoming/full/04-old-save-visit-800x500.png",
+      "bytes": 228828,
+      "sha256": "ec0f0f097db565102f23f6d18a48da8b65d042bd9956cb722a52123e7b2b6b17"
+    },
+    {
+      "path": "qa/results/beta17-packaged-homecoming/full/04-old-save-visit-wide.png",
+      "bytes": 624155,
+      "sha256": "a7edc84ed5be8d641fd993d257ed1822e496be2b1a3ec3b7e8bb5cffb497b95f"
+    },
+    {
+      "path": "qa/results/beta17-packaged-homecoming/full/05-explicit-replay-result-800x500.png",
+      "bytes": 61957,
+      "sha256": "34626a11783419ca71a184d3c8c225b3f0e1c1ba846a29b76babfb8dc096a665"
+    },
+    {
+      "path": "qa/results/beta17-packaged-homecoming/full/05-explicit-replay-result-wide.png",
+      "bytes": 135476,
+      "sha256": "0d0320a9dfd62d93e874ca39c3c829f2e3bf97f37d4fe2e9b5d223432e640518"
+    },
+    {
+      "path": "qa/results/beta17-packaged-homecoming/full/06-final-hook-missing-spoon-800x500.png",
+      "bytes": 84863,
+      "sha256": "2bc47a518370ffa7fe7c4d1c77ce99601d5b138b66c6e2969e74898d3bea8c56"
+    },
+    {
+      "path": "qa/results/beta17-packaged-homecoming/full/06-final-hook-missing-spoon-wide.png",
+      "bytes": 231818,
+      "sha256": "5749b508184b49c7344abee60fb19d1ff3835a89c2cbd823c73e59cd11596d64"
+    },
+    {
+      "path": "qa/results/beta17-packaged-homecoming/full/06-final-hook-skin-clue-800x500.png",
+      "bytes": 86328,
+      "sha256": "98a4143f83650a3918127248e5f253639b5495afdb99d8181c7c325fa982070a"
+    },
+    {
+      "path": "qa/results/beta17-packaged-homecoming/full/06-final-hook-skin-clue-wide.png",
+      "bytes": 219132,
+      "sha256": "ffdbbf19419ae04489418d84a71d5d7f39eb629cbc63ac149a3dae686bfd6a5b"
+    },
+    {
+      "path": "qa/results/beta17-packaged-homecoming/full/07-compact-visible-unlock-controls.png",
+      "bytes": 49549,
+      "sha256": "ded236a8a0674c16d6881ce3f1fce855d2e8ad081597758c75c79777874e5dd4"
+    },
+    {
+      "path": "qa/results/beta17-packaged-homecoming/full/report.json",
+      "bytes": 175154,
+      "sha256": "1b96f0332aa397f11094a20ff6caa648591144c6268c1bb3755507bb486b49db"
+    },
+    {
+      "path": "qa/results/beta17-packaged-homecoming/package-provenance.json",
+      "bytes": 2991,
+      "sha256": "60fd5316fe7ea01a081440f4ffd572e3794c63079366211e34d0f4ac39d730f8"
+    },
+    {
+      "path": "qa/results/beta17-packaged-homecoming/README.md",
+      "bytes": 2505,
+      "sha256": "f83a2819dc47284784e77a35d87c3afaa5f6f75bf9b523da0caa780121e7ca3d"
+    },
+    {
+      "path": "qa/results/beta17-packaged-homecoming/summary.json",
+      "bytes": 134063,
+      "sha256": "f42b09e4372f2490b7ac2ab2c6669e74df67598ed23cb5ea1bd7c0659382bc7a"
+    }
+  ]
+}

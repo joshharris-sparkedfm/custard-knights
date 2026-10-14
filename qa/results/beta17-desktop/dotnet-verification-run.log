@@ -1,0 +1,14 @@
+[
+  {
+    "archive": "C:\\Users\\Joshua\\Documents\\Codex\\2026-10-08\\rea\\outputs\\Custard-Knights-Windows-0.3.0-beta.17-preview.zip",
+    "entries": 75,
+    "crcPassed": true,
+    "exactManifestHashes": true
+  },
+  {
+    "archive": "C:\\Users\\Joshua\\Documents\\Codex\\2026-10-08\\rea\\outputs\\Custard-Knights-Friends-0.3.0-beta.17.zip",
+    "entries": 76,
+    "crcPassed": true,
+    "exactManifestHashes": true
+  }
+]

@@ -1,0 +1,48 @@
+{
+  "checkedAt": "2026-10-14T11:17:06.824Z",
+  "packageFreeze": "676e4de9e7a72cb3d5bfb745c8eac2da516a9aa0",
+  "finalFSourceFreeze": "d9bbde4ce89b392e73c2de00751b1bab926a9ec2",
+  "packageVersion": "0.3.0-beta.17",
+  "archive": {
+    "path": "C:\\Users\\Joshua\\Documents\\Codex\\2026-10-08\\rea\\work\\custard-knights-room\\dist\\Custard Knights-win32-x64\\resources\\app.asar",
+    "sha256": "c2a51437b327e863f5d4f69a07eeeeb38ba45e7e9bd59a961787be13d39ba1c4",
+    "expectedSha256": "c2a51437b327e863f5d4f69a07eeeeb38ba45e7e9bd59a961787be13d39ba1c4",
+    "matchesExpected": true
+  },
+  "payloadRoot": "C:\\Users\\Joshua\\Documents\\Codex\\2026-10-08\\rea\\work\\custard-knights-room\\build\\beta17-packaged-payload",
+  "ownerExtractionVerification": "Package owner reported 67/67 source+metadata files matching the frozen archive extraction; this run independently loaded that exact extracted payload and independently hashed the archive.",
+  "runtimeSourceHashes": {
+    "index.html": "9a2a43581faaca572e247b2b1f68999328fda6a323bfa0af094ae0662937d5c5",
+    "game/campaign.js": "6727af129895e46a32e195c138c355c2536efb071700e036a3b2b2e04e9bc52d",
+    "game/campaign-ui.js": "d3b0cc88c0c05c5fa0f3cb85c85b9a7de6944585b32f00b943c3e1961856744f",
+    "game/campaign-integration.js": "61e0173b1fab1684a421e1d4270bbd5b0e787b22857fccdd7010f9a6d3651917",
+    "game/story-scenes.js": "0e03431132a2f8af1cc65f1c27fda7f2b5e8280e2bdf147320ba2c8bf91b2abd",
+    "game/bakery-opening.js": "4d526ddeb758cc1796f3805504b1c3165a3c8a8c526d4f217377d85414441ab3",
+    "game/channel-support.js": "4dfbe9b263d54cafc44922a874bc6b6a6e5737d6f728b686a7eeba1d27b853c3",
+    "game/controls.js": "a65a941fbe3614ab467207d8b216eecdffa77668d1f1bb171f4ad4a6c2405b40",
+    "game/input-aim.js": "54040dd96e1360a46cd36c5fc6f92b05abeeb7db34af7f5cca3d75a9dcb9baee"
+  },
+  "runtimeMatchesFinalFSource": true,
+  "stablePayloadDuringRun": true,
+  "harness": {
+    "path": "C:\\Users\\Joshua\\Documents\\Codex\\2026-10-08\\rea\\work\\custard-knights-room\\qa\\homecoming-browser.cjs",
+    "sha256": "73d8da168bc32d0e36e48635b2480ff4cce8a43eed8b7cd8feb8aa2aa7b39181"
+  },
+  "caseFilter": null,
+  "fullSuites": [
+    "Actual diversion defaults to non-awarding playable homecoming and captured result",
+    "Old completed Visit and guarded non-awarding quiet replay",
+    "Homecoming Replay Skip Back and stale hook callbacks",
+    "New launch invalidates homecoming hook callback",
+    "Quit and reload after completed diversion preserve completion without stale return",
+    "Explicit replay win preserves existing reward policy and captured empty unlock snapshot",
+    "Final saved bakery hook visuals and compact reward reachability"
+  ],
+  "counts": {
+    "pass": 43,
+    "fail": 0
+  },
+  "distinctCheckCount": 43,
+  "browserExceptions": 0,
+  "scope": "Actual isolated headless Chrome execution of verified ASAR-extracted runtime; not native EXE/launcher, GPU, physical controller, Steam Input, human comprehension or WAN acceptance."
+}

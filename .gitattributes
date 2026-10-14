@@ -14,3 +14,5 @@ qa/reviews/bowl-diversion-2026-10-14.md -text whitespace=cr-at-eol
 qa/results/homecoming-2026-10-14/** -text whitespace=cr-at-eol
 qa/homecoming-browser.cjs -text whitespace=cr-at-eol
 qa/reviews/homecoming-2026-10-14.md -text whitespace=cr-at-eol
+qa/results/beta17-desktop/** -text whitespace=cr-at-eol
+qa/results/beta17-packaged-homecoming/** -text whitespace=cr-at-eol

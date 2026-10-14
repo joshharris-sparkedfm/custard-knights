@@ -1,0 +1,796 @@
+{
+  "attempt": 1,
+  "executable": "C:\\Users\\Joshua\\AppData\\Local\\Temp\\custard-acceptance-beta17-install-WkByt5\\Game\\Custard Knights.exe",
+  "profile": "C:\\Users\\Joshua\\AppData\\Local\\Temp\\custard-acceptance-Fpjpyh\\user-data",
+  "checks": [
+    {
+      "name": "Actual native origin is clean without CK query helpers",
+      "pass": true,
+      "state": {
+        "origin": "custard://game",
+        "search": "",
+        "qaHelpers": false,
+        "visible": [
+          "firstLaunch"
+        ],
+        "hud": "",
+        "speech": "",
+        "save": null,
+        "hidden": false
+      }
+    },
+    {
+      "name": "Fresh actual Story input opens bakery talk objective and speech",
+      "pass": true,
+      "state": {
+        "origin": "custard://game",
+        "search": "",
+        "qaHelpers": false,
+        "visible": [],
+        "hud": "Talk to Mabel · Space / left click",
+        "speech": "Mabel: Peace banquet. Six trays. Bring back seven.",
+        "save": "{\"version\":1,\"results\":{},\"selected\":\"banquet\",\"assist\":false,\"difficulty\":\"medium\",\"checkpoint\":null,\"receipts\":[]}",
+        "hidden": false
+      }
+    },
+    {
+      "name": "Native Escape reveals explicit quiet replay and skip controls",
+      "pass": true,
+      "state": {
+        "origin": "custard://game",
+        "search": "",
+        "qaHelpers": false,
+        "visible": [
+          "pause"
+        ],
+        "hud": "Talk to Mabel · Space / left click",
+        "speech": "Mabel: Peace banquet. Six trays. Bring back seven.",
+        "save": "{\"version\":1,\"results\":{},\"selected\":\"banquet\",\"assist\":false,\"difficulty\":\"medium\",\"checkpoint\":null,\"receipts\":[]}",
+        "hidden": false
+      }
+    },
+    {
+      "name": "Actual replay returns to initial bakery objective without save change",
+      "pass": true,
+      "state": {
+        "origin": "custard://game",
+        "search": "",
+        "qaHelpers": false,
+        "visible": [],
+        "hud": "Talk to Mabel · Space / left click",
+        "speech": "Mabel: Peace banquet. Six trays. Bring back seven.",
+        "save": "{\"version\":1,\"results\":{},\"selected\":\"banquet\",\"assist\":false,\"difficulty\":\"medium\",\"checkpoint\":null,\"receipts\":[]}",
+        "hidden": false
+      }
+    },
+    {
+      "name": "Explicit actual pause skip starts pantry combat without awarding result",
+      "pass": true,
+      "state": {
+        "origin": "custard://game",
+        "search": "",
+        "qaHelpers": false,
+        "visible": [],
+        "hud": "Medium · 1/4 · Swing at barricade: 3/3 hits left · 0/2 guards bonked",
+        "speech": "Mabel: Peace banquet. Six trays. Bring back seven.",
+        "save": "{\"version\":1,\"results\":{},\"selected\":\"banquet\",\"assist\":false,\"difficulty\":\"medium\",\"checkpoint\":null,\"receipts\":[]}",
+        "hidden": false
+      }
+    },
+    {
+      "name": "Actual combat quit returns home and hides quiet HUD and speech",
+      "pass": true,
+      "state": {
+        "origin": "custard://game",
+        "search": "",
+        "qaHelpers": false,
+        "visible": [
+          "menu"
+        ],
+        "hud": "Medium · 1/4 · Swing at barricade: 3/3 hits left · 0/2 guards bonked",
+        "speech": "Mabel: Peace banquet. Six trays. Bring back seven.",
+        "save": "{\"version\":1,\"results\":{},\"selected\":\"banquet\",\"assist\":false,\"difficulty\":\"medium\",\"checkpoint\":null,\"receipts\":[]}",
+        "hidden": false
+      }
+    },
+    {
+      "name": "Actual scene replay opens native story theatre with scene controls",
+      "pass": true,
+      "state": {
+        "origin": "custard://game",
+        "search": "",
+        "qaHelpers": false,
+        "visible": [
+          "campaignStory"
+        ],
+        "hud": "Medium · 1/4 · Swing at barricade: 3/3 hits left · 0/2 guards bonked",
+        "speech": "Mabel: Peace banquet. Six trays. Bring back seven.",
+        "save": "{\"version\":1,\"results\":{},\"selected\":\"banquet\",\"assist\":false,\"difficulty\":\"medium\",\"checkpoint\":null,\"receipts\":[]}",
+        "hidden": false
+      }
+    },
+    {
+      "name": "Actual scene skip returns to map without inventing story rewards",
+      "pass": true,
+      "state": {
+        "origin": "custard://game",
+        "search": "",
+        "qaHelpers": false,
+        "visible": [
+          "campaignMap"
+        ],
+        "hud": "Medium · 1/4 · Swing at barricade: 3/3 hits left · 0/2 guards bonked",
+        "speech": "Mabel: Peace banquet. Six trays. Bring back seven.",
+        "save": "{\"version\":1,\"results\":{},\"selected\":\"banquet\",\"assist\":false,\"difficulty\":\"medium\",\"checkpoint\":null,\"receipts\":[]}",
+        "hidden": false
+      }
+    },
+    {
+      "name": "Copied completed fixture reload remains native clean with no CK query helpers",
+      "pass": true,
+      "state": {
+        "origin": "custard://game",
+        "search": "",
+        "qaHelpers": false,
+        "visible": [
+          "menu"
+        ],
+        "hud": "",
+        "speech": "",
+        "save": "{\"version\":1,\"results\":{\"banquet\":{\"spoons\":[true,false,false],\"attempts\":2,\"best\":90,\"assisted\":false},\"puddings\":{\"spoons\":[true,false,false],\"attempts\":2,\"best\":90,\"assisted\":false},\"guard\":{\"spoons\":[true,false,false],\"attempts\":2,\"best\":90,\"assisted\":false},\"biscuit\":{\"spoons\":[true,false,false],\"attempts\":2,\"best\":90,\"assisted\":false},\"bridge\":{\"spoons\":[true,false,false],\"attempts\":2,\"best\":90,\"assisted\":false},\"stirling\":{\"spoons\":[true,false,false],\"attempts\":2,\"best\":90,\"assisted\":false},\"steve\":{\"spoons\":[true,false,false],\"attempts\":2,\"best\":90,\"assisted\":false},\"rind\":{\"spoons\":[true,false,false],\"attempts\":2,\"best\":90,\"assisted\":false}},\"selected\":\"rind\",\"assist\":false,\"difficulty\":\"medium\",\"checkpoint\":null,\"receipts\":[\"beta17-copied-completed-fixture\"]}",
+        "hidden": false
+      }
+    },
+    {
+      "name": "Copied old completion exposes Visit without changing its results or receipts",
+      "pass": true,
+      "state": {
+        "origin": "custard://game",
+        "search": "",
+        "qaHelpers": false,
+        "visible": [
+          "campaignMap"
+        ],
+        "hud": "",
+        "speech": "",
+        "save": "{\"version\":1,\"results\":{\"banquet\":{\"spoons\":[true,false,false],\"attempts\":2,\"best\":90,\"assisted\":false},\"puddings\":{\"spoons\":[true,false,false],\"attempts\":2,\"best\":90,\"assisted\":false},\"guard\":{\"spoons\":[true,false,false],\"attempts\":2,\"best\":90,\"assisted\":false},\"biscuit\":{\"spoons\":[true,false,false],\"attempts\":2,\"best\":90,\"assisted\":false},\"bridge\":{\"spoons\":[true,false,false],\"attempts\":2,\"best\":90,\"assisted\":false},\"stirling\":{\"spoons\":[true,false,false],\"attempts\":2,\"best\":90,\"assisted\":false},\"steve\":{\"spoons\":[true,false,false],\"attempts\":2,\"best\":90,\"assisted\":false},\"rind\":{\"spoons\":[true,false,false],\"attempts\":2,\"best\":90,\"assisted\":false}},\"selected\":\"rind\",\"assist\":false,\"difficulty\":\"medium\",\"checkpoint\":null,\"receipts\":[\"beta17-copied-completed-fixture\"]}",
+        "hidden": false
+      }
+    },
+    {
+      "name": "Native Visit opens safe bakery speech and current binding without another reward",
+      "pass": true,
+      "state": {
+        "origin": "custard://game",
+        "search": "",
+        "qaHelpers": false,
+        "visible": [],
+        "hud": "Home safe · talk to Mabel · Space / left click",
+        "speech": "Mabel: The ovens are warm. You brought us home.",
+        "save": "{\"version\":1,\"results\":{\"banquet\":{\"spoons\":[true,false,false],\"attempts\":2,\"best\":90,\"assisted\":false},\"puddings\":{\"spoons\":[true,false,false],\"attempts\":2,\"best\":90,\"assisted\":false},\"guard\":{\"spoons\":[true,false,false],\"attempts\":2,\"best\":90,\"assisted\":false},\"biscuit\":{\"spoons\":[true,false,false],\"attempts\":2,\"best\":90,\"assisted\":false},\"bridge\":{\"spoons\":[true,false,false],\"attempts\":2,\"best\":90,\"assisted\":false},\"stirling\":{\"spoons\":[true,false,false],\"attempts\":2,\"best\":90,\"assisted\":false},\"steve\":{\"spoons\":[true,false,false],\"attempts\":2,\"best\":90,\"assisted\":false},\"rind\":{\"spoons\":[true,false,false],\"attempts\":2,\"best\":90,\"assisted\":false}},\"selected\":\"rind\",\"assist\":false,\"difficulty\":\"medium\",\"checkpoint\":null,\"receipts\":[\"beta17-copied-completed-fixture\"]}",
+        "hidden": false
+      }
+    },
+    {
+      "name": "Native homecoming Replay preserves the copied completion",
+      "pass": true,
+      "state": {
+        "origin": "custard://game",
+        "search": "",
+        "qaHelpers": false,
+        "visible": [],
+        "hud": "Home safe · talk to Mabel · Space / left click",
+        "speech": "Mabel: The ovens are warm. You brought us home.",
+        "save": "{\"version\":1,\"results\":{\"banquet\":{\"spoons\":[true,false,false],\"attempts\":2,\"best\":90,\"assisted\":false},\"puddings\":{\"spoons\":[true,false,false],\"attempts\":2,\"best\":90,\"assisted\":false},\"guard\":{\"spoons\":[true,false,false],\"attempts\":2,\"best\":90,\"assisted\":false},\"biscuit\":{\"spoons\":[true,false,false],\"attempts\":2,\"best\":90,\"assisted\":false},\"bridge\":{\"spoons\":[true,false,false],\"attempts\":2,\"best\":90,\"assisted\":false},\"stirling\":{\"spoons\":[true,false,false],\"attempts\":2,\"best\":90,\"assisted\":false},\"steve\":{\"spoons\":[true,false,false],\"attempts\":2,\"best\":90,\"assisted\":false},\"rind\":{\"spoons\":[true,false,false],\"attempts\":2,\"best\":90,\"assisted\":false}},\"selected\":\"rind\",\"assist\":false,\"difficulty\":\"medium\",\"checkpoint\":null,\"receipts\":[\"beta17-copied-completed-fixture\"]}",
+        "hidden": false
+      }
+    },
+    {
+      "name": "Native homecoming Skip opens its distinct authored hook without Puddings or result",
+      "pass": true,
+      "state": {
+        "origin": "custard://game",
+        "search": "",
+        "qaHelpers": false,
+        "visible": [
+          "campaignStory"
+        ],
+        "hud": "Home safe · talk to Mabel · Space / left click",
+        "speech": "Mabel: The ovens are warm. You brought us home.",
+        "save": "{\"version\":1,\"results\":{\"banquet\":{\"spoons\":[true,false,false],\"attempts\":2,\"best\":90,\"assisted\":false},\"puddings\":{\"spoons\":[true,false,false],\"attempts\":2,\"best\":90,\"assisted\":false},\"guard\":{\"spoons\":[true,false,false],\"attempts\":2,\"best\":90,\"assisted\":false},\"biscuit\":{\"spoons\":[true,false,false],\"attempts\":2,\"best\":90,\"assisted\":false},\"bridge\":{\"spoons\":[true,false,false],\"attempts\":2,\"best\":90,\"assisted\":false},\"stirling\":{\"spoons\":[true,false,false],\"attempts\":2,\"best\":90,\"assisted\":false},\"steve\":{\"spoons\":[true,false,false],\"attempts\":2,\"best\":90,\"assisted\":false},\"rind\":{\"spoons\":[true,false,false],\"attempts\":2,\"best\":90,\"assisted\":false}},\"selected\":\"rind\",\"assist\":false,\"difficulty\":\"medium\",\"checkpoint\":null,\"receipts\":[\"beta17-copied-completed-fixture\"]}",
+        "hidden": false
+      }
+    },
+    {
+      "name": "Native Visit hook returns to map with exact copied save and no hidden reward append",
+      "pass": true,
+      "state": {
+        "origin": "custard://game",
+        "search": "",
+        "qaHelpers": false,
+        "visible": [
+          "campaignMap"
+        ],
+        "hud": "Home safe · talk to Mabel · Space / left click",
+        "speech": "Mabel: The ovens are warm. You brought us home.",
+        "save": "{\"version\":1,\"results\":{\"banquet\":{\"spoons\":[true,false,false],\"attempts\":2,\"best\":90,\"assisted\":false},\"puddings\":{\"spoons\":[true,false,false],\"attempts\":2,\"best\":90,\"assisted\":false},\"guard\":{\"spoons\":[true,false,false],\"attempts\":2,\"best\":90,\"assisted\":false},\"biscuit\":{\"spoons\":[true,false,false],\"attempts\":2,\"best\":90,\"assisted\":false},\"bridge\":{\"spoons\":[true,false,false],\"attempts\":2,\"best\":90,\"assisted\":false},\"stirling\":{\"spoons\":[true,false,false],\"attempts\":2,\"best\":90,\"assisted\":false},\"steve\":{\"spoons\":[true,false,false],\"attempts\":2,\"best\":90,\"assisted\":false},\"rind\":{\"spoons\":[true,false,false],\"attempts\":2,\"best\":90,\"assisted\":false}},\"selected\":\"rind\",\"assist\":false,\"difficulty\":\"medium\",\"checkpoint\":null,\"receipts\":[\"beta17-copied-completed-fixture\"]}",
+        "hidden": false
+      }
+    }
+  ],
+  "limitations": [
+    "Actual EXE with fresh marked acceptance profile. Untouched native renderer and no CK query helper or autoplay override; copied completed-save fixture isolated before clean reload. Acceptance.run replaced in memory; native synthesized mouse/Escape keyboard events, read-only measured DOM/local campaign save observations plus an explicitly copied completed campaign fixture before its own clean reload and ten-second readiness gates. Scoped Story entry/pause/replay/skip/quit/scene navigation; no movement, delivery, rescue combat completion, physical input, human comprehension, responsiveness or audibility acceptance. ASAR unchanged."
+  ],
+  "sourceCommit": "676e4de9e7a72cb3d5bfb745c8eac2da516a9aa0",
+  "asarSha256Before": "c2a51437b327e863f5d4f69a07eeeeb38ba45e7e9bd59a961787be13d39ba1c4",
+  "helperSha256": "d2a1c799888fe25004b9fbb7fdcc4d99f38f3dad66a1fe174f60966b13c9284d",
+  "isolation": {
+    "root": "C:\\Users\\Joshua\\AppData\\Local\\Temp\\custard-acceptance-Fpjpyh",
+    "profile": "C:\\Users\\Joshua\\AppData\\Local\\Temp\\custard-acceptance-Fpjpyh\\user-data",
+    "marker": "C:\\Users\\Joshua\\AppData\\Local\\Temp\\custard-acceptance-Fpjpyh\\acceptance-profile.marker",
+    "fresh": true,
+    "ownWindowShowInactive": true
+  },
+  "fixtureManifest": {
+    "rendererInstrumented": false,
+    "gameStateInjection": true,
+    "persistedSaveFixture": true,
+    "liveRuntimeMutation": false,
+    "autoplayOverride": false,
+    "bootstrap": "Standard marked acceptance launch initially loads ?qa=1; injected runner explicitly loads a second clean native document before every measured check",
+    "checkedDocument": "custard://game/index.html with empty search and no window.CK",
+    "inputs": "Native synthesized mouse and Escape keyboard",
+    "observations": "Read-only DOM and local campaign save",
+    "scope": "Story entry/pause/replay/skip/quit/theatre navigation plus copied completed-save Visit/replay/skip/hook/map; no movement/delivery/combat completion claim"
+  },
+  "originalIndexSha256": "9a2a43581faaca572e247b2b1f68999328fda6a323bfa0af094ae0662937d5c5",
+  "exitCode": 0,
+  "stdout": "\r\nACTUAL_DEVICE_PASS {\"checks\":[{\"name\":\"Actual native origin is clean without CK query helpers\",\"pass\":true,\"state\":{\"origin\":\"custard://game\",\"search\":\"\",\"qaHelpers\":false,\"visible\":[\"firstLaunch\"],\"hud\":\"\",\"speech\":\"\",\"save\":null,\"hidden\":false}},{\"name\":\"Fresh actual Story input opens bakery talk objective and speech\",\"pass\":true,\"state\":{\"origin\":\"custard://game\",\"search\":\"\",\"qaHelpers\":false,\"visible\":[],\"hud\":\"Talk to Mabel · Space / left click\",\"speech\":\"Mabel: Peace banquet. Six trays. Bring back seven.\",\"save\":\"{\\\"version\\\":1,\\\"results\\\":{},\\\"selected\\\":\\\"banquet\\\",\\\"assist\\\":false,\\\"difficulty\\\":\\\"medium\\\",\\\"checkpoint\\\":null,\\\"receipts\\\":[]}\",\"hidden\":false}},{\"name\":\"Native Escape reveals explicit quiet replay and skip controls\",\"pass\":true,\"state\":{\"origin\":\"custard://game\",\"search\":\"\",\"qaHelpers\":false,\"visible\":[\"pause\"],\"hud\":\"Talk to Mabel · Space / left click\",\"speech\":\"Mabel: Peace banquet. Six trays. Bring back seven.\",\"save\":\"{\\\"version\\\":1,\\\"results\\\":{},\\\"selected\\\":\\\"banquet\\\",\\\"assist\\\":false,\\\"difficulty\\\":\\\"medium\\\",\\\"checkpoint\\\":null,\\\"receipts\\\":[]}\",\"hidden\":false}},{\"name\":\"Actual replay returns to initial bakery objective without save change\",\"pass\":true,\"state\":{\"origin\":\"custard://game\",\"search\":\"\",\"qaHelpers\":false,\"visible\":[],\"hud\":\"Talk to Mabel · Space / left click\",\"speech\":\"Mabel: Peace banquet. Six trays. Bring back seven.\",\"save\":\"{\\\"version\\\":1,\\\"results\\\":{},\\\"selected\\\":\\\"banquet\\\",\\\"assist\\\":false,\\\"difficulty\\\":\\\"medium\\\",\\\"checkpoint\\\":null,\\\"receipts\\\":[]}\",\"hidden\":false}},{\"name\":\"Explicit actual pause skip starts pantry combat without awarding result\",\"pass\":true,\"state\":{\"origin\":\"custard://game\",\"search\":\"\",\"qaHelpers\":false,\"visible\":[],\"hud\":\"Medium · 1/4 · Swing at barricade: 3/3 hits left · 0/2 guards bonked\",\"speech\":\"Mabel: Peace banquet. Six trays. Bring back seven.\",\"save\":\"{\\\"version\\\":1,\\\"results\\\":{},\\\"selected\\\":\\\"banquet\\\",\\\"assist\\\":false,\\\"difficulty\\\":\\\"medium\\\",\\\"checkpoint\\\":null,\\\"receipts\\\":[]}\",\"hidden\":false}},{\"name\":\"Actual combat quit returns home and hides quiet HUD and speech\",\"pass\":true,\"state\":{\"origin\":\"custard://game\",\"search\":\"\",\"qaHelpers\":false,\"visible\":[\"menu\"],\"hud\":\"Medium · 1/4 · Swing at barricade: 3/3 hits left · 0/2 guards bonked\",\"speech\":\"Mabel: Peace banquet. Six trays. Bring back seven.\",\"save\":\"{\\\"version\\\":1,\\\"results\\\":{},\\\"selected\\\":\\\"banquet\\\",\\\"assist\\\":false,\\\"difficulty\\\":\\\"medium\\\",\\\"checkpoint\\\":null,\\\"receipts\\\":[]}\",\"hidden\":false}},{\"name\":\"Actual scene replay opens native story theatre with scene controls\",\"pass\":true,\"state\":{\"origin\":\"custard://game\",\"search\":\"\",\"qaHelpers\":false,\"visible\":[\"campaignStory\"],\"hud\":\"Medium · 1/4 · Swing at barricade: 3/3 hits left · 0/2 guards bonked\",\"speech\":\"Mabel: Peace banquet. Six trays. Bring back seven.\",\"save\":\"{\\\"version\\\":1,\\\"results\\\":{},\\\"selected\\\":\\\"banquet\\\",\\\"assist\\\":false,\\\"difficulty\\\":\\\"medium\\\",\\\"checkpoint\\\":null,\\\"receipts\\\":[]}\",\"hidden\":false}},{\"name\":\"Actual scene skip returns to map without inventing story rewards\",\"pass\":true,\"state\":{\"origin\":\"custard://game\",\"search\":\"\",\"qaHelpers\":false,\"visible\":[\"campaignMap\"],\"hud\":\"Medium · 1/4 · Swing at barricade: 3/3 hits left · 0/2 guards bonked\",\"speech\":\"Mabel: Peace banquet. Six trays. Bring back seven.\",\"save\":\"{\\\"version\\\":1,\\\"results\\\":{},\\\"selected\\\":\\\"banquet\\\",\\\"assist\\\":false,\\\"difficulty\\\":\\\"medium\\\",\\\"checkpoint\\\":null,\\\"receipts\\\":[]}\",\"hidden\":false}},{\"name\":\"Copied completed fixture reload remains native clean with no CK query helpers\",\"pass\":true,\"state\":{\"origin\":\"custard://game\",\"search\":\"\",\"qaHelpers\":false,\"visible\":[\"menu\"],\"hud\":\"\",\"speech\":\"\",\"save\":\"{\\\"version\\\":1,\\\"results\\\":{\\\"banquet\\\":{\\\"spoons\\\":[true,false,false],\\\"attempts\\\":2,\\\"best\\\":90,\\\"assisted\\\":false},\\\"puddings\\\":{\\\"spoons\\\":[true,false,false],\\\"attempts\\\":2,\\\"best\\\":90,\\\"assisted\\\":false},\\\"guard\\\":{\\\"spoons\\\":[true,false,false],\\\"attempts\\\":2,\\\"best\\\":90,\\\"assisted\\\":false},\\\"biscuit\\\":{\\\"spoons\\\":[true,false,false],\\\"attempts\\\":2,\\\"best\\\":90,\\\"assisted\\\":false},\\\"bridge\\\":{\\\"spoons\\\":[true,false,false],\\\"attempts\\\":2,\\\"best\\\":90,\\\"assisted\\\":false},\\\"stirling\\\":{\\\"spoons\\\":[true,false,false],\\\"attempts\\\":2,\\\"best\\\":90,\\\"assisted\\\":false},\\\"steve\\\":{\\\"spoons\\\":[true,false,false],\\\"attempts\\\":2,\\\"best\\\":90,\\\"assisted\\\":false},\\\"rind\\\":{\\\"spoons\\\":[true,false,false],\\\"attempts\\\":2,\\\"best\\\":90,\\\"assisted\\\":false}},\\\"selected\\\":\\\"rind\\\",\\\"assist\\\":false,\\\"difficulty\\\":\\\"medium\\\",\\\"checkpoint\\\":null,\\\"receipts\\\":[\\\"beta17-copied-completed-fixture\\\"]}\",\"hidden\":false}},{\"name\":\"Copied old completion exposes Visit without changing its results or receipts\",\"pass\":true,\"state\":{\"origin\":\"custard://game\",\"search\":\"\",\"qaHelpers\":false,\"visible\":[\"campaignMap\"],\"hud\":\"\",\"speech\":\"\",\"save\":\"{\\\"version\\\":1,\\\"results\\\":{\\\"banquet\\\":{\\\"spoons\\\":[true,false,false],\\\"attempts\\\":2,\\\"best\\\":90,\\\"assisted\\\":false},\\\"puddings\\\":{\\\"spoons\\\":[true,false,false],\\\"attempts\\\":2,\\\"best\\\":90,\\\"assisted\\\":false},\\\"guard\\\":{\\\"spoons\\\":[true,false,false],\\\"attempts\\\":2,\\\"best\\\":90,\\\"assisted\\\":false},\\\"biscuit\\\":{\\\"spoons\\\":[true,false,false],\\\"attempts\\\":2,\\\"best\\\":90,\\\"assisted\\\":false},\\\"bridge\\\":{\\\"spoons\\\":[true,false,false],\\\"attempts\\\":2,\\\"best\\\":90,\\\"assisted\\\":false},\\\"stirling\\\":{\\\"spoons\\\":[true,false,false],\\\"attempts\\\":2,\\\"best\\\":90,\\\"assisted\\\":false},\\\"steve\\\":{\\\"spoons\\\":[true,false,false],\\\"attempts\\\":2,\\\"best\\\":90,\\\"assisted\\\":false},\\\"rind\\\":{\\\"spoons\\\":[true,false,false],\\\"attempts\\\":2,\\\"best\\\":90,\\\"assisted\\\":false}},\\\"selected\\\":\\\"rind\\\",\\\"assist\\\":false,\\\"difficulty\\\":\\\"medium\\\",\\\"checkpoint\\\":null,\\\"receipts\\\":[\\\"beta17-copied-completed-fixture\\\"]}\",\"hidden\":false}},{\"name\":\"Native Visit opens safe bakery speech and current binding without another reward\",\"pass\":true,\"state\":{\"origin\":\"custard://game\",\"search\":\"\",\"qaHelpers\":false,\"visible\":[],\"hud\":\"Home safe · talk to Mabel · Space / left click\",\"speech\":\"Mabel: The ovens are warm. You brought us home.\",\"save\":\"{\\\"version\\\":1,\\\"results\\\":{\\\"banquet\\\":{\\\"spoons\\\":[true,false,false],\\\"attempts\\\":2,\\\"best\\\":90,\\\"assisted\\\":false},\\\"puddings\\\":{\\\"spoons\\\":[true,false,false],\\\"attempts\\\":2,\\\"best\\\":90,\\\"assisted\\\":false},\\\"guard\\\":{\\\"spoons\\\":[true,false,false],\\\"attempts\\\":2,\\\"best\\\":90,\\\"assisted\\\":false},\\\"biscuit\\\":{\\\"spoons\\\":[true,false,false],\\\"attempts\\\":2,\\\"best\\\":90,\\\"assisted\\\":false},\\\"bridge\\\":{\\\"spoons\\\":[true,false,false],\\\"attempts\\\":2,\\\"best\\\":90,\\\"assisted\\\":false},\\\"stirling\\\":{\\\"spoons\\\":[true,false,false],\\\"attempts\\\":2,\\\"best\\\":90,\\\"assisted\\\":false},\\\"steve\\\":{\\\"spoons\\\":[true,false,false],\\\"attempts\\\":2,\\\"best\\\":90,\\\"assisted\\\":false},\\\"rind\\\":{\\\"spoons\\\":[true,false,false],\\\"attempts\\\":2,\\\"best\\\":90,\\\"assisted\\\":false}},\\\"selected\\\":\\\"rind\\\",\\\"assist\\\":false,\\\"difficulty\\\":\\\"medium\\\",\\\"checkpoint\\\":null,\\\"receipts\\\":[\\\"beta17-copied-completed-fixture\\\"]}\",\"hidden\":false}},{\"name\":\"Native homecoming Replay preserves the copied completion\",\"pass\":true,\"state\":{\"origin\":\"custard://game\",\"search\":\"\",\"qaHelpers\":false,\"visible\":[],\"hud\":\"Home safe · talk to Mabel · Space / left click\",\"speech\":\"Mabel: The ovens are warm. You brought us home.\",\"save\":\"{\\\"version\\\":1,\\\"results\\\":{\\\"banquet\\\":{\\\"spoons\\\":[true,false,false],\\\"attempts\\\":2,\\\"best\\\":90,\\\"assisted\\\":false},\\\"puddings\\\":{\\\"spoons\\\":[true,false,false],\\\"attempts\\\":2,\\\"best\\\":90,\\\"assisted\\\":false},\\\"guard\\\":{\\\"spoons\\\":[true,false,false],\\\"attempts\\\":2,\\\"best\\\":90,\\\"assisted\\\":false},\\\"biscuit\\\":{\\\"spoons\\\":[true,false,false],\\\"attempts\\\":2,\\\"best\\\":90,\\\"assisted\\\":false},\\\"bridge\\\":{\\\"spoons\\\":[true,false,false],\\\"attempts\\\":2,\\\"best\\\":90,\\\"assisted\\\":false},\\\"stirling\\\":{\\\"spoons\\\":[true,false,false],\\\"attempts\\\":2,\\\"best\\\":90,\\\"assisted\\\":false},\\\"steve\\\":{\\\"spoons\\\":[true,false,false],\\\"attempts\\\":2,\\\"best\\\":90,\\\"assisted\\\":false},\\\"rind\\\":{\\\"spoons\\\":[true,false,false],\\\"attempts\\\":2,\\\"best\\\":90,\\\"assisted\\\":false}},\\\"selected\\\":\\\"rind\\\",\\\"assist\\\":false,\\\"difficulty\\\":\\\"medium\\\",\\\"checkpoint\\\":null,\\\"receipts\\\":[\\\"beta17-copied-completed-fixture\\\"]}\",\"hidden\":false}},{\"name\":\"Native homecoming Skip opens its distinct authored hook without Puddings or result\",\"pass\":true,\"state\":{\"origin\":\"custard://game\",\"search\":\"\",\"qaHelpers\":false,\"visible\":[\"campaignStory\"],\"hud\":\"Home safe · talk to Mabel · Space / left click\",\"speech\":\"Mabel: The ovens are warm. You brought us home.\",\"save\":\"{\\\"version\\\":1,\\\"results\\\":{\\\"banquet\\\":{\\\"spoons\\\":[true,false,false],\\\"attempts\\\":2,\\\"best\\\":90,\\\"assisted\\\":false},\\\"puddings\\\":{\\\"spoons\\\":[true,false,false],\\\"attempts\\\":2,\\\"best\\\":90,\\\"assisted\\\":false},\\\"guard\\\":{\\\"spoons\\\":[true,false,false],\\\"attempts\\\":2,\\\"best\\\":90,\\\"assisted\\\":false},\\\"biscuit\\\":{\\\"spoons\\\":[true,false,false],\\\"attempts\\\":2,\\\"best\\\":90,\\\"assisted\\\":false},\\\"bridge\\\":{\\\"spoons\\\":[true,false,false],\\\"attempts\\\":2,\\\"best\\\":90,\\\"assisted\\\":false},\\\"stirling\\\":{\\\"spoons\\\":[true,false,false],\\\"attempts\\\":2,\\\"best\\\":90,\\\"assisted\\\":false},\\\"steve\\\":{\\\"spoons\\\":[true,false,false],\\\"attempts\\\":2,\\\"best\\\":90,\\\"assisted\\\":false},\\\"rind\\\":{\\\"spoons\\\":[true,false,false],\\\"attempts\\\":2,\\\"best\\\":90,\\\"assisted\\\":false}},\\\"selected\\\":\\\"rind\\\",\\\"assist\\\":false,\\\"difficulty\\\":\\\"medium\\\",\\\"checkpoint\\\":null,\\\"receipts\\\":[\\\"beta17-copied-completed-fixture\\\"]}\",\"hidden\":false}},{\"name\":\"Native Visit hook returns to map with exact copied save and no hidden reward append\",\"pass\":true,\"state\":{\"origin\":\"custard://game\",\"search\":\"\",\"qaHelpers\":false,\"visible\":[\"campaignMap\"],\"hud\":\"Home safe · talk to Mabel · Space / left click\",\"speech\":\"Mabel: The ovens are warm. You brought us home.\",\"save\":\"{\\\"version\\\":1,\\\"results\\\":{\\\"banquet\\\":{\\\"spoons\\\":[true,false,false],\\\"attempts\\\":2,\\\"best\\\":90,\\\"assisted\\\":false},\\\"puddings\\\":{\\\"spoons\\\":[true,false,false],\\\"attempts\\\":2,\\\"best\\\":90,\\\"assisted\\\":false},\\\"guard\\\":{\\\"spoons\\\":[true,false,false],\\\"attempts\\\":2,\\\"best\\\":90,\\\"assisted\\\":false},\\\"biscuit\\\":{\\\"spoons\\\":[true,false,false],\\\"attempts\\\":2,\\\"best\\\":90,\\\"assisted\\\":false},\\\"bridge\\\":{\\\"spoons\\\":[true,false,false],\\\"attempts\\\":2,\\\"best\\\":90,\\\"assisted\\\":false},\\\"stirling\\\":{\\\"spoons\\\":[true,false,false],\\\"attempts\\\":2,\\\"best\\\":90,\\\"assisted\\\":false},\\\"steve\\\":{\\\"spoons\\\":[true,false,false],\\\"attempts\\\":2,\\\"best\\\":90,\\\"assisted\\\":false},\\\"rind\\\":{\\\"spoons\\\":[true,false,false],\\\"attempts\\\":2,\\\"best\\\":90,\\\"assisted\\\":false}},\\\"selected\\\":\\\"rind\\\",\\\"assist\\\":false,\\\"difficulty\\\":\\\"medium\\\",\\\"checkpoint\\\":null,\\\"receipts\\\":[\\\"beta17-copied-completed-fixture\\\"]}\",\"hidden\":false}}],\"inputs\":[{\"type\":\"mouseDown\",\"x\":538,\"y\":676,\"button\":\"left\",\"clickCount\":1},{\"type\":\"mouseUp\",\"x\":538,\"y\":676,\"button\":\"left\",\"clickCount\":1},{\"type\":\"mouseDown\",\"x\":334,\"y\":417,\"button\":\"left\",\"clickCount\":1},{\"type\":\"mouseUp\",\"x\":334,\"y\":417,\"button\":\"left\",\"clickCount\":1},{\"type\":\"mouseDown\",\"x\":263,\"y\":671,\"button\":\"left\",\"clickCount\":1},{\"type\":\"mouseUp\",\"x\":263,\"y\":671,\"button\":\"left\",\"clickCount\":1},{\"type\":\"keyDown\",\"keyCode\":\"Escape\"},{\"type\":\"keyUp\",\"keyCode\":\"Escape\"},{\"type\":\"mouseDown\",\"x\":632,\"y\":489,\"button\":\"left\",\"clickCount\":1},{\"type\":\"mouseUp\",\"x\":632,\"y\":489,\"button\":\"left\",\"clickCount\":1},{\"type\":\"keyDown\",\"keyCode\":\"Escape\"},{\"type\":\"keyUp\",\"keyCode\":\"Escape\"},{\"type\":\"mouseDown\",\"x\":632,\"y\":433,\"button\":\"left\",\"clickCount\":1},{\"type\":\"mouseUp\",\"x\":632,\"y\":433,\"button\":\"left\",\"clickCount\":1},{\"type\":\"keyDown\",\"keyCode\":\"Escape\"},{\"type\":\"keyUp\",\"keyCode\":\"Escape\"},{\"type\":\"mouseDown\",\"x\":773,\"y\":427,\"button\":\"left\",\"clickCount\":1},{\"type\":\"mouseUp\",\"x\":773,\"y\":427,\"button\":\"left\",\"clickCount\":1},{\"type\":\"mouseDown\",\"x\":334,\"y\":417,\"button\":\"left\",\"clickCount\":1},{\"type\":\"mouseUp\",\"x\":334,\"y\":417,\"button\":\"left\",\"clickCount\":1},{\"type\":\"mouseDown\",\"x\":624,\"y\":671,\"button\":\"left\",\"clickCount\":1},{\"type\":\"mouseUp\",\"x\":624,\"y\":671,\"button\":\"left\",\"clickCount\":1},{\"type\":\"mouseDown\",\"x\":742,\"y\":648,\"button\":\"left\",\"clickCount\":1},{\"type\":\"mouseUp\",\"x\":742,\"y\":648,\"button\":\"left\",\"clickCount\":1},{\"type\":\"mouseDown\",\"x\":334,\"y\":435,\"button\":\"left\",\"clickCount\":1},{\"type\":\"mouseUp\",\"x\":334,\"y\":435,\"button\":\"left\",\"clickCount\":1},{\"type\":\"mouseDown\",\"x\":688,\"y\":668,\"button\":\"left\",\"clickCount\":1},{\"type\":\"mouseUp\",\"x\":688,\"y\":668,\"button\":\"left\",\"clickCount\":1},{\"type\":\"keyDown\",\"keyCode\":\"Escape\"},{\"type\":\"keyUp\",\"keyCode\":\"Escape\"},{\"type\":\"mouseDown\",\"x\":632,\"y\":489,\"button\":\"left\",\"clickCount\":1},{\"type\":\"mouseUp\",\"x\":632,\"y\":489,\"button\":\"left\",\"clickCount\":1},{\"type\":\"keyDown\",\"keyCode\":\"Escape\"},{\"type\":\"keyUp\",\"keyCode\":\"Escape\"},{\"type\":\"mouseDown\",\"x\":632,\"y\":433,\"button\":\"left\",\"clickCount\":1},{\"type\":\"mouseUp\",\"x\":632,\"y\":433,\"button\":\"left\",\"clickCount\":1},{\"type\":\"mouseDown\",\"x\":716,\"y\":645,\"button\":\"left\",\"clickCount\":1},{\"type\":\"mouseUp\",\"x\":716,\"y\":645,\"button\":\"left\",\"clickCount\":1}],\"gates\":[{\"expression\":\"!document.hidden&&!!document.getElementById(\\\"onboardingJump\\\")\",\"samples\":[{\"at\":1791976642163,\"pass\":true}]},{\"expression\":\"!document.getElementById(\\\"menu\\\").hidden\",\"samples\":[{\"at\":1791976642428,\"pass\":true}]},{\"expression\":\"!document.getElementById(\\\"campaignMap\\\").hidden\",\"samples\":[{\"at\":1791976642497,\"pass\":true}]},{\"expression\":\"!document.getElementById(\\\"campaignHUD\\\").hidden&&/Talk to Mabel/.test(document.getElementById(\\\"campaignHUD\\\").textContent)\",\"samples\":[{\"at\":1791976642571,\"pass\":true}]},{\"expression\":\"!document.getElementById(\\\"pause\\\").hidden\",\"samples\":[{\"at\":1791976642611,\"pass\":true}]},{\"expression\":\"document.getElementById(\\\"pause\\\").hidden&&!document.getElementById(\\\"campaignHUD\\\").hidden\",\"samples\":[{\"at\":1791976642644,\"pass\":true}]},{\"expression\":\"!document.getElementById(\\\"pause\\\").hidden\",\"samples\":[{\"at\":1791976642677,\"pass\":true}]},{\"expression\":\"document.getElementById(\\\"pause\\\").hidden&&!document.getElementById(\\\"campaignHUD\\\").hidden&&/pantry|barricade/i.test(document.getElementById(\\\"campaignHUD\\\").textContent)\",\"samples\":[{\"at\":1791976642713,\"pass\":true}]},{\"expression\":\"!document.getElementById(\\\"pause\\\").hidden\",\"samples\":[{\"at\":1791976642744,\"pass\":true}]},{\"expression\":\"!document.getElementById(\\\"menu\\\").hidden\",\"samples\":[{\"at\":1791976642780,\"pass\":true}]},{\"expression\":\"!document.getElementById(\\\"campaignMap\\\").hidden\",\"samples\":[{\"at\":1791976642812,\"pass\":true}]},{\"expression\":\"!document.getElementById(\\\"campaignStory\\\").hidden&&!!document.querySelector(\\\".campaign-theatre\\\")\",\"samples\":[{\"at\":1791976642846,\"pass\":true}]},{\"expression\":\"!document.getElementById(\\\"campaignMap\\\").hidden\",\"samples\":[{\"at\":1791976642878,\"pass\":true}]},{\"expression\":\"!document.hidden&&!document.getElementById(\\\"menu\\\").hidden\",\"samples\":[{\"at\":1791976642919,\"pass\":true}]},{\"expression\":\"!document.getElementById(\\\"campaignMap\\\").hidden\",\"samples\":[{\"at\":1791976642962,\"pass\":true}]},{\"expression\":\"!document.getElementById(\\\"campaignHUD\\\").hidden&&/Home safe.*Mabel/.test(document.getElementById(\\\"campaignHUD\\\").textContent)\",\"samples\":[{\"at\":1791976642994,\"pass\":true}]},{\"expression\":\"!document.getElementById(\\\"pause\\\").hidden\",\"samples\":[{\"at\":1791976643027,\"pass\":true}]},{\"expression\":\"document.getElementById(\\\"pause\\\").hidden&&!document.getElementById(\\\"campaignHUD\\\").hidden\",\"samples\":[{\"at\":1791976643061,\"pass\":true}]},{\"expression\":\"!document.getElementById(\\\"pause\\\").hidden\",\"samples\":[{\"at\":1791976643094,\"pass\":true}]},{\"expression\":\"!document.getElementById(\\\"campaignStory\\\").hidden&&document.querySelector(\\\".campaign-theatre\\\")?.dataset.phase===\\\"homecoming\\\"\",\"samples\":[{\"at\":1791976643136,\"pass\":true}]},{\"expression\":\"!document.getElementById(\\\"campaignMap\\\").hidden\",\"samples\":[{\"at\":1791976643177,\"pass\":true}]}],\"origin\":\"custard://game\",\"bootstrap\":{\"origin\":\"custard://game\",\"search\":\"?qa=1\",\"qaHelpers\":true},\"bootstrapQaQuery\":true,\"checkedDocumentQuery\":\"\",\"checkedDocumentQaHelpers\":false,\"entry\":{\"origin\":\"custard://game\",\"search\":\"\",\"qaHelpers\":false,\"visible\":[],\"hud\":\"Talk to Mabel · Space / left click\",\"speech\":\"Mabel: Peace banquet. Six trays. Bring back seven.\",\"save\":\"{\\\"version\\\":1,\\\"results\\\":{},\\\"selected\\\":\\\"banquet\\\",\\\"assist\\\":false,\\\"difficulty\\\":\\\"medium\\\",\\\"checkpoint\\\":null,\\\"receipts\\\":[]}\",\"hidden\":false},\"copiedCompletedFixture\":{\"version\":1,\"results\":{\"banquet\":{\"spoons\":[true,false,false],\"attempts\":2,\"best\":90,\"assisted\":false},\"puddings\":{\"spoons\":[true,false,false],\"attempts\":2,\"best\":90,\"assisted\":false},\"guard\":{\"spoons\":[true,false,false],\"attempts\":2,\"best\":90,\"assisted\":false},\"biscuit\":{\"spoons\":[true,false,false],\"attempts\":2,\"best\":90,\"assisted\":false},\"bridge\":{\"spoons\":[true,false,false],\"attempts\":2,\"best\":90,\"assisted\":false},\"stirling\":{\"spoons\":[true,false,false],\"attempts\":2,\"best\":90,\"assisted\":false},\"steve\":{\"spoons\":[true,false,false],\"attempts\":2,\"best\":90,\"assisted\":false},\"rind\":{\"spoons\":[true,false,false],\"attempts\":2,\"best\":90,\"assisted\":false}},\"selected\":\"rind\",\"assist\":false,\"difficulty\":\"medium\",\"checkpoint\":null,\"receipts\":[\"beta17-copied-completed-fixture\"]},\"copiedFixtureSaveAfter\":\"{\\\"version\\\":1,\\\"results\\\":{\\\"banquet\\\":{\\\"spoons\\\":[true,false,false],\\\"attempts\\\":2,\\\"best\\\":90,\\\"assisted\\\":false},\\\"puddings\\\":{\\\"spoons\\\":[true,false,false],\\\"attempts\\\":2,\\\"best\\\":90,\\\"assisted\\\":false},\\\"guard\\\":{\\\"spoons\\\":[true,false,false],\\\"attempts\\\":2,\\\"best\\\":90,\\\"assisted\\\":false},\\\"biscuit\\\":{\\\"spoons\\\":[true,false,false],\\\"attempts\\\":2,\\\"best\\\":90,\\\"assisted\\\":false},\\\"bridge\\\":{\\\"spoons\\\":[true,false,false],\\\"attempts\\\":2,\\\"best\\\":90,\\\"assisted\\\":false},\\\"stirling\\\":{\\\"spoons\\\":[true,false,false],\\\"attempts\\\":2,\\\"best\\\":90,\\\"assisted\\\":false},\\\"steve\\\":{\\\"spoons\\\":[true,false,false],\\\"attempts\\\":2,\\\"best\\\":90,\\\"assisted\\\":false},\\\"rind\\\":{\\\"spoons\\\":[true,false,false],\\\"attempts\\\":2,\\\"best\\\":90,\\\"assisted\\\":false}},\\\"selected\\\":\\\"rind\\\",\\\"assist\\\":false,\\\"difficulty\\\":\\\"medium\\\",\\\"checkpoint\\\":null,\\\"receipts\\\":[\\\"beta17-copied-completed-fixture\\\"]}\",\"rendererInstrumented\":false,\"fixture\":\"Native programmatic UI on a clean reload after QA bootstrap; not ordinary untouched production startup. Only acceptance.run replaced in memory. Native synthesized mouse/Escape events; copied completed campaign save seeded solely in isolated profile before another clean reload; measured DOM/save observations are read-only. No full movement/tray/combat-completion/physical-input claim.\"}\n",
+  "stderr": "Debugger listening on ws://127.0.0.1:51804/88e36f8b-5316-4496-a26a-fc5e043aba2d\r\nFor help, see: https://nodejs.org/learn/getting-started/debugging\r\nDebugger attached.\r\nDebugger ending on ws://127.0.0.1:51804/88e36f8b-5316-4496-a26a-fc5e043aba2d\r\nFor help, see: https://nodejs.org/learn/getting-started/debugging\r\n",
+  "inputs": [
+    {
+      "type": "mouseDown",
+      "x": 538,
+      "y": 676,
+      "button": "left",
+      "clickCount": 1
+    },
+    {
+      "type": "mouseUp",
+      "x": 538,
+      "y": 676,
+      "button": "left",
+      "clickCount": 1
+    },
+    {
+      "type": "mouseDown",
+      "x": 334,
+      "y": 417,
+      "button": "left",
+      "clickCount": 1
+    },
+    {
+      "type": "mouseUp",
+      "x": 334,
+      "y": 417,
+      "button": "left",
+      "clickCount": 1
+    },
+    {
+      "type": "mouseDown",
+      "x": 263,
+      "y": 671,
+      "button": "left",
+      "clickCount": 1
+    },
+    {
+      "type": "mouseUp",
+      "x": 263,
+      "y": 671,
+      "button": "left",
+      "clickCount": 1
+    },
+    {
+      "type": "keyDown",
+      "keyCode": "Escape"
+    },
+    {
+      "type": "keyUp",
+      "keyCode": "Escape"
+    },
+    {
+      "type": "mouseDown",
+      "x": 632,
+      "y": 489,
+      "button": "left",
+      "clickCount": 1
+    },
+    {
+      "type": "mouseUp",
+      "x": 632,
+      "y": 489,
+      "button": "left",
+      "clickCount": 1
+    },
+    {
+      "type": "keyDown",
+      "keyCode": "Escape"
+    },
+    {
+      "type": "keyUp",
+      "keyCode": "Escape"
+    },
+    {
+      "type": "mouseDown",
+      "x": 632,
+      "y": 433,
+      "button": "left",
+      "clickCount": 1
+    },
+    {
+      "type": "mouseUp",
+      "x": 632,
+      "y": 433,
+      "button": "left",
+      "clickCount": 1
+    },
+    {
+      "type": "keyDown",
+      "keyCode": "Escape"
+    },
+    {
+      "type": "keyUp",
+      "keyCode": "Escape"
+    },
+    {
+      "type": "mouseDown",
+      "x": 773,
+      "y": 427,
+      "button": "left",
+      "clickCount": 1
+    },
+    {
+      "type": "mouseUp",
+      "x": 773,
+      "y": 427,
+      "button": "left",
+      "clickCount": 1
+    },
+    {
+      "type": "mouseDown",
+      "x": 334,
+      "y": 417,
+      "button": "left",
+      "clickCount": 1
+    },
+    {
+      "type": "mouseUp",
+      "x": 334,
+      "y": 417,
+      "button": "left",
+      "clickCount": 1
+    },
+    {
+      "type": "mouseDown",
+      "x": 624,
+      "y": 671,
+      "button": "left",
+      "clickCount": 1
+    },
+    {
+      "type": "mouseUp",
+      "x": 624,
+      "y": 671,
+      "button": "left",
+      "clickCount": 1
+    },
+    {
+      "type": "mouseDown",
+      "x": 742,
+      "y": 648,
+      "button": "left",
+      "clickCount": 1
+    },
+    {
+      "type": "mouseUp",
+      "x": 742,
+      "y": 648,
+      "button": "left",
+      "clickCount": 1
+    },
+    {
+      "type": "mouseDown",
+      "x": 334,
+      "y": 435,
+      "button": "left",
+      "clickCount": 1
+    },
+    {
+      "type": "mouseUp",
+      "x": 334,
+      "y": 435,
+      "button": "left",
+      "clickCount": 1
+    },
+    {
+      "type": "mouseDown",
+      "x": 688,
+      "y": 668,
+      "button": "left",
+      "clickCount": 1
+    },
+    {
+      "type": "mouseUp",
+      "x": 688,
+      "y": 668,
+      "button": "left",
+      "clickCount": 1
+    },
+    {
+      "type": "keyDown",
+      "keyCode": "Escape"
+    },
+    {
+      "type": "keyUp",
+      "keyCode": "Escape"
+    },
+    {
+      "type": "mouseDown",
+      "x": 632,
+      "y": 489,
+      "button": "left",
+      "clickCount": 1
+    },
+    {
+      "type": "mouseUp",
+      "x": 632,
+      "y": 489,
+      "button": "left",
+      "clickCount": 1
+    },
+    {
+      "type": "keyDown",
+      "keyCode": "Escape"
+    },
+    {
+      "type": "keyUp",
+      "keyCode": "Escape"
+    },
+    {
+      "type": "mouseDown",
+      "x": 632,
+      "y": 433,
+      "button": "left",
+      "clickCount": 1
+    },
+    {
+      "type": "mouseUp",
+      "x": 632,
+      "y": 433,
+      "button": "left",
+      "clickCount": 1
+    },
+    {
+      "type": "mouseDown",
+      "x": 716,
+      "y": 645,
+      "button": "left",
+      "clickCount": 1
+    },
+    {
+      "type": "mouseUp",
+      "x": 716,
+      "y": 645,
+      "button": "left",
+      "clickCount": 1
+    }
+  ],
+  "gates": [
+    {
+      "expression": "!document.hidden&&!!document.getElementById(\"onboardingJump\")",
+      "samples": [
+        {
+          "at": 1791976642163,
+          "pass": true
+        }
+      ]
+    },
+    {
+      "expression": "!document.getElementById(\"menu\").hidden",
+      "samples": [
+        {
+          "at": 1791976642428,
+          "pass": true
+        }
+      ]
+    },
+    {
+      "expression": "!document.getElementById(\"campaignMap\").hidden",
+      "samples": [
+        {
+          "at": 1791976642497,
+          "pass": true
+        }
+      ]
+    },
+    {
+      "expression": "!document.getElementById(\"campaignHUD\").hidden&&/Talk to Mabel/.test(document.getElementById(\"campaignHUD\").textContent)",
+      "samples": [
+        {
+          "at": 1791976642571,
+          "pass": true
+        }
+      ]
+    },
+    {
+      "expression": "!document.getElementById(\"pause\").hidden",
+      "samples": [
+        {
+          "at": 1791976642611,
+          "pass": true
+        }
+      ]
+    },
+    {
+      "expression": "document.getElementById(\"pause\").hidden&&!document.getElementById(\"campaignHUD\").hidden",
+      "samples": [
+        {
+          "at": 1791976642644,
+          "pass": true
+        }
+      ]
+    },
+    {
+      "expression": "!document.getElementById(\"pause\").hidden",
+      "samples": [
+        {
+          "at": 1791976642677,
+          "pass": true
+        }
+      ]
+    },
+    {
+      "expression": "document.getElementById(\"pause\").hidden&&!document.getElementById(\"campaignHUD\").hidden&&/pantry|barricade/i.test(document.getElementById(\"campaignHUD\").textContent)",
+      "samples": [
+        {
+          "at": 1791976642713,
+          "pass": true
+        }
+      ]
+    },
+    {
+      "expression": "!document.getElementById(\"pause\").hidden",
+      "samples": [
+        {
+          "at": 1791976642744,
+          "pass": true
+        }
+      ]
+    },
+    {
+      "expression": "!document.getElementById(\"menu\").hidden",
+      "samples": [
+        {
+          "at": 1791976642780,
+          "pass": true
+        }
+      ]
+    },
+    {
+      "expression": "!document.getElementById(\"campaignMap\").hidden",
+      "samples": [
+        {
+          "at": 1791976642812,
+          "pass": true
+        }
+      ]
+    },
+    {
+      "expression": "!document.getElementById(\"campaignStory\").hidden&&!!document.querySelector(\".campaign-theatre\")",
+      "samples": [
+        {
+          "at": 1791976642846,
+          "pass": true
+        }
+      ]
+    },
+    {
+      "expression": "!document.getElementById(\"campaignMap\").hidden",
+      "samples": [
+        {
+          "at": 1791976642878,
+          "pass": true
+        }
+      ]
+    },
+    {
+      "expression": "!document.hidden&&!document.getElementById(\"menu\").hidden",
+      "samples": [
+        {
+          "at": 1791976642919,
+          "pass": true
+        }
+      ]
+    },
+    {
+      "expression": "!document.getElementById(\"campaignMap\").hidden",
+      "samples": [
+        {
+          "at": 1791976642962,
+          "pass": true
+        }
+      ]
+    },
+    {
+      "expression": "!document.getElementById(\"campaignHUD\").hidden&&/Home safe.*Mabel/.test(document.getElementById(\"campaignHUD\").textContent)",
+      "samples": [
+        {
+          "at": 1791976642994,
+          "pass": true
+        }
+      ]
+    },
+    {
+      "expression": "!document.getElementById(\"pause\").hidden",
+      "samples": [
+        {
+          "at": 1791976643027,
+          "pass": true
+        }
+      ]
+    },
+    {
+      "expression": "document.getElementById(\"pause\").hidden&&!document.getElementById(\"campaignHUD\").hidden",
+      "samples": [
+        {
+          "at": 1791976643061,
+          "pass": true
+        }
+      ]
+    },
+    {
+      "expression": "!document.getElementById(\"pause\").hidden",
+      "samples": [
+        {
+          "at": 1791976643094,
+          "pass": true
+        }
+      ]
+    },
+    {
+      "expression": "!document.getElementById(\"campaignStory\").hidden&&document.querySelector(\".campaign-theatre\")?.dataset.phase===\"homecoming\"",
+      "samples": [
+        {
+          "at": 1791976643136,
+          "pass": true
+        }
+      ]
+    },
+    {
+      "expression": "!document.getElementById(\"campaignMap\").hidden",
+      "samples": [
+        {
+          "at": 1791976643177,
+          "pass": true
+        }
+      ]
+    }
+  ],
+  "origin": "custard://game",
+  "bootstrap": {
+    "origin": "custard://game",
+    "search": "?qa=1",
+    "qaHelpers": true
+  },
+  "bootstrapQaQuery": true,
+  "checkedDocumentQuery": "",
+  "checkedDocumentQaHelpers": false,
+  "entry": {
+    "origin": "custard://game",
+    "search": "",
+    "qaHelpers": false,
+    "visible": [],
+    "hud": "Talk to Mabel · Space / left click",
+    "speech": "Mabel: Peace banquet. Six trays. Bring back seven.",
+    "save": "{\"version\":1,\"results\":{},\"selected\":\"banquet\",\"assist\":false,\"difficulty\":\"medium\",\"checkpoint\":null,\"receipts\":[]}",
+    "hidden": false
+  },
+  "copiedCompletedFixture": {
+    "version": 1,
+    "results": {
+      "banquet": {
+        "spoons": [
+          true,
+          false,
+          false
+        ],
+        "attempts": 2,
+        "best": 90,
+        "assisted": false
+      },
+      "puddings": {
+        "spoons": [
+          true,
+          false,
+          false
+        ],
+        "attempts": 2,
+        "best": 90,
+        "assisted": false
+      },
+      "guard": {
+        "spoons": [
+          true,
+          false,
+          false
+        ],
+        "attempts": 2,
+        "best": 90,
+        "assisted": false
+      },
+      "biscuit": {
+        "spoons": [
+          true,
+          false,
+          false
+        ],
+        "attempts": 2,
+        "best": 90,
+        "assisted": false
+      },
+      "bridge": {
+        "spoons": [
+          true,
+          false,
+          false
+        ],
+        "attempts": 2,
+        "best": 90,
+        "assisted": false
+      },
+      "stirling": {
+        "spoons": [
+          true,
+          false,
+          false
+        ],
+        "attempts": 2,
+        "best": 90,
+        "assisted": false
+      },
+      "steve": {
+        "spoons": [
+          true,
+          false,
+          false
+        ],
+        "attempts": 2,
+        "best": 90,
+        "assisted": false
+      },
+      "rind": {
+        "spoons": [
+          true,
+          false,
+          false
+        ],
+        "attempts": 2,
+        "best": 90,
+        "assisted": false
+      }
+    },
+    "selected": "rind",
+    "assist": false,
+    "difficulty": "medium",
+    "checkpoint": null,
+    "receipts": [
+      "beta17-copied-completed-fixture"
+    ]
+  },
+  "copiedFixtureSaveAfter": "{\"version\":1,\"results\":{\"banquet\":{\"spoons\":[true,false,false],\"attempts\":2,\"best\":90,\"assisted\":false},\"puddings\":{\"spoons\":[true,false,false],\"attempts\":2,\"best\":90,\"assisted\":false},\"guard\":{\"spoons\":[true,false,false],\"attempts\":2,\"best\":90,\"assisted\":false},\"biscuit\":{\"spoons\":[true,false,false],\"attempts\":2,\"best\":90,\"assisted\":false},\"bridge\":{\"spoons\":[true,false,false],\"attempts\":2,\"best\":90,\"assisted\":false},\"stirling\":{\"spoons\":[true,false,false],\"attempts\":2,\"best\":90,\"assisted\":false},\"steve\":{\"spoons\":[true,false,false],\"attempts\":2,\"best\":90,\"assisted\":false},\"rind\":{\"spoons\":[true,false,false],\"attempts\":2,\"best\":90,\"assisted\":false}},\"selected\":\"rind\",\"assist\":false,\"difficulty\":\"medium\",\"checkpoint\":null,\"receipts\":[\"beta17-copied-completed-fixture\"]}",
+  "rendererInstrumented": false,
+  "fixture": "Native programmatic UI on a clean reload after QA bootstrap; not ordinary untouched production startup. Only acceptance.run replaced in memory. Native synthesized mouse/Escape events; copied completed campaign save seeded solely in isolated profile before another clean reload; measured DOM/save observations are read-only. No full movement/tray/combat-completion/physical-input claim.",
+  "pass": true,
+  "asarSha256After": "c2a51437b327e863f5d4f69a07eeeeb38ba45e7e9bd59a961787be13d39ba1c4",
+  "stableAsar": true
+}

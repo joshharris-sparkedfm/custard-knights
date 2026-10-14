@@ -1,0 +1,41 @@
+PASS Actual bridge captions describe channel support rather than tests
+FAIL Compact 12-theatre-bridge objective stays inside viewport
+PASS Actual stirling captions describe channel support rather than tests
+FAIL Compact 12-theatre-stirling objective stays inside viewport
+PASS Compact 01-channel-start objective stays inside viewport
+PASS Far gate cannot bypass first gate
+PASS Compact 02-channel-first-landing objective stays inside viewport
+PASS Actual safe outer route completes without dash or Biscuit
+PASS Channel repeated finish keeps rewards and receipts unchanged
+FAIL Compact 03-channel-safe-result objective stays inside viewport
+PASS Real movement into pit restores first landing checkpoint
+PASS Compact 04-channel-recovered objective stays inside viewport
+PASS Actual dash across marked pit records optional spoon evidence
+PASS Compact 05-channel-gap-dash objective stays inside viewport
+PASS Compact 06-tools-start objective stays inside viewport
+PASS Stirling is supporting scenery, never hostile damage target
+PASS Support visibly prevents a pursuer arrival
+PASS Actual player movement delivers tools with zero blocks
+PASS Access stage requires named shield raider, not ally
+PASS Compact 07-access-defender objective stays inside viewport
+PASS Final service door remains physically closed during hold
+PASS Compact 08-tool-hold objective stays inside viewport
+PASS Access wall has no north or south floor shortcut
+PASS Actual movement collides with closed service gate before hold
+PASS Leaving tools resets continuous hold
+PASS Contested tools reset hold rather than banking progress
+PASS Compact 11-contested-tool-hold objective stays inside viewport
+PASS Completed hold opens actual final service route
+PASS Support can complete with zero mandatory blocks and optional parry unearned
+PASS Support outcome rewards and receipt apply once
+FAIL Compact 09-support-result objective stays inside viewport
+PASS Legacy phase 1 reconstructs accomplished tools and supporting Stirling
+PASS Compact 10-restored-phase-1 objective stays inside viewport
+PASS Resumed phase 1 cannot earn fresh flawless spoon
+PASS Legacy phase 2 reconstructs accomplished tools and supporting Stirling
+PASS Compact 10-restored-phase-2 objective stays inside viewport
+PASS Resumed phase 2 cannot earn fresh flawless spoon
+FAIL Reload retains historical Stirling spoon ownership and provenance
+PASS Story round completions unique and tied to actual launches
+PASS No uncaught browser exceptions
+C:\Users\Joshua\Documents\Codex\2026-10-08\rea\work\custard-knights-room\qa\results\channel-support-2026-10-14\run-01

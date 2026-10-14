@@ -1,0 +1,1165 @@
+{
+  "startedAt": "2026-10-14T09:52:51.340Z",
+  "root": "C:\\Users\\Joshua\\Documents\\Codex\\2026-10-08\\rea\\work\\custard-knights-room",
+  "harness": "C:\\Users\\Joshua\\Documents\\Codex\\2026-10-08\\rea\\work\\custard-knights-room\\qa\\channel-support-browser.cjs",
+  "harnessSha256": "115006e772b2b78606b112e252d1b3011df4973707b1a16497de1c25e573a223",
+  "sourceHashes": {
+    "index.html": "e0904ae54bbace909bfae3d963821599c665e2a5c53cb98df12ac42c72711820",
+    "game/campaign.js": "321b0cfada69df1222010c1d1e8b51cf4e6dbd6b0565e036dd446b4d9dd8995a",
+    "game/campaign-ui.js": "a00ca2529125c8900211db65d27c6bbcd2ac773d9e690e2b2ea7efcf2aff8d54",
+    "game/campaign-integration.js": "2b8050791432238cc3ec48cf7a71ca36f9a33ba335b1e3a2a0e730d22b06bbd9",
+    "game/story-scenes.js": "cf2b469e07f817923d37af56f7fa63232a678a9d3dd70c113e85e36df28d42f1",
+    "game/bakery-opening.js": "49204ee38bda412fd62e78348968ce8bdec23f5a9d458d26d01557d5a28f8919",
+    "game/channel-support.js": "64735a3bc5fb17a6e32be1835c10bd84c6c732880eccd950cd3ed3bfa37dd16e"
+  },
+  "checks": [
+    {
+      "name": "Actual bridge captions describe channel support rather than tests",
+      "pass": true,
+      "details": [
+        {
+          "scene": "bridge",
+          "phase": "intro",
+          "caption": "Sir StirlingThe cooling channel runs below these broken landings."
+        },
+        {
+          "scene": "bridge",
+          "phase": "intro",
+          "caption": "RecruitCan we go round the holes?"
+        },
+        {
+          "scene": "bridge",
+          "phase": "intro",
+          "caption": "Sir StirlingBoth outer paths are dry. The tools are waiting on the far approach."
+        },
+        {
+          "scene": "bridge",
+          "phase": "intro",
+          "caption": "Sir StirlingBoth outer paths are dry. The tools are waiting on the far approach."
+        }
+      ]
+    },
+    {
+      "name": "Compact 12-theatre-bridge active surface stays inside viewport",
+      "pass": true,
+      "details": {
+        "selector": ".campaign-captions",
+        "bounds": {
+          "x": 47.0625,
+          "y": 262,
+          "width": 690.875,
+          "height": 78,
+          "top": 262,
+          "right": 737.9375,
+          "bottom": 340,
+          "left": 47.0625
+        },
+        "text": "Sir StirlingBoth outer paths are dry. The tools are waiting on the far approach.",
+        "viewport": {
+          "width": 800,
+          "height": 500
+        },
+        "visible": true
+      }
+    },
+    {
+      "name": "Actual stirling captions describe channel support rather than tests",
+      "pass": true,
+      "details": [
+        {
+          "scene": "stirling",
+          "phase": "intro",
+          "caption": "Sir StirlingI will hold the north lane. Walk beside the tool cart and stay close."
+        },
+        {
+          "scene": "stirling",
+          "phase": "intro",
+          "caption": "RecruitThe shield raider is blocking the service access."
+        },
+        {
+          "scene": "stirling",
+          "phase": "intro",
+          "caption": "Sir StirlingClear him, then hold the tools while the service door opens."
+        },
+        {
+          "scene": "stirling",
+          "phase": "intro",
+          "caption": "Sir StirlingClear him, then hold the tools while the service door opens."
+        }
+      ]
+    },
+    {
+      "name": "Compact 12-theatre-stirling active surface stays inside viewport",
+      "pass": true,
+      "details": {
+        "selector": ".campaign-captions",
+        "bounds": {
+          "x": 47.0625,
+          "y": 262,
+          "width": 690.875,
+          "height": 78,
+          "top": 262,
+          "right": 737.9375,
+          "bottom": 340,
+          "left": 47.0625
+        },
+        "text": "Sir StirlingClear him, then hold the tools while the service door opens.",
+        "viewport": {
+          "width": 800,
+          "height": 500
+        },
+        "visible": true
+      }
+    },
+    {
+      "name": "Compact corrected-result-bridge active surface stays inside viewport",
+      "pass": false,
+      "details": {
+        "selector": "#campaignResult .campaign-panel",
+        "bounds": {
+          "x": 31.0625,
+          "y": 20,
+          "width": 722.875,
+          "height": 722.78125,
+          "top": 20,
+          "right": 753.9375,
+          "bottom": 742.78125,
+          "left": 31.0625
+        },
+        "text": "Encounter completeA Bridge Too Flan2 new spoons earned. Your spoons are saved independently.✓ Capture the far end✓ Cross without fallingUse a dash to cross a marked gapContinue: Tools for the Cooling ChannelReplay aftermath sceneReplay for spoonsStory mapChoose your first costumeChoose Tea TowelChoose Burnt ToastKeep current look",
+        "viewport": {
+          "width": 800,
+          "height": 500
+        },
+        "visible": false
+      }
+    },
+    {
+      "name": "Compact corrected-result-stirling active surface stays inside viewport",
+      "pass": false,
+      "details": {
+        "selector": "#campaignResult .campaign-panel",
+        "bounds": {
+          "x": 31.0625,
+          "y": 20,
+          "width": 722.875,
+          "height": 722.78125,
+          "top": 20,
+          "right": 753.9375,
+          "bottom": 742.78125,
+          "left": 31.0625
+        },
+        "text": "Encounter completeTools for the Cooling Channel2 new spoons earned. Your spoons are saved independently.✓ Open the service accessParry at least one attack✓ Finish without being bonkedContinue: Release the ChickenReplay aftermath sceneReplay for spoonsStory mapChoose your first costumeChoose Tea TowelChoose Burnt ToastKeep current look",
+        "viewport": {
+          "width": 800,
+          "height": 500
+        },
+        "visible": false
+      }
+    },
+    {
+      "name": "Reload retains historical Stirling spoon ownership and provenance",
+      "pass": true,
+      "details": {
+        "before": {
+          "save": {
+            "version": 1,
+            "results": {
+              "banquet": {
+                "spoons": [
+                  true,
+                  false,
+                  false
+                ],
+                "attempts": 1,
+                "best": 70,
+                "assisted": false
+              },
+              "puddings": {
+                "spoons": [
+                  true,
+                  false,
+                  false
+                ],
+                "attempts": 1,
+                "best": 70,
+                "assisted": false
+              },
+              "guard": {
+                "spoons": [
+                  true,
+                  false,
+                  false
+                ],
+                "attempts": 1,
+                "best": 70,
+                "assisted": false
+              },
+              "bridge": {
+                "spoons": [
+                  true,
+                  false,
+                  false
+                ],
+                "attempts": 1,
+                "best": 70,
+                "assisted": false
+              },
+              "stirling": {
+                "spoons": [
+                  true,
+                  true,
+                  true
+                ],
+                "attempts": 4,
+                "best": 31,
+                "assisted": true
+              }
+            },
+            "selected": "stirling",
+            "assist": true,
+            "difficulty": "medium",
+            "checkpoint": {
+              "id": "stirling",
+              "phase": 2
+            },
+            "receipts": [
+              "historical-stirling"
+            ]
+          },
+          "raw": "{\"version\":1,\"results\":{\"banquet\":{\"spoons\":[true,false,false],\"attempts\":1,\"best\":70,\"assisted\":false},\"puddings\":{\"spoons\":[true,false,false],\"attempts\":1,\"best\":70,\"assisted\":false},\"guard\":{\"spoons\":[true,false,false],\"attempts\":1,\"best\":70,\"assisted\":false},\"bridge\":{\"spoons\":[true,false,false],\"attempts\":1,\"best\":70,\"assisted\":false},\"stirling\":{\"spoons\":[true,true,true],\"attempts\":4,\"best\":31,\"assisted\":true}},\"selected\":\"stirling\",\"assist\":true,\"difficulty\":\"medium\",\"checkpoint\":{\"id\":\"stirling\",\"phase\":2},\"receipts\":[\"historical-stirling\"]}",
+          "error": false,
+          "collection": {
+            "version": 1,
+            "completed": 2,
+            "choice": null,
+            "pinned": null,
+            "progress": {
+              "tea-towel": 0,
+              "burnt-toast": 0,
+              "golden-whisk": 0,
+              "rooster-crown": 0,
+              "rice-guard": 0,
+              "steve-strut": 0
+            },
+            "owned": [],
+            "receipts": [
+              "8b59d790-95b7-4f84-9fd4-87c72a7439f4:encounter",
+              "be69a308-43b1-4ace-8e27-fa23a0878ea7:encounter"
+            ],
+            "milestones": [],
+            "presets": [
+              null,
+              null,
+              null
+            ]
+          },
+          "url": "file:///C:/Users/Joshua/Documents/Codex/2026-10-08/rea/work/custard-knights-room/index.html?qa=1"
+        },
+        "after": {
+          "save": {
+            "version": 1,
+            "results": {
+              "banquet": {
+                "spoons": [
+                  true,
+                  false,
+                  false
+                ],
+                "attempts": 1,
+                "best": 70,
+                "assisted": false
+              },
+              "puddings": {
+                "spoons": [
+                  true,
+                  false,
+                  false
+                ],
+                "attempts": 1,
+                "best": 70,
+                "assisted": false
+              },
+              "guard": {
+                "spoons": [
+                  true,
+                  false,
+                  false
+                ],
+                "attempts": 1,
+                "best": 70,
+                "assisted": false
+              },
+              "bridge": {
+                "spoons": [
+                  true,
+                  false,
+                  false
+                ],
+                "attempts": 1,
+                "best": 70,
+                "assisted": false
+              },
+              "stirling": {
+                "spoons": [
+                  true,
+                  true,
+                  true
+                ],
+                "attempts": 4,
+                "best": 31,
+                "assisted": true
+              }
+            },
+            "selected": "stirling",
+            "assist": true,
+            "difficulty": "medium",
+            "checkpoint": {
+              "id": "stirling",
+              "phase": 2
+            },
+            "receipts": [
+              "historical-stirling"
+            ]
+          },
+          "raw": "{\"version\":1,\"results\":{\"banquet\":{\"spoons\":[true,false,false],\"attempts\":1,\"best\":70,\"assisted\":false},\"puddings\":{\"spoons\":[true,false,false],\"attempts\":1,\"best\":70,\"assisted\":false},\"guard\":{\"spoons\":[true,false,false],\"attempts\":1,\"best\":70,\"assisted\":false},\"bridge\":{\"spoons\":[true,false,false],\"attempts\":1,\"best\":70,\"assisted\":false},\"stirling\":{\"spoons\":[true,true,true],\"attempts\":4,\"best\":31,\"assisted\":true}},\"selected\":\"stirling\",\"assist\":true,\"difficulty\":\"medium\",\"checkpoint\":{\"id\":\"stirling\",\"phase\":2},\"receipts\":[\"historical-stirling\"]}",
+          "error": false,
+          "collection": {
+            "version": 1,
+            "completed": 2,
+            "choice": null,
+            "pinned": null,
+            "progress": {
+              "tea-towel": 0,
+              "burnt-toast": 0,
+              "golden-whisk": 0,
+              "rooster-crown": 0,
+              "rice-guard": 0,
+              "steve-strut": 0
+            },
+            "owned": [],
+            "receipts": [
+              "8b59d790-95b7-4f84-9fd4-87c72a7439f4:encounter",
+              "be69a308-43b1-4ace-8e27-fa23a0878ea7:encounter"
+            ],
+            "milestones": [],
+            "presets": [
+              null,
+              null,
+              null
+            ]
+          },
+          "url": "file:///C:/Users/Joshua/Documents/Codex/2026-10-08/rea/work/custard-knights-room/index.html?qa=1"
+        }
+      }
+    },
+    {
+      "name": "Compact post-expiry-tools-support active surface stays inside viewport",
+      "pass": true,
+      "details": {
+        "selector": "#campaignHUD",
+        "bounds": {
+          "x": 208,
+          "y": 90,
+          "width": 384,
+          "height": 54,
+          "top": 90,
+          "right": 592,
+          "bottom": 144,
+          "left": 208
+        },
+        "text": "Medium · Advance tools: 0% · Walk beside the cart; stay close",
+        "viewport": {
+          "width": 800,
+          "height": 500
+        },
+        "visible": true
+      }
+    },
+    {
+      "name": "Story round completions unique and tied to actual launches",
+      "pass": true,
+      "details": {
+        "starts": [
+          {
+            "name": "round_started",
+            "build": "0.3.0-beta.7",
+            "sessionId": "944b6e46f4212b30a8369379ed335e56",
+            "at": 1791971571901,
+            "fields": {
+              "format": "story",
+              "mode": "campaign",
+              "map": "frost",
+              "difficulty": "medium",
+              "humanCount": 1,
+              "botCount": 0,
+              "encounter": "bridge",
+              "input": "keyboard",
+              "botOnly": false,
+              "roundId": "56996bc40be9f75dbcbfc8eb131d54c4",
+              "qa": true
+            }
+          },
+          {
+            "name": "round_started",
+            "build": "0.3.0-beta.7",
+            "sessionId": "944b6e46f4212b30a8369379ed335e56",
+            "at": 1791971572813,
+            "fields": {
+              "format": "story",
+              "mode": "campaign",
+              "map": "courtyard",
+              "difficulty": "medium",
+              "humanCount": 1,
+              "botCount": 0,
+              "encounter": "stirling",
+              "input": "keyboard",
+              "botOnly": false,
+              "roundId": "235c45fe961c79cfc70f7236b24f83c8",
+              "qa": true
+            }
+          },
+          {
+            "name": "round_started",
+            "build": "0.3.0-beta.7",
+            "sessionId": "944b6e46f4212b30a8369379ed335e56",
+            "at": 1791971573592,
+            "fields": {
+              "format": "story",
+              "mode": "campaign",
+              "map": "frost",
+              "difficulty": "medium",
+              "humanCount": 1,
+              "botCount": 0,
+              "encounter": "bridge",
+              "input": "keyboard",
+              "botOnly": false,
+              "roundId": "8d94fca06b9b7e878c81958a205f525a",
+              "qa": true
+            }
+          },
+          {
+            "name": "round_started",
+            "build": "0.3.0-beta.7",
+            "sessionId": "944b6e46f4212b30a8369379ed335e56",
+            "at": 1791971573949,
+            "fields": {
+              "format": "story",
+              "mode": "campaign",
+              "map": "courtyard",
+              "difficulty": "medium",
+              "humanCount": 1,
+              "botCount": 0,
+              "encounter": "stirling",
+              "input": "keyboard",
+              "botOnly": false,
+              "roundId": "6dfc82de750e552e415580694f0e002a",
+              "qa": true
+            }
+          },
+          {
+            "name": "round_started",
+            "build": "0.3.0-beta.7",
+            "sessionId": "944b6e46f4212b30a8369379ed335e56",
+            "at": 1791971574300,
+            "fields": {
+              "format": "story",
+              "mode": "campaign",
+              "map": "courtyard",
+              "difficulty": "medium",
+              "humanCount": 1,
+              "botCount": 2,
+              "encounter": "stirling",
+              "input": "keyboard",
+              "botOnly": false,
+              "roundId": "9012d509e076727013feed982685c38c",
+              "qa": true
+            }
+          },
+          {
+            "name": "round_started",
+            "build": "0.3.0-beta.7",
+            "sessionId": "fe1656ec161cf9996214960a46f737db",
+            "at": 1791971575342,
+            "fields": {
+              "format": "story",
+              "mode": "campaign",
+              "map": "courtyard",
+              "difficulty": "medium",
+              "humanCount": 1,
+              "botCount": 0,
+              "encounter": "stirling",
+              "input": "keyboard",
+              "botOnly": false,
+              "roundId": "9babc71797776f55ebb0b19765d4d51c",
+              "qa": true
+            }
+          }
+        ],
+        "ends": [
+          {
+            "name": "round_completed",
+            "build": "0.3.0-beta.7",
+            "sessionId": "944b6e46f4212b30a8369379ed335e56",
+            "at": 1791971573599,
+            "fields": {
+              "format": "story",
+              "mode": "campaign",
+              "map": "frost",
+              "difficulty": "medium",
+              "humanCount": 1,
+              "botCount": 0,
+              "result": "completed",
+              "encounter": "bridge",
+              "input": "keyboard",
+              "botOnly": false,
+              "roundId": "8d94fca06b9b7e878c81958a205f525a",
+              "qa": true
+            }
+          },
+          {
+            "name": "round_completed",
+            "build": "0.3.0-beta.7",
+            "sessionId": "944b6e46f4212b30a8369379ed335e56",
+            "at": 1791971573950,
+            "fields": {
+              "format": "story",
+              "mode": "campaign",
+              "map": "courtyard",
+              "difficulty": "medium",
+              "humanCount": 1,
+              "botCount": 0,
+              "result": "completed",
+              "encounter": "stirling",
+              "input": "keyboard",
+              "botOnly": false,
+              "roundId": "6dfc82de750e552e415580694f0e002a",
+              "qa": true
+            }
+          }
+        ]
+      }
+    },
+    {
+      "name": "No uncaught browser exceptions",
+      "pass": true,
+      "details": []
+    }
+  ],
+  "errors": [],
+  "inputs": [
+    {
+      "type": "mouseClick",
+      "scope": "#campaignStory",
+      "text": "Back to map"
+    },
+    {
+      "type": "mouseClick",
+      "scope": "#campaignStory",
+      "text": "Back to map"
+    }
+  ],
+  "fixtures": [
+    "Enable optional reporting with normal consent handler",
+    "Copied prerequisite-only isolated save; bridge checkpoint 0 assistance false",
+    "Explicit intro preview via actual campaign UI for bridge",
+    "Copied prerequisite-only isolated save; stirling checkpoint 0 assistance false",
+    "Explicit intro preview via actual campaign UI for stirling",
+    "Copied prerequisite-only isolated save; bridge checkpoint 0 assistance false",
+    "Direct terminal outcome fixture for corrected result layout capture only: bridge",
+    "Copied prerequisite-only isolated save; stirling checkpoint 0 assistance false",
+    "Direct terminal outcome fixture for corrected result layout capture only: stirling",
+    "Copied prerequisite-only isolated save; stirling checkpoint 2 assistance true",
+    "Copied old Stirling completion ownership: all historical spoons, best31, attempts4, assisted marker and receipt",
+    "Copied prerequisite-only isolated save; stirling checkpoint 0 assistance false"
+  ],
+  "limitations": [
+    "Actual isolated headless Chrome/CDP movement and live animation frames; state, copied saves, stuns, relocated enemies and KO fixtures are individually labeled. This is engineering route/transition evidence, not input-only combat completion.",
+    "No physical/human, native startup, GPU, WAN, Steam, packaging, or human comprehension acceptance."
+  ],
+  "profile": "C:\\Users\\Joshua\\AppData\\Local\\Temp\\ck-channel-support-F6PQp1",
+  "chromeLog": "\r\nDevTools listening on ws://127.0.0.1:62980/devtools/browser/42a280a4-a59c-462a-b920-88621b9089de\r\n[34392:8216:1014/105254.589:ERROR:services\\device\\usb\\usb_descriptors.cc:118] Failed to parse configuration descriptor.\r\n[34392:31408:1014/105254.929:ERROR:google_apis\\gcm\\engine\\registration_request.cc:291] Registration response error message: PHONE_REGISTRATION_ERROR\r\n[34392:31408:1014/105254.929:ERROR:google_apis\\gcm\\engine\\registration_request.cc:291] Registration response error message: PHONE_REGISTRATION_ERROR\r\n[34392:31408:1014/105254.939:ERROR:google_apis\\gcm\\engine\\registration_request.cc:291] Registration response error message: PHONE_REGISTRATION_ERROR\r\n[34392:31408:1014/105254.978:ERROR:google_apis\\gcm\\engine\\mcs_client.cc:702]   Error code: 401  Error message: Authentication Failed: wrong_secret\r\n[34392:31408:1014/105254.978:ERROR:google_apis\\gcm\\engine\\mcs_client.cc:704] Failed to log in to GCM, resetting connection.\r\n",
+  "cdpTarget": {
+    "description": "",
+    "devtoolsFrontendUrl": "https://chrome-devtools-frontend.appspot.com/serve_rev/@b859317bf11f6be47f9b7799ec690a0a42a1fb33/inspector.html?ws=127.0.0.1:62980/devtools/page/75BB3EF722F6A78E636F057BC30CB2AC",
+    "id": "75BB3EF722F6A78E636F057BC30CB2AC",
+    "title": "",
+    "type": "page",
+    "url": "about:blank",
+    "webSocketDebuggerUrl": "ws://127.0.0.1:62980/devtools/page/75BB3EF722F6A78E636F057BC30CB2AC"
+  },
+  "cdpMessages": 105,
+  "theatre": [
+    {
+      "id": "bridge",
+      "samples": [
+        {
+          "scene": "bridge",
+          "phase": "intro",
+          "caption": "Sir StirlingThe cooling channel runs below these broken landings."
+        },
+        {
+          "scene": "bridge",
+          "phase": "intro",
+          "caption": "RecruitCan we go round the holes?"
+        },
+        {
+          "scene": "bridge",
+          "phase": "intro",
+          "caption": "Sir StirlingBoth outer paths are dry. The tools are waiting on the far approach."
+        },
+        {
+          "scene": "bridge",
+          "phase": "intro",
+          "caption": "Sir StirlingBoth outer paths are dry. The tools are waiting on the far approach."
+        }
+      ]
+    },
+    {
+      "id": "stirling",
+      "samples": [
+        {
+          "scene": "stirling",
+          "phase": "intro",
+          "caption": "Sir StirlingI will hold the north lane. Walk beside the tool cart and stay close."
+        },
+        {
+          "scene": "stirling",
+          "phase": "intro",
+          "caption": "RecruitThe shield raider is blocking the service access."
+        },
+        {
+          "scene": "stirling",
+          "phase": "intro",
+          "caption": "Sir StirlingClear him, then hold the tools while the service door opens."
+        },
+        {
+          "scene": "stirling",
+          "phase": "intro",
+          "caption": "Sir StirlingClear him, then hold the tools while the service door opens."
+        }
+      ]
+    }
+  ],
+  "compatibility": {
+    "before": {
+      "save": {
+        "version": 1,
+        "results": {
+          "banquet": {
+            "spoons": [
+              true,
+              false,
+              false
+            ],
+            "attempts": 1,
+            "best": 70,
+            "assisted": false
+          },
+          "puddings": {
+            "spoons": [
+              true,
+              false,
+              false
+            ],
+            "attempts": 1,
+            "best": 70,
+            "assisted": false
+          },
+          "guard": {
+            "spoons": [
+              true,
+              false,
+              false
+            ],
+            "attempts": 1,
+            "best": 70,
+            "assisted": false
+          },
+          "bridge": {
+            "spoons": [
+              true,
+              false,
+              false
+            ],
+            "attempts": 1,
+            "best": 70,
+            "assisted": false
+          },
+          "stirling": {
+            "spoons": [
+              true,
+              true,
+              true
+            ],
+            "attempts": 4,
+            "best": 31,
+            "assisted": true
+          }
+        },
+        "selected": "stirling",
+        "assist": true,
+        "difficulty": "medium",
+        "checkpoint": {
+          "id": "stirling",
+          "phase": 2
+        },
+        "receipts": [
+          "historical-stirling"
+        ]
+      },
+      "raw": "{\"version\":1,\"results\":{\"banquet\":{\"spoons\":[true,false,false],\"attempts\":1,\"best\":70,\"assisted\":false},\"puddings\":{\"spoons\":[true,false,false],\"attempts\":1,\"best\":70,\"assisted\":false},\"guard\":{\"spoons\":[true,false,false],\"attempts\":1,\"best\":70,\"assisted\":false},\"bridge\":{\"spoons\":[true,false,false],\"attempts\":1,\"best\":70,\"assisted\":false},\"stirling\":{\"spoons\":[true,true,true],\"attempts\":4,\"best\":31,\"assisted\":true}},\"selected\":\"stirling\",\"assist\":true,\"difficulty\":\"medium\",\"checkpoint\":{\"id\":\"stirling\",\"phase\":2},\"receipts\":[\"historical-stirling\"]}",
+      "error": false,
+      "collection": {
+        "version": 1,
+        "completed": 2,
+        "choice": null,
+        "pinned": null,
+        "progress": {
+          "tea-towel": 0,
+          "burnt-toast": 0,
+          "golden-whisk": 0,
+          "rooster-crown": 0,
+          "rice-guard": 0,
+          "steve-strut": 0
+        },
+        "owned": [],
+        "receipts": [
+          "8b59d790-95b7-4f84-9fd4-87c72a7439f4:encounter",
+          "be69a308-43b1-4ace-8e27-fa23a0878ea7:encounter"
+        ],
+        "milestones": [],
+        "presets": [
+          null,
+          null,
+          null
+        ]
+      },
+      "url": "file:///C:/Users/Joshua/Documents/Codex/2026-10-08/rea/work/custard-knights-room/index.html?qa=1"
+    },
+    "after": {
+      "save": {
+        "version": 1,
+        "results": {
+          "banquet": {
+            "spoons": [
+              true,
+              false,
+              false
+            ],
+            "attempts": 1,
+            "best": 70,
+            "assisted": false
+          },
+          "puddings": {
+            "spoons": [
+              true,
+              false,
+              false
+            ],
+            "attempts": 1,
+            "best": 70,
+            "assisted": false
+          },
+          "guard": {
+            "spoons": [
+              true,
+              false,
+              false
+            ],
+            "attempts": 1,
+            "best": 70,
+            "assisted": false
+          },
+          "bridge": {
+            "spoons": [
+              true,
+              false,
+              false
+            ],
+            "attempts": 1,
+            "best": 70,
+            "assisted": false
+          },
+          "stirling": {
+            "spoons": [
+              true,
+              true,
+              true
+            ],
+            "attempts": 4,
+            "best": 31,
+            "assisted": true
+          }
+        },
+        "selected": "stirling",
+        "assist": true,
+        "difficulty": "medium",
+        "checkpoint": {
+          "id": "stirling",
+          "phase": 2
+        },
+        "receipts": [
+          "historical-stirling"
+        ]
+      },
+      "raw": "{\"version\":1,\"results\":{\"banquet\":{\"spoons\":[true,false,false],\"attempts\":1,\"best\":70,\"assisted\":false},\"puddings\":{\"spoons\":[true,false,false],\"attempts\":1,\"best\":70,\"assisted\":false},\"guard\":{\"spoons\":[true,false,false],\"attempts\":1,\"best\":70,\"assisted\":false},\"bridge\":{\"spoons\":[true,false,false],\"attempts\":1,\"best\":70,\"assisted\":false},\"stirling\":{\"spoons\":[true,true,true],\"attempts\":4,\"best\":31,\"assisted\":true}},\"selected\":\"stirling\",\"assist\":true,\"difficulty\":\"medium\",\"checkpoint\":{\"id\":\"stirling\",\"phase\":2},\"receipts\":[\"historical-stirling\"]}",
+      "error": false,
+      "collection": {
+        "version": 1,
+        "completed": 2,
+        "choice": null,
+        "pinned": null,
+        "progress": {
+          "tea-towel": 0,
+          "burnt-toast": 0,
+          "golden-whisk": 0,
+          "rooster-crown": 0,
+          "rice-guard": 0,
+          "steve-strut": 0
+        },
+        "owned": [],
+        "receipts": [
+          "8b59d790-95b7-4f84-9fd4-87c72a7439f4:encounter",
+          "be69a308-43b1-4ace-8e27-fa23a0878ea7:encounter"
+        ],
+        "milestones": [],
+        "presets": [
+          null,
+          null,
+          null
+        ]
+      },
+      "url": "file:///C:/Users/Joshua/Documents/Codex/2026-10-08/rea/work/custard-knights-room/index.html?qa=1"
+    }
+  },
+  "postExpiry": {
+    "id": "stirling",
+    "phase": 0,
+    "status": "playing",
+    "route": 0,
+    "hold": 0,
+    "falls": 0,
+    "blocks": 0,
+    "parries": 0,
+    "resumed": false,
+    "tools": {
+      "x": 340,
+      "y": 440,
+      "delivered": false,
+      "waiting": true
+    },
+    "support": {
+      "x": 360,
+      "y": 300,
+      "pursuerX": 186.666666666667,
+      "blocked": 3,
+      "flash": 0.11666666666666614,
+      "covering": true
+    },
+    "accessClear": false,
+    "serviceOpen": false,
+    "checkpoint": {
+      "x": 180,
+      "y": 440
+    },
+    "player": {
+      "x": 180,
+      "y": 440,
+      "hp": 3
+    },
+    "enemies": [],
+    "save": {
+      "version": 1,
+      "results": {
+        "banquet": {
+          "spoons": [
+            true,
+            false,
+            false
+          ],
+          "attempts": 1,
+          "best": 70,
+          "assisted": false
+        },
+        "puddings": {
+          "spoons": [
+            true,
+            false,
+            false
+          ],
+          "attempts": 1,
+          "best": 70,
+          "assisted": false
+        },
+        "guard": {
+          "spoons": [
+            true,
+            false,
+            false
+          ],
+          "attempts": 1,
+          "best": 70,
+          "assisted": false
+        },
+        "bridge": {
+          "spoons": [
+            true,
+            false,
+            false
+          ],
+          "attempts": 1,
+          "best": 70,
+          "assisted": false
+        }
+      },
+      "selected": "stirling",
+      "assist": false,
+      "difficulty": "medium",
+      "checkpoint": null,
+      "receipts": []
+    },
+    "result": null
+  },
+  "productReport": {
+    "version": 1,
+    "build": "0.3.0-beta.7",
+    "generatedAt": 1791971582367,
+    "consent": true,
+    "storageState": "available",
+    "installId": "d1f779a3c7990106c3782c527a1f8051",
+    "events": [
+      {
+        "name": "session_start",
+        "build": "0.3.0-beta.7",
+        "sessionId": "944b6e46f4212b30a8369379ed335e56",
+        "at": 1791971571864,
+        "fields": {
+          "qa": true
+        }
+      },
+      {
+        "name": "round_started",
+        "build": "0.3.0-beta.7",
+        "sessionId": "944b6e46f4212b30a8369379ed335e56",
+        "at": 1791971571901,
+        "fields": {
+          "format": "story",
+          "mode": "campaign",
+          "map": "frost",
+          "difficulty": "medium",
+          "humanCount": 1,
+          "botCount": 0,
+          "encounter": "bridge",
+          "input": "keyboard",
+          "botOnly": false,
+          "roundId": "56996bc40be9f75dbcbfc8eb131d54c4",
+          "qa": true
+        }
+      },
+      {
+        "name": "round_started",
+        "build": "0.3.0-beta.7",
+        "sessionId": "944b6e46f4212b30a8369379ed335e56",
+        "at": 1791971572813,
+        "fields": {
+          "format": "story",
+          "mode": "campaign",
+          "map": "courtyard",
+          "difficulty": "medium",
+          "humanCount": 1,
+          "botCount": 0,
+          "encounter": "stirling",
+          "input": "keyboard",
+          "botOnly": false,
+          "roundId": "235c45fe961c79cfc70f7236b24f83c8",
+          "qa": true
+        }
+      },
+      {
+        "name": "round_started",
+        "build": "0.3.0-beta.7",
+        "sessionId": "944b6e46f4212b30a8369379ed335e56",
+        "at": 1791971573592,
+        "fields": {
+          "format": "story",
+          "mode": "campaign",
+          "map": "frost",
+          "difficulty": "medium",
+          "humanCount": 1,
+          "botCount": 0,
+          "encounter": "bridge",
+          "input": "keyboard",
+          "botOnly": false,
+          "roundId": "8d94fca06b9b7e878c81958a205f525a",
+          "qa": true
+        }
+      },
+      {
+        "name": "round_completed",
+        "build": "0.3.0-beta.7",
+        "sessionId": "944b6e46f4212b30a8369379ed335e56",
+        "at": 1791971573599,
+        "fields": {
+          "format": "story",
+          "mode": "campaign",
+          "map": "frost",
+          "difficulty": "medium",
+          "humanCount": 1,
+          "botCount": 0,
+          "result": "completed",
+          "encounter": "bridge",
+          "input": "keyboard",
+          "botOnly": false,
+          "roundId": "8d94fca06b9b7e878c81958a205f525a",
+          "qa": true
+        }
+      },
+      {
+        "name": "round_started",
+        "build": "0.3.0-beta.7",
+        "sessionId": "944b6e46f4212b30a8369379ed335e56",
+        "at": 1791971573949,
+        "fields": {
+          "format": "story",
+          "mode": "campaign",
+          "map": "courtyard",
+          "difficulty": "medium",
+          "humanCount": 1,
+          "botCount": 0,
+          "encounter": "stirling",
+          "input": "keyboard",
+          "botOnly": false,
+          "roundId": "6dfc82de750e552e415580694f0e002a",
+          "qa": true
+        }
+      },
+      {
+        "name": "round_completed",
+        "build": "0.3.0-beta.7",
+        "sessionId": "944b6e46f4212b30a8369379ed335e56",
+        "at": 1791971573950,
+        "fields": {
+          "format": "story",
+          "mode": "campaign",
+          "map": "courtyard",
+          "difficulty": "medium",
+          "humanCount": 1,
+          "botCount": 0,
+          "result": "completed",
+          "encounter": "stirling",
+          "input": "keyboard",
+          "botOnly": false,
+          "roundId": "6dfc82de750e552e415580694f0e002a",
+          "qa": true
+        }
+      },
+      {
+        "name": "round_started",
+        "build": "0.3.0-beta.7",
+        "sessionId": "944b6e46f4212b30a8369379ed335e56",
+        "at": 1791971574300,
+        "fields": {
+          "format": "story",
+          "mode": "campaign",
+          "map": "courtyard",
+          "difficulty": "medium",
+          "humanCount": 1,
+          "botCount": 2,
+          "encounter": "stirling",
+          "input": "keyboard",
+          "botOnly": false,
+          "roundId": "9012d509e076727013feed982685c38c",
+          "qa": true
+        }
+      },
+      {
+        "name": "session_exit",
+        "build": "0.3.0-beta.7",
+        "sessionId": "944b6e46f4212b30a8369379ed335e56",
+        "at": 1791971574316,
+        "fields": {
+          "reason": "pagehide",
+          "observation": "observed",
+          "qa": true
+        }
+      },
+      {
+        "name": "session_start",
+        "build": "0.3.0-beta.7",
+        "sessionId": "fe1656ec161cf9996214960a46f737db",
+        "at": 1791971575342,
+        "fields": {
+          "qa": true
+        }
+      },
+      {
+        "name": "round_started",
+        "build": "0.3.0-beta.7",
+        "sessionId": "fe1656ec161cf9996214960a46f737db",
+        "at": 1791971575342,
+        "fields": {
+          "format": "story",
+          "mode": "campaign",
+          "map": "courtyard",
+          "difficulty": "medium",
+          "humanCount": 1,
+          "botCount": 0,
+          "encounter": "stirling",
+          "input": "keyboard",
+          "botOnly": false,
+          "roundId": "9babc71797776f55ebb0b19765d4d51c",
+          "qa": true
+        }
+      }
+    ],
+    "metrics": {
+      "joinAttempts": 0,
+      "joinSucceeded": 0,
+      "joinFailed": 0,
+      "joinPendingOrUnobserved": 0,
+      "roundsStarted": 0,
+      "roundsCompleted": 0,
+      "roundCompletionRate": null,
+      "rematchSelections": 0,
+      "completedRoundsWithObservedContinuation": 0
+    },
+    "experiments": [],
+    "counts": {
+      "retained": 11,
+      "truncated": 0,
+      "duplicates": 0,
+      "rejected": 0,
+      "excludedFromHumanMetrics": 11
+    },
+    "limitations": [
+      "Experiment counts describe retained solo trials by build/variant, not unique participants or causal lift. Recognition is self-report. Normal-round continuation requires a later observed offline arena start, not a stated intention.",
+      "Local opt-in observations from one browser installation only; no network collection or population-wide claims.",
+      "Metrics cover retained events only. Truncation, cleared storage, missing instrumentation and interrupted sessions can remove context.",
+      "Deduplication covers retained events in the current session. IDs must be anonymous local tokens, never external identifiers.",
+      "Join outcomes require a retained attempt in the same session. Pending or unobserved does not mean failure.",
+      "Round completions also require a start in the same session. A long round spanning the inactivity cutoff remains uncompleted in this observed baseline.",
+      "General round metrics include optional study rounds; use the experiment summaries and trial fields to separate these from normal play.",
+      "Human round metrics require explicitly positive human counts on start and completion; late joins are excluded. QA, demo and bot-only events are excluded.",
+      "Continuation means a later human round start in the same session after an observed completion; rematch intent alone is not continuation.",
+      "Inactivity exits are inferred after 30 minutes when another event arrives. Page exits are observations of lifecycle signals, not proof a person left.",
+      "Cup, challenge, reward, highlight, share and referral events are observations only; no conversion or retention claim is calculated.",
+      "No D1/D7 retention, people counts, attribution, or cross-device identity is available."
+    ]
+  },
+  "finishedAt": "2026-10-14T09:53:02.366Z",
+  "sourceHashesAfter": {
+    "index.html": "e0904ae54bbace909bfae3d963821599c665e2a5c53cb98df12ac42c72711820",
+    "game/campaign.js": "321b0cfada69df1222010c1d1e8b51cf4e6dbd6b0565e036dd446b4d9dd8995a",
+    "game/campaign-ui.js": "a00ca2529125c8900211db65d27c6bbcd2ac773d9e690e2b2ea7efcf2aff8d54",
+    "game/campaign-integration.js": "2b8050791432238cc3ec48cf7a71ca36f9a33ba335b1e3a2a0e730d22b06bbd9",
+    "game/story-scenes.js": "cf2b469e07f817923d37af56f7fa63232a678a9d3dd70c113e85e36df28d42f1",
+    "game/bakery-opening.js": "49204ee38bda412fd62e78348968ce8bdec23f5a9d458d26d01557d5a28f8919",
+    "game/channel-support.js": "64735a3bc5fb17a6e32be1835c10bd84c6c732880eccd950cd3ed3bfa37dd16e"
+  },
+  "stableSources": true,
+  "counts": {
+    "pass": 8,
+    "fail": 2
+  }
+}

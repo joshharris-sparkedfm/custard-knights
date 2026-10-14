@@ -1,0 +1,7 @@
+PASS Compact result-bridge active surface stays inside viewport
+PASS Result bridge reward actions reachable by actual scrolling
+PASS Compact result-stirling active surface stays inside viewport
+PASS Result stirling reward actions reachable by actual scrolling
+PASS Story round completions unique and tied to actual launches
+PASS No uncaught browser exceptions
+C:\Users\Joshua\Documents\Codex\2026-10-08\rea\work\custard-knights-room\qa\results\channel-support-2026-10-14\results-correction

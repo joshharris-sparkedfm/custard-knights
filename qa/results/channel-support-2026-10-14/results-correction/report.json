@@ -1,0 +1,355 @@
+{
+  "startedAt": "2026-10-14T09:54:05.811Z",
+  "root": "C:\\Users\\Joshua\\Documents\\Codex\\2026-10-08\\rea\\work\\custard-knights-room",
+  "harness": "C:\\Users\\Joshua\\Documents\\Codex\\2026-10-08\\rea\\work\\custard-knights-room\\qa\\channel-support-browser.cjs",
+  "harnessSha256": "3631f6a22fe451aaa1e9ad664a8fc4a2f3d8d491e98048f263126e56fd5482f7",
+  "sourceHashes": {
+    "index.html": "e0904ae54bbace909bfae3d963821599c665e2a5c53cb98df12ac42c72711820",
+    "game/campaign.js": "321b0cfada69df1222010c1d1e8b51cf4e6dbd6b0565e036dd446b4d9dd8995a",
+    "game/campaign-ui.js": "a00ca2529125c8900211db65d27c6bbcd2ac773d9e690e2b2ea7efcf2aff8d54",
+    "game/campaign-integration.js": "2b8050791432238cc3ec48cf7a71ca36f9a33ba335b1e3a2a0e730d22b06bbd9",
+    "game/story-scenes.js": "cf2b469e07f817923d37af56f7fa63232a678a9d3dd70c113e85e36df28d42f1",
+    "game/bakery-opening.js": "49204ee38bda412fd62e78348968ce8bdec23f5a9d458d26d01557d5a28f8919",
+    "game/channel-support.js": "64735a3bc5fb17a6e32be1835c10bd84c6c732880eccd950cd3ed3bfa37dd16e"
+  },
+  "checks": [
+    {
+      "name": "Compact result-bridge active surface stays inside viewport",
+      "pass": true,
+      "details": {
+        "selector": "#campaignResult .campaign-panel",
+        "bounds": {
+          "x": 31.0625,
+          "y": 20,
+          "width": 722.875,
+          "height": 722.78125,
+          "top": 20,
+          "right": 753.9375,
+          "bottom": 742.78125,
+          "left": 31.0625
+        },
+        "text": "Encounter completeA Bridge Too Flan2 new spoons earned. Your spoons are saved independently.✓ Capture the far end✓ Cross without fallingUse a dash to cross a marked gapContinue: Tools for the Cooling ChannelReplay aftermath sceneReplay for spoonsStory mapChoose your first costumeChoose Tea TowelChoose Burnt ToastKeep current look",
+        "viewport": {
+          "width": 800,
+          "height": 500
+        },
+        "visible": true
+      }
+    },
+    {
+      "name": "Result bridge reward actions reachable by actual scrolling",
+      "pass": true,
+      "details": {
+        "scrollTop": 251,
+        "scrollHeight": 735,
+        "clientHeight": 484
+      }
+    },
+    {
+      "name": "Compact result-stirling active surface stays inside viewport",
+      "pass": true,
+      "details": {
+        "selector": "#campaignResult .campaign-panel",
+        "bounds": {
+          "x": 31.0625,
+          "y": 20,
+          "width": 722.875,
+          "height": 722.78125,
+          "top": 20,
+          "right": 753.9375,
+          "bottom": 742.78125,
+          "left": 31.0625
+        },
+        "text": "Encounter completeTools for the Cooling Channel2 new spoons earned. Your spoons are saved independently.✓ Open the service accessParry at least one attack✓ Finish without being bonkedContinue: Release the ChickenReplay aftermath sceneReplay for spoonsStory mapChoose your first costumeChoose Tea TowelChoose Burnt ToastKeep current look",
+        "viewport": {
+          "width": 800,
+          "height": 500
+        },
+        "visible": true
+      }
+    },
+    {
+      "name": "Result stirling reward actions reachable by actual scrolling",
+      "pass": true,
+      "details": {
+        "scrollTop": 251,
+        "scrollHeight": 735,
+        "clientHeight": 484
+      }
+    },
+    {
+      "name": "Story round completions unique and tied to actual launches",
+      "pass": true,
+      "details": {
+        "starts": [
+          {
+            "name": "round_started",
+            "build": "0.3.0-beta.7",
+            "sessionId": "b33f933df205f660665aa63a49ec9e98",
+            "at": 1791971646354,
+            "fields": {
+              "format": "story",
+              "mode": "campaign",
+              "map": "frost",
+              "difficulty": "medium",
+              "humanCount": 1,
+              "botCount": 0,
+              "encounter": "bridge",
+              "input": "keyboard",
+              "botOnly": false,
+              "roundId": "af8ce3b5ca68a1cf894c7ee5845fa44e",
+              "qa": true
+            }
+          },
+          {
+            "name": "round_started",
+            "build": "0.3.0-beta.7",
+            "sessionId": "b33f933df205f660665aa63a49ec9e98",
+            "at": 1791971647391,
+            "fields": {
+              "format": "story",
+              "mode": "campaign",
+              "map": "courtyard",
+              "difficulty": "medium",
+              "humanCount": 1,
+              "botCount": 0,
+              "encounter": "stirling",
+              "input": "keyboard",
+              "botOnly": false,
+              "roundId": "5a723f10989c59ba6011866895f007e9",
+              "qa": true
+            }
+          }
+        ],
+        "ends": [
+          {
+            "name": "round_completed",
+            "build": "0.3.0-beta.7",
+            "sessionId": "b33f933df205f660665aa63a49ec9e98",
+            "at": 1791971646355,
+            "fields": {
+              "format": "story",
+              "mode": "campaign",
+              "map": "frost",
+              "difficulty": "medium",
+              "humanCount": 1,
+              "botCount": 0,
+              "result": "completed",
+              "encounter": "bridge",
+              "input": "keyboard",
+              "botOnly": false,
+              "roundId": "af8ce3b5ca68a1cf894c7ee5845fa44e",
+              "qa": true
+            }
+          },
+          {
+            "name": "round_completed",
+            "build": "0.3.0-beta.7",
+            "sessionId": "b33f933df205f660665aa63a49ec9e98",
+            "at": 1791971647401,
+            "fields": {
+              "format": "story",
+              "mode": "campaign",
+              "map": "courtyard",
+              "difficulty": "medium",
+              "humanCount": 1,
+              "botCount": 0,
+              "result": "completed",
+              "encounter": "stirling",
+              "input": "keyboard",
+              "botOnly": false,
+              "roundId": "5a723f10989c59ba6011866895f007e9",
+              "qa": true
+            }
+          }
+        ]
+      }
+    },
+    {
+      "name": "No uncaught browser exceptions",
+      "pass": true,
+      "details": []
+    }
+  ],
+  "errors": [],
+  "inputs": [
+    {
+      "type": "mouseWheel",
+      "reason": "Actual scrolling reveals costume reward actions",
+      "deltaY": 900
+    },
+    {
+      "type": "mouseWheel",
+      "reason": "Actual scrolling reveals costume reward actions",
+      "deltaY": 900
+    }
+  ],
+  "fixtures": [
+    "Enable optional reporting with normal consent handler",
+    "Copied prerequisite-only isolated save; bridge checkpoint 0 assistance false",
+    "Direct terminal outcome fixture for result layout only: bridge",
+    "Copied prerequisite-only isolated save; stirling checkpoint 0 assistance false",
+    "Direct terminal outcome fixture for result layout only: stirling"
+  ],
+  "limitations": [
+    "Actual isolated headless Chrome/CDP movement and live animation frames; state, copied saves, stuns, relocated enemies and KO fixtures are individually labeled. This is engineering route/transition evidence, not input-only combat completion.",
+    "No physical/human, native startup, GPU, WAN, Steam, packaging, or human comprehension acceptance."
+  ],
+  "profile": "C:\\Users\\Joshua\\AppData\\Local\\Temp\\ck-channel-support-y421Xz",
+  "chromeLog": "\r\nDevTools listening on ws://127.0.0.1:52195/devtools/browser/1524bd62-e2a5-46a7-850e-85e44f132c0b\r\n",
+  "cdpTarget": {
+    "description": "",
+    "devtoolsFrontendUrl": "https://chrome-devtools-frontend.appspot.com/serve_rev/@b859317bf11f6be47f9b7799ec690a0a42a1fb33/inspector.html?ws=127.0.0.1:52195/devtools/page/AB0C9A5E22EA9D404583D84C43BA341B",
+    "id": "AB0C9A5E22EA9D404583D84C43BA341B",
+    "title": "",
+    "type": "page",
+    "url": "about:blank",
+    "webSocketDebuggerUrl": "ws://127.0.0.1:52195/devtools/page/AB0C9A5E22EA9D404583D84C43BA341B"
+  },
+  "cdpMessages": 56,
+  "productReport": {
+    "version": 1,
+    "build": "0.3.0-beta.7",
+    "generatedAt": 1791971648149,
+    "consent": true,
+    "storageState": "available",
+    "installId": "b0cdf819adbef8a480fee1dcb20ca201",
+    "events": [
+      {
+        "name": "session_start",
+        "build": "0.3.0-beta.7",
+        "sessionId": "b33f933df205f660665aa63a49ec9e98",
+        "at": 1791971646317,
+        "fields": {
+          "qa": true
+        }
+      },
+      {
+        "name": "round_started",
+        "build": "0.3.0-beta.7",
+        "sessionId": "b33f933df205f660665aa63a49ec9e98",
+        "at": 1791971646354,
+        "fields": {
+          "format": "story",
+          "mode": "campaign",
+          "map": "frost",
+          "difficulty": "medium",
+          "humanCount": 1,
+          "botCount": 0,
+          "encounter": "bridge",
+          "input": "keyboard",
+          "botOnly": false,
+          "roundId": "af8ce3b5ca68a1cf894c7ee5845fa44e",
+          "qa": true
+        }
+      },
+      {
+        "name": "round_completed",
+        "build": "0.3.0-beta.7",
+        "sessionId": "b33f933df205f660665aa63a49ec9e98",
+        "at": 1791971646355,
+        "fields": {
+          "format": "story",
+          "mode": "campaign",
+          "map": "frost",
+          "difficulty": "medium",
+          "humanCount": 1,
+          "botCount": 0,
+          "result": "completed",
+          "encounter": "bridge",
+          "input": "keyboard",
+          "botOnly": false,
+          "roundId": "af8ce3b5ca68a1cf894c7ee5845fa44e",
+          "qa": true
+        }
+      },
+      {
+        "name": "round_started",
+        "build": "0.3.0-beta.7",
+        "sessionId": "b33f933df205f660665aa63a49ec9e98",
+        "at": 1791971647391,
+        "fields": {
+          "format": "story",
+          "mode": "campaign",
+          "map": "courtyard",
+          "difficulty": "medium",
+          "humanCount": 1,
+          "botCount": 0,
+          "encounter": "stirling",
+          "input": "keyboard",
+          "botOnly": false,
+          "roundId": "5a723f10989c59ba6011866895f007e9",
+          "qa": true
+        }
+      },
+      {
+        "name": "round_completed",
+        "build": "0.3.0-beta.7",
+        "sessionId": "b33f933df205f660665aa63a49ec9e98",
+        "at": 1791971647401,
+        "fields": {
+          "format": "story",
+          "mode": "campaign",
+          "map": "courtyard",
+          "difficulty": "medium",
+          "humanCount": 1,
+          "botCount": 0,
+          "result": "completed",
+          "encounter": "stirling",
+          "input": "keyboard",
+          "botOnly": false,
+          "roundId": "5a723f10989c59ba6011866895f007e9",
+          "qa": true
+        }
+      }
+    ],
+    "metrics": {
+      "joinAttempts": 0,
+      "joinSucceeded": 0,
+      "joinFailed": 0,
+      "joinPendingOrUnobserved": 0,
+      "roundsStarted": 0,
+      "roundsCompleted": 0,
+      "roundCompletionRate": null,
+      "rematchSelections": 0,
+      "completedRoundsWithObservedContinuation": 0
+    },
+    "experiments": [],
+    "counts": {
+      "retained": 5,
+      "truncated": 0,
+      "duplicates": 0,
+      "rejected": 0,
+      "excludedFromHumanMetrics": 5
+    },
+    "limitations": [
+      "Experiment counts describe retained solo trials by build/variant, not unique participants or causal lift. Recognition is self-report. Normal-round continuation requires a later observed offline arena start, not a stated intention.",
+      "Local opt-in observations from one browser installation only; no network collection or population-wide claims.",
+      "Metrics cover retained events only. Truncation, cleared storage, missing instrumentation and interrupted sessions can remove context.",
+      "Deduplication covers retained events in the current session. IDs must be anonymous local tokens, never external identifiers.",
+      "Join outcomes require a retained attempt in the same session. Pending or unobserved does not mean failure.",
+      "Round completions also require a start in the same session. A long round spanning the inactivity cutoff remains uncompleted in this observed baseline.",
+      "General round metrics include optional study rounds; use the experiment summaries and trial fields to separate these from normal play.",
+      "Human round metrics require explicitly positive human counts on start and completion; late joins are excluded. QA, demo and bot-only events are excluded.",
+      "Continuation means a later human round start in the same session after an observed completion; rematch intent alone is not continuation.",
+      "Inactivity exits are inferred after 30 minutes when another event arrives. Page exits are observations of lifecycle signals, not proof a person left.",
+      "Cup, challenge, reward, highlight, share and referral events are observations only; no conversion or retention claim is calculated.",
+      "No D1/D7 retention, people counts, attribution, or cross-device identity is available."
+    ]
+  },
+  "finishedAt": "2026-10-14T09:54:08.156Z",
+  "sourceHashesAfter": {
+    "index.html": "e0904ae54bbace909bfae3d963821599c665e2a5c53cb98df12ac42c72711820",
+    "game/campaign.js": "321b0cfada69df1222010c1d1e8b51cf4e6dbd6b0565e036dd446b4d9dd8995a",
+    "game/campaign-ui.js": "a00ca2529125c8900211db65d27c6bbcd2ac773d9e690e2b2ea7efcf2aff8d54",
+    "game/campaign-integration.js": "2b8050791432238cc3ec48cf7a71ca36f9a33ba335b1e3a2a0e730d22b06bbd9",
+    "game/story-scenes.js": "cf2b469e07f817923d37af56f7fa63232a678a9d3dd70c113e85e36df28d42f1",
+    "game/bakery-opening.js": "49204ee38bda412fd62e78348968ce8bdec23f5a9d458d26d01557d5a28f8919",
+    "game/channel-support.js": "64735a3bc5fb17a6e32be1835c10bd84c6c732880eccd950cd3ed3bfa37dd16e"
+  },
+  "stableSources": true,
+  "counts": {
+    "pass": 6,
+    "fail": 0
+  }
+}

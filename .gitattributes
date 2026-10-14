@@ -5,6 +5,6 @@ qa/reviews/channel-support-2026-10-14.md -text
 qa/results/steve-route-2026-10-14/** -text
 qa/steve-route-browser.cjs -text
 qa/reviews/steve-route-2026-10-14.md -text
-qa/results/rind-rescue-2026-10-14/** -text
-qa/rind-rescue-browser.cjs -text
-qa/reviews/rind-rescue-2026-10-14.md -text
+qa/results/rind-rescue-2026-10-14/** -text whitespace=cr-at-eol
+qa/rind-rescue-browser.cjs -text whitespace=cr-at-eol
+qa/reviews/rind-rescue-2026-10-14.md -text whitespace=cr-at-eol

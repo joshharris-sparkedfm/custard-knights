@@ -1,0 +1,4 @@
+# Preserve exact reviewed evidence bytes across machines and autocrlf settings.
+qa/results/channel-support-2026-10-14/** -text
+qa/channel-support-browser.cjs -text
+qa/reviews/channel-support-2026-10-14.md -text

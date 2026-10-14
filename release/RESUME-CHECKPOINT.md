@@ -1,6 +1,15 @@
-# Active FE09-A causal transitions — 13 October 2026
+# Checked FE09-A source handoff — 14 October 2026
 
-## PR36 merge awaiting exact owner approval — 13 October 2026
+## PR36 approved and merged — 14 October 2026
+
+The owner explicitly approved PR36 in recovery chat `01a135f2-88af-7bf0-adb2-09470cb8c45c`. GitHub merged the checked head `67aba06a51de518a859a0e22e1a3d103f3a0569e` as `b2b77a13ea6eabf6ba4666327956fd8eb93cd1ba`; the integration checkout was synchronized to main at that merge. The previous exact-approval block below is historical and resolved. PR36 must not be remerged or treated as awaiting approval.
+
+Independent verification confirms game code, tests, index and package manifests remain identical to frozen `c79dad537d50a4cb343c8d2c824705d6fab60487`; later commits contain QA evidence and handoff documentation. Existing final source/journey/Luna review and CI38426511374 remain applicable. No unchanged tests were rerun. Beta.16 remains the latest checked downloadable package; this merge changes source, not the exported kit.
+
+All recovery workers are complete and this chat releases shared-file ownership. The original orchestrator `01a11aaa-ce28-7603-8304-92eff00fdb03` owns the broader repository audit and subsequent FE09-B coordination. Inspect live workers and Git before starting, use the existing merged Astra FE09 sequence and read-only preflight, and do not duplicate the review. FE09-B support/channel work, later rescue/sluice/homecoming and the human/device/platform gates remain unfinished. Keep the release cap50v50/100 total and preserve original bakery WIP, normal saves and earlier exports.
+
+
+## Historical PR36 approval hold — 13 October 2026
 
 FE09-A implementation, independent Luna source/evidence review, verified39/39 browser records and all six hosted CI jobs at frozen `c79dad537d50a4cb343c8d2c824705d6fab60487` are complete. PR36 is open and ready for review. Automatic approval review rejected the merge request because no trusted user message explicitly authorized this exact consequential mutation of the default branch. No merge occurred. The recovery chat asked the owner to approve PR36 specifically; approval is pending there.
 

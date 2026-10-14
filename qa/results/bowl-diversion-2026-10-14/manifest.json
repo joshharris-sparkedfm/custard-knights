@@ -1,0 +1,145 @@
+{
+  "createdAt": "2026-10-14T10:49:19.825Z",
+  "files": [
+    {
+      "path": "qa/results/bowl-diversion-2026-10-14/ci-summary.json",
+      "bytes": 1466,
+      "sha256": "68c3502b88f4d9883ebabd971d22920a6a6215ce92f521ad5bdc062bc27240b0"
+    },
+    {
+      "path": "qa/results/bowl-diversion-2026-10-14/corrections-focus/09-diversion-theatre-800x500.png",
+      "bytes": 85301,
+      "sha256": "a6526beb7e78c985df7b5820fa96358514f7e9e10ea3b5002910c085a596f949"
+    },
+    {
+      "path": "qa/results/bowl-diversion-2026-10-14/corrections-focus/09-diversion-theatre-wide.png",
+      "bytes": 180020,
+      "sha256": "392364b17651bf366e5aa85eb6461c9552dbe1807c73345c143f7b53b61401da"
+    },
+    {
+      "path": "qa/results/bowl-diversion-2026-10-14/corrections-focus/report.json",
+      "bytes": 22808,
+      "sha256": "d846d06eef1c5bffbd70a378aa003c88a012da8cd67b1594999a2f2d4706dca9"
+    },
+    {
+      "path": "qa/results/bowl-diversion-2026-10-14/finale-brief/10-saved-finale-brief-800x500.png",
+      "bytes": 81693,
+      "sha256": "ddc54365f579ffbe8794ce1b04f33991ca1d6beeca6f6a3f8c1ac68be782805c"
+    },
+    {
+      "path": "qa/results/bowl-diversion-2026-10-14/finale-brief/10-saved-finale-brief-wide.png",
+      "bytes": 194240,
+      "sha256": "18e8261127711d7d4f2011d9ebf7b4e27f738614f5393d03c681cd368200d82e"
+    },
+    {
+      "path": "qa/results/bowl-diversion-2026-10-14/finale-brief/report.json",
+      "bytes": 9749,
+      "sha256": "725644d731480b2ae461c971b75398f8dcc6d9c107e6effd7f4328f3c612e1d1"
+    },
+    {
+      "path": "qa/results/bowl-diversion-2026-10-14/run1/01-natural-sluice-tools-800x500.png",
+      "bytes": 327023,
+      "sha256": "090f9504e3c8bedad221ec8e9523e98bfae4c819e777dcc0257074eb8924fbf9"
+    },
+    {
+      "path": "qa/results/bowl-diversion-2026-10-14/run1/01-natural-sluice-tools-wide.png",
+      "bytes": 679553,
+      "sha256": "9c858aa0a31411e07bd7cef2e321936e43a2daf0595ada0057ecfc1ddb839973"
+    },
+    {
+      "path": "qa/results/bowl-diversion-2026-10-14/run1/02-sluice-checkpoint-retry-800x500.png",
+      "bytes": 315410,
+      "sha256": "df5e254e469eeef9dc42248b7364a30ec3960435b0ef04e699f0f16d562153e5"
+    },
+    {
+      "path": "qa/results/bowl-diversion-2026-10-14/run1/02-sluice-checkpoint-retry-wide.png",
+      "bytes": 794531,
+      "sha256": "f00d5b591997f4030deccb27fdda670781aa72044c962483c96b8b6d97220e16"
+    },
+    {
+      "path": "qa/results/bowl-diversion-2026-10-14/run1/03-jam-start-800x500.png",
+      "bytes": 317209,
+      "sha256": "9d4618f473848b91e0b064861f9aeab141b243313d187a04fc872fc87b7438e8"
+    },
+    {
+      "path": "qa/results/bowl-diversion-2026-10-14/run1/03-jam-start-wide.png",
+      "bytes": 791256,
+      "sha256": "baa7effe21605fa5905de91d7898f48e1bd550abb9fa29a1146d6ccde8a214a6"
+    },
+    {
+      "path": "qa/results/bowl-diversion-2026-10-14/run1/04-contested-winch-800x500.png",
+      "bytes": 310702,
+      "sha256": "770aa4001851d998a684b74b25567c67b75671237a11a1524f35748a2f48f905"
+    },
+    {
+      "path": "qa/results/bowl-diversion-2026-10-14/run1/04-contested-winch-wide.png",
+      "bytes": 824039,
+      "sha256": "93c650d508d3c14eebd2e896d6aa1d5976f36a935d861588bc55897f5e48dd38"
+    },
+    {
+      "path": "qa/results/bowl-diversion-2026-10-14/run1/05-visible-diversion-800x500.png",
+      "bytes": 322405,
+      "sha256": "1b6045f6c5a20a6d7292df5df94a9075d5709954d28171a760b2d4b3f6565f68"
+    },
+    {
+      "path": "qa/results/bowl-diversion-2026-10-14/run1/05-visible-diversion-wide.png",
+      "bytes": 824262,
+      "sha256": "f7ba46b0b6d46e0deea99c496fcf78ffd3f57eb9e9091a96a47b9127333c6d8d"
+    },
+    {
+      "path": "qa/results/bowl-diversion-2026-10-14/run1/06-diversion-result-800x500.png",
+      "bytes": 65160,
+      "sha256": "4abd85a43a6cd566a474acf7123036019fd3d7b6dae921a967a515fd8f481d41"
+    },
+    {
+      "path": "qa/results/bowl-diversion-2026-10-14/run1/06-diversion-result-wide.png",
+      "bytes": 161843,
+      "sha256": "599b8dd519c296e9591b1b24972face1461cfa5296de819f24ae58cf0821f9f5"
+    },
+    {
+      "path": "qa/results/bowl-diversion-2026-10-14/run1/07-old-completed-map-wide.png",
+      "bytes": 291316,
+      "sha256": "2a03a80f82e590c20e440af4e3f03313d20c48a9dc35e2ba7c1d4856443c6ef7"
+    },
+    {
+      "path": "qa/results/bowl-diversion-2026-10-14/run1/08-owned-pad-hold-800x500.png",
+      "bytes": 325148,
+      "sha256": "94b031b3e3b1ea29a0e2ee5c56afd7b7791ea4d79a227d8705057fe28b053de1"
+    },
+    {
+      "path": "qa/results/bowl-diversion-2026-10-14/run1/08-owned-pad-hold-wide.png",
+      "bytes": 822351,
+      "sha256": "be82624479a3df2f08fb6c256030b56d235c110c86f81b89374e894b79487b18"
+    },
+    {
+      "path": "qa/results/bowl-diversion-2026-10-14/run1/09-diversion-theatre-800x500.png",
+      "bytes": 85204,
+      "sha256": "ca4c45b18f88f36b612d23c6fc5f4e0e7060860fe1575c5ddb8955884eead593"
+    },
+    {
+      "path": "qa/results/bowl-diversion-2026-10-14/run1/09-diversion-theatre-wide.png",
+      "bytes": 232289,
+      "sha256": "16f1e29489c93a432cf4f3de3de8a9162ddf4fcb6345303028b7c81c2ce9a2b0"
+    },
+    {
+      "path": "qa/results/bowl-diversion-2026-10-14/run1/report.json",
+      "bytes": 155423,
+      "sha256": "5feddf3c7fb381597f34441c58689ebaf2659a6b2da31027684352366f3097fc"
+    },
+    {
+      "path": "qa/results/bowl-diversion-2026-10-14/summary.json",
+      "bytes": 147998,
+      "sha256": "92f278120529f1beffe6257768583c4c2f02f73f4fa28b1ffa98cd804f2a3682"
+    },
+    {
+      "path": "qa/bowl-diversion-browser.cjs",
+      "bytes": 31946,
+      "sha256": "e5732e41f70b37aaf213e5a209552d7f3ba68e09e4138e76298f40863ed1395a"
+    },
+    {
+      "path": "qa/reviews/bowl-diversion-2026-10-14.md",
+      "bytes": 6453,
+      "sha256": "162e499a698dd492fb57e964a2580ac0aafce1ae9ccad6f7ca1f36aa14a34288"
+    }
+  ]
+}

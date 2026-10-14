@@ -1,17 +1,25 @@
-# Checked FE09-A source handoff — 14 October 2026
+# Checked FE09-B source handoff - 14 October 2026
 
-## Active FE09-B channel and Stirling support - 14 October 2026
+## Checked FE09-B channel and Stirling support - 14 October 2026
 
-Root verified live GitHub main and clean integration main at 760140c5f7dce7312d315e4625a670f59c013a24 after PR36 merge, then created codex/channel-stirling-support in work/custard-knights-room. The old approval hold is resolved. No source acceptance or new export is claimed yet; beta.16 remains the checked package. Original WIP and older exports remain preserved.
+PR37 (https://github.com/joshharris-sparkedfm/custard-knights/pull/37) contains the completed bounded implementation at frozen runtime 29291248115eba0b3418e335509c778d2a2db2e7, based on main760140c5f7dce7312d315e4625a670f59c013a24. Later commits contain QA/docs only. Verify live merge state and synchronize main before the next shared-file task.
 
-| Owner | Model / effort | Files | Latest progress and next action |
-|---|---|---|---|
-| /root/channel_support_impl | gpt-6.1-sol / high | campaign, actual theatre/scenery, narrow UI/index seams, focused source tests | Implement FE09-B only: cooling-channel landings, advance tools, access defender, supported hold; coordinate stable handoff |
-| /root/channel_support_qa | gpt-6.1-sol / medium | qa/channel-support-browser.cjs, dated results and review | Independent actual-browser route/input/checkpoint/capture evidence after stable source |
-| /root/story_transitions_review | gpt-6-luna / high | Read-only | Reuse completed geometry/checkpoint preflight; independently review candidate and final evidence |
-| /root | Orchestrator | Queue/checkpoint/Git | Integrate relevant checks and independent review; push/attach/merge completed task before next shared-file implementation |
+Cooling-channel art follows actual pit, dry-route and landing collision footprints. Stirling intercepts a separate scheduled pursuer lane while the player advances the tool cart, defeats the access raider and holds the tools uncontested. The physical service gate stays sealed across the playable height until the eight-second hold succeeds. Review caught and corrected its premature opening. Cart/hold remain reachable west of the gate; support is never a required hostile target. Actual theatre matches the actions; no mandatory blocking exam remains.
 
-Scope follows ASTRA-STORY-REVIEW.md FE09-B. Preserve eight IDs/prerequisites, old Stirling checkpoint1 access-clear and checkpoint2 hold meanings, parry/flawless spoon positions, assistance, once-only outcomes and original combat. Bridge art and actual collision/path/landing coordinates must agree; optional gap-dash stays earnable. Stirling support must be visibly useful without becoming a counted enemy or hostile required target. No Steve/Rind/rescue/sluice/homecoming changes in this task. No duplicate Astra pass or unchanged baseline tests/soaks. Human/controller/TV and platform gates remain open. Root retains release maximum50v50/100 total;200 deferred.
+Old Stirling checkpoint1/2 reconstruct delivered tools and the appropriate access/hold stage. Eight IDs, prerequisites, spoon positions, old ownership/best/attempts/assistance/receipts, global combat and legacy save shape remain unchanged. Steve, Rind, finale and quiet homecoming are not changed here.
+
+Validation:43/43 affected source tests (campaign31, channel3, theatre4, transitions5), three syntax checks, and CI38545366019 all six configured jobs on attempt1 at this exact freeze. Independent browser evidence retains run01 with35 pass/5 fail, corrections8/2 and result-only correction6/0. Failures were hidden-overlay/scroll-panel assertions and a reload document-lifetime race; targeted corrected checks establish the affected behavior without repeating the passing route suite. Do not sum overlapping runs. Combat stuns/KO, staged dash approach and copied saves are disclosed fixtures, not input-only combat. Full reload preserves historical records. Root verified all53 manifest artifact hashes plus review/harness hashes and unchanged frozen runtime.
+
+Evidence: qa/reviews/channel-support-2026-10-14.md and qa/results/channel-support-2026-10-14/evidence-manifest.json, ci-summary.json. Luna independently cleared final source/evidence. Compact startup banners/HUD overlap some scene content; ordinary-expiry captures show cart/prompt/support counter, while Stirling is partly outside the compact hold view. Human recognition, pacing, physical controllers/TV, WAN/minimum-PC and Steam acceptance remain open. No local native-fault fix is claimed.
+
+| Owner | Model / effort | Completed files and handoff |
+|---|---|---|
+| /root/channel_support_impl | gpt-6.1-sol / high | Campaign/helper/theatre/UI/index and focused tests; source frozen |
+| /root/channel_support_qa | gpt-6.1-sol / medium | Isolated browser harness, dated captures/reports/review; frozen |
+| /root/story_transitions_review | gpt-6-luna / high | Independent read-only source/evidence review; clear with limits |
+| /root | Orchestrator | Hashes, CI, queue/checkpoint and checked PR37 integration |
+
+After verified PR37 merge, next is FE09-C from ASTRA-STORY-REVIEW.md: Steve's food motivation, service route and winch destination using the existing cage/egg/three-gate ride. Do not redo B or passing checks. Continue the small reviewed PR sequence before packaging the coherent FE09 ending at F. Beta.16 remains the latest checked downloadable package; original bakery WIP, normal saves and older exports remain untouched. Maximum50v50/100 total including bots;200 deferred. Native two-sofa and other first-release milestones remain unfinished.
 
 
 ## PR36 approved and merged — 14 October 2026

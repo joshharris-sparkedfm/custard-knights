@@ -1,0 +1,11 @@
+PASS Actual bridge captions describe channel support rather than tests
+PASS Compact 12-theatre-bridge active surface stays inside viewport
+PASS Actual stirling captions describe channel support rather than tests
+PASS Compact 12-theatre-stirling active surface stays inside viewport
+FAIL Compact corrected-result-bridge active surface stays inside viewport
+FAIL Compact corrected-result-stirling active surface stays inside viewport
+PASS Reload retains historical Stirling spoon ownership and provenance
+PASS Compact post-expiry-tools-support active surface stays inside viewport
+PASS Story round completions unique and tied to actual launches
+PASS No uncaught browser exceptions
+C:\Users\Joshua\Documents\Codex\2026-10-08\rea\work\custard-knights-room\qa\results\channel-support-2026-10-14\corrections

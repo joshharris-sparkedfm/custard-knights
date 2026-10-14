@@ -1,0 +1,3755 @@
+{
+  "startedAt": "2026-10-14T09:49:58.475Z",
+  "root": "C:\\Users\\Joshua\\Documents\\Codex\\2026-10-08\\rea\\work\\custard-knights-room",
+  "harness": "C:\\Users\\Joshua\\Documents\\Codex\\2026-10-08\\rea\\work\\custard-knights-room\\qa\\channel-support-browser.cjs",
+  "harnessSha256": "051d772cb46ec81dce6a94c4b3fc80804377eb09093fa339c3a99149e28c873d",
+  "sourceHashes": {
+    "index.html": "e0904ae54bbace909bfae3d963821599c665e2a5c53cb98df12ac42c72711820",
+    "game/campaign.js": "321b0cfada69df1222010c1d1e8b51cf4e6dbd6b0565e036dd446b4d9dd8995a",
+    "game/campaign-ui.js": "a00ca2529125c8900211db65d27c6bbcd2ac773d9e690e2b2ea7efcf2aff8d54",
+    "game/campaign-integration.js": "2b8050791432238cc3ec48cf7a71ca36f9a33ba335b1e3a2a0e730d22b06bbd9",
+    "game/story-scenes.js": "cf2b469e07f817923d37af56f7fa63232a678a9d3dd70c113e85e36df28d42f1",
+    "game/bakery-opening.js": "49204ee38bda412fd62e78348968ce8bdec23f5a9d458d26d01557d5a28f8919",
+    "game/channel-support.js": "64735a3bc5fb17a6e32be1835c10bd84c6c732880eccd950cd3ed3bfa37dd16e"
+  },
+  "checks": [
+    {
+      "name": "Actual bridge captions describe channel support rather than tests",
+      "pass": true,
+      "details": [
+        {
+          "scene": "bridge",
+          "phase": "intro",
+          "caption": "Sir StirlingThe cooling channel runs below these broken landings."
+        },
+        {
+          "scene": "bridge",
+          "phase": "intro",
+          "caption": "RecruitCan we go round the holes?"
+        },
+        {
+          "scene": "bridge",
+          "phase": "intro",
+          "caption": "Sir StirlingBoth outer paths are dry. The tools are waiting on the far approach."
+        },
+        {
+          "scene": "bridge",
+          "phase": "intro",
+          "caption": "Sir StirlingBoth outer paths are dry. The tools are waiting on the far approach."
+        }
+      ]
+    },
+    {
+      "name": "Compact 12-theatre-bridge objective stays inside viewport",
+      "pass": false,
+      "details": {
+        "hud": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0,
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        },
+        "text": "Medium · 0/3 checkpoints · 3 falls left",
+        "scroll": {
+          "width": 800,
+          "height": 500
+        },
+        "viewport": {
+          "width": 800,
+          "height": 500
+        },
+        "visible": false
+      }
+    },
+    {
+      "name": "Actual stirling captions describe channel support rather than tests",
+      "pass": true,
+      "details": [
+        {
+          "scene": "stirling",
+          "phase": "intro",
+          "caption": "Sir StirlingI will hold the north lane. Walk beside the tool cart and stay close."
+        },
+        {
+          "scene": "stirling",
+          "phase": "intro",
+          "caption": "RecruitThe shield raider is blocking the service access."
+        },
+        {
+          "scene": "stirling",
+          "phase": "intro",
+          "caption": "Sir StirlingClear him, then hold the tools while the service door opens."
+        },
+        {
+          "scene": "stirling",
+          "phase": "intro",
+          "caption": "Sir StirlingClear him, then hold the tools while the service door opens."
+        }
+      ]
+    },
+    {
+      "name": "Compact 12-theatre-stirling objective stays inside viewport",
+      "pass": false,
+      "details": {
+        "hud": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0,
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        },
+        "text": "Medium · Advance tools: 0% · Walk beside the cart; stay close",
+        "scroll": {
+          "width": 800,
+          "height": 500
+        },
+        "viewport": {
+          "width": 800,
+          "height": 500
+        },
+        "visible": false
+      }
+    },
+    {
+      "name": "Compact 01-channel-start objective stays inside viewport",
+      "pass": true,
+      "details": {
+        "hud": {
+          "x": 259.15625,
+          "y": 90,
+          "width": 281.6875,
+          "height": 35,
+          "top": 90,
+          "right": 540.84375,
+          "bottom": 125,
+          "left": 259.15625
+        },
+        "text": "Medium · 0/3 checkpoints · 3 falls left",
+        "scroll": {
+          "width": 800,
+          "height": 500
+        },
+        "viewport": {
+          "width": 800,
+          "height": 500
+        },
+        "visible": true
+      }
+    },
+    {
+      "name": "Far gate cannot bypass first gate",
+      "pass": true,
+      "details": {
+        "id": "bridge",
+        "phase": 0,
+        "status": "playing",
+        "route": 0,
+        "hold": 0,
+        "falls": 0,
+        "blocks": 0,
+        "parries": 0,
+        "resumed": false,
+        "zone": {
+          "x": 1100,
+          "y": 440,
+          "r": 70,
+          "label": "Far end"
+        },
+        "checkpoint": {
+          "x": 180,
+          "y": 440
+        },
+        "player": {
+          "x": 1100.416666483521,
+          "y": 431.6373003390478,
+          "hp": 3
+        },
+        "enemies": [],
+        "save": {
+          "version": 1,
+          "results": {
+            "banquet": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "puddings": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "guard": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            }
+          },
+          "selected": "bridge",
+          "assist": false,
+          "difficulty": "medium",
+          "checkpoint": null,
+          "receipts": []
+        },
+        "result": null
+      }
+    },
+    {
+      "name": "Compact 02-channel-first-landing objective stays inside viewport",
+      "pass": true,
+      "details": {
+        "hud": {
+          "x": 259.15625,
+          "y": 90,
+          "width": 281.6875,
+          "height": 35,
+          "top": 90,
+          "right": 540.84375,
+          "bottom": 125,
+          "left": 259.15625
+        },
+        "text": "Medium · 1/3 checkpoints · 3 falls left",
+        "scroll": {
+          "width": 800,
+          "height": 500
+        },
+        "viewport": {
+          "width": 800,
+          "height": 500
+        },
+        "visible": true
+      }
+    },
+    {
+      "name": "Actual safe outer route completes without dash or Biscuit",
+      "pass": true,
+      "details": {
+        "id": "bridge",
+        "phase": 0,
+        "status": "won",
+        "route": 3,
+        "hold": 3.016666666666661,
+        "falls": 0,
+        "blocks": 0,
+        "parries": 0,
+        "resumed": false,
+        "zone": {
+          "x": 1100,
+          "y": 440,
+          "r": 70,
+          "label": "Far end"
+        },
+        "checkpoint": {
+          "x": 1100,
+          "y": 440
+        },
+        "player": {
+          "x": 1097.6,
+          "y": 440.5566978596131,
+          "hp": 3
+        },
+        "enemies": [],
+        "save": {
+          "version": 1,
+          "results": {
+            "banquet": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "puddings": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "guard": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "bridge": {
+              "spoons": [
+                true,
+                true,
+                false
+              ],
+              "attempts": 1,
+              "best": 23.083333333333304,
+              "assisted": false
+            }
+          },
+          "selected": "stirling",
+          "assist": false,
+          "difficulty": "medium",
+          "checkpoint": null,
+          "receipts": [
+            "a5064eeb-f064-47ac-a2ad-338614c16c2a:bridge:3"
+          ]
+        },
+        "result": {
+          "id": "bridge",
+          "won": true,
+          "reason": "",
+          "spoons": [
+            true,
+            true,
+            false
+          ],
+          "added": [
+            0,
+            1
+          ],
+          "elapsed": 23.083333333333304,
+          "assisted": false,
+          "outro": [
+            "The cooling channel is crossed. The cooks' tools are waiting at the service approach.",
+            "Sir Stirling: I'll cover the pursuer lane. Bring those tools forward."
+          ],
+          "next": "stirling",
+          "checkpoint": null
+        }
+      }
+    },
+    {
+      "name": "Channel repeated finish keeps rewards and receipts unchanged",
+      "pass": true
+    },
+    {
+      "name": "Compact 03-channel-safe-result objective stays inside viewport",
+      "pass": false,
+      "details": {
+        "hud": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0,
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        },
+        "text": "Medium · Far end: 3.0/3s",
+        "scroll": {
+          "width": 800,
+          "height": 500
+        },
+        "viewport": {
+          "width": 800,
+          "height": 500
+        },
+        "visible": false
+      }
+    },
+    {
+      "name": "Real movement into pit restores first landing checkpoint",
+      "pass": true,
+      "details": {
+        "id": "bridge",
+        "phase": 0,
+        "status": "playing",
+        "route": 1,
+        "hold": 0,
+        "falls": 1,
+        "blocks": 0,
+        "parries": 0,
+        "resumed": false,
+        "zone": {
+          "x": 1100,
+          "y": 440,
+          "r": 70,
+          "label": "Far end"
+        },
+        "checkpoint": {
+          "x": 440,
+          "y": 440
+        },
+        "player": {
+          "x": 440,
+          "y": 440,
+          "hp": 3
+        },
+        "enemies": [],
+        "save": {
+          "version": 1,
+          "results": {
+            "banquet": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "puddings": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "guard": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            }
+          },
+          "selected": "bridge",
+          "assist": false,
+          "difficulty": "medium",
+          "checkpoint": null,
+          "receipts": []
+        },
+        "result": null
+      }
+    },
+    {
+      "name": "Compact 04-channel-recovered objective stays inside viewport",
+      "pass": true,
+      "details": {
+        "hud": {
+          "x": 259.15625,
+          "y": 90,
+          "width": 281.6875,
+          "height": 35,
+          "top": 90,
+          "right": 540.84375,
+          "bottom": 125,
+          "left": 259.15625
+        },
+        "text": "Medium · 1/3 checkpoints · 2 falls left",
+        "scroll": {
+          "width": 800,
+          "height": 500
+        },
+        "viewport": {
+          "width": 800,
+          "height": 500
+        },
+        "visible": true
+      }
+    },
+    {
+      "name": "Actual dash across marked pit records optional spoon evidence",
+      "pass": true,
+      "details": {
+        "id": "bridge",
+        "phase": 0,
+        "status": "playing",
+        "route": 1,
+        "hold": 0,
+        "falls": 0,
+        "blocks": 0,
+        "parries": 0,
+        "resumed": false,
+        "zone": {
+          "x": 1100,
+          "y": 440,
+          "r": 70,
+          "label": "Far end"
+        },
+        "checkpoint": {
+          "x": 440,
+          "y": 440
+        },
+        "player": {
+          "x": 534.3570859569029,
+          "y": 440,
+          "hp": 3
+        },
+        "enemies": [],
+        "save": {
+          "version": 1,
+          "results": {
+            "banquet": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "puddings": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "guard": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            }
+          },
+          "selected": "bridge",
+          "assist": false,
+          "difficulty": "medium",
+          "checkpoint": null,
+          "receipts": []
+        },
+        "result": null
+      }
+    },
+    {
+      "name": "Compact 05-channel-gap-dash objective stays inside viewport",
+      "pass": true,
+      "details": {
+        "hud": {
+          "x": 259.15625,
+          "y": 90,
+          "width": 281.6875,
+          "height": 35,
+          "top": 90,
+          "right": 540.84375,
+          "bottom": 125,
+          "left": 259.15625
+        },
+        "text": "Medium · 1/3 checkpoints · 3 falls left",
+        "scroll": {
+          "width": 800,
+          "height": 500
+        },
+        "viewport": {
+          "width": 800,
+          "height": 500
+        },
+        "visible": true
+      }
+    },
+    {
+      "name": "Compact 06-tools-start objective stays inside viewport",
+      "pass": true,
+      "details": {
+        "hud": {
+          "x": 208,
+          "y": 90,
+          "width": 384,
+          "height": 54,
+          "top": 90,
+          "right": 592,
+          "bottom": 144,
+          "left": 208
+        },
+        "text": "Medium · Advance tools: 0% · Walk beside the cart; stay close",
+        "scroll": {
+          "width": 800,
+          "height": 500
+        },
+        "viewport": {
+          "width": 800,
+          "height": 500
+        },
+        "visible": true
+      }
+    },
+    {
+      "name": "Stirling is supporting scenery, never hostile damage target",
+      "pass": true,
+      "details": {
+        "id": "stirling",
+        "phase": 0,
+        "status": "playing",
+        "route": 0,
+        "hold": 0,
+        "falls": 0,
+        "blocks": 0,
+        "parries": 0,
+        "resumed": false,
+        "tools": {
+          "x": 340,
+          "y": 440,
+          "delivered": false,
+          "waiting": true
+        },
+        "support": {
+          "x": 360,
+          "y": 300,
+          "pursuerX": 181.33333333333363,
+          "blocked": 0,
+          "flash": 0,
+          "covering": true
+        },
+        "accessClear": false,
+        "serviceOpen": false,
+        "checkpoint": {
+          "x": 180,
+          "y": 440
+        },
+        "player": {
+          "x": 180,
+          "y": 440,
+          "hp": 3
+        },
+        "enemies": [],
+        "save": {
+          "version": 1,
+          "results": {
+            "banquet": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "puddings": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "guard": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "bridge": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            }
+          },
+          "selected": "stirling",
+          "assist": false,
+          "difficulty": "medium",
+          "checkpoint": null,
+          "receipts": []
+        },
+        "result": null
+      }
+    },
+    {
+      "name": "Support visibly prevents a pursuer arrival",
+      "pass": true,
+      "details": {
+        "x": 360,
+        "y": 300,
+        "pursuerX": 212.0000000000005,
+        "blocked": 2,
+        "flash": 0,
+        "covering": true
+      }
+    },
+    {
+      "name": "Actual player movement delivers tools with zero blocks",
+      "pass": true,
+      "details": {
+        "id": "stirling",
+        "phase": 1,
+        "status": "playing",
+        "route": 0,
+        "hold": 0,
+        "falls": 0,
+        "blocks": 0,
+        "parries": 0,
+        "resumed": false,
+        "tools": {
+          "x": 720,
+          "y": 440,
+          "delivered": true,
+          "waiting": true
+        },
+        "support": {
+          "x": 360,
+          "y": 300,
+          "pursuerX": 212.0000000000005,
+          "blocked": 2,
+          "flash": 0,
+          "covering": true
+        },
+        "accessClear": false,
+        "serviceOpen": false,
+        "checkpoint": {
+          "x": 180,
+          "y": 440
+        },
+        "player": {
+          "x": 758.9518331131028,
+          "y": 440,
+          "hp": 3
+        },
+        "enemies": [
+          {
+            "id": 1,
+            "name": "Service access raider",
+            "role": "shield",
+            "dead": false,
+            "x": 796.3518331131028,
+            "y": 440
+          }
+        ],
+        "save": {
+          "version": 1,
+          "results": {
+            "banquet": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "puddings": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "guard": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "bridge": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            }
+          },
+          "selected": "stirling",
+          "assist": false,
+          "difficulty": "medium",
+          "checkpoint": {
+            "id": "stirling",
+            "phase": 1
+          },
+          "receipts": []
+        },
+        "result": null
+      }
+    },
+    {
+      "name": "Access stage requires named shield raider, not ally",
+      "pass": true,
+      "details": {
+        "id": "stirling",
+        "phase": 1,
+        "status": "playing",
+        "route": 0,
+        "hold": 0,
+        "falls": 0,
+        "blocks": 0,
+        "parries": 0,
+        "resumed": false,
+        "tools": {
+          "x": 720,
+          "y": 440,
+          "delivered": true,
+          "waiting": true
+        },
+        "support": {
+          "x": 360,
+          "y": 300,
+          "pursuerX": 212.0000000000005,
+          "blocked": 2,
+          "flash": 0,
+          "covering": true
+        },
+        "accessClear": false,
+        "serviceOpen": false,
+        "checkpoint": {
+          "x": 180,
+          "y": 440
+        },
+        "player": {
+          "x": 758.9518331131028,
+          "y": 440,
+          "hp": 3
+        },
+        "enemies": [
+          {
+            "id": 1,
+            "name": "Service access raider",
+            "role": "shield",
+            "dead": false,
+            "x": 796.3518331131028,
+            "y": 440
+          }
+        ],
+        "save": {
+          "version": 1,
+          "results": {
+            "banquet": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "puddings": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "guard": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "bridge": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            }
+          },
+          "selected": "stirling",
+          "assist": false,
+          "difficulty": "medium",
+          "checkpoint": {
+            "id": "stirling",
+            "phase": 1
+          },
+          "receipts": []
+        },
+        "result": null
+      }
+    },
+    {
+      "name": "Compact 07-access-defender objective stays inside viewport",
+      "pass": true,
+      "details": {
+        "hud": {
+          "x": 208,
+          "y": 90,
+          "width": 384,
+          "height": 54,
+          "top": 90,
+          "right": 592,
+          "bottom": 144,
+          "left": 208
+        },
+        "text": "Medium · Tools delivered · Bonk the service access raider",
+        "scroll": {
+          "width": 800,
+          "height": 500
+        },
+        "viewport": {
+          "width": 800,
+          "height": 500
+        },
+        "visible": true
+      }
+    },
+    {
+      "name": "Final service door remains physically closed during hold",
+      "pass": true,
+      "details": {
+        "id": "stirling",
+        "phase": 2,
+        "status": "playing",
+        "route": 0,
+        "hold": 0.06666666666666667,
+        "falls": 0,
+        "blocks": 0,
+        "parries": 0,
+        "resumed": false,
+        "tools": {
+          "x": 720,
+          "y": 440,
+          "delivered": true,
+          "waiting": true
+        },
+        "support": {
+          "x": 360,
+          "y": 300,
+          "pursuerX": 258.6666666666674,
+          "blocked": 2,
+          "flash": 0,
+          "covering": true
+        },
+        "accessClear": true,
+        "serviceOpen": false,
+        "zone": {
+          "x": 720,
+          "y": 440,
+          "r": 85,
+          "label": "Hold the tools"
+        },
+        "checkpoint": {
+          "x": 180,
+          "y": 440
+        },
+        "player": {
+          "x": 760.7231021325466,
+          "y": 440,
+          "hp": 3
+        },
+        "enemies": [
+          {
+            "id": 1,
+            "name": "Service pursuer",
+            "role": "raider",
+            "dead": false,
+            "x": 604.7821535600199,
+            "y": 333.2729388906914
+          },
+          {
+            "id": 2,
+            "name": "Service pursuer",
+            "role": "raider",
+            "dead": false,
+            "x": 604.7821535600199,
+            "y": 546.7270611093086
+          }
+        ],
+        "save": {
+          "version": 1,
+          "results": {
+            "banquet": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "puddings": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "guard": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "bridge": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            }
+          },
+          "selected": "stirling",
+          "assist": false,
+          "difficulty": "medium",
+          "checkpoint": {
+            "id": "stirling",
+            "phase": 2
+          },
+          "receipts": []
+        },
+        "result": null
+      }
+    },
+    {
+      "name": "Compact 08-tool-hold objective stays inside viewport",
+      "pass": true,
+      "details": {
+        "hud": {
+          "x": 279.921875,
+          "y": 90,
+          "width": 240.15625,
+          "height": 35,
+          "top": 90,
+          "right": 520.078125,
+          "bottom": 125,
+          "left": 279.921875
+        },
+        "text": "Medium · Hold the tools: 0.6/8s",
+        "scroll": {
+          "width": 800,
+          "height": 500
+        },
+        "viewport": {
+          "width": 800,
+          "height": 500
+        },
+        "visible": true
+      }
+    },
+    {
+      "name": "Access wall has no north or south floor shortcut",
+      "pass": true,
+      "details": {
+        "id": "stirling",
+        "phase": 2,
+        "status": "playing",
+        "route": 0,
+        "hold": 0.5666666666666668,
+        "falls": 0,
+        "blocks": 0,
+        "parries": 0,
+        "resumed": false,
+        "tools": {
+          "x": 720,
+          "y": 440,
+          "delivered": true,
+          "waiting": true
+        },
+        "support": {
+          "x": 360,
+          "y": 300,
+          "pursuerX": 298.66666666666686,
+          "blocked": 2,
+          "flash": 0,
+          "covering": true
+        },
+        "accessClear": true,
+        "serviceOpen": false,
+        "zone": {
+          "x": 720,
+          "y": 440,
+          "r": 85,
+          "label": "Hold the tools"
+        },
+        "checkpoint": {
+          "x": 180,
+          "y": 440
+        },
+        "player": {
+          "x": 760.7231021325466,
+          "y": 440,
+          "hp": 3
+        },
+        "enemies": [
+          {
+            "id": 1,
+            "name": "Service pursuer",
+            "role": "raider",
+            "dead": false,
+            "x": 619.3680892293451,
+            "y": 343.25565389766433
+          },
+          {
+            "id": 2,
+            "name": "Service pursuer",
+            "role": "raider",
+            "dead": false,
+            "x": 619.3680892293451,
+            "y": 536.7443461023357
+          }
+        ],
+        "save": {
+          "version": 1,
+          "results": {
+            "banquet": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "puddings": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "guard": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "bridge": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            }
+          },
+          "selected": "stirling",
+          "assist": false,
+          "difficulty": "medium",
+          "checkpoint": {
+            "id": "stirling",
+            "phase": 2
+          },
+          "receipts": []
+        },
+        "result": null
+      }
+    },
+    {
+      "name": "Actual movement collides with closed service gate before hold",
+      "pass": true,
+      "details": {
+        "id": "stirling",
+        "phase": 2,
+        "status": "playing",
+        "route": 0,
+        "hold": 0,
+        "falls": 0,
+        "blocks": 0,
+        "parries": 0,
+        "resumed": false,
+        "tools": {
+          "x": 720,
+          "y": 440,
+          "delivered": true,
+          "waiting": true
+        },
+        "support": {
+          "x": 360,
+          "y": 300,
+          "pursuerX": 200.00000000000043,
+          "blocked": 3,
+          "flash": 0,
+          "covering": true
+        },
+        "accessClear": true,
+        "serviceOpen": false,
+        "zone": {
+          "x": 720,
+          "y": 440,
+          "r": 85,
+          "label": "Hold the tools"
+        },
+        "checkpoint": {
+          "x": 180,
+          "y": 440
+        },
+        "player": {
+          "x": 822.4,
+          "y": 440,
+          "hp": 3
+        },
+        "enemies": [
+          {
+            "id": 1,
+            "name": "Service pursuer",
+            "role": "raider",
+            "dead": false,
+            "x": 620.0118103321322,
+            "y": 343.69622106173125
+          },
+          {
+            "id": 2,
+            "name": "Service pursuer",
+            "role": "raider",
+            "dead": false,
+            "x": 620.0118103321322,
+            "y": 536.3037789382691
+          }
+        ],
+        "save": {
+          "version": 1,
+          "results": {
+            "banquet": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "puddings": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "guard": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "bridge": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            }
+          },
+          "selected": "stirling",
+          "assist": false,
+          "difficulty": "medium",
+          "checkpoint": {
+            "id": "stirling",
+            "phase": 2
+          },
+          "receipts": []
+        },
+        "result": null
+      }
+    },
+    {
+      "name": "Leaving tools resets continuous hold",
+      "pass": true,
+      "details": {
+        "id": "stirling",
+        "phase": 2,
+        "status": "playing",
+        "route": 0,
+        "hold": 0,
+        "falls": 0,
+        "blocks": 0,
+        "parries": 0,
+        "resumed": false,
+        "tools": {
+          "x": 720,
+          "y": 440,
+          "delivered": true,
+          "waiting": true
+        },
+        "support": {
+          "x": 360,
+          "y": 300,
+          "pursuerX": 196.0000000000004,
+          "blocked": 4,
+          "flash": 0,
+          "covering": true
+        },
+        "accessClear": true,
+        "serviceOpen": false,
+        "zone": {
+          "x": 720,
+          "y": 440,
+          "r": 85,
+          "label": "Hold the tools"
+        },
+        "checkpoint": {
+          "x": 180,
+          "y": 440
+        },
+        "player": {
+          "x": 548.763998575049,
+          "y": 440,
+          "hp": 3
+        },
+        "enemies": [
+          {
+            "id": 1,
+            "name": "Service pursuer",
+            "role": "raider",
+            "dead": false,
+            "x": 1150.0019649825747,
+            "y": 638.7012103626378
+          },
+          {
+            "id": 2,
+            "name": "Service pursuer",
+            "role": "raider",
+            "dead": false,
+            "x": 1150.0019649825747,
+            "y": 601.2987896373622
+          }
+        ],
+        "save": {
+          "version": 1,
+          "results": {
+            "banquet": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "puddings": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "guard": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "bridge": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            }
+          },
+          "selected": "stirling",
+          "assist": false,
+          "difficulty": "medium",
+          "checkpoint": {
+            "id": "stirling",
+            "phase": 2
+          },
+          "receipts": []
+        },
+        "result": null
+      }
+    },
+    {
+      "name": "Contested tools reset hold rather than banking progress",
+      "pass": true,
+      "details": {
+        "id": "stirling",
+        "phase": 2,
+        "status": "playing",
+        "route": 0,
+        "hold": 0,
+        "falls": 0,
+        "blocks": 0,
+        "parries": 0,
+        "resumed": false,
+        "tools": {
+          "x": 720,
+          "y": 440,
+          "delivered": true,
+          "waiting": true
+        },
+        "support": {
+          "x": 360,
+          "y": 300,
+          "pursuerX": 286.666666666667,
+          "blocked": 4,
+          "flash": 0,
+          "covering": true
+        },
+        "accessClear": true,
+        "serviceOpen": false,
+        "zone": {
+          "x": 720,
+          "y": 440,
+          "r": 85,
+          "label": "Hold the tools"
+        },
+        "checkpoint": {
+          "x": 180,
+          "y": 440
+        },
+        "player": {
+          "x": 719.0723919917019,
+          "y": 440,
+          "hp": 3
+        },
+        "enemies": [
+          {
+            "id": 1,
+            "name": "Service pursuer",
+            "role": "raider",
+            "dead": false,
+            "x": 756.472391991702,
+            "y": 440.0000000000045
+          },
+          {
+            "id": 2,
+            "name": "Service pursuer",
+            "role": "raider",
+            "dead": false,
+            "x": 1150.0019649859435,
+            "y": 601.298789635056
+          }
+        ],
+        "save": {
+          "version": 1,
+          "results": {
+            "banquet": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "puddings": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "guard": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "bridge": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            }
+          },
+          "selected": "stirling",
+          "assist": false,
+          "difficulty": "medium",
+          "checkpoint": {
+            "id": "stirling",
+            "phase": 2
+          },
+          "receipts": []
+        },
+        "result": null
+      }
+    },
+    {
+      "name": "Compact 11-contested-tool-hold objective stays inside viewport",
+      "pass": true,
+      "details": {
+        "hud": {
+          "x": 216.34375,
+          "y": 90,
+          "width": 367.3125,
+          "height": 35,
+          "top": 90,
+          "right": 583.65625,
+          "bottom": 125,
+          "left": 216.34375
+        },
+        "text": "Medium · Tools contested - clear the circle · 0.0/8s",
+        "scroll": {
+          "width": 800,
+          "height": 500
+        },
+        "viewport": {
+          "width": 800,
+          "height": 500
+        },
+        "visible": true
+      }
+    },
+    {
+      "name": "Completed hold opens actual final service route",
+      "pass": true,
+      "details": {
+        "id": "stirling",
+        "phase": 2,
+        "status": "won",
+        "route": 0,
+        "hold": 8,
+        "falls": 0,
+        "blocks": 0,
+        "parries": 0,
+        "resumed": false,
+        "tools": {
+          "x": 720,
+          "y": 440,
+          "delivered": true,
+          "waiting": true
+        },
+        "support": {
+          "x": 360,
+          "y": 300,
+          "pursuerX": 280.00000000000045,
+          "blocked": 8,
+          "flash": 0,
+          "covering": true
+        },
+        "accessClear": true,
+        "serviceOpen": true,
+        "zone": {
+          "x": 720,
+          "y": 440,
+          "r": 85,
+          "label": "Hold the tools"
+        },
+        "checkpoint": {
+          "x": 180,
+          "y": 440
+        },
+        "player": {
+          "x": 719.0833371113899,
+          "y": 440,
+          "hp": 3
+        },
+        "enemies": [
+          {
+            "id": 1,
+            "name": "Service pursuer",
+            "role": "raider",
+            "dead": false,
+            "x": 1150,
+            "y": 620
+          },
+          {
+            "id": 2,
+            "name": "Service pursuer",
+            "role": "raider",
+            "dead": false,
+            "x": 1150,
+            "y": 620
+          }
+        ],
+        "save": {
+          "version": 1,
+          "results": {
+            "banquet": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "puddings": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "guard": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "bridge": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "stirling": {
+              "spoons": [
+                true,
+                false,
+                true
+              ],
+              "attempts": 1,
+              "best": 18.950000000000205,
+              "assisted": false
+            }
+          },
+          "selected": "steve",
+          "assist": false,
+          "difficulty": "medium",
+          "checkpoint": null,
+          "receipts": [
+            "20350e5f-b209-4355-81c7-5142c394e976:stirling:6"
+          ]
+        },
+        "result": {
+          "id": "stirling",
+          "won": true,
+          "reason": "",
+          "spoons": [
+            true,
+            false,
+            true
+          ],
+          "added": [
+            0,
+            2
+          ],
+          "elapsed": 18.950000000000205,
+          "assisted": false,
+          "outro": [
+            "Sir Stirling: The tools are through. The service route is open.",
+            "A distant BAWK comes from the shed beside the route."
+          ],
+          "next": "steve",
+          "checkpoint": null
+        }
+      }
+    },
+    {
+      "name": "Support can complete with zero mandatory blocks and optional parry unearned",
+      "pass": true,
+      "details": {
+        "id": "stirling",
+        "phase": 2,
+        "status": "won",
+        "route": 0,
+        "hold": 8,
+        "falls": 0,
+        "blocks": 0,
+        "parries": 0,
+        "resumed": false,
+        "tools": {
+          "x": 720,
+          "y": 440,
+          "delivered": true,
+          "waiting": true
+        },
+        "support": {
+          "x": 360,
+          "y": 300,
+          "pursuerX": 280.00000000000045,
+          "blocked": 8,
+          "flash": 0,
+          "covering": true
+        },
+        "accessClear": true,
+        "serviceOpen": true,
+        "zone": {
+          "x": 720,
+          "y": 440,
+          "r": 85,
+          "label": "Hold the tools"
+        },
+        "checkpoint": {
+          "x": 180,
+          "y": 440
+        },
+        "player": {
+          "x": 719.0833371113899,
+          "y": 440,
+          "hp": 3
+        },
+        "enemies": [
+          {
+            "id": 1,
+            "name": "Service pursuer",
+            "role": "raider",
+            "dead": false,
+            "x": 1150,
+            "y": 620
+          },
+          {
+            "id": 2,
+            "name": "Service pursuer",
+            "role": "raider",
+            "dead": false,
+            "x": 1150,
+            "y": 620
+          }
+        ],
+        "save": {
+          "version": 1,
+          "results": {
+            "banquet": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "puddings": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "guard": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "bridge": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "stirling": {
+              "spoons": [
+                true,
+                false,
+                true
+              ],
+              "attempts": 1,
+              "best": 18.950000000000205,
+              "assisted": false
+            }
+          },
+          "selected": "steve",
+          "assist": false,
+          "difficulty": "medium",
+          "checkpoint": null,
+          "receipts": [
+            "20350e5f-b209-4355-81c7-5142c394e976:stirling:6"
+          ]
+        },
+        "result": {
+          "id": "stirling",
+          "won": true,
+          "reason": "",
+          "spoons": [
+            true,
+            false,
+            true
+          ],
+          "added": [
+            0,
+            2
+          ],
+          "elapsed": 18.950000000000205,
+          "assisted": false,
+          "outro": [
+            "Sir Stirling: The tools are through. The service route is open.",
+            "A distant BAWK comes from the shed beside the route."
+          ],
+          "next": "steve",
+          "checkpoint": null
+        }
+      }
+    },
+    {
+      "name": "Support outcome rewards and receipt apply once",
+      "pass": true
+    },
+    {
+      "name": "Compact 09-support-result objective stays inside viewport",
+      "pass": false,
+      "details": {
+        "hud": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0,
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        },
+        "text": "Medium · Hold the tools: 8.0/8s",
+        "scroll": {
+          "width": 800,
+          "height": 500
+        },
+        "viewport": {
+          "width": 800,
+          "height": 500
+        },
+        "visible": false
+      }
+    },
+    {
+      "name": "Legacy phase 1 reconstructs accomplished tools and supporting Stirling",
+      "pass": true,
+      "details": {
+        "id": "stirling",
+        "phase": 1,
+        "status": "playing",
+        "route": 0,
+        "hold": 0,
+        "falls": 0,
+        "blocks": 0,
+        "parries": 0,
+        "resumed": true,
+        "tools": {
+          "x": 720,
+          "y": 440,
+          "delivered": true,
+          "waiting": true
+        },
+        "support": {
+          "x": 360,
+          "y": 300,
+          "pursuerX": 141.33333333333334,
+          "blocked": 0,
+          "flash": 0,
+          "covering": true
+        },
+        "accessClear": false,
+        "serviceOpen": false,
+        "checkpoint": {
+          "x": 180,
+          "y": 440
+        },
+        "player": {
+          "x": 180,
+          "y": 440,
+          "hp": 3
+        },
+        "enemies": [
+          {
+            "id": 1,
+            "name": "Service access raider",
+            "role": "shield",
+            "dead": false,
+            "x": 779.7326875,
+            "y": 440
+          }
+        ],
+        "save": {
+          "version": 1,
+          "results": {
+            "banquet": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "puddings": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "guard": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "bridge": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            }
+          },
+          "selected": "stirling",
+          "assist": false,
+          "difficulty": "medium",
+          "checkpoint": {
+            "id": "stirling",
+            "phase": 1
+          },
+          "receipts": []
+        },
+        "result": null
+      }
+    },
+    {
+      "name": "Compact 10-restored-phase-1 objective stays inside viewport",
+      "pass": true,
+      "details": {
+        "hud": {
+          "x": 208,
+          "y": 90,
+          "width": 384,
+          "height": 54,
+          "top": 90,
+          "right": 592,
+          "bottom": 144,
+          "left": 208
+        },
+        "text": "Medium · Tools delivered · Bonk the service access raider",
+        "scroll": {
+          "width": 800,
+          "height": 500
+        },
+        "viewport": {
+          "width": 800,
+          "height": 500
+        },
+        "visible": true
+      }
+    },
+    {
+      "name": "Resumed phase 1 cannot earn fresh flawless spoon",
+      "pass": true,
+      "details": {
+        "id": "stirling",
+        "phase": 2,
+        "status": "won",
+        "route": 0,
+        "hold": 8,
+        "falls": 0,
+        "blocks": 0,
+        "parries": 0,
+        "resumed": true,
+        "tools": {
+          "x": 720,
+          "y": 440,
+          "delivered": true,
+          "waiting": true
+        },
+        "support": {
+          "x": 360,
+          "y": 300,
+          "pursuerX": 300.00000000000017,
+          "blocked": 4,
+          "flash": 0,
+          "covering": true
+        },
+        "accessClear": true,
+        "serviceOpen": true,
+        "zone": {
+          "x": 720,
+          "y": 440,
+          "r": 85,
+          "label": "Hold the tools"
+        },
+        "checkpoint": {
+          "x": 180,
+          "y": 440
+        },
+        "player": {
+          "x": 720.4999999999991,
+          "y": 440,
+          "hp": 3
+        },
+        "enemies": [
+          {
+            "id": 1,
+            "name": "Service pursuer",
+            "role": "raider",
+            "dead": false,
+            "x": 1132.1448361059063,
+            "y": 642.9087172036079
+          },
+          {
+            "id": 2,
+            "name": "Service pursuer",
+            "role": "raider",
+            "dead": false,
+            "x": 1132.1448361059063,
+            "y": 597.0912827963921
+          }
+        ],
+        "save": {
+          "version": 1,
+          "results": {
+            "banquet": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "puddings": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "guard": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "bridge": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "stirling": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 10.600000000000106,
+              "assisted": false
+            }
+          },
+          "selected": "steve",
+          "assist": false,
+          "difficulty": "medium",
+          "checkpoint": null,
+          "receipts": [
+            "34fcee0b-9d77-4419-9235-d673fa04929d:stirling:7"
+          ]
+        },
+        "result": {
+          "id": "stirling",
+          "won": true,
+          "reason": "",
+          "spoons": [
+            true,
+            false,
+            false
+          ],
+          "added": [
+            0
+          ],
+          "elapsed": 10.600000000000106,
+          "assisted": false,
+          "outro": [
+            "Sir Stirling: The tools are through. The service route is open.",
+            "A distant BAWK comes from the shed beside the route."
+          ],
+          "next": "steve",
+          "checkpoint": null
+        }
+      }
+    },
+    {
+      "name": "Legacy phase 2 reconstructs accomplished tools and supporting Stirling",
+      "pass": true,
+      "details": {
+        "id": "stirling",
+        "phase": 2,
+        "status": "playing",
+        "route": 0,
+        "hold": 0,
+        "falls": 0,
+        "blocks": 0,
+        "parries": 0,
+        "resumed": true,
+        "tools": {
+          "x": 720,
+          "y": 440,
+          "delivered": true,
+          "waiting": true
+        },
+        "support": {
+          "x": 360,
+          "y": 300,
+          "pursuerX": 141.33333333333334,
+          "blocked": 0,
+          "flash": 0,
+          "covering": true
+        },
+        "accessClear": true,
+        "serviceOpen": false,
+        "zone": {
+          "x": 720,
+          "y": 440,
+          "r": 85,
+          "label": "Hold the tools"
+        },
+        "checkpoint": {
+          "x": 180,
+          "y": 440
+        },
+        "player": {
+          "x": 180,
+          "y": 440,
+          "hp": 5
+        },
+        "enemies": [
+          {
+            "id": 1,
+            "name": "Service pursuer",
+            "role": "raider",
+            "dead": false,
+            "x": 599.2927434189064,
+            "y": 330.1852338664769
+          },
+          {
+            "id": 2,
+            "name": "Service pursuer",
+            "role": "raider",
+            "dead": false,
+            "x": 599.2927434189064,
+            "y": 549.8147661335231
+          }
+        ],
+        "save": {
+          "version": 1,
+          "results": {
+            "banquet": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "puddings": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "guard": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "bridge": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            }
+          },
+          "selected": "stirling",
+          "assist": true,
+          "difficulty": "medium",
+          "checkpoint": {
+            "id": "stirling",
+            "phase": 2
+          },
+          "receipts": []
+        },
+        "result": null
+      }
+    },
+    {
+      "name": "Compact 10-restored-phase-2 objective stays inside viewport",
+      "pass": true,
+      "details": {
+        "hud": {
+          "x": 279.921875,
+          "y": 90,
+          "width": 240.15625,
+          "height": 35,
+          "top": 90,
+          "right": 520.078125,
+          "bottom": 125,
+          "left": 279.921875
+        },
+        "text": "Medium · Hold the tools: 0.0/8s",
+        "scroll": {
+          "width": 800,
+          "height": 500
+        },
+        "viewport": {
+          "width": 800,
+          "height": 500
+        },
+        "visible": true
+      }
+    },
+    {
+      "name": "Resumed phase 2 cannot earn fresh flawless spoon",
+      "pass": true,
+      "details": {
+        "id": "stirling",
+        "phase": 2,
+        "status": "won",
+        "route": 0,
+        "hold": 8,
+        "falls": 0,
+        "blocks": 0,
+        "parries": 0,
+        "resumed": true,
+        "tools": {
+          "x": 720,
+          "y": 440,
+          "delivered": true,
+          "waiting": true
+        },
+        "support": {
+          "x": 360,
+          "y": 300,
+          "pursuerX": 293.3333333333336,
+          "blocked": 4,
+          "flash": 0,
+          "covering": true
+        },
+        "accessClear": true,
+        "serviceOpen": true,
+        "zone": {
+          "x": 720,
+          "y": 440,
+          "r": 85,
+          "label": "Hold the tools"
+        },
+        "checkpoint": {
+          "x": 180,
+          "y": 440
+        },
+        "player": {
+          "x": 720.4999999999991,
+          "y": 440,
+          "hp": 5
+        },
+        "enemies": [
+          {
+            "id": 1,
+            "name": "Service pursuer",
+            "role": "raider",
+            "dead": false,
+            "x": 1149.7301671689668,
+            "y": 638.7636034530288
+          },
+          {
+            "id": 2,
+            "name": "Service pursuer",
+            "role": "raider",
+            "dead": false,
+            "x": 1149.7301671689668,
+            "y": 601.2363965469712
+          }
+        ],
+        "save": {
+          "version": 1,
+          "results": {
+            "banquet": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "puddings": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "guard": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "bridge": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "stirling": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 10.516666666666769,
+              "assisted": true
+            }
+          },
+          "selected": "steve",
+          "assist": true,
+          "difficulty": "medium",
+          "checkpoint": null,
+          "receipts": [
+            "be2b2e6e-a3bd-4e04-8dd8-d698475ec295:stirling:8"
+          ]
+        },
+        "result": {
+          "id": "stirling",
+          "won": true,
+          "reason": "",
+          "spoons": [
+            true,
+            false,
+            false
+          ],
+          "added": [
+            0
+          ],
+          "elapsed": 10.516666666666769,
+          "assisted": true,
+          "outro": [
+            "Sir Stirling: The tools are through. The service route is open.",
+            "A distant BAWK comes from the shed beside the route."
+          ],
+          "next": "steve",
+          "checkpoint": null
+        }
+      }
+    },
+    {
+      "name": "Reload retains historical Stirling spoon ownership and provenance",
+      "pass": false,
+      "details": {
+        "player": null,
+        "enemies": [
+          {
+            "id": 0,
+            "name": "Squire Squish",
+            "dead": false,
+            "x": 79.23363114423819,
+            "y": 720.7663688557619
+          },
+          {
+            "id": 1,
+            "name": "Baron Von Bap",
+            "dead": false,
+            "x": 360.7663688557618,
+            "y": 159.23363114423822
+          },
+          {
+            "id": 2,
+            "name": "Duchess Dumpling",
+            "dead": false,
+            "x": 79.2336311442382,
+            "y": 159.2336311442382
+          },
+          {
+            "id": 3,
+            "name": "Sir Loin",
+            "dead": false,
+            "x": 1200.7663688557616,
+            "y": 720.7663688557619
+          },
+          {
+            "id": 4,
+            "name": "Dame Crumpet",
+            "dead": false,
+            "x": 919.2336311442381,
+            "y": 720.7663688557619
+          },
+          {
+            "id": 5,
+            "name": "Lord Nibbles",
+            "dead": false,
+            "x": 360.7663688557618,
+            "y": 720.7663688557619
+          },
+          {
+            "id": 6,
+            "name": "Sir Render",
+            "dead": false,
+            "x": 1200.7663688557616,
+            "y": 159.23363114423822
+          },
+          {
+            "id": 7,
+            "name": "Sir Cumference",
+            "dead": false,
+            "x": 881.3520323072996,
+            "y": 151.68105357288033
+          }
+        ],
+        "save": {
+          "version": 1,
+          "results": {},
+          "selected": "banquet",
+          "assist": false,
+          "difficulty": "medium",
+          "checkpoint": null,
+          "receipts": []
+        }
+      }
+    },
+    {
+      "name": "Story round completions unique and tied to actual launches",
+      "pass": true,
+      "details": {
+        "starts": [],
+        "ends": []
+      }
+    },
+    {
+      "name": "No uncaught browser exceptions",
+      "pass": true,
+      "details": []
+    }
+  ],
+  "errors": [],
+  "inputs": [
+    {
+      "type": "mouseClick",
+      "scope": "#campaignStory",
+      "text": "Back to map"
+    },
+    {
+      "type": "mouseClick",
+      "scope": "#campaignStory",
+      "text": "Back to map"
+    },
+    {
+      "type": "keyDown",
+      "code": "KeyW"
+    },
+    {
+      "type": "keyUp",
+      "code": "KeyW"
+    },
+    {
+      "type": "keyDown",
+      "code": "KeyD"
+    },
+    {
+      "type": "keyUp",
+      "code": "KeyD"
+    },
+    {
+      "type": "keyDown",
+      "code": "KeyS"
+    },
+    {
+      "type": "keyUp",
+      "code": "KeyS"
+    },
+    {
+      "type": "keyDown",
+      "code": "KeyW"
+    },
+    {
+      "type": "keyUp",
+      "code": "KeyW"
+    },
+    {
+      "type": "keyDown",
+      "code": "KeyA"
+    },
+    {
+      "type": "keyUp",
+      "code": "KeyA"
+    },
+    {
+      "type": "keyDown",
+      "code": "KeyS"
+    },
+    {
+      "type": "keyUp",
+      "code": "KeyS"
+    },
+    {
+      "type": "keyDown",
+      "code": "KeyA"
+    },
+    {
+      "type": "keyUp",
+      "code": "KeyA"
+    },
+    {
+      "type": "keyDown",
+      "code": "KeyD"
+    },
+    {
+      "type": "keyUp",
+      "code": "KeyD"
+    },
+    {
+      "type": "keyDown",
+      "code": "KeyW"
+    },
+    {
+      "type": "keyUp",
+      "code": "KeyW"
+    },
+    {
+      "type": "keyDown",
+      "code": "KeyD"
+    },
+    {
+      "type": "keyUp",
+      "code": "KeyD"
+    },
+    {
+      "type": "keyDown",
+      "code": "KeyS"
+    },
+    {
+      "type": "keyUp",
+      "code": "KeyS"
+    },
+    {
+      "type": "keyDown",
+      "code": "KeyA"
+    },
+    {
+      "type": "keyUp",
+      "code": "KeyA"
+    },
+    {
+      "type": "keyDown",
+      "code": "KeyD"
+    },
+    {
+      "type": "keyUp",
+      "code": "KeyD"
+    },
+    {
+      "type": "keyDown",
+      "code": "KeyW"
+    },
+    {
+      "type": "keyUp",
+      "code": "KeyW"
+    },
+    {
+      "type": "keyDown",
+      "code": "KeyD"
+    },
+    {
+      "type": "keyUp",
+      "code": "KeyD"
+    },
+    {
+      "type": "keyDown",
+      "code": "KeyD"
+    },
+    {
+      "type": "keyDown",
+      "code": "KeyS"
+    },
+    {
+      "type": "keyUp",
+      "code": "KeyD"
+    },
+    {
+      "type": "keyDown",
+      "code": "KeyA"
+    },
+    {
+      "type": "keyUp",
+      "code": "KeyA"
+    },
+    {
+      "type": "keyUp",
+      "code": "KeyS"
+    },
+    {
+      "type": "keyDown",
+      "code": "KeyW"
+    },
+    {
+      "type": "keyUp",
+      "code": "KeyW"
+    },
+    {
+      "type": "keyDown",
+      "code": "KeyD"
+    },
+    {
+      "type": "keyUp",
+      "code": "KeyD"
+    },
+    {
+      "type": "keyDown",
+      "code": "KeyS"
+    },
+    {
+      "type": "keyUp",
+      "code": "KeyS"
+    },
+    {
+      "type": "keyDown",
+      "code": "KeyA"
+    },
+    {
+      "type": "keyUp",
+      "code": "KeyA"
+    },
+    {
+      "type": "keyDown",
+      "code": "KeyD"
+    },
+    {
+      "type": "keyUp",
+      "code": "KeyD"
+    },
+    {
+      "type": "keyDown",
+      "code": "KeyD"
+    },
+    {
+      "type": "keyUp",
+      "code": "KeyD"
+    },
+    {
+      "type": "keyDown",
+      "code": "KeyD"
+    },
+    {
+      "type": "keyDown",
+      "code": "KeyG",
+      "observed": {
+        "clock": 0.09999999999999999,
+        "elapsed": 0.09999999999999999,
+        "phase": 0,
+        "held": true,
+        "rawAttack": false
+      }
+    },
+    {
+      "type": "keyUp",
+      "code": "KeyG",
+      "observed": {
+        "clock": 0.13333333333333333,
+        "elapsed": 0.13333333333333333,
+        "phase": 0,
+        "held": false,
+        "rawAttack": false
+      }
+    },
+    {
+      "type": "keyUp",
+      "code": "KeyD"
+    },
+    {
+      "type": "keyDown",
+      "code": "KeyD"
+    },
+    {
+      "type": "keyUp",
+      "code": "KeyD"
+    },
+    {
+      "type": "keyDown",
+      "code": "KeyD"
+    },
+    {
+      "type": "keyUp",
+      "code": "KeyD"
+    },
+    {
+      "type": "keyDown",
+      "code": "KeyD"
+    },
+    {
+      "type": "keyUp",
+      "code": "KeyD"
+    },
+    {
+      "type": "keyDown",
+      "code": "KeyD"
+    },
+    {
+      "type": "keyUp",
+      "code": "KeyD"
+    },
+    {
+      "type": "keyDown",
+      "code": "KeyA"
+    },
+    {
+      "type": "keyUp",
+      "code": "KeyA"
+    },
+    {
+      "type": "keyDown",
+      "code": "KeyD"
+    },
+    {
+      "type": "keyUp",
+      "code": "KeyD"
+    },
+    {
+      "type": "keyDown",
+      "code": "KeyA"
+    },
+    {
+      "type": "keyUp",
+      "code": "KeyA"
+    },
+    {
+      "type": "keyDown",
+      "code": "KeyD"
+    },
+    {
+      "type": "keyUp",
+      "code": "KeyD"
+    },
+    {
+      "type": "keyDown",
+      "code": "KeyD"
+    },
+    {
+      "type": "keyUp",
+      "code": "KeyD"
+    },
+    {
+      "type": "keyDown",
+      "code": "KeyA"
+    },
+    {
+      "type": "keyUp",
+      "code": "KeyA"
+    },
+    {
+      "type": "keyDown",
+      "code": "KeyD"
+    },
+    {
+      "type": "keyUp",
+      "code": "KeyD"
+    },
+    {
+      "type": "keyDown",
+      "code": "KeyD"
+    },
+    {
+      "type": "keyUp",
+      "code": "KeyD"
+    },
+    {
+      "type": "keyDown",
+      "code": "KeyA"
+    },
+    {
+      "type": "keyUp",
+      "code": "KeyA"
+    },
+    {
+      "type": "keyDown",
+      "code": "KeyD"
+    },
+    {
+      "type": "keyUp",
+      "code": "KeyD"
+    },
+    {
+      "type": "keyDown",
+      "code": "KeyD"
+    },
+    {
+      "type": "keyUp",
+      "code": "KeyD"
+    },
+    {
+      "type": "keyDown",
+      "code": "KeyD"
+    },
+    {
+      "type": "keyUp",
+      "code": "KeyD"
+    },
+    {
+      "type": "keyDown",
+      "code": "KeyA"
+    },
+    {
+      "type": "keyUp",
+      "code": "KeyA"
+    },
+    {
+      "type": "keyDown",
+      "code": "KeyA"
+    },
+    {
+      "type": "keyUp",
+      "code": "KeyA"
+    },
+    {
+      "type": "keyDown",
+      "code": "KeyD"
+    },
+    {
+      "type": "keyUp",
+      "code": "KeyD"
+    },
+    {
+      "type": "keyDown",
+      "code": "KeyD"
+    },
+    {
+      "type": "keyUp",
+      "code": "KeyD"
+    },
+    {
+      "type": "keyDown",
+      "code": "KeyD"
+    },
+    {
+      "type": "keyUp",
+      "code": "KeyD"
+    }
+  ],
+  "fixtures": [
+    "Enable optional reporting with normal consent handler",
+    "Copied prerequisite-only isolated save; bridge checkpoint 0 assistance false",
+    "Explicit intro preview via actual campaign UI for bridge",
+    "Copied prerequisite-only isolated save; stirling checkpoint 0 assistance false",
+    "Explicit intro preview via actual campaign UI for stirling",
+    "Copied prerequisite-only isolated save; bridge checkpoint 0 assistance false",
+    "Repeated finish activation tests duplicate outcome guard",
+    "Copied prerequisite-only isolated save; bridge checkpoint 0 assistance false",
+    "Copied prerequisite-only isolated save; bridge checkpoint 0 assistance false",
+    "Stage player at first gap approach x290,y440; only dash input earns gap evidence",
+    "Copied prerequisite-only isolated save; stirling checkpoint 0 assistance false",
+    "Living hostile entities stunned for99 seconds to isolate traversal/hold, not combat success",
+    "Living hostile entities stunned for99 seconds to isolate traversal/hold, not combat success",
+    "Explicit hostile KO injection isolates transition; no combat-playthrough claim",
+    "Living hostile entities stunned for99 seconds to isolate traversal/hold, not combat success",
+    "Living threats relocated/stunned to isolate uncontested hold",
+    "One living stunned hostile placed at tool circle to test contest reset",
+    "Move only remaining injected hostiles away and stun; player reaches objective by actual input",
+    "Repeated terminal finish calls",
+    "Copied prerequisite-only isolated save; stirling checkpoint 1 assistance false",
+    "Living hostile entities stunned for99 seconds to isolate traversal/hold, not combat success",
+    "Checkpoint1 hostile KO injection",
+    "Living hostile entities stunned for99 seconds to isolate traversal/hold, not combat success",
+    "Checkpoint hold isolation: living hostiles relocated/stunned",
+    "Copied prerequisite-only isolated save; stirling checkpoint 2 assistance true",
+    "Living hostile entities stunned for99 seconds to isolate traversal/hold, not combat success",
+    "Checkpoint hold isolation: living hostiles relocated/stunned",
+    "Copied prerequisite-only isolated save; stirling checkpoint 2 assistance true",
+    "Copied old Stirling completion ownership: all historical spoons, best31, attempts4, assisted marker and receipt"
+  ],
+  "limitations": [
+    "Actual isolated headless Chrome/CDP movement and live animation frames; state, copied saves, stuns, relocated enemies and KO fixtures are individually labeled. This is engineering route/transition evidence, not input-only combat completion.",
+    "No physical/human, native startup, GPU, WAN, Steam, packaging, or human comprehension acceptance."
+  ],
+  "profile": "C:\\Users\\Joshua\\AppData\\Local\\Temp\\ck-channel-support-WMFJhZ",
+  "chromeLog": "\r\nDevTools listening on ws://127.0.0.1:64153/devtools/browser/c249ad45-6867-432d-a9e3-683c9dc03754\r\n[33476:39572:1014/105001.746:ERROR:services\\device\\usb\\usb_descriptors.cc:118] Failed to parse configuration descriptor.\r\n[33476:31208:1014/105002.095:ERROR:google_apis\\gcm\\engine\\registration_request.cc:291] Registration response error message: PHONE_REGISTRATION_ERROR\r\n[33476:31208:1014/105002.095:ERROR:google_apis\\gcm\\engine\\registration_request.cc:291] Registration response error message: PHONE_REGISTRATION_ERROR\r\n[33476:31208:1014/105002.100:ERROR:google_apis\\gcm\\engine\\registration_request.cc:291] Registration response error message: PHONE_REGISTRATION_ERROR\r\n[33476:31208:1014/105002.108:ERROR:google_apis\\gcm\\engine\\mcs_client.cc:702]   Error code: 401  Error message: Authentication Failed: wrong_secret\r\n[33476:31208:1014/105002.108:ERROR:google_apis\\gcm\\engine\\mcs_client.cc:704] Failed to log in to GCM, resetting connection.\r\nCreated TensorFlow Lite XNNPACK delegate for CPU.\r\n[33476:33112:1014/105017.685:ERROR:chrome\\updater\\ipc\\update_service_dialer_win.cc:75] Failed to open named pipe server process 988: Access is denied. (0x5)\r\n[33476:28108:1014/105017.685:ERROR:chrome\\updater\\ipc\\update_service_dialer_win.cc:75] Failed to open named pipe server process 988: Access is denied. (0x5)\r\n[33476:33112:1014/105019.751:ERROR:chrome\\updater\\ipc\\update_service_dialer_win.cc:75] Failed to open named pipe server process 38516: Access is denied. (0x5)\r\n[33476:28108:1014/105021.795:ERROR:chrome\\updater\\ipc\\update_service_dialer_win.cc:75] Failed to open named pipe server process 49432: Access is denied. (0x5)\r\n[33476:33112:1014/105023.844:ERROR:chrome\\updater\\ipc\\update_service_dialer_win.cc:75] Failed to open named pipe server process 26712: Access is denied. (0x5)\r\n[33476:28108:1014/105023.894:ERROR:chrome\\updater\\ipc\\update_service_dialer_win.cc:75] Failed to open named pipe server process 16540: Access is denied. (0x5)\r\n[33476:31208:1014/105031.724:ERROR:google_apis\\gcm\\engine\\registration_request.cc:291] Registration response error message: QUOTA_EXCEEDED\r\n",
+  "cdpTarget": {
+    "description": "",
+    "devtoolsFrontendUrl": "https://chrome-devtools-frontend.appspot.com/serve_rev/@b859317bf11f6be47f9b7799ec690a0a42a1fb33/inspector.html?ws=127.0.0.1:64153/devtools/page/3ED82C76B1417473ECC32701FE1DD89A",
+    "id": "3ED82C76B1417473ECC32701FE1DD89A",
+    "title": "",
+    "type": "page",
+    "url": "about:blank",
+    "webSocketDebuggerUrl": "ws://127.0.0.1:64153/devtools/page/3ED82C76B1417473ECC32701FE1DD89A"
+  },
+  "cdpMessages": 1393,
+  "theatre": [
+    {
+      "id": "bridge",
+      "samples": [
+        {
+          "scene": "bridge",
+          "phase": "intro",
+          "caption": "Sir StirlingThe cooling channel runs below these broken landings."
+        },
+        {
+          "scene": "bridge",
+          "phase": "intro",
+          "caption": "RecruitCan we go round the holes?"
+        },
+        {
+          "scene": "bridge",
+          "phase": "intro",
+          "caption": "Sir StirlingBoth outer paths are dry. The tools are waiting on the far approach."
+        },
+        {
+          "scene": "bridge",
+          "phase": "intro",
+          "caption": "Sir StirlingBoth outer paths are dry. The tools are waiting on the far approach."
+        }
+      ]
+    },
+    {
+      "id": "stirling",
+      "samples": [
+        {
+          "scene": "stirling",
+          "phase": "intro",
+          "caption": "Sir StirlingI will hold the north lane. Walk beside the tool cart and stay close."
+        },
+        {
+          "scene": "stirling",
+          "phase": "intro",
+          "caption": "RecruitThe shield raider is blocking the service access."
+        },
+        {
+          "scene": "stirling",
+          "phase": "intro",
+          "caption": "Sir StirlingClear him, then hold the tools while the service door opens."
+        },
+        {
+          "scene": "stirling",
+          "phase": "intro",
+          "caption": "Sir StirlingClear him, then hold the tools while the service door opens."
+        }
+      ]
+    }
+  ],
+  "channelGeometry": {
+    "grid": [
+      [
+        "#",
+        "#",
+        "#",
+        "#",
+        "#",
+        "#",
+        "#",
+        "#",
+        "#",
+        "#",
+        "#",
+        "#",
+        "#",
+        "#",
+        "#",
+        "#",
+        "#",
+        "#",
+        "#",
+        "#",
+        "#",
+        "#",
+        "#",
+        "#",
+        "#",
+        "#",
+        "#",
+        "#",
+        "#",
+        "#",
+        "#",
+        "#"
+      ],
+      [
+        "#",
+        ".",
+        ".",
+        ".",
+        ".",
+        ".",
+        ".",
+        ".",
+        ".",
+        ".",
+        ".",
+        ".",
+        ".",
+        ".",
+        ".",
+        ".",
+        ".",
+        ".",
+        ".",
+        ".",
+        ".",
+        ".",
+        ".",
+        ".",
+        ".",
+        ".",
+        ".",
+        ".",
+        ".",
+        ".",
+        ".",
+        "#"
+      ],
+      [
+        "#",
+        ".",
+        ".",
+        ".",
+        ".",
+        ".",
+        ".",
+        ".",
+        ".",
+        ".",
+        ".",
+        ".",
+        ".",
+        ".",
+        ".",
+        ".",
+        ".",
+        ".",
+        ".",
+        ".",
+        ".",
+        ".",
+        ".",
+        ".",
+        ".",
+        ".",
+        ".",
+        ".",
+        ".",
+        ".",
+        ".",
+        "#"
+      ],
+      [
+        "#",
+        ".",
+        ".",
+        ".",
+        ".",
+        ".",
+        ".",
+        ".",
+        ".",
+        ".",
+        ".",
+        ".",
+        ".",
+        ".",
+        ".",
+        ".",
+        ".",
+        ".",
+        ".",
+        ".",
+        ".",
+        ".",
+        ".",
+        ".",
+        ".",
+        ".",
+        ".",
+        ".",
+        ".",
+        ".",
+        ".",
+        "#"
+      ],
+      [
+        "#",
+        ".",
+        ".",
+        ".",
+        ".",
+        ".",
+        ".",
+        ".",
+        "o",
+        ".",
+        "#",
+        ".",
+        ".",
+        ".",
+        ".",
+        ".",
+        "o",
+        ".",
+        "#",
+        ".",
+        ".",
+        ".",
+        ".",
+        ".",
+        "o",
+        ".",
+        "#",
+        ".",
+        ".",
+        ".",
+        ".",
+        "#"
+      ],
+      [
+        "#",
+        ".",
+        ".",
+        ".",
+        ".",
+        ".",
+        ".",
+        ".",
+        "o",
+        ".",
+        ".",
+        ".",
+        ".",
+        ".",
+        ".",
+        ".",
+        "o",
+        ".",
+        ".",
+        ".",
+        ".",
+        ".",
+        ".",
+        ".",
+        "o",
+        ".",
+        ".",
+        ".",
+        ".",
+        ".",
+        ".",
+        "#"
+      ],
+      [
+        "#",
+        ".",
+        ".",
+        ".",
+        ".",
+        ".",
+        ".",
+        ".",
+        "o",
+        ".",
+        ".",
+        ".",
+        ".",
+        ".",
+        ".",
+        ".",
+        "o",
+        ".",
+        ".",
+        ".",
+        ".",
+        ".",
+        ".",
+        ".",
+        "o",
+        ".",
+        ".",
+        ".",
+        ".",
+        ".",
+        ".",
+        "#"
+      ],
+      [
+        "#",
+        ".",
+        ".",
+        ".",
+        ".",
+        ".",
+        ".",
+        ".",
+        "o",
+        ".",
+        ".",
+        ".",
+        ".",
+        ".",
+        ".",
+        ".",
+        "o",
+        ".",
+        ".",
+        ".",
+        ".",
+        ".",
+        ".",
+        ".",
+        "o",
+        ".",
+        ".",
+        ".",
+        ".",
+        ".",
+        ".",
+        "#"
+      ],
+      [
+        "#",
+        ".",
+        ".",
+        ".",
+        ".",
+        ".",
+        ".",
+        ".",
+        "o",
+        ".",
+        ".",
+        ".",
+        ".",
+        ".",
+        ".",
+        ".",
+        "o",
+        ".",
+        ".",
+        ".",
+        ".",
+        ".",
+        ".",
+        ".",
+        "o",
+        ".",
+        ".",
+        ".",
+        ".",
+        ".",
+        ".",
+        "#"
+      ],
+      [
+        "#",
+        ".",
+        ".",
+        ".",
+        ".",
+        ".",
+        ".",
+        ".",
+        "o",
+        ".",
+        ".",
+        ".",
+        ".",
+        ".",
+        ".",
+        ".",
+        "o",
+        ".",
+        ".",
+        ".",
+        ".",
+        ".",
+        ".",
+        ".",
+        "o",
+        ".",
+        ".",
+        ".",
+        ".",
+        ".",
+        ".",
+        "#"
+      ],
+      [
+        "#",
+        ".",
+        ".",
+        ".",
+        ".",
+        ".",
+        ".",
+        ".",
+        "o",
+        ".",
+        ".",
+        ".",
+        ".",
+        ".",
+        ".",
+        ".",
+        "o",
+        ".",
+        ".",
+        ".",
+        ".",
+        ".",
+        ".",
+        ".",
+        "o",
+        ".",
+        ".",
+        ".",
+        ".",
+        ".",
+        ".",
+        "#"
+      ],
+      [
+        "#",
+        ".",
+        ".",
+        ".",
+        ".",
+        ".",
+        ".",
+        ".",
+        "o",
+        ".",
+        ".",
+        ".",
+        ".",
+        ".",
+        ".",
+        ".",
+        "o",
+        ".",
+        ".",
+        ".",
+        ".",
+        ".",
+        ".",
+        ".",
+        "o",
+        ".",
+        ".",
+        ".",
+        ".",
+        ".",
+        ".",
+        "#"
+      ],
+      [
+        "#",
+        ".",
+        ".",
+        ".",
+        ".",
+        ".",
+        ".",
+        ".",
+        "o",
+        ".",
+        ".",
+        ".",
+        ".",
+        ".",
+        ".",
+        ".",
+        "o",
+        ".",
+        ".",
+        ".",
+        ".",
+        ".",
+        ".",
+        ".",
+        "o",
+        ".",
+        ".",
+        ".",
+        ".",
+        ".",
+        ".",
+        "#"
+      ],
+      [
+        "#",
+        ".",
+        ".",
+        ".",
+        ".",
+        ".",
+        ".",
+        ".",
+        "o",
+        ".",
+        ".",
+        ".",
+        ".",
+        ".",
+        ".",
+        ".",
+        "o",
+        ".",
+        ".",
+        ".",
+        ".",
+        ".",
+        ".",
+        ".",
+        "o",
+        ".",
+        ".",
+        ".",
+        ".",
+        ".",
+        ".",
+        "#"
+      ],
+      [
+        "#",
+        ".",
+        ".",
+        ".",
+        ".",
+        ".",
+        ".",
+        ".",
+        "o",
+        ".",
+        "#",
+        ".",
+        ".",
+        ".",
+        ".",
+        ".",
+        "o",
+        ".",
+        "#",
+        ".",
+        ".",
+        ".",
+        ".",
+        ".",
+        "o",
+        ".",
+        "#",
+        ".",
+        ".",
+        ".",
+        ".",
+        "#"
+      ],
+      [
+        "#",
+        ".",
+        ".",
+        ".",
+        ".",
+        ".",
+        ".",
+        ".",
+        ".",
+        ".",
+        ".",
+        ".",
+        ".",
+        ".",
+        ".",
+        ".",
+        ".",
+        ".",
+        ".",
+        ".",
+        ".",
+        ".",
+        ".",
+        ".",
+        ".",
+        ".",
+        ".",
+        ".",
+        ".",
+        ".",
+        ".",
+        "#"
+      ],
+      [
+        "#",
+        ".",
+        ".",
+        ".",
+        ".",
+        ".",
+        ".",
+        ".",
+        ".",
+        ".",
+        ".",
+        ".",
+        ".",
+        ".",
+        ".",
+        ".",
+        ".",
+        ".",
+        ".",
+        ".",
+        ".",
+        ".",
+        ".",
+        ".",
+        ".",
+        ".",
+        ".",
+        ".",
+        ".",
+        ".",
+        ".",
+        "#"
+      ],
+      [
+        "#",
+        "#",
+        "#",
+        "#",
+        "#",
+        "#",
+        "#",
+        "#",
+        "#",
+        "#",
+        "#",
+        "#",
+        "#",
+        "#",
+        "#",
+        "#",
+        "#",
+        "#",
+        "#",
+        "#",
+        "#",
+        "#",
+        "#",
+        "#",
+        "#",
+        "#",
+        "#",
+        "#",
+        "#",
+        "#",
+        "#",
+        "#"
+      ]
+    ],
+    "gates": [
+      {
+        "x": 440,
+        "y": 440,
+        "r": 65
+      },
+      {
+        "x": 760,
+        "y": 440,
+        "r": 65
+      },
+      {
+        "x": 1100,
+        "y": 440,
+        "r": 70
+      }
+    ]
+  },
+  "productReport": {
+    "version": 1,
+    "build": "0.3.0-beta.7",
+    "generatedAt": 1791971474330,
+    "consent": false,
+    "storageState": "available",
+    "installId": null,
+    "events": [],
+    "metrics": {
+      "joinAttempts": 0,
+      "joinSucceeded": 0,
+      "joinFailed": 0,
+      "joinPendingOrUnobserved": 0,
+      "roundsStarted": 0,
+      "roundsCompleted": 0,
+      "roundCompletionRate": null,
+      "rematchSelections": 0,
+      "completedRoundsWithObservedContinuation": 0
+    },
+    "experiments": [],
+    "counts": {
+      "retained": 0,
+      "truncated": 0,
+      "duplicates": 0,
+      "rejected": 0,
+      "excludedFromHumanMetrics": 0
+    },
+    "limitations": [
+      "Experiment counts describe retained solo trials by build/variant, not unique participants or causal lift. Recognition is self-report. Normal-round continuation requires a later observed offline arena start, not a stated intention.",
+      "Local opt-in observations from one browser installation only; no network collection or population-wide claims.",
+      "Metrics cover retained events only. Truncation, cleared storage, missing instrumentation and interrupted sessions can remove context.",
+      "Deduplication covers retained events in the current session. IDs must be anonymous local tokens, never external identifiers.",
+      "Join outcomes require a retained attempt in the same session. Pending or unobserved does not mean failure.",
+      "Round completions also require a start in the same session. A long round spanning the inactivity cutoff remains uncompleted in this observed baseline.",
+      "General round metrics include optional study rounds; use the experiment summaries and trial fields to separate these from normal play.",
+      "Human round metrics require explicitly positive human counts on start and completion; late joins are excluded. QA, demo and bot-only events are excluded.",
+      "Continuation means a later human round start in the same session after an observed completion; rematch intent alone is not continuation.",
+      "Inactivity exits are inferred after 30 minutes when another event arrives. Page exits are observations of lifecycle signals, not proof a person left.",
+      "Cup, challenge, reward, highlight, share and referral events are observations only; no conversion or retention claim is calculated.",
+      "No D1/D7 retention, people counts, attribution, or cross-device identity is available."
+    ]
+  },
+  "finishedAt": "2026-10-14T09:51:14.333Z",
+  "sourceHashesAfter": {
+    "index.html": "e0904ae54bbace909bfae3d963821599c665e2a5c53cb98df12ac42c72711820",
+    "game/campaign.js": "321b0cfada69df1222010c1d1e8b51cf4e6dbd6b0565e036dd446b4d9dd8995a",
+    "game/campaign-ui.js": "a00ca2529125c8900211db65d27c6bbcd2ac773d9e690e2b2ea7efcf2aff8d54",
+    "game/campaign-integration.js": "2b8050791432238cc3ec48cf7a71ca36f9a33ba335b1e3a2a0e730d22b06bbd9",
+    "game/story-scenes.js": "cf2b469e07f817923d37af56f7fa63232a678a9d3dd70c113e85e36df28d42f1",
+    "game/bakery-opening.js": "49204ee38bda412fd62e78348968ce8bdec23f5a9d458d26d01557d5a28f8919",
+    "game/channel-support.js": "64735a3bc5fb17a6e32be1835c10bd84c6c732880eccd950cd3ed3bfa37dd16e"
+  },
+  "stableSources": true,
+  "counts": {
+    "pass": 35,
+    "fail": 5
+  }
+}

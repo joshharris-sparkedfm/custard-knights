@@ -1,5 +1,12 @@
 # Checked FE09-B source handoff - 14 October 2026
 
+## Active FE09-F saved bakery homecoming - 14 October 2026
+
+PR40 is merged at c39af9adab95bfc47c313b1fc1f29c3a74116dc1; local main/origin matched clean before branch codex/saved-bakery-homecoming. /root/story_finish_impl (Sol high) owns homecoming/runtime/input/presentation seams and focused tests; /root/story_finish_review (Luna high) independently reviews; /root/story_finish_qa (Sol medium) owns homecoming-browser.cjs and dated evidence. Root owns Git/CI/docs and final package. F implementation is active; no completed homecoming or new export claim yet.
+
+Settle the original combat result/reward/report before booting a distinct non-awarding quiet homecoming. Snapshot result/unlocks safely across callback reentrancy; replace deferred collection-panel insertion with explicit current-panel presentation. Reuse the bakery with restored jobs, rescued Bran, Stirling helping and Steve eating. One walk/interaction, short Spoon hook, then original result or map for a visit. Skip/replay/back/quit/reload preserve records and cannot award again. After independent review/checked merge, freeze and verify a fresh friends beta; all earlier exports and normal saves remain preserved.
+
+
 ## Checked FE09-E player-operated diversion - 14 October 2026
 
 PR40 (https://github.com/joshharris-sparkedfm/custard-knights/pull/40) implements the actual siege-bowl diversion at frozen runtime a7984f1f003767b4c2396e1fb349b43e5431e4dc, based on PR39 merge 1ec508b0568a0eda85bf7c402f48e9a99c67be0d. Rescue no longer awards completion. The recruit must break the real jam, release the current Swing action, then hold the tools-enabled winch for four uncontested seconds. The channel opens and the bowl visibly moves for two seconds before the sole terminal award. Cooks deliver tools and authored allies prevent marked approaches without fictional KO credit.

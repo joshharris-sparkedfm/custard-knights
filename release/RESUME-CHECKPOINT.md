@@ -1,4 +1,37 @@
-# Active bounded Astra story review — 13 October 2026
+# Active FE09-A causal transitions — 13 October 2026
+
+## PR36 merge awaiting exact owner approval — 13 October 2026
+
+FE09-A implementation, independent Luna source/evidence review, verified39/39 browser records and all six hosted CI jobs at frozen `c79dad537d50a4cb343c8d2c824705d6fab60487` are complete. PR36 is open and ready for review. Automatic approval review rejected the merge request because no trusted user message explicitly authorized this exact consequential mutation of the default branch. No merge occurred. The recovery chat asked the owner to approve PR36 specifically; approval is pending there.
+
+**Do not work around this rejection from another chat, CLI or tool. Do not begin another shared-file implementation or treat PR36 as merged.** Preserve this clean, committed `codex/story-causal-transitions` branch and frozen runtime while awaiting that approval. FE09-B read-only preflight may continue. All recovery workers are complete. After explicit owner approval, verify current main/PR head, merge the checked PR, synchronize clean main and hand control to the original Sol orchestrator. Beta.16 remains the verified downloadable build; no new package exists. The unchanged heartbeat should stay quiet about this unchanged pending approval and avoid duplicate work.
+
+
+## Checked FE09-A source handoff — 13 October 2026
+
+The bounded Astra story review was already completed and merged in PR35 at `de18ebaea54ab339450b1a4909e74d76382f149a`; this recovery did not repeat that broad review. FE09-A runtime is frozen and pushed in PR36 at `c79dad537d50a4cb343c8d2c824705d6fab60487`. Final independent Luna source/evidence review clears the frozen candidate; root is finishing the checked PR36 merge; verify live merge state before starting another shared-file task. No new Friends package is claimed: beta.16 remains the checked downloadable build.
+
+FE09-A aligns actual bakery/Puddings theatre and captions with the rescued cooks and blocked cooling channel, adds a short skippable first-delivery disruption, identifies Bran and his striped shield in play, and keeps Biscuit optional. Direct pantry retries survive. Source review caught and fixed a universal Continue regression: unchanged later encounters retain their full authored aftermath and next briefing; terminal wins have a default full aftermath-to-map route. No eight-ID/prerequisite/checkpoint/spoon/reward migration or global combat change. The sluice finale and quiet homecoming are still unimplemented.
+
+Local original focused suite passed43; final affected transition5 includes two new actual-UI regressions and overlaps three old tests. Unaffected40 are reused, not a claimed local full45 rerun. Final independent Chrome/CDP report passes39 focused checks at stable frozen hashes with zero browser exceptions; counts include inspection records and explicitly staged outcome/save/pad cases, not39 input-only journeys. CI38426511374 passes all six configured Windows/Linux jobs on attempt1 at the freeze. Evidence: qa/reviews/story-transitions-2026-10-13.md and qa/results/story-transitions-2026-10-13. Retained first9/5, final34/4 and final-corrected38/1 failures are fixture faults; zero-check intermediate Chrome failures are retained with sandbox/GPU-startup diagnostics. These do not diagnose earlier unrelated native Node/Python faults. Compact HUD/captions are readable in inspected frames; startup banners/controls obscure some world detail, so physical-pad/TV and human recognition/pacing remain open.
+
+Recovery owners: chat `01a135f2-88af-7bf0-adb2-09470cb8c45c`; `/root/fe09_transitions_impl` gpt-6.1-sol high (source/tests, complete); `/root/fe09_transitions_qa` gpt-6.1-sol medium (isolated journey evidence); `/root/fe09_transitions_review` gpt-6-luna high (independent source/evidence review); root (Git/docs/integration). All three workers are complete and final independent review is clear. Source is frozen; remaining writes are evidence/docs only.
+
+**Next after checked PR36 merge: FE09-B**, exactly as specified in ASTRA-STORY-REVIEW.md: authored cooling-channel landings and Stirling's three-stage support/tools/access sequence, preserving old Stirling1/2 checkpoint meanings and optional spoon eligibility. Assign Sol high, independent Luna high and bounded Sol medium QA from clean current main. This bounded recovery finishes with PR36 and hands routine continuation back to the existing Sol orchestrator/unchanged30-minute heartbeat; inspect live workers and Git before dispatch. No duplicate Astra pass. Freeze/rebuild a coherent chapter increment at the specified later FE09 milestone, preserving beta.16 and older exports. Cap remains **50v50/100 total including bots**;200 is deferred. Original bakery WIP, user saves/game, other modes and exports remain untouched. Native two-sofa, human/device/WAN/minimum-PC/music and Steam gates remain separate and open.
+
+
+## Historical FE09-A recovery owner — 13 October 2026, 15:50 UTC
+
+The new chat `01a135f2-88af-7bf0-adb2-09470cb8c45c` (Begin bounded story review) verified live main `de18ebaea54ab339450b1a4909e74d76382f149a`, merged PR34/PR35 and existing draft PR36. The original FE09-A implementation/QA/review turns were all interrupted at 15:47 UTC; none was accepted as complete. Their existing tracked and untracked work remains preserved in this checkout and is being finished, not restarted.
+
+Historical recovery claim, superseded by the checked handoff above. `/root/fe09_transitions_impl` (gpt-6.1-sol high) owns existing runtime/test changes; `/root/fe09_transitions_qa` (gpt-6.1-sol medium) owns the existing QA harness/results/review; `/root/fe09_transitions_review` (gpt-6-luna high) independently reviews read-only. Root owns queue/checkpoint/Git and will integrate PR36 after checks. Original chat `01a11aaa-ce28-7603-8304-92eff00fdb03` and its unchanged 30-minute heartbeat can inspect this handoff; no duplicate expensive Astra pass is needed. Reported earlier source checks are provisional until exact evidence/final candidate are reconciled. Beta.16 remains the verified export.
+
+
+PR35 merged the completed bounded Astra review at `de18ebaea54ab339450b1a4909e74d76382f149a`; clean main/origin/main verified. Branch `codex/story-causal-transitions` in work/custard-knights-room. Beta.16 remains latest verified output. All Astra/compatibility reviewers completed; no repeat expensive audit.
+
+Current owners: /root/story_transitions_impl (Sol high) runtime/theatre/campaign plus focused tests; /root/story_transitions_qa (Sol medium) isolated independent journey/caption/capture evidence; /root/story_transitions_review (Luna high) read-only; root queue/checkpoint/Git/package. Implement only FE09-A in ASTRA-STORY-REVIEW.md: correct actual bakery/Puddings scenes and route cause, short skippable first-delivery disruption, stable crossing-guard identity/nonfatal withdrawal and optional Biscuit practice. Keep direct retries and every old ID/prerequisite/spoon/receipt/replay boundary. No later Stirling/Rind/finale/checkpoint implementation yet. Obtain relevant checks, independent review and checked push/merge before FE09-B. Inspect active work before edits; source is not yet accepted/exported. Original WIP/user saves/older outputs untouched; cap50v50/100 total,200 deferred; human/device/WAN/Steam gates and native anomalies remain open.
+
+# Historical bounded Astra review — 13 October 2026
 
 PR34 merged at `261fec1eec36bb2300719e3dcc698c9c640feb37`; clean main/origin/main verified. Current branch `codex/astra-story-review` in work/custard-knights-room. All beta.16 workers completed; latest exports below remain frozen and checked. No new runtime/package/tests yet.
 

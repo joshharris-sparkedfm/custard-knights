@@ -1,0 +1,56 @@
+{
+  "startedAt": "2026-10-13T15:54:53.830Z",
+  "root": "C:\\Users\\Joshua\\Documents\\Codex\\2026-10-08\\rea\\work\\custard-knights-room",
+  "harness": "C:\\Users\\Joshua\\Documents\\Codex\\2026-10-08\\rea\\work\\custard-knights-room\\qa\\story-transitions-browser.cjs",
+  "harnessSha256": "95de0c1b3381e53a44752812fa0fe20a3a34117f9fc644eaa154491bd5da403d",
+  "sourceHashes": {
+    "index.html": "c140afd3e72185bdedbabecf91f4e776c68fa040c61a1a9212ad06dfe9994163",
+    "game/campaign.js": "c4deee57e403492f3d80e80323c5f97038758f4bf64455fdda73287236f066ce",
+    "game/campaign-ui.js": "b4e2f296b5b50d20bbddd798561f3d9e622eb8ee4dfc97c9cb7773b91ec34ec9",
+    "game/campaign-integration.js": "03d3805e177fbce92540f53adbbecf6f254cc3d0501e4ec4e8016af206816001",
+    "game/story-scenes.js": "a64dce7318f2b769fe6320814e34c05b04c6e14abc63c7168f106d05ffaf4c2d",
+    "game/bakery-opening.js": "dbbff764f547da6fdee9f290233c4b6bb5b79c0b0e8282d803b971389267f5e8"
+  },
+  "checks": [],
+  "errors": [],
+  "inputs": [],
+  "fixtures": [],
+  "limitations": [
+    "Actual isolated headless Chrome with CDP keyboard/mouse and live animation frames. No human fun/comprehension, physical device, native EXE, Steam or WAN acceptance.",
+    "Opening movement uses real CDP keys after UI navigation. Pantry uses explicitly recorded inert-enemy setup; progression then uses game movement, breakable collision, escorts and hold/exit simulation. Later outcome/checkpoint/legacy cases use labeled direct setup."
+  ],
+  "profile": "C:\\Users\\Joshua\\AppData\\Local\\Temp\\ck-independent-bakery-UiREmb",
+  "chromeLog": "[49596:49588:1013/165453.998:ERROR:components\\os_crypt\\async\\browser\\os_crypt_win.cc:63] Failed to encrypt: The system cannot find the file specified. (0x2)\r\n[49596:8472:1013/165454.019:ERROR:chrome\\installer\\util\\google_update_settings_win.cc:270] Failed opening key Software\\Google\\Update\\ClientStateMedium\\{8A69D345-D564-463c-AFF1-A69D9E530F96} to set usagestats; result: 5\r\n\r\nDevTools listening on ws://127.0.0.1:56255/devtools/browser/7d6ab2a0-5d19-46b9-bfa9-70edd8d6b560\r\n[49596:36252:1013/165454.078:ERROR:components\\password_manager\\core\\browser\\password_store\\login_database_async_helper.cc:99] Encryption is not available.\r\n[49596:7596:1013/165454.082:ERROR:components\\password_manager\\core\\browser\\password_store\\login_database_async_helper.cc:99] Encryption is not available.\r\n[49596:49588:1013/165454.123:ERROR:content\\browser\\gpu\\gpu_process_host.cc:1130] GPU process exited unexpectedly: exit_code=-1073741790\r\n[49596:48148:1013/165454.124:ERROR:components\\viz\\host\\persistent_cache_sandboxed_file_factory.cc:153] Failed to open persistent cache files in directory \"C:\\Users\\Joshua\\AppData\\Local\\Temp\\ck-independent-bakery-UiREmb\\GPUPersistentCache\\DawnGraphiteCache\\H6POMLZSBZPTMTLBCTMXRDH27BAKUDTA\", error: 0: The process cannot access the file because it is being used by another process. (0x20)\r\n[49596:49588:1013/165454.141:ERROR:content\\browser\\gpu\\gpu_process_host.cc:1130] GPU process exited unexpectedly: exit_code=-1073741790\r\n[49596:49588:1013/165454.148:ERROR:content\\browser\\gpu\\gpu_process_host.cc:1130] GPU process exited unexpectedly: exit_code=-1073741790\r\n[49596:34056:1013/165454.148:ERROR:components\\viz\\host\\persistent_cache_sandboxed_file_factory.cc:153] Failed to open persistent cache files in directory \"C:\\Users\\Joshua\\AppData\\Local\\Temp\\ck-independent-bakery-UiREmb\\GPUPersistentCache\\DawnGraphiteCache\\H6POMLZSBZPTMTLBCTMXRDH27BAKUDTA\", error: 0: The process cannot access the file because it is being used by another process. (0x20)\r\n[49596:49588:1013/165454.154:ERROR:services\\device\\usb\\usb_descriptors.cc:118] Failed to parse configuration descriptor.\r\n[49596:16432:1013/165454.155:ERROR:services\\device\\public\\cpp\\geolocation\\system_geolocation_source_win.cc:124] Failed to create IAppCapability: Access is denied. (0x80070005)\r\n[49596:49588:1013/165454.155:ERROR:content\\browser\\gpu\\gpu_process_host.cc:1130] GPU process exited unexpectedly: exit_code=-1073741790\r\n[49596:49588:1013/165454.160:ERROR:content\\browser\\gpu\\gpu_process_host.cc:1130] GPU process exited unexpectedly: exit_code=-1073741790\r\n[49596:18336:1013/165454.162:ERROR:components\\viz\\host\\persistent_cache_sandboxed_file_factory.cc:153] Failed to open persistent cache files in directory \"C:\\Users\\Joshua\\AppData\\Local\\Temp\\ck-independent-bakery-UiREmb\\GPUPersistentCache\\DawnGraphiteCache\\H6POMLZSBZPTMTLBCTMXRDH27BAKUDTA\", error: 0: The process cannot access the file because it is being used by another process. (0x20)\r\n[49596:49588:1013/165454.167:ERROR:content\\browser\\gpu\\gpu_process_host.cc:1130] GPU process exited unexpectedly: exit_code=-1073741790\r\n[49596:49588:1013/165454.173:ERROR:content\\browser\\gpu\\gpu_process_host.cc:1130] GPU process exited unexpectedly: exit_code=-1073741790\r\n[49596:8472:1013/165454.173:ERROR:components\\viz\\host\\persistent_cache_sandboxed_file_factory.cc:153] Failed to open persistent cache files in directory \"C:\\Users\\Joshua\\AppData\\Local\\Temp\\ck-independent-bakery-UiREmb\\GPUPersistentCache\\DawnGraphiteCache\\H6POMLZSBZPTMTLBCTMXRDH27BAKUDTA\", error: 0: The process cannot access the file because it is being used by another process. (0x20)\r\n[49596:49588:1013/165454.179:ERROR:content\\browser\\gpu\\gpu_process_host.cc:1130] GPU process exited unexpectedly: exit_code=-1073741790\r\n[49596:49588:1013/165454.185:ERROR:content\\browser\\gpu\\gpu_process_host.cc:1130] GPU process exited unexpectedly: exit_code=-1073741790\r\n[49596:49588:1013/165454.185:FATAL:content\\browser\\gpu\\gpu_data_manager_impl_private.cc:417] GPU process isn't usable. Goodbye.\r\n",
+  "cdpTarget": {
+    "description": "",
+    "devtoolsFrontendUrl": "https://chrome-devtools-frontend.appspot.com/serve_rev/@b859317bf11f6be47f9b7799ec690a0a42a1fb33/inspector.html?ws=127.0.0.1:56255/devtools/page/E35883760B52E3BCB4863B7D0BF2D425",
+    "id": "E35883760B52E3BCB4863B7D0BF2D425",
+    "title": "",
+    "type": "page",
+    "url": "about:blank",
+    "webSocketDebuggerUrl": "ws://127.0.0.1:56255/devtools/page/E35883760B52E3BCB4863B7D0BF2D425"
+  },
+  "transportClose": {
+    "code": 1006,
+    "reason": ""
+  },
+  "chromeExit": {
+    "code": 2147483651,
+    "signal": null
+  },
+  "failure": "Error: Runtime.enable timeout\n    at Timeout._onTimeout (C:\\Users\\Joshua\\Documents\\Codex\\2026-10-08\\rea\\work\\custard-knights-room\\qa\\story-transitions-browser.cjs:22:1206)\n    at listOnTimeout (node:internal/timers:635:17)\n    at process.processTimers (node:internal/timers:571:7)",
+  "finishedAt": "2026-10-13T15:55:24.192Z",
+  "sourceHashesAfter": {
+    "index.html": "c140afd3e72185bdedbabecf91f4e776c68fa040c61a1a9212ad06dfe9994163",
+    "game/campaign.js": "c4deee57e403492f3d80e80323c5f97038758f4bf64455fdda73287236f066ce",
+    "game/campaign-ui.js": "b4e2f296b5b50d20bbddd798561f3d9e622eb8ee4dfc97c9cb7773b91ec34ec9",
+    "game/campaign-integration.js": "03d3805e177fbce92540f53adbbecf6f254cc3d0501e4ec4e8016af206816001",
+    "game/story-scenes.js": "a64dce7318f2b769fe6320814e34c05b04c6e14abc63c7168f106d05ffaf4c2d",
+    "game/bakery-opening.js": "dbbff764f547da6fdee9f290233c4b6bb5b79c0b0e8282d803b971389267f5e8"
+  },
+  "stableSources": true,
+  "counts": {
+    "pass": 0,
+    "fail": 0
+  }
+}

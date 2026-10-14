@@ -1,0 +1,37 @@
+{
+  "startedAt": "2026-10-13T15:52:17.743Z",
+  "root": "C:\\Users\\Joshua\\Documents\\Codex\\2026-10-08\\rea\\work\\custard-knights-room",
+  "harness": "C:\\Users\\Joshua\\Documents\\Codex\\2026-10-08\\rea\\work\\custard-knights-room\\qa\\story-transitions-browser.cjs",
+  "harnessSha256": "51adb3234a50b61e8d861a9711c1219e25e2605f6bf70d1557bae5a258a1d800",
+  "sourceHashes": {
+    "index.html": "c140afd3e72185bdedbabecf91f4e776c68fa040c61a1a9212ad06dfe9994163",
+    "game/campaign.js": "c4deee57e403492f3d80e80323c5f97038758f4bf64455fdda73287236f066ce",
+    "game/campaign-ui.js": "b4e2f296b5b50d20bbddd798561f3d9e622eb8ee4dfc97c9cb7773b91ec34ec9",
+    "game/campaign-integration.js": "03d3805e177fbce92540f53adbbecf6f254cc3d0501e4ec4e8016af206816001",
+    "game/story-scenes.js": "a64dce7318f2b769fe6320814e34c05b04c6e14abc63c7168f106d05ffaf4c2d",
+    "game/bakery-opening.js": "dbbff764f547da6fdee9f290233c4b6bb5b79c0b0e8282d803b971389267f5e8"
+  },
+  "checks": [],
+  "errors": [],
+  "inputs": [],
+  "fixtures": [],
+  "limitations": [
+    "Actual isolated headless Chrome with CDP keyboard/mouse and live animation frames. No human fun/comprehension, physical device, native EXE, Steam or WAN acceptance.",
+    "Opening movement uses real CDP keys after UI navigation. Pantry uses explicitly recorded inert-enemy setup; progression then uses game movement, breakable collision, escorts and hold/exit simulation. Later outcome/checkpoint/legacy cases use labeled direct setup."
+  ],
+  "profile": "C:\\Users\\Joshua\\AppData\\Local\\Temp\\ck-independent-bakery-VlArPa",
+  "finishedAt": "2026-10-13T15:52:18.254Z",
+  "sourceHashesAfter": {
+    "index.html": "c140afd3e72185bdedbabecf91f4e776c68fa040c61a1a9212ad06dfe9994163",
+    "game/campaign.js": "c4deee57e403492f3d80e80323c5f97038758f4bf64455fdda73287236f066ce",
+    "game/campaign-ui.js": "b4e2f296b5b50d20bbddd798561f3d9e622eb8ee4dfc97c9cb7773b91ec34ec9",
+    "game/campaign-integration.js": "03d3805e177fbce92540f53adbbecf6f254cc3d0501e4ec4e8016af206816001",
+    "game/story-scenes.js": "a64dce7318f2b769fe6320814e34c05b04c6e14abc63c7168f106d05ffaf4c2d",
+    "game/bakery-opening.js": "dbbff764f547da6fdee9f290233c4b6bb5b79c0b0e8282d803b971389267f5e8"
+  },
+  "stableSources": true,
+  "counts": {
+    "pass": 0,
+    "fail": 0
+  }
+}

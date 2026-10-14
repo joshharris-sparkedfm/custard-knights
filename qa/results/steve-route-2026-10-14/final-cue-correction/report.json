@@ -1,0 +1,190 @@
+{
+  "startedAt": "2026-10-14T10:19:22.177Z",
+  "root": "C:\\Users\\Joshua\\Documents\\Codex\\2026-10-08\\rea\\work\\custard-knights-room",
+  "harness": "C:\\Users\\Joshua\\Documents\\Codex\\2026-10-08\\rea\\work\\custard-knights-room\\qa\\steve-route-browser.cjs",
+  "harnessSha256": "3e2589e5278264ae56a999a00bc4bbf6f1764485e1284b4089582d507fbeb3fc",
+  "sourceHashes": {
+    "index.html": "e0904ae54bbace909bfae3d963821599c665e2a5c53cb98df12ac42c72711820",
+    "game/campaign.js": "0d334f48aabc4398820c6170871963669a19e405ae5f504c016806fa5b8a3bbd",
+    "game/campaign-ui.js": "9d9c4afea69e109dfca770c65e378045a37ce96a2ca90c61eefaa0806ed190d2",
+    "game/campaign-integration.js": "2b8050791432238cc3ec48cf7a71ca36f9a33ba335b1e3a2a0e730d22b06bbd9",
+    "game/story-scenes.js": "559b3f07c7ce651b77c01cf0d3f35ea2bb9ece4f2381bd93c5f27eeffb08cd68",
+    "game/bakery-opening.js": "49204ee38bda412fd62e78348968ce8bdec23f5a9d458d26d01557d5a28f8919",
+    "game/channel-support.js": "fc57f8204e0d83276676073d039a3d261c609185d77a262dd3d690a76a79c924"
+  },
+  "checks": [
+    {
+      "name": "Final gate HUD is concise and names bowl winch once",
+      "pass": true,
+      "details": {
+        "id": "steve",
+        "status": "playing",
+        "route": 2,
+        "elapsed": 0.11666666666666665,
+        "eggOpened": 0,
+        "eggT": 0,
+        "cage": {
+          "c": 9,
+          "r": 8,
+          "x": 380,
+          "y": 420,
+          "label": "Steve’s cage"
+        },
+        "gates": [
+          {
+            "x": 580,
+            "y": 300,
+            "r": 65,
+            "label": "Shed exit"
+          },
+          {
+            "x": 820,
+            "y": 540,
+            "r": 65,
+            "label": "Channel bend"
+          },
+          {
+            "x": 1100,
+            "y": 440,
+            "r": 75,
+            "label": "Bowl winch"
+          }
+        ],
+        "player": {
+          "x": 1000,
+          "y": 440,
+          "hp": 3,
+          "mount": 10
+        },
+        "pickup": [],
+        "result": null,
+        "save": {
+          "version": 1,
+          "results": {
+            "banquet": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "puddings": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "guard": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "bridge": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "stirling": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            }
+          },
+          "selected": "steve",
+          "assist": false,
+          "difficulty": "medium",
+          "checkpoint": null,
+          "receipts": []
+        },
+        "hud": "Medium · Gate 3/3 · Bowl winch"
+      }
+    },
+    {
+      "name": "Compact 08-final-cue-polish active surface stays inside viewport",
+      "pass": true,
+      "details": {
+        "selector": "#campaignHUD",
+        "bounds": {
+          "x": 294.2265625,
+          "y": 90,
+          "width": 211.546875,
+          "height": 31,
+          "top": 90,
+          "right": 505.7734375,
+          "bottom": 121,
+          "left": 294.2265625
+        },
+        "text": "Medium · Gate 3/3 · Bowl winch",
+        "viewport": {
+          "width": 800,
+          "height": 500
+        },
+        "visible": true
+      }
+    },
+    {
+      "name": "No uncaught browser exceptions",
+      "pass": true,
+      "details": []
+    }
+  ],
+  "errors": [],
+  "inputs": [],
+  "fixtures": [
+    "Prerequisite-only normalized copied save, no Steve ownership",
+    "Living cage guards stunned for 999 seconds: traversal evidence, not combat acceptance",
+    "Final HUD only visual fixture: route2, mounted player at1000,440 before final trigger; no gameplay completion claim"
+  ],
+  "limitations": [
+    "Focused FE09-C isolated Chrome/CDP engineering checks; fixture details and limits assigned before cases."
+  ],
+  "profile": "C:\\Users\\Joshua\\AppData\\Local\\Temp\\ck-steve-route-nbMkiH",
+  "chromeLog": "\r\nDevTools listening on ws://127.0.0.1:63788/devtools/browser/3f8a3f11-b9b2-4dce-ad28-d64ec34a8a3f\r\n",
+  "cdpTarget": {
+    "description": "",
+    "devtoolsFrontendUrl": "https://chrome-devtools-frontend.appspot.com/serve_rev/@b859317bf11f6be47f9b7799ec690a0a42a1fb33/inspector.html?ws=127.0.0.1:63788/devtools/page/97799E50139E3F3DD11A335F8C05A2AA",
+    "id": "97799E50139E3F3DD11A335F8C05A2AA",
+    "title": "about:blank",
+    "type": "page",
+    "url": "about:blank",
+    "webSocketDebuggerUrl": "ws://127.0.0.1:63788/devtools/page/97799E50139E3F3DD11A335F8C05A2AA"
+  },
+  "cdpMessages": 33,
+  "finishedAt": "2026-10-14T10:19:23.530Z",
+  "sourceHashesAfter": {
+    "index.html": "e0904ae54bbace909bfae3d963821599c665e2a5c53cb98df12ac42c72711820",
+    "game/campaign.js": "0d334f48aabc4398820c6170871963669a19e405ae5f504c016806fa5b8a3bbd",
+    "game/campaign-ui.js": "9d9c4afea69e109dfca770c65e378045a37ce96a2ca90c61eefaa0806ed190d2",
+    "game/campaign-integration.js": "2b8050791432238cc3ec48cf7a71ca36f9a33ba335b1e3a2a0e730d22b06bbd9",
+    "game/story-scenes.js": "559b3f07c7ce651b77c01cf0d3f35ea2bb9ece4f2381bd93c5f27eeffb08cd68",
+    "game/bakery-opening.js": "49204ee38bda412fd62e78348968ce8bdec23f5a9d458d26d01557d5a28f8919",
+    "game/channel-support.js": "fc57f8204e0d83276676073d039a3d261c609185d77a262dd3d690a76a79c924"
+  },
+  "stableSources": true,
+  "counts": {
+    "pass": 3,
+    "fail": 0
+  }
+}

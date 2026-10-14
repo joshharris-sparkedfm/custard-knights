@@ -1,4 +1,4 @@
-/* FE09-B cooling route: exact tile footprints and scripted support, no combat AI. */
+/* Cooling/service routes: exact tile footprints and scripted scenery, no combat AI. */
 (function(root,factory){const api=factory();if(typeof module==='object'&&module.exports)module.exports=api;else root.CKChannelSupport=api;})(typeof globalThis!=='undefined'?globalThis:this,()=>{
  'use strict';
  const ink='#34253e',cream='#fff2cf',gold='#ffd23f',teal='#2ec4b6';
@@ -22,7 +22,35 @@
  function line(c,x,y,a,b,col,w=3){c.beginPath();c.moveTo(x,y);c.lineTo(a,b);c.strokeStyle=col;c.lineWidth=w;c.stroke();}
  function box(c,x,y,w,h,col){c.fillStyle=col;c.fillRect(x,y,w,h);c.strokeStyle=ink;c.lineWidth=2;c.strokeRect(x,y,w,h);}
  function oval(c,x,y,rx,ry,col){c.beginPath();c.ellipse(x,y,rx,ry,0,0,Math.PI*2);c.fillStyle=col;c.fill();}
- function scenery(c,r){c.save();
+ function crumbs(c,x,y){for(let i=0;i<5;i++){oval(c,x-17+i*8,y-i%2*4,5,3,'#e8bd71');line(c,x-19+i*8,y-i%2*4,x-15+i*8,y-i%2*4,'#9b683e',1);}}
+ function winch(c,x,y){
+  box(c,x-43,y-9,86,17,'#7c6048');for(const dx of [-30,30])box(c,x+dx-5,y-67,10,58,'#997d54');
+  line(c,x-38,y-47,x+38,y-47,'#6e7279',10);for(let i=0;i<5;i++)line(c,x-12+i*6,y-58,x-12+i*6,y-37,'#e4c483',3);
+  line(c,x+43,y-68,x+43,y-27,'#c4d0cf',5);line(c,x+34,y-68,x+51,y-68,'#c4d0cf',5);
+ }
+ function steveScenery(c,r){
+  // These are markings and scenery only. The original open arena, crate and
+  // three gate radii remain the only route rules; no invented water collision.
+  c.fillStyle='#bbaa85';c.fillRect(40,120,1200,640);
+  c.beginPath();c.moveTo(380,420);for(const q of r.gates)c.lineTo(q.x,q.y);c.strokeStyle='#e6d3a6';c.lineWidth=90;c.stroke();
+  c.save();c.setLineDash([4,24]);c.strokeStyle='#b48348';c.lineWidth=5;c.stroke();c.restore();
+  // A lean-to on the north boundary identifies the service shed without
+  // painting an apparently solid building over traversable floor.
+  box(c,240,126,222,42,'#77583e');line(c,228,124,474,124,'#51434a',10);text(c,'SERVICE SHED',350,154,17);
+  line(c,300,192,380,370,gold,4);text(c,'MABEL’S BAKERY SCRAPS',250,542,16);crumbs(c,280,505);crumbs(c,405,482);
+  for(let i=0;i<r.gates.length;i++){
+   const q=r.gates[i],col=i<r.route?teal:i===r.route?gold:'#c9b9e6';
+   // Flat gate posts surround (never cover) the actual circular trigger.
+   for(const dx of [-q.r,q.r]){oval(c,q.x+dx,q.y,10,7,ink+'55');box(c,q.x+dx-5,q.y-30,10,30,col);}
+   const prev=i?r.gates[i-1]:r.cage,mx=(prev.x+q.x)/2,my=(prev.y+q.y)/2;crumbs(c,mx,my);
+  }
+  box(c,1086,538,68,19,'#99744e');crumbs(c,1120,536);text(c,'BAKERY SCRAPS',1115,585,15);
+  winch(c,1130,339);line(c,1130,292,1130,230,'#e4c483',4);
+  oval(c,1120,205,73,20,'#d5dcda');c.beginPath();c.moveTo(1047,205);c.lineTo(1067,248);c.lineTo(1173,248);c.lineTo(1193,205);c.closePath();c.fillStyle='#8a99a8';c.fill();c.strokeStyle=ink;c.lineWidth=3;c.stroke();oval(c,1120,202,67,12,'#e8ddbf');
+  for(const dx of [-43,43])oval(c,1120+dx,252,14,14,'#664738');text(c,'SIEGE BOWL',1110,164,17);text(c,'WINCH',1130,358,16,gold);
+  text(c,'Bowl → bakery · reach the winch',850,690,18);line(c,1040,250,965,250,'#df8b72',4);line(c,977,241,965,250,'#df8b72',4);line(c,977,259,965,250,'#df8b72',4);
+ }
+ function scenery(c,r){c.save();if(r.node.id==='steve'){steveScenery(c,r);c.restore();return;}
   // Draw every traversable, solid and pit tile at its actual collision extent.
   for(let row=1;row<17;row++)for(let col=1;col<31;col++){
    const x=col*40,y=80+row*40,t=r.g.grid[row][col];
@@ -55,7 +83,14 @@
   line(c,t.x-11,t.y-33,t.x-5,t.y-70,'#d7dfe0',5);line(c,t.x-17,t.y-65,t.x+4,t.y-67,'#d7dfe0',5);
   text(c,'COOLING TOOLS',t.x,t.y+36,16,gold);
  }
- function draw(c,r){if(r.node.id!=='stirling')return;c.save();const s=r.support;
+ function draw(c,r){
+  if(r.node.id==='steve'){
+   if(r.g.grid[r.cage.r][r.cage.c]==='x'){
+    // Steve is visibly inside the real breakable tile, with no extra entity.
+    c.save();const {x,y}=r.cage;oval(c,x,y-4,15,12,cream);oval(c,x+10,y-15,7,8,cream);oval(c,x+11,y-24,4,4,'#d95c66');line(c,x+16,y-15,x+23,y-13,'#e9a74e',4);oval(c,x+12,y-17,1.5,2,ink);for(const dx of [-20,20])line(c,x+dx,y-30,x+dx,y+16,'#71523d',4);line(c,x-20,y-30,x+20,y-30,'#71523d',4);c.restore();
+   }return;
+  }
+  if(r.node.id!=='stirling')return;c.save();const s=r.support;
   knight(c,s.pursuerX,300,'#a7bacb');knight(c,s.x,s.y,'#69b0a4');line(c,s.x-34,s.y-32,s.x-41,s.y-74,'#d7dfe0',6);
   if(s.flash>0){line(c,s.x-45,s.y-30,s.x-75,s.y-48,gold,5);line(c,s.x-47,s.y-33,s.x-72,s.y-14,gold,5);}
   text(c,'SIR STIRLING · HOLDING THE LANE',s.x,s.y+39,15,teal);

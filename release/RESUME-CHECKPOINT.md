@@ -1,5 +1,22 @@
 # Checked FE09-B source handoff - 14 October 2026
 
+## Checked Steve route; next is witnessed rescue - 14 October 2026
+
+FE09-C PR38 (https://github.com/joshharris-sparkedfm/custard-knights/pull/38) is checked at final runtime656974da0bace0c0af26be415205cce35ae9e80d. Bakery scraps, service-gate markings, persistent objectives and actual theatre now connect Steve's ride to the siege-bowl winch. Cage/egg timing, replenishment, ordered gate geometry, mount rules, saves/spoons and all eight IDs remain unchanged.
+
+Affected source suite45/45 passes; cue-only polish has one additional targeted passing assertion and syntax check. Independent browser summary selects32 distinct passing checks, with original interrupted reports retained and guard stuns/time/save/visual fixtures disclosed. Behavior was checked at a8f92fef7ee41cae422e01fec1ce1e582af03b8d; final objective-only change separately checked at656974d. Independent Luna source/evidence review clears both. CI38548684428 passes all six jobs at the final freeze. Evidence: qa/reviews/steve-route-2026-10-14.md and qa/results/steve-route-2026-10-14/{summary,manifest,ci-summary}.json. Some compact world labels crop/overlap; readable HUD is not human comprehension or physical-device acceptance.
+
+Root integrates/pushes/merges each checked task before dispatching the next shared-file implementation. After verified PR38 merge, FE09-D makes Bran's rescue safe and visibly witnessed by Rind, preserving old checkpoints1/2 and the intermediate terminal until E. Then E adds the player-operated diversion/checkpoint3 and F the non-awarding bakery homecoming; only the coherent completed sequence gets a new friends beta.
+
+| Owner | Model/effort | Scope and next action |
+|---|---|---|
+| /root/story_finish_impl | gpt-6.1-sol high | C frozen; read-only D preflight complete; await C merge before D source/tests |
+| /root/story_finish_review | gpt-6-luna high | C independently clear; review each next bounded source/evidence increment |
+| /root/story_finish_qa | gpt-6.1-sol medium | C isolated browser evidence frozen; D QA follows its source contract |
+| /root | Orchestrator | Git/CI/queue/checkpoint, task-by-task integration, final version/package/export |
+
+Beta.16 remains the latest exported package and does not include FE09-C. Original WIP, old exports and normal player saves remain preserved. Online arena/Cup rooms support up to eight knights, one per remote guest; same-version host/code setup exists, but different-household/WAN has not been verified. Story is solo; Faction needs its separate service. Native two-sofa, public services and Steam/human/device acceptance remain open. No public upload or tester sending performed. Release cap remains50v50/100 total including bots.
+
 ## Checked FE09-B channel and Stirling support - 14 October 2026
 
 PR37 (https://github.com/joshharris-sparkedfm/custard-knights/pull/37) contains the completed bounded implementation at frozen runtime 29291248115eba0b3418e335509c778d2a2db2e7, based on main760140c5f7dce7312d315e4625a670f59c013a24. Later commits contain QA/docs only. Verify live merge state and synchronize main before the next shared-file task.

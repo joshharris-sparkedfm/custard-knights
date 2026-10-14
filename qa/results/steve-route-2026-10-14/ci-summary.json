@@ -1,0 +1,55 @@
+{
+  "source": "656974da0bace0c0af26be415205cce35ae9e80d",
+  "runId": 38548684428,
+  "url": "https://github.com/joshharris-sparkedfm/custard-knights/actions/runs/38548684428",
+  "jobs": [
+    {
+      "id": 115801018930,
+      "name": "server (windows-latest)",
+      "status": "completed",
+      "conclusion": "success",
+      "startedAt": "2026-10-14T10:18:52Z",
+      "completedAt": "2026-10-14T10:20:40Z"
+    },
+    {
+      "id": 115801019028,
+      "name": "core (windows-latest, 24)",
+      "status": "completed",
+      "conclusion": "success",
+      "startedAt": "2026-10-14T10:18:52Z",
+      "completedAt": "2026-10-14T10:19:36Z"
+    },
+    {
+      "id": 115801019116,
+      "name": "core (ubuntu-latest, 22)",
+      "status": "completed",
+      "conclusion": "success",
+      "startedAt": "2026-10-14T10:18:52Z",
+      "completedAt": "2026-10-14T10:19:15Z"
+    },
+    {
+      "id": 115801019117,
+      "name": "core (ubuntu-latest, 24)",
+      "status": "completed",
+      "conclusion": "success",
+      "startedAt": "2026-10-14T10:18:53Z",
+      "completedAt": "2026-10-14T10:19:31Z"
+    },
+    {
+      "id": 115801019121,
+      "name": "core (windows-latest, 22)",
+      "status": "completed",
+      "conclusion": "success",
+      "startedAt": "2026-10-14T10:18:52Z",
+      "completedAt": "2026-10-14T10:19:29Z"
+    },
+    {
+      "id": 115801019197,
+      "name": "server (ubuntu-latest)",
+      "status": "completed",
+      "conclusion": "success",
+      "startedAt": "2026-10-14T10:18:53Z",
+      "completedAt": "2026-10-14T10:20:44Z"
+    }
+  ]
+}

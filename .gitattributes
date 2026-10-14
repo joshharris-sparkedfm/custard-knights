@@ -2,3 +2,6 @@
 qa/results/channel-support-2026-10-14/** -text
 qa/channel-support-browser.cjs -text
 qa/reviews/channel-support-2026-10-14.md -text
+qa/results/steve-route-2026-10-14/** -text
+qa/steve-route-browser.cjs -text
+qa/reviews/steve-route-2026-10-14.md -text

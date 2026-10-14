@@ -530,6 +530,7 @@ body[data-input=pad] :is(button,.card,.tile,input,select):focus{outline:4px soli
 <script src="game/online-recovery.js"></script>
 <script src="game/collection.js"></script>
 <script src="game/collection-art.js"></script>
+<script src="game/faction-art.js"></script>
 <script src="game/collection-ui.js"></script>
 <script src="game/warnings.js"></script>
 <script src="game/bakery-opening.js"></script>
@@ -2079,6 +2080,7 @@ function drawKnight(e){
  }
  if(isChicken(e)){ if(!(useSprites()&&drawChickenSprite(e,r,moving,bob))) drawChicken(e,r,bob); ctx.restore(); return; }
  combatPose(e,r);
+ if(e.faction)CKFactionArt.drawBack(ctx,e,r,{bob:bob*(useSprites()?.3:1)});
  CKCollectionArt.pose(ctx,e,r,G.clock,G.over||e.collectionPreview);CKCollectionArt.drawBack(ctx,e,r,G.clock);
  if(useSprites()){ const ride=!!e.fx.steve, lift=ride?r*1.55:0;
   if(ride) drawSteve(e,r,fx,moving);
@@ -3462,7 +3464,7 @@ if(window.CKMassBattle&&window.CKMassBattleUI){
    const profile=p.appearance||(p.local?loadProfile(1):{}),role=p.role||'vanguard';
    const elapsed=p.elapsed||0,previous=massBattleWalk.get(p.id),walk=previous&&elapsed>=previous.time?previous.walk+Math.hypot(p.vx||0,p.vy||0)*Math.min(.1,elapsed-previous.time)*.055:0;
    massBattleWalk.set(p.id,{time:elapsed,walk});
-   const e=mkKnight({factionSpriteCache:true,id:Number(String(p.id).split('-').pop())||0,color:p.teamColor,team:p.team==='custardia'?'red':'blue',human:p.local?1:0,
+   const e=mkKnight({factionSpriteCache:true,faction:p.team,id:Number(String(p.id).split('-').pop())||0,color:p.teamColor,team:p.team==='custardia'?'red':'blue',human:p.local?1:0,
     face:attack?attack.angle:p.angle||0,vx:p.vx||0,vy:p.vy||0,walk,
     kit:{helm:profile.helm||(role==='engineer'?'kettle':role==='support'?'sallet':'great'),plume:profile.plume||'feather',metal:profile.metal||'steel',visor:p.visor||profile.visor||'closed'},
     cape:profile.cape||'plain',blade:profile.blade||'steel',emblem:profile.emblem||'star',

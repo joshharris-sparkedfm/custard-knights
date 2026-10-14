@@ -51,7 +51,8 @@ Please try without coaching first. Getting stuck is useful feedback.
   and dashing. For a charge, keep holding after the first swing until your
   knight starts charging, then release. Tell us what felt satisfying or confusing.
 - Open Story (The Great Pudding War), choose Begin at the bakery for a fresh
-  story, and try the tray delivery, pantry rescue and return to the bakery.
+  story. Try the delivery and pantry rescue, then follow the cooling route
+  through the bowl diversion and playable homecoming.
 - Open Quick Brawl > Solo Custard Cup for three rounds, or Faction Front; set Army size to
   4 vs 4, then choose Play with bots.
 - Change your outfit or visor in Wardrobe, restart, and check it stayed saved.
@@ -169,26 +170,46 @@ plays as they rise. Only one critical banner appears at a time; other world
 hazard tells remain. Faction Front and cinematic/status messages are separate.
 Human listening, warning recognition and physical-device testing remain open.
 
-PLAYABLE BAKERY STORY SLICE — BETA 16
+SAVE THE BAKERY — BETA 17
 
-On a fresh Story profile, Begin at the bakery starts a playable opening.
-Walk up to people or marked objects, then use Interact to talk, pick up,
-carry or deliver. Interact uses your current Solo Swing binding or left
-click; a controller uses its current Player 1 Swing binding. Follow the
-on-screen prompt. Swing is interaction during the quiet bakery sequences;
-combat returns to the normal sword/pickup controls during the pantry rescue.
+On a fresh Story profile, Begin at the bakery starts the delivery to the
+peace banquet. Interact uses your current Solo Swing binding or left click;
+a controller uses its current Player 1 Swing binding. Release the action
+between quiet interactions. Combat keeps the normal sword/pickup controls.
 
-Talk to Mabel, take the covered tray and deliver it at the banquet gate.
-Steve steals a bun on his own; Mabel takes Alf and Pip ahead. Rescue the
-three staff from the pantry, then collect their prepared supplies on your
-return and head east to defend the bakery with its visible siege bowl.
-Returning profiles can replay the bakery opening from Story. Pause offers explicit
-skip/replay controls for the quiet opening and return; follow their labels.
+Rescue Mabel, Alf and Pip from the pantry, bring their supplies home, and
+defend the bakery. Follow the blocked cooling channel through Bran’s
+crossing and the dry bridge paths. Biscuit practice remains optional.
+Stirling holds the pursuer lane while you move the tools and open service
+access. Free Steve and follow bakery scraps through three ordered service
+gates to the bowl winch. If the ride ends, return to the cage for another egg.
 
-Tell Joshua whether you understood who needed help, what to carry/deliver,
-how Interact differed from combat, and why you returned to defend the bakery.
-This is the first story slice. The rest of the story still needs a fuller
-playable treatment, and human comprehension/fun acceptance remains open.
+Defeat Rind, then cut the skin trapping the striped-shield guard Bran.
+This rescue is safe: its countdown is paused. At the sluice, the cooks’
+tools enable the winch while Stirling, Bran and Rind hold the approaches.
+Break the marked jam and clear the defender. Release Swing after the cut,
+then hold its current binding at the winch for four uninterrupted seconds.
+Release, leaving the circle or a nearby defender resets that hold. The
+channel opens and the bowl visibly diverts clear of the bakery.
+
+The normal ending returns you to the bakery. Walk to Mabel and Interact;
+Alf and Pip have their jobs back, Stirling helps, Bran is safe and Steve
+eats scraps. A short subtitled hook follows before your saved result.
+Quiet opening, return and homecoming offer explicit pause skip/replay.
+Failed encounters retry directly at their saved checkpoint. Scene replay
+and visiting the bakery do not grant another completion or alter spoons.
+
+Old spoons stay earned. Earlier best times are historical records. A
+completed Story save offers Replay encounter from beginning, Replay finale
+and Visit the saved bakery. A deliberate encounter/finale replay that
+actually wins still follows the usual once-per-round reward policy.
+The Spoon mystery continues beyond this chapter; no voice-over is included.
+
+Please try without coaching. Tell Joshua who needed help, why you followed
+the route, who changed sides, what stopped the bowl, and whether returning
+home felt earned. Confusion, prompts needed and places that dragged are
+useful feedback. Human comprehension/fun and physical-device acceptance
+remain open.
 
 CONTROLS (DEFAULTS)
 
@@ -225,12 +246,11 @@ Physical-controller compatibility is part of this test, not yet signed off.
 WHAT YOU CAN PLAY
 
 - Arena: eight modes and six arenas, alone with bots or local friends.
-- The Great Pudding War: a playable bakery opening and return, with eight
-  existing encounters and animated, subtitled scenes. The pantry rescue
-  needs three sword hits to break the barricade, proximity escort for three
-  cooks, then defence and escape. Quiet bakery sequences and scenes offer
-  pause, replay or skip; there is no recorded voice-over. The fuller playable
-  treatment of the remaining story is unfinished.
+- The Great Pudding War: eight existing encounters from bakery delivery
+  through pantry rescue, defence, channel/service access, Steve, Rind,
+  witnessed rescue, player-operated bowl diversion and quiet homecoming.
+  Subtitled scenes and quiet sequences offer pause, replay or skip. Legacy
+  saves keep spoons; completed saves can replay the finale or visit home.
 - Custard Cup: three linked rounds.
 - Faction Front bot practice: Brawl, Capture the Flag and Siege, with
   4v4, 20v20 or 50v50 total slots. Bots fill empty slots.
@@ -242,7 +262,10 @@ WHAT YOU CAN PLAY
 ONLINE TESTING IS OPTIONAL
 
 Play with Friends > Online room uses room codes/invites. Have one person
-host and share the code privately. Try a small room before a longer session.
+host and share the code privately. Arena/Cup rooms support up to eight total
+players, including the host’s local seats. Each remote guest PC contributes
+one player; remote guest multiseat is not supported in this build. Try a
+small room before a longer session.
 Different-household connectivity is not yet verified: report join failures
 and the exact message. Do not change router/firewall settings for this test.
 

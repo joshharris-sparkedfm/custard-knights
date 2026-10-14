@@ -1,5 +1,10 @@
 # Orchestrator execution queue
 
+## Active beta.17 friends package - 14 October 2026
+
+FE09-F PR41 is merged at efe9bf9f8f2943c8c4be043f2fec649dccb92fae. Main/origin synchronized clean before codex/friends-beta17. The coherent bakery-to-diversion/homecoming runtime is independently reviewed; now freeze version0.3.0-beta.17 with the updated tester guide and verify the actual package. No beta.17 export is accepted yet; beta.16 remains the previous verified archive.
+
+Owners: /root/story_finish_impl (Sol high) beta17 packaging helpers, isolated native lifecycle/clean-reload homecoming with disclosed copied completion save, additive stored ZIPs and exact verification, PREVIEW/docs after proof; /root/story_finish_qa (Sol medium) exact extracted-ASAR homecoming journeys; /root/story_finish_review (Luna high) independent helper/evidence review; root version/lock, source freeze, CI/Git/queue/checkpoint. Reuse the reviewed Python extraction adapter; do not retry known native extraction/DEFLATE faults. Preserve older outputs, original WIP and normal player profiles. No public upload or tester sending. Physical/WAN/human/Steam and broader roadmap acceptance remain open.
 ## Checked FE09-F saved bakery homecoming - 14 October 2026
 
 PR41 (https://github.com/joshharris-sparkedfm/custard-knights/pull/41) completes the bounded FE09 chapter at runtime d9bbde4ce89b392e73c2de00751b1bab926a9ec2. Original Rind result/save/reward/report settles before a distinct quiet bakery boots. Restored jobs, Mabel/Alf/Pip, Bran, Stirling and Steve lead to one release-latched current-binding interaction and a short authored Spoon/skin hook, then the captured original result. Old completed saves can Visit without refighting or awarding. Replay/skip/Back/new launch/quit/reload preserve original receipt/unlocks and invalidate stale callbacks. Eight nodes and historical records remain compatible.

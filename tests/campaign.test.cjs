@@ -115,6 +115,7 @@ test('Steve service route preserves ordered gates, cage timing, egg reacquisitio
  const opened=h.c.run.eggOpened;h.g.pickups=[];h.tick(.1);assert.equal(h.g.pickups[0].kind,'steve');assert.equal(h.g.pickups[0].x,h.c.run.cage.x);assert.match(h.c.objective(),/egg at cage.*bowl winch/);
  h.p.fx.steve=10;Object.assign(h.p,h.c.run.gates[2]);h.tick(.1);assert.equal(h.c.run.route,0);assert.match(h.c.objective(),/Gate 1\/3.*Shed exit.*bowl winch/);
  Object.assign(h.p,h.c.run.gates[0]);h.tick(.1);assert.equal(h.c.run.route,1);assert.match(h.c.objective(),/Gate 2\/3.*Channel bend/);
+ const route=h.c.run.route;h.c.run.route=2;assert.equal(h.c.objective(),'Gate 3/3 · Bowl winch');h.c.run.route=route;
  h.p.fx.steve=0;h.g.pickups=[];Object.assign(h.p,h.c.run.gates[1]);h.tick(2.1);assert.equal(h.c.run.route,1);assert.equal(h.g.pickups.length,1);assert.equal(h.c.run.eggOpened,opened);
  h.p.fx.steve=10;for(const q of h.c.run.gates.slice(1)){Object.assign(h.p,q);h.tick(.1);}assert.equal(h.finished.length,1);assert.deepEqual(h.finished[0].spoons,[true,true,true]);h.c.finish(true);assert.equal(h.finished.length,1);
  const slow=harness('steve');openPantry(slow);slow.tick(60.1);slow.p.fx.steve=10;for(const q of slow.c.run.gates){Object.assign(slow.p,q);slow.tick(.1);}assert.equal(slow.finished[0].spoons[1],false);

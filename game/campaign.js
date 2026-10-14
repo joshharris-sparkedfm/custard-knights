@@ -233,7 +233,7 @@
    if(id==='biscuit')return `${run.reflects}/3 arrows reflected${run.exitT!==null?' · Extra spoon: '+run.reflects+'/5':''}`;
    if(id==='bridge')return run.route<3?`${run.route}/3 checkpoints · ${3-run.falls} falls left`:`Far end: ${run.hold.toFixed(1)}/3s`;
    if(id==='stirling')return run.phase===0?`Advance tools: ${Math.round((run.tools.x-340)/380*100)}% · Walk beside the cart; stay close`:run.phase===1?'Tools delivered · Bonk the service access raider':run.contested?`Tools contested - clear the circle · ${run.hold.toFixed(1)}/8s`:`Hold the tools: ${run.hold.toFixed(1)}/8s`;
-   if(id==='steve')return run.eggOpened===undefined?'Swing at Steve’s cage → reach the bowl winch':!run.player.fx.steve?'Take golden egg at cage → ride to bowl winch':run.route<3?`Gate ${run.route+1}/3 · ${run.gates[run.route].label} → bowl winch`:'Service route complete · Bowl winch reached';
+   if(id==='steve')return run.eggOpened===undefined?'Swing at Steve’s cage → reach the bowl winch':!run.player.fx.steve?'Take golden egg at cage → ride to bowl winch':run.route<3?`Gate ${run.route+1}/3 · ${run.gates[run.route].label}${run.route<2?' → bowl winch':''}`:'Service route complete · Bowl winch reached';
    if(id==='rind')return run.phase===2?'Break the skin patch. Free the rice soldier.':`Marshal Rind: ${run.boss.hp}/8 · ${run.boss.step==='exhausted'?'SPOON STUCK — ATTACK':run.boss.step==='warn'?'DASH OUT OF THE RED CIRCLE':'Bait his next swing'}`;
    return run.node.objective;
   }

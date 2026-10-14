@@ -24,13 +24,13 @@ function uiHarness(){
   querySelector(){return null;}focus(){}remove(){}
  }
  const doc={hidden:false,createElement:tag=>new Element(tag),createElementNS:(_,tag)=>new Element(tag),querySelector:()=>null,getElementById:()=>null,addEventListener(){},removeEventListener(){},defaultView:{requestAnimationFrame:()=>1,cancelAnimationFrame(){}}};doc.head=new Element('head');doc.body=new Element('body');
- const campaign=C.create({storage:null});campaign.restore({results:Object.fromEntries(C.nodes.map(n=>[n.id,{spoons:[true,true,true]}]))});const launches=[];
+ const campaign=C.create({storage:null});campaign.restore({results:Object.fromEntries(C.nodes.map(n=>[n.id,{spoons:[true,true,true]}]))});const launches=[],presented=[];
  const root={CKCampaign:C,CKStoryScenes:{...S,render:()=>true}};vm.runInNewContext(fs.readFileSync(require.resolve('../game/campaign-ui.js'),'utf8'),{globalThis:root});
- const ui=root.CKCampaignUI.mount({campaign,document:doc,start:(...args)=>launches.push(args),startFinale:()=>launches.push(['rind',false,true]),interactLabel:()=> 'Q'});
+ const ui=root.CKCampaignUI.mount({campaign,document:doc,start:(...args)=>launches.push(args),startFinale:()=>launches.push(['rind',false,true]),interactLabel:()=> 'Q',homecoming:()=>launches.push(['homecoming']),replayHomecoming:()=>launches.push(['replay-homecoming']),resultPresented:(r,panel,unlocks)=>presented.push({r,panel,unlocks})});
  const find=(predicate,node=doc.body)=>predicate(node)?node:node.children.map(e=>find(predicate,e)).find(Boolean);
  const button=text=>{const b=find(e=>e.tag==='button'&&e.textContent===text);assert.ok(b,'Button exists: '+text);return b;};
  const canvas=()=>find(e=>e.tag==='canvas'&&!find(p=>p.id==='campaignStory').hidden);
- return {ui,find,button,canvas,launches,campaign};
+ return {ui,find,button,canvas,launches,campaign,presented};
 }
 test('unchanged encounters retain full authored outro and next briefing on default Continue',()=>{
  for(const [id,next] of [['bridge','stirling'],['stirling','steve'],['steve','rind']]){
@@ -40,12 +40,9 @@ test('unchanged encounters retain full authored outro and next briefing on defau
   h.button('Skip story').onclick();assert.equal(h.canvas().dataset.scene,next);assert.equal(h.canvas().dataset.phase,'intro');assert.equal(h.launches.length,0,'next encounter waits for its retained briefing');
  }
 });
-test('terminal Continue retains the full Rind outro before returning to the completed map',()=>{
- const h=uiHarness();h.ui.ended({id:'rind',next:null,won:true,added:[],outro:C.byId.rind.outro});h.button('Continue: Story map').onclick();
- assert.equal(h.canvas().dataset.scene,'rind');assert.equal(h.canvas().dataset.phase,'outro');
- const seek=h.find(e=>e.tag==='input'&&e.type==='range');seek.value=String(S.duration('rind','outro'));seek.oninput();
- const last=S.captions('rind','outro',S.duration('rind','outro')-.001);assert.equal(h.find(e=>e.className==='campaign-captions').textContent,last.speaker+last.text);
- h.button('Return to story map').onclick();assert.equal(h.find(e=>e.id==='campaignStory').hidden,true);assert.equal(h.find(e=>e.id==='campaignMap').hidden,false);assert.equal(h.launches.length,0);
+test('Rind result returns to the map while the earned diversion scene stays replayable',()=>{
+ const h=uiHarness(),r={id:'rind',next:null,won:true,added:[],outro:C.byId.rind.outro};h.ui.ended(r);h.button('Continue: Story map').onclick();assert.equal(h.find(e=>e.id==='campaignMap').hidden,false);assert.equal(h.launches.length,0);
+ h.ui.ended(r);h.button('Replay aftermath scene').onclick();assert.equal(h.canvas().dataset.scene,'rind');assert.equal(h.canvas().dataset.phase,'outro');const seek=h.find(e=>e.tag==='input'&&e.type==='range');seek.value=String(S.duration('rind','outro'));seek.oninput();const last=S.captions('rind','outro',S.duration('rind','outro')-.001);assert.equal(h.find(e=>e.className==='campaign-captions').textContent,last.speaker+last.text);h.button('Open story map').onclick();assert.equal(h.find(e=>e.id==='campaignMap').hidden,false);assert.equal(h.launches.length,0);
 });
 test('explicit opening skip and a delivery replay after an attempt intentionally enter combat directly',()=>{
  const h=harness();h.a.opening();h.hooks.skipQuiet();assert.equal(h.transition,null);assert.equal(h.a.campaign.run.node.id,'banquet');
@@ -70,4 +67,12 @@ test('finale replay guard boots and reports nothing until owned; rescue-to-diver
  const h=harness(save);h.a.launch('rind',true);const c=h.a.campaign,r=c.run,g=r.g;assert.deepEqual(h.events,['round_started']);const q=r.cage;g.grid[q.r][q.c]='.';c.event('crate',{c:q.c,r:q.r,destroyed:true});h.a.tick(3);assert.equal(c.run.phase,3);assert.deepEqual(h.events,['round_started']);assert.equal(c.save.results.rind,undefined);
  const f=c.run.finale;g.grid[f.jam.r][f.jam.c]='.';c.event('crate',{c:f.jam.c,r:f.jam.r,destroyed:true});g.ents.filter(e=>!e.human).forEach(e=>e.dead=true);h.a.tick(3);Object.assign(r.player,f.winch);h.a.playerInput({atk:false});h.a.playerInput({atk:true});h.a.tick(4);assert.equal(f.channelOpen,true);assert.deepEqual(h.events,['round_started']);h.a.tick(2);assert.deepEqual(h.events,['round_started','round_completed']);assert.equal(c.save.results.rind.spoons[0],true);c.finish(true);assert.deepEqual(h.events,['round_started','round_completed']);
  const owned=harness({results:Object.fromEntries(C.nodes.map(n=>[n.id,{spoons:[true,true,true]}]))});owned.a.launchFinale();assert.equal(owned.a.campaign.run.phase,3);assert.equal(owned.a.campaign.run.resumed,true);assert.equal(owned.a.campaign.run.guardsHit,0);assert.deepEqual(owned.events,['round_started']);
+});
+
+test('homecoming hook scene skip completes once and Back invalidates a detached old scene callback',()=>{
+ const h=uiHarness();let done=0;h.ui.homecomingHook(()=>done++,true);assert.equal(h.canvas().dataset.phase,'homecoming');const skip=h.button('Skip story');skip.onclick();skip.onclick();assert.equal(done,1);
+ h.ui.homecomingHook(()=>done++,false);const stale=h.button('Skip story');h.button('Back to map').onclick();stale.onclick();assert.equal(done,1);assert.equal(h.find(e=>e.id==='campaignStory').hidden,true);assert.equal(h.find(e=>e.id==='campaignMap').hidden,false);
+});
+test('result presentation hands only the visible panel and its receipt to the explicit reward hook',()=>{
+ const h=uiHarness(),r={id:'rind',receipt:'original-receipt',roundId:'original-round',next:null,won:true,added:[],outro:C.byId.rind.outro};h.ui.ended(r,['saved-unlock']);assert.equal(h.presented.length,1);const p=h.presented[0];assert.equal(p.panel.dataset.resultReceipt,'original-receipt');assert.equal(h.find(e=>e.id==='campaignResult').hidden,false);assert.deepEqual([...p.unlocks],['saved-unlock']);h.button('Continue: Story map').onclick();assert.equal(h.find(e=>e.id==='campaignMap').hidden,false);assert.equal(h.presented.length,1);assert.equal(h.launches.length,0);
 });

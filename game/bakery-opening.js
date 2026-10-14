@@ -2,7 +2,7 @@
 (function(root,factory){const api=factory();if(typeof module==='object'&&module.exports)module.exports=api;else root.CKBakeryOpening=api;})(typeof globalThis!=='undefined'?globalThis:this,()=>{
  'use strict';
  const footprints=[{c:3,r:2,w:10,h:5},{c:20,r:3,w:7,h:5},{c:14,r:10,w:3,h:1}];
- function layout(g,kind){const solids=kind==='opening'?footprints:[...footprints,{c:27,r:3,w:4,h:5}];for(const b of solids)for(let r=b.r;r<b.r+b.h;r++)for(let c=b.c;c<b.c+b.w;c++)g.grid[r][c]='#';}
+ function layout(g,kind){const solids=['opening','homecoming'].includes(kind)?footprints:[...footprints,{c:27,r:3,w:4,h:5}];for(const b of solids)for(let r=b.r;r<b.r+b.h;r++)for(let c=b.c;c<b.c+b.w;c++)g.grid[r][c]='#';}
  const ink='#34253e',cream='#fff2cf';
  function tools(c){
   const box=(x,y,w,h,col,r=5)=>{c.beginPath();c.roundRect(x,y,w,h,r);c.fillStyle=col;c.strokeStyle=ink;c.lineWidth=3;c.fill();c.stroke();};
@@ -45,8 +45,8 @@
   // Steve enclosure footprint: c20..26/r3..7. The gate is decorative;
   // players reach every delivery objective through the clear southern lane.
   box(800,200,280,200,'#829270',7);for(let x=812;x<1075;x+=29){box(x,358,7,41,'#a78860',2);}box(800,372,280,8,'#c6a476',2);text('STEVE · SCRAPS ONLY',940,186,16);
-  box(560,480,120,40,'#916c50',6);box(567,488,105,10,'#b69268',3);text(r.quietKind==='opening'?'DELIVERY TABLE':'COOKS’ SUPPLIES',620,565,17);
-  box(1060,419,150,32,'#615141',5);text(r.quietKind==='opening'?'BANQUET →':r.node.id==='puddings'?'SERVICE →':'PUDDINGS →',1135,442,18);
+  box(560,480,120,40,'#916c50',6);box(567,488,105,10,'#b69268',3);text(r.quietKind==='opening'?'DELIVERY TABLE':r.quietKind==='homecoming'?'FRESH BREAD':'COOKS’ SUPPLIES',620,565,17);
+  box(1060,419,150,32,'#615141',5);text(r.quietKind==='opening'?'BANQUET →':r.quietKind==='homecoming'?'HOME SAFE':r.node.id==='puddings'?'SERVICE →':'PUDDINGS →',1135,442,18);
   c.strokeStyle='#e4c474';c.lineWidth=4;c.setLineDash([10,15]);c.beginPath();c.moveTo(695,559);c.lineTo(1140,559);c.stroke();c.setLineDash([]);
   if(r.quietKind==='aftermath'||r.node.id==='puddings'){
    // The closed siege approach has the exact extra solid footprint c27..30,
@@ -57,6 +57,7 @@
     box(545,613,198,27,'#443846',5);text('COOLING ROUTE →',644,632,15,'#a9dce4');}
 
   }
+  if(r.quietKind==='homecoming'){box(545,390,220,24,'#688a91',5);c.strokeStyle='#a9dce4';c.lineWidth=8;c.beginPath();c.moveTo(555,402);c.lineTo(755,402);c.stroke();text('COOLING WATER FLOWING',655,378,14,'#a9dce4');text('OVENS OPEN',320,392,17,'#ffe28a');}
   c.restore();
  }
  function draw(c,r){c.save();const {box,oval,text}=tools(c);
@@ -68,15 +69,23 @@
    c.beginPath();c.moveTo(headX+17,281+8*reach);c.lineTo(headX+35,289+8*reach);c.lineTo(headX+16,296+8*reach);c.closePath();c.fillStyle='#edb55d';c.fill();
    if(t<.85)oval(1040,315,13,8,'#e8b86d');else if(t<2.1)oval(headX+33,294+8*reach,13,8,'#e8b86d');oval(1051,326,5,3,'#e8b86d');text(t>=1.6?'Steve · stolen bun!':'Scraps',1040,350,13);
    const m={...r.mabel};if(r.steve.stolen){const d=Math.min(1,Math.max(0,(r.phaseT-1.6)/4));m.x+=d*550;m.y=424+Math.min(1,d*5)*132;}cook(c,m,dName(r,m));
+  }else if(r.quietKind==='homecoming'){homecoming(c,r);
   }else{
    const names=['Mabel · keeping home open','Alf · flour for cover','Pip · cooling water'];
    r.staff.forEach((s,i)=>cook(c,{...s,y:s.y+(i===1?25*r.supplyProgress:0),x:s.x-(i===2?35*r.supplyProgress:0)},names[i]));
    box(577,464,34,27,'#e0c99d',9);text('FLOUR',594,484,9,ink);box(625,461,29,30,'#68a8bc',7);oval(639,462,14,5,'#a9dce4');
    tray(c,699,476,false);text(r.tray.state==='supplied'?'Supplies ready · protect the puddings':'Saved cooks → supplies → cover',770,618,19,'#ffe28a');
   }
-  const target=r.phase===0&&r.quietKind==='opening'?r.mabel:r.phase<(r.quietKind==='opening'?2:1)?{x:605,y:550}:{x:1130,y:500};
+  const target=r.quietKind==='homecoming'?r.mabel:r.phase===0&&r.quietKind==='opening'?r.mabel:r.phase<(r.quietKind==='opening'?2:1)?{x:605,y:550}:{x:1130,y:500};
   c.beginPath();c.ellipse(target.x,target.y+8,42,17,0,0,Math.PI*2);c.strokeStyle='#ffe28a';c.lineWidth=4;c.stroke();
   if(Math.hypot(r.player.x-target.x,r.player.y-target.y)<90)text('INTERACT',target.x,target.y+43,16,'#ffe28a');c.restore();
+ }
+ function homeKnight(c,e,col){const {box,oval,text}=tools(c);c.save();c.translate(e.x,e.y);oval(0,4,22,7,ink+'55');oval(0,-26,21,25,col);oval(0,-52,20,18,'#c9d8dd');box(-17,-58,34,11,'#3b364b',4);oval(0,-75,7,12,col);c.strokeStyle=cream;c.lineWidth=2;for(const x of [-6,3]){c.beginPath();c.moveTo(x,-56);c.lineTo(x,-49);c.stroke();}text(e.name,0,34,14);c.restore();}
+ function homecoming(c,r){const {box,oval,text}=tools(c);
+  for(const [i,s]of r.staff.entries()){const working={...s};if(i===1)working.y+=Math.sin(r.elapsed)*4;if(i===2)working.x-=15+Math.sin(r.elapsed*.7)*10;cook(c,working,s.name);if(i===1){box(working.x-17,working.y-35,34,26,'#e0c99d',6);text('FLOUR',working.x,working.y-18,9,ink);}if(i===2){box(working.x-12,working.y-33,24,25,'#68a8bc',6);oval(working.x,working.y-33,12,4,'#a9dce4');}}
+  tray(c,620,475,false);homeKnight(c,r.homecoming.bran,'#cfe6ff');crossingShield(c,r.homecoming.bran);homeKnight(c,r.homecoming.stirling,'#69b0a4');box(813,520,34,27,'#e0c99d',6);
+  // The same food interest is at home now: Steve eats the scraps in his pen.
+  const dip=(1+Math.sin(r.elapsed*2))*.5,hx=982,hy=283+dip*19;oval(943,338,50,17,ink+'44');oval(938,311,47,35,cream);oval(hx,hy,22,24,cream);oval(hx-5,hy-25,9,11,'#c95664');oval(hx+6,hy-5,3,4,ink);c.beginPath();c.moveTo(hx+17,hy+3);c.lineTo(hx+35,hy+11);c.lineTo(hx+16,hy+18);c.closePath();c.fillStyle='#edb55d';c.fill();for(let i=0;i<5;i++)oval(1020+i*7,329-i%2*5,5,3,'#e8b86d');text('Steve · eating scraps',982,433,14);
  }
  function dName(r){return r.steve.stolen?'Mabel · to the pantry':'Mabel';}
  function foreground(c,r){if(r.tray.state==='carried'){c.save();tray(c,r.player.x+Math.cos(r.player.face)*18,r.player.y-34);c.restore();}}

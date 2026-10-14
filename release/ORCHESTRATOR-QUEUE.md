@@ -1,5 +1,19 @@
 # Orchestrator execution queue
 
+## Active FE09-B channel and Stirling support - 14 October 2026
+
+Root verified live GitHub main and clean integration main at 760140c5f7dce7312d315e4625a670f59c013a24 after PR36 merge, then created codex/channel-stirling-support in work/custard-knights-room. The old approval hold is resolved. No source acceptance or new export is claimed yet; beta.16 remains the checked package. Original WIP and older exports remain preserved.
+
+| Owner | Model / effort | Files | Latest progress and next action |
+|---|---|---|---|
+| /root/channel_support_impl | gpt-6.1-sol / high | campaign, actual theatre/scenery, narrow UI/index seams, focused source tests | Implement FE09-B only: cooling-channel landings, advance tools, access defender, supported hold; coordinate stable handoff |
+| /root/channel_support_qa | gpt-6.1-sol / medium | qa/channel-support-browser.cjs, dated results and review | Independent actual-browser route/input/checkpoint/capture evidence after stable source |
+| /root/story_transitions_review | gpt-6-luna / high | Read-only | Reuse completed geometry/checkpoint preflight; independently review candidate and final evidence |
+| /root | Orchestrator | Queue/checkpoint/Git | Integrate relevant checks and independent review; push/attach/merge completed task before next shared-file implementation |
+
+Scope follows ASTRA-STORY-REVIEW.md FE09-B. Preserve eight IDs/prerequisites, old Stirling checkpoint1 access-clear and checkpoint2 hold meanings, parry/flawless spoon positions, assistance, once-only outcomes and original combat. Bridge art and actual collision/path/landing coordinates must agree; optional gap-dash stays earnable. Stirling support must be visibly useful without becoming a counted enemy or hostile required target. No Steve/Rind/rescue/sluice/homecoming changes in this task. No duplicate Astra pass or unchanged baseline tests/soaks. Human/controller/TV and platform gates remain open. Root retains release maximum50v50/100 total;200 deferred.
+
+
 ## PR36 approved and merged — 14 October 2026
 
 The owner explicitly approved PR36 in recovery chat `01a135f2-88af-7bf0-adb2-09470cb8c45c`. GitHub merged the checked head `67aba06a51de518a859a0e22e1a3d103f3a0569e` as `b2b77a13ea6eabf6ba4666327956fd8eb93cd1ba`; the integration checkout was synchronized to main at that merge. The previous exact-approval block below is historical and resolved. PR36 must not be remerged or treated as awaiting approval.

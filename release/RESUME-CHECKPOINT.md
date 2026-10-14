@@ -1,5 +1,19 @@
 # Checked FE09-B source handoff - 14 October 2026
 
+## Active story completion and friends beta - 14 October 2026
+
+Owner requested completion of the remaining story, individual checked push/merge, then a fresh shareable friends beta. Root verified GitHub main5a4901f048f93ee92db7f030f2d1b0dd790ed2bb and clean integration checkout after PR37. No active workers remained; current branch is codex/steve-service-route. Original WIP and beta.16 exports remain preserved.
+
+| Owner | Model/effort | Files and current action |
+|---|---|---|
+| /root/story_finish_impl | gpt-6.1-sol high | FE09-C only: campaign/scenery/theatre and focused tests; existing cage/egg/three-gate ride leads to winch; no later stages before merge |
+| /root/story_finish_review | gpt-6-luna high | Read-only compatibility/source/evidence review for each sequential stage |
+| /root/online_friends_audit | gpt-6-luna medium | Read-only current room support and evidence limits; release slot for independent story QA |
+| /root | Orchestrator | Queue/checkpoint/Git, sequential C/D/E/F integration then coherent beta packaging |
+
+C keeps cage-open timing, replenishment, ordered gates, mount behavior and all IDs/saves/spoons. D is safe witnessed rescue; E adds explicit Rind phase3 diversion/checkpoint; F settles original result before non-awarding homecoming. Follow ASTRA-STORY-REVIEW.md, preserve exact stage contracts and obtain independent checks/review before every merge. Do not package intermediate D as a complete ending. The planned final friends beta remains a private test candidate, not Steam/human/device/WAN acceptance. Source online rooms exist, but actual different-household connection evidence is pending; Story is solo and Faction uses a separate service. No public upload or tester sending authorized.
+
+
 ## Checked FE09-B channel and Stirling support - 14 October 2026
 
 PR37 (https://github.com/joshharris-sparkedfm/custard-knights/pull/37) contains the completed bounded implementation at frozen runtime 29291248115eba0b3418e335509c778d2a2db2e7, based on main760140c5f7dce7312d315e4625a670f59c013a24. Later commits contain QA/docs only. Verify live merge state and synchronize main before the next shared-file task.

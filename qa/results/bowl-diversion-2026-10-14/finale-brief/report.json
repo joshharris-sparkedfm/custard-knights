@@ -1,0 +1,302 @@
+{
+  "startedAt": "2026-10-14T10:48:23.341Z",
+  "root": "C:\\Users\\Joshua\\Documents\\Codex\\2026-10-08\\rea\\work\\custard-knights-room",
+  "harness": "C:\\Users\\Joshua\\Documents\\Codex\\2026-10-08\\rea\\work\\custard-knights-room\\qa\\bowl-diversion-browser.cjs",
+  "harnessSha256": "ebe1ec7948d3893c670d9bc956095474b6f573ac8e30fa65f7311aad9c07c832",
+  "sourceHashes": {
+    "index.html": "faf51ef351c050e7cee6453fe416a3ec81998eb3755a47bff58e312ea3152498",
+    "game/campaign.js": "4ed522294d3b304cd4a62e61bd7e9ef0ed21501786c99d5af540713bac50d0ec",
+    "game/campaign-ui.js": "6907eab7257fbdc84cdf64b4168ae8f4bb9617c95b4ec30d6c44ac148f2541aa",
+    "game/campaign-integration.js": "629d2c7b6751dc4f7e1997012b6281387ee8cc2d524ce1ffacfcd33a840d1b5b",
+    "game/story-scenes.js": "f8e2eba4805181db2c6687be700cb07588e78e366a40b9625515dda695df5689",
+    "game/bakery-opening.js": "49204ee38bda412fd62e78348968ce8bdec23f5a9d458d26d01557d5a28f8919",
+    "game/channel-support.js": "4dfbe9b263d54cafc44922a874bc6b6a6e5737d6f728b686a7eeba1d27b853c3",
+    "game/controls.js": "a65a941fbe3614ab467207d8b216eecdffa77668d1f1bb171f4ad4a6c2405b40",
+    "game/input-aim.js": "54040dd96e1360a46cd36c5fc6f92b05abeeb7db34af7f5cca3d75a9dcb9baee"
+  },
+  "checks": [
+    {
+      "name": "Saved phase3 actual briefing explains tools, support and deliberate winch action",
+      "pass": true,
+      "details": [
+        {
+          "scene": "rind",
+          "phase": "finale",
+          "caption": "MabelOur tools are here. Clear the living skin from the sluice."
+        },
+        {
+          "scene": "rind",
+          "phase": "finale",
+          "caption": "Sir StirlingI have the north lane. Bran and Rind cover the winch side."
+        },
+        {
+          "scene": "rind",
+          "phase": "finale",
+          "caption": "RecruitThen release Swing and hold it at the winch to turn the bowl away from home."
+        }
+      ]
+    },
+    {
+      "name": "Viewing saved finale briefing cannot award",
+      "pass": true
+    },
+    {
+      "name": "Compact 10-saved-finale-brief active surface stays inside viewport",
+      "pass": true,
+      "details": {
+        "selector": ".campaign-captions",
+        "bounds": {
+          "x": 47.0625,
+          "y": 262,
+          "width": 690.875,
+          "height": 78,
+          "top": 262,
+          "right": 737.9375,
+          "bottom": 340,
+          "left": 47.0625
+        },
+        "text": "RecruitThen release Swing and hold it at the winch to turn the bowl away from home.",
+        "viewport": {
+          "width": 800,
+          "height": 500
+        },
+        "visible": true
+      }
+    },
+    {
+      "name": "Actual briefing Skip starts saved sluice without boss or rescue replay",
+      "pass": true,
+      "details": {
+        "id": "rind",
+        "phase": 3,
+        "status": "playing",
+        "elapsed": 0.11666666666666665,
+        "phaseT": 0.11666666666666665,
+        "time": 119.88333333333334,
+        "quietStory": false,
+        "safe": false,
+        "resumed": true,
+        "hits": 0,
+        "falls": 0,
+        "guardsHit": 0,
+        "cage": null,
+        "rescue": {
+          "freed": true,
+          "settled": true,
+          "guard": {
+            "x": 1130,
+            "y": 610,
+            "name": "Bran"
+          },
+          "rind": {
+            "x": 1130,
+            "y": 460,
+            "name": "Marshal Rind",
+            "supporting": true
+          }
+        },
+        "finale": {
+          "jammed": true,
+          "toolsReady": true,
+          "tools": {
+            "x": 850,
+            "y": 690
+          },
+          "winch": {
+            "x": 970,
+            "y": 600,
+            "r": 60
+          },
+          "hold": 0,
+          "held": false,
+          "released": false,
+          "contested": true,
+          "diverting": false,
+          "bowlProgress": 0,
+          "channelOpen": false,
+          "north": {
+            "x": 640,
+            "y": 300,
+            "pursuerX": 400.5,
+            "blocked": 0,
+            "flash": 0,
+            "covering": true
+          },
+          "east": {
+            "pursuerX": 1215.9166666666672,
+            "blocked": 0,
+            "flash": 0,
+            "covering": true
+          },
+          "jam": {
+            "c": 24,
+            "r": 10,
+            "x": 980,
+            "y": 500,
+            "label": "Sluice jam"
+          }
+        },
+        "player": {
+          "x": 800,
+          "y": 600,
+          "hp": 3,
+          "dead": false
+        },
+        "boss": null,
+        "enemies": [
+          {
+            "id": 1,
+            "name": "Sluice defender",
+            "x": 945.1695159630298,
+            "y": 590.3220322691312,
+            "hp": 3,
+            "dead": false,
+            "role": "shield"
+          }
+        ],
+        "result": null,
+        "save": {
+          "version": 1,
+          "results": {
+            "banquet": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "puddings": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "guard": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "bridge": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "stirling": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "steve": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            }
+          },
+          "selected": "rind",
+          "assist": false,
+          "difficulty": "medium",
+          "checkpoint": {
+            "id": "rind",
+            "phase": 3
+          },
+          "receipts": []
+        },
+        "hud": "Medium · Space / left click at sluice jam → open cooling channel"
+      }
+    },
+    {
+      "name": "No uncaught browser exceptions",
+      "pass": true,
+      "details": []
+    }
+  ],
+  "errors": [],
+  "inputs": [
+    {
+      "type": "mouseClick",
+      "scope": "#campaignStory",
+      "text": "Skip story"
+    }
+  ],
+  "fixtures": [
+    "Copied normalized prerequisite-only save; Rind legacy checkpoint 3",
+    "Normal saved checkpoint briefing preview through real UI"
+  ],
+  "limitations": [
+    "Actual isolated headless Chrome/CDP keyboard movement, jam sword strikes, remapped current Swing hold, UI Retry/pause/replay, plus explicitly owned synthetic standard pad sampled at navigator boundary by real frame poller.",
+    "Copied saves, boss KO/counter, defender relocation/stun, delayed-tools and boundary displacement fixtures individually labeled; no input-only boss/defender combat completion, physical controller, human comprehension, WAN, Steam Input, native startup, GPU or packaging acceptance."
+  ],
+  "profile": "C:\\Users\\Joshua\\AppData\\Local\\Temp\\ck-bowl-diversion-ewQzcz",
+  "chromeLog": "\r\nDevTools listening on ws://127.0.0.1:53610/devtools/browser/f4dedade-6654-4a46-b6b6-df6610b1a2e5\r\n",
+  "cdpTarget": {
+    "description": "",
+    "devtoolsFrontendUrl": "https://chrome-devtools-frontend.appspot.com/serve_rev/@b859317bf11f6be47f9b7799ec690a0a42a1fb33/inspector.html?ws=127.0.0.1:53610/devtools/page/178B6AE49D50BCA7DBE296210876963E",
+    "id": "178B6AE49D50BCA7DBE296210876963E",
+    "title": "",
+    "type": "page",
+    "url": "about:blank",
+    "webSocketDebuggerUrl": "ws://127.0.0.1:53610/devtools/page/178B6AE49D50BCA7DBE296210876963E"
+  },
+  "cdpMessages": 49,
+  "finaleBrief": [
+    {
+      "scene": "rind",
+      "phase": "finale",
+      "caption": "MabelOur tools are here. Clear the living skin from the sluice."
+    },
+    {
+      "scene": "rind",
+      "phase": "finale",
+      "caption": "Sir StirlingI have the north lane. Bran and Rind cover the winch side."
+    },
+    {
+      "scene": "rind",
+      "phase": "finale",
+      "caption": "RecruitThen release Swing and hold it at the winch to turn the bowl away from home."
+    }
+  ],
+  "finishedAt": "2026-10-14T10:48:24.866Z",
+  "sourceHashesAfter": {
+    "index.html": "faf51ef351c050e7cee6453fe416a3ec81998eb3755a47bff58e312ea3152498",
+    "game/campaign.js": "4ed522294d3b304cd4a62e61bd7e9ef0ed21501786c99d5af540713bac50d0ec",
+    "game/campaign-ui.js": "6907eab7257fbdc84cdf64b4168ae8f4bb9617c95b4ec30d6c44ac148f2541aa",
+    "game/campaign-integration.js": "629d2c7b6751dc4f7e1997012b6281387ee8cc2d524ce1ffacfcd33a840d1b5b",
+    "game/story-scenes.js": "f8e2eba4805181db2c6687be700cb07588e78e366a40b9625515dda695df5689",
+    "game/bakery-opening.js": "49204ee38bda412fd62e78348968ce8bdec23f5a9d458d26d01557d5a28f8919",
+    "game/channel-support.js": "4dfbe9b263d54cafc44922a874bc6b6a6e5737d6f728b686a7eeba1d27b853c3",
+    "game/controls.js": "a65a941fbe3614ab467207d8b216eecdffa77668d1f1bb171f4ad4a6c2405b40",
+    "game/input-aim.js": "54040dd96e1360a46cd36c5fc6f92b05abeeb7db34af7f5cca3d75a9dcb9baee"
+  },
+  "stableSources": true,
+  "counts": {
+    "pass": 5,
+    "fail": 0
+  }
+}

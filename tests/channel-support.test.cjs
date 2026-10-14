@@ -29,5 +29,13 @@ test('safe rescue foreground keeps Bran inside the real tile until cut, then sho
  const ctx=new Proxy({}, {get(target,key){if(key in target)return target[key];return (...args)=>{for(const a of args)if(typeof a==='number')assert.ok(Number.isFinite(a));if(key==='save')depth++;if(key==='restore')assert.ok(--depth>=0);if(key==='fillText')labels.push(args[0]);};}});
  const r={node:{id:'rind'},g,elapsed:4,phase:2,cage:{x:900,y:420},rescue:{freed:false,guard:{x:900,y:420},rind:{x:800,y:440,supporting:false}}};
  H.scenery(ctx,r);H.rescueForeground(ctx,r);assert.equal(JSON.stringify(g.grid),before);assert.equal(depth,0);assert.ok(labels.includes('BRAN · TRAPPED'));assert.ok(labels.includes('RIND · SPOON LOWERED'));
- r.rescue.freed=true;r.rescue.guard={x:980,y:520};r.rescue.rind.supporting=true;H.rescueForeground(ctx,r);assert.equal(depth,0);assert.ok(labels.includes('BRAN · CLEAR OF THE SKIN'));assert.ok(labels.includes('RIND · AT THE WINCH SIDE'));assert.equal(JSON.stringify(g.grid),before);
+ r.rescue.freed=true;r.rescue.guard={x:980,y:520};r.rescue.rind.supporting=true;H.rescueForeground(ctx,r);assert.equal(depth,0);assert.ok(labels.includes('RIND · WINCH SIDE'));assert.ok(!labels.some(s=>s.startsWith('Rind:')));assert.equal(JSON.stringify(g.grid),before);
+});
+test('sluice scene moves the bowl only with earned progress and keeps actors and tools outside the winch target',()=>{
+ const g=arena(),calls=[];let depth=0;
+ const ctx=new Proxy({}, {get(target,key){if(key in target)return target[key];return (...args)=>{for(const a of args)if(typeof a==='number')assert.ok(Number.isFinite(a));if(key==='save')depth++;if(key==='restore')assert.ok(--depth>=0);calls.push([key,...args]);};}});
+ const r={node:{id:'rind'},g,elapsed:5,rescue:{guard:{x:1130,y:610},rind:{x:1130,y:460}},finale:{jammed:true,jam:{x:980,y:500},winch:{x:970,y:600,r:60},tools:{x:850,y:690},toolsReady:true,north:{pursuerX:450,flash:0},east:{pursuerX:1200,flash:0},bowlProgress:0,channelOpen:false,diverting:false}};
+ const before=JSON.stringify(g.grid);H.scenery(ctx,r);H.finaleForeground(ctx,r);assert.equal(depth,0);assert.equal(JSON.stringify(g.grid),before);assert.ok(calls.some(c=>c[0]==='ellipse'&&c[1]===1100&&c[2]===184));
+ for(const actor of [r.rescue.guard,r.rescue.rind,r.finale.tools])assert.ok(Math.hypot(actor.x-970,actor.y-600)>60);
+ calls.length=0;r.finale.bowlProgress=1;r.finale.channelOpen=true;r.finale.diverting=true;H.scenery(ctx,r);assert.ok(calls.some(c=>c[0]==='ellipse'&&c[1]===800&&c[2]===294));assert.equal(depth,0);assert.equal(JSON.stringify(g.grid),before);
 });

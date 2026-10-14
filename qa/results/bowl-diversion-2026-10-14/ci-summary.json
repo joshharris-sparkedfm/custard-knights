@@ -1,0 +1,54 @@
+{
+  "source": "a7984f1f003767b4c2396e1fb349b43e5431e4dc",
+  "runId": 38551744761,
+  "jobs": [
+    {
+      "id": 115811095377,
+      "name": "core (windows-latest, 22)",
+      "status": "completed",
+      "conclusion": "success",
+      "startedAt": "2026-10-14T10:45:08Z",
+      "completedAt": "2026-10-14T10:45:47Z"
+    },
+    {
+      "id": 115811095711,
+      "name": "core (ubuntu-latest, 22)",
+      "status": "completed",
+      "conclusion": "success",
+      "startedAt": "2026-10-14T10:45:08Z",
+      "completedAt": "2026-10-14T10:45:46Z"
+    },
+    {
+      "id": 115811095724,
+      "name": "server (windows-latest)",
+      "status": "completed",
+      "conclusion": "success",
+      "startedAt": "2026-10-14T10:45:07Z",
+      "completedAt": "2026-10-14T10:47:06Z"
+    },
+    {
+      "id": 115811095791,
+      "name": "server (ubuntu-latest)",
+      "status": "completed",
+      "conclusion": "success",
+      "startedAt": "2026-10-14T10:45:08Z",
+      "completedAt": "2026-10-14T10:46:47Z"
+    },
+    {
+      "id": 115811095816,
+      "name": "core (ubuntu-latest, 24)",
+      "status": "completed",
+      "conclusion": "success",
+      "startedAt": "2026-10-14T10:45:08Z",
+      "completedAt": "2026-10-14T10:45:47Z"
+    },
+    {
+      "id": 115811095994,
+      "name": "core (windows-latest, 24)",
+      "status": "completed",
+      "conclusion": "success",
+      "startedAt": "2026-10-14T10:45:07Z",
+      "completedAt": "2026-10-14T10:45:38Z"
+    }
+  ]
+}

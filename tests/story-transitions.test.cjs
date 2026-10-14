@@ -26,11 +26,11 @@ function uiHarness(){
  const doc={hidden:false,createElement:tag=>new Element(tag),createElementNS:(_,tag)=>new Element(tag),querySelector:()=>null,getElementById:()=>null,addEventListener(){},removeEventListener(){},defaultView:{requestAnimationFrame:()=>1,cancelAnimationFrame(){}}};doc.head=new Element('head');doc.body=new Element('body');
  const campaign=C.create({storage:null});campaign.restore({results:Object.fromEntries(C.nodes.map(n=>[n.id,{spoons:[true,true,true]}]))});const launches=[];
  const root={CKCampaign:C,CKStoryScenes:{...S,render:()=>true}};vm.runInNewContext(fs.readFileSync(require.resolve('../game/campaign-ui.js'),'utf8'),{globalThis:root});
- const ui=root.CKCampaignUI.mount({campaign,document:doc,start:(...args)=>launches.push(args)});
+ const ui=root.CKCampaignUI.mount({campaign,document:doc,start:(...args)=>launches.push(args),startFinale:()=>launches.push(['rind',false,true]),interactLabel:()=> 'Q'});
  const find=(predicate,node=doc.body)=>predicate(node)?node:node.children.map(e=>find(predicate,e)).find(Boolean);
  const button=text=>{const b=find(e=>e.tag==='button'&&e.textContent===text);assert.ok(b,'Button exists: '+text);return b;};
  const canvas=()=>find(e=>e.tag==='canvas'&&!find(p=>p.id==='campaignStory').hidden);
- return {ui,find,button,canvas,launches};
+ return {ui,find,button,canvas,launches,campaign};
 }
 test('unchanged encounters retain full authored outro and next briefing on default Continue',()=>{
  for(const [id,next] of [['bridge','stirling'],['stirling','steve'],['steve','rind']]){
@@ -57,4 +57,17 @@ test('crossing identity and optional practice retain the eight-node save and spo
  assert.equal(S.duration('banquet','disruption'),8);assert.equal(S.duration('guard','consequence'),6);assert.equal(S.duration('rind','consequence'),0,'untouched encounters use the concise text card, never silently replay a full intro');
  assert.ok(C.byId.guard.dialogue.some(line=>line.startsWith('Bran:')&&/service crossing/.test(line)),'text fallback keeps the same crossing guard as theatre');assert.ok(C.byId.guard.outro.some(line=>/channel bridge/.test(line)&&/optional/.test(line)),'text fallback keeps the same onward route as theatre');
  assert.ok(S.scenes.puddings.intro.cues.some(c=>c.speaker==='Mabel'));assert.ok(S.scenes.puddings.intro.cues.some(c=>c.speaker==='Alf'));assert.ok(S.scenes.puddings.outro.cues.some(c=>/cooling channel/.test(c.text)));assert.ok(S.scenes.guard.consequence.cues.some(c=>c.speaker==='Bran'&&/winch/.test(c.text)));assert.ok(S.scenes.biscuit.intro.cues.some(c=>/Optional/.test(c.text)));
+});
+
+test('old completed map exposes a guarded finale replay and checkpoint3 briefing uses the actual sluice scene',()=>{
+ const h=uiHarness(),old=JSON.stringify(h.campaign.save.results);h.ui.open('rind');assert.ok(h.button('Replay encounter from beginning'));assert.ok(h.button('Replay finale'));assert.match(h.find(e=>e.className==='campaign-brief').textContent,/Spoons earned in earlier versions stay earned/);assert.equal(JSON.stringify(h.campaign.save.results),old);h.button('Replay finale').onclick();assert.deepEqual(h.launches,[['rind',false,true]]);
+ h.campaign.restore({...h.campaign.save,checkpoint:{id:'rind',phase:3}});h.ui.brief('rind',true);assert.equal(h.canvas().dataset.phase,'finale');assert.match(h.find(e=>e.className==='campaign-captions').textContent,/tools.*living skin/i);assert.equal(JSON.stringify(h.campaign.save.results),old);
+ const save={...h.campaign.save,results:{...h.campaign.save.results},checkpoint:null};delete save.results.rind;h.campaign.restore(save);h.ui.open('rind');assert.equal(h.find(e=>e.tag==='button'&&e.textContent==='Replay finale'),undefined);
+});
+test('finale replay guard boots and reports nothing until owned; rescue-to-diversion remains one reported round',()=>{
+ const denied=harness();assert.equal(denied.a.launchFinale(),null);assert.equal(denied.a.campaign.run,null);assert.deepEqual(denied.events,[]);
+ const save={results:Object.fromEntries(C.nodes.filter(n=>n.id!=='rind').map(n=>[n.id,{spoons:[true,false,false]}])),checkpoint:{id:'rind',phase:2}};
+ const h=harness(save);h.a.launch('rind',true);const c=h.a.campaign,r=c.run,g=r.g;assert.deepEqual(h.events,['round_started']);const q=r.cage;g.grid[q.r][q.c]='.';c.event('crate',{c:q.c,r:q.r,destroyed:true});h.a.tick(3);assert.equal(c.run.phase,3);assert.deepEqual(h.events,['round_started']);assert.equal(c.save.results.rind,undefined);
+ const f=c.run.finale;g.grid[f.jam.r][f.jam.c]='.';c.event('crate',{c:f.jam.c,r:f.jam.r,destroyed:true});g.ents.filter(e=>!e.human).forEach(e=>e.dead=true);h.a.tick(3);Object.assign(r.player,f.winch);h.a.playerInput({atk:false});h.a.playerInput({atk:true});h.a.tick(4);assert.equal(f.channelOpen,true);assert.deepEqual(h.events,['round_started']);h.a.tick(2);assert.deepEqual(h.events,['round_started','round_completed']);assert.equal(c.save.results.rind.spoons[0],true);c.finish(true);assert.deepEqual(h.events,['round_started','round_completed']);
+ const owned=harness({results:Object.fromEntries(C.nodes.map(n=>[n.id,{spoons:[true,true,true]}]))});owned.a.launchFinale();assert.equal(owned.a.campaign.run.phase,3);assert.equal(owned.a.campaign.run.resumed,true);assert.equal(owned.a.campaign.run.guardsHit,0);assert.deepEqual(owned.events,['round_started']);
 });

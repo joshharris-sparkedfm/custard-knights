@@ -1,0 +1,6465 @@
+{
+  "startedAt": "2026-10-14T10:44:40.445Z",
+  "root": "C:\\Users\\Joshua\\Documents\\Codex\\2026-10-08\\rea\\work\\custard-knights-room",
+  "harness": "C:\\Users\\Joshua\\Documents\\Codex\\2026-10-08\\rea\\work\\custard-knights-room\\qa\\bowl-diversion-browser.cjs",
+  "harnessSha256": "1965c7ecb514c853dbf1e86c2d47d65ca2d962bd874a37007a2d3d82dbf21c80",
+  "sourceHashes": {
+    "index.html": "faf51ef351c050e7cee6453fe416a3ec81998eb3755a47bff58e312ea3152498",
+    "game/campaign.js": "4ed522294d3b304cd4a62e61bd7e9ef0ed21501786c99d5af540713bac50d0ec",
+    "game/campaign-ui.js": "6907eab7257fbdc84cdf64b4168ae8f4bb9617c95b4ec30d6c44ac148f2541aa",
+    "game/campaign-integration.js": "629d2c7b6751dc4f7e1997012b6281387ee8cc2d524ce1ffacfcd33a840d1b5b",
+    "game/story-scenes.js": "f8e2eba4805181db2c6687be700cb07588e78e366a40b9625515dda695df5689",
+    "game/bakery-opening.js": "49204ee38bda412fd62e78348968ce8bdec23f5a9d458d26d01557d5a28f8919",
+    "game/channel-support.js": "4dfbe9b263d54cafc44922a874bc6b6a6e5737d6f728b686a7eeba1d27b853c3",
+    "game/controls.js": "a65a941fbe3614ab467207d8b216eecdffa77668d1f1bb171f4ad4a6c2405b40",
+    "game/input-aim.js": "54040dd96e1360a46cd36c5fc6f92b05abeeb7db34af7f5cca3d75a9dcb9baee"
+  },
+  "checks": [
+    {
+      "name": "Phase 0 rescue now reaches saved sluice without awarding",
+      "pass": true,
+      "details": {
+        "id": "rind",
+        "phase": 3,
+        "status": "playing",
+        "elapsed": 50.83333333333283,
+        "phaseT": 0.06666666666666667,
+        "time": 119.93333333333334,
+        "quietStory": false,
+        "safe": false,
+        "resumed": false,
+        "hits": 2,
+        "falls": 1,
+        "guardsHit": 2,
+        "cage": null,
+        "rescue": {
+          "freed": true,
+          "settled": true,
+          "guard": {
+            "x": 1130,
+            "y": 610,
+            "name": "Bran"
+          },
+          "rind": {
+            "x": 1130,
+            "y": 460,
+            "name": "Marshal Rind",
+            "supporting": true
+          }
+        },
+        "finale": {
+          "jammed": true,
+          "toolsReady": false,
+          "tools": {
+            "x": 703.3333333333335,
+            "y": 690
+          },
+          "winch": {
+            "x": 970,
+            "y": 600,
+            "r": 60
+          },
+          "hold": 0,
+          "held": false,
+          "released": false,
+          "contested": true,
+          "diverting": false,
+          "bowlProgress": 0,
+          "channelOpen": false,
+          "north": {
+            "x": 640,
+            "y": 300,
+            "pursuerX": 396,
+            "blocked": 0,
+            "flash": 0,
+            "covering": true
+          },
+          "east": {
+            "pursuerX": 1217.666666666667,
+            "blocked": 0,
+            "flash": 0,
+            "covering": true
+          },
+          "jam": {
+            "c": 24,
+            "r": 10,
+            "x": 980,
+            "y": 500,
+            "label": "Sluice jam"
+          }
+        },
+        "player": {
+          "x": 862.4,
+          "y": 414.32096568775927,
+          "hp": 3,
+          "dead": false
+        },
+        "boss": {
+          "hp": 8,
+          "dead": true,
+          "step": "defeated"
+        },
+        "enemies": [
+          {
+            "id": 1,
+            "name": "Marshal Rind",
+            "x": 794.69932092954,
+            "y": 440,
+            "hp": 8,
+            "dead": true,
+            "role": "marshal"
+          },
+          {
+            "id": 2,
+            "name": "Sluice defender",
+            "x": 949.0545266414571,
+            "y": 588.103883029717,
+            "hp": 3,
+            "dead": false,
+            "role": "shield"
+          }
+        ],
+        "result": null,
+        "save": {
+          "version": 1,
+          "results": {
+            "banquet": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "puddings": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "guard": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "bridge": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "stirling": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "steve": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            }
+          },
+          "selected": "rind",
+          "assist": false,
+          "difficulty": "medium",
+          "checkpoint": {
+            "id": "rind",
+            "phase": 3
+          },
+          "receipts": []
+        },
+        "hud": "Medium · Space / left click at sluice jam → open cooling channel"
+      }
+    },
+    {
+      "name": "Phase 0 retains resumed and full-run counter provenance",
+      "pass": true,
+      "details": {
+        "id": "rind",
+        "phase": 3,
+        "status": "playing",
+        "elapsed": 50.83333333333283,
+        "phaseT": 0.06666666666666667,
+        "time": 119.93333333333334,
+        "quietStory": false,
+        "safe": false,
+        "resumed": false,
+        "hits": 2,
+        "falls": 1,
+        "guardsHit": 2,
+        "cage": null,
+        "rescue": {
+          "freed": true,
+          "settled": true,
+          "guard": {
+            "x": 1130,
+            "y": 610,
+            "name": "Bran"
+          },
+          "rind": {
+            "x": 1130,
+            "y": 460,
+            "name": "Marshal Rind",
+            "supporting": true
+          }
+        },
+        "finale": {
+          "jammed": true,
+          "toolsReady": false,
+          "tools": {
+            "x": 703.3333333333335,
+            "y": 690
+          },
+          "winch": {
+            "x": 970,
+            "y": 600,
+            "r": 60
+          },
+          "hold": 0,
+          "held": false,
+          "released": false,
+          "contested": true,
+          "diverting": false,
+          "bowlProgress": 0,
+          "channelOpen": false,
+          "north": {
+            "x": 640,
+            "y": 300,
+            "pursuerX": 396,
+            "blocked": 0,
+            "flash": 0,
+            "covering": true
+          },
+          "east": {
+            "pursuerX": 1217.666666666667,
+            "blocked": 0,
+            "flash": 0,
+            "covering": true
+          },
+          "jam": {
+            "c": 24,
+            "r": 10,
+            "x": 980,
+            "y": 500,
+            "label": "Sluice jam"
+          }
+        },
+        "player": {
+          "x": 862.4,
+          "y": 414.32096568775927,
+          "hp": 3,
+          "dead": false
+        },
+        "boss": {
+          "hp": 8,
+          "dead": true,
+          "step": "defeated"
+        },
+        "enemies": [
+          {
+            "id": 1,
+            "name": "Marshal Rind",
+            "x": 794.69932092954,
+            "y": 440,
+            "hp": 8,
+            "dead": true,
+            "role": "marshal"
+          },
+          {
+            "id": 2,
+            "name": "Sluice defender",
+            "x": 949.0545266414571,
+            "y": 588.103883029717,
+            "hp": 3,
+            "dead": false,
+            "role": "shield"
+          }
+        ],
+        "result": null,
+        "save": {
+          "version": 1,
+          "results": {
+            "banquet": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "puddings": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "guard": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "bridge": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "stirling": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "steve": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            }
+          },
+          "selected": "rind",
+          "assist": false,
+          "difficulty": "medium",
+          "checkpoint": {
+            "id": "rind",
+            "phase": 3
+          },
+          "receipts": []
+        },
+        "hud": "Medium · Space / left click at sluice jam → open cooling channel"
+      }
+    },
+    {
+      "name": "Phase 0 cooks actually bring tools after rescue",
+      "pass": true,
+      "details": {
+        "id": "rind",
+        "phase": 3,
+        "status": "playing",
+        "elapsed": 50.83333333333283,
+        "phaseT": 0.06666666666666667,
+        "time": 119.93333333333334,
+        "quietStory": false,
+        "safe": false,
+        "resumed": false,
+        "hits": 2,
+        "falls": 1,
+        "guardsHit": 2,
+        "cage": null,
+        "rescue": {
+          "freed": true,
+          "settled": true,
+          "guard": {
+            "x": 1130,
+            "y": 610,
+            "name": "Bran"
+          },
+          "rind": {
+            "x": 1130,
+            "y": 460,
+            "name": "Marshal Rind",
+            "supporting": true
+          }
+        },
+        "finale": {
+          "jammed": true,
+          "toolsReady": false,
+          "tools": {
+            "x": 703.3333333333335,
+            "y": 690
+          },
+          "winch": {
+            "x": 970,
+            "y": 600,
+            "r": 60
+          },
+          "hold": 0,
+          "held": false,
+          "released": false,
+          "contested": true,
+          "diverting": false,
+          "bowlProgress": 0,
+          "channelOpen": false,
+          "north": {
+            "x": 640,
+            "y": 300,
+            "pursuerX": 396,
+            "blocked": 0,
+            "flash": 0,
+            "covering": true
+          },
+          "east": {
+            "pursuerX": 1217.666666666667,
+            "blocked": 0,
+            "flash": 0,
+            "covering": true
+          },
+          "jam": {
+            "c": 24,
+            "r": 10,
+            "x": 980,
+            "y": 500,
+            "label": "Sluice jam"
+          }
+        },
+        "player": {
+          "x": 862.4,
+          "y": 414.32096568775927,
+          "hp": 3,
+          "dead": false
+        },
+        "boss": {
+          "hp": 8,
+          "dead": true,
+          "step": "defeated"
+        },
+        "enemies": [
+          {
+            "id": 1,
+            "name": "Marshal Rind",
+            "x": 794.69932092954,
+            "y": 440,
+            "hp": 8,
+            "dead": true,
+            "role": "marshal"
+          },
+          {
+            "id": 2,
+            "name": "Sluice defender",
+            "x": 949.0545266414571,
+            "y": 588.103883029717,
+            "hp": 3,
+            "dead": false,
+            "role": "shield"
+          }
+        ],
+        "result": null,
+        "save": {
+          "version": 1,
+          "results": {
+            "banquet": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "puddings": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "guard": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "bridge": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "stirling": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "steve": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            }
+          },
+          "selected": "rind",
+          "assist": false,
+          "difficulty": "medium",
+          "checkpoint": {
+            "id": "rind",
+            "phase": 3
+          },
+          "receipts": []
+        },
+        "hud": "Medium · Space / left click at sluice jam → open cooling channel"
+      }
+    },
+    {
+      "name": "Phase 0 allies intercept marked north and east arrivals",
+      "pass": true,
+      "details": {
+        "id": "rind",
+        "phase": 3,
+        "status": "playing",
+        "elapsed": 53.766666666666,
+        "phaseT": 2.9999999999999942,
+        "time": 117.00000000000017,
+        "quietStory": false,
+        "safe": false,
+        "resumed": false,
+        "hits": 2,
+        "falls": 1,
+        "guardsHit": 2,
+        "cage": null,
+        "rescue": {
+          "freed": true,
+          "settled": true,
+          "guard": {
+            "x": 1130,
+            "y": 610,
+            "name": "Bran"
+          },
+          "rind": {
+            "x": 1130,
+            "y": 460,
+            "name": "Marshal Rind",
+            "supporting": true
+          }
+        },
+        "finale": {
+          "jammed": true,
+          "toolsReady": true,
+          "tools": {
+            "x": 850,
+            "y": 690
+          },
+          "winch": {
+            "x": 970,
+            "y": 600,
+            "r": 60
+          },
+          "hold": 0,
+          "held": false,
+          "released": false,
+          "contested": false,
+          "diverting": false,
+          "bowlProgress": 0,
+          "channelOpen": false,
+          "north": {
+            "x": 640,
+            "y": 300,
+            "pursuerX": 450,
+            "blocked": 1,
+            "flash": 0,
+            "covering": true
+          },
+          "east": {
+            "pursuerX": 1215.333333333334,
+            "blocked": 2,
+            "flash": 0.3666666666666667,
+            "covering": true
+          },
+          "jam": {
+            "c": 24,
+            "r": 10,
+            "x": 980,
+            "y": 500,
+            "label": "Sluice jam"
+          }
+        },
+        "player": {
+          "x": 862.4,
+          "y": 414.32096568775927,
+          "hp": 3,
+          "dead": false
+        },
+        "boss": {
+          "hp": 8,
+          "dead": true,
+          "step": "defeated"
+        },
+        "enemies": [
+          {
+            "id": 1,
+            "name": "Marshal Rind",
+            "x": 794.69932092954,
+            "y": 440,
+            "hp": 8,
+            "dead": true,
+            "role": "marshal"
+          },
+          {
+            "id": 2,
+            "name": "Sluice defender",
+            "x": 1146.9885759059125,
+            "y": 673.9606840553182,
+            "hp": 3,
+            "dead": false,
+            "role": "shield"
+          }
+        ],
+        "result": null,
+        "save": {
+          "version": 1,
+          "results": {
+            "banquet": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "puddings": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "guard": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "bridge": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "stirling": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "steve": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            }
+          },
+          "selected": "rind",
+          "assist": false,
+          "difficulty": "medium",
+          "checkpoint": {
+            "id": "rind",
+            "phase": 3
+          },
+          "receipts": []
+        },
+        "hud": "Medium · Space / left click at sluice jam → open cooling channel"
+      }
+    },
+    {
+      "name": "Phase 1 rescue now reaches saved sluice without awarding",
+      "pass": true,
+      "details": {
+        "id": "rind",
+        "phase": 3,
+        "status": "playing",
+        "elapsed": 8.833333333333352,
+        "phaseT": 0,
+        "time": 120,
+        "quietStory": false,
+        "safe": false,
+        "resumed": true,
+        "hits": 0,
+        "falls": 0,
+        "guardsHit": 0,
+        "cage": null,
+        "rescue": {
+          "freed": true,
+          "settled": true,
+          "guard": {
+            "x": 1130,
+            "y": 610,
+            "name": "Bran"
+          },
+          "rind": {
+            "x": 1130,
+            "y": 460,
+            "name": "Marshal Rind",
+            "supporting": true
+          }
+        },
+        "finale": {
+          "jammed": true,
+          "toolsReady": false,
+          "tools": {
+            "x": 700,
+            "y": 690
+          },
+          "winch": {
+            "x": 970,
+            "y": 600,
+            "r": 60
+          },
+          "hold": 0,
+          "held": false,
+          "released": false,
+          "contested": false,
+          "diverting": false,
+          "bowlProgress": 0,
+          "channelOpen": false,
+          "north": {
+            "x": 640,
+            "y": 300,
+            "pursuerX": 390,
+            "blocked": 0,
+            "flash": 0,
+            "covering": true
+          },
+          "east": {
+            "pursuerX": 1220,
+            "blocked": 0,
+            "flash": 0,
+            "covering": true
+          },
+          "jam": {
+            "c": 24,
+            "r": 10,
+            "x": 980,
+            "y": 500,
+            "label": "Sluice jam"
+          }
+        },
+        "player": {
+          "x": 862.4,
+          "y": 424.36710272112697,
+          "hp": 3,
+          "dead": false
+        },
+        "boss": {
+          "hp": 4,
+          "dead": true,
+          "step": "defeated"
+        },
+        "enemies": [
+          {
+            "id": 1,
+            "name": "Marshal Rind",
+            "x": 794.69932092954,
+            "y": 440,
+            "hp": 4,
+            "dead": true,
+            "role": "marshal"
+          },
+          {
+            "id": 2,
+            "name": "Shield guard",
+            "x": 793.2346701224299,
+            "y": 321.3094186859813,
+            "hp": 2,
+            "dead": true,
+            "role": "shield"
+          },
+          {
+            "id": 3,
+            "name": "Shield guard",
+            "x": 793.2346701224299,
+            "y": 558.6905813140188,
+            "hp": 2,
+            "dead": true,
+            "role": "shield"
+          },
+          {
+            "id": 4,
+            "name": "Sluice defender",
+            "x": 950,
+            "y": 590,
+            "hp": 3,
+            "dead": false,
+            "role": "shield"
+          }
+        ],
+        "result": null,
+        "save": {
+          "version": 1,
+          "results": {
+            "banquet": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "puddings": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "guard": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "bridge": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "stirling": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "steve": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            }
+          },
+          "selected": "rind",
+          "assist": false,
+          "difficulty": "medium",
+          "checkpoint": {
+            "id": "rind",
+            "phase": 3
+          },
+          "receipts": []
+        },
+        "hud": "Medium · Space / left click at sluice jam → open cooling channel"
+      }
+    },
+    {
+      "name": "Phase 1 retains resumed and full-run counter provenance",
+      "pass": true,
+      "details": {
+        "id": "rind",
+        "phase": 3,
+        "status": "playing",
+        "elapsed": 8.833333333333352,
+        "phaseT": 0,
+        "time": 120,
+        "quietStory": false,
+        "safe": false,
+        "resumed": true,
+        "hits": 0,
+        "falls": 0,
+        "guardsHit": 0,
+        "cage": null,
+        "rescue": {
+          "freed": true,
+          "settled": true,
+          "guard": {
+            "x": 1130,
+            "y": 610,
+            "name": "Bran"
+          },
+          "rind": {
+            "x": 1130,
+            "y": 460,
+            "name": "Marshal Rind",
+            "supporting": true
+          }
+        },
+        "finale": {
+          "jammed": true,
+          "toolsReady": false,
+          "tools": {
+            "x": 700,
+            "y": 690
+          },
+          "winch": {
+            "x": 970,
+            "y": 600,
+            "r": 60
+          },
+          "hold": 0,
+          "held": false,
+          "released": false,
+          "contested": false,
+          "diverting": false,
+          "bowlProgress": 0,
+          "channelOpen": false,
+          "north": {
+            "x": 640,
+            "y": 300,
+            "pursuerX": 390,
+            "blocked": 0,
+            "flash": 0,
+            "covering": true
+          },
+          "east": {
+            "pursuerX": 1220,
+            "blocked": 0,
+            "flash": 0,
+            "covering": true
+          },
+          "jam": {
+            "c": 24,
+            "r": 10,
+            "x": 980,
+            "y": 500,
+            "label": "Sluice jam"
+          }
+        },
+        "player": {
+          "x": 862.4,
+          "y": 424.36710272112697,
+          "hp": 3,
+          "dead": false
+        },
+        "boss": {
+          "hp": 4,
+          "dead": true,
+          "step": "defeated"
+        },
+        "enemies": [
+          {
+            "id": 1,
+            "name": "Marshal Rind",
+            "x": 794.69932092954,
+            "y": 440,
+            "hp": 4,
+            "dead": true,
+            "role": "marshal"
+          },
+          {
+            "id": 2,
+            "name": "Shield guard",
+            "x": 793.2346701224299,
+            "y": 321.3094186859813,
+            "hp": 2,
+            "dead": true,
+            "role": "shield"
+          },
+          {
+            "id": 3,
+            "name": "Shield guard",
+            "x": 793.2346701224299,
+            "y": 558.6905813140188,
+            "hp": 2,
+            "dead": true,
+            "role": "shield"
+          },
+          {
+            "id": 4,
+            "name": "Sluice defender",
+            "x": 950,
+            "y": 590,
+            "hp": 3,
+            "dead": false,
+            "role": "shield"
+          }
+        ],
+        "result": null,
+        "save": {
+          "version": 1,
+          "results": {
+            "banquet": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "puddings": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "guard": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "bridge": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "stirling": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "steve": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            }
+          },
+          "selected": "rind",
+          "assist": false,
+          "difficulty": "medium",
+          "checkpoint": {
+            "id": "rind",
+            "phase": 3
+          },
+          "receipts": []
+        },
+        "hud": "Medium · Space / left click at sluice jam → open cooling channel"
+      }
+    },
+    {
+      "name": "Phase 1 cooks actually bring tools after rescue",
+      "pass": true,
+      "details": {
+        "id": "rind",
+        "phase": 3,
+        "status": "playing",
+        "elapsed": 8.833333333333352,
+        "phaseT": 0,
+        "time": 120,
+        "quietStory": false,
+        "safe": false,
+        "resumed": true,
+        "hits": 0,
+        "falls": 0,
+        "guardsHit": 0,
+        "cage": null,
+        "rescue": {
+          "freed": true,
+          "settled": true,
+          "guard": {
+            "x": 1130,
+            "y": 610,
+            "name": "Bran"
+          },
+          "rind": {
+            "x": 1130,
+            "y": 460,
+            "name": "Marshal Rind",
+            "supporting": true
+          }
+        },
+        "finale": {
+          "jammed": true,
+          "toolsReady": false,
+          "tools": {
+            "x": 700,
+            "y": 690
+          },
+          "winch": {
+            "x": 970,
+            "y": 600,
+            "r": 60
+          },
+          "hold": 0,
+          "held": false,
+          "released": false,
+          "contested": false,
+          "diverting": false,
+          "bowlProgress": 0,
+          "channelOpen": false,
+          "north": {
+            "x": 640,
+            "y": 300,
+            "pursuerX": 390,
+            "blocked": 0,
+            "flash": 0,
+            "covering": true
+          },
+          "east": {
+            "pursuerX": 1220,
+            "blocked": 0,
+            "flash": 0,
+            "covering": true
+          },
+          "jam": {
+            "c": 24,
+            "r": 10,
+            "x": 980,
+            "y": 500,
+            "label": "Sluice jam"
+          }
+        },
+        "player": {
+          "x": 862.4,
+          "y": 424.36710272112697,
+          "hp": 3,
+          "dead": false
+        },
+        "boss": {
+          "hp": 4,
+          "dead": true,
+          "step": "defeated"
+        },
+        "enemies": [
+          {
+            "id": 1,
+            "name": "Marshal Rind",
+            "x": 794.69932092954,
+            "y": 440,
+            "hp": 4,
+            "dead": true,
+            "role": "marshal"
+          },
+          {
+            "id": 2,
+            "name": "Shield guard",
+            "x": 793.2346701224299,
+            "y": 321.3094186859813,
+            "hp": 2,
+            "dead": true,
+            "role": "shield"
+          },
+          {
+            "id": 3,
+            "name": "Shield guard",
+            "x": 793.2346701224299,
+            "y": 558.6905813140188,
+            "hp": 2,
+            "dead": true,
+            "role": "shield"
+          },
+          {
+            "id": 4,
+            "name": "Sluice defender",
+            "x": 950,
+            "y": 590,
+            "hp": 3,
+            "dead": false,
+            "role": "shield"
+          }
+        ],
+        "result": null,
+        "save": {
+          "version": 1,
+          "results": {
+            "banquet": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "puddings": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "guard": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "bridge": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "stirling": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "steve": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            }
+          },
+          "selected": "rind",
+          "assist": false,
+          "difficulty": "medium",
+          "checkpoint": {
+            "id": "rind",
+            "phase": 3
+          },
+          "receipts": []
+        },
+        "hud": "Medium · Space / left click at sluice jam → open cooling channel"
+      }
+    },
+    {
+      "name": "Phase 1 allies intercept marked north and east arrivals",
+      "pass": true,
+      "details": {
+        "id": "rind",
+        "phase": 3,
+        "status": "playing",
+        "elapsed": 11.866666666666836,
+        "phaseT": 3.0333333333333274,
+        "time": 116.96666666666684,
+        "quietStory": false,
+        "safe": false,
+        "resumed": true,
+        "hits": 0,
+        "falls": 0,
+        "guardsHit": 0,
+        "cage": null,
+        "rescue": {
+          "freed": true,
+          "settled": true,
+          "guard": {
+            "x": 1130,
+            "y": 610,
+            "name": "Bran"
+          },
+          "rind": {
+            "x": 1130,
+            "y": 460,
+            "name": "Marshal Rind",
+            "supporting": true
+          }
+        },
+        "finale": {
+          "jammed": true,
+          "toolsReady": true,
+          "tools": {
+            "x": 850,
+            "y": 690
+          },
+          "winch": {
+            "x": 970,
+            "y": 600,
+            "r": 60
+          },
+          "hold": 0,
+          "held": false,
+          "released": false,
+          "contested": false,
+          "diverting": false,
+          "bowlProgress": 0,
+          "channelOpen": false,
+          "north": {
+            "x": 640,
+            "y": 300,
+            "pursuerX": 453,
+            "blocked": 1,
+            "flash": 0,
+            "covering": true
+          },
+          "east": {
+            "pursuerX": 1214.1666666666674,
+            "blocked": 2,
+            "flash": 0.33333333333333337,
+            "covering": true
+          },
+          "jam": {
+            "c": 24,
+            "r": 10,
+            "x": 980,
+            "y": 500,
+            "label": "Sluice jam"
+          }
+        },
+        "player": {
+          "x": 862.4,
+          "y": 424.36710272112697,
+          "hp": 3,
+          "dead": false
+        },
+        "boss": {
+          "hp": 4,
+          "dead": true,
+          "step": "defeated"
+        },
+        "enemies": [
+          {
+            "id": 1,
+            "name": "Marshal Rind",
+            "x": 794.69932092954,
+            "y": 440,
+            "hp": 4,
+            "dead": true,
+            "role": "marshal"
+          },
+          {
+            "id": 2,
+            "name": "Shield guard",
+            "x": 793.2346701224299,
+            "y": 321.3094186859813,
+            "hp": 2,
+            "dead": true,
+            "role": "shield"
+          },
+          {
+            "id": 3,
+            "name": "Shield guard",
+            "x": 793.2346701224299,
+            "y": 558.6905813140188,
+            "hp": 2,
+            "dead": true,
+            "role": "shield"
+          },
+          {
+            "id": 4,
+            "name": "Sluice defender",
+            "x": 1150,
+            "y": 680,
+            "hp": 3,
+            "dead": false,
+            "role": "shield"
+          }
+        ],
+        "result": null,
+        "save": {
+          "version": 1,
+          "results": {
+            "banquet": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "puddings": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "guard": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "bridge": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "stirling": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "steve": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            }
+          },
+          "selected": "rind",
+          "assist": false,
+          "difficulty": "medium",
+          "checkpoint": {
+            "id": "rind",
+            "phase": 3
+          },
+          "receipts": []
+        },
+        "hud": "Medium · Space / left click at sluice jam → open cooling channel"
+      }
+    },
+    {
+      "name": "Phase 2 rescue now reaches saved sluice without awarding",
+      "pass": true,
+      "details": {
+        "id": "rind",
+        "phase": 3,
+        "status": "playing",
+        "elapsed": 6.933333333333314,
+        "phaseT": 0,
+        "time": 120,
+        "quietStory": false,
+        "safe": false,
+        "resumed": true,
+        "hits": 0,
+        "falls": 0,
+        "guardsHit": 0,
+        "cage": null,
+        "rescue": {
+          "freed": true,
+          "settled": true,
+          "guard": {
+            "x": 1130,
+            "y": 610,
+            "name": "Bran"
+          },
+          "rind": {
+            "x": 1130,
+            "y": 460,
+            "name": "Marshal Rind",
+            "supporting": true
+          }
+        },
+        "finale": {
+          "jammed": true,
+          "toolsReady": false,
+          "tools": {
+            "x": 700,
+            "y": 690
+          },
+          "winch": {
+            "x": 970,
+            "y": 600,
+            "r": 60
+          },
+          "hold": 0,
+          "held": false,
+          "released": false,
+          "contested": false,
+          "diverting": false,
+          "bowlProgress": 0,
+          "channelOpen": false,
+          "north": {
+            "x": 640,
+            "y": 300,
+            "pursuerX": 390,
+            "blocked": 0,
+            "flash": 0,
+            "covering": true
+          },
+          "east": {
+            "pursuerX": 1220,
+            "blocked": 0,
+            "flash": 0,
+            "covering": true
+          },
+          "jam": {
+            "c": 24,
+            "r": 10,
+            "x": 980,
+            "y": 500,
+            "label": "Sluice jam"
+          }
+        },
+        "player": {
+          "x": 862.4,
+          "y": 420.57629278250363,
+          "hp": 3,
+          "dead": false
+        },
+        "boss": {
+          "hp": 8,
+          "dead": true,
+          "step": "defeated"
+        },
+        "enemies": [
+          {
+            "id": 1,
+            "name": "Marshal Rind",
+            "x": 800,
+            "y": 440,
+            "hp": 8,
+            "dead": true,
+            "role": "marshal"
+          },
+          {
+            "id": 2,
+            "name": "Sluice defender",
+            "x": 950,
+            "y": 590,
+            "hp": 3,
+            "dead": false,
+            "role": "shield"
+          }
+        ],
+        "result": null,
+        "save": {
+          "version": 1,
+          "results": {
+            "banquet": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "puddings": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "guard": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "bridge": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "stirling": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "steve": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            }
+          },
+          "selected": "rind",
+          "assist": false,
+          "difficulty": "medium",
+          "checkpoint": {
+            "id": "rind",
+            "phase": 3
+          },
+          "receipts": []
+        },
+        "hud": "Medium · Space / left click at sluice jam → open cooling channel"
+      }
+    },
+    {
+      "name": "Phase 2 retains resumed and full-run counter provenance",
+      "pass": true,
+      "details": {
+        "id": "rind",
+        "phase": 3,
+        "status": "playing",
+        "elapsed": 6.933333333333314,
+        "phaseT": 0,
+        "time": 120,
+        "quietStory": false,
+        "safe": false,
+        "resumed": true,
+        "hits": 0,
+        "falls": 0,
+        "guardsHit": 0,
+        "cage": null,
+        "rescue": {
+          "freed": true,
+          "settled": true,
+          "guard": {
+            "x": 1130,
+            "y": 610,
+            "name": "Bran"
+          },
+          "rind": {
+            "x": 1130,
+            "y": 460,
+            "name": "Marshal Rind",
+            "supporting": true
+          }
+        },
+        "finale": {
+          "jammed": true,
+          "toolsReady": false,
+          "tools": {
+            "x": 700,
+            "y": 690
+          },
+          "winch": {
+            "x": 970,
+            "y": 600,
+            "r": 60
+          },
+          "hold": 0,
+          "held": false,
+          "released": false,
+          "contested": false,
+          "diverting": false,
+          "bowlProgress": 0,
+          "channelOpen": false,
+          "north": {
+            "x": 640,
+            "y": 300,
+            "pursuerX": 390,
+            "blocked": 0,
+            "flash": 0,
+            "covering": true
+          },
+          "east": {
+            "pursuerX": 1220,
+            "blocked": 0,
+            "flash": 0,
+            "covering": true
+          },
+          "jam": {
+            "c": 24,
+            "r": 10,
+            "x": 980,
+            "y": 500,
+            "label": "Sluice jam"
+          }
+        },
+        "player": {
+          "x": 862.4,
+          "y": 420.57629278250363,
+          "hp": 3,
+          "dead": false
+        },
+        "boss": {
+          "hp": 8,
+          "dead": true,
+          "step": "defeated"
+        },
+        "enemies": [
+          {
+            "id": 1,
+            "name": "Marshal Rind",
+            "x": 800,
+            "y": 440,
+            "hp": 8,
+            "dead": true,
+            "role": "marshal"
+          },
+          {
+            "id": 2,
+            "name": "Sluice defender",
+            "x": 950,
+            "y": 590,
+            "hp": 3,
+            "dead": false,
+            "role": "shield"
+          }
+        ],
+        "result": null,
+        "save": {
+          "version": 1,
+          "results": {
+            "banquet": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "puddings": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "guard": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "bridge": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "stirling": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "steve": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            }
+          },
+          "selected": "rind",
+          "assist": false,
+          "difficulty": "medium",
+          "checkpoint": {
+            "id": "rind",
+            "phase": 3
+          },
+          "receipts": []
+        },
+        "hud": "Medium · Space / left click at sluice jam → open cooling channel"
+      }
+    },
+    {
+      "name": "Phase 2 cooks actually bring tools after rescue",
+      "pass": true,
+      "details": {
+        "id": "rind",
+        "phase": 3,
+        "status": "playing",
+        "elapsed": 6.933333333333314,
+        "phaseT": 0,
+        "time": 120,
+        "quietStory": false,
+        "safe": false,
+        "resumed": true,
+        "hits": 0,
+        "falls": 0,
+        "guardsHit": 0,
+        "cage": null,
+        "rescue": {
+          "freed": true,
+          "settled": true,
+          "guard": {
+            "x": 1130,
+            "y": 610,
+            "name": "Bran"
+          },
+          "rind": {
+            "x": 1130,
+            "y": 460,
+            "name": "Marshal Rind",
+            "supporting": true
+          }
+        },
+        "finale": {
+          "jammed": true,
+          "toolsReady": false,
+          "tools": {
+            "x": 700,
+            "y": 690
+          },
+          "winch": {
+            "x": 970,
+            "y": 600,
+            "r": 60
+          },
+          "hold": 0,
+          "held": false,
+          "released": false,
+          "contested": false,
+          "diverting": false,
+          "bowlProgress": 0,
+          "channelOpen": false,
+          "north": {
+            "x": 640,
+            "y": 300,
+            "pursuerX": 390,
+            "blocked": 0,
+            "flash": 0,
+            "covering": true
+          },
+          "east": {
+            "pursuerX": 1220,
+            "blocked": 0,
+            "flash": 0,
+            "covering": true
+          },
+          "jam": {
+            "c": 24,
+            "r": 10,
+            "x": 980,
+            "y": 500,
+            "label": "Sluice jam"
+          }
+        },
+        "player": {
+          "x": 862.4,
+          "y": 420.57629278250363,
+          "hp": 3,
+          "dead": false
+        },
+        "boss": {
+          "hp": 8,
+          "dead": true,
+          "step": "defeated"
+        },
+        "enemies": [
+          {
+            "id": 1,
+            "name": "Marshal Rind",
+            "x": 800,
+            "y": 440,
+            "hp": 8,
+            "dead": true,
+            "role": "marshal"
+          },
+          {
+            "id": 2,
+            "name": "Sluice defender",
+            "x": 950,
+            "y": 590,
+            "hp": 3,
+            "dead": false,
+            "role": "shield"
+          }
+        ],
+        "result": null,
+        "save": {
+          "version": 1,
+          "results": {
+            "banquet": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "puddings": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "guard": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "bridge": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "stirling": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "steve": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            }
+          },
+          "selected": "rind",
+          "assist": false,
+          "difficulty": "medium",
+          "checkpoint": {
+            "id": "rind",
+            "phase": 3
+          },
+          "receipts": []
+        },
+        "hud": "Medium · Space / left click at sluice jam → open cooling channel"
+      }
+    },
+    {
+      "name": "Phase 2 allies intercept marked north and east arrivals",
+      "pass": true,
+      "details": {
+        "id": "rind",
+        "phase": 3,
+        "status": "playing",
+        "elapsed": 9.933333333333406,
+        "phaseT": 2.9999999999999942,
+        "time": 117.00000000000017,
+        "quietStory": false,
+        "safe": false,
+        "resumed": true,
+        "hits": 0,
+        "falls": 0,
+        "guardsHit": 0,
+        "cage": null,
+        "rescue": {
+          "freed": true,
+          "settled": true,
+          "guard": {
+            "x": 1130,
+            "y": 610,
+            "name": "Bran"
+          },
+          "rind": {
+            "x": 1130,
+            "y": 460,
+            "name": "Marshal Rind",
+            "supporting": true
+          }
+        },
+        "finale": {
+          "jammed": true,
+          "toolsReady": true,
+          "tools": {
+            "x": 850,
+            "y": 690
+          },
+          "winch": {
+            "x": 970,
+            "y": 600,
+            "r": 60
+          },
+          "hold": 0,
+          "held": false,
+          "released": false,
+          "contested": false,
+          "diverting": false,
+          "bowlProgress": 0,
+          "channelOpen": false,
+          "north": {
+            "x": 640,
+            "y": 300,
+            "pursuerX": 450,
+            "blocked": 1,
+            "flash": 0,
+            "covering": true
+          },
+          "east": {
+            "pursuerX": 1215.333333333334,
+            "blocked": 2,
+            "flash": 0.3666666666666667,
+            "covering": true
+          },
+          "jam": {
+            "c": 24,
+            "r": 10,
+            "x": 980,
+            "y": 500,
+            "label": "Sluice jam"
+          }
+        },
+        "player": {
+          "x": 862.4,
+          "y": 420.57629278250363,
+          "hp": 3,
+          "dead": false
+        },
+        "boss": {
+          "hp": 8,
+          "dead": true,
+          "step": "defeated"
+        },
+        "enemies": [
+          {
+            "id": 1,
+            "name": "Marshal Rind",
+            "x": 800,
+            "y": 440,
+            "hp": 8,
+            "dead": true,
+            "role": "marshal"
+          },
+          {
+            "id": 2,
+            "name": "Sluice defender",
+            "x": 1150,
+            "y": 680,
+            "hp": 3,
+            "dead": false,
+            "role": "shield"
+          }
+        ],
+        "result": null,
+        "save": {
+          "version": 1,
+          "results": {
+            "banquet": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "puddings": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "guard": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "bridge": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "stirling": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "steve": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            }
+          },
+          "selected": "rind",
+          "assist": false,
+          "difficulty": "medium",
+          "checkpoint": {
+            "id": "rind",
+            "phase": 3
+          },
+          "receipts": []
+        },
+        "hud": "Medium · Space / left click at sluice jam → open cooling channel"
+      }
+    },
+    {
+      "name": "Compact 01-natural-sluice-tools active surface stays inside viewport",
+      "pass": true,
+      "details": {
+        "selector": "#campaignHUD",
+        "bounds": {
+          "x": 208,
+          "y": 90,
+          "width": 384,
+          "height": 46,
+          "top": 90,
+          "right": 592,
+          "bottom": 136,
+          "left": 208
+        },
+        "text": "Medium · Space / left click at sluice jam → open cooling channel",
+        "viewport": {
+          "width": 800,
+          "height": 500
+        },
+        "visible": true
+      }
+    },
+    {
+      "name": "Saved phase3 reload retains save and collection without awarding",
+      "pass": true
+    },
+    {
+      "name": "Phase3 reconstructs healthy player, fresh local120s, tools/support, rescued Bran and intact jam",
+      "pass": true,
+      "details": {
+        "id": "rind",
+        "phase": 3,
+        "status": "playing",
+        "elapsed": 0.16666666666666666,
+        "phaseT": 0.16666666666666666,
+        "time": 119.83333333333334,
+        "quietStory": false,
+        "safe": false,
+        "resumed": true,
+        "hits": 0,
+        "falls": 0,
+        "guardsHit": 0,
+        "cage": null,
+        "rescue": {
+          "freed": true,
+          "settled": true,
+          "guard": {
+            "x": 1130,
+            "y": 610,
+            "name": "Bran"
+          },
+          "rind": {
+            "x": 1130,
+            "y": 460,
+            "name": "Marshal Rind",
+            "supporting": true
+          }
+        },
+        "finale": {
+          "jammed": true,
+          "toolsReady": true,
+          "tools": {
+            "x": 850,
+            "y": 690
+          },
+          "winch": {
+            "x": 970,
+            "y": 600,
+            "r": 60
+          },
+          "hold": 0,
+          "held": false,
+          "released": false,
+          "contested": true,
+          "diverting": false,
+          "bowlProgress": 0,
+          "channelOpen": false,
+          "north": {
+            "x": 640,
+            "y": 300,
+            "pursuerX": 405,
+            "blocked": 0,
+            "flash": 0,
+            "covering": true
+          },
+          "east": {
+            "pursuerX": 1214.1666666666674,
+            "blocked": 0,
+            "flash": 0,
+            "covering": true
+          },
+          "jam": {
+            "c": 24,
+            "r": 10,
+            "x": 980,
+            "y": 500,
+            "label": "Sluice jam"
+          }
+        },
+        "player": {
+          "x": 800,
+          "y": 600,
+          "hp": 3,
+          "dead": false
+        },
+        "boss": null,
+        "enemies": [
+          {
+            "id": 1,
+            "name": "Sluice defender",
+            "x": 942.061486443182,
+            "y": 590.5292342371212,
+            "hp": 3,
+            "dead": false,
+            "role": "shield"
+          }
+        ],
+        "result": null,
+        "save": {
+          "version": 1,
+          "results": {
+            "banquet": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "puddings": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "guard": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "bridge": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "stirling": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "steve": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            }
+          },
+          "selected": "rind",
+          "assist": false,
+          "difficulty": "medium",
+          "checkpoint": {
+            "id": "rind",
+            "phase": 3
+          },
+          "receipts": []
+        },
+        "hud": "Medium · Space / left click at sluice jam → open cooling channel"
+      }
+    },
+    {
+      "name": "Phase3 UI Retry restarts local finale without boss/rescue replay",
+      "pass": true,
+      "details": {
+        "id": "rind",
+        "phase": 3,
+        "status": "playing",
+        "elapsed": 0.11666666666666665,
+        "phaseT": 0.11666666666666665,
+        "time": 119.88333333333334,
+        "quietStory": false,
+        "safe": false,
+        "resumed": true,
+        "hits": 0,
+        "falls": 0,
+        "guardsHit": 0,
+        "cage": null,
+        "rescue": {
+          "freed": true,
+          "settled": true,
+          "guard": {
+            "x": 1130,
+            "y": 610,
+            "name": "Bran"
+          },
+          "rind": {
+            "x": 1130,
+            "y": 460,
+            "name": "Marshal Rind",
+            "supporting": true
+          }
+        },
+        "finale": {
+          "jammed": true,
+          "toolsReady": true,
+          "tools": {
+            "x": 850,
+            "y": 690
+          },
+          "winch": {
+            "x": 970,
+            "y": 600,
+            "r": 60
+          },
+          "hold": 0,
+          "held": false,
+          "released": false,
+          "contested": true,
+          "diverting": false,
+          "bowlProgress": 0,
+          "channelOpen": false,
+          "north": {
+            "x": 640,
+            "y": 300,
+            "pursuerX": 400.5,
+            "blocked": 0,
+            "flash": 0,
+            "covering": true
+          },
+          "east": {
+            "pursuerX": 1215.9166666666672,
+            "blocked": 0,
+            "flash": 0,
+            "covering": true
+          },
+          "jam": {
+            "c": 24,
+            "r": 10,
+            "x": 980,
+            "y": 500,
+            "label": "Sluice jam"
+          }
+        },
+        "player": {
+          "x": 800,
+          "y": 600,
+          "hp": 3,
+          "dead": false
+        },
+        "boss": null,
+        "enemies": [
+          {
+            "id": 1,
+            "name": "Sluice defender",
+            "x": 945.1695159630298,
+            "y": 590.3220322691312,
+            "hp": 3,
+            "dead": false,
+            "role": "shield"
+          }
+        ],
+        "result": null,
+        "save": {
+          "version": 1,
+          "results": {
+            "banquet": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "puddings": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "guard": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "bridge": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "stirling": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "steve": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "rind": {
+              "spoons": [
+                false,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": null,
+              "assisted": false
+            }
+          },
+          "selected": "rind",
+          "assist": false,
+          "difficulty": "medium",
+          "checkpoint": {
+            "id": "rind",
+            "phase": 3
+          },
+          "receipts": [
+            "7c82826e-ca6b-402b-afce-df3a1fffe8c4:rind:1"
+          ]
+        },
+        "hud": "Medium · Space / left click at sluice jam → open cooling channel"
+      }
+    },
+    {
+      "name": "Compact 02-sluice-checkpoint-retry active surface stays inside viewport",
+      "pass": true,
+      "details": {
+        "selector": "#campaignHUD",
+        "bounds": {
+          "x": 208,
+          "y": 90,
+          "width": 384,
+          "height": 46,
+          "top": 90,
+          "right": 592,
+          "bottom": 136,
+          "left": 208
+        },
+        "text": "Medium · Space / left click at sluice jam → open cooling channel",
+        "viewport": {
+          "width": 800,
+          "height": 500
+        },
+        "visible": true
+      }
+    },
+    {
+      "name": "Compact 03-jam-start active surface stays inside viewport",
+      "pass": true,
+      "details": {
+        "selector": "#campaignHUD",
+        "bounds": {
+          "x": 214.1953125,
+          "y": 90,
+          "width": 371.609375,
+          "height": 31,
+          "top": 90,
+          "right": 585.8046875,
+          "bottom": 121,
+          "left": 214.1953125
+        },
+        "text": "Medium · Q / left click at sluice jam → open cooling channel",
+        "viewport": {
+          "width": 800,
+          "height": 500
+        },
+        "visible": true
+      }
+    },
+    {
+      "name": "Starting finale or premature finish cannot award before diversion",
+      "pass": true
+    },
+    {
+      "name": "Intact physical jam prevents winch progress",
+      "pass": true,
+      "details": {
+        "id": "rind",
+        "phase": 3,
+        "status": "playing",
+        "elapsed": 2.0999999999999974,
+        "phaseT": 2.0999999999999974,
+        "time": 117.90000000000012,
+        "quietStory": false,
+        "safe": false,
+        "resumed": true,
+        "hits": 0,
+        "falls": 0,
+        "guardsHit": 0,
+        "cage": null,
+        "rescue": {
+          "freed": true,
+          "settled": true,
+          "guard": {
+            "x": 1130,
+            "y": 610,
+            "name": "Bran"
+          },
+          "rind": {
+            "x": 1130,
+            "y": 460,
+            "name": "Marshal Rind",
+            "supporting": true
+          }
+        },
+        "finale": {
+          "jammed": true,
+          "toolsReady": true,
+          "tools": {
+            "x": 850,
+            "y": 690
+          },
+          "winch": {
+            "x": 970,
+            "y": 600,
+            "r": 60
+          },
+          "hold": 0,
+          "held": false,
+          "released": false,
+          "contested": false,
+          "diverting": false,
+          "bowlProgress": 0,
+          "channelOpen": false,
+          "north": {
+            "x": 640,
+            "y": 300,
+            "pursuerX": 579,
+            "blocked": 0,
+            "flash": 0,
+            "covering": true
+          },
+          "east": {
+            "pursuerX": 1196.6666666666697,
+            "blocked": 1,
+            "flash": 0,
+            "covering": true
+          },
+          "jam": {
+            "c": 24,
+            "r": 10,
+            "x": 980,
+            "y": 500,
+            "label": "Sluice jam"
+          }
+        },
+        "player": {
+          "x": 990.3507268904575,
+          "y": 600,
+          "hp": 3,
+          "dead": false
+        },
+        "boss": null,
+        "enemies": [
+          {
+            "id": 1,
+            "name": "Sluice defender",
+            "x": 1140.6536681314722,
+            "y": 680.6230887912354,
+            "hp": 3,
+            "dead": false,
+            "role": "shield"
+          }
+        ],
+        "result": null,
+        "save": {
+          "version": 1,
+          "results": {
+            "banquet": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "puddings": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "guard": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "bridge": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "stirling": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "steve": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            }
+          },
+          "selected": "rind",
+          "assist": false,
+          "difficulty": "medium",
+          "checkpoint": {
+            "id": "rind",
+            "phase": 3
+          },
+          "receipts": []
+        },
+        "hud": "Medium · Q / left click at sluice jam → open cooling channel"
+      }
+    },
+    {
+      "name": "Actual jam sword cut requires release before winch hold",
+      "pass": true,
+      "details": {
+        "id": "rind",
+        "phase": 3,
+        "status": "playing",
+        "elapsed": 7.4666666666666455,
+        "phaseT": 7.4666666666666455,
+        "time": 112.53333333333376,
+        "quietStory": false,
+        "safe": false,
+        "resumed": true,
+        "hits": 0,
+        "falls": 0,
+        "guardsHit": 0,
+        "cage": null,
+        "rescue": {
+          "freed": true,
+          "settled": true,
+          "guard": {
+            "x": 1130,
+            "y": 610,
+            "name": "Bran"
+          },
+          "rind": {
+            "x": 1130,
+            "y": 460,
+            "name": "Marshal Rind",
+            "supporting": true
+          }
+        },
+        "finale": {
+          "jammed": false,
+          "toolsReady": true,
+          "tools": {
+            "x": 850,
+            "y": 690
+          },
+          "winch": {
+            "x": 970,
+            "y": 600,
+            "r": 60
+          },
+          "hold": 0,
+          "held": false,
+          "released": false,
+          "contested": false,
+          "diverting": false,
+          "bowlProgress": 0,
+          "channelOpen": false,
+          "north": {
+            "x": 640,
+            "y": 300,
+            "pursuerX": 432,
+            "blocked": 3,
+            "flash": 0.03333333333333344,
+            "covering": true
+          },
+          "east": {
+            "pursuerX": 1209.5000000000014,
+            "blocked": 5,
+            "flash": 0.20000000000000007,
+            "covering": true
+          },
+          "jam": {
+            "c": 24,
+            "r": 10,
+            "x": 980,
+            "y": 500,
+            "label": "Sluice jam"
+          }
+        },
+        "player": {
+          "x": 976.171607211554,
+          "y": 555.0131240439993,
+          "hp": 3,
+          "dead": false
+        },
+        "boss": null,
+        "enemies": [
+          {
+            "id": 1,
+            "name": "Sluice defender",
+            "x": 1140.6536267299105,
+            "y": 680.6230915513389,
+            "hp": 3,
+            "dead": false,
+            "role": "shield"
+          }
+        ],
+        "result": null,
+        "save": {
+          "version": 1,
+          "results": {
+            "banquet": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "puddings": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "guard": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "bridge": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "stirling": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "steve": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            }
+          },
+          "selected": "rind",
+          "assist": false,
+          "difficulty": "medium",
+          "checkpoint": {
+            "id": "rind",
+            "phase": 3
+          },
+          "receipts": []
+        },
+        "hud": "Medium · Release Q / left click, then hold at winch"
+      }
+    },
+    {
+      "name": "Undelivered tools prevent progress despite cleared jam and held current Swing",
+      "pass": true,
+      "details": {
+        "id": "rind",
+        "phase": 3,
+        "status": "playing",
+        "elapsed": 8.099999999999982,
+        "phaseT": 8.099999999999982,
+        "time": 111.90000000000046,
+        "quietStory": false,
+        "safe": false,
+        "resumed": true,
+        "hits": 0,
+        "falls": 0,
+        "guardsHit": 0,
+        "cage": null,
+        "rescue": {
+          "freed": true,
+          "settled": true,
+          "guard": {
+            "x": 1130,
+            "y": 610,
+            "name": "Bran"
+          },
+          "rind": {
+            "x": 1130,
+            "y": 460,
+            "name": "Marshal Rind",
+            "supporting": true
+          }
+        },
+        "finale": {
+          "jammed": false,
+          "toolsReady": false,
+          "tools": {
+            "x": 728.3333333333346,
+            "y": 690
+          },
+          "winch": {
+            "x": 970,
+            "y": 600,
+            "r": 60
+          },
+          "hold": 0,
+          "held": false,
+          "released": true,
+          "contested": false,
+          "diverting": false,
+          "bowlProgress": 0,
+          "channelOpen": false,
+          "north": {
+            "x": 640,
+            "y": 300,
+            "pursuerX": 489,
+            "blocked": 3,
+            "flash": 0,
+            "covering": true
+          },
+          "east": {
+            "pursuerX": 1187.3333333333376,
+            "blocked": 5,
+            "flash": 0,
+            "covering": true
+          },
+          "jam": {
+            "c": 24,
+            "r": 10,
+            "x": 980,
+            "y": 500,
+            "label": "Sluice jam"
+          }
+        },
+        "player": {
+          "x": 976.1716137246277,
+          "y": 565.726191283179,
+          "hp": 3,
+          "dead": false
+        },
+        "boss": null,
+        "enemies": [
+          {
+            "id": 1,
+            "name": "Sluice defender",
+            "x": 1140.6536267299105,
+            "y": 680.6230915513389,
+            "hp": 3,
+            "dead": false,
+            "role": "shield"
+          }
+        ],
+        "result": null,
+        "save": {
+          "version": 1,
+          "results": {
+            "banquet": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "puddings": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "guard": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "bridge": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "stirling": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "steve": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            }
+          },
+          "selected": "rind",
+          "assist": false,
+          "difficulty": "medium",
+          "checkpoint": {
+            "id": "rind",
+            "phase": 3
+          },
+          "receipts": []
+        },
+        "hud": "Medium · Cooks bringing tools → winch"
+      }
+    },
+    {
+      "name": "Old Space binding cannot operate remapped winch",
+      "pass": true,
+      "details": {
+        "id": "rind",
+        "phase": 3,
+        "status": "playing",
+        "elapsed": 11.116666666666799,
+        "phaseT": 11.116666666666799,
+        "time": 108.88333333333397,
+        "quietStory": false,
+        "safe": false,
+        "resumed": true,
+        "hits": 0,
+        "falls": 0,
+        "guardsHit": 0,
+        "cage": null,
+        "rescue": {
+          "freed": true,
+          "settled": true,
+          "guard": {
+            "x": 1130,
+            "y": 610,
+            "name": "Bran"
+          },
+          "rind": {
+            "x": 1130,
+            "y": 460,
+            "name": "Marshal Rind",
+            "supporting": true
+          }
+        },
+        "finale": {
+          "jammed": false,
+          "toolsReady": true,
+          "tools": {
+            "x": 850,
+            "y": 690
+          },
+          "winch": {
+            "x": 970,
+            "y": 600,
+            "r": 60
+          },
+          "hold": 0,
+          "held": false,
+          "released": true,
+          "contested": false,
+          "diverting": false,
+          "bowlProgress": 0,
+          "channelOpen": false,
+          "north": {
+            "x": 640,
+            "y": 300,
+            "pursuerX": 550.5,
+            "blocked": 4,
+            "flash": 0,
+            "covering": true
+          },
+          "east": {
+            "pursuerX": 1182.0833333333383,
+            "blocked": 7,
+            "flash": 0,
+            "covering": true
+          },
+          "jam": {
+            "c": 24,
+            "r": 10,
+            "x": 980,
+            "y": 500,
+            "label": "Sluice jam"
+          }
+        },
+        "player": {
+          "x": 976.1716137248961,
+          "y": 565.727469450835,
+          "hp": 3,
+          "dead": false
+        },
+        "boss": null,
+        "enemies": [
+          {
+            "id": 1,
+            "name": "Sluice defender",
+            "x": 1140.6536267299105,
+            "y": 680.6230915513389,
+            "hp": 3,
+            "dead": false,
+            "role": "shield"
+          }
+        ],
+        "result": null,
+        "save": {
+          "version": 1,
+          "results": {
+            "banquet": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "puddings": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "guard": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "bridge": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "stirling": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "steve": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            }
+          },
+          "selected": "rind",
+          "assist": false,
+          "difficulty": "medium",
+          "checkpoint": {
+            "id": "rind",
+            "phase": 3
+          },
+          "receipts": []
+        },
+        "hud": "Medium · Hold Q / left click at winch: 0.0/4s"
+      }
+    },
+    {
+      "name": "Actual current Swing release resets continuous winch hold",
+      "pass": true,
+      "details": {
+        "id": "rind",
+        "phase": 3,
+        "status": "playing",
+        "elapsed": 11.733333333333496,
+        "phaseT": 11.733333333333496,
+        "time": 108.26666666666733,
+        "quietStory": false,
+        "safe": false,
+        "resumed": true,
+        "hits": 0,
+        "falls": 0,
+        "guardsHit": 0,
+        "cage": null,
+        "rescue": {
+          "freed": true,
+          "settled": true,
+          "guard": {
+            "x": 1130,
+            "y": 610,
+            "name": "Bran"
+          },
+          "rind": {
+            "x": 1130,
+            "y": 460,
+            "name": "Marshal Rind",
+            "supporting": true
+          }
+        },
+        "finale": {
+          "jammed": false,
+          "toolsReady": true,
+          "tools": {
+            "x": 850,
+            "y": 690
+          },
+          "winch": {
+            "x": 970,
+            "y": 600,
+            "r": 60
+          },
+          "hold": 0,
+          "held": false,
+          "released": true,
+          "contested": false,
+          "diverting": false,
+          "bowlProgress": 0,
+          "channelOpen": false,
+          "north": {
+            "x": 640,
+            "y": 300,
+            "pursuerX": 396,
+            "blocked": 5,
+            "flash": 0.43333333333333335,
+            "covering": true
+          },
+          "east": {
+            "pursuerX": 1210.6666666666679,
+            "blocked": 8,
+            "flash": 0.2333333333333334,
+            "covering": true
+          },
+          "jam": {
+            "c": 24,
+            "r": 10,
+            "x": 980,
+            "y": 500,
+            "label": "Sluice jam"
+          }
+        },
+        "player": {
+          "x": 976.1716137248961,
+          "y": 565.727469450835,
+          "hp": 3,
+          "dead": false
+        },
+        "boss": null,
+        "enemies": [
+          {
+            "id": 1,
+            "name": "Sluice defender",
+            "x": 1140.6536267299105,
+            "y": 680.6230915513389,
+            "hp": 3,
+            "dead": false,
+            "role": "shield"
+          }
+        ],
+        "result": null,
+        "save": {
+          "version": 1,
+          "results": {
+            "banquet": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "puddings": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "guard": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "bridge": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "stirling": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "steve": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            }
+          },
+          "selected": "rind",
+          "assist": false,
+          "difficulty": "medium",
+          "checkpoint": {
+            "id": "rind",
+            "phase": 3
+          },
+          "receipts": []
+        },
+        "hud": "Medium · Hold Q / left click at winch: 0.0/4s"
+      }
+    },
+    {
+      "name": "Leaving winch radius resets rather than banks held progress",
+      "pass": true,
+      "details": {
+        "id": "rind",
+        "phase": 3,
+        "status": "playing",
+        "elapsed": 12.333333333333526,
+        "phaseT": 12.333333333333526,
+        "time": 107.66666666666737,
+        "quietStory": false,
+        "safe": false,
+        "resumed": true,
+        "hits": 0,
+        "falls": 0,
+        "guardsHit": 0,
+        "cage": null,
+        "rescue": {
+          "freed": true,
+          "settled": true,
+          "guard": {
+            "x": 1130,
+            "y": 610,
+            "name": "Bran"
+          },
+          "rind": {
+            "x": 1130,
+            "y": 460,
+            "name": "Marshal Rind",
+            "supporting": true
+          }
+        },
+        "finale": {
+          "jammed": false,
+          "toolsReady": true,
+          "tools": {
+            "x": 850,
+            "y": 690
+          },
+          "winch": {
+            "x": 970,
+            "y": 600,
+            "r": 60
+          },
+          "hold": 0,
+          "held": false,
+          "released": true,
+          "contested": false,
+          "diverting": false,
+          "bowlProgress": 0,
+          "channelOpen": false,
+          "north": {
+            "x": 640,
+            "y": 300,
+            "pursuerX": 450,
+            "blocked": 5,
+            "flash": 0,
+            "covering": true
+          },
+          "east": {
+            "pursuerX": 1189.6666666666706,
+            "blocked": 8,
+            "flash": 0,
+            "covering": true
+          },
+          "jam": {
+            "c": 24,
+            "r": 10,
+            "x": 980,
+            "y": 500,
+            "label": "Sluice jam"
+          }
+        },
+        "player": {
+          "x": 850,
+          "y": 572.7401546360201,
+          "hp": 3,
+          "dead": false
+        },
+        "boss": null,
+        "enemies": [
+          {
+            "id": 1,
+            "name": "Sluice defender",
+            "x": 1140.6536267299105,
+            "y": 680.6230915513389,
+            "hp": 3,
+            "dead": false,
+            "role": "shield"
+          }
+        ],
+        "result": null,
+        "save": {
+          "version": 1,
+          "results": {
+            "banquet": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "puddings": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "guard": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "bridge": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "stirling": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "steve": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            }
+          },
+          "selected": "rind",
+          "assist": false,
+          "difficulty": "medium",
+          "checkpoint": {
+            "id": "rind",
+            "phase": 3
+          },
+          "receipts": []
+        },
+        "hud": "Medium · Hold Q / left click at winch: 0.0/4s"
+      }
+    },
+    {
+      "name": "Nearby living defender resets and blocks winch",
+      "pass": true,
+      "details": {
+        "id": "rind",
+        "phase": 3,
+        "status": "playing",
+        "elapsed": 13.63333333333359,
+        "phaseT": 13.63333333333359,
+        "time": 106.36666666666744,
+        "quietStory": false,
+        "safe": false,
+        "resumed": true,
+        "hits": 0,
+        "falls": 0,
+        "guardsHit": 0,
+        "cage": null,
+        "rescue": {
+          "freed": true,
+          "settled": true,
+          "guard": {
+            "x": 1130,
+            "y": 610,
+            "name": "Bran"
+          },
+          "rind": {
+            "x": 1130,
+            "y": 460,
+            "name": "Marshal Rind",
+            "supporting": true
+          }
+        },
+        "finale": {
+          "jammed": false,
+          "toolsReady": true,
+          "tools": {
+            "x": 850,
+            "y": 690
+          },
+          "winch": {
+            "x": 970,
+            "y": 600,
+            "r": 60
+          },
+          "hold": 0,
+          "held": false,
+          "released": true,
+          "contested": true,
+          "diverting": false,
+          "bowlProgress": 0,
+          "channelOpen": false,
+          "north": {
+            "x": 640,
+            "y": 300,
+            "pursuerX": 567,
+            "blocked": 5,
+            "flash": 0,
+            "covering": true
+          },
+          "east": {
+            "pursuerX": 1194.3333333333367,
+            "blocked": 9,
+            "flash": 0,
+            "covering": true
+          },
+          "jam": {
+            "c": 24,
+            "r": 10,
+            "x": 980,
+            "y": 500,
+            "label": "Sluice jam"
+          }
+        },
+        "player": {
+          "x": 973.0139692702986,
+          "y": 601.8048179827688,
+          "hp": 3,
+          "dead": false
+        },
+        "boss": null,
+        "enemies": [
+          {
+            "id": 1,
+            "name": "Sluice defender",
+            "x": 1040,
+            "y": 600,
+            "hp": 3,
+            "dead": false,
+            "role": "shield"
+          }
+        ],
+        "result": null,
+        "save": {
+          "version": 1,
+          "results": {
+            "banquet": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "puddings": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "guard": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "bridge": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "stirling": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "steve": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            }
+          },
+          "selected": "rind",
+          "assist": false,
+          "difficulty": "medium",
+          "checkpoint": {
+            "id": "rind",
+            "phase": 3
+          },
+          "receipts": []
+        },
+        "hud": "Medium · Winch contested · bonk the defender"
+      }
+    },
+    {
+      "name": "Compact 04-contested-winch active surface stays inside viewport",
+      "pass": true,
+      "details": {
+        "selector": "#campaignHUD",
+        "bounds": {
+          "x": 259.453125,
+          "y": 90,
+          "width": 281.09375,
+          "height": 31,
+          "top": 90,
+          "right": 540.546875,
+          "bottom": 121,
+          "left": 259.453125
+        },
+        "text": "Medium · Hold Q / left click at winch: 0.4/4s",
+        "viewport": {
+          "width": 800,
+          "height": 500
+        },
+        "visible": true
+      }
+    },
+    {
+      "name": "Actual pause menu freezes winch hold and local countdown",
+      "pass": true,
+      "details": {
+        "paused": {
+          "id": "rind",
+          "phase": 3,
+          "status": "playing",
+          "elapsed": 14.70000000000031,
+          "phaseT": 14.70000000000031,
+          "time": 105.30000000000084,
+          "quietStory": false,
+          "safe": false,
+          "resumed": true,
+          "hits": 0,
+          "falls": 0,
+          "guardsHit": 0,
+          "cage": null,
+          "rescue": {
+            "freed": true,
+            "settled": true,
+            "guard": {
+              "x": 1130,
+              "y": 610,
+              "name": "Bran"
+            },
+            "rind": {
+              "x": 1130,
+              "y": 460,
+              "name": "Marshal Rind",
+              "supporting": true
+            }
+          },
+          "finale": {
+            "jammed": false,
+            "toolsReady": true,
+            "tools": {
+              "x": 850,
+              "y": 690
+            },
+            "winch": {
+              "x": 970,
+              "y": 600,
+              "r": 60
+            },
+            "hold": 0.55,
+            "held": true,
+            "released": true,
+            "contested": false,
+            "diverting": false,
+            "bowlProgress": 0,
+            "channelOpen": false,
+            "north": {
+              "x": 640,
+              "y": 300,
+              "pursuerX": 453,
+              "blocked": 6,
+              "flash": 0,
+              "covering": true
+            },
+            "east": {
+              "pursuerX": 1207.1666666666683,
+              "blocked": 10,
+              "flash": 0.13333333333333341,
+              "covering": true
+            },
+            "jam": {
+              "c": 24,
+              "r": 10,
+              "x": 980,
+              "y": 500,
+              "label": "Sluice jam"
+            }
+          },
+          "player": {
+            "x": 977.8416064481195,
+            "y": 601.7093806297138,
+            "hp": 3,
+            "dead": false
+          },
+          "boss": null,
+          "enemies": [
+            {
+              "id": 1,
+              "name": "Sluice defender",
+              "x": 1152.3284555098587,
+              "y": 679.9372639589106,
+              "hp": 2,
+              "dead": false,
+              "role": "shield"
+            }
+          ],
+          "result": null,
+          "save": {
+            "version": 1,
+            "results": {
+              "banquet": {
+                "spoons": [
+                  true,
+                  false,
+                  false
+                ],
+                "attempts": 1,
+                "best": 70,
+                "assisted": false
+              },
+              "puddings": {
+                "spoons": [
+                  true,
+                  false,
+                  false
+                ],
+                "attempts": 1,
+                "best": 70,
+                "assisted": false
+              },
+              "guard": {
+                "spoons": [
+                  true,
+                  false,
+                  false
+                ],
+                "attempts": 1,
+                "best": 70,
+                "assisted": false
+              },
+              "bridge": {
+                "spoons": [
+                  true,
+                  false,
+                  false
+                ],
+                "attempts": 1,
+                "best": 70,
+                "assisted": false
+              },
+              "stirling": {
+                "spoons": [
+                  true,
+                  false,
+                  false
+                ],
+                "attempts": 1,
+                "best": 70,
+                "assisted": false
+              },
+              "steve": {
+                "spoons": [
+                  true,
+                  false,
+                  false
+                ],
+                "attempts": 1,
+                "best": 70,
+                "assisted": false
+              }
+            },
+            "selected": "rind",
+            "assist": false,
+            "difficulty": "medium",
+            "checkpoint": {
+              "id": "rind",
+              "phase": 3
+            },
+            "receipts": []
+          },
+          "hud": "Medium · Hold Q / left click at winch: 0.6/4s"
+        },
+        "afterPause": {
+          "id": "rind",
+          "phase": 3,
+          "status": "playing",
+          "elapsed": 14.70000000000031,
+          "phaseT": 14.70000000000031,
+          "time": 105.30000000000084,
+          "quietStory": false,
+          "safe": false,
+          "resumed": true,
+          "hits": 0,
+          "falls": 0,
+          "guardsHit": 0,
+          "cage": null,
+          "rescue": {
+            "freed": true,
+            "settled": true,
+            "guard": {
+              "x": 1130,
+              "y": 610,
+              "name": "Bran"
+            },
+            "rind": {
+              "x": 1130,
+              "y": 460,
+              "name": "Marshal Rind",
+              "supporting": true
+            }
+          },
+          "finale": {
+            "jammed": false,
+            "toolsReady": true,
+            "tools": {
+              "x": 850,
+              "y": 690
+            },
+            "winch": {
+              "x": 970,
+              "y": 600,
+              "r": 60
+            },
+            "hold": 0.55,
+            "held": true,
+            "released": true,
+            "contested": false,
+            "diverting": false,
+            "bowlProgress": 0,
+            "channelOpen": false,
+            "north": {
+              "x": 640,
+              "y": 300,
+              "pursuerX": 453,
+              "blocked": 6,
+              "flash": 0,
+              "covering": true
+            },
+            "east": {
+              "pursuerX": 1207.1666666666683,
+              "blocked": 10,
+              "flash": 0.13333333333333341,
+              "covering": true
+            },
+            "jam": {
+              "c": 24,
+              "r": 10,
+              "x": 980,
+              "y": 500,
+              "label": "Sluice jam"
+            }
+          },
+          "player": {
+            "x": 977.8416064481195,
+            "y": 601.7093806297138,
+            "hp": 3,
+            "dead": false
+          },
+          "boss": null,
+          "enemies": [
+            {
+              "id": 1,
+              "name": "Sluice defender",
+              "x": 1152.3284555098587,
+              "y": 679.9372639589106,
+              "hp": 2,
+              "dead": false,
+              "role": "shield"
+            }
+          ],
+          "result": null,
+          "save": {
+            "version": 1,
+            "results": {
+              "banquet": {
+                "spoons": [
+                  true,
+                  false,
+                  false
+                ],
+                "attempts": 1,
+                "best": 70,
+                "assisted": false
+              },
+              "puddings": {
+                "spoons": [
+                  true,
+                  false,
+                  false
+                ],
+                "attempts": 1,
+                "best": 70,
+                "assisted": false
+              },
+              "guard": {
+                "spoons": [
+                  true,
+                  false,
+                  false
+                ],
+                "attempts": 1,
+                "best": 70,
+                "assisted": false
+              },
+              "bridge": {
+                "spoons": [
+                  true,
+                  false,
+                  false
+                ],
+                "attempts": 1,
+                "best": 70,
+                "assisted": false
+              },
+              "stirling": {
+                "spoons": [
+                  true,
+                  false,
+                  false
+                ],
+                "attempts": 1,
+                "best": 70,
+                "assisted": false
+              },
+              "steve": {
+                "spoons": [
+                  true,
+                  false,
+                  false
+                ],
+                "attempts": 1,
+                "best": 70,
+                "assisted": false
+              }
+            },
+            "selected": "rind",
+            "assist": false,
+            "difficulty": "medium",
+            "checkpoint": {
+              "id": "rind",
+              "phase": 3
+            },
+            "receipts": []
+          },
+          "hud": "Medium · Hold Q / left click at winch: 0.6/4s"
+        }
+      }
+    },
+    {
+      "name": "Actual four-second current Swing opens channel before reward-bearing win",
+      "pass": true,
+      "details": {
+        "id": "rind",
+        "phase": 3,
+        "status": "playing",
+        "elapsed": 18.900000000000208,
+        "phaseT": 18.900000000000208,
+        "time": 101.10000000000107,
+        "quietStory": false,
+        "safe": false,
+        "resumed": true,
+        "hits": 0,
+        "falls": 0,
+        "guardsHit": 0,
+        "cage": null,
+        "rescue": {
+          "freed": true,
+          "settled": true,
+          "guard": {
+            "x": 1130,
+            "y": 610,
+            "name": "Bran"
+          },
+          "rind": {
+            "x": 1130,
+            "y": 460,
+            "name": "Marshal Rind",
+            "supporting": true
+          }
+        },
+        "finale": {
+          "jammed": false,
+          "toolsReady": true,
+          "tools": {
+            "x": 850,
+            "y": 690
+          },
+          "winch": {
+            "x": 970,
+            "y": 600,
+            "r": 60
+          },
+          "hold": 4,
+          "held": false,
+          "released": true,
+          "contested": false,
+          "diverting": true,
+          "bowlProgress": 0.03333333333333333,
+          "channelOpen": true,
+          "north": {
+            "x": 640,
+            "y": 300,
+            "pursuerX": 405,
+            "blocked": 8,
+            "flash": 0.33333333333333337,
+            "covering": true
+          },
+          "east": {
+            "pursuerX": 1213.000000000001,
+            "blocked": 13,
+            "flash": 0.30000000000000004,
+            "covering": true
+          },
+          "jam": {
+            "c": 24,
+            "r": 10,
+            "x": 980,
+            "y": 500,
+            "label": "Sluice jam"
+          }
+        },
+        "player": {
+          "x": 977.8416066469835,
+          "y": 601.7093806257824,
+          "hp": 3,
+          "dead": false
+        },
+        "boss": null,
+        "enemies": [
+          {
+            "id": 1,
+            "name": "Sluice defender",
+            "x": 1152.402706726773,
+            "y": 679.9352633935679,
+            "hp": 2,
+            "dead": true,
+            "role": "shield"
+          }
+        ],
+        "result": null,
+        "save": {
+          "version": 1,
+          "results": {
+            "banquet": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "puddings": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "guard": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "bridge": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "stirling": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "steve": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            }
+          },
+          "selected": "rind",
+          "assist": false,
+          "difficulty": "medium",
+          "checkpoint": {
+            "id": "rind",
+            "phase": 3
+          },
+          "receipts": []
+        },
+        "hud": "Medium · Channel open · bowl diverting clear of the bakery"
+      }
+    },
+    {
+      "name": "Compact 05-visible-diversion active surface stays inside viewport",
+      "pass": true,
+      "details": {
+        "selector": "#campaignHUD",
+        "bounds": {
+          "x": 213.53125,
+          "y": 90,
+          "width": 372.9375,
+          "height": 31,
+          "top": 90,
+          "right": 586.46875,
+          "bottom": 121,
+          "left": 213.53125
+        },
+        "text": "Medium · Channel open · bowl diverting clear of the bakery",
+        "viewport": {
+          "width": 800,
+          "height": 500
+        },
+        "visible": true
+      }
+    },
+    {
+      "name": "Only completed visible diversion awards Rind; resumed flawless excluded",
+      "pass": true,
+      "details": {
+        "id": "rind",
+        "phase": 3,
+        "status": "won",
+        "elapsed": 20.850000000000097,
+        "phaseT": 20.850000000000097,
+        "time": 99.15000000000119,
+        "quietStory": false,
+        "safe": false,
+        "resumed": true,
+        "hits": 0,
+        "falls": 0,
+        "guardsHit": 0,
+        "cage": null,
+        "rescue": {
+          "freed": true,
+          "settled": true,
+          "guard": {
+            "x": 1130,
+            "y": 610,
+            "name": "Bran"
+          },
+          "rind": {
+            "x": 1130,
+            "y": 460,
+            "name": "Marshal Rind",
+            "supporting": true
+          }
+        },
+        "finale": {
+          "jammed": false,
+          "toolsReady": true,
+          "tools": {
+            "x": 850,
+            "y": 690
+          },
+          "winch": {
+            "x": 970,
+            "y": 600,
+            "r": 60
+          },
+          "hold": 4,
+          "held": false,
+          "released": true,
+          "contested": false,
+          "diverting": true,
+          "bowlProgress": 1,
+          "channelOpen": true,
+          "north": {
+            "x": 640,
+            "y": 300,
+            "pursuerX": 405,
+            "blocked": 8,
+            "flash": 0.33333333333333337,
+            "covering": true
+          },
+          "east": {
+            "pursuerX": 1213.000000000001,
+            "blocked": 13,
+            "flash": 0.30000000000000004,
+            "covering": true
+          },
+          "jam": {
+            "c": 24,
+            "r": 10,
+            "x": 980,
+            "y": 500,
+            "label": "Sluice jam"
+          }
+        },
+        "player": {
+          "x": 977.8416066469835,
+          "y": 601.7093806257824,
+          "hp": 3,
+          "dead": false
+        },
+        "boss": null,
+        "enemies": [
+          {
+            "id": 1,
+            "name": "Sluice defender",
+            "x": 1152.402706726773,
+            "y": 679.9352633935679,
+            "hp": 2,
+            "dead": true,
+            "role": "shield"
+          }
+        ],
+        "result": {
+          "id": "rind",
+          "won": true,
+          "reason": "",
+          "spoons": [
+            true,
+            false,
+            false
+          ],
+          "added": [
+            0
+          ],
+          "elapsed": 20.850000000000097,
+          "assisted": false,
+          "outro": [
+            "Pip: The cooling channel is open!",
+            "Mabel: The bowl has turned into the catch basin, clear of our ovens.",
+            "Marshal Rind: Bran has the winch side. Stirling held the approach.",
+            "Recruit: Let’s go home."
+          ],
+          "next": null,
+          "checkpoint": null
+        },
+        "save": {
+          "version": 1,
+          "results": {
+            "banquet": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "puddings": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "guard": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "bridge": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "stirling": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "steve": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "rind": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 20.850000000000097,
+              "assisted": false
+            }
+          },
+          "selected": "rind",
+          "assist": false,
+          "difficulty": "medium",
+          "checkpoint": null,
+          "receipts": [
+            "a147adac-88b2-42f9-8a0a-444558699c37:rind:1"
+          ]
+        },
+        "hud": "Medium · Channel open · bowl diverting clear of the bakery"
+      }
+    },
+    {
+      "name": "Bowl diversion completion awards once",
+      "pass": true
+    },
+    {
+      "name": "Compact 06-diversion-result active surface stays inside viewport",
+      "pass": true,
+      "details": {
+        "selector": "#campaignResult .campaign-panel",
+        "bounds": {
+          "x": 31.0625,
+          "y": 20,
+          "width": 722.875,
+          "height": 721.78125,
+          "top": 20,
+          "right": 753.9375,
+          "bottom": 741.78125,
+          "left": 31.0625
+        },
+        "text": "Encounter completeSkin in the Game1 new spoon earned. Your spoons are saved independently.✓ Defeat Rind and divert the siege bowlMake Rind’s sweep strike one of his shield guardsWin without being bonkedContinue: Story mapReplay aftermath sceneReplay for spoonsStory mapChoose your first costumeChoose Tea TowelChoose Burnt ToastKeep current look",
+        "viewport": {
+          "width": 800,
+          "height": 500
+        },
+        "visible": true
+      }
+    },
+    {
+      "name": "Actual post-diversion Rind theatre describes channel and catch basin",
+      "pass": false,
+      "details": [
+        {
+          "scene": "rind",
+          "phase": "outro",
+          "caption": "PipThe cooling channel is open!"
+        },
+        {
+          "scene": "rind",
+          "phase": "outro",
+          "caption": "PipThe cooling channel is open!"
+        },
+        {
+          "scene": "rind",
+          "phase": "outro",
+          "caption": "BranRind has the winch side. Stirling held the approach."
+        },
+        {
+          "scene": "rind",
+          "phase": "outro",
+          "caption": "RecruitLet’s go home."
+        },
+        {
+          "scene": "rind",
+          "phase": "outro",
+          "caption": "RecruitLet’s go home."
+        }
+      ]
+    },
+    {
+      "name": "Viewing diversion aftermath cannot award again",
+      "pass": true
+    },
+    {
+      "name": "Compact 09-diversion-theatre active surface stays inside viewport",
+      "pass": true,
+      "details": {
+        "selector": ".campaign-captions",
+        "bounds": {
+          "x": 47.0625,
+          "y": 262,
+          "width": 690.875,
+          "height": 78,
+          "top": 262,
+          "right": 737.9375,
+          "bottom": 340,
+          "left": 47.0625
+        },
+        "text": "RecruitLet’s go home.",
+        "viewport": {
+          "width": 800,
+          "height": 500
+        },
+        "visible": true
+      }
+    },
+    {
+      "name": "Replay finale is guarded before completion and cannot mutate save/rewards",
+      "pass": true
+    },
+    {
+      "name": "Old completed Rind reload preserves historical ownership and provenance",
+      "pass": true
+    },
+    {
+      "name": "Completed map offers encounter and finale replay with historical spoon notice",
+      "pass": true,
+      "details": [
+        "1Banquet🥄 · ·",
+        "2Puddings🥄 · ·",
+        "3Bran’s crossing🥄 · ·",
+        "↗Biscuit practice· · ·",
+        "5Cooling channel🥄 · ·",
+        "6Sir Stirling🥄 · ·",
+        "7Steve’s cage🥄 · ·",
+        "8Rice fortress🥄 🥄 🥄",
+        "Play encounter",
+        "Replay encounter from beginning",
+        "Replay finale",
+        "Replay opening scene",
+        "Easy",
+        "Medium",
+        "Hard",
+        "STEVE",
+        "Assistance: off",
+        "Back to menu"
+      ]
+    },
+    {
+      "name": "Viewing old completed replay entries cannot award again",
+      "pass": true
+    },
+    {
+      "name": "Explicit completed-save replay reconstructs resumed finale without fabricated sweep evidence",
+      "pass": true,
+      "details": {
+        "id": "rind",
+        "phase": 3,
+        "status": "playing",
+        "elapsed": 0.15,
+        "phaseT": 0.15,
+        "time": 119.85000000000001,
+        "quietStory": false,
+        "safe": false,
+        "resumed": true,
+        "hits": 0,
+        "falls": 0,
+        "guardsHit": 0,
+        "cage": null,
+        "rescue": {
+          "freed": true,
+          "settled": true,
+          "guard": {
+            "x": 1130,
+            "y": 610,
+            "name": "Bran"
+          },
+          "rind": {
+            "x": 1130,
+            "y": 460,
+            "name": "Marshal Rind",
+            "supporting": true
+          }
+        },
+        "finale": {
+          "jammed": true,
+          "toolsReady": true,
+          "tools": {
+            "x": 850,
+            "y": 690
+          },
+          "winch": {
+            "x": 970,
+            "y": 600,
+            "r": 60
+          },
+          "hold": 0,
+          "held": false,
+          "released": false,
+          "contested": true,
+          "diverting": false,
+          "bowlProgress": 0,
+          "channelOpen": false,
+          "north": {
+            "x": 640,
+            "y": 300,
+            "pursuerX": 403.5,
+            "blocked": 0,
+            "flash": 0,
+            "covering": true
+          },
+          "east": {
+            "pursuerX": 1214.7500000000007,
+            "blocked": 0,
+            "flash": 0,
+            "covering": true
+          },
+          "jam": {
+            "c": 24,
+            "r": 10,
+            "x": 980,
+            "y": 500,
+            "label": "Sluice jam"
+          }
+        },
+        "player": {
+          "x": 800,
+          "y": 600,
+          "hp": 3,
+          "dead": false
+        },
+        "boss": null,
+        "enemies": [
+          {
+            "id": 1,
+            "name": "Sluice defender",
+            "x": 943.1243794260141,
+            "y": 590.4583747049323,
+            "hp": 3,
+            "dead": false,
+            "role": "shield"
+          }
+        ],
+        "result": null,
+        "save": {
+          "version": 1,
+          "results": {
+            "banquet": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "puddings": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "guard": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "bridge": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "stirling": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "steve": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "rind": {
+              "spoons": [
+                true,
+                true,
+                true
+              ],
+              "attempts": 4,
+              "best": 31,
+              "assisted": true
+            }
+          },
+          "selected": "rind",
+          "assist": false,
+          "difficulty": "medium",
+          "checkpoint": {
+            "id": "rind",
+            "phase": 3
+          },
+          "receipts": [
+            "historical-rind"
+          ]
+        },
+        "hud": "Medium · Q / left click at sluice jam → open cooling channel"
+      }
+    },
+    {
+      "name": "Starting old completed finale preserves earned spoons, best, attempts and receipts",
+      "pass": true
+    },
+    {
+      "name": "Owned navigator-boundary A input reaches current winch action through real frame polling",
+      "pass": true,
+      "details": {
+        "id": "rind",
+        "phase": 3,
+        "status": "playing",
+        "elapsed": 5.549999999999986,
+        "phaseT": 5.549999999999986,
+        "time": 114.45000000000032,
+        "quietStory": false,
+        "safe": false,
+        "resumed": true,
+        "hits": 0,
+        "falls": 0,
+        "guardsHit": 0,
+        "cage": null,
+        "rescue": {
+          "freed": true,
+          "settled": true,
+          "guard": {
+            "x": 1130,
+            "y": 610,
+            "name": "Bran"
+          },
+          "rind": {
+            "x": 1130,
+            "y": 460,
+            "name": "Marshal Rind",
+            "supporting": true
+          }
+        },
+        "finale": {
+          "jammed": false,
+          "toolsReady": true,
+          "tools": {
+            "x": 850,
+            "y": 690
+          },
+          "winch": {
+            "x": 970,
+            "y": 600,
+            "r": 60
+          },
+          "hold": 0.5333333333333333,
+          "held": true,
+          "released": true,
+          "contested": false,
+          "diverting": false,
+          "bowlProgress": 0,
+          "channelOpen": false,
+          "north": {
+            "x": 640,
+            "y": 300,
+            "pursuerX": 469.5,
+            "blocked": 2,
+            "flash": 0,
+            "covering": true
+          },
+          "east": {
+            "pursuerX": 1176.2500000000057,
+            "blocked": 3,
+            "flash": 0,
+            "covering": true
+          },
+          "jam": {
+            "c": 24,
+            "r": 10,
+            "x": 980,
+            "y": 500,
+            "label": "Sluice jam"
+          }
+        },
+        "player": {
+          "x": 975.9421804266788,
+          "y": 606.604534152615,
+          "hp": 3,
+          "dead": false
+        },
+        "boss": null,
+        "enemies": [
+          {
+            "id": 1,
+            "name": "Sluice defender",
+            "x": 1140.6536267299105,
+            "y": 680.6230915513389,
+            "hp": 3,
+            "dead": false,
+            "role": "shield"
+          }
+        ],
+        "result": null,
+        "save": {
+          "version": 1,
+          "results": {
+            "banquet": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "puddings": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "guard": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "bridge": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "stirling": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "steve": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            }
+          },
+          "selected": "rind",
+          "assist": false,
+          "difficulty": "medium",
+          "checkpoint": {
+            "id": "rind",
+            "phase": 3
+          },
+          "receipts": []
+        },
+        "hud": "Medium · Hold A at winch: 0.5/4s"
+      }
+    },
+    {
+      "name": "Compact 08-owned-pad-hold active surface stays inside viewport",
+      "pass": true,
+      "details": {
+        "selector": "#campaignHUD",
+        "bounds": {
+          "x": 290.15625,
+          "y": 90,
+          "width": 219.6875,
+          "height": 31,
+          "top": 90,
+          "right": 509.84375,
+          "bottom": 121,
+          "left": 290.15625
+        },
+        "text": "Medium · Hold A at winch: 1.1/4s",
+        "viewport": {
+          "width": 800,
+          "height": 500
+        },
+        "visible": true
+      }
+    },
+    {
+      "name": "Owned synthetic pad holds full action and completes visible diversion",
+      "pass": true,
+      "details": {
+        "id": "rind",
+        "phase": 3,
+        "status": "won",
+        "elapsed": 11.050000000000129,
+        "phaseT": 11.050000000000129,
+        "time": 108.95000000000063,
+        "quietStory": false,
+        "safe": false,
+        "resumed": true,
+        "hits": 0,
+        "falls": 0,
+        "guardsHit": 0,
+        "cage": null,
+        "rescue": {
+          "freed": true,
+          "settled": true,
+          "guard": {
+            "x": 1130,
+            "y": 610,
+            "name": "Bran"
+          },
+          "rind": {
+            "x": 1130,
+            "y": 460,
+            "name": "Marshal Rind",
+            "supporting": true
+          }
+        },
+        "finale": {
+          "jammed": false,
+          "toolsReady": true,
+          "tools": {
+            "x": 850,
+            "y": 690
+          },
+          "winch": {
+            "x": 970,
+            "y": 600,
+            "r": 60
+          },
+          "hold": 4,
+          "held": false,
+          "released": true,
+          "contested": false,
+          "diverting": true,
+          "bowlProgress": 1,
+          "channelOpen": true,
+          "north": {
+            "x": 640,
+            "y": 300,
+            "pursuerX": 573,
+            "blocked": 3,
+            "flash": 0,
+            "covering": true
+          },
+          "east": {
+            "pursuerX": 1204.8333333333353,
+            "blocked": 6,
+            "flash": 0.06666666666666676,
+            "covering": true
+          },
+          "jam": {
+            "c": 24,
+            "r": 10,
+            "x": 980,
+            "y": 500,
+            "label": "Sluice jam"
+          }
+        },
+        "player": {
+          "x": 975.9421807034923,
+          "y": 617.3189274265949,
+          "hp": 3,
+          "dead": false
+        },
+        "boss": null,
+        "enemies": [
+          {
+            "id": 1,
+            "name": "Sluice defender",
+            "x": 1140.6536267299105,
+            "y": 680.6230915513389,
+            "hp": 3,
+            "dead": true,
+            "role": "shield"
+          }
+        ],
+        "result": {
+          "id": "rind",
+          "won": true,
+          "reason": "",
+          "spoons": [
+            true,
+            false,
+            false
+          ],
+          "added": [
+            0
+          ],
+          "elapsed": 11.050000000000129,
+          "assisted": false,
+          "outro": [
+            "Pip: The cooling channel is open!",
+            "Mabel: The bowl has turned into the catch basin, clear of our ovens.",
+            "Marshal Rind: Bran has the winch side. Stirling held the approach.",
+            "Recruit: Let’s go home."
+          ],
+          "next": null,
+          "checkpoint": null
+        },
+        "save": {
+          "version": 1,
+          "results": {
+            "banquet": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "puddings": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "guard": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "bridge": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "stirling": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "steve": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "rind": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 11.050000000000129,
+              "assisted": false
+            }
+          },
+          "selected": "rind",
+          "assist": false,
+          "difficulty": "medium",
+          "checkpoint": null,
+          "receipts": [
+            "67e01970-4855-4e9a-bdd6-4d9bb821bde0:rind:1"
+          ]
+        },
+        "hud": "Medium · Channel open · bowl diverting clear of the bakery"
+      }
+    },
+    {
+      "name": "No uncaught browser exceptions",
+      "pass": true,
+      "details": []
+    }
+  ],
+  "errors": [],
+  "inputs": [
+    {
+      "type": "keyDown",
+      "code": "KeyD"
+    },
+    {
+      "type": "keyDown",
+      "code": "KeyW"
+    },
+    {
+      "type": "keyUp",
+      "code": "KeyW"
+    },
+    {
+      "type": "keyUp",
+      "code": "KeyD"
+    },
+    {
+      "type": "keyDown",
+      "code": "KeyD"
+    },
+    {
+      "type": "keyUp",
+      "code": "KeyD"
+    },
+    {
+      "type": "keyDown",
+      "code": "KeyD"
+    },
+    {
+      "type": "keyDown",
+      "code": "KeyS"
+    },
+    {
+      "type": "keyUp",
+      "code": "KeyD"
+    },
+    {
+      "type": "keyDown",
+      "code": "KeyA"
+    },
+    {
+      "type": "keyUp",
+      "code": "KeyA"
+    },
+    {
+      "type": "keyUp",
+      "code": "KeyS"
+    },
+    {
+      "type": "keyDown",
+      "code": "KeyD"
+    },
+    {
+      "type": "keyUp",
+      "code": "KeyD"
+    },
+    {
+      "type": "keyDown",
+      "code": "Space",
+      "observed": {
+        "clock": 4.099999999999991,
+        "elapsed": 45.949999999999775,
+        "phase": 2,
+        "held": true,
+        "rawAttack": true
+      }
+    },
+    {
+      "type": "keyUp",
+      "code": "Space",
+      "observed": {
+        "clock": 4.133333333333324,
+        "elapsed": 45.98333333333311,
+        "phase": 2,
+        "held": false,
+        "rawAttack": false
+      }
+    },
+    {
+      "type": "keyDown",
+      "code": "KeyD"
+    },
+    {
+      "type": "keyUp",
+      "code": "KeyD"
+    },
+    {
+      "type": "keyDown",
+      "code": "Space",
+      "observed": {
+        "clock": 5.099999999999987,
+        "elapsed": 46.94999999999972,
+        "phase": 2,
+        "held": true,
+        "rawAttack": true
+      }
+    },
+    {
+      "type": "keyUp",
+      "code": "Space",
+      "observed": {
+        "clock": 5.13333333333332,
+        "elapsed": 46.98333333333305,
+        "phase": 2,
+        "held": false,
+        "rawAttack": false
+      }
+    },
+    {
+      "type": "keyDown",
+      "code": "KeyD"
+    },
+    {
+      "type": "keyUp",
+      "code": "KeyD"
+    },
+    {
+      "type": "keyDown",
+      "code": "Space",
+      "observed": {
+        "clock": 6.06666666666665,
+        "elapsed": 47.91666666666633,
+        "phase": 2,
+        "held": true,
+        "rawAttack": true
+      }
+    },
+    {
+      "type": "keyUp",
+      "code": "Space",
+      "observed": {
+        "clock": 6.099999999999984,
+        "elapsed": 47.94999999999966,
+        "phase": 2,
+        "held": false,
+        "rawAttack": false
+      }
+    },
+    {
+      "type": "keyDown",
+      "code": "KeyD"
+    },
+    {
+      "type": "keyDown",
+      "code": "KeyW"
+    },
+    {
+      "type": "keyUp",
+      "code": "KeyW"
+    },
+    {
+      "type": "keyUp",
+      "code": "KeyD"
+    },
+    {
+      "type": "keyDown",
+      "code": "KeyD"
+    },
+    {
+      "type": "keyUp",
+      "code": "KeyD"
+    },
+    {
+      "type": "keyDown",
+      "code": "KeyS"
+    },
+    {
+      "type": "keyUp",
+      "code": "KeyS"
+    },
+    {
+      "type": "keyDown",
+      "code": "KeyD"
+    },
+    {
+      "type": "keyUp",
+      "code": "KeyD"
+    },
+    {
+      "type": "keyDown",
+      "code": "Space",
+      "observed": {
+        "clock": 3.983333333333324,
+        "elapsed": 3.983333333333324,
+        "phase": 2,
+        "held": true,
+        "rawAttack": true
+      }
+    },
+    {
+      "type": "keyUp",
+      "code": "Space",
+      "observed": {
+        "clock": 4.016666666666658,
+        "elapsed": 4.016666666666658,
+        "phase": 2,
+        "held": false,
+        "rawAttack": false
+      }
+    },
+    {
+      "type": "keyDown",
+      "code": "KeyD"
+    },
+    {
+      "type": "keyUp",
+      "code": "KeyD"
+    },
+    {
+      "type": "keyDown",
+      "code": "Space",
+      "observed": {
+        "clock": 4.983333333333321,
+        "elapsed": 4.983333333333321,
+        "phase": 2,
+        "held": true,
+        "rawAttack": true
+      }
+    },
+    {
+      "type": "keyUp",
+      "code": "Space",
+      "observed": {
+        "clock": 5.016666666666654,
+        "elapsed": 5.016666666666654,
+        "phase": 2,
+        "held": false,
+        "rawAttack": false
+      }
+    },
+    {
+      "type": "keyDown",
+      "code": "KeyD"
+    },
+    {
+      "type": "keyUp",
+      "code": "KeyD"
+    },
+    {
+      "type": "keyDown",
+      "code": "Space",
+      "observed": {
+        "clock": 5.983333333333317,
+        "elapsed": 5.983333333333317,
+        "phase": 2,
+        "held": true,
+        "rawAttack": true
+      }
+    },
+    {
+      "type": "keyUp",
+      "code": "Space",
+      "observed": {
+        "clock": 6.016666666666651,
+        "elapsed": 6.016666666666651,
+        "phase": 2,
+        "held": false,
+        "rawAttack": false
+      }
+    },
+    {
+      "type": "keyDown",
+      "code": "KeyD"
+    },
+    {
+      "type": "keyDown",
+      "code": "KeyW"
+    },
+    {
+      "type": "keyUp",
+      "code": "KeyD"
+    },
+    {
+      "type": "keyUp",
+      "code": "KeyW"
+    },
+    {
+      "type": "keyDown",
+      "code": "KeyD"
+    },
+    {
+      "type": "keyUp",
+      "code": "KeyD"
+    },
+    {
+      "type": "keyDown",
+      "code": "KeyS"
+    },
+    {
+      "type": "keyUp",
+      "code": "KeyS"
+    },
+    {
+      "type": "keyDown",
+      "code": "KeyD"
+    },
+    {
+      "type": "keyUp",
+      "code": "KeyD"
+    },
+    {
+      "type": "keyDown",
+      "code": "Space",
+      "observed": {
+        "clock": 2.116666666666664,
+        "elapsed": 2.116666666666664,
+        "phase": 2,
+        "held": true,
+        "rawAttack": true
+      }
+    },
+    {
+      "type": "keyUp",
+      "code": "Space",
+      "observed": {
+        "clock": 2.1499999999999972,
+        "elapsed": 2.1499999999999972,
+        "phase": 2,
+        "held": false,
+        "rawAttack": false
+      }
+    },
+    {
+      "type": "keyDown",
+      "code": "KeyD"
+    },
+    {
+      "type": "keyUp",
+      "code": "KeyD"
+    },
+    {
+      "type": "keyDown",
+      "code": "Space",
+      "observed": {
+        "clock": 3.099999999999994,
+        "elapsed": 3.099999999999994,
+        "phase": 2,
+        "held": true,
+        "rawAttack": true
+      }
+    },
+    {
+      "type": "keyUp",
+      "code": "Space",
+      "observed": {
+        "clock": 3.1499999999999937,
+        "elapsed": 3.1499999999999937,
+        "phase": 2,
+        "held": false,
+        "rawAttack": false
+      }
+    },
+    {
+      "type": "keyDown",
+      "code": "KeyD"
+    },
+    {
+      "type": "keyUp",
+      "code": "KeyD"
+    },
+    {
+      "type": "keyDown",
+      "code": "Space",
+      "observed": {
+        "clock": 4.116666666666657,
+        "elapsed": 4.116666666666657,
+        "phase": 2,
+        "held": true,
+        "rawAttack": true
+      }
+    },
+    {
+      "type": "keyUp",
+      "code": "Space",
+      "observed": {
+        "clock": 4.133333333333324,
+        "elapsed": 4.133333333333324,
+        "phase": 2,
+        "held": false,
+        "rawAttack": false
+      }
+    },
+    {
+      "type": "mouseClick",
+      "scope": "#campaignResult",
+      "text": "Retry: Divert the siege bowl"
+    },
+    {
+      "type": "keyDown",
+      "code": "KeyD"
+    },
+    {
+      "type": "keyUp",
+      "code": "KeyD"
+    },
+    {
+      "type": "keyDown",
+      "code": "KeyQ"
+    },
+    {
+      "type": "keyUp",
+      "code": "KeyQ"
+    },
+    {
+      "type": "keyDown",
+      "code": "KeyA"
+    },
+    {
+      "type": "keyDown",
+      "code": "KeyW"
+    },
+    {
+      "type": "keyUp",
+      "code": "KeyA"
+    },
+    {
+      "type": "keyUp",
+      "code": "KeyW"
+    },
+    {
+      "type": "keyDown",
+      "code": "KeyD"
+    },
+    {
+      "type": "keyUp",
+      "code": "KeyD"
+    },
+    {
+      "type": "keyDown",
+      "code": "KeyS"
+    },
+    {
+      "type": "keyUp",
+      "code": "KeyS"
+    },
+    {
+      "type": "keyDown",
+      "code": "KeyD"
+    },
+    {
+      "type": "keyUp",
+      "code": "KeyD"
+    },
+    {
+      "type": "keyDown",
+      "code": "KeyQ",
+      "observed": {
+        "clock": 4.29999999999999,
+        "elapsed": 4.29999999999999,
+        "phase": 3,
+        "held": true,
+        "rawAttack": true
+      }
+    },
+    {
+      "type": "keyUp",
+      "code": "KeyQ",
+      "observed": {
+        "clock": 4.333333333333323,
+        "elapsed": 4.333333333333323,
+        "phase": 3,
+        "held": false,
+        "rawAttack": false
+      }
+    },
+    {
+      "type": "keyDown",
+      "code": "KeyD"
+    },
+    {
+      "type": "keyUp",
+      "code": "KeyD"
+    },
+    {
+      "type": "keyDown",
+      "code": "KeyQ",
+      "observed": {
+        "clock": 5.28333333333332,
+        "elapsed": 5.28333333333332,
+        "phase": 3,
+        "held": true,
+        "rawAttack": true
+      }
+    },
+    {
+      "type": "keyUp",
+      "code": "KeyQ",
+      "observed": {
+        "clock": 5.316666666666653,
+        "elapsed": 5.316666666666653,
+        "phase": 3,
+        "held": false,
+        "rawAttack": false
+      }
+    },
+    {
+      "type": "keyDown",
+      "code": "KeyD"
+    },
+    {
+      "type": "keyUp",
+      "code": "KeyD"
+    },
+    {
+      "type": "keyDown",
+      "code": "KeyQ"
+    },
+    {
+      "type": "keyDown",
+      "code": "KeyD"
+    },
+    {
+      "type": "keyDown",
+      "code": "KeyS"
+    },
+    {
+      "type": "keyUp",
+      "code": "KeyD"
+    },
+    {
+      "type": "keyUp",
+      "code": "KeyS"
+    },
+    {
+      "type": "keyDown",
+      "code": "KeyA"
+    },
+    {
+      "type": "keyDown",
+      "code": "KeyS"
+    },
+    {
+      "type": "keyUp",
+      "code": "KeyA"
+    },
+    {
+      "type": "keyUp",
+      "code": "KeyS"
+    },
+    {
+      "type": "keyUp",
+      "code": "KeyQ"
+    },
+    {
+      "type": "keyDown",
+      "code": "KeyQ"
+    },
+    {
+      "type": "keyUp",
+      "code": "KeyQ"
+    },
+    {
+      "type": "keyDown",
+      "code": "Space"
+    },
+    {
+      "type": "keyUp",
+      "code": "Space"
+    },
+    {
+      "type": "keyDown",
+      "code": "KeyQ"
+    },
+    {
+      "type": "keyUp",
+      "code": "KeyQ"
+    },
+    {
+      "type": "keyDown",
+      "code": "KeyQ"
+    },
+    {
+      "type": "keyUp",
+      "code": "KeyQ"
+    },
+    {
+      "type": "keyDown",
+      "code": "KeyD"
+    },
+    {
+      "type": "keyDown",
+      "code": "KeyS"
+    },
+    {
+      "type": "keyUp",
+      "code": "KeyS"
+    },
+    {
+      "type": "keyUp",
+      "code": "KeyD"
+    },
+    {
+      "type": "keyDown",
+      "code": "KeyQ"
+    },
+    {
+      "type": "keyUp",
+      "code": "KeyQ"
+    },
+    {
+      "type": "keyDown",
+      "code": "KeyQ"
+    },
+    {
+      "type": "keyDown",
+      "code": "Escape",
+      "observed": {
+        "clock": 14.70000000000031,
+        "elapsed": 14.70000000000031,
+        "phase": 3,
+        "held": false,
+        "rawAttack": false
+      }
+    },
+    {
+      "type": "keyUp",
+      "code": "Escape",
+      "observed": {
+        "clock": 14.70000000000031,
+        "elapsed": 14.70000000000031,
+        "phase": 3,
+        "held": false,
+        "rawAttack": false
+      }
+    },
+    {
+      "type": "keyUp",
+      "code": "KeyQ"
+    },
+    {
+      "type": "mouseClick",
+      "selector": "#resumeBtn"
+    },
+    {
+      "type": "keyDown",
+      "code": "KeyQ"
+    },
+    {
+      "type": "keyUp",
+      "code": "KeyQ"
+    },
+    {
+      "type": "mouseClick",
+      "scope": "#campaignResult",
+      "text": "Replay aftermath scene"
+    },
+    {
+      "type": "mouseClick",
+      "scope": "#campaignMap",
+      "text": "Replay finale"
+    },
+    {
+      "type": "keyDown",
+      "code": "KeyD"
+    },
+    {
+      "type": "keyDown",
+      "code": "KeyW"
+    },
+    {
+      "type": "keyUp",
+      "code": "KeyD"
+    },
+    {
+      "type": "keyUp",
+      "code": "KeyW"
+    },
+    {
+      "type": "keyDown",
+      "code": "KeyD"
+    },
+    {
+      "type": "keyUp",
+      "code": "KeyD"
+    },
+    {
+      "type": "keyDown",
+      "code": "KeyS"
+    },
+    {
+      "type": "keyUp",
+      "code": "KeyS"
+    },
+    {
+      "type": "keyDown",
+      "code": "KeyD"
+    },
+    {
+      "type": "keyUp",
+      "code": "KeyD"
+    },
+    {
+      "type": "keyDown",
+      "code": "KeyQ",
+      "observed": {
+        "clock": 2.166666666666664,
+        "elapsed": 2.166666666666664,
+        "phase": 3,
+        "held": true,
+        "rawAttack": true
+      }
+    },
+    {
+      "type": "keyUp",
+      "code": "KeyQ",
+      "observed": {
+        "clock": 2.199999999999997,
+        "elapsed": 2.199999999999997,
+        "phase": 3,
+        "held": false,
+        "rawAttack": false
+      }
+    },
+    {
+      "type": "keyDown",
+      "code": "KeyD"
+    },
+    {
+      "type": "keyUp",
+      "code": "KeyD"
+    },
+    {
+      "type": "keyDown",
+      "code": "KeyQ",
+      "observed": {
+        "clock": 3.133333333333327,
+        "elapsed": 3.133333333333327,
+        "phase": 3,
+        "held": true,
+        "rawAttack": true
+      }
+    },
+    {
+      "type": "keyUp",
+      "code": "KeyQ",
+      "observed": {
+        "clock": 3.1666666666666603,
+        "elapsed": 3.1666666666666603,
+        "phase": 3,
+        "held": false,
+        "rawAttack": false
+      }
+    },
+    {
+      "type": "keyDown",
+      "code": "KeyD"
+    },
+    {
+      "type": "keyUp",
+      "code": "KeyD"
+    },
+    {
+      "type": "keyDown",
+      "code": "KeyQ"
+    },
+    {
+      "type": "keyUp",
+      "code": "KeyQ"
+    },
+    {
+      "type": "keyDown",
+      "code": "KeyD"
+    },
+    {
+      "type": "keyDown",
+      "code": "KeyS"
+    },
+    {
+      "type": "keyUp",
+      "code": "KeyD"
+    },
+    {
+      "type": "keyUp",
+      "code": "KeyS"
+    },
+    {
+      "type": "syntheticPadButton",
+      "button": 0,
+      "down": false,
+      "tag": "pad-144",
+      "observed": [
+        {
+          "tag": "pad-144",
+          "time": 5038.79999999702,
+          "pressed": [
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false
+          ]
+        },
+        {
+          "tag": "pad-144",
+          "time": 5055.199999988079,
+          "pressed": [
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false
+          ]
+        },
+        {
+          "tag": "pad-144",
+          "time": 5071.899999991059,
+          "pressed": [
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false
+          ]
+        },
+        {
+          "tag": "pad-144",
+          "time": 5088.79999999702,
+          "pressed": [
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false
+          ]
+        }
+      ]
+    },
+    {
+      "type": "syntheticPadButton",
+      "button": 0,
+      "down": true,
+      "tag": "pad-145",
+      "observed": [
+        {
+          "tag": "pad-145",
+          "time": 5105.399999991059,
+          "pressed": [
+            true,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false
+          ]
+        },
+        {
+          "tag": "pad-145",
+          "time": 5122.0999999940395,
+          "pressed": [
+            true,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false
+          ]
+        },
+        {
+          "tag": "pad-145",
+          "time": 5138.699999988079,
+          "pressed": [
+            true,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false
+          ]
+        }
+      ]
+    },
+    {
+      "type": "syntheticPadButton",
+      "button": 0,
+      "down": false,
+      "tag": "pad-146",
+      "observed": [
+        {
+          "tag": "pad-146",
+          "time": 9138.699999988079,
+          "pressed": [
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false
+          ]
+        },
+        {
+          "tag": "pad-146",
+          "time": 9155.39999999106,
+          "pressed": [
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false
+          ]
+        },
+        {
+          "tag": "pad-146",
+          "time": 9172.09999999404,
+          "pressed": [
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false
+          ]
+        },
+        {
+          "tag": "pad-146",
+          "time": 9188.699999988079,
+          "pressed": [
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false
+          ]
+        }
+      ]
+    }
+  ],
+  "fixtures": [
+    "Copied normalized prerequisite-only save; Rind legacy checkpoint 0",
+    "Counter preservation fixture on fresh unresumed run; not earned combat evidence",
+    "Disclosed boss KO fixture to isolate legacy phase transition, no input-only boss completion claim",
+    "Living sluice defender relocated away and stunned to isolate mechanism; not combat acceptance",
+    "Copied normalized prerequisite-only save; Rind legacy checkpoint 1",
+    "Disclosed boss KO fixture to isolate legacy phase transition, no input-only boss completion claim",
+    "Living sluice defender relocated away and stunned to isolate mechanism; not combat acceptance",
+    "Copied normalized prerequisite-only save; Rind legacy checkpoint 2",
+    "Living sluice defender relocated away and stunned to isolate mechanism; not combat acceptance",
+    "Copied normalized prerequisite-only save; Rind legacy checkpoint 3",
+    "Living sluice defender relocated away and stunned to isolate mechanism; not combat acceptance",
+    "Only player HP depleted slightly before reload; no persistent combat counter claim",
+    "Resume saved phase3 through actual encounter API",
+    "Set only local finale countdown tozero for normal failure tick",
+    "Copied input profile fixture remaps owning solo and keyboard1 Swing toQ through persisted controls then reloads real application",
+    "Copied normalized prerequisite-only save; Rind legacy checkpoint 3",
+    "Living sluice defender relocated away and stunned to isolate mechanism; not combat acceptance",
+    "Premature terminal activation blocked before deliberate action",
+    "Delayed tools-only fixture tests readiness gate; normal tool movement continues",
+    "Boundary-only displacement while holding; winch intentionally stops ordinary held movement",
+    "Living stunned defender placed inside contest radius; no KO/combat success claim",
+    "Living sluice defender relocated away and stunned to isolate mechanism; not combat acceptance",
+    "Repeated terminal calls after actual diversion",
+    "Copied normalized prerequisite-only save; Rind legacy checkpoint 3",
+    "Guarded replay API invoked before Rind completion",
+    "Copied old completed Rind ownership: three historical spoons, best31, attempts4, assisted marker and receipt",
+    "View completed Rind map through normal campaign UI",
+    "Copied input profile fixture remaps owning solo and keyboard1 Swing toQ through persisted controls then reloads real application",
+    "Copied normalized prerequisite-only save; Rind legacy checkpoint 3",
+    "Living sluice defender relocated away and stunned to isolate mechanism; not combat acceptance",
+    "Owned standard synthetic pad at navigator boundary; one explicit pad seat, not physical controller acceptance",
+    "Remove synthetic pad ownership after isolated case"
+  ],
+  "limitations": [
+    "Actual isolated headless Chrome/CDP keyboard movement, jam sword strikes, remapped current Swing hold, UI Retry/pause/replay, plus explicitly owned synthetic standard pad sampled at navigator boundary by real frame poller.",
+    "Copied saves, boss KO/counter, defender relocation/stun, delayed-tools and boundary displacement fixtures individually labeled; no input-only boss/defender combat completion, physical controller, human comprehension, WAN, Steam Input, native startup, GPU or packaging acceptance."
+  ],
+  "profile": "C:\\Users\\Joshua\\AppData\\Local\\Temp\\ck-bowl-diversion-sUZjpx",
+  "chromeLog": "\r\nDevTools listening on ws://127.0.0.1:55890/devtools/browser/d8c27be8-fd8f-46fe-880d-7b6824e73b8d\r\n[35220:45052:1014/114443.665:ERROR:services\\device\\usb\\usb_descriptors.cc:118] Failed to parse configuration descriptor.\r\n[35220:652:1014/114443.928:ERROR:google_apis\\gcm\\engine\\registration_request.cc:291] Registration response error message: DEPRECATED_ENDPOINT\r\n[35220:652:1014/114443.962:ERROR:google_apis\\gcm\\engine\\registration_request.cc:291] Registration response error message: PHONE_REGISTRATION_ERROR\r\n[35220:652:1014/114443.962:ERROR:google_apis\\gcm\\engine\\registration_request.cc:291] Registration response error message: PHONE_REGISTRATION_ERROR\r\n[35220:652:1014/114443.994:ERROR:google_apis\\gcm\\engine\\mcs_client.cc:702]   Error code: 401  Error message: Authentication Failed: wrong_secret\r\n[35220:652:1014/114443.994:ERROR:google_apis\\gcm\\engine\\mcs_client.cc:704] Failed to log in to GCM, resetting connection.\r\nCreated TensorFlow Lite XNNPACK delegate for CPU.\r\n[35220:41280:1014/114459.584:ERROR:chrome\\updater\\ipc\\update_service_dialer_win.cc:75] Failed to open named pipe server process 27760: Access is denied. (0x5)\r\n[35220:25780:1014/114459.584:ERROR:chrome\\updater\\ipc\\update_service_dialer_win.cc:75] Failed to open named pipe server process 27760: Access is denied. (0x5)\r\n[35220:41280:1014/114459.633:ERROR:chrome\\updater\\ipc\\update_service_dialer_win.cc:75] Failed to open named pipe server process 12380: Access is denied. (0x5)\r\n[35220:25780:1014/114459.675:ERROR:chrome\\updater\\ipc\\update_service_dialer_win.cc:75] Failed to open named pipe server process 29140: Access is denied. (0x5)\r\n[35220:41280:1014/114459.717:ERROR:chrome\\updater\\ipc\\update_service_dialer_win.cc:75] Failed to open named pipe server process 3472: Access is denied. (0x5)\r\n[35220:25780:1014/114459.753:ERROR:chrome\\updater\\ipc\\update_service_dialer_win.cc:75] Failed to open named pipe server process 20920: Access is denied. (0x5)\r\n[35220:652:1014/114504.303:ERROR:google_apis\\gcm\\engine\\registration_request.cc:291] Registration response error message: DEPRECATED_ENDPOINT\r\n[35220:652:1014/114545.536:ERROR:google_apis\\gcm\\engine\\registration_request.cc:291] Registration response error message: DEPRECATED_ENDPOINT\r\n",
+  "cdpTarget": {
+    "description": "",
+    "devtoolsFrontendUrl": "https://chrome-devtools-frontend.appspot.com/serve_rev/@b859317bf11f6be47f9b7799ec690a0a42a1fb33/inspector.html?ws=127.0.0.1:55890/devtools/page/58A204F8BF0EB4EC054F6E4394FB7A23",
+    "id": "58A204F8BF0EB4EC054F6E4394FB7A23",
+    "title": "about:blank",
+    "type": "page",
+    "url": "about:blank",
+    "webSocketDebuggerUrl": "ws://127.0.0.1:55890/devtools/page/58A204F8BF0EB4EC054F6E4394FB7A23"
+  },
+  "cdpMessages": 1505,
+  "retryButtons": [
+    "Retry: Divert the siege bowl",
+    "Retry with assistance",
+    "Story map"
+  ],
+  "theatre": [
+    {
+      "scene": "rind",
+      "phase": "outro",
+      "caption": "PipThe cooling channel is open!"
+    },
+    {
+      "scene": "rind",
+      "phase": "outro",
+      "caption": "PipThe cooling channel is open!"
+    },
+    {
+      "scene": "rind",
+      "phase": "outro",
+      "caption": "BranRind has the winch side. Stirling held the approach."
+    },
+    {
+      "scene": "rind",
+      "phase": "outro",
+      "caption": "RecruitLet’s go home."
+    },
+    {
+      "scene": "rind",
+      "phase": "outro",
+      "caption": "RecruitLet’s go home."
+    }
+  ],
+  "finishedAt": "2026-10-14T10:45:51.327Z",
+  "sourceHashesAfter": {
+    "index.html": "faf51ef351c050e7cee6453fe416a3ec81998eb3755a47bff58e312ea3152498",
+    "game/campaign.js": "4ed522294d3b304cd4a62e61bd7e9ef0ed21501786c99d5af540713bac50d0ec",
+    "game/campaign-ui.js": "6907eab7257fbdc84cdf64b4168ae8f4bb9617c95b4ec30d6c44ac148f2541aa",
+    "game/campaign-integration.js": "629d2c7b6751dc4f7e1997012b6281387ee8cc2d524ce1ffacfcd33a840d1b5b",
+    "game/story-scenes.js": "f8e2eba4805181db2c6687be700cb07588e78e366a40b9625515dda695df5689",
+    "game/bakery-opening.js": "49204ee38bda412fd62e78348968ce8bdec23f5a9d458d26d01557d5a28f8919",
+    "game/channel-support.js": "4dfbe9b263d54cafc44922a874bc6b6a6e5737d6f728b686a7eeba1d27b853c3",
+    "game/controls.js": "a65a941fbe3614ab467207d8b216eecdffa77668d1f1bb171f4ad4a6c2405b40",
+    "game/input-aim.js": "54040dd96e1360a46cd36c5fc6f92b05abeeb7db34af7f5cca3d75a9dcb9baee"
+  },
+  "stableSources": true,
+  "counts": {
+    "pass": 45,
+    "fail": 1
+  }
+}

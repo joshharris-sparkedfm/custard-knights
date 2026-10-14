@@ -50,14 +50,22 @@
   for(const dx of [-43,43])oval(c,1120+dx,252,14,14,'#664738');text(c,'SIEGE BOWL',1110,164,17);text(c,'WINCH',1130,358,16,gold);
   text(c,'Bowl → bakery · reach the winch',850,690,18);line(c,1040,250,965,250,'#df8b72',4);line(c,977,241,965,250,'#df8b72',4);line(c,977,259,965,250,'#df8b72',4);
  }
- function rindScenery(c){
+ function rindScenery(c,r){
   // The mechanism remains scenery in the alliance slice; saving the bakery
   // will require the later playable sluice action, never this rescue alone.
-  winch(c,1100,300);line(c,1100,253,1100,216,'#e4c483',4);
-  oval(c,1100,184,70,18,'#d5dcda');c.beginPath();c.moveTo(1030,184);c.lineTo(1048,224);c.lineTo(1152,224);c.lineTo(1170,184);c.closePath();c.fillStyle='#8a99a8';c.fill();c.strokeStyle=ink;c.lineWidth=3;c.stroke();oval(c,1100,181,65,11,'#e8ddbf');
-  for(const dx of [-40,40])oval(c,1100+dx,227,13,13,'#664738');text(c,'BOWL WINCH',1100,333,17,gold);text(c,'Bowl still aimed at the bakery',1040,680,16);
+  const f=r.finale,p=f?.bowlProgress||0,bx=1100-p*300,by=184+p*110;
+  if(f){
+   // Channel and catch basin are shallow stone infrastructure, not pit tiles.
+   box(c,760,260,120,96,'#718789');box(c,790,335,320,25,'#718789');
+   if(f.channelOpen){line(c,800,291,850,291,'#9ed6d7',16);line(c,820,347,1100,347,'#9ed6d7',12);}else{line(c,915,337,915,360,'#b9a777',14);}
+   text(c,'CATCH BASIN',820,246,15);winch(c,970,600);line(c,970,553,1100,216,'#e4c483',3);
+   line(c,390,300,600,300,'#df8b72',4);text(c,'NORTH LANE',505,267,14);line(c,1170,530,1230,530,'#df8b72',4);text(c,'SIDE LANE',1190,555,13);
+  }else{winch(c,1100,300);line(c,1100,253,1100,216,'#e4c483',4);text(c,'BOWL WINCH',1100,333,17,gold);}
+  oval(c,bx,by,70,18,'#d5dcda');c.beginPath();c.moveTo(bx-70,by);c.lineTo(bx-52,by+40);c.lineTo(bx+52,by+40);c.lineTo(bx+70,by);c.closePath();c.fillStyle='#8a99a8';c.fill();c.strokeStyle=ink;c.lineWidth=3;c.stroke();oval(c,bx,by-3,65,11,'#e8ddbf');
+  for(const dx of [-40,40])oval(c,bx+dx,by+43,13,13,'#664738');
+  if(f)text(c,f.diverting?'BOWL → CATCH BASIN':'BOWL → BAKERY',1000,145,16,f.diverting?teal:gold);
  }
- function scenery(c,r){c.save();if(r.node.id==='steve'){steveScenery(c,r);c.restore();return;}if(r.node.id==='rind'){rindScenery(c);c.restore();return;}
+ function scenery(c,r){c.save();if(r.node.id==='steve'){steveScenery(c,r);c.restore();return;}if(r.node.id==='rind'){rindScenery(c,r);c.restore();return;}
   // Draw every traversable, solid and pit tile at its actual collision extent.
   for(let row=1;row<17;row++)for(let col=1;col<31;col++){
    const x=col*40,y=80+row*40,t=r.g.grid[row][col];
@@ -97,8 +105,7 @@
   const breath=Math.sin(r.elapsed*2)*1.2;
   c.save();c.translate(s.rind.x,s.rind.y);c.scale(1.35,1.35);knight(c,0,breath,'#a9bcca',false);
   line(c,24,-18,55,-8,'#cbd6dc',6);oval(c,64,-5,14,9,'#cbd6dc');c.restore();
-  text(c,s.rind.supporting?'RIND · AT THE WINCH SIDE':'RIND · SPOON LOWERED',s.rind.x,s.rind.y+48,15,teal);
-  text(c,s.freed?'Rind: I will take the winch side.':'Rind: Bran? That skin is not ours.',s.rind.x,s.rind.y+70,14);
+  text(c,s.rind.supporting?'RIND · WINCH SIDE':'RIND · SPOON LOWERED',s.rind.x,s.rind.y+48,14,teal);
   knight(c,s.guard.x,s.guard.y,'#cfe6ff',false);
   if(!s.freed){
    // Cover the actual 40px breakable tile with skin instead of wood, and
@@ -106,7 +113,23 @@
    const {x,y}=r.cage;box(c,x-20,y-20,40,40,'#b9a777');
    for(let i=0;i<5;i++)line(c,x-18+i*8,y-61,x-12+i*7,y+17,'#d9cd98',4);
    line(c,x-20,y-27,x+20,y-37,'#706a53',5);text(c,'BRAN · TRAPPED',x,y+46,16,gold);
-  }else{text(c,'BRAN · CLEAR OF THE SKIN',s.guard.x,s.guard.y+40,15,teal);line(c,881,423,893,409,'#b9a777',5);line(c,906,432,918,417,'#b9a777',5);}
+  }else{line(c,881,423,893,409,'#b9a777',5);line(c,906,432,918,417,'#b9a777',5);}
+  c.restore();
+ }
+ function cook(c,x,y,color,name){
+  oval(c,x,y+3,15,6,ink+'55');box(c,x-13,y-32,26,29,color);box(c,x-8,y-30,16,25,cream);oval(c,x,y-43,10,11,'#e9b889');box(c,x-12,y-62,24,13,cream);for(const dx of [-7,0,7])oval(c,x+dx,y-64,7,7,cream);text(c,name,x,y+25,14);
+ }
+ function finaleForeground(c,r){
+  const f=r.finale,s=r.rescue;c.save();
+  // Each actor has one short label; keep their jobs outside the winch ring.
+  knight(c,s.rind.x,s.rind.y+Math.sin(r.elapsed*2),'#a9bcca',false);line(c,s.rind.x+20,s.rind.y-19,s.rind.x+52,s.rind.y-7,'#cbd6dc',6);oval(c,s.rind.x+61,s.rind.y-4,12,8,'#cbd6dc');text(c,'RIND',s.rind.x,s.rind.y+30,14,teal);
+  knight(c,s.guard.x,s.guard.y,'#cfe6ff',false);
+  knight(c,f.north.pursuerX,300,'#a7bacb');knight(c,640,300,'#69b0a4');text(c,'STIRLING',640,336,14,teal);
+  knight(c,f.east.pursuerX,530,'#a7bacb');
+  for(const [side,x,y] of [[f.north,610,275],[f.east,1170,500]])if(side.flash>0){line(c,x-8,y-8,x+8,y+8,gold,5);line(c,x-8,y+8,x+8,y-8,gold,5);}
+  const t=f.tools;cart(c,t);cook(c,t.x-80,690,'#ff8fb1','MABEL');cook(c,t.x-140,690,'#ffd23f','ALF');cook(c,t.x-200,690,'#2ec4b6','PIP');
+  text(c,f.toolsReady?'TOOLS READY':'TOOLS ARRIVING',t.x,758,14,f.toolsReady?teal:gold);
+  if(f.jammed){const q=f.jam;box(c,q.x-20,q.y-20,40,40,'#b9a777');for(let i=0;i<4;i++)line(c,q.x-17+i*10,q.y-18,q.x-11+i*9,q.y+17,'#d9cd98',4);}
   c.restore();
  }
  function draw(c,r){
@@ -124,5 +147,5 @@
   cart(c,r.tools);if(r.phase===0)text(c,r.tools.waiting?'Walk beside the cart →':'Stay close · tools moving →',r.tools.x,r.tools.y+62,16);
   c.restore();
  }
- return Object.freeze({layout,access,scenery,draw,rescueForeground});
+ return Object.freeze({layout,access,scenery,draw,rescueForeground,finaleForeground});
 });

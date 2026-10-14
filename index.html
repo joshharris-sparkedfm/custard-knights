@@ -1003,18 +1003,19 @@ function spawnPointFor(e){
  G.spawnUsed.set(p.x*10000+p.y,G.clock); return p;
 }
 function los(x0,y0,x1,y1){ const d=Math.hypot(x1-x0,y1-y0), n=Math.ceil(d/14); for(let i=1;i<n;i++){ const x=x0+(x1-x0)*i/n,y=y0+(y1-y0)*i/n; if(solid(tcol(x),trow(y)))return false; } return true; }
-function clearWalk(x0,y0,x1,y1){ const d=Math.hypot(x1-x0,y1-y0), n=Math.ceil(d/14), u=norm(x1-x0,y1-y0);
- for(let i=1;i<=n;i++){ const x=x0+(x1-x0)*i/n,y=y0+(y1-y0)*i/n; for(const o of [-13,0,13]){ const px=x-u.y*o,py=y+u.x*o; if(!passable(tcol(px),trow(py)))return false; } } return true; }
-function flowTo(c,r){
- const key=r*COLS+c; const f=G.flows.get(key); if(f&&G.clock-f.t<.35)return f.d;
+function clearWalk(x0,y0,x1,y1,avoid){ const d=Math.hypot(x1-x0,y1-y0), n=Math.ceil(d/14), u=norm(x1-x0,y1-y0);
+ for(let i=1;i<=n;i++){ const x=x0+(x1-x0)*i/n,y=y0+(y1-y0)*i/n; for(const o of [-13,0,13]){ const px=x-u.y*o,py=y+u.x*o; if(!passable(tcol(px),trow(py))||(avoid&&tileAt(px,py)===avoid))return false; } } return true; }
+// avoid: a tile kind the path must not cross (bots route around spring pads that would launch them into pits)
+function flowTo(c,r,avoid){
+ const key=r*COLS+c, slot=avoid?key+COLS*ROWS:key; const f=G.flows.get(slot); if(f&&G.clock-f.t<.35)return f.d;
  const d=new Int16Array(COLS*ROWS).fill(-1); const q=[key]; d[key]=0;
- for(let h=0;h<q.length;h++){ const k=q[h],kc=k%COLS,kr=(k-kc)/COLS; for(const [dc,dr] of [[1,0],[-1,0],[0,1],[0,-1]]){ const nc=kc+dc,nr=kr+dr; if(nc<0||nr<0||nc>=COLS||nr>=ROWS)continue; const nk=nr*COLS+nc; if(d[nk]>=0||!passable(nc,nr))continue; d[nk]=d[k]+1; q.push(nk);} }
- G.flows.set(key,{t:G.clock,d}); return d;
+ for(let h=0;h<q.length;h++){ const k=q[h],kc=k%COLS,kr=(k-kc)/COLS; for(const [dc,dr] of [[1,0],[-1,0],[0,1],[0,-1]]){ const nc=kc+dc,nr=kr+dr; if(nc<0||nr<0||nc>=COLS||nr>=ROWS)continue; const nk=nr*COLS+nc; if(d[nk]>=0||!passable(nc,nr)||(avoid&&G.grid[nr][nc]===avoid))continue; d[nk]=d[k]+1; q.push(nk);} }
+ G.flows.set(slot,{t:G.clock,d}); return d;
 }
 function steer(e,tx,ty){
- if(clearWalk(e.x,e.y,tx,ty)) return norm(tx-e.x,ty-e.y);
+ if(clearWalk(e.x,e.y,tx,ty,'j')) return norm(tx-e.x,ty-e.y);
  const tc=tcol(tx),tr=trow(ty); if(!passable(tc,tr)) return norm(tx-e.x,ty-e.y);
- const d=flowTo(tc,tr), c=tcol(e.x), r=trow(e.y); let best=null,bv=1e9;
+ const d=flowTo(tc,tr,'j'), c=tcol(e.x), r=trow(e.y); let best=null,bv=1e9;
  for(let dc=-1;dc<=1;dc++)for(let dr=-1;dr<=1;dr++){ if(!dc&&!dr)continue; const nc=c+dc,nr=r+dr; if(!passable(nc,nr))continue; if(dc&&dr&&(!passable(c+dc,r)||!passable(c,r+dr)))continue; let v=d[nr*COLS+nc]; if(v<0)continue; v+=dc&&dr?.4:0; if(v<bv){bv=v;best=centerOf(nc,nr)} }
  if(!best) return norm(tx-e.x,ty-e.y);
  return norm(best.x-e.x,best.y-e.y);
@@ -1392,10 +1393,16 @@ function humanInput(n,ent){
 }
 
 /* ---------- bots ---------- */
+// Where to run from a threat: straight away, unless the arena edge, a wall or a pit is there (a cornered knight would just press into it); then the most open angle off that line.
+function awayPoint(e,ox,oy,dist){ const a0=Math.atan2(e.y-oy,e.x-ox); let best=null,bs=-1e9;
+ for(const da of [0,.6,-.6,1.2,-1.2,1.8,-1.8]){ const x=cx(e.x+Math.cos(a0+da)*dist), y=cy(e.y+Math.sin(a0+da)*dist); if(!passable(tcol(x),trow(y)))continue; const sc=Math.hypot(x-ox,y-oy)-Math.abs(da)*40; if(sc>bs){bs=sc;best={x,y};} }
+ return best||{x:cx(e.x+Math.cos(a0)*dist),y:cy(e.y+Math.sin(a0)*dist)}; }
 function botInput(e,dt){
  if(G.practice)return {mx:0,my:0,atk:false,dash:false,block:false,faceTo:null};
  if(G.campaign&&ADVENTURE){const input=ADVENTURE.input(e,dt);if(input)return input;}
- const ai=e.ai, D=G.diff; let mx=0,my=0,atk=false,dash=false,faceTo=null;
+ const ai=e.ai, D=G.diff; let mx=0,my=0,atk=false,dash=false,faceTo=null,path=false;
+ // walk: follow the flow field; its waypoints are always passable tiles, so pit avoidance must not cancel it
+ const walk=(x,y)=>{path=true;return steer(e,x,y);};
  if(e.stun>0){ai.holdAtk=0;ai.tellT=0;return {mx:0,my:0,atk:false,dash:false,block:false,faceTo:null};}
  const deciding=ai.think<=dt;
  ai.think-=dt; ai.flee-=dt; ai.blockT-=dt; if(ai.blockT<=0) ai.blockFace=null;
@@ -1433,30 +1440,30 @@ function botInput(e,dt){
    else { const thief=own.carrier; if(thief&&alive(thief)){ ai.target=thief; ai.goal=null; } else if(!own.home){ ai.goal='go'; ai.gx=own.x; ai.gy=own.y; } else if(!best||Math.hypot(best.x-own.hx,best.y-own.hy)>360){ ai.goal='go'; const a=Math.random()*6.3; ai.gx=cx(own.hx+Math.cos(a)*150); ai.gy=cy(own.hy+Math.sin(a)*150); } } }
  }
  const Tg=ai.target;
- if(ai.goal==='race'){ const c=G.cps[e.cp], v=G.mapKey==='roof'?raceSteer(e,c):steer(e,c.x,c.y); mx=v.x; my=v.y; const foe=G.ents.filter(o=>o!==e&&alive(o)).find(o=>Math.hypot(o.x-e.x,o.y-e.y)<50&&Math.abs(angDiff(Math.atan2(o.y-e.y,o.x-e.x),e.face))<1.2); if(foe&&Math.random()<dt*3) atk=true; if(G.mapKey!=='roof'&&e.dashCd<=0&&clearWalk(e.x,e.y,c.x,c.y)&&Math.hypot(c.x-e.x,c.y-e.y)>200&&Math.random()<D.dash*dt*2) dash=true; }
- else if(ai.goal==='peck'){ const dd=Math.hypot(ai.wx-e.x,ai.wy-e.y); if(dd<40){const p=freeSpot();ai.wx=p.x;ai.wy=p.y} else { const v=steer(e,ai.wx,ai.wy); mx=v.x;my=v.y; } const foe=G.ents.find(o=>o!==e&&alive(o)&&!o.chick&&Math.hypot(o.x-e.x,o.y-e.y)<220); if(foe){ const v=steer(e,foe.x,foe.y); mx=v.x; my=v.y; if(Math.hypot(foe.x-e.x,foe.y-e.y)<52&&Math.random()<dt*3) atk=true; } }
+ if(ai.goal==='race'){ const c=G.cps[e.cp], v=G.mapKey==='roof'?raceSteer(e,c):walk(c.x,c.y); mx=v.x; my=v.y; const foe=G.ents.filter(o=>o!==e&&alive(o)).find(o=>Math.hypot(o.x-e.x,o.y-e.y)<50&&Math.abs(angDiff(Math.atan2(o.y-e.y,o.x-e.x),e.face))<1.2); if(foe&&Math.random()<dt*3) atk=true; if(G.mapKey!=='roof'&&e.dashCd<=0&&clearWalk(e.x,e.y,c.x,c.y)&&Math.hypot(c.x-e.x,c.y-e.y)>200&&Math.random()<D.dash*dt*2) dash=true; }
+ else if(ai.goal==='peck'){ const dd=Math.hypot(ai.wx-e.x,ai.wy-e.y); if(dd<40||!passable(tcol(ai.wx),trow(ai.wy))){const p=freeSpot();ai.wx=p.x;ai.wy=p.y} else { const v=walk(ai.wx,ai.wy); mx=v.x;my=v.y; } const foe=G.ents.find(o=>o!==e&&alive(o)&&!o.chick&&Math.hypot(o.x-e.x,o.y-e.y)<220); if(foe){ const v=walk(foe.x,foe.y); mx=v.x; my=v.y; if(Math.hypot(foe.x-e.x,foe.y-e.y)<52&&Math.random()<dt*3) atk=true; } }
  else if(ai.goal==='run'){
   const o=G.ev?G.ev.owner:null;
-  if(o){ const aw=Math.atan2(e.y-o.y,e.x-o.x), v=steer(e,cx(e.x+Math.cos(aw)*200),cy(e.y+Math.sin(aw)*200)); mx=v.x+Math.cos(G.clock*3+e.id)*.5; my=v.y+Math.sin(G.clock*2.6+e.id)*.5; }
+  if(o){ const p=awayPoint(e,o.x,o.y,200), v=steer(e,p.x,p.y); mx=v.x+Math.cos(G.clock*3+e.id)*.5; my=v.y+Math.sin(G.clock*2.6+e.id)*.5; }
   if(Math.random()<.4*dt) say(e,'BAWK!',1);
  } else if(ai.goal==='go'){
-  const v=steer(e,ai.gx,ai.gy); mx=v.x;my=v.y;
+  const v=walk(ai.gx,ai.gy); mx=v.x;my=v.y;
   if(e.dashCd<=0&&Math.hypot(ai.gx-e.x,ai.gy-e.y)>160&&clearWalk(e.x,e.y,ai.gx,ai.gy)&&Math.random()<D.dash*dt*2) dash=true;
  } else if(Tg&&alive(Tg)){
   const dx=Tg.x-e.x,dy=Tg.y-e.y,d=Math.hypot(dx,dy)||1,ux=dx/d,uy=dy/d, see=los(e.x,e.y,Tg.x,Tg.y), w=e.wpn;
-  if(ai.flee>0){ const v=steer(e,cx(e.x-ux*220),cy(e.y-uy*220)); mx=v.x;my=v.y; }
+  if(ai.flee>0){ const p=awayPoint(e,Tg.x,Tg.y,220), v=steer(e,p.x,p.y); mx=v.x;my=v.y; }
   else if(w&&(w.kind==='bow'||w.kind==='cannon'||CKWeapons.isRanged(w.kind))){
    const wr=CKWeapons.ai(w.kind)||{retreat:200,approach:340,attack:480};
    if(see&&d<wr.attack){ if(d<wr.retreat){mx=-ux;my=-uy} else if(d>wr.approach){mx=ux;my=uy} mx+=-uy*ai.strafe*.7; my+=ux*ai.strafe*.7; faceTo=Math.atan2(dy,dx)+(ai.aimError||0);
     if(Math.abs(angDiff(faceTo,e.face))<.2&&e.fireCd<=0){ai.react-=dt; if(ai.react<=0){atk=Math.random()<D.aggro; ai.react=D.react*rand(.8,1.6)}} }
-   else { const v=steer(e,Tg.x,Tg.y); mx=v.x;my=v.y; }
+   else { const v=walk(Tg.x,Tg.y); mx=v.x;my=v.y; }
   } else if(w&&w.kind==='bombs'){
    if(d<340&&d>110){ faceTo=Math.atan2(dy,dx)+(ai.aimError||0); ai.aimX=Tg.x+Tg.vx*.4; ai.aimY=Tg.y+Tg.vy*.4; mx=-uy*ai.strafe*.6; my=ux*ai.strafe*.6;
     if(e.fireCd<=0){ai.react-=dt; if(ai.react<=0){atk=Math.random()<D.aggro;ai.react=D.react*rand(1,2)}} }
-   else if(d<=110){ mx=-ux;my=-uy; } else { const v=steer(e,Tg.x,Tg.y); mx=v.x;my=v.y; }
+   else if(d<=110){ mx=-ux;my=-uy; } else { const v=walk(Tg.x,Tg.y); mx=v.x;my=v.y; }
   } else {
    const want=ai.hold?reach(e)+150:reach(e)+Tg.r*sizeMul(Tg)*.6+(D.punish>.5?18:0);
-   if(d>want){ const v=steer(e,Tg.x,Tg.y); mx=v.x+(see?-uy*ai.strafe*.3:0); my=v.y+(see?ux*ai.strafe*.3:0); if(see&&e.dashCd<=0&&d>170&&d<320&&clearWalk(e.x,e.y,Tg.x,Tg.y)&&Math.random()<D.dash*dt)dash=true; }
+   if(d>want){ const v=walk(Tg.x,Tg.y); mx=v.x+(see?-uy*ai.strafe*.3:0); my=v.y+(see?ux*ai.strafe*.3:0); if(see&&e.dashCd<=0&&d>170&&d<320&&clearWalk(e.x,e.y,Tg.x,Tg.y)&&Math.random()<D.dash*dt)dash=true; }
    else { mx=-uy*ai.strafe*.5-ux*.2; my=ux*ai.strafe*.5-uy*.2; }
    if(d<want+80) faceTo=Math.atan2(dy,dx)+(ai.aimError||0);
    const fresh=Tg.human&&G.clock-(Tg.spawnAt||0)<2.5&&D.tell>0;
@@ -1467,7 +1474,7 @@ function botInput(e,dt){
    if(deciding&&!ai.hold&&Tg.whiffT>0&&d<reach(e)+60&&e.atkCd<=0&&Math.random()<D.punish){ atk=true; if(d>reach(e)&&e.dashCd<=0) dash=true; }
   }
  } else {
-  const dd=Math.hypot(ai.wx-e.x,ai.wy-e.y); if(dd<40){const p=freeSpot();ai.wx=p.x;ai.wy=p.y} else { const v=steer(e,ai.wx,ai.wy); mx=v.x;my=v.y; }
+  const dd=Math.hypot(ai.wx-e.x,ai.wy-e.y); if(dd<40||!passable(tcol(ai.wx),trow(ai.wy))){const p=freeSpot();ai.wx=p.x;ai.wy=p.y} else { const v=walk(ai.wx,ai.wy); mx=v.x;my=v.y; }
  }
  if(ai.goal==='go'&&Tg&&alive(Tg)&&!ai.hold&&Math.hypot(Tg.x-e.x,Tg.y-e.y)<reach(e)+Tg.r&&los(e.x,e.y,Tg.x,Tg.y)&&e.atkCd<=0&&ai.blockT<=0){
   faceTo=Math.atan2(Tg.y-e.y,Tg.x-e.x);ai.react-=dt;if(ai.react<=0){atk=Math.random()<D.aggro;ai.react=D.react;}
@@ -1483,13 +1490,16 @@ function botInput(e,dt){
  if(D.tell>0&&!e.wpn){ if(ai.tellT>0){ ai.tellT-=dt; atk=ai.tellT<=0; } else if(atk){ ai.tellT=D.tell; atk=false; say(e,'!',D.tell+.1); } }
  // hazard sense: spikes about to pop, pits right ahead
  const ahead=tileAt(e.x+mx*50,e.y+my*50);
- if(ahead==='^'&&spikeState()!=='down'){ mx*=-.4; my*=-.4; }
- if((ahead==='o'||ahead==='L')&&!e.fx.ghost){ mx*=.2; my*=.2; }
+ if(ahead==='^'&&spikeState()!=='down'){ mx*=-.4; my*=-.4; path=false; }
+ // A bot walking its path may pass close to a pit edge (pads and lanes sit beside pits); only a step or a slide that would carry it in is cut.
+ const under=tileAt(e.x,e.y+4), belt=under==='>'?150:under==='<'?-150:0, ml=Math.hypot(mx,my)||1, tv=under==='~'||(G.ev&&G.ev.kind==='custard')?.35:.1, step=tileAt(e.x+mx/ml*28+belt*.2,e.y+4+my/ml*28), slide=tileAt(e.x+(e.vx+belt)*tv,e.y+4+e.vy*tv);
+ const pathSafe=path&&!dash&&step!=='o'&&step!=='L'&&slide!=='o'&&slide!=='L';
+ if(!pathSafe&&(ahead==='o'||ahead==='L')&&!e.fx.ghost){ mx*=.2; my*=.2; }
  // pit repulsion: never steer into a pit or lava edge, and lean away from any within a tile and a half
  // Rooftop racers use safe centre-line turns; broad pit repulsion would cancel their path in narrow lanes.
  if(!(ai.goal==='race'&&G.mapKey==='roof')&&!e.fx.ghost&&!e.fx.steve&&e.dashT<=0){ let rx=0,ry=0; const c0=tcol(e.x),r0=trow(e.y);
   for(let dr=-2;dr<=2;dr++)for(let dc=-2;dc<=2;dc++){ const cc=c0+dc,r2=r0+dr; if(cc<0||r2<0||cc>=COLS||r2>=ROWS)continue; const t=G.grid[r2][cc]; if(t!=='o'&&t!=='L')continue; const x0=cc*T,y0=OY+r2*T; const nx=clamp(e.x,x0,x0+T),ny=clamp(e.y,y0,y0+T); const ddx=e.x-nx,ddy=e.y-ny,d=Math.hypot(ddx,ddy)||1; if(d>64)continue; const w=(64-d)/64; rx+=ddx/d*w; ry+=ddy/d*w; }
-  if(rx||ry){ const rl=Math.hypot(rx,ry)||1, ux=rx/rl, uy=ry/rl, dot=mx*ux+my*uy; if(dot<0){ mx-=ux*dot; my-=uy*dot; } mx+=ux*Math.min(1,rl)*.6; my+=uy*Math.min(1,rl)*.6; } }
+  if(rx||ry){ const rl=Math.hypot(rx,ry)||1, ux=rx/rl, uy=ry/rl, dot=mx*ux+my*uy; if(dot<0&&!pathSafe){ mx-=ux*dot; my-=uy*dot; } mx+=ux*Math.min(1,rl)*.6; my+=uy*Math.min(1,rl)*.6; } }
  e.sayCd-=dt; if(e.sayCd<=0){ e.sayCd=rand(7,16); if(Math.random()<.4&&!isChicken(e)) say(e,pick(CHATTER)); }
  return {mx,my,atk,dash,block:ai.blockT>0,faceTo};
 }

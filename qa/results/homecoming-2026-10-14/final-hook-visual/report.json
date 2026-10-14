@@ -1,0 +1,236 @@
+{
+  "startedAt": "2026-10-14T11:05:02.172Z",
+  "root": "C:\\Users\\Joshua\\Documents\\Codex\\2026-10-08\\rea\\work\\custard-knights-room",
+  "harness": "C:\\Users\\Joshua\\Documents\\Codex\\2026-10-08\\rea\\work\\custard-knights-room\\qa\\homecoming-browser.cjs",
+  "harnessSha256": "73d8da168bc32d0e36e48635b2480ff4cce8a43eed8b7cd8feb8aa2aa7b39181",
+  "sourceHashes": {
+    "index.html": "9a2a43581faaca572e247b2b1f68999328fda6a323bfa0af094ae0662937d5c5",
+    "game/campaign.js": "6727af129895e46a32e195c138c355c2536efb071700e036a3b2b2e04e9bc52d",
+    "game/campaign-ui.js": "d3b0cc88c0c05c5fa0f3cb85c85b9a7de6944585b32f00b943c3e1961856744f",
+    "game/campaign-integration.js": "61e0173b1fab1684a421e1d4270bbd5b0e787b22857fccdd7010f9a6d3651917",
+    "game/story-scenes.js": "0e03431132a2f8af1cc65f1c27fda7f2b5e8280e2bdf147320ba2c8bf91b2abd",
+    "game/bakery-opening.js": "4d526ddeb758cc1796f3805504b1c3165a3c8a8c526d4f217377d85414441ab3",
+    "game/channel-support.js": "4dfbe9b263d54cafc44922a874bc6b6a6e5737d6f728b686a7eeba1d27b853c3",
+    "game/controls.js": "a65a941fbe3614ab467207d8b216eecdffa77668d1f1bb171f4ad4a6c2405b40",
+    "game/input-aim.js": "54040dd96e1360a46cd36c5fc6f92b05abeeb7db34af7f5cca3d75a9dcb9baee"
+  },
+  "checks": [
+    {
+      "name": "Compact 06-final-hook-missing-spoon active surface stays inside viewport",
+      "pass": true,
+      "details": {
+        "selector": ".campaign-captions",
+        "bounds": {
+          "x": 47.0625,
+          "y": 262,
+          "width": 690.875,
+          "height": 78,
+          "top": 262,
+          "right": 737.9375,
+          "bottom": 340,
+          "left": 47.0625
+        },
+        "text": "RecruitHome is safe. But the Golden Spoon is still missing.",
+        "viewport": {
+          "width": 800,
+          "height": 500
+        },
+        "visible": true
+      }
+    },
+    {
+      "name": "Compact 06-final-hook-skin-clue active surface stays inside viewport",
+      "pass": true,
+      "details": {
+        "selector": ".campaign-captions",
+        "bounds": {
+          "x": 47.0625,
+          "y": 262,
+          "width": 690.875,
+          "height": 78,
+          "top": 262,
+          "right": 737.9375,
+          "bottom": 340,
+          "left": 47.0625
+        },
+        "text": "Sir StirlingThat skin was at the banquet too. When did anyone last stir it?",
+        "viewport": {
+          "width": 800,
+          "height": 500
+        },
+        "visible": true
+      }
+    },
+    {
+      "name": "Actual final saved-bakery hook retains missing Spoon and visible skin clue caption",
+      "pass": true,
+      "details": [
+        {
+          "scene": "rind",
+          "phase": "homecoming",
+          "caption": "RecruitHome is safe. But the Golden Spoon is still missing."
+        },
+        {
+          "scene": "rind",
+          "phase": "homecoming",
+          "caption": "Sir StirlingThat skin was at the banquet too. When did anyone last stir it?"
+        }
+      ]
+    },
+    {
+      "name": "Actual compact scroll exposes original captured unlock buttons on the exact visible result panel",
+      "pass": true,
+      "details": {
+        "receipt": "41ffd217-77c8-4cd6-befe-f75327040d2c:rind:1",
+        "hidden": false,
+        "scroll": 260,
+        "buttons": [
+          {
+            "text": "Equip Golden Whisk",
+            "rect": {
+              "x": 216.4375,
+              "y": 263.78125,
+              "width": 185.71875,
+              "height": 44,
+              "top": 263.78125,
+              "right": 402.15625,
+              "bottom": 307.78125,
+              "left": 216.4375
+            },
+            "visible": true
+          },
+          {
+            "text": "Equip Rice Guard",
+            "rect": {
+              "x": 402.15625,
+              "y": 263.78125,
+              "width": 159.953125,
+              "height": 44,
+              "top": 263.78125,
+              "right": 562.109375,
+              "bottom": 307.78125,
+              "left": 402.15625
+            },
+            "visible": true
+          },
+          {
+            "text": "Keep current look",
+            "rect": {
+              "x": 562.109375,
+              "y": 263.78125,
+              "width": 164.96875,
+              "height": 44,
+              "top": 263.78125,
+              "right": 727.078125,
+              "bottom": 307.78125,
+              "left": 562.109375
+            },
+            "visible": true
+          }
+        ]
+      }
+    },
+    {
+      "name": "Final hook and compact result scrolling cannot award again",
+      "pass": true
+    },
+    {
+      "name": "No uncaught browser exceptions",
+      "pass": true,
+      "details": []
+    }
+  ],
+  "errors": [],
+  "inputs": [
+    {
+      "type": "keyDown",
+      "code": "Escape",
+      "observed": {
+        "clock": 0.016666666666666666,
+        "elapsed": 0.016666666666666666,
+        "phase": 0,
+        "interactWas": false,
+        "held": false,
+        "rawAttack": false
+      }
+    },
+    {
+      "type": "keyUp",
+      "code": "Escape",
+      "observed": {
+        "clock": 0.016666666666666666,
+        "elapsed": 0.016666666666666666,
+        "phase": 0,
+        "interactWas": false,
+        "held": false,
+        "rawAttack": false
+      }
+    },
+    {
+      "type": "mouseClick",
+      "selector": "#campaignQuietSkip"
+    },
+    {
+      "type": "mouseClick",
+      "scope": "#campaignStory",
+      "text": "Skip story"
+    },
+    {
+      "type": "mouseWheel",
+      "reason": "Actual compact result scrolling exposes captured unlock controls",
+      "deltaY": 700
+    }
+  ],
+  "fixtures": [
+    "Owning solo/keyboard1 current Swing remapped toQ via persisted controls and actual reload",
+    "Enable optional reporting through its actual consent change handler in isolated profile",
+    "Copied normalized prerequisite-only save with unfinished Rind saved atsluice; no prior Rind completion",
+    "Copied isolated collection fixture: chosen Tea Towel, Golden Whisk pinned at7/8, no chapter milestone; ensures exact unlock snapshot can be inspected",
+    "Completed-diversion boundary fixture solely for final hook/result visual proof; original gameplay path tested separately"
+  ],
+  "limitations": [
+    "Actual isolated headless Chrome/CDP keyboard movement, remapped Q jam sword/winch and Mabel interaction, actual pause/Replay/Skip/Back/Quit/Visit controls.",
+    "Copied prerequisite/completed save and collection snapshots, defender stun/relocation, direct completed-diversion boundary and stale detached-handler fixtures individually labeled. No input-only boss/defender playthrough, physical controller, human understanding, WAN, Steam Input, native startup, GPU or package acceptance."
+  ],
+  "profile": "C:\\Users\\Joshua\\AppData\\Local\\Temp\\ck-homecoming-19qrD6",
+  "chromeLog": "\r\nDevTools listening on ws://127.0.0.1:56345/devtools/browser/144e07b9-16d0-4e35-9a2c-fa359fb21134\r\n",
+  "cdpTarget": {
+    "description": "",
+    "devtoolsFrontendUrl": "https://chrome-devtools-frontend.appspot.com/serve_rev/@b859317bf11f6be47f9b7799ec690a0a42a1fb33/inspector.html?ws=127.0.0.1:56345/devtools/page/CDE43BC1F5864C0072151A23FF5596BF",
+    "id": "CDE43BC1F5864C0072151A23FF5596BF",
+    "title": "about:blank",
+    "type": "page",
+    "url": "about:blank",
+    "webSocketDebuggerUrl": "ws://127.0.0.1:56345/devtools/page/CDE43BC1F5864C0072151A23FF5596BF"
+  },
+  "cdpMessages": 84,
+  "finalHook": [
+    {
+      "scene": "rind",
+      "phase": "homecoming",
+      "caption": "RecruitHome is safe. But the Golden Spoon is still missing."
+    },
+    {
+      "scene": "rind",
+      "phase": "homecoming",
+      "caption": "Sir StirlingThat skin was at the banquet too. When did anyone last stir it?"
+    }
+  ],
+  "finishedAt": "2026-10-14T11:05:04.870Z",
+  "sourceHashesAfter": {
+    "index.html": "9a2a43581faaca572e247b2b1f68999328fda6a323bfa0af094ae0662937d5c5",
+    "game/campaign.js": "6727af129895e46a32e195c138c355c2536efb071700e036a3b2b2e04e9bc52d",
+    "game/campaign-ui.js": "d3b0cc88c0c05c5fa0f3cb85c85b9a7de6944585b32f00b943c3e1961856744f",
+    "game/campaign-integration.js": "61e0173b1fab1684a421e1d4270bbd5b0e787b22857fccdd7010f9a6d3651917",
+    "game/story-scenes.js": "0e03431132a2f8af1cc65f1c27fda7f2b5e8280e2bdf147320ba2c8bf91b2abd",
+    "game/bakery-opening.js": "4d526ddeb758cc1796f3805504b1c3165a3c8a8c526d4f217377d85414441ab3",
+    "game/channel-support.js": "4dfbe9b263d54cafc44922a874bc6b6a6e5737d6f728b686a7eeba1d27b853c3",
+    "game/controls.js": "a65a941fbe3614ab467207d8b216eecdffa77668d1f1bb171f4ad4a6c2405b40",
+    "game/input-aim.js": "54040dd96e1360a46cd36c5fc6f92b05abeeb7db34af7f5cca3d75a9dcb9baee"
+  },
+  "stableSources": true,
+  "counts": {
+    "pass": 6,
+    "fail": 0
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "sourceCommit": "676e4de9e7a72cb3d5bfb745c8eac2da516a9aa0",
+  "firstBuildPassed": false,
+  "firstBuildFailure": "Electron downloader network EACCES before template extraction; build-adapter-run.log retained",
+  "cachedTemplateBuildPassed": true,
+  "adapterSha256": "d00b38740e9344e8b10b1ae2d6c9fd28dacf5ff2ac2a5b49d8a0e1c898e2427f",
+  "adapter": "qa/results/beta17-desktop/build-python-extract.cjs",
+  "byteIdenticalToReviewedCorrectedHelper": true,
+  "cacheWrapperSha256": "8373bcf102b53b3f78f97775a8684825177b2c8f9286277b1a80b29ec468c4a6",
+  "cacheWrapper": "qa/results/beta17-desktop/build-cached-template.cjs",
+  "nativeExtractionRetry": false,
+  "packageConfigUnchanged": true,
+  "nativeWorkspaceLaunchPassed": false,
+  "nativeWorkspaceFailure": "Explicit Electron AppContainer install-directory ACL denial before renderer startup; acceptance-run.log retained",
+  "nativeRecovery": "Whole byte-verified temporary installation and regular desktop context; Electron sandbox retained, no ACL changes",
+  "temporaryInstallEvidence": "temporary-install.json",
+  "all73InstallFilesExact": true,
+  "normalPlayerProfilesUsed": false,
+  "userWindowsClosed": false
+}

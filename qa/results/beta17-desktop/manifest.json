@@ -1,0 +1,215 @@
+{
+  "createdAt": "2026-10-14T11:22:03.439885+00:00",
+  "sourceCommit": "676e4de9e7a72cb3d5bfb745c8eac2da516a9aa0",
+  "version": "0.3.0-beta.17",
+  "excludes": [
+    "qa/results/beta17-desktop/manifest.json"
+  ],
+  "files": [
+    {
+      "path": "qa/results/beta17-desktop/acceptance-run.log",
+      "bytes": 1678,
+      "sha256": "21c08ba897184286170f598de947e4f8948db7198ad4997f703fbcde22a05fbe"
+    },
+    {
+      "path": "qa/results/beta17-desktop/acceptance-temporary-install-run.log",
+      "bytes": 1460,
+      "sha256": "6d15337f5413c4a91d1d457a8a0deefd94a65ab6fad2eee565bf7dd6e111c40c"
+    },
+    {
+      "path": "qa/results/beta17-desktop/actual-homecoming-run.log",
+      "bytes": 49371,
+      "sha256": "64f94fb10a7c568a63c17f9a6bf9102acb174eb0eee233ef29e2b8e226bdb68c"
+    },
+    {
+      "path": "qa/results/beta17-desktop/actual-homecoming.cjs",
+      "bytes": 15047,
+      "sha256": "d2a1c799888fe25004b9fbb7fdcc4d99f38f3dad66a1fe174f60966b13c9284d"
+    },
+    {
+      "path": "qa/results/beta17-desktop/actual-homecoming.json",
+      "bytes": 48575,
+      "sha256": "06aacc860a68dd7652970e4002073f50d47eb0adad8162ca27fac95b19592ce1"
+    },
+    {
+      "path": "qa/results/beta17-desktop/build-adapter-run.log",
+      "bytes": 312,
+      "sha256": "75c714a2675b7a8c0284543402bca6b3437fcaa90d7b37a93423f75749f1f8eb"
+    },
+    {
+      "path": "qa/results/beta17-desktop/build-cached-template-run.log",
+      "bytes": 203,
+      "sha256": "991d37636abbf1917c44fc94d01502f40ebebefbdb8dc870a024af75625b179f"
+    },
+    {
+      "path": "qa/results/beta17-desktop/build-cached-template.cjs",
+      "bytes": 1495,
+      "sha256": "8373bcf102b53b3f78f97775a8684825177b2c8f9286277b1a80b29ec468c4a6"
+    },
+    {
+      "path": "qa/results/beta17-desktop/build-python-extract.cjs",
+      "bytes": 1808,
+      "sha256": "d00b38740e9344e8b10b1ae2d6c9fd28dacf5ff2ac2a5b49d8a0e1c898e2427f"
+    },
+    {
+      "path": "qa/results/beta17-desktop/cached-template-selection.json",
+      "bytes": 725,
+      "sha256": "b63f841905c5f5272b00cb9813efedf86dcf5e83b228c48251b274d62ab962cd"
+    },
+    {
+      "path": "qa/results/beta17-desktop/ci-summary.json",
+      "bytes": 2334,
+      "sha256": "717cb5b26326c3dead966a7641fc4390fee418ac665f18753154fa11602ee3c8"
+    },
+    {
+      "path": "qa/results/beta17-desktop/dotnet-archive-verification.json",
+      "bytes": 36030,
+      "sha256": "821b49cdc1215edd422867e916dd68dd6da6f76b8934dec573257c59132588a1"
+    },
+    {
+      "path": "qa/results/beta17-desktop/dotnet-verification-run.log",
+      "bytes": 437,
+      "sha256": "fe0147808b48a193dadabbb73a21d12fb50c166ee6244e83bc334e75ab256cc5"
+    },
+    {
+      "path": "qa/results/beta17-desktop/export-friends-stored.py",
+      "bytes": 1708,
+      "sha256": "d6475623c68696e29b6abf857ad3c400a3577a20251a895dc423b16911cb6a15"
+    },
+    {
+      "path": "qa/results/beta17-desktop/export-preview-stored.py",
+      "bytes": 4672,
+      "sha256": "a76abe1ebe7c932155e44c265bc32f8bc63d97171220f766ad31af5428678bfe"
+    },
+    {
+      "path": "qa/results/beta17-desktop/exports.json",
+      "bytes": 1116,
+      "sha256": "3bac0d81df84cb5cb3f1fc7f15587a20e6abdf62a0e0d8322df1f28b28b142aa"
+    },
+    {
+      "path": "qa/results/beta17-desktop/friends-adapter.json",
+      "bytes": 749,
+      "sha256": "99a77c88a31dccaceb3fb4ac889e913ab1a3f60ebbf011d513ba5c5250250a2f"
+    },
+    {
+      "path": "qa/results/beta17-desktop/friends-build-info.json",
+      "bytes": 12224,
+      "sha256": "b852c0fed07e12bfcf892f78976a0323b0fba3022a24c9b2c724d5759f575b0e"
+    },
+    {
+      "path": "qa/results/beta17-desktop/friends-export-run.json",
+      "bytes": 483,
+      "sha256": "a8964b1126b4384548df24e51976b18be66acbf9d0586bd3ca61c7815e2cc036"
+    },
+    {
+      "path": "qa/results/beta17-desktop/friends-materials-verification.json",
+      "bytes": 676,
+      "sha256": "8f4ce2b50ede70c5ab7b2ebb43a17aa4e49b4874481c12858d5bc8ea1855bc84"
+    },
+    {
+      "path": "qa/results/beta17-desktop/friends-stored-export-run.log",
+      "bytes": 483,
+      "sha256": "a8964b1126b4384548df24e51976b18be66acbf9d0586bd3ca61c7815e2cc036"
+    },
+    {
+      "path": "qa/results/beta17-desktop/generated-restoration-run.log",
+      "bytes": 1787,
+      "sha256": "9595e1d2190d9f59580b8596600b8373bd9f1aaf58a7d8d8e53e3f2716f982ce"
+    },
+    {
+      "path": "qa/results/beta17-desktop/generated-restoration.json",
+      "bytes": 1787,
+      "sha256": "9595e1d2190d9f59580b8596600b8373bd9f1aaf58a7d8d8e53e3f2716f982ce"
+    },
+    {
+      "path": "qa/results/beta17-desktop/independent-review.md",
+      "bytes": 1594,
+      "sha256": "3697aca9621688777fb42da6e9a75c73a5044593b402852c11251de4f2bdc1bb"
+    },
+    {
+      "path": "qa/results/beta17-desktop/package-evidence.json",
+      "bytes": 11051,
+      "sha256": "8a512979b812a31d67cad25071742d6c79e6eb4cde6b86ed5cc1132dec2b4a6e"
+    },
+    {
+      "path": "qa/results/beta17-desktop/package-run.log",
+      "bytes": 233,
+      "sha256": "501e513cd4b1fd1c323e074aef29c7e07f4b0327ccca0b2bacced6ca578a2954"
+    },
+    {
+      "path": "qa/results/beta17-desktop/packaging-workaround.json",
+      "bytes": 1186,
+      "sha256": "c7eb1b3ced26db170b8fa60b35ef089e20ffbf3026d9c1b50df39d2952ffd014"
+    },
+    {
+      "path": "qa/results/beta17-desktop/payload-extraction.log",
+      "bytes": 31,
+      "sha256": "ccc48893358408c85c874e46914df847a74c17e61aed9f93f90ac5419f8cded0"
+    },
+    {
+      "path": "qa/results/beta17-desktop/PREPARATION.md",
+      "bytes": 1051,
+      "sha256": "b53cf96fcaaeca8891e395b9fd0b63ccf18a0905baaaae039cc9c562befd9011"
+    },
+    {
+      "path": "qa/results/beta17-desktop/preview-export.json",
+      "bytes": 23849,
+      "sha256": "39c04bbe64351d6c268ddb317945428cdcb860006effd4dd462a36d1bbcfb0da"
+    },
+    {
+      "path": "qa/results/beta17-desktop/preview-stored-export-run.log",
+      "bytes": 541,
+      "sha256": "35d60cfbffc36ef632448d51b522a4e561739dca9306f566d8d85d6c39134526"
+    },
+    {
+      "path": "qa/results/beta17-desktop/python-template.json",
+      "bytes": 11863,
+      "sha256": "dacd8e49d46d201748e7a4f2ccb63ea0a65c87c4048cf27a3fc7d8e720819b37"
+    },
+    {
+      "path": "qa/results/beta17-desktop/README.md",
+      "bytes": 8496,
+      "sha256": "768dee92397df9555a56f4aca570a9dc894035b031e6b2da3ef2436a27137bdd"
+    },
+    {
+      "path": "qa/results/beta17-desktop/restore-generated.py",
+      "bytes": 934,
+      "sha256": "a10cfbccbcb9a7d08df38c71b4d015caf94af7b074099a1a86db6190c676238a"
+    },
+    {
+      "path": "qa/results/beta17-desktop/temporary-install-run.log",
+      "bytes": 129,
+      "sha256": "3d374b88e8ae711c835b92103605429263ff04ad726e1b1b18f0940f80c25fb5"
+    },
+    {
+      "path": "qa/results/beta17-desktop/temporary-install.json",
+      "bytes": 11982,
+      "sha256": "f05af20c1119f8aed462ef2e46c7317acebc225734d4190991a4706dd48607b0"
+    },
+    {
+      "path": "qa/results/beta17-desktop/verification-run.log",
+      "bytes": 1116,
+      "sha256": "3bac0d81df84cb5cb3f1fc7f15587a20e6abdf62a0e0d8322df1f28b28b142aa"
+    },
+    {
+      "path": "qa/results/beta17-desktop/verified-temp-install.cjs",
+      "bytes": 1777,
+      "sha256": "4cf67ecada2a04cd2c7db08f977a7d5f0f34bc80ae816978f73b2768d1f23482"
+    },
+    {
+      "path": "qa/results/beta17-desktop/verify-dotnet.ps1",
+      "bytes": 2550,
+      "sha256": "8acb9edade11749455a323191a755d698986d1a807f76a2cf9abe6e0334f328d"
+    },
+    {
+      "path": "qa/results/beta17-desktop/verify-exports.py",
+      "bytes": 6881,
+      "sha256": "1f220e87c16897d80d822b4703b949d9640eb6b0176eaa645f2dd71f2d794c2e"
+    }
+  ],
+  "packagedHomecomingManifest": {
+    "path": "qa/results/beta17-packaged-homecoming/manifest.json",
+    "bytes": 4437,
+    "sha256": "9d9dd1d3e95b31802a77504a0025e04dd6c5c43b7959d9c554c253980788d135"
+  }
+}

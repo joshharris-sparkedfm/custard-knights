@@ -1,0 +1,11 @@
+Soundtrack: 13/13 tracks available.
+[TypeError: fetch failed] {
+  [cause]: Error: connect EACCES 20.26.156.215:443
+      at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1864:16) {
+    errno: -4092,
+    code: 'EACCES',
+    syscall: 'connect',
+    address: '20.26.156.215',
+    port: 443
+  }
+}

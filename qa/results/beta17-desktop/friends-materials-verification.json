@@ -1,0 +1,20 @@
+{
+  "sourceCommit": "676e4de9e7a72cb3d5bfb745c8eac2da516a9aa0",
+  "frozenTemplatesNormalizedExact": true,
+  "normalization": "UTF-8 decoding and CRLF to LF, as standard playtest-bundle read_text",
+  "renderedMaterialsExact": true,
+  "files": {
+    "START-HERE.txt": {
+      "bytes": 18862,
+      "sha256": "2a66d529bb482b340be231c3723e69033780f82007045c1b75d37c14f979957e"
+    },
+    "FEEDBACK.html": {
+      "bytes": 8923,
+      "sha256": "e7e6278e2b11f3931859a6e1360db4aaec29037404a27487e5b78fbc9e32ccd8"
+    },
+    "BUILD-INFO.json": {
+      "bytes": 11846,
+      "sha256": "76825567e38124e890ff668e4cb1c6dbc0ae8e1215fd3174c88c3fb44e69b26e"
+    }
+  }
+}

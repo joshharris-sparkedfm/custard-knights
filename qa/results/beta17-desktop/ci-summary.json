@@ -1,0 +1,63 @@
+{
+  "sourceCommit": "676e4de9e7a72cb3d5bfb745c8eac2da516a9aa0",
+  "runId": 38554747244,
+  "url": "https://github.com/joshharris-sparkedfm/custard-knights/actions/runs/38554747244",
+  "attempt": 1,
+  "conclusion": "success",
+  "jobs": [
+    {
+      "id": 115820980885,
+      "name": "core (ubuntu-latest, 24)",
+      "status": "completed",
+      "conclusion": "success",
+      "html_url": "https://github.com/joshharris-sparkedfm/custard-knights/actions/runs/38554747244/job/115820980885",
+      "started_at": "2026-10-14T11:10:48Z",
+      "completed_at": "2026-10-14T11:11:15Z"
+    },
+    {
+      "id": 115820980910,
+      "name": "server (ubuntu-latest)",
+      "status": "completed",
+      "conclusion": "success",
+      "html_url": "https://github.com/joshharris-sparkedfm/custard-knights/actions/runs/38554747244/job/115820980910",
+      "started_at": "2026-10-14T11:10:48Z",
+      "completed_at": "2026-10-14T11:12:25Z"
+    },
+    {
+      "id": 115820980919,
+      "name": "server (windows-latest)",
+      "status": "completed",
+      "conclusion": "success",
+      "html_url": "https://github.com/joshharris-sparkedfm/custard-knights/actions/runs/38554747244/job/115820980919",
+      "started_at": "2026-10-14T11:10:48Z",
+      "completed_at": "2026-10-14T11:13:08Z"
+    },
+    {
+      "id": 115820980922,
+      "name": "core (windows-latest, 24)",
+      "status": "completed",
+      "conclusion": "success",
+      "html_url": "https://github.com/joshharris-sparkedfm/custard-knights/actions/runs/38554747244/job/115820980922",
+      "started_at": "2026-10-14T11:10:48Z",
+      "completed_at": "2026-10-14T11:11:18Z"
+    },
+    {
+      "id": 115820981217,
+      "name": "core (windows-latest, 22)",
+      "status": "completed",
+      "conclusion": "success",
+      "html_url": "https://github.com/joshharris-sparkedfm/custard-knights/actions/runs/38554747244/job/115820981217",
+      "started_at": "2026-10-14T11:10:48Z",
+      "completed_at": "2026-10-14T11:11:36Z"
+    },
+    {
+      "id": 115820981349,
+      "name": "core (ubuntu-latest, 22)",
+      "status": "completed",
+      "conclusion": "success",
+      "html_url": "https://github.com/joshharris-sparkedfm/custard-knights/actions/runs/38554747244/job/115820981349",
+      "started_at": "2026-10-14T11:10:48Z",
+      "completed_at": "2026-10-14T11:11:15Z"
+    }
+  ]
+}

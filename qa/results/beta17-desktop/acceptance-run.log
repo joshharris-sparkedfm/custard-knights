@@ -1,0 +1,24 @@
+C:\Users\Joshua\Documents\Codex\2026-10-08\rea\work\custard-knights-room\tests\desktop-acceptance.cjs:16
+  throw Error(`Acceptance ${phase} failed: ${result.error||result.status}\n${result.stdout}\n${result.stderr}`);
+  ^
+
+Error: Acceptance write failed: 2147483651
+
+
+
+[26600:1014/121521.687:ERROR:components\os_crypt\sync\os_crypt_win.cc:77] Failed to encrypt: The system cannot find the file specified. (0x2)
+
+[26600:1014/121521.700:FATAL:electron\shell\browser\win\install_dir_access.cc:52] Sandboxed processes cannot read C:\Users\Joshua\Documents\Codex\2026-10-08\rea\work\custard-knights-room\dist\Custard Knights-win32-x64: its ACL has an entry for an AppContainer package SID but none for ALL APPLICATION PACKAGES, so Windows denies the sandbox token access. Grant it with: icacls "C:\Users\Joshua\Documents\Codex\2026-10-08\rea\work\custard-knights-room\dist\Custard Knights-win32-x64" /grant *S-1-15-2-1:(OI)(CI)(RX)
+
+
+    at run (C:\Users\Joshua\Documents\Codex\2026-10-08\rea\work\custard-knights-room\tests\desktop-acceptance.cjs:16:9)
+    at Object.<anonymous> (C:\Users\Joshua\Documents\Codex\2026-10-08\rea\work\custard-knights-room\tests\desktop-acceptance.cjs:20:2)
+    at Module._compile (node:internal/modules/cjs/loader:1872:14)
+    at Object..js (node:internal/modules/cjs/loader:2003:10)
+    at Module.load (node:internal/modules/cjs/loader:1594:32)
+    at Module._load (node:internal/modules/cjs/loader:1396:12)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:255:19)
+    at Module.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:154:5)
+    at node:internal/main/run_main_module:33:47
+
+Node.js v24.19.0

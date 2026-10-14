@@ -1,0 +1,4111 @@
+{
+  "packageFreeze": "676e4de9e7a72cb3d5bfb745c8eac2da516a9aa0",
+  "version": "0.3.0-beta.17",
+  "archiveSha256": "c2a51437b327e863f5d4f69a07eeeeb38ba45e7e9bd59a961787be13d39ba1c4",
+  "report": "full/report.json",
+  "caseFilter": null,
+  "suites": 7,
+  "counts": {
+    "pass": 43,
+    "fail": 0
+  },
+  "distinctCheckCount": 43,
+  "stableSources": true,
+  "browserExceptions": 0,
+  "checks": [
+    {
+      "name": "Actual diversion defaults to distinct playable homecoming after original save settlement",
+      "pass": true,
+      "details": {
+        "id": "banquet",
+        "phase": 0,
+        "status": "playing",
+        "quietKind": "homecoming",
+        "prelude": true,
+        "elapsed": 0.03333333333333333,
+        "time": 0,
+        "roundId": "8341b8eb-8488-4bb8-a876-e3c5e439a2a4",
+        "quietStory": true,
+        "interactWas": false,
+        "mabel": {
+          "x": 455,
+          "y": 424,
+          "name": "Mabel",
+          "color": "#FF8FB1"
+        },
+        "homecoming": {
+          "bran": {
+            "x": 690,
+            "y": 610,
+            "name": "Bran"
+          },
+          "stirling": {
+            "x": 830,
+            "y": 555,
+            "name": "Sir Stirling"
+          }
+        },
+        "staff": [
+          {
+            "x": 455,
+            "y": 424,
+            "name": "Mabel",
+            "color": "#FF8FB1"
+          },
+          {
+            "x": 605,
+            "y": 410,
+            "name": "Alf",
+            "color": "#FFD23F"
+          },
+          {
+            "x": 750,
+            "y": 440,
+            "name": "Pip",
+            "color": "#2EC4B6"
+          }
+        ],
+        "steve": {
+          "theft": 0,
+          "stolen": false
+        },
+        "speech": "Mabel: The ovens are warm. You brought us home.",
+        "player": {
+          "x": 220,
+          "y": 500,
+          "hp": 3
+        },
+        "result": null,
+        "save": {
+          "version": 1,
+          "results": {
+            "banquet": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "puddings": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "guard": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "bridge": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "stirling": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "steve": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "rind": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 11.433333333333481,
+              "assisted": false
+            }
+          },
+          "selected": "rind",
+          "assist": false,
+          "difficulty": "medium",
+          "checkpoint": null,
+          "receipts": [
+            "74100197-0507-4617-998b-8c290e109ce3:rind:1"
+          ]
+        },
+        "collection": {
+          "version": 1,
+          "completed": 3,
+          "choice": "tea-towel",
+          "pinned": "golden-whisk",
+          "progress": {
+            "tea-towel": 0,
+            "burnt-toast": 0,
+            "golden-whisk": 8,
+            "rooster-crown": 0,
+            "rice-guard": 0,
+            "steve-strut": 0
+          },
+          "owned": [
+            "tea-towel",
+            "golden-whisk",
+            "rice-guard"
+          ],
+          "receipts": [
+            "74100197-0507-4617-998b-8c290e109ce3:encounter"
+          ],
+          "milestones": [
+            "rice-chapter"
+          ],
+          "presets": [
+            null,
+            null,
+            null
+          ]
+        },
+        "report": {
+          "version": 1,
+          "build": "0.3.0-beta.7",
+          "generatedAt": 1791976525029,
+          "consent": true,
+          "storageState": "available",
+          "installId": "84281c63e486c63beeaa2d3f3ab02f4c",
+          "events": [
+            {
+              "name": "session_start",
+              "build": "0.3.0-beta.7",
+              "sessionId": "91a8994ba4ab7af6a8f71fb70f2e40ce",
+              "at": 1791976513544,
+              "fields": {
+                "qa": true
+              }
+            },
+            {
+              "name": "round_started",
+              "build": "0.3.0-beta.7",
+              "sessionId": "91a8994ba4ab7af6a8f71fb70f2e40ce",
+              "at": 1791976513567,
+              "fields": {
+                "format": "story",
+                "mode": "campaign",
+                "map": "courtyard",
+                "difficulty": "medium",
+                "humanCount": 1,
+                "botCount": 1,
+                "encounter": "rind",
+                "input": "keyboard",
+                "botOnly": false,
+                "roundId": "be66981c8aad72935821d158564b9036",
+                "qa": true
+              }
+            },
+            {
+              "name": "first_meaningful_action",
+              "build": "0.3.0-beta.7",
+              "sessionId": "91a8994ba4ab7af6a8f71fb70f2e40ce",
+              "at": 1791976513785,
+              "fields": {
+                "action": "move",
+                "input": "keyboard",
+                "format": "story",
+                "mode": "campaign",
+                "map": "courtyard",
+                "difficulty": "medium",
+                "humanCount": 1,
+                "botCount": 1,
+                "encounter": "rind",
+                "botOnly": false,
+                "roundId": "be66981c8aad72935821d158564b9036",
+                "qa": true
+              }
+            },
+            {
+              "name": "challenge_completed",
+              "build": "0.3.0-beta.7",
+              "sessionId": "91a8994ba4ab7af6a8f71fb70f2e40ce",
+              "at": 1791976524980,
+              "fields": {
+                "rewardType": "blade",
+                "format": "story",
+                "mode": "campaign",
+                "map": "courtyard",
+                "difficulty": "medium",
+                "humanCount": 1,
+                "botCount": 1,
+                "encounter": "rind",
+                "input": "keyboard",
+                "botOnly": false,
+                "roundId": "be66981c8aad72935821d158564b9036",
+                "qa": true
+              }
+            },
+            {
+              "name": "challenge_completed",
+              "build": "0.3.0-beta.7",
+              "sessionId": "91a8994ba4ab7af6a8f71fb70f2e40ce",
+              "at": 1791976524980,
+              "fields": {
+                "rewardType": "unknown",
+                "format": "story",
+                "mode": "campaign",
+                "map": "courtyard",
+                "difficulty": "medium",
+                "humanCount": 1,
+                "botCount": 1,
+                "encounter": "rind",
+                "input": "keyboard",
+                "botOnly": false,
+                "roundId": "be66981c8aad72935821d158564b9036",
+                "qa": true
+              }
+            },
+            {
+              "name": "round_completed",
+              "build": "0.3.0-beta.7",
+              "sessionId": "91a8994ba4ab7af6a8f71fb70f2e40ce",
+              "at": 1791976524980,
+              "fields": {
+                "format": "story",
+                "mode": "campaign",
+                "map": "courtyard",
+                "difficulty": "medium",
+                "humanCount": 1,
+                "botCount": 1,
+                "result": "completed",
+                "encounter": "rind",
+                "input": "keyboard",
+                "botOnly": false,
+                "roundId": "be66981c8aad72935821d158564b9036",
+                "qa": true
+              }
+            }
+          ],
+          "metrics": {
+            "joinAttempts": 0,
+            "joinSucceeded": 0,
+            "joinFailed": 0,
+            "joinPendingOrUnobserved": 0,
+            "roundsStarted": 0,
+            "roundsCompleted": 0,
+            "roundCompletionRate": null,
+            "rematchSelections": 0,
+            "completedRoundsWithObservedContinuation": 0
+          },
+          "experiments": [],
+          "counts": {
+            "retained": 6,
+            "truncated": 0,
+            "duplicates": 0,
+            "rejected": 0,
+            "excludedFromHumanMetrics": 6
+          },
+          "limitations": [
+            "Experiment counts describe retained solo trials by build/variant, not unique participants or causal lift. Recognition is self-report. Normal-round continuation requires a later observed offline arena start, not a stated intention.",
+            "Local opt-in observations from one browser installation only; no network collection or population-wide claims.",
+            "Metrics cover retained events only. Truncation, cleared storage, missing instrumentation and interrupted sessions can remove context.",
+            "Deduplication covers retained events in the current session. IDs must be anonymous local tokens, never external identifiers.",
+            "Join outcomes require a retained attempt in the same session. Pending or unobserved does not mean failure.",
+            "Round completions also require a start in the same session. A long round spanning the inactivity cutoff remains uncompleted in this observed baseline.",
+            "General round metrics include optional study rounds; use the experiment summaries and trial fields to separate these from normal play.",
+            "Human round metrics require explicitly positive human counts on start and completion; late joins are excluded. QA, demo and bot-only events are excluded.",
+            "Continuation means a later human round start in the same session after an observed completion; rematch intent alone is not continuation.",
+            "Inactivity exits are inferred after 30 minutes when another event arrives. Page exits are observations of lifecycle signals, not proof a person left.",
+            "Cup, challenge, reward, highlight, share and referral events are observations only; no conversion or retention claim is calculated.",
+            "No D1/D7 retention, people counts, attribution, or cross-device identity is available."
+          ]
+        },
+        "overlays": [],
+        "hud": "Home safe · talk to Mabel · Q / left click"
+      }
+    },
+    {
+      "name": "Original result remains on original run and pending snapshot, never quiet run",
+      "pass": true,
+      "details": {
+        "result": {
+          "id": "rind",
+          "roundId": "74100197-0507-4617-998b-8c290e109ce3",
+          "receipt": "74100197-0507-4617-998b-8c290e109ce3:rind:1",
+          "won": true,
+          "reason": "",
+          "spoons": [
+            true,
+            false,
+            false
+          ],
+          "added": [
+            0
+          ],
+          "elapsed": 11.433333333333481,
+          "assisted": false,
+          "outro": [
+            "Pip: The cooling channel is open!",
+            "Mabel: The bowl has turned into the catch basin, clear of our ovens.",
+            "Marshal Rind: Bran has the winch side. Stirling held the approach.",
+            "Recruit: Let’s go home."
+          ],
+          "next": null,
+          "checkpoint": null
+        },
+        "unlocks": [
+          "golden-whisk",
+          "rice-guard"
+        ]
+      }
+    },
+    {
+      "name": "Collection rewards and completion report use original round before quiet boot",
+      "pass": true,
+      "details": {
+        "id": "banquet",
+        "phase": 0,
+        "status": "playing",
+        "quietKind": "homecoming",
+        "prelude": true,
+        "elapsed": 0.03333333333333333,
+        "time": 0,
+        "roundId": "8341b8eb-8488-4bb8-a876-e3c5e439a2a4",
+        "quietStory": true,
+        "interactWas": false,
+        "mabel": {
+          "x": 455,
+          "y": 424,
+          "name": "Mabel",
+          "color": "#FF8FB1"
+        },
+        "homecoming": {
+          "bran": {
+            "x": 690,
+            "y": 610,
+            "name": "Bran"
+          },
+          "stirling": {
+            "x": 830,
+            "y": 555,
+            "name": "Sir Stirling"
+          }
+        },
+        "staff": [
+          {
+            "x": 455,
+            "y": 424,
+            "name": "Mabel",
+            "color": "#FF8FB1"
+          },
+          {
+            "x": 605,
+            "y": 410,
+            "name": "Alf",
+            "color": "#FFD23F"
+          },
+          {
+            "x": 750,
+            "y": 440,
+            "name": "Pip",
+            "color": "#2EC4B6"
+          }
+        ],
+        "steve": {
+          "theft": 0,
+          "stolen": false
+        },
+        "speech": "Mabel: The ovens are warm. You brought us home.",
+        "player": {
+          "x": 220,
+          "y": 500,
+          "hp": 3
+        },
+        "result": null,
+        "save": {
+          "version": 1,
+          "results": {
+            "banquet": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "puddings": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "guard": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "bridge": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "stirling": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "steve": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "rind": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 11.433333333333481,
+              "assisted": false
+            }
+          },
+          "selected": "rind",
+          "assist": false,
+          "difficulty": "medium",
+          "checkpoint": null,
+          "receipts": [
+            "74100197-0507-4617-998b-8c290e109ce3:rind:1"
+          ]
+        },
+        "collection": {
+          "version": 1,
+          "completed": 3,
+          "choice": "tea-towel",
+          "pinned": "golden-whisk",
+          "progress": {
+            "tea-towel": 0,
+            "burnt-toast": 0,
+            "golden-whisk": 8,
+            "rooster-crown": 0,
+            "rice-guard": 0,
+            "steve-strut": 0
+          },
+          "owned": [
+            "tea-towel",
+            "golden-whisk",
+            "rice-guard"
+          ],
+          "receipts": [
+            "74100197-0507-4617-998b-8c290e109ce3:encounter"
+          ],
+          "milestones": [
+            "rice-chapter"
+          ],
+          "presets": [
+            null,
+            null,
+            null
+          ]
+        },
+        "report": {
+          "version": 1,
+          "build": "0.3.0-beta.7",
+          "generatedAt": 1791976525029,
+          "consent": true,
+          "storageState": "available",
+          "installId": "84281c63e486c63beeaa2d3f3ab02f4c",
+          "events": [
+            {
+              "name": "session_start",
+              "build": "0.3.0-beta.7",
+              "sessionId": "91a8994ba4ab7af6a8f71fb70f2e40ce",
+              "at": 1791976513544,
+              "fields": {
+                "qa": true
+              }
+            },
+            {
+              "name": "round_started",
+              "build": "0.3.0-beta.7",
+              "sessionId": "91a8994ba4ab7af6a8f71fb70f2e40ce",
+              "at": 1791976513567,
+              "fields": {
+                "format": "story",
+                "mode": "campaign",
+                "map": "courtyard",
+                "difficulty": "medium",
+                "humanCount": 1,
+                "botCount": 1,
+                "encounter": "rind",
+                "input": "keyboard",
+                "botOnly": false,
+                "roundId": "be66981c8aad72935821d158564b9036",
+                "qa": true
+              }
+            },
+            {
+              "name": "first_meaningful_action",
+              "build": "0.3.0-beta.7",
+              "sessionId": "91a8994ba4ab7af6a8f71fb70f2e40ce",
+              "at": 1791976513785,
+              "fields": {
+                "action": "move",
+                "input": "keyboard",
+                "format": "story",
+                "mode": "campaign",
+                "map": "courtyard",
+                "difficulty": "medium",
+                "humanCount": 1,
+                "botCount": 1,
+                "encounter": "rind",
+                "botOnly": false,
+                "roundId": "be66981c8aad72935821d158564b9036",
+                "qa": true
+              }
+            },
+            {
+              "name": "challenge_completed",
+              "build": "0.3.0-beta.7",
+              "sessionId": "91a8994ba4ab7af6a8f71fb70f2e40ce",
+              "at": 1791976524980,
+              "fields": {
+                "rewardType": "blade",
+                "format": "story",
+                "mode": "campaign",
+                "map": "courtyard",
+                "difficulty": "medium",
+                "humanCount": 1,
+                "botCount": 1,
+                "encounter": "rind",
+                "input": "keyboard",
+                "botOnly": false,
+                "roundId": "be66981c8aad72935821d158564b9036",
+                "qa": true
+              }
+            },
+            {
+              "name": "challenge_completed",
+              "build": "0.3.0-beta.7",
+              "sessionId": "91a8994ba4ab7af6a8f71fb70f2e40ce",
+              "at": 1791976524980,
+              "fields": {
+                "rewardType": "unknown",
+                "format": "story",
+                "mode": "campaign",
+                "map": "courtyard",
+                "difficulty": "medium",
+                "humanCount": 1,
+                "botCount": 1,
+                "encounter": "rind",
+                "input": "keyboard",
+                "botOnly": false,
+                "roundId": "be66981c8aad72935821d158564b9036",
+                "qa": true
+              }
+            },
+            {
+              "name": "round_completed",
+              "build": "0.3.0-beta.7",
+              "sessionId": "91a8994ba4ab7af6a8f71fb70f2e40ce",
+              "at": 1791976524980,
+              "fields": {
+                "format": "story",
+                "mode": "campaign",
+                "map": "courtyard",
+                "difficulty": "medium",
+                "humanCount": 1,
+                "botCount": 1,
+                "result": "completed",
+                "encounter": "rind",
+                "input": "keyboard",
+                "botOnly": false,
+                "roundId": "be66981c8aad72935821d158564b9036",
+                "qa": true
+              }
+            }
+          ],
+          "metrics": {
+            "joinAttempts": 0,
+            "joinSucceeded": 0,
+            "joinFailed": 0,
+            "joinPendingOrUnobserved": 0,
+            "roundsStarted": 0,
+            "roundsCompleted": 0,
+            "roundCompletionRate": null,
+            "rematchSelections": 0,
+            "completedRoundsWithObservedContinuation": 0
+          },
+          "experiments": [],
+          "counts": {
+            "retained": 6,
+            "truncated": 0,
+            "duplicates": 0,
+            "rejected": 0,
+            "excludedFromHumanMetrics": 6
+          },
+          "limitations": [
+            "Experiment counts describe retained solo trials by build/variant, not unique participants or causal lift. Recognition is self-report. Normal-round continuation requires a later observed offline arena start, not a stated intention.",
+            "Local opt-in observations from one browser installation only; no network collection or population-wide claims.",
+            "Metrics cover retained events only. Truncation, cleared storage, missing instrumentation and interrupted sessions can remove context.",
+            "Deduplication covers retained events in the current session. IDs must be anonymous local tokens, never external identifiers.",
+            "Join outcomes require a retained attempt in the same session. Pending or unobserved does not mean failure.",
+            "Round completions also require a start in the same session. A long round spanning the inactivity cutoff remains uncompleted in this observed baseline.",
+            "General round metrics include optional study rounds; use the experiment summaries and trial fields to separate these from normal play.",
+            "Human round metrics require explicitly positive human counts on start and completion; late joins are excluded. QA, demo and bot-only events are excluded.",
+            "Continuation means a later human round start in the same session after an observed completion; rematch intent alone is not continuation.",
+            "Inactivity exits are inferred after 30 minutes when another event arrives. Page exits are observations of lifecycle signals, not proof a person left.",
+            "Cup, challenge, reward, highlight, share and referral events are observations only; no conversion or retention claim is calculated.",
+            "No D1/D7 retention, people counts, attribution, or cross-device identity is available."
+          ]
+        },
+        "overlays": [],
+        "hud": "Home safe · talk to Mabel · Q / left click"
+      }
+    },
+    {
+      "name": "Golden Whisk and Rice Guard unlock snapshot survives quiet boot",
+      "pass": true,
+      "details": {
+        "result": {
+          "id": "rind",
+          "roundId": "74100197-0507-4617-998b-8c290e109ce3",
+          "receipt": "74100197-0507-4617-998b-8c290e109ce3:rind:1",
+          "won": true,
+          "reason": "",
+          "spoons": [
+            true,
+            false,
+            false
+          ],
+          "added": [
+            0
+          ],
+          "elapsed": 11.433333333333481,
+          "assisted": false,
+          "outro": [
+            "Pip: The cooling channel is open!",
+            "Mabel: The bowl has turned into the catch basin, clear of our ovens.",
+            "Marshal Rind: Bran has the winch side. Stirling held the approach.",
+            "Recruit: Let’s go home."
+          ],
+          "next": null,
+          "checkpoint": null
+        },
+        "unlocks": [
+          "golden-whisk",
+          "rice-guard"
+        ]
+      }
+    },
+    {
+      "name": "Hidden result receives no deferred reward append during homecoming",
+      "pass": true
+    },
+    {
+      "name": "Compact 01-default-homecoming active surface stays inside viewport",
+      "pass": true,
+      "details": {
+        "selector": "#campaignHUD",
+        "bounds": {
+          "x": 253.5859375,
+          "y": 56,
+          "width": 292.828125,
+          "height": 29.5,
+          "top": 56,
+          "right": 546.4140625,
+          "bottom": 85.5,
+          "left": 253.5859375
+        },
+        "text": "Home safe · talk to Mabel · Q / left click",
+        "viewport": {
+          "width": 800,
+          "height": 500
+        },
+        "visible": true
+      }
+    },
+    {
+      "name": "Homecoming shows restored cooks, named Bran and Stirling, and warm-oven speech",
+      "pass": true,
+      "details": {
+        "id": "banquet",
+        "phase": 0,
+        "status": "playing",
+        "quietKind": "homecoming",
+        "prelude": true,
+        "elapsed": 0.03333333333333333,
+        "time": 0,
+        "roundId": "8341b8eb-8488-4bb8-a876-e3c5e439a2a4",
+        "quietStory": true,
+        "interactWas": false,
+        "mabel": {
+          "x": 455,
+          "y": 424,
+          "name": "Mabel",
+          "color": "#FF8FB1"
+        },
+        "homecoming": {
+          "bran": {
+            "x": 690,
+            "y": 610,
+            "name": "Bran"
+          },
+          "stirling": {
+            "x": 830,
+            "y": 555,
+            "name": "Sir Stirling"
+          }
+        },
+        "staff": [
+          {
+            "x": 455,
+            "y": 424,
+            "name": "Mabel",
+            "color": "#FF8FB1"
+          },
+          {
+            "x": 605,
+            "y": 410,
+            "name": "Alf",
+            "color": "#FFD23F"
+          },
+          {
+            "x": 750,
+            "y": 440,
+            "name": "Pip",
+            "color": "#2EC4B6"
+          }
+        ],
+        "steve": {
+          "theft": 0,
+          "stolen": false
+        },
+        "speech": "Mabel: The ovens are warm. You brought us home.",
+        "player": {
+          "x": 220,
+          "y": 500,
+          "hp": 3
+        },
+        "result": null,
+        "save": {
+          "version": 1,
+          "results": {
+            "banquet": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "puddings": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "guard": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "bridge": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "stirling": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "steve": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "rind": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 11.433333333333481,
+              "assisted": false
+            }
+          },
+          "selected": "rind",
+          "assist": false,
+          "difficulty": "medium",
+          "checkpoint": null,
+          "receipts": [
+            "74100197-0507-4617-998b-8c290e109ce3:rind:1"
+          ]
+        },
+        "collection": {
+          "version": 1,
+          "completed": 3,
+          "choice": "tea-towel",
+          "pinned": "golden-whisk",
+          "progress": {
+            "tea-towel": 0,
+            "burnt-toast": 0,
+            "golden-whisk": 8,
+            "rooster-crown": 0,
+            "rice-guard": 0,
+            "steve-strut": 0
+          },
+          "owned": [
+            "tea-towel",
+            "golden-whisk",
+            "rice-guard"
+          ],
+          "receipts": [
+            "74100197-0507-4617-998b-8c290e109ce3:encounter"
+          ],
+          "milestones": [
+            "rice-chapter"
+          ],
+          "presets": [
+            null,
+            null,
+            null
+          ]
+        },
+        "report": {
+          "version": 1,
+          "build": "0.3.0-beta.7",
+          "generatedAt": 1791976525029,
+          "consent": true,
+          "storageState": "available",
+          "installId": "84281c63e486c63beeaa2d3f3ab02f4c",
+          "events": [
+            {
+              "name": "session_start",
+              "build": "0.3.0-beta.7",
+              "sessionId": "91a8994ba4ab7af6a8f71fb70f2e40ce",
+              "at": 1791976513544,
+              "fields": {
+                "qa": true
+              }
+            },
+            {
+              "name": "round_started",
+              "build": "0.3.0-beta.7",
+              "sessionId": "91a8994ba4ab7af6a8f71fb70f2e40ce",
+              "at": 1791976513567,
+              "fields": {
+                "format": "story",
+                "mode": "campaign",
+                "map": "courtyard",
+                "difficulty": "medium",
+                "humanCount": 1,
+                "botCount": 1,
+                "encounter": "rind",
+                "input": "keyboard",
+                "botOnly": false,
+                "roundId": "be66981c8aad72935821d158564b9036",
+                "qa": true
+              }
+            },
+            {
+              "name": "first_meaningful_action",
+              "build": "0.3.0-beta.7",
+              "sessionId": "91a8994ba4ab7af6a8f71fb70f2e40ce",
+              "at": 1791976513785,
+              "fields": {
+                "action": "move",
+                "input": "keyboard",
+                "format": "story",
+                "mode": "campaign",
+                "map": "courtyard",
+                "difficulty": "medium",
+                "humanCount": 1,
+                "botCount": 1,
+                "encounter": "rind",
+                "botOnly": false,
+                "roundId": "be66981c8aad72935821d158564b9036",
+                "qa": true
+              }
+            },
+            {
+              "name": "challenge_completed",
+              "build": "0.3.0-beta.7",
+              "sessionId": "91a8994ba4ab7af6a8f71fb70f2e40ce",
+              "at": 1791976524980,
+              "fields": {
+                "rewardType": "blade",
+                "format": "story",
+                "mode": "campaign",
+                "map": "courtyard",
+                "difficulty": "medium",
+                "humanCount": 1,
+                "botCount": 1,
+                "encounter": "rind",
+                "input": "keyboard",
+                "botOnly": false,
+                "roundId": "be66981c8aad72935821d158564b9036",
+                "qa": true
+              }
+            },
+            {
+              "name": "challenge_completed",
+              "build": "0.3.0-beta.7",
+              "sessionId": "91a8994ba4ab7af6a8f71fb70f2e40ce",
+              "at": 1791976524980,
+              "fields": {
+                "rewardType": "unknown",
+                "format": "story",
+                "mode": "campaign",
+                "map": "courtyard",
+                "difficulty": "medium",
+                "humanCount": 1,
+                "botCount": 1,
+                "encounter": "rind",
+                "input": "keyboard",
+                "botOnly": false,
+                "roundId": "be66981c8aad72935821d158564b9036",
+                "qa": true
+              }
+            },
+            {
+              "name": "round_completed",
+              "build": "0.3.0-beta.7",
+              "sessionId": "91a8994ba4ab7af6a8f71fb70f2e40ce",
+              "at": 1791976524980,
+              "fields": {
+                "format": "story",
+                "mode": "campaign",
+                "map": "courtyard",
+                "difficulty": "medium",
+                "humanCount": 1,
+                "botCount": 1,
+                "result": "completed",
+                "encounter": "rind",
+                "input": "keyboard",
+                "botOnly": false,
+                "roundId": "be66981c8aad72935821d158564b9036",
+                "qa": true
+              }
+            }
+          ],
+          "metrics": {
+            "joinAttempts": 0,
+            "joinSucceeded": 0,
+            "joinFailed": 0,
+            "joinPendingOrUnobserved": 0,
+            "roundsStarted": 0,
+            "roundsCompleted": 0,
+            "roundCompletionRate": null,
+            "rematchSelections": 0,
+            "completedRoundsWithObservedContinuation": 0
+          },
+          "experiments": [],
+          "counts": {
+            "retained": 6,
+            "truncated": 0,
+            "duplicates": 0,
+            "rejected": 0,
+            "excludedFromHumanMetrics": 6
+          },
+          "limitations": [
+            "Experiment counts describe retained solo trials by build/variant, not unique participants or causal lift. Recognition is self-report. Normal-round continuation requires a later observed offline arena start, not a stated intention.",
+            "Local opt-in observations from one browser installation only; no network collection or population-wide claims.",
+            "Metrics cover retained events only. Truncation, cleared storage, missing instrumentation and interrupted sessions can remove context.",
+            "Deduplication covers retained events in the current session. IDs must be anonymous local tokens, never external identifiers.",
+            "Join outcomes require a retained attempt in the same session. Pending or unobserved does not mean failure.",
+            "Round completions also require a start in the same session. A long round spanning the inactivity cutoff remains uncompleted in this observed baseline.",
+            "General round metrics include optional study rounds; use the experiment summaries and trial fields to separate these from normal play.",
+            "Human round metrics require explicitly positive human counts on start and completion; late joins are excluded. QA, demo and bot-only events are excluded.",
+            "Continuation means a later human round start in the same session after an observed completion; rematch intent alone is not continuation.",
+            "Inactivity exits are inferred after 30 minutes when another event arrives. Page exits are observations of lifecycle signals, not proof a person left.",
+            "Cup, challenge, reward, highlight, share and referral events are observations only; no conversion or retention claim is calculated.",
+            "No D1/D7 retention, people counts, attribution, or cross-device identity is available."
+          ]
+        },
+        "overlays": [],
+        "hud": "Home safe · talk to Mabel · Q / left click"
+      }
+    },
+    {
+      "name": "Compact 01-restored-cast-jobs active surface stays inside viewport",
+      "pass": true,
+      "details": {
+        "selector": "#campaignHUD",
+        "bounds": {
+          "x": 253.5859375,
+          "y": 56,
+          "width": 292.828125,
+          "height": 29.5,
+          "top": 56,
+          "right": 546.4140625,
+          "bottom": 85.5,
+          "left": 253.5859375
+        },
+        "text": "Home safe · talk to Mabel · Q / left click",
+        "viewport": {
+          "width": 800,
+          "height": 500
+        },
+        "visible": true
+      }
+    },
+    {
+      "name": "Current Swing held through diversion cannot auto-complete homecoming",
+      "pass": true,
+      "details": {
+        "id": "banquet",
+        "phase": 0,
+        "status": "playing",
+        "quietKind": "homecoming",
+        "prelude": true,
+        "elapsed": 6.1499999999999835,
+        "time": 0,
+        "roundId": "8341b8eb-8488-4bb8-a876-e3c5e439a2a4",
+        "quietStory": true,
+        "interactWas": false,
+        "mabel": {
+          "x": 455,
+          "y": 424,
+          "name": "Mabel",
+          "color": "#FF8FB1"
+        },
+        "homecoming": {
+          "bran": {
+            "x": 690,
+            "y": 610,
+            "name": "Bran"
+          },
+          "stirling": {
+            "x": 830,
+            "y": 555,
+            "name": "Sir Stirling"
+          }
+        },
+        "staff": [
+          {
+            "x": 455,
+            "y": 424,
+            "name": "Mabel",
+            "color": "#FF8FB1"
+          },
+          {
+            "x": 605,
+            "y": 410,
+            "name": "Alf",
+            "color": "#FFD23F"
+          },
+          {
+            "x": 750,
+            "y": 440,
+            "name": "Pip",
+            "color": "#2EC4B6"
+          }
+        ],
+        "steve": {
+          "theft": 0,
+          "stolen": false
+        },
+        "speech": "Mabel: The ovens are warm. You brought us home.",
+        "player": {
+          "x": 419.6277804592004,
+          "y": 437.26355267039645,
+          "hp": 3
+        },
+        "result": null,
+        "save": {
+          "version": 1,
+          "results": {
+            "banquet": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "puddings": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "guard": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "bridge": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "stirling": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "steve": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "rind": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 11.433333333333481,
+              "assisted": false
+            }
+          },
+          "selected": "rind",
+          "assist": false,
+          "difficulty": "medium",
+          "checkpoint": null,
+          "receipts": [
+            "74100197-0507-4617-998b-8c290e109ce3:rind:1"
+          ]
+        },
+        "collection": {
+          "version": 1,
+          "completed": 3,
+          "choice": "tea-towel",
+          "pinned": "golden-whisk",
+          "progress": {
+            "tea-towel": 0,
+            "burnt-toast": 0,
+            "golden-whisk": 8,
+            "rooster-crown": 0,
+            "rice-guard": 0,
+            "steve-strut": 0
+          },
+          "owned": [
+            "tea-towel",
+            "golden-whisk",
+            "rice-guard"
+          ],
+          "receipts": [
+            "74100197-0507-4617-998b-8c290e109ce3:encounter"
+          ],
+          "milestones": [
+            "rice-chapter"
+          ],
+          "presets": [
+            null,
+            null,
+            null
+          ]
+        },
+        "report": {
+          "version": 1,
+          "build": "0.3.0-beta.7",
+          "generatedAt": 1791976531140,
+          "consent": true,
+          "storageState": "available",
+          "installId": "84281c63e486c63beeaa2d3f3ab02f4c",
+          "events": [
+            {
+              "name": "session_start",
+              "build": "0.3.0-beta.7",
+              "sessionId": "91a8994ba4ab7af6a8f71fb70f2e40ce",
+              "at": 1791976513544,
+              "fields": {
+                "qa": true
+              }
+            },
+            {
+              "name": "round_started",
+              "build": "0.3.0-beta.7",
+              "sessionId": "91a8994ba4ab7af6a8f71fb70f2e40ce",
+              "at": 1791976513567,
+              "fields": {
+                "format": "story",
+                "mode": "campaign",
+                "map": "courtyard",
+                "difficulty": "medium",
+                "humanCount": 1,
+                "botCount": 1,
+                "encounter": "rind",
+                "input": "keyboard",
+                "botOnly": false,
+                "roundId": "be66981c8aad72935821d158564b9036",
+                "qa": true
+              }
+            },
+            {
+              "name": "first_meaningful_action",
+              "build": "0.3.0-beta.7",
+              "sessionId": "91a8994ba4ab7af6a8f71fb70f2e40ce",
+              "at": 1791976513785,
+              "fields": {
+                "action": "move",
+                "input": "keyboard",
+                "format": "story",
+                "mode": "campaign",
+                "map": "courtyard",
+                "difficulty": "medium",
+                "humanCount": 1,
+                "botCount": 1,
+                "encounter": "rind",
+                "botOnly": false,
+                "roundId": "be66981c8aad72935821d158564b9036",
+                "qa": true
+              }
+            },
+            {
+              "name": "challenge_completed",
+              "build": "0.3.0-beta.7",
+              "sessionId": "91a8994ba4ab7af6a8f71fb70f2e40ce",
+              "at": 1791976524980,
+              "fields": {
+                "rewardType": "blade",
+                "format": "story",
+                "mode": "campaign",
+                "map": "courtyard",
+                "difficulty": "medium",
+                "humanCount": 1,
+                "botCount": 1,
+                "encounter": "rind",
+                "input": "keyboard",
+                "botOnly": false,
+                "roundId": "be66981c8aad72935821d158564b9036",
+                "qa": true
+              }
+            },
+            {
+              "name": "challenge_completed",
+              "build": "0.3.0-beta.7",
+              "sessionId": "91a8994ba4ab7af6a8f71fb70f2e40ce",
+              "at": 1791976524980,
+              "fields": {
+                "rewardType": "unknown",
+                "format": "story",
+                "mode": "campaign",
+                "map": "courtyard",
+                "difficulty": "medium",
+                "humanCount": 1,
+                "botCount": 1,
+                "encounter": "rind",
+                "input": "keyboard",
+                "botOnly": false,
+                "roundId": "be66981c8aad72935821d158564b9036",
+                "qa": true
+              }
+            },
+            {
+              "name": "round_completed",
+              "build": "0.3.0-beta.7",
+              "sessionId": "91a8994ba4ab7af6a8f71fb70f2e40ce",
+              "at": 1791976524980,
+              "fields": {
+                "format": "story",
+                "mode": "campaign",
+                "map": "courtyard",
+                "difficulty": "medium",
+                "humanCount": 1,
+                "botCount": 1,
+                "result": "completed",
+                "encounter": "rind",
+                "input": "keyboard",
+                "botOnly": false,
+                "roundId": "be66981c8aad72935821d158564b9036",
+                "qa": true
+              }
+            }
+          ],
+          "metrics": {
+            "joinAttempts": 0,
+            "joinSucceeded": 0,
+            "joinFailed": 0,
+            "joinPendingOrUnobserved": 0,
+            "roundsStarted": 0,
+            "roundsCompleted": 0,
+            "roundCompletionRate": null,
+            "rematchSelections": 0,
+            "completedRoundsWithObservedContinuation": 0
+          },
+          "experiments": [],
+          "counts": {
+            "retained": 6,
+            "truncated": 0,
+            "duplicates": 0,
+            "rejected": 0,
+            "excludedFromHumanMetrics": 6
+          },
+          "limitations": [
+            "Experiment counts describe retained solo trials by build/variant, not unique participants or causal lift. Recognition is self-report. Normal-round continuation requires a later observed offline arena start, not a stated intention.",
+            "Local opt-in observations from one browser installation only; no network collection or population-wide claims.",
+            "Metrics cover retained events only. Truncation, cleared storage, missing instrumentation and interrupted sessions can remove context.",
+            "Deduplication covers retained events in the current session. IDs must be anonymous local tokens, never external identifiers.",
+            "Join outcomes require a retained attempt in the same session. Pending or unobserved does not mean failure.",
+            "Round completions also require a start in the same session. A long round spanning the inactivity cutoff remains uncompleted in this observed baseline.",
+            "General round metrics include optional study rounds; use the experiment summaries and trial fields to separate these from normal play.",
+            "Human round metrics require explicitly positive human counts on start and completion; late joins are excluded. QA, demo and bot-only events are excluded.",
+            "Continuation means a later human round start in the same session after an observed completion; rematch intent alone is not continuation.",
+            "Inactivity exits are inferred after 30 minutes when another event arrives. Page exits are observations of lifecycle signals, not proof a person left.",
+            "Cup, challenge, reward, highlight, share and referral events are observations only; no conversion or retention claim is calculated.",
+            "No D1/D7 retention, people counts, attribution, or cross-device identity is available."
+          ]
+        },
+        "overlays": [],
+        "hud": "Home safe · talk to Mabel · Q / left click"
+      }
+    },
+    {
+      "name": "Homecoming walk and initial release do not mutate saves, collection or report events",
+      "pass": true
+    },
+    {
+      "name": "Actual homecoming interaction uses current Q binding and short Spoon hook",
+      "pass": true,
+      "details": [
+        {
+          "scene": "rind",
+          "phase": "homecoming",
+          "caption": "RecruitHome is safe. But the Golden Spoon is still missing."
+        },
+        {
+          "scene": "rind",
+          "phase": "homecoming",
+          "caption": "Sir StirlingThat skin was at the banquet too. When did anyone last stir it?"
+        },
+        {
+          "scene": "rind",
+          "phase": "homecoming",
+          "caption": "MabelTomorrow. Tonight, bread."
+        },
+        {
+          "scene": "rind",
+          "phase": "homecoming",
+          "caption": "MabelTomorrow. Tonight, bread."
+        }
+      ]
+    },
+    {
+      "name": "Compact 02-homecoming-hook active surface stays inside viewport",
+      "pass": true,
+      "details": {
+        "selector": ".campaign-captions",
+        "bounds": {
+          "x": 47.0625,
+          "y": 262,
+          "width": 690.875,
+          "height": 78,
+          "top": 262,
+          "right": 737.9375,
+          "bottom": 340,
+          "left": 47.0625
+        },
+        "text": "MabelTomorrow. Tonight, bread.",
+        "viewport": {
+          "width": 800,
+          "height": 500
+        },
+        "visible": true
+      }
+    },
+    {
+      "name": "Interaction and hook viewing remain non-awarding",
+      "pass": true
+    },
+    {
+      "name": "Exact visible result presents original receipt and captured unlock controls once",
+      "pass": true,
+      "details": {
+        "receipt": "74100197-0507-4617-998b-8c290e109ce3:rind:1",
+        "text": "New costume earnedEquip Golden WhiskEquip Rice GuardKeep current look",
+        "rewards": 1,
+        "podiums": 1
+      }
+    },
+    {
+      "name": "Result presentation cannot award again or add quiet round reports",
+      "pass": true
+    },
+    {
+      "name": "Repeated post-homecoming terminal activation cannot award again",
+      "pass": true
+    },
+    {
+      "name": "Compact 03-captured-original-result active surface stays inside viewport",
+      "pass": true,
+      "details": {
+        "selector": "#campaignResult .campaign-panel",
+        "bounds": {
+          "x": 31.0625,
+          "y": 20,
+          "width": 722.875,
+          "height": 731.78125,
+          "top": 20,
+          "right": 753.9375,
+          "bottom": 751.78125,
+          "left": 31.0625
+        },
+        "text": "Encounter completeSkin in the Game1 new spoon earned. Your spoons are saved independently.✓ Defeat Rind and divert the siege bowlMake Rind’s sweep strike one of his shield guardsWin without being bonkedContinue: Story mapVisit the saved bakeryReplay aftermath sceneReplay for spoonsStory mapNew costume earnedEquip Golden WhiskEquip Rice GuardKeep current look",
+        "viewport": {
+          "width": 800,
+          "height": 500
+        },
+        "visible": true
+      }
+    },
+    {
+      "name": "Visit saved bakery is guarded before Rind completion",
+      "pass": true
+    },
+    {
+      "name": "Old completed map offers explicit non-awarding saved bakery Visit",
+      "pass": true,
+      "details": [
+        "1Banquet🥄 · ·",
+        "2Puddings🥄 · ·",
+        "3Bran’s crossing🥄 · ·",
+        "↗Biscuit practice· · ·",
+        "5Cooling channel🥄 · ·",
+        "6Sir Stirling🥄 · ·",
+        "7Steve’s cage🥄 · ·",
+        "8Rice fortress🥄 🥄 🥄",
+        "Play encounter",
+        "Replay encounter from beginning",
+        "Visit the saved bakery",
+        "Replay finale",
+        "Replay opening scene",
+        "Easy",
+        "Medium",
+        "Hard",
+        "STEVE",
+        "Assistance: off",
+        "Back to menu"
+      ]
+    },
+    {
+      "name": "Old Visit starts quiet homecoming without pending completion result",
+      "pass": true,
+      "details": {
+        "id": "banquet",
+        "phase": 0,
+        "status": "playing",
+        "quietKind": "homecoming",
+        "prelude": true,
+        "elapsed": 0.11666666666666665,
+        "time": 0,
+        "roundId": "4bc14297-dfd0-445f-8783-7f2b7aa17e6f",
+        "quietStory": true,
+        "interactWas": false,
+        "mabel": {
+          "x": 455,
+          "y": 424,
+          "name": "Mabel",
+          "color": "#FF8FB1"
+        },
+        "homecoming": {
+          "bran": {
+            "x": 690,
+            "y": 610,
+            "name": "Bran"
+          },
+          "stirling": {
+            "x": 830,
+            "y": 555,
+            "name": "Sir Stirling"
+          }
+        },
+        "staff": [
+          {
+            "x": 455,
+            "y": 424,
+            "name": "Mabel",
+            "color": "#FF8FB1"
+          },
+          {
+            "x": 605,
+            "y": 410,
+            "name": "Alf",
+            "color": "#FFD23F"
+          },
+          {
+            "x": 750,
+            "y": 440,
+            "name": "Pip",
+            "color": "#2EC4B6"
+          }
+        ],
+        "steve": {
+          "theft": 0,
+          "stolen": false
+        },
+        "speech": "Mabel: The ovens are warm. You brought us home.",
+        "player": {
+          "x": 220,
+          "y": 500,
+          "hp": 3
+        },
+        "result": null,
+        "save": {
+          "version": 1,
+          "results": {
+            "banquet": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "puddings": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "guard": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "bridge": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "stirling": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "steve": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "rind": {
+              "spoons": [
+                true,
+                true,
+                true
+              ],
+              "attempts": 4,
+              "best": 31,
+              "assisted": true
+            }
+          },
+          "selected": "rind",
+          "assist": false,
+          "difficulty": "medium",
+          "checkpoint": null,
+          "receipts": [
+            "old-completed-rind"
+          ]
+        },
+        "collection": {
+          "version": 1,
+          "completed": 3,
+          "choice": "tea-towel",
+          "pinned": "golden-whisk",
+          "progress": {
+            "tea-towel": 0,
+            "burnt-toast": 0,
+            "golden-whisk": 8,
+            "rooster-crown": 0,
+            "rice-guard": 0,
+            "steve-strut": 0
+          },
+          "owned": [
+            "tea-towel",
+            "golden-whisk",
+            "rice-guard"
+          ],
+          "receipts": [
+            "74100197-0507-4617-998b-8c290e109ce3:encounter"
+          ],
+          "milestones": [
+            "rice-chapter"
+          ],
+          "presets": [
+            null,
+            null,
+            null
+          ]
+        },
+        "report": {
+          "version": 1,
+          "build": "0.3.0-beta.7",
+          "generatedAt": 1791976532898,
+          "consent": true,
+          "storageState": "available",
+          "installId": "84281c63e486c63beeaa2d3f3ab02f4c",
+          "events": [
+            {
+              "name": "session_start",
+              "build": "0.3.0-beta.7",
+              "sessionId": "91a8994ba4ab7af6a8f71fb70f2e40ce",
+              "at": 1791976513544,
+              "fields": {
+                "qa": true
+              }
+            },
+            {
+              "name": "round_started",
+              "build": "0.3.0-beta.7",
+              "sessionId": "91a8994ba4ab7af6a8f71fb70f2e40ce",
+              "at": 1791976513567,
+              "fields": {
+                "format": "story",
+                "mode": "campaign",
+                "map": "courtyard",
+                "difficulty": "medium",
+                "humanCount": 1,
+                "botCount": 1,
+                "encounter": "rind",
+                "input": "keyboard",
+                "botOnly": false,
+                "roundId": "be66981c8aad72935821d158564b9036",
+                "qa": true
+              }
+            },
+            {
+              "name": "first_meaningful_action",
+              "build": "0.3.0-beta.7",
+              "sessionId": "91a8994ba4ab7af6a8f71fb70f2e40ce",
+              "at": 1791976513785,
+              "fields": {
+                "action": "move",
+                "input": "keyboard",
+                "format": "story",
+                "mode": "campaign",
+                "map": "courtyard",
+                "difficulty": "medium",
+                "humanCount": 1,
+                "botCount": 1,
+                "encounter": "rind",
+                "botOnly": false,
+                "roundId": "be66981c8aad72935821d158564b9036",
+                "qa": true
+              }
+            },
+            {
+              "name": "challenge_completed",
+              "build": "0.3.0-beta.7",
+              "sessionId": "91a8994ba4ab7af6a8f71fb70f2e40ce",
+              "at": 1791976524980,
+              "fields": {
+                "rewardType": "blade",
+                "format": "story",
+                "mode": "campaign",
+                "map": "courtyard",
+                "difficulty": "medium",
+                "humanCount": 1,
+                "botCount": 1,
+                "encounter": "rind",
+                "input": "keyboard",
+                "botOnly": false,
+                "roundId": "be66981c8aad72935821d158564b9036",
+                "qa": true
+              }
+            },
+            {
+              "name": "challenge_completed",
+              "build": "0.3.0-beta.7",
+              "sessionId": "91a8994ba4ab7af6a8f71fb70f2e40ce",
+              "at": 1791976524980,
+              "fields": {
+                "rewardType": "unknown",
+                "format": "story",
+                "mode": "campaign",
+                "map": "courtyard",
+                "difficulty": "medium",
+                "humanCount": 1,
+                "botCount": 1,
+                "encounter": "rind",
+                "input": "keyboard",
+                "botOnly": false,
+                "roundId": "be66981c8aad72935821d158564b9036",
+                "qa": true
+              }
+            },
+            {
+              "name": "round_completed",
+              "build": "0.3.0-beta.7",
+              "sessionId": "91a8994ba4ab7af6a8f71fb70f2e40ce",
+              "at": 1791976524980,
+              "fields": {
+                "format": "story",
+                "mode": "campaign",
+                "map": "courtyard",
+                "difficulty": "medium",
+                "humanCount": 1,
+                "botCount": 1,
+                "result": "completed",
+                "encounter": "rind",
+                "input": "keyboard",
+                "botOnly": false,
+                "roundId": "be66981c8aad72935821d158564b9036",
+                "qa": true
+              }
+            },
+            {
+              "name": "session_exit",
+              "build": "0.3.0-beta.7",
+              "sessionId": "91a8994ba4ab7af6a8f71fb70f2e40ce",
+              "at": 1791976532291,
+              "fields": {
+                "reason": "pagehide",
+                "observation": "observed",
+                "qa": true
+              }
+            },
+            {
+              "name": "session_start",
+              "build": "0.3.0-beta.7",
+              "sessionId": "f9d090f2a3b2bc74303bb2d6a9a84778",
+              "at": 1791976532597,
+              "fields": {
+                "qa": true
+              }
+            },
+            {
+              "name": "round_started",
+              "build": "0.3.0-beta.7",
+              "sessionId": "f9d090f2a3b2bc74303bb2d6a9a84778",
+              "at": 1791976532610,
+              "fields": {
+                "format": "story",
+                "mode": "campaign",
+                "map": "courtyard",
+                "difficulty": "medium",
+                "humanCount": 1,
+                "botCount": 1,
+                "encounter": "rind",
+                "input": "keyboard",
+                "botOnly": false,
+                "roundId": "ef2af488fa0438d99085d581da50ffc0",
+                "qa": true
+              }
+            }
+          ],
+          "metrics": {
+            "joinAttempts": 0,
+            "joinSucceeded": 0,
+            "joinFailed": 0,
+            "joinPendingOrUnobserved": 0,
+            "roundsStarted": 0,
+            "roundsCompleted": 0,
+            "roundCompletionRate": null,
+            "rematchSelections": 0,
+            "completedRoundsWithObservedContinuation": 0
+          },
+          "experiments": [],
+          "counts": {
+            "retained": 9,
+            "truncated": 0,
+            "duplicates": 0,
+            "rejected": 0,
+            "excludedFromHumanMetrics": 9
+          },
+          "limitations": [
+            "Experiment counts describe retained solo trials by build/variant, not unique participants or causal lift. Recognition is self-report. Normal-round continuation requires a later observed offline arena start, not a stated intention.",
+            "Local opt-in observations from one browser installation only; no network collection or population-wide claims.",
+            "Metrics cover retained events only. Truncation, cleared storage, missing instrumentation and interrupted sessions can remove context.",
+            "Deduplication covers retained events in the current session. IDs must be anonymous local tokens, never external identifiers.",
+            "Join outcomes require a retained attempt in the same session. Pending or unobserved does not mean failure.",
+            "Round completions also require a start in the same session. A long round spanning the inactivity cutoff remains uncompleted in this observed baseline.",
+            "General round metrics include optional study rounds; use the experiment summaries and trial fields to separate these from normal play.",
+            "Human round metrics require explicitly positive human counts on start and completion; late joins are excluded. QA, demo and bot-only events are excluded.",
+            "Continuation means a later human round start in the same session after an observed completion; rematch intent alone is not continuation.",
+            "Inactivity exits are inferred after 30 minutes when another event arrives. Page exits are observations of lifecycle signals, not proof a person left.",
+            "Cup, challenge, reward, highlight, share and referral events are observations only; no conversion or retention claim is calculated.",
+            "No D1/D7 retention, people counts, attribution, or cross-device identity is available."
+          ]
+        },
+        "overlays": [],
+        "hud": "Home safe · talk to Mabel · Q / left click"
+      }
+    },
+    {
+      "name": "Compact 04-old-save-visit active surface stays inside viewport",
+      "pass": true,
+      "details": {
+        "selector": "#campaignHUD",
+        "bounds": {
+          "x": 253.5859375,
+          "y": 56,
+          "width": 292.828125,
+          "height": 29.5,
+          "top": 56,
+          "right": 546.4140625,
+          "bottom": 85.5,
+          "left": 253.5859375
+        },
+        "text": "Home safe · talk to Mabel · Q / left click",
+        "viewport": {
+          "width": 800,
+          "height": 500
+        },
+        "visible": true
+      }
+    },
+    {
+      "name": "Actual Replay homecoming restarts quiet scene without reward/report mutation",
+      "pass": true,
+      "details": {
+        "id": "banquet",
+        "phase": 0,
+        "status": "playing",
+        "quietKind": "homecoming",
+        "prelude": true,
+        "elapsed": 0.11666666666666665,
+        "time": 0,
+        "roundId": "e595af7d-7d25-45f0-837e-9290d4383aa5",
+        "quietStory": true,
+        "interactWas": false,
+        "mabel": {
+          "x": 455,
+          "y": 424,
+          "name": "Mabel",
+          "color": "#FF8FB1"
+        },
+        "homecoming": {
+          "bran": {
+            "x": 690,
+            "y": 610,
+            "name": "Bran"
+          },
+          "stirling": {
+            "x": 830,
+            "y": 555,
+            "name": "Sir Stirling"
+          }
+        },
+        "staff": [
+          {
+            "x": 455,
+            "y": 424,
+            "name": "Mabel",
+            "color": "#FF8FB1"
+          },
+          {
+            "x": 605,
+            "y": 410,
+            "name": "Alf",
+            "color": "#FFD23F"
+          },
+          {
+            "x": 750,
+            "y": 440,
+            "name": "Pip",
+            "color": "#2EC4B6"
+          }
+        ],
+        "steve": {
+          "theft": 0,
+          "stolen": false
+        },
+        "speech": "Mabel: The ovens are warm. You brought us home.",
+        "player": {
+          "x": 220,
+          "y": 500,
+          "hp": 3
+        },
+        "result": null,
+        "save": {
+          "version": 1,
+          "results": {
+            "banquet": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "puddings": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "guard": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "bridge": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "stirling": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "steve": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "rind": {
+              "spoons": [
+                true,
+                true,
+                true
+              ],
+              "attempts": 4,
+              "best": 31,
+              "assisted": true
+            }
+          },
+          "selected": "rind",
+          "assist": false,
+          "difficulty": "medium",
+          "checkpoint": null,
+          "receipts": [
+            "old-completed-rind"
+          ]
+        },
+        "collection": {
+          "version": 1,
+          "completed": 3,
+          "choice": "tea-towel",
+          "pinned": "golden-whisk",
+          "progress": {
+            "tea-towel": 0,
+            "burnt-toast": 0,
+            "golden-whisk": 8,
+            "rooster-crown": 0,
+            "rice-guard": 0,
+            "steve-strut": 0
+          },
+          "owned": [
+            "tea-towel",
+            "golden-whisk",
+            "rice-guard"
+          ],
+          "receipts": [
+            "74100197-0507-4617-998b-8c290e109ce3:encounter"
+          ],
+          "milestones": [
+            "rice-chapter"
+          ],
+          "presets": [
+            null,
+            null,
+            null
+          ]
+        },
+        "report": {
+          "version": 1,
+          "build": "0.3.0-beta.7",
+          "generatedAt": 1791976533650,
+          "consent": true,
+          "storageState": "available",
+          "installId": "84281c63e486c63beeaa2d3f3ab02f4c",
+          "events": [
+            {
+              "name": "session_start",
+              "build": "0.3.0-beta.7",
+              "sessionId": "91a8994ba4ab7af6a8f71fb70f2e40ce",
+              "at": 1791976513544,
+              "fields": {
+                "qa": true
+              }
+            },
+            {
+              "name": "round_started",
+              "build": "0.3.0-beta.7",
+              "sessionId": "91a8994ba4ab7af6a8f71fb70f2e40ce",
+              "at": 1791976513567,
+              "fields": {
+                "format": "story",
+                "mode": "campaign",
+                "map": "courtyard",
+                "difficulty": "medium",
+                "humanCount": 1,
+                "botCount": 1,
+                "encounter": "rind",
+                "input": "keyboard",
+                "botOnly": false,
+                "roundId": "be66981c8aad72935821d158564b9036",
+                "qa": true
+              }
+            },
+            {
+              "name": "first_meaningful_action",
+              "build": "0.3.0-beta.7",
+              "sessionId": "91a8994ba4ab7af6a8f71fb70f2e40ce",
+              "at": 1791976513785,
+              "fields": {
+                "action": "move",
+                "input": "keyboard",
+                "format": "story",
+                "mode": "campaign",
+                "map": "courtyard",
+                "difficulty": "medium",
+                "humanCount": 1,
+                "botCount": 1,
+                "encounter": "rind",
+                "botOnly": false,
+                "roundId": "be66981c8aad72935821d158564b9036",
+                "qa": true
+              }
+            },
+            {
+              "name": "challenge_completed",
+              "build": "0.3.0-beta.7",
+              "sessionId": "91a8994ba4ab7af6a8f71fb70f2e40ce",
+              "at": 1791976524980,
+              "fields": {
+                "rewardType": "blade",
+                "format": "story",
+                "mode": "campaign",
+                "map": "courtyard",
+                "difficulty": "medium",
+                "humanCount": 1,
+                "botCount": 1,
+                "encounter": "rind",
+                "input": "keyboard",
+                "botOnly": false,
+                "roundId": "be66981c8aad72935821d158564b9036",
+                "qa": true
+              }
+            },
+            {
+              "name": "challenge_completed",
+              "build": "0.3.0-beta.7",
+              "sessionId": "91a8994ba4ab7af6a8f71fb70f2e40ce",
+              "at": 1791976524980,
+              "fields": {
+                "rewardType": "unknown",
+                "format": "story",
+                "mode": "campaign",
+                "map": "courtyard",
+                "difficulty": "medium",
+                "humanCount": 1,
+                "botCount": 1,
+                "encounter": "rind",
+                "input": "keyboard",
+                "botOnly": false,
+                "roundId": "be66981c8aad72935821d158564b9036",
+                "qa": true
+              }
+            },
+            {
+              "name": "round_completed",
+              "build": "0.3.0-beta.7",
+              "sessionId": "91a8994ba4ab7af6a8f71fb70f2e40ce",
+              "at": 1791976524980,
+              "fields": {
+                "format": "story",
+                "mode": "campaign",
+                "map": "courtyard",
+                "difficulty": "medium",
+                "humanCount": 1,
+                "botCount": 1,
+                "result": "completed",
+                "encounter": "rind",
+                "input": "keyboard",
+                "botOnly": false,
+                "roundId": "be66981c8aad72935821d158564b9036",
+                "qa": true
+              }
+            },
+            {
+              "name": "session_exit",
+              "build": "0.3.0-beta.7",
+              "sessionId": "91a8994ba4ab7af6a8f71fb70f2e40ce",
+              "at": 1791976532291,
+              "fields": {
+                "reason": "pagehide",
+                "observation": "observed",
+                "qa": true
+              }
+            },
+            {
+              "name": "session_start",
+              "build": "0.3.0-beta.7",
+              "sessionId": "f9d090f2a3b2bc74303bb2d6a9a84778",
+              "at": 1791976532597,
+              "fields": {
+                "qa": true
+              }
+            },
+            {
+              "name": "round_started",
+              "build": "0.3.0-beta.7",
+              "sessionId": "f9d090f2a3b2bc74303bb2d6a9a84778",
+              "at": 1791976532610,
+              "fields": {
+                "format": "story",
+                "mode": "campaign",
+                "map": "courtyard",
+                "difficulty": "medium",
+                "humanCount": 1,
+                "botCount": 1,
+                "encounter": "rind",
+                "input": "keyboard",
+                "botOnly": false,
+                "roundId": "ef2af488fa0438d99085d581da50ffc0",
+                "qa": true
+              }
+            }
+          ],
+          "metrics": {
+            "joinAttempts": 0,
+            "joinSucceeded": 0,
+            "joinFailed": 0,
+            "joinPendingOrUnobserved": 0,
+            "roundsStarted": 0,
+            "roundsCompleted": 0,
+            "roundCompletionRate": null,
+            "rematchSelections": 0,
+            "completedRoundsWithObservedContinuation": 0
+          },
+          "experiments": [],
+          "counts": {
+            "retained": 9,
+            "truncated": 0,
+            "duplicates": 0,
+            "rejected": 0,
+            "excludedFromHumanMetrics": 9
+          },
+          "limitations": [
+            "Experiment counts describe retained solo trials by build/variant, not unique participants or causal lift. Recognition is self-report. Normal-round continuation requires a later observed offline arena start, not a stated intention.",
+            "Local opt-in observations from one browser installation only; no network collection or population-wide claims.",
+            "Metrics cover retained events only. Truncation, cleared storage, missing instrumentation and interrupted sessions can remove context.",
+            "Deduplication covers retained events in the current session. IDs must be anonymous local tokens, never external identifiers.",
+            "Join outcomes require a retained attempt in the same session. Pending or unobserved does not mean failure.",
+            "Round completions also require a start in the same session. A long round spanning the inactivity cutoff remains uncompleted in this observed baseline.",
+            "General round metrics include optional study rounds; use the experiment summaries and trial fields to separate these from normal play.",
+            "Human round metrics require explicitly positive human counts on start and completion; late joins are excluded. QA, demo and bot-only events are excluded.",
+            "Continuation means a later human round start in the same session after an observed completion; rematch intent alone is not continuation.",
+            "Inactivity exits are inferred after 30 minutes when another event arrives. Page exits are observations of lifecycle signals, not proof a person left.",
+            "Cup, challenge, reward, highlight, share and referral events are observations only; no conversion or retention claim is calculated.",
+            "No D1/D7 retention, people counts, attribution, or cross-device identity is available."
+          ]
+        },
+        "overlays": [],
+        "hud": "Home safe · talk to Mabel · Q / left click"
+      }
+    },
+    {
+      "name": "Actual Skip homecoming still reaches short non-awarding hook",
+      "pass": true,
+      "details": [
+        {
+          "scene": "rind",
+          "phase": "homecoming",
+          "caption": "RecruitHome is safe. But the Golden Spoon is still missing."
+        },
+        {
+          "scene": "rind",
+          "phase": "homecoming",
+          "caption": "Sir StirlingThat skin was at the banquet too. When did anyone last stir it?"
+        },
+        {
+          "scene": "rind",
+          "phase": "homecoming",
+          "caption": "MabelTomorrow. Tonight, bread."
+        },
+        {
+          "scene": "rind",
+          "phase": "homecoming",
+          "caption": "MabelTomorrow. Tonight, bread."
+        }
+      ]
+    },
+    {
+      "name": "Visit hook returns to map without inventing a result or changing historical ownership",
+      "pass": true
+    },
+    {
+      "name": "Actual Replay homecoming preserves captured result and original receipt without award",
+      "pass": true
+    },
+    {
+      "name": "Repeated quiet Skip is non-awarding while hook is active",
+      "pass": true
+    },
+    {
+      "name": "Actual Back invalidates pending result and detached old hook cannot reopen it",
+      "pass": true,
+      "details": {
+        "time": 0,
+        "roundId": "00dcf62a-8572-464d-8e6a-2b7bf29bc4d5",
+        "quietStory": true,
+        "player": null,
+        "save": {
+          "version": 1,
+          "results": {
+            "banquet": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "puddings": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "guard": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "bridge": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "stirling": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "steve": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "rind": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 0.16666666666666666,
+              "assisted": false
+            }
+          },
+          "selected": "rind",
+          "assist": false,
+          "difficulty": "medium",
+          "checkpoint": null,
+          "receipts": [
+            "b991a57a-18ee-4e73-96e2-9cdd83873c91:rind:1"
+          ]
+        },
+        "collection": {
+          "version": 1,
+          "completed": 4,
+          "choice": "tea-towel",
+          "pinned": "golden-whisk",
+          "progress": {
+            "tea-towel": 0,
+            "burnt-toast": 0,
+            "golden-whisk": 8,
+            "rooster-crown": 0,
+            "rice-guard": 0,
+            "steve-strut": 0
+          },
+          "owned": [
+            "tea-towel",
+            "golden-whisk",
+            "rice-guard"
+          ],
+          "receipts": [
+            "74100197-0507-4617-998b-8c290e109ce3:encounter",
+            "b991a57a-18ee-4e73-96e2-9cdd83873c91:encounter"
+          ],
+          "milestones": [
+            "rice-chapter"
+          ],
+          "presets": [
+            null,
+            null,
+            null
+          ]
+        },
+        "report": {
+          "version": 1,
+          "build": "0.3.0-beta.7",
+          "generatedAt": 1791976535164,
+          "consent": true,
+          "storageState": "available",
+          "installId": "84281c63e486c63beeaa2d3f3ab02f4c",
+          "events": [
+            {
+              "name": "session_start",
+              "build": "0.3.0-beta.7",
+              "sessionId": "91a8994ba4ab7af6a8f71fb70f2e40ce",
+              "at": 1791976513544,
+              "fields": {
+                "qa": true
+              }
+            },
+            {
+              "name": "round_started",
+              "build": "0.3.0-beta.7",
+              "sessionId": "91a8994ba4ab7af6a8f71fb70f2e40ce",
+              "at": 1791976513567,
+              "fields": {
+                "format": "story",
+                "mode": "campaign",
+                "map": "courtyard",
+                "difficulty": "medium",
+                "humanCount": 1,
+                "botCount": 1,
+                "encounter": "rind",
+                "input": "keyboard",
+                "botOnly": false,
+                "roundId": "be66981c8aad72935821d158564b9036",
+                "qa": true
+              }
+            },
+            {
+              "name": "first_meaningful_action",
+              "build": "0.3.0-beta.7",
+              "sessionId": "91a8994ba4ab7af6a8f71fb70f2e40ce",
+              "at": 1791976513785,
+              "fields": {
+                "action": "move",
+                "input": "keyboard",
+                "format": "story",
+                "mode": "campaign",
+                "map": "courtyard",
+                "difficulty": "medium",
+                "humanCount": 1,
+                "botCount": 1,
+                "encounter": "rind",
+                "botOnly": false,
+                "roundId": "be66981c8aad72935821d158564b9036",
+                "qa": true
+              }
+            },
+            {
+              "name": "challenge_completed",
+              "build": "0.3.0-beta.7",
+              "sessionId": "91a8994ba4ab7af6a8f71fb70f2e40ce",
+              "at": 1791976524980,
+              "fields": {
+                "rewardType": "blade",
+                "format": "story",
+                "mode": "campaign",
+                "map": "courtyard",
+                "difficulty": "medium",
+                "humanCount": 1,
+                "botCount": 1,
+                "encounter": "rind",
+                "input": "keyboard",
+                "botOnly": false,
+                "roundId": "be66981c8aad72935821d158564b9036",
+                "qa": true
+              }
+            },
+            {
+              "name": "challenge_completed",
+              "build": "0.3.0-beta.7",
+              "sessionId": "91a8994ba4ab7af6a8f71fb70f2e40ce",
+              "at": 1791976524980,
+              "fields": {
+                "rewardType": "unknown",
+                "format": "story",
+                "mode": "campaign",
+                "map": "courtyard",
+                "difficulty": "medium",
+                "humanCount": 1,
+                "botCount": 1,
+                "encounter": "rind",
+                "input": "keyboard",
+                "botOnly": false,
+                "roundId": "be66981c8aad72935821d158564b9036",
+                "qa": true
+              }
+            },
+            {
+              "name": "round_completed",
+              "build": "0.3.0-beta.7",
+              "sessionId": "91a8994ba4ab7af6a8f71fb70f2e40ce",
+              "at": 1791976524980,
+              "fields": {
+                "format": "story",
+                "mode": "campaign",
+                "map": "courtyard",
+                "difficulty": "medium",
+                "humanCount": 1,
+                "botCount": 1,
+                "result": "completed",
+                "encounter": "rind",
+                "input": "keyboard",
+                "botOnly": false,
+                "roundId": "be66981c8aad72935821d158564b9036",
+                "qa": true
+              }
+            },
+            {
+              "name": "session_exit",
+              "build": "0.3.0-beta.7",
+              "sessionId": "91a8994ba4ab7af6a8f71fb70f2e40ce",
+              "at": 1791976532291,
+              "fields": {
+                "reason": "pagehide",
+                "observation": "observed",
+                "qa": true
+              }
+            },
+            {
+              "name": "session_start",
+              "build": "0.3.0-beta.7",
+              "sessionId": "f9d090f2a3b2bc74303bb2d6a9a84778",
+              "at": 1791976532597,
+              "fields": {
+                "qa": true
+              }
+            },
+            {
+              "name": "round_started",
+              "build": "0.3.0-beta.7",
+              "sessionId": "f9d090f2a3b2bc74303bb2d6a9a84778",
+              "at": 1791976532610,
+              "fields": {
+                "format": "story",
+                "mode": "campaign",
+                "map": "courtyard",
+                "difficulty": "medium",
+                "humanCount": 1,
+                "botCount": 1,
+                "encounter": "rind",
+                "input": "keyboard",
+                "botOnly": false,
+                "roundId": "ef2af488fa0438d99085d581da50ffc0",
+                "qa": true
+              }
+            },
+            {
+              "name": "session_exit",
+              "build": "0.3.0-beta.7",
+              "sessionId": "f9d090f2a3b2bc74303bb2d6a9a84778",
+              "at": 1791976534043,
+              "fields": {
+                "reason": "pagehide",
+                "observation": "observed",
+                "qa": true
+              }
+            },
+            {
+              "name": "session_start",
+              "build": "0.3.0-beta.7",
+              "sessionId": "fe6784c30d3fcdea71c871f44267fa5a",
+              "at": 1791976534124,
+              "fields": {
+                "qa": true
+              }
+            },
+            {
+              "name": "round_started",
+              "build": "0.3.0-beta.7",
+              "sessionId": "fe6784c30d3fcdea71c871f44267fa5a",
+              "at": 1791976534138,
+              "fields": {
+                "format": "story",
+                "mode": "campaign",
+                "map": "courtyard",
+                "difficulty": "medium",
+                "humanCount": 1,
+                "botCount": 1,
+                "encounter": "rind",
+                "input": "keyboard",
+                "botOnly": false,
+                "roundId": "170bcc358c3d57e25fb0a4e48ec4f42a",
+                "qa": true
+              }
+            },
+            {
+              "name": "round_completed",
+              "build": "0.3.0-beta.7",
+              "sessionId": "fe6784c30d3fcdea71c871f44267fa5a",
+              "at": 1791976534295,
+              "fields": {
+                "format": "story",
+                "mode": "campaign",
+                "map": "courtyard",
+                "difficulty": "medium",
+                "humanCount": 1,
+                "botCount": 1,
+                "result": "completed",
+                "encounter": "rind",
+                "input": "keyboard",
+                "botOnly": false,
+                "roundId": "170bcc358c3d57e25fb0a4e48ec4f42a",
+                "qa": true
+              }
+            }
+          ],
+          "metrics": {
+            "joinAttempts": 0,
+            "joinSucceeded": 0,
+            "joinFailed": 0,
+            "joinPendingOrUnobserved": 0,
+            "roundsStarted": 0,
+            "roundsCompleted": 0,
+            "roundCompletionRate": null,
+            "rematchSelections": 0,
+            "completedRoundsWithObservedContinuation": 0
+          },
+          "experiments": [],
+          "counts": {
+            "retained": 13,
+            "truncated": 0,
+            "duplicates": 0,
+            "rejected": 0,
+            "excludedFromHumanMetrics": 13
+          },
+          "limitations": [
+            "Experiment counts describe retained solo trials by build/variant, not unique participants or causal lift. Recognition is self-report. Normal-round continuation requires a later observed offline arena start, not a stated intention.",
+            "Local opt-in observations from one browser installation only; no network collection or population-wide claims.",
+            "Metrics cover retained events only. Truncation, cleared storage, missing instrumentation and interrupted sessions can remove context.",
+            "Deduplication covers retained events in the current session. IDs must be anonymous local tokens, never external identifiers.",
+            "Join outcomes require a retained attempt in the same session. Pending or unobserved does not mean failure.",
+            "Round completions also require a start in the same session. A long round spanning the inactivity cutoff remains uncompleted in this observed baseline.",
+            "General round metrics include optional study rounds; use the experiment summaries and trial fields to separate these from normal play.",
+            "Human round metrics require explicitly positive human counts on start and completion; late joins are excluded. QA, demo and bot-only events are excluded.",
+            "Continuation means a later human round start in the same session after an observed completion; rematch intent alone is not continuation.",
+            "Inactivity exits are inferred after 30 minutes when another event arrives. Page exits are observations of lifecycle signals, not proof a person left.",
+            "Cup, challenge, reward, highlight, share and referral events are observations only; no conversion or retention claim is calculated.",
+            "No D1/D7 retention, people counts, attribution, or cross-device identity is available."
+          ]
+        },
+        "overlays": [
+          "campaignMap"
+        ],
+        "hud": "Home safe · talk to Mabel · Q / left click"
+      }
+    },
+    {
+      "name": "Replay Skip and Back preserve campaign ownership/receipts/collection/report events",
+      "pass": true
+    },
+    {
+      "name": "New launch discards pending result and stale hook cannot replace active encounter",
+      "pass": true,
+      "details": {
+        "id": "guard",
+        "phase": 0,
+        "status": "playing",
+        "elapsed": 0.26666666666666666,
+        "time": 179.73333333333312,
+        "roundId": "f3e75a92-38ef-46f5-a13f-323ba2626ada",
+        "quietStory": false,
+        "resumed": false,
+        "player": {
+          "x": 180,
+          "y": 440,
+          "hp": 3
+        },
+        "result": null,
+        "save": {
+          "version": 1,
+          "results": {
+            "banquet": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "puddings": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "guard": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "bridge": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "stirling": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "steve": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "rind": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 0.18333333333333332,
+              "assisted": false
+            }
+          },
+          "selected": "guard",
+          "assist": false,
+          "difficulty": "medium",
+          "checkpoint": null,
+          "receipts": [
+            "f0e7b41d-649e-473e-9054-3f633ca45773:rind:1"
+          ]
+        },
+        "collection": {
+          "version": 1,
+          "completed": 5,
+          "choice": "tea-towel",
+          "pinned": "golden-whisk",
+          "progress": {
+            "tea-towel": 0,
+            "burnt-toast": 0,
+            "golden-whisk": 8,
+            "rooster-crown": 0,
+            "rice-guard": 0,
+            "steve-strut": 0
+          },
+          "owned": [
+            "tea-towel",
+            "golden-whisk",
+            "rice-guard"
+          ],
+          "receipts": [
+            "74100197-0507-4617-998b-8c290e109ce3:encounter",
+            "b991a57a-18ee-4e73-96e2-9cdd83873c91:encounter",
+            "f0e7b41d-649e-473e-9054-3f633ca45773:encounter"
+          ],
+          "milestones": [
+            "rice-chapter"
+          ],
+          "presets": [
+            null,
+            null,
+            null
+          ]
+        },
+        "report": {
+          "version": 1,
+          "build": "0.3.0-beta.7",
+          "generatedAt": 1791976535949,
+          "consent": true,
+          "storageState": "available",
+          "installId": "84281c63e486c63beeaa2d3f3ab02f4c",
+          "events": [
+            {
+              "name": "session_start",
+              "build": "0.3.0-beta.7",
+              "sessionId": "91a8994ba4ab7af6a8f71fb70f2e40ce",
+              "at": 1791976513544,
+              "fields": {
+                "qa": true
+              }
+            },
+            {
+              "name": "round_started",
+              "build": "0.3.0-beta.7",
+              "sessionId": "91a8994ba4ab7af6a8f71fb70f2e40ce",
+              "at": 1791976513567,
+              "fields": {
+                "format": "story",
+                "mode": "campaign",
+                "map": "courtyard",
+                "difficulty": "medium",
+                "humanCount": 1,
+                "botCount": 1,
+                "encounter": "rind",
+                "input": "keyboard",
+                "botOnly": false,
+                "roundId": "be66981c8aad72935821d158564b9036",
+                "qa": true
+              }
+            },
+            {
+              "name": "first_meaningful_action",
+              "build": "0.3.0-beta.7",
+              "sessionId": "91a8994ba4ab7af6a8f71fb70f2e40ce",
+              "at": 1791976513785,
+              "fields": {
+                "action": "move",
+                "input": "keyboard",
+                "format": "story",
+                "mode": "campaign",
+                "map": "courtyard",
+                "difficulty": "medium",
+                "humanCount": 1,
+                "botCount": 1,
+                "encounter": "rind",
+                "botOnly": false,
+                "roundId": "be66981c8aad72935821d158564b9036",
+                "qa": true
+              }
+            },
+            {
+              "name": "challenge_completed",
+              "build": "0.3.0-beta.7",
+              "sessionId": "91a8994ba4ab7af6a8f71fb70f2e40ce",
+              "at": 1791976524980,
+              "fields": {
+                "rewardType": "blade",
+                "format": "story",
+                "mode": "campaign",
+                "map": "courtyard",
+                "difficulty": "medium",
+                "humanCount": 1,
+                "botCount": 1,
+                "encounter": "rind",
+                "input": "keyboard",
+                "botOnly": false,
+                "roundId": "be66981c8aad72935821d158564b9036",
+                "qa": true
+              }
+            },
+            {
+              "name": "challenge_completed",
+              "build": "0.3.0-beta.7",
+              "sessionId": "91a8994ba4ab7af6a8f71fb70f2e40ce",
+              "at": 1791976524980,
+              "fields": {
+                "rewardType": "unknown",
+                "format": "story",
+                "mode": "campaign",
+                "map": "courtyard",
+                "difficulty": "medium",
+                "humanCount": 1,
+                "botCount": 1,
+                "encounter": "rind",
+                "input": "keyboard",
+                "botOnly": false,
+                "roundId": "be66981c8aad72935821d158564b9036",
+                "qa": true
+              }
+            },
+            {
+              "name": "round_completed",
+              "build": "0.3.0-beta.7",
+              "sessionId": "91a8994ba4ab7af6a8f71fb70f2e40ce",
+              "at": 1791976524980,
+              "fields": {
+                "format": "story",
+                "mode": "campaign",
+                "map": "courtyard",
+                "difficulty": "medium",
+                "humanCount": 1,
+                "botCount": 1,
+                "result": "completed",
+                "encounter": "rind",
+                "input": "keyboard",
+                "botOnly": false,
+                "roundId": "be66981c8aad72935821d158564b9036",
+                "qa": true
+              }
+            },
+            {
+              "name": "session_exit",
+              "build": "0.3.0-beta.7",
+              "sessionId": "91a8994ba4ab7af6a8f71fb70f2e40ce",
+              "at": 1791976532291,
+              "fields": {
+                "reason": "pagehide",
+                "observation": "observed",
+                "qa": true
+              }
+            },
+            {
+              "name": "session_start",
+              "build": "0.3.0-beta.7",
+              "sessionId": "f9d090f2a3b2bc74303bb2d6a9a84778",
+              "at": 1791976532597,
+              "fields": {
+                "qa": true
+              }
+            },
+            {
+              "name": "round_started",
+              "build": "0.3.0-beta.7",
+              "sessionId": "f9d090f2a3b2bc74303bb2d6a9a84778",
+              "at": 1791976532610,
+              "fields": {
+                "format": "story",
+                "mode": "campaign",
+                "map": "courtyard",
+                "difficulty": "medium",
+                "humanCount": 1,
+                "botCount": 1,
+                "encounter": "rind",
+                "input": "keyboard",
+                "botOnly": false,
+                "roundId": "ef2af488fa0438d99085d581da50ffc0",
+                "qa": true
+              }
+            },
+            {
+              "name": "session_exit",
+              "build": "0.3.0-beta.7",
+              "sessionId": "f9d090f2a3b2bc74303bb2d6a9a84778",
+              "at": 1791976534043,
+              "fields": {
+                "reason": "pagehide",
+                "observation": "observed",
+                "qa": true
+              }
+            },
+            {
+              "name": "session_start",
+              "build": "0.3.0-beta.7",
+              "sessionId": "fe6784c30d3fcdea71c871f44267fa5a",
+              "at": 1791976534124,
+              "fields": {
+                "qa": true
+              }
+            },
+            {
+              "name": "round_started",
+              "build": "0.3.0-beta.7",
+              "sessionId": "fe6784c30d3fcdea71c871f44267fa5a",
+              "at": 1791976534138,
+              "fields": {
+                "format": "story",
+                "mode": "campaign",
+                "map": "courtyard",
+                "difficulty": "medium",
+                "humanCount": 1,
+                "botCount": 1,
+                "encounter": "rind",
+                "input": "keyboard",
+                "botOnly": false,
+                "roundId": "170bcc358c3d57e25fb0a4e48ec4f42a",
+                "qa": true
+              }
+            },
+            {
+              "name": "round_completed",
+              "build": "0.3.0-beta.7",
+              "sessionId": "fe6784c30d3fcdea71c871f44267fa5a",
+              "at": 1791976534295,
+              "fields": {
+                "format": "story",
+                "mode": "campaign",
+                "map": "courtyard",
+                "difficulty": "medium",
+                "humanCount": 1,
+                "botCount": 1,
+                "result": "completed",
+                "encounter": "rind",
+                "input": "keyboard",
+                "botOnly": false,
+                "roundId": "170bcc358c3d57e25fb0a4e48ec4f42a",
+                "qa": true
+              }
+            },
+            {
+              "name": "session_exit",
+              "build": "0.3.0-beta.7",
+              "sessionId": "fe6784c30d3fcdea71c871f44267fa5a",
+              "at": 1791976535174,
+              "fields": {
+                "reason": "pagehide",
+                "observation": "observed",
+                "qa": true
+              }
+            },
+            {
+              "name": "session_start",
+              "build": "0.3.0-beta.7",
+              "sessionId": "146cc3e90f9a2d6e3b4d4917add72359",
+              "at": 1791976535260,
+              "fields": {
+                "qa": true
+              }
+            },
+            {
+              "name": "round_started",
+              "build": "0.3.0-beta.7",
+              "sessionId": "146cc3e90f9a2d6e3b4d4917add72359",
+              "at": 1791976535273,
+              "fields": {
+                "format": "story",
+                "mode": "campaign",
+                "map": "courtyard",
+                "difficulty": "medium",
+                "humanCount": 1,
+                "botCount": 1,
+                "encounter": "rind",
+                "input": "keyboard",
+                "botOnly": false,
+                "roundId": "9f7269d6c132595dd6d56e93693c1057",
+                "qa": true
+              }
+            },
+            {
+              "name": "round_completed",
+              "build": "0.3.0-beta.7",
+              "sessionId": "146cc3e90f9a2d6e3b4d4917add72359",
+              "at": 1791976535431,
+              "fields": {
+                "format": "story",
+                "mode": "campaign",
+                "map": "courtyard",
+                "difficulty": "medium",
+                "humanCount": 1,
+                "botCount": 1,
+                "result": "completed",
+                "encounter": "rind",
+                "input": "keyboard",
+                "botOnly": false,
+                "roundId": "9f7269d6c132595dd6d56e93693c1057",
+                "qa": true
+              }
+            },
+            {
+              "name": "round_started",
+              "build": "0.3.0-beta.7",
+              "sessionId": "146cc3e90f9a2d6e3b4d4917add72359",
+              "at": 1791976535685,
+              "fields": {
+                "format": "story",
+                "mode": "campaign",
+                "map": "courtyard",
+                "difficulty": "medium",
+                "humanCount": 1,
+                "botCount": 1,
+                "encounter": "guard",
+                "input": "keyboard",
+                "botOnly": false,
+                "roundId": "ff1bf6786aa93f48c1b7869be2e063bf",
+                "qa": true
+              }
+            }
+          ],
+          "metrics": {
+            "joinAttempts": 0,
+            "joinSucceeded": 0,
+            "joinFailed": 0,
+            "joinPendingOrUnobserved": 0,
+            "roundsStarted": 0,
+            "roundsCompleted": 0,
+            "roundCompletionRate": null,
+            "rematchSelections": 0,
+            "completedRoundsWithObservedContinuation": 0
+          },
+          "experiments": [],
+          "counts": {
+            "retained": 18,
+            "truncated": 0,
+            "duplicates": 0,
+            "rejected": 0,
+            "excludedFromHumanMetrics": 18
+          },
+          "limitations": [
+            "Experiment counts describe retained solo trials by build/variant, not unique participants or causal lift. Recognition is self-report. Normal-round continuation requires a later observed offline arena start, not a stated intention.",
+            "Local opt-in observations from one browser installation only; no network collection or population-wide claims.",
+            "Metrics cover retained events only. Truncation, cleared storage, missing instrumentation and interrupted sessions can remove context.",
+            "Deduplication covers retained events in the current session. IDs must be anonymous local tokens, never external identifiers.",
+            "Join outcomes require a retained attempt in the same session. Pending or unobserved does not mean failure.",
+            "Round completions also require a start in the same session. A long round spanning the inactivity cutoff remains uncompleted in this observed baseline.",
+            "General round metrics include optional study rounds; use the experiment summaries and trial fields to separate these from normal play.",
+            "Human round metrics require explicitly positive human counts on start and completion; late joins are excluded. QA, demo and bot-only events are excluded.",
+            "Continuation means a later human round start in the same session after an observed completion; rematch intent alone is not continuation.",
+            "Inactivity exits are inferred after 30 minutes when another event arrives. Page exits are observations of lifecycle signals, not proof a person left.",
+            "Cup, challenge, reward, highlight, share and referral events are observations only; no conversion or retention claim is calculated.",
+            "No D1/D7 retention, people counts, attribution, or cross-device identity is available."
+          ]
+        },
+        "overlays": [],
+        "hud": "Medium · Bran: 5/5 · Open the service crossing"
+      }
+    },
+    {
+      "name": "Actual Quit homecoming keeps earned completion and clears pending callback",
+      "pass": true
+    },
+    {
+      "name": "Reload retains completion and receipts without automatic stale scene/result",
+      "pass": true
+    },
+    {
+      "name": "Quit/reload cannot report another original-round completion or quiet combat round",
+      "pass": true
+    },
+    {
+      "name": "Actual explicit replay diversion records one normal replay attempt and participation receipt",
+      "pass": true,
+      "details": {
+        "id": "banquet",
+        "phase": 0,
+        "status": "playing",
+        "quietKind": "homecoming",
+        "prelude": true,
+        "elapsed": 0.08333333333333333,
+        "time": 0,
+        "roundId": "8affe79d-ca7c-4326-95b6-fa78cab227e3",
+        "quietStory": true,
+        "interactWas": false,
+        "mabel": {
+          "x": 455,
+          "y": 424,
+          "name": "Mabel",
+          "color": "#FF8FB1"
+        },
+        "homecoming": {
+          "bran": {
+            "x": 690,
+            "y": 610,
+            "name": "Bran"
+          },
+          "stirling": {
+            "x": 830,
+            "y": 555,
+            "name": "Sir Stirling"
+          }
+        },
+        "staff": [
+          {
+            "x": 455,
+            "y": 424,
+            "name": "Mabel",
+            "color": "#FF8FB1"
+          },
+          {
+            "x": 605,
+            "y": 410,
+            "name": "Alf",
+            "color": "#FFD23F"
+          },
+          {
+            "x": 750,
+            "y": 440,
+            "name": "Pip",
+            "color": "#2EC4B6"
+          }
+        ],
+        "steve": {
+          "theft": 0,
+          "stolen": false
+        },
+        "speech": "Mabel: The ovens are warm. You brought us home.",
+        "player": {
+          "x": 220,
+          "y": 500,
+          "hp": 3
+        },
+        "result": null,
+        "save": {
+          "version": 1,
+          "results": {
+            "banquet": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "puddings": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "guard": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "bridge": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "stirling": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "steve": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "rind": {
+              "spoons": [
+                true,
+                true,
+                true
+              ],
+              "attempts": 5,
+              "best": 1,
+              "assisted": true
+            }
+          },
+          "selected": "rind",
+          "assist": false,
+          "difficulty": "medium",
+          "checkpoint": null,
+          "receipts": [
+            "52a989d2-d85b-4aad-b799-9980470ef8da:rind:2"
+          ]
+        },
+        "collection": {
+          "version": 1,
+          "completed": 10,
+          "choice": "tea-towel",
+          "pinned": null,
+          "progress": {
+            "tea-towel": 0,
+            "burnt-toast": 0,
+            "golden-whisk": 8,
+            "rooster-crown": 0,
+            "rice-guard": 0,
+            "steve-strut": 0
+          },
+          "owned": [
+            "tea-towel",
+            "golden-whisk",
+            "rice-guard"
+          ],
+          "receipts": [
+            "52a989d2-d85b-4aad-b799-9980470ef8da:encounter"
+          ],
+          "milestones": [
+            "rice-chapter"
+          ],
+          "presets": [
+            null,
+            null,
+            null
+          ]
+        },
+        "report": {
+          "version": 1,
+          "build": "0.3.0-beta.7",
+          "generatedAt": 1791976548327,
+          "consent": true,
+          "storageState": "available",
+          "installId": "84281c63e486c63beeaa2d3f3ab02f4c",
+          "events": [
+            {
+              "name": "session_start",
+              "build": "0.3.0-beta.7",
+              "sessionId": "91a8994ba4ab7af6a8f71fb70f2e40ce",
+              "at": 1791976513544,
+              "fields": {
+                "qa": true
+              }
+            },
+            {
+              "name": "round_started",
+              "build": "0.3.0-beta.7",
+              "sessionId": "91a8994ba4ab7af6a8f71fb70f2e40ce",
+              "at": 1791976513567,
+              "fields": {
+                "format": "story",
+                "mode": "campaign",
+                "map": "courtyard",
+                "difficulty": "medium",
+                "humanCount": 1,
+                "botCount": 1,
+                "encounter": "rind",
+                "input": "keyboard",
+                "botOnly": false,
+                "roundId": "be66981c8aad72935821d158564b9036",
+                "qa": true
+              }
+            },
+            {
+              "name": "first_meaningful_action",
+              "build": "0.3.0-beta.7",
+              "sessionId": "91a8994ba4ab7af6a8f71fb70f2e40ce",
+              "at": 1791976513785,
+              "fields": {
+                "action": "move",
+                "input": "keyboard",
+                "format": "story",
+                "mode": "campaign",
+                "map": "courtyard",
+                "difficulty": "medium",
+                "humanCount": 1,
+                "botCount": 1,
+                "encounter": "rind",
+                "botOnly": false,
+                "roundId": "be66981c8aad72935821d158564b9036",
+                "qa": true
+              }
+            },
+            {
+              "name": "challenge_completed",
+              "build": "0.3.0-beta.7",
+              "sessionId": "91a8994ba4ab7af6a8f71fb70f2e40ce",
+              "at": 1791976524980,
+              "fields": {
+                "rewardType": "blade",
+                "format": "story",
+                "mode": "campaign",
+                "map": "courtyard",
+                "difficulty": "medium",
+                "humanCount": 1,
+                "botCount": 1,
+                "encounter": "rind",
+                "input": "keyboard",
+                "botOnly": false,
+                "roundId": "be66981c8aad72935821d158564b9036",
+                "qa": true
+              }
+            },
+            {
+              "name": "challenge_completed",
+              "build": "0.3.0-beta.7",
+              "sessionId": "91a8994ba4ab7af6a8f71fb70f2e40ce",
+              "at": 1791976524980,
+              "fields": {
+                "rewardType": "unknown",
+                "format": "story",
+                "mode": "campaign",
+                "map": "courtyard",
+                "difficulty": "medium",
+                "humanCount": 1,
+                "botCount": 1,
+                "encounter": "rind",
+                "input": "keyboard",
+                "botOnly": false,
+                "roundId": "be66981c8aad72935821d158564b9036",
+                "qa": true
+              }
+            },
+            {
+              "name": "round_completed",
+              "build": "0.3.0-beta.7",
+              "sessionId": "91a8994ba4ab7af6a8f71fb70f2e40ce",
+              "at": 1791976524980,
+              "fields": {
+                "format": "story",
+                "mode": "campaign",
+                "map": "courtyard",
+                "difficulty": "medium",
+                "humanCount": 1,
+                "botCount": 1,
+                "result": "completed",
+                "encounter": "rind",
+                "input": "keyboard",
+                "botOnly": false,
+                "roundId": "be66981c8aad72935821d158564b9036",
+                "qa": true
+              }
+            },
+            {
+              "name": "session_exit",
+              "build": "0.3.0-beta.7",
+              "sessionId": "91a8994ba4ab7af6a8f71fb70f2e40ce",
+              "at": 1791976532291,
+              "fields": {
+                "reason": "pagehide",
+                "observation": "observed",
+                "qa": true
+              }
+            },
+            {
+              "name": "session_start",
+              "build": "0.3.0-beta.7",
+              "sessionId": "f9d090f2a3b2bc74303bb2d6a9a84778",
+              "at": 1791976532597,
+              "fields": {
+                "qa": true
+              }
+            },
+            {
+              "name": "round_started",
+              "build": "0.3.0-beta.7",
+              "sessionId": "f9d090f2a3b2bc74303bb2d6a9a84778",
+              "at": 1791976532610,
+              "fields": {
+                "format": "story",
+                "mode": "campaign",
+                "map": "courtyard",
+                "difficulty": "medium",
+                "humanCount": 1,
+                "botCount": 1,
+                "encounter": "rind",
+                "input": "keyboard",
+                "botOnly": false,
+                "roundId": "ef2af488fa0438d99085d581da50ffc0",
+                "qa": true
+              }
+            },
+            {
+              "name": "session_exit",
+              "build": "0.3.0-beta.7",
+              "sessionId": "f9d090f2a3b2bc74303bb2d6a9a84778",
+              "at": 1791976534043,
+              "fields": {
+                "reason": "pagehide",
+                "observation": "observed",
+                "qa": true
+              }
+            },
+            {
+              "name": "session_start",
+              "build": "0.3.0-beta.7",
+              "sessionId": "fe6784c30d3fcdea71c871f44267fa5a",
+              "at": 1791976534124,
+              "fields": {
+                "qa": true
+              }
+            },
+            {
+              "name": "round_started",
+              "build": "0.3.0-beta.7",
+              "sessionId": "fe6784c30d3fcdea71c871f44267fa5a",
+              "at": 1791976534138,
+              "fields": {
+                "format": "story",
+                "mode": "campaign",
+                "map": "courtyard",
+                "difficulty": "medium",
+                "humanCount": 1,
+                "botCount": 1,
+                "encounter": "rind",
+                "input": "keyboard",
+                "botOnly": false,
+                "roundId": "170bcc358c3d57e25fb0a4e48ec4f42a",
+                "qa": true
+              }
+            },
+            {
+              "name": "round_completed",
+              "build": "0.3.0-beta.7",
+              "sessionId": "fe6784c30d3fcdea71c871f44267fa5a",
+              "at": 1791976534295,
+              "fields": {
+                "format": "story",
+                "mode": "campaign",
+                "map": "courtyard",
+                "difficulty": "medium",
+                "humanCount": 1,
+                "botCount": 1,
+                "result": "completed",
+                "encounter": "rind",
+                "input": "keyboard",
+                "botOnly": false,
+                "roundId": "170bcc358c3d57e25fb0a4e48ec4f42a",
+                "qa": true
+              }
+            },
+            {
+              "name": "session_exit",
+              "build": "0.3.0-beta.7",
+              "sessionId": "fe6784c30d3fcdea71c871f44267fa5a",
+              "at": 1791976535174,
+              "fields": {
+                "reason": "pagehide",
+                "observation": "observed",
+                "qa": true
+              }
+            },
+            {
+              "name": "session_start",
+              "build": "0.3.0-beta.7",
+              "sessionId": "146cc3e90f9a2d6e3b4d4917add72359",
+              "at": 1791976535260,
+              "fields": {
+                "qa": true
+              }
+            },
+            {
+              "name": "round_started",
+              "build": "0.3.0-beta.7",
+              "sessionId": "146cc3e90f9a2d6e3b4d4917add72359",
+              "at": 1791976535273,
+              "fields": {
+                "format": "story",
+                "mode": "campaign",
+                "map": "courtyard",
+                "difficulty": "medium",
+                "humanCount": 1,
+                "botCount": 1,
+                "encounter": "rind",
+                "input": "keyboard",
+                "botOnly": false,
+                "roundId": "9f7269d6c132595dd6d56e93693c1057",
+                "qa": true
+              }
+            },
+            {
+              "name": "round_completed",
+              "build": "0.3.0-beta.7",
+              "sessionId": "146cc3e90f9a2d6e3b4d4917add72359",
+              "at": 1791976535431,
+              "fields": {
+                "format": "story",
+                "mode": "campaign",
+                "map": "courtyard",
+                "difficulty": "medium",
+                "humanCount": 1,
+                "botCount": 1,
+                "result": "completed",
+                "encounter": "rind",
+                "input": "keyboard",
+                "botOnly": false,
+                "roundId": "9f7269d6c132595dd6d56e93693c1057",
+                "qa": true
+              }
+            },
+            {
+              "name": "round_started",
+              "build": "0.3.0-beta.7",
+              "sessionId": "146cc3e90f9a2d6e3b4d4917add72359",
+              "at": 1791976535685,
+              "fields": {
+                "format": "story",
+                "mode": "campaign",
+                "map": "courtyard",
+                "difficulty": "medium",
+                "humanCount": 1,
+                "botCount": 1,
+                "encounter": "guard",
+                "input": "keyboard",
+                "botOnly": false,
+                "roundId": "ff1bf6786aa93f48c1b7869be2e063bf",
+                "qa": true
+              }
+            },
+            {
+              "name": "session_exit",
+              "build": "0.3.0-beta.7",
+              "sessionId": "146cc3e90f9a2d6e3b4d4917add72359",
+              "at": 1791976535958,
+              "fields": {
+                "reason": "pagehide",
+                "observation": "observed",
+                "qa": true
+              }
+            },
+            {
+              "name": "session_start",
+              "build": "0.3.0-beta.7",
+              "sessionId": "0e9b4fa14a84f3c7fcaa98be4703fae1",
+              "at": 1791976536033,
+              "fields": {
+                "qa": true
+              }
+            },
+            {
+              "name": "round_started",
+              "build": "0.3.0-beta.7",
+              "sessionId": "0e9b4fa14a84f3c7fcaa98be4703fae1",
+              "at": 1791976536047,
+              "fields": {
+                "format": "story",
+                "mode": "campaign",
+                "map": "courtyard",
+                "difficulty": "medium",
+                "humanCount": 1,
+                "botCount": 1,
+                "encounter": "rind",
+                "input": "keyboard",
+                "botOnly": false,
+                "roundId": "c18f0b1003391a855359b03cfbe02ffa",
+                "qa": true
+              }
+            },
+            {
+              "name": "round_completed",
+              "build": "0.3.0-beta.7",
+              "sessionId": "0e9b4fa14a84f3c7fcaa98be4703fae1",
+              "at": 1791976536193,
+              "fields": {
+                "format": "story",
+                "mode": "campaign",
+                "map": "courtyard",
+                "difficulty": "medium",
+                "humanCount": 1,
+                "botCount": 1,
+                "result": "completed",
+                "encounter": "rind",
+                "input": "keyboard",
+                "botOnly": false,
+                "roundId": "c18f0b1003391a855359b03cfbe02ffa",
+                "qa": true
+              }
+            },
+            {
+              "name": "session_exit",
+              "build": "0.3.0-beta.7",
+              "sessionId": "0e9b4fa14a84f3c7fcaa98be4703fae1",
+              "at": 1791976536437,
+              "fields": {
+                "reason": "pagehide",
+                "observation": "observed",
+                "qa": true
+              }
+            },
+            {
+              "name": "session_start",
+              "build": "0.3.0-beta.7",
+              "sessionId": "61f314ec1e23bd32d71d283661cbda44",
+              "at": 1791976536528,
+              "fields": {
+                "qa": true
+              }
+            },
+            {
+              "name": "session_exit",
+              "build": "0.3.0-beta.7",
+              "sessionId": "61f314ec1e23bd32d71d283661cbda44",
+              "at": 1791976536528,
+              "fields": {
+                "reason": "pagehide",
+                "observation": "observed",
+                "qa": true
+              }
+            },
+            {
+              "name": "session_start",
+              "build": "0.3.0-beta.7",
+              "sessionId": "54413508add12193020a1d9326bafb54",
+              "at": 1791976536607,
+              "fields": {
+                "qa": true
+              }
+            },
+            {
+              "name": "round_started",
+              "build": "0.3.0-beta.7",
+              "sessionId": "54413508add12193020a1d9326bafb54",
+              "at": 1791976536619,
+              "fields": {
+                "format": "story",
+                "mode": "campaign",
+                "map": "courtyard",
+                "difficulty": "medium",
+                "humanCount": 1,
+                "botCount": 1,
+                "encounter": "rind",
+                "input": "keyboard",
+                "botOnly": false,
+                "roundId": "520fb16ca7002b897e10fc1a226e33ab",
+                "qa": true
+              }
+            },
+            {
+              "name": "round_started",
+              "build": "0.3.0-beta.7",
+              "sessionId": "54413508add12193020a1d9326bafb54",
+              "at": 1791976536775,
+              "fields": {
+                "format": "story",
+                "mode": "campaign",
+                "map": "courtyard",
+                "difficulty": "medium",
+                "humanCount": 1,
+                "botCount": 1,
+                "encounter": "rind",
+                "input": "keyboard",
+                "botOnly": false,
+                "roundId": "882876099b47258608faff60402b0b2f",
+                "qa": true
+              }
+            },
+            {
+              "name": "first_meaningful_action",
+              "build": "0.3.0-beta.7",
+              "sessionId": "54413508add12193020a1d9326bafb54",
+              "at": 1791976536795,
+              "fields": {
+                "action": "move",
+                "input": "keyboard",
+                "format": "story",
+                "mode": "campaign",
+                "map": "courtyard",
+                "difficulty": "medium",
+                "humanCount": 1,
+                "botCount": 1,
+                "encounter": "rind",
+                "botOnly": false,
+                "roundId": "882876099b47258608faff60402b0b2f",
+                "qa": true
+              }
+            },
+            {
+              "name": "round_completed",
+              "build": "0.3.0-beta.7",
+              "sessionId": "54413508add12193020a1d9326bafb54",
+              "at": 1791976548228,
+              "fields": {
+                "format": "story",
+                "mode": "campaign",
+                "map": "courtyard",
+                "difficulty": "medium",
+                "humanCount": 1,
+                "botCount": 1,
+                "result": "completed",
+                "encounter": "rind",
+                "input": "keyboard",
+                "botOnly": false,
+                "roundId": "882876099b47258608faff60402b0b2f",
+                "qa": true
+              }
+            }
+          ],
+          "metrics": {
+            "joinAttempts": 0,
+            "joinSucceeded": 0,
+            "joinFailed": 0,
+            "joinPendingOrUnobserved": 0,
+            "roundsStarted": 0,
+            "roundsCompleted": 0,
+            "roundCompletionRate": null,
+            "rematchSelections": 0,
+            "completedRoundsWithObservedContinuation": 0
+          },
+          "experiments": [],
+          "counts": {
+            "retained": 30,
+            "truncated": 0,
+            "duplicates": 0,
+            "rejected": 0,
+            "excludedFromHumanMetrics": 30
+          },
+          "limitations": [
+            "Experiment counts describe retained solo trials by build/variant, not unique participants or causal lift. Recognition is self-report. Normal-round continuation requires a later observed offline arena start, not a stated intention.",
+            "Local opt-in observations from one browser installation only; no network collection or population-wide claims.",
+            "Metrics cover retained events only. Truncation, cleared storage, missing instrumentation and interrupted sessions can remove context.",
+            "Deduplication covers retained events in the current session. IDs must be anonymous local tokens, never external identifiers.",
+            "Join outcomes require a retained attempt in the same session. Pending or unobserved does not mean failure.",
+            "Round completions also require a start in the same session. A long round spanning the inactivity cutoff remains uncompleted in this observed baseline.",
+            "General round metrics include optional study rounds; use the experiment summaries and trial fields to separate these from normal play.",
+            "Human round metrics require explicitly positive human counts on start and completion; late joins are excluded. QA, demo and bot-only events are excluded.",
+            "Continuation means a later human round start in the same session after an observed completion; rematch intent alone is not continuation.",
+            "Inactivity exits are inferred after 30 minutes when another event arrives. Page exits are observations of lifecycle signals, not proof a person left.",
+            "Cup, challenge, reward, highlight, share and referral events are observations only; no conversion or retention claim is calculated.",
+            "No D1/D7 retention, people counts, attribution, or cross-device identity is available."
+          ]
+        },
+        "overlays": [],
+        "hud": "Home safe · talk to Mabel · Q / left click"
+      }
+    },
+    {
+      "name": "Replay win captured result has no newly earned spoons or stale unlock ids",
+      "pass": true,
+      "details": {
+        "result": {
+          "id": "rind",
+          "roundId": "52a989d2-d85b-4aad-b799-9980470ef8da",
+          "receipt": "52a989d2-d85b-4aad-b799-9980470ef8da:rind:2",
+          "won": true,
+          "reason": "",
+          "spoons": [
+            true,
+            false,
+            false
+          ],
+          "added": [],
+          "elapsed": 11.466666666666816,
+          "assisted": false,
+          "outro": [
+            "Pip: The cooling channel is open!",
+            "Mabel: The bowl has turned into the catch basin, clear of our ovens.",
+            "Marshal Rind: Bran has the winch side. Stirling held the approach.",
+            "Recruit: Let’s go home."
+          ],
+          "next": null,
+          "checkpoint": null
+        },
+        "unlocks": []
+      }
+    },
+    {
+      "name": "Replay visible result uses its own receipt and empty unlock snapshot without stale Equip controls",
+      "pass": true,
+      "details": {
+        "receipt": "52a989d2-d85b-4aad-b799-9980470ef8da:rind:2",
+        "text": "",
+        "count": 1
+      }
+    },
+    {
+      "name": "Replay quiet/skip/hook/result add no further reward or combat report",
+      "pass": true
+    },
+    {
+      "name": "Compact 05-explicit-replay-result active surface stays inside viewport",
+      "pass": true,
+      "details": {
+        "selector": "#campaignResult .campaign-panel",
+        "bounds": {
+          "x": 31.0625,
+          "y": 20,
+          "width": 722.875,
+          "height": 689.78125,
+          "top": 20,
+          "right": 753.9375,
+          "bottom": 709.78125,
+          "left": 31.0625
+        },
+        "text": "Encounter completeSkin in the Game0 new spoons earned. Your spoons are saved independently.✓ Defeat Rind and divert the siege bowl✓ Make Rind’s sweep strike one of his shield guards✓ Win without being bonkedContinue: Story mapVisit the saved bakeryReplay aftermath sceneReplay for spoonsStory map",
+        "viewport": {
+          "width": 800,
+          "height": 500
+        },
+        "visible": true
+      }
+    },
+    {
+      "name": "Compact 06-final-hook-missing-spoon active surface stays inside viewport",
+      "pass": true,
+      "details": {
+        "selector": ".campaign-captions",
+        "bounds": {
+          "x": 47.0625,
+          "y": 262,
+          "width": 690.875,
+          "height": 78,
+          "top": 262,
+          "right": 737.9375,
+          "bottom": 340,
+          "left": 47.0625
+        },
+        "text": "RecruitHome is safe. But the Golden Spoon is still missing.",
+        "viewport": {
+          "width": 800,
+          "height": 500
+        },
+        "visible": true
+      }
+    },
+    {
+      "name": "Compact 06-final-hook-skin-clue active surface stays inside viewport",
+      "pass": true,
+      "details": {
+        "selector": ".campaign-captions",
+        "bounds": {
+          "x": 47.0625,
+          "y": 262,
+          "width": 690.875,
+          "height": 78,
+          "top": 262,
+          "right": 737.9375,
+          "bottom": 340,
+          "left": 47.0625
+        },
+        "text": "Sir StirlingThat skin was at the banquet too. When did anyone last stir it?",
+        "viewport": {
+          "width": 800,
+          "height": 500
+        },
+        "visible": true
+      }
+    },
+    {
+      "name": "Actual final saved-bakery hook retains missing Spoon and visible skin clue caption",
+      "pass": true,
+      "details": [
+        {
+          "scene": "rind",
+          "phase": "homecoming",
+          "caption": "RecruitHome is safe. But the Golden Spoon is still missing."
+        },
+        {
+          "scene": "rind",
+          "phase": "homecoming",
+          "caption": "Sir StirlingThat skin was at the banquet too. When did anyone last stir it?"
+        }
+      ]
+    },
+    {
+      "name": "Actual compact scroll exposes original captured unlock buttons on the exact visible result panel",
+      "pass": true,
+      "details": {
+        "receipt": "942dca3d-67c7-46a8-9a51-132421fb5033:rind:1",
+        "hidden": false,
+        "scroll": 260,
+        "buttons": [
+          {
+            "text": "Equip Golden Whisk",
+            "rect": {
+              "x": 216.4375,
+              "y": 263.78125,
+              "width": 185.71875,
+              "height": 44,
+              "top": 263.78125,
+              "right": 402.15625,
+              "bottom": 307.78125,
+              "left": 216.4375
+            },
+            "visible": true
+          },
+          {
+            "text": "Equip Rice Guard",
+            "rect": {
+              "x": 402.15625,
+              "y": 263.78125,
+              "width": 159.953125,
+              "height": 44,
+              "top": 263.78125,
+              "right": 562.109375,
+              "bottom": 307.78125,
+              "left": 402.15625
+            },
+            "visible": true
+          },
+          {
+            "text": "Keep current look",
+            "rect": {
+              "x": 562.109375,
+              "y": 263.78125,
+              "width": 164.96875,
+              "height": 44,
+              "top": 263.78125,
+              "right": 727.078125,
+              "bottom": 307.78125,
+              "left": 562.109375
+            },
+            "visible": true
+          }
+        ]
+      }
+    },
+    {
+      "name": "Final hook and compact result scrolling cannot award again",
+      "pass": true
+    },
+    {
+      "name": "No uncaught browser exceptions",
+      "pass": true,
+      "details": []
+    }
+  ]
+}

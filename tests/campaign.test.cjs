@@ -141,12 +141,12 @@ test('safe rescue scrubs residual attacks/hazards at KO, holds a finite clock an
  for(const assisted of [false,true]){
   const h=harness('rind');h.c.assist(assisted);h.c.begin('rind',h.g,h.api);const b=h.c.run.boss;
   for(const key of ['proj','bombs','mines','bees','flock','bananas','pickups'])h.g[key]=[{owner:b,life:10}];
-  h.g.ev={kind:'meteors',owner:b};h.g.mayhem={kind:'gust'};h.g.rareEvent={kind:'mcginley'};h.g.banner={kind:'hazard',key:'residual'};
+  h.g.holes=[{c:10,r:10,open:1,t:0}];h.g.grid[10][10]='o';h.g.ev={kind:'meteors',owner:b};h.g.mayhem={kind:'gust'};h.g.rareEvent={kind:'mcginley'};h.g.banner={kind:'hazard',key:'residual'};
   h.c.run.warnings=[{actor:b.id,t:10}];h.c.run.effects=[{t:10}];
   for(const e of h.g.ents)Object.assign(e,{swing:1,charge:1,holdT:1,atkBuf:1,dashBuf:1,dashT:1,dashAtkT:1,atkWas:true,blocking:true,vx:30,vy:20,wpn:{kind:'bow'},fx:{bees:10,banana:10,norr:10},lvl:{},campaignTell:true});
   b.dead=true;h.c.event('ko',{v:b.id,a:0,src:'heavy'});assert.equal(h.c.run.phase,2,'cleanup happens on the actual KO before the next engine passes');
   for(const key of ['proj','bombs','mines','bees','flock','bananas','pickups'])assert.deepEqual(h.g[key],[],key);
-  for(const key of ['ev','mayhem','rareEvent'])assert.equal(h.g[key],null);assert.deepEqual(h.c.run.warnings,[]);assert.deepEqual(h.c.run.effects,[]);
+  assert.deepEqual(h.g.holes,[]);assert.equal(h.g.grid[10][10],'.');for(const key of ['ev','mayhem','rareEvent'])assert.equal(h.g[key],null);assert.deepEqual(h.c.run.warnings,[]);assert.deepEqual(h.c.run.effects,[]);
   for(const e of h.g.ents){for(const key of ['swing','charge','holdT','atkBuf','dashBuf','dashT','dashAtkT','vx','vy'])assert.equal(e[key],0,key);assert.equal(e.blocking,false);assert.equal(e.atkWas,false);assert.deepEqual(e.fx,{});assert.equal(e.wpn,null);if(!e.human){assert.equal(e.dead,true);assert.equal(e.respawn,Infinity);assert.deepEqual(h.c.input(e,.1),{mx:0,my:0,atk:false,dash:false,block:false,faceTo:null});}}
   assert.equal(h.g.ents.includes(h.c.run.rescue.guard),false);assert.equal(h.g.ents.includes(h.c.run.rescue.rind),false);assert.equal(h.p.hp,assisted?5:3);
   const time=h.g.time,hp=h.p.hp;assert.ok(Number.isFinite(time)&&time>0);for(let i=0;i<180;i++)h.tick(1);assert.equal(h.g.time,time);assert.equal(h.p.hp,hp);assert.equal(h.c.run.status,'playing');assert.equal(h.finished.length,0);assert.equal(h.c.run.hits,0);assert.equal(h.g.quietStory,false);

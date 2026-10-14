@@ -99,10 +99,11 @@
    const g=run.g;
    if(engine.clearBanner)engine.clearBanner();else g.banner=null;
    run.warnings=[];run.effects=[];
+   for(const h of g.holes)if(h.open&&g.grid[h.r]?.[h.c]==='o')g.grid[h.r][h.c]='.';g.holes=[];g.flows.clear();
    for(const key of ['proj','bombs','mines','bees','flock','bananas','pickups'])g[key]=[];
    g.ev=null;g.mayhem=null;g.rareEvent=null;g.shake=0;g.punch=0;
    for(const e of g.ents){
-    Object.assign(e,{swing:0,charge:0,holdT:0,atkBuf:0,dashBuf:0,dashT:0,dashAtkT:0,atkWas:false,blocking:false,hitSet:[],hitDone:true,crateHit:true,vx:0,vy:0,wpn:null,weaponLevels:{},fx:{},lvl:{},campaignTell:false,campaignWindup:0,target:null});
+    Object.assign(e,{swing:0,stun:0,slip:0,goo:0,falling:0,charge:0,holdT:0,atkBuf:0,dashBuf:0,dashT:0,dashAtkT:0,atkWas:false,blocking:false,hitSet:[],hitDone:true,crateHit:true,vx:0,vy:0,wpn:null,weaponLevels:{},fx:{},lvl:{},campaignTell:false,campaignWindup:0,target:null});
     if(!e.human){e.dead=true;e.falling=0;e.respawn=Infinity;}
    }
   }

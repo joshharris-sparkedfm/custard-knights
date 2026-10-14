@@ -230,6 +230,140 @@ body[data-input=pad] :is(button,.card,.tile,input,select):focus{outline:4px soli
  .home-routes .mbtn small{display:block;font-size:12px}
  .home-utilities .btn{min-height:38px}
 }
+/* ===== Launch design pass: one visual language for every screen ===== */
+:root{--glow:0 0 0 3px rgba(255,210,63,.55),0 0 22px rgba(255,210,63,.35);--panel-top:#5A4179;--panel-bot:#2A1D40}
+html{scrollbar-color:#7A5BA6 transparent;scrollbar-width:thin}
+/* the live arena behind menus goes soft so the panel reads first */
+.overlay:not(.home-ov){background:radial-gradient(ellipse at 50% 45%,rgba(34,23,51,.42),rgba(20,12,34,.82) 75%);-webkit-backdrop-filter:blur(3px) saturate(.85);backdrop-filter:blur(3px) saturate(.85)}
+/* panels: warm rim light, custard drip across the top edge */
+.panel{position:relative;background:linear-gradient(180deg,var(--panel-top) 0,#3F2D5C 120px,var(--panel-bot) 100%);box-shadow:0 10px 0 var(--ink),0 22px 40px rgba(10,5,20,.55),inset 0 0 0 2px rgba(255,210,63,.4),inset 0 3px 0 3px rgba(255,255,255,.07);padding-top:30px}
+.panel::before{content:"";position:absolute;left:18px;right:18px;top:0;height:16px;pointer-events:none;border-radius:0 0 10px 10px;opacity:.95;
+ background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 16' preserveAspectRatio='none'%3E%3Cpath d='M0 0h120v5c-6 0-7 9-12 9s-5-7-10-7-4 4-9 4-6-6-12-6-5 10-11 10-5-8-11-8-6 3-11 3-5-6-10-6-6 8-12 8-5-7-10-7S6 5 0 5z' fill='%23FFD23F' stroke='%23221733' stroke-width='1.6'/%3E%3C/svg%3E") top/120px 16px repeat-x}
+.head{position:relative;z-index:1}
+/* titles share the logo's ink outline */
+.logo.sm,.route-panel h2,#end h2{font-family:"Lilita One",Impact,sans-serif;font-weight:400;color:var(--custard);letter-spacing:.4px;text-shadow:2px 0 var(--ink),-2px 0 var(--ink),0 2px var(--ink),0 -2px var(--ink),2px 2px var(--ink),-2px 2px var(--ink),2px -2px var(--ink),-2px -2px var(--ink),0 5px 0 var(--ink)}
+.lab{display:flex;align-items:center;gap:7px;color:#E3D6F7}
+.lab::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--custard);border:2px solid var(--ink);flex:none}
+/* buttons: glossy, lift on hover, press down on click */
+.seg button,.btn,.card,.chip,.mbtn,.tile{background-image:linear-gradient(180deg,rgba(255,255,255,.13),rgba(255,255,255,0) 55%)}
+.seg button,.btn{transition:transform .1s,background-color .12s,box-shadow .1s}
+.seg button:not([aria-pressed="true"]):not(.locked):hover,.btn:hover{background-color:#6A4F90;transform:translateY(-2px);box-shadow:0 6px 0 var(--ink)}
+.seg button[aria-pressed="true"]{background-color:var(--custard);color:var(--ink);box-shadow:0 4px 0 var(--ink),inset 0 -3px 0 rgba(160,100,0,.28)}
+.big{box-shadow:0 5px 0 var(--ink),inset 0 -4px 0 rgba(120,20,10,.25)}
+.big:hover{background-color:#FF6E62!important}
+button:focus-visible,.card:focus-visible,.chip:focus-visible{outline:3px solid var(--custard);outline-offset:3px;box-shadow:var(--glow)}
+.txt{transition:box-shadow .12s}.txt:focus-visible{outline:none;box-shadow:var(--glow)}
+/* top-right utility pills */
+#hudbtns{top:8px;right:8px}
+#hudbtns button{background:rgba(43,30,63,.86);border:2px solid var(--ink);border-radius:999px;padding:5px 12px;box-shadow:0 3px 0 var(--ink),inset 0 0 0 1px rgba(255,210,63,.35);transition:transform .1s}
+#hudbtns button:hover{transform:translateY(-1px);background:#523B72}
+/* ---- home ---- */
+.home-left{background:linear-gradient(180deg,rgba(43,30,63,.82),rgba(28,19,48,.9));-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);border:3px solid var(--ink);box-shadow:0 10px 0 rgba(20,12,34,.75),inset 0 0 0 2px rgba(255,210,63,.32),0 30px 60px rgba(0,0,0,.35)}
+.home-routes .mbtn{position:relative;overflow:hidden}
+.home-routes .mbtn i{flex:0 0 48px;height:48px;box-shadow:inset 0 0 0 2px rgba(255,210,63,.35)}
+.home-routes .mbtn i svg{width:26px;height:26px}
+.home-routes .mbtn.primary i{background:var(--cream);color:var(--tomato);box-shadow:inset 0 -3px 0 rgba(0,0,0,.12)}
+.home-routes .mbtn::after,.route-panel .mbtn::after{content:"›";margin-left:auto;padding-left:8px;font:30px/1 "Lilita One",Impact,sans-serif;color:rgba(255,247,224,.35);transition:transform .15s,color .15s}
+.home-routes .mbtn:hover::after,.home-routes .mbtn:focus-visible::after,.route-panel .mbtn:hover::after,.route-panel .mbtn:focus-visible::after{color:var(--custard);transform:translateX(4px)}
+.home-routes .mbtn.primary::after,.route-panel .mbtn.primary::after{color:rgba(255,247,224,.85)}
+.home-routes .mbtn.primary::before{content:"";position:absolute;top:0;bottom:0;width:60px;left:-90px;background:linear-gradient(100deg,transparent,rgba(255,255,255,.35),transparent);transform:skewX(-18deg);animation:shine 4.5s ease-in-out infinite 1.5s;pointer-events:none}
+@keyframes shine{0%,70%{left:-90px}100%{left:110%}}
+.plate{box-shadow:0 8px 0 var(--ink),0 18px 30px rgba(0,0,0,.35),inset 0 0 0 2px rgba(255,210,63,.35)}
+.plate .bar{height:12px;border:2px solid var(--ink);box-shadow:inset 0 2px 0 rgba(0,0,0,.35)}
+.plate .bar i{min-width:6px;border-radius:6px;box-shadow:inset 0 2px 0 rgba(255,255,255,.4)}
+/* ---- route panels ---- */
+.route-panel{width:min(540px,100%)}
+.route-panel .mbtn{min-height:68px}
+.route-summary{background:rgba(20,12,34,.7);border:2px solid rgba(255,210,63,.25);font-weight:700}
+/* ---- custom setup: even cards, Start always on screen ---- */
+#setup>.panel{max-height:100%;overflow-y:auto;overscroll-behavior:contain;padding-bottom:0;scroll-padding-bottom:96px}
+#setup>.panel>*{flex-shrink:0}
+.cards{grid-template-columns:repeat(auto-fill,minmax(168px,1fr));gap:10px}
+.card{transition:transform .12s,background-color .12s,box-shadow .12s}
+.card:hover{transform:translateY(-3px);background-color:#6A4F90;box-shadow:0 7px 0 var(--ink)}
+.card[aria-pressed="true"]{background-color:var(--custard);color:var(--ink);box-shadow:0 4px 0 var(--ink),0 0 0 3px var(--custard),0 0 18px rgba(255,210,63,.45)}
+.card[aria-pressed="true"]:hover{background-color:#FFDD66}
+.card small{display:-webkit-box;-webkit-line-clamp:4;line-clamp:4;-webkit-box-orient:vertical;overflow:hidden}
+.gobar{position:sticky;bottom:0;z-index:2;margin:4px -22px 0;padding:12px 22px 16px;background:linear-gradient(180deg,rgba(42,29,64,0),#2A1D40 22px);display:flex}
+.gobar #startBtn{flex:1;font-size:30px;padding:12px 18px}
+/* ---- wardrobe ---- */
+#wardrobe>.panel{max-height:100%;overflow-y:auto;overscroll-behavior:contain}
+#wardrobe>.panel>*{flex-shrink:0}
+#wardrobe .ward{grid-template-columns:minmax(260px,340px) 1fr;align-items:start}
+#wardrobe .ward>div:first-child{position:sticky;top:0}
+#wardCv{width:340px;height:340px;background:#45306A;box-shadow:0 6px 0 var(--ink),inset 0 0 0 2px rgba(255,210,63,.3)}
+.seg button.locked:not(.sw){opacity:1;flex:1 1 150px;display:inline-flex;flex-direction:column;align-items:flex-start;gap:1px;text-align:left;font-size:13px;color:#BFAEDD;background:rgba(20,12,34,.45);background-image:none;border-style:dashed;border-color:#6A4F90;box-shadow:none;padding:6px 10px 6px 30px;position:relative;line-height:1.2}
+.seg button.locked:not(.sw)::before{content:"";position:absolute;left:9px;top:9px;width:13px;height:15px;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 13 15'%3E%3Cpath d='M3.5 6.5V4.5a3 3 0 0 1 6 0v2' fill='none' stroke='%23C9B9E6' stroke-width='2'/%3E%3Crect x='1' y='6.5' width='11' height='8' rx='2' fill='%23C9B9E6'/%3E%3C/svg%3E") center/contain no-repeat}
+.seg button.locked small.req{font-size:11px;font-weight:700;color:#9C8BBE}
+.sw.locked{opacity:.35;filter:saturate(.4)}
+.sw{transition:transform .1s}.sw:hover{transform:translateY(-2px) scale(1.06)}
+.sw[aria-pressed="true"]{outline:3px solid var(--cream);outline-offset:2px;transform:scale(1.08)}
+#wardrobe .ck-collection{border-top:2px dashed #6A4F90;padding-top:16px}
+#wardrobe .ck-collection h3,#settings h3{font:26px "Lilita One",Impact,sans-serif;color:var(--custard);margin:4px 0 2px;text-shadow:0 3px 0 var(--ink)}
+#wardrobe .ck-collection .ck-card{background:linear-gradient(180deg,#4B3666,#33244D);color:var(--cream);border:3px solid var(--ink);box-shadow:0 4px 0 var(--ink)}
+#wardrobe .ck-collection .ck-card strong{font:20px "Lilita One",Impact,sans-serif;color:var(--custard);font-weight:400}
+#wardrobe .ck-collection .ck-card p{color:var(--muted)}
+#wardrobe .ck-collection .ck-card[data-pinned=true]{border-color:var(--custard);box-shadow:0 4px 0 var(--ink),0 0 0 2px var(--custard),0 0 18px rgba(255,210,63,.35)}
+#wardrobe .ck-collection progress{appearance:none;-webkit-appearance:none;height:12px;border:2px solid var(--ink);border-radius:8px;background:var(--ink);overflow:hidden}
+#wardrobe .ck-collection progress::-webkit-progress-bar{background:var(--ink)}
+#wardrobe .ck-collection progress::-webkit-progress-value{background:linear-gradient(90deg,var(--teal),var(--custard));border-radius:6px}
+#wardrobe .ck-collection .ck-preview{border:3px solid var(--ink);box-shadow:0 5px 0 var(--ink)}
+#wardrobe .ck-collection .ck-choice,.collectionReward{background:linear-gradient(180deg,#FFE58A,#FFC83D);color:var(--ink);border:3px solid var(--ink);border-radius:16px;box-shadow:0 5px 0 var(--ink)}
+/* ---- results ---- */
+#end>.panel{width:min(560px,100%);max-height:100%;overflow-y:auto}
+#end>.panel>*{flex-shrink:0}
+#end h2{font-size:46px;transform:rotate(-2deg);transform-origin:left center}
+#endReward:not([hidden]){display:block;background:rgba(255,210,63,.14);border:2px solid rgba(255,210,63,.5);border-radius:12px;padding:8px 12px;color:var(--cream);font-weight:800;font-size:13px}
+#board li{background-image:linear-gradient(180deg,rgba(255,255,255,.08),rgba(255,255,255,0))}
+#board li>.ko:first-child{display:grid;place-items:center;width:28px;height:28px;border-radius:50%;background:var(--ink);color:var(--cream);font-size:16px}
+#board li:nth-child(1)>.ko:first-child{background:radial-gradient(circle at 35% 30%,#FFF2B3,#FFC83D 55%,#C98A12);color:var(--ink);box-shadow:0 0 0 2px var(--ink),0 0 14px rgba(255,210,63,.6)}
+#board li:nth-child(2)>.ko:first-child{background:radial-gradient(circle at 35% 30%,#fff,#C9CED9 55%,#8D94A6);color:var(--ink);box-shadow:0 0 0 2px var(--ink)}
+#board li:nth-child(3)>.ko:first-child{background:radial-gradient(circle at 35% 30%,#FFD9B0,#D98B4A 55%,#9A5622);color:var(--ink);box-shadow:0 0 0 2px var(--ink)}
+#board li:nth-child(1){border-color:#C98A12;background-color:#5E4580}
+#board li.me{background-color:var(--custard);box-shadow:0 0 0 2px var(--custard),0 0 18px rgba(255,210,63,.45)}
+.collectionReward{display:flex;flex-wrap:wrap;gap:8px;align-items:center;padding:12px}
+.collectionReward>strong{flex:1 0 100%;font:20px "Lilita One",Impact,sans-serif;font-weight:400}
+.collectionReward .btn{flex:1 1 auto}
+.collectionPodium{border-radius:16px;border:3px solid var(--ink);box-shadow:0 5px 0 var(--ink)}
+/* ---- couch party ---- */
+#party>.panel{max-height:100%;overflow-y:auto;overscroll-behavior:contain;padding-bottom:0;scroll-padding-bottom:96px}
+#party>.panel>*{flex-shrink:0}
+.partygo{position:sticky;bottom:0;z-index:2;margin:0 -22px;padding:12px 22px 16px;background:linear-gradient(180deg,rgba(42,29,64,0),#2A1D40 22px)}
+.seat{background:rgba(20,12,34,.35);border-style:dashed;border-color:#6A4F90;box-shadow:none;transition:background .15s,transform .15s}
+.seat:not(.on)::before{content:"";width:64px;height:44px;opacity:.55;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 44'%3E%3Cpath d='M16 4h32c8 0 14 8 15 20 1 10-3 18-9 18-5 0-8-6-12-9H22c-4 3-7 9-12 9-6 0-10-8-9-18C2 12 8 4 16 4z' fill='%23C9B9E6'/%3E%3Cpath d='M15 15v12M9 21h12' stroke='%232B1E3F' stroke-width='4' stroke-linecap='round'/%3E%3Ccircle cx='46' cy='16' r='3.5' fill='%232B1E3F'/%3E%3Ccircle cx='52' cy='23' r='3.5' fill='%232B1E3F'/%3E%3C/svg%3E") center/contain no-repeat}
+.seat.on{background:linear-gradient(180deg,#5A4179,#3A2A55);border-style:solid;border-color:var(--ink);box-shadow:0 6px 0 var(--ink),inset 0 0 0 2px rgba(255,210,63,.4);animation:seatin .3s cubic-bezier(.2,1.4,.4,1)}
+@keyframes seatin{from{transform:scale(.92)}to{transform:none}}
+.seat canvas{background:#45306A;box-shadow:0 4px 0 var(--ink)}
+/* ---- how to play / settings ---- */
+.how{position:relative;font-size:14px;padding:14px 14px 12px;background:linear-gradient(180deg,#5A4179,#3D2B57);box-shadow:0 4px 0 var(--ink)}
+.how::before{content:"";position:absolute;left:12px;right:12px;top:0;height:5px;border-radius:0 0 4px 4px;background:var(--custard)}
+.how:nth-child(2)::before{background:var(--teal)}
+.how:nth-child(3)::before{background:var(--pink)}
+.how b{font-size:22px}
+.ctl{font-size:14px}
+.ctlrow{background:rgba(20,12,34,.35);line-height:2}
+kbd{display:inline-block;min-width:14px;text-align:center;font-size:12px;padding:1px 7px;border:2px solid var(--ink);border-bottom-width:4px;border-radius:7px;background:linear-gradient(180deg,#FFFDF4,#F1E6C8);line-height:1.5;vertical-align:1px}
+#settings>.panel{width:min(620px,100%)}
+#settings h3{display:flex;align-items:center;gap:10px;margin-top:14px;padding-top:14px;border-top:2px dashed #6A4F90}
+.slider{background:rgba(20,12,34,.35);border:2px solid rgba(106,79,144,.6);border-radius:12px;padding:8px 12px}
+.check{background:rgba(20,12,34,.25);border-radius:12px;padding:8px 12px;line-height:1.3}
+.check:hover{background:rgba(106,79,144,.35)}
+select{font:inherit;font-weight:800;border:3px solid var(--ink);border-radius:12px;background:var(--plum3);color:var(--cream);padding:7px 10px}
+/* ---- pause, lobby ---- */
+#pause>.panel{width:min(560px,100%);padding:34px 28px 26px;gap:18px}
+#pause .row{justify-content:center}
+#pause #resumeBtn{min-width:180px}
+.code{text-shadow:2px 0 var(--ink),-2px 0 var(--ink),0 2px var(--ink),0 -2px var(--ink),0 6px 0 var(--ink)}
+#lobby .code,#inviteCard .code{background:rgba(20,12,34,.6);border:3px dashed rgba(255,210,63,.55);border-radius:16px;padding:12px 8px 8px}
+.plist li{display:flex;align-items:center;gap:8px;background-image:linear-gradient(180deg,rgba(255,255,255,.08),rgba(255,255,255,0))}
+.plist li::before{content:"";width:10px;height:10px;border-radius:50%;background:var(--teal);border:2px solid var(--ink)}
+/* ---- touch buttons ---- */
+.tb{background-image:radial-gradient(circle at 35% 30%,rgba(255,255,255,.45),rgba(255,255,255,0) 55%)}
+.tb:active{transform:translateY(3px);box-shadow:0 2px 0 var(--ink)}
+/* compact screens keep the new chrome light */
+@media (max-height:520px){.panel{padding-top:24px}.panel::before{height:12px;background-size:90px 12px}.gobar{padding:8px 22px 10px}.gobar #startBtn{font-size:24px;padding:8px 14px}#wardCv{width:220px;height:220px}.home-routes .mbtn i{flex-basis:34px;height:34px}.home-routes .mbtn i svg{width:20px;height:20px}.home-routes .mbtn::after{display:none}.home-routes .mbtn{gap:10px}#wardCv{width:260px;height:260px}#end h2{font-size:34px}}
+@media (max-width:720px){#wardrobe .ward{grid-template-columns:1fr}#wardrobe .ward>div:first-child{position:static;display:grid;justify-items:center}#wardCv{width:240px;height:240px}.cards{grid-template-columns:repeat(auto-fill,minmax(140px,1fr))}.gobar{margin-inline:-14px;padding-inline:14px}}
+@media (prefers-reduced-motion:reduce){.home-routes .mbtn.primary::before,.seat.on{animation:none}.card:hover,.btn:hover,.seg button:hover{transform:none}}
 </style>
 </head>
 <body>
@@ -272,10 +406,10 @@ body[data-input=pad] :is(button,.card,.tile,input,select):focus{outline:4px soli
         <div class="hero"><h1 class="logo xl">Custard <span>Knights</span></h1><span class="drip" aria-hidden="true"></span><span class="drip d2" aria-hidden="true"></span></div>
         <p class="tag">A knight, a little custard, and your next adventure.</p>
         <nav class="home-routes" aria-label="Main menu">
-          <button class="mbtn primary" id="tQuick" type="button"><span><b>Quick Brawl</b><small>A solo match, your own rules, or a Custard Cup</small></span></button>
-          <button class="mbtn" id="tAdventure" type="button"><span><b id="homeStoryTitle">Story</b><small id="homeStorySummary">The Great Pudding War · a solo adventure</small></span></button>
-          <button class="mbtn" id="tFriends" type="button"><span><b>Play with Friends</b><small>This PC or an online room · single match or Cup</small></span></button>
-          <button class="mbtn" id="tFactionBattle" type="button"><span><b>Faction Front</b><small>Bot practice or a hosted battle · preview</small></span></button>
+          <button class="mbtn primary" id="tQuick" type="button"><i aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 3.5 20.5 3.5 20.5 9.5 9 21 3 15z"/><path d="M5 13l6 6"/><path d="M3 21l3-3"/></svg></i><span><b>Quick Brawl</b><small>A solo match, your own rules, or a Custard Cup</small></span></button>
+          <button class="mbtn" id="tAdventure" type="button"><i aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6l6-2 6 2 6-2v14l-6 2-6-2-6 2z"/><path d="M9 4v14M15 6v14"/></svg></i><span><b id="homeStoryTitle">Story</b><small id="homeStorySummary">The Great Pudding War · a solo adventure</small></span></button>
+          <button class="mbtn" id="tFriends" type="button"><i aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="8" r="3.2"/><circle cx="17" cy="9" r="2.6"/><path d="M2.5 20c.6-3.6 2.8-5.5 5.5-5.5s4.9 1.9 5.5 5.5"/><path d="M14.5 14.6c.8-.4 1.6-.6 2.5-.6 2.3 0 4 1.6 4.5 4.8"/></svg></i><span><b>Play with Friends</b><small>This PC or an online room · single match or Cup</small></span></button>
+          <button class="mbtn" id="tFactionBattle" type="button"><i aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 21V3"/><path d="M5 4h12l-2.5 4L17 12H5"/></svg></i><span><b>Faction Front</b><small>Bot practice or a hosted battle · preview</small></span></button>
         </nav>
         <nav class="home-utilities" aria-label="Utilities">
           <button class="btn" id="tWardrobe" type="button">Wardrobe</button><button class="btn" id="tSettings" type="button">Options</button>
@@ -342,7 +476,7 @@ body[data-input=pad] :is(button,.card,.tile,input,select):focus{outline:4px soli
       </div>
       <p class="ctl" id="chaosHelp">Simple: base hazards, weapons and basic pickups. Normal: gradual chaos. Insane: faster chaos from the start. Rare arena surprises: 1% AK47 and song, 1% McGinley lightning per match. Off in Simple, races, Story and Faction Front.</p>
       <p class="ctl" id="setupControls"></p>
-      <button id="startBtn" class="btn big" type="button">Start the brawl</button>
+      <div class="gobar"><button id="startBtn" class="btn big" type="button">Start the brawl</button></div>
     </div>
   </div>
 
@@ -2896,7 +3030,7 @@ function partyStart(){ const n=PARTY.seats.filter(Boolean).length; if(!n||PARTY.
  SEATS=PARTY.seats.map(d=>d?{...d}:null); partyGo=true; if(partyCupRequested){partyCupRequested=false;startCup();}else start(); }
 function seatLook(i){const pr={...loadProfile(i+1)},used=new Set(Array.from({length:i},(_,j)=>seatLook(j).color));if(used.has(pr.color))pr.color=Array.from({length:FFA_COLS.length},(_,j)=>FFA_COLS[(i*3+j)%FFA_COLS.length]).find(color=>!used.has(color))||pr.color;return pr;}
 function drawParty(){ if(!partyOpen()||!G) return; const cvs=[...$('seats').querySelectorAll('canvas')];
- cvs.forEach(c=>{ const i=Number(c.dataset.seat)-1,e=PARTY.ents[i], pr=seatLook(i), px=c.getContext('2d'); px.setTransform(1,0,0,1,0,0); px.fillStyle='#5FA84E'; px.fillRect(0,0,300,300);
+ cvs.forEach(c=>{ const i=Number(c.dataset.seat)-1,e=PARTY.ents[i], pr=seatLook(i), px=c.getContext('2d'); stageBg(px,300,300,.79);
   px.setTransform(3.1,0,0,3.1,0,0); e.x=48.4; e.y=61; e.kit={helm:pr.helm,plume:pr.plume,metal:pr.metal,visor:pr.visor}; e.emblem=pr.emblem; e.color=pr.color; e.cape=pr.cape; e.blade=pr.blade;e.pose=pr.pose; e.plume=pr.color===CUST?PINK:CUST; e.face=Math.PI/2+Math.sin(G.clock*.8+i)*.6; e.vx=e.vy=0;
   const keep=ctx; ctx=px; try{ drawKnight(e); }finally{ ctx=keep; } }); }
 function openParty(){prepareArenaSeats(); if(SEATS)PARTY.seats=Array.from({length:4},(_,i)=>SEATS[i]?{...SEATS[i]}:null);renderParty(); showScreen('party');reconcileDevices(); }
@@ -2980,7 +3114,7 @@ function productEquip(n,p){const before=loadProfile(n),saved=saveProfile(n,p);fo
 function collectionAdapters(){return {getState:()=>COLLECTION,setState:s=>{const pinned=COLLECTION.pinned;saveCollection(s);if(COLLECTION.pinned&&COLLECTION.pinned!==pinned){const item=CKCollection.items.find(i=>i.id===COLLECTION.pinned);productEvent('challenge_selected',{format:'challenge',rewardType:productRewardType(item?.kind)});}},getProfile:()=>loadProfile(wardWho),saveProfile:p=>productEquip(wardWho,p),onChange:syncWardrobe,onImport:reloadWardrobeSaves,drawPreview:drawCollectionPreview};}
 function ensureCollectionUI(){if(!collectionUI){const box=document.createElement('section');box.id='collectionGoals';$('wardrobe').querySelector('.panel').append(box);collectionUI=CKCollectionUI.mount(box,collectionAdapters());}else collectionUI.refresh();}
 function drawCollectionPreview(canvas,p,{gameplay=false,time=0,pose=false,face}={}){const x=canvas.getContext('2d'),e=mkKnight({id:42,hero:gameplay?0:1,collectionPreview:pose,kit:{helm:p.helm,plume:p.plume,metal:p.metal,visor:p.visor},color:p.color,emblem:p.emblem,cape:p.cape,blade:p.blade,pose:p.pose||'plain',chickSkin:p.chick,face:face===undefined?time*.7:face});const old=ctx,oldG=G;
- try{G={...G,clock:time,demo:true,over:false,ev:null,mode:'ffa'};ctx=x;x.setTransform(1,0,0,1,0,0);x.fillStyle='#426351';x.fillRect(0,0,canvas.width,canvas.height);const sc=gameplay?1:Math.min(canvas.width/200,canvas.height/185);x.translate(canvas.width/2,canvas.height*.44);x.scale(sc,sc);drawKnight(e);}finally{ctx=old;G=oldG;}}
+ try{G={...G,clock:time,demo:true,over:false,ev:null,mode:'ffa'};ctx=x;x.setTransform(1,0,0,1,0,0);if(gameplay){x.fillStyle='#426351';x.fillRect(0,0,canvas.width,canvas.height);}else stageBg(x,canvas.width,canvas.height,.8);const sc=gameplay?1:Math.min(canvas.width/200,canvas.height/185);x.translate(canvas.width/2,canvas.height*.44);x.scale(sc,sc);drawKnight(e);}finally{ctx=old;G=oldG;}}
 function awardCollection(roundId,milestones=[]){const r=CKCollection.apply(COLLECTION,{roundId,participated:true,milestones});if(r.applied){saveCollection(r.state);collectionUnlocks=r.unlocked;for(const id of r.unlocked){const item=CKCollection.items.find(i=>i.id===id);productEvent('challenge_completed',{roundId:G.roundId,rewardType:productRewardType(item?.kind)});}}return r;}
 function campaignCollectionReward(result,save){if(!result.won)return;const milestones=[];if(result.id==='steve')milestones.push('steve-rescue');if(CKCampaign.nodes.filter(n=>!n.optional).every(n=>save.results[n.id]&&save.results[n.id].spoons[0]))milestones.push('rice-chapter');awardCollection((result.roundId||G.roundId)+':encounter',milestones);}
 function showCollectionReward(panel,unlocks=collectionUnlocks){if(!panel)return;let box=panel.querySelector('.collectionReward');if(!box){box=document.createElement('div');box.className='collectionReward';panel.append(box);}const adapters={...collectionAdapters(),getProfile:()=>loadProfile(1),saveProfile:p=>productEquip(1,p)};CKCollectionUI.reward(box,adapters,unlocks);let podium=panel.querySelector('.collectionPodium');if(!podium){podium=document.createElement('canvas');podium.width=180;podium.height=150;podium.className='collectionPodium';podium.setAttribute('aria-label','Your result costume and victory pose');panel.append(podium);} }
@@ -2996,7 +3130,7 @@ function buildWardrobe(){ const lists={helm:HELMS,visor:['closed','open'],plume:
  $('wardRand').onclick=()=>{ saveProfile(wardWho,{visor:loadProfile(wardWho).visor,helm:pick(HELMS),plume:pick(PLUMES),metal:pick(METAL_KEYS),emblem:pick(EMBLEMS),color:pick(FFA_COLS)}); syncWardrobe(); };
  $('wardName').addEventListener('input',()=>{ if(wardWho===1){ $('nameIn').value=$('wardName').value; try{ localStorage.setItem('ck-name',$('wardName').value.trim().slice(0,14)); }catch(e){} } else { try{ localStorage.setItem('ck-name'+wardWho,$('wardName').value.trim().slice(0,14)); }catch(e){} } });
 }
-function syncWardrobe(){ if(collectionUI)collectionUI.refresh();const pr=loadProfile(wardWho); document.querySelectorAll('.seg[data-w]').forEach(seg=>{ const k=seg.dataset.w; seg.querySelectorAll('button').forEach(b=>{ const v=b.dataset.v, ok=k==='who'||owned(k,v); b.setAttribute('aria-pressed',String(k==='who'?+b.dataset.v===wardWho:v===pr[k])); b.classList.toggle('locked',!ok); if(k!=='who'){ const base=k==='color'?(COLOR_NAMES[v]||v):(NICE[v]||v); if(k==='color'){ b.title=ok?base:base+' (unlocks at '+lockText(k,v)+')'; } else b.textContent=ok?base:base+' · '+lockText(k,v); } }); });
+function syncWardrobe(){ if(collectionUI)collectionUI.refresh();const pr=loadProfile(wardWho); document.querySelectorAll('.seg[data-w]').forEach(seg=>{ const k=seg.dataset.w; seg.querySelectorAll('button').forEach(b=>{ const v=b.dataset.v, ok=k==='who'||owned(k,v); b.setAttribute('aria-pressed',String(k==='who'?+b.dataset.v===wardWho:v===pr[k])); b.classList.toggle('locked',!ok); if(k!=='who'){ const base=k==='color'?(COLOR_NAMES[v]||v):(NICE[v]||v); if(k==='color'){ b.title=ok?base:base+' (unlocks at '+lockText(k,v)+')'; } else { b.textContent=base; if(!ok){ const r=document.createElement('small'); r.className='req'; r.textContent=lockText(k,v); b.append(' ',r); } } } }); });
  const t=tierOf(), next=t<TRACK.length?TIER_COST*(t+1)-PROG.earned:0; $('wardProg').textContent=`Custard Coins earned: ${PROG.earned}. Tier ${t} of ${TRACK.length}.`+(next?` ${next} more coins unlock ${NICE[TRACK[t][1]]||COLOR_NAMES[TRACK[t][1]]||TRACK[t][1]} (${TRACK[t][0]}).`:' Everything on the track is yours.');
  $('wardCh').textContent='Challenges: '+Object.entries(CHALLENGES).map(([k,c])=>`${c.text} (${Math.min(c.goal,PROG.ch[k]||0)}/${c.goal})`).join(' · ');
  let n=''; try{ n=localStorage.getItem(wardWho===1?'ck-name':'ck-name'+wardWho)||''; }catch(e){} $('wardName').value=n; $('wardName').placeholder=wardWho===1?"Your knight's name":`Player ${wardWho}'s name`; }
@@ -3018,9 +3152,13 @@ function drawHero(){ const c=$('heroCv'); if(!c||$('menu').hidden||!G) return; c
   heroMain.face=Math.PI/2+Math.sin(t*.45)*.7; if(t%5<.02&&heroMain.swing<=0){ heroMain.swing=.22; heroMain.hitSet=[]; } heroMain.blocking=(t%9)>7.6; step(heroMain); drawKnight(heroMain);
  }finally{ ctx=keep; }
  if(++heroFrame%30===0){ let n=''; try{ n=localStorage.getItem('ck-name')||''; }catch(e){} $('plateName').textContent=n||'Your knight'; const tr=tierOf(), nxt=tr<TRACK.length?(PROG.earned-tr*TIER_COST)/TIER_COST:1; $('plateTier').textContent=`Tier ${tr} of ${TRACK.length} · ${PROG.earned} Custard Coins`; $('plateBar').style.width=Math.round(nxt*100)+'%'; } }
-function drawWardrobe(){ const c=$('wardCv'); if(!c||$('wardrobe').hidden||!G) return; const pr=loadProfile(wardWho), px=c.getContext('2d'); px.setTransform(1,0,0,1,0,0); px.fillStyle='#5FA84E'; px.fillRect(0,0,600,600);
- px.fillStyle='rgba(0,0,0,.08)'; for(let i=0;i<8;i++)for(let j=0;j<8;j++) if((i+j)%2) px.fillRect(i*75,j*75,75,75);
- px.setTransform(6.2,0,0,6.2,0,0); const e=wardEnt; e.x=48.4; e.y=61; e.kit={helm:pr.helm,plume:pr.plume,metal:pr.metal,visor:pr.visor}; e.emblem=pr.emblem; e.color=pr.color; e.cape=pr.cape; e.blade=pr.blade;e.pose=pr.pose; e.chickSkin=pr.chick; e.chick=(G.clock%14)>11; e.plume=pr.color===CUST?PINK:CUST; e.face=G.clock*.7; const ph=G.clock%5; if(ph<.22&&e.swing<=0){ e.swing=.22; e.hitSet=[]; e.swingKind='light'; e.swingDur=.22; } if(e.swing>0) e.swing-=1/60; e.vx=0; e.vy=0; // turns in place so the preview uses the sharp menu art
+// Spotlit custard stage behind menu knights (wardrobe, couch seats, collection previews).
+function stageBg(px,w,h,floorY=.8){ px.save(); px.setTransform(1,0,0,1,0,0); const g=px.createRadialGradient(w*.5,h*.38,w*.04,w*.5,h*.5,w*.78); g.addColorStop(0,'#7A5BA6'); g.addColorStop(.5,'#45306A'); g.addColorStop(1,'#1E1433'); px.fillStyle=g; px.fillRect(0,0,w,h);
+ const beam=px.createLinearGradient(0,0,0,h*floorY); beam.addColorStop(0,'rgba(255,236,170,.26)'); beam.addColorStop(1,'rgba(255,236,170,.03)'); px.fillStyle=beam; px.beginPath(); px.moveTo(w*.4,0); px.lineTo(w*.6,0); px.lineTo(w*.84,h*floorY); px.lineTo(w*.16,h*floorY); px.closePath(); px.fill();
+ const fy=h*floorY, rx=w*.36, ry=h*.085; px.fillStyle='rgba(20,12,34,.55)'; px.beginPath(); px.ellipse(w*.5,fy+ry*.35,rx*1.04,ry*1.1,0,0,7); px.fill(); const fl=px.createRadialGradient(w*.5,fy,2,w*.5,fy,rx); fl.addColorStop(0,'#FFE58A'); fl.addColorStop(.7,'#F2B92E'); fl.addColorStop(1,'#C98A12'); px.fillStyle=fl; px.beginPath(); px.ellipse(w*.5,fy,rx,ry,0,0,7); px.fill(); px.lineWidth=Math.max(2,w/110); px.strokeStyle='#221733'; px.stroke(); px.fillStyle='rgba(255,255,255,.35)'; px.beginPath(); px.ellipse(w*.42,fy-ry*.35,rx*.38,ry*.22,0,0,7); px.fill();
+ px.fillStyle='rgba(255,236,170,.55)'; for(let i=0;i<14;i++){ const sx=(Math.sin(i*12.9898)*43758.5453%1+1)%1, sy=(Math.sin(i*78.233)*12345.678%1+1)%1, r=w/220*(1+i%3); px.beginPath(); px.arc(w*(.06+sx*.88),h*(.05+sy*.55),r,0,7); px.fill(); } px.restore(); }
+function drawWardrobe(){ const c=$('wardCv'); if(!c||$('wardrobe').hidden||!G) return; const pr=loadProfile(wardWho), px=c.getContext('2d'); stageBg(px,600,600,.73);
+ px.setTransform(6.2,0,0,6.2,0,0); const e=wardEnt; e.x=48.4; e.y=56; e.kit={helm:pr.helm,plume:pr.plume,metal:pr.metal,visor:pr.visor}; e.emblem=pr.emblem; e.color=pr.color; e.cape=pr.cape; e.blade=pr.blade;e.pose=pr.pose; e.chickSkin=pr.chick; e.chick=(G.clock%14)>11; e.plume=pr.color===CUST?PINK:CUST; e.face=G.clock*.7; const ph=G.clock%5; if(ph<.22&&e.swing<=0){ e.swing=.22; e.hitSet=[]; e.swingKind='light'; e.swingDur=.22; } if(e.swing>0) e.swing-=1/60; e.vx=0; e.vy=0; // turns in place so the preview uses the sharp menu art
  const keep=ctx; ctx=px; try{ drawKnight(e); }finally{ ctx=keep; } }
 const music=new Audio('menu-theme.mp3'); music.loop=true; music.preload='auto';
 let musicWant=true, fadeT=null, musicCue='menu',musicBaseVolume=0;

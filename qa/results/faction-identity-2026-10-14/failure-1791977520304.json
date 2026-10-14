@@ -1,0 +1,49 @@
+{
+  "error": "Error: Core, battle UI, protocol and four sprite files unchanged\n    at check (C:\\Users\\Joshua\\Documents\\Codex\\2026-10-08\\rea\\work\\custard-knights-room\\qa\\faction-identity-browser.cjs:6:69)\n    at C:\\Users\\Joshua\\Documents\\Codex\\2026-10-08\\rea\\work\\custard-knights-room\\qa\\faction-identity-browser.cjs:11:2\n    at Object.<anonymous> (C:\\Users\\Joshua\\Documents\\Codex\\2026-10-08\\rea\\work\\custard-knights-room\\qa\\faction-identity-browser.cjs:25:3)\n    at Module._compile (node:internal/modules/cjs/loader:1872:14)\n    at Object..js (node:internal/modules/cjs/loader:2003:10)\n    at Module.load (node:internal/modules/cjs/loader:1594:32)\n    at Module._load (node:internal/modules/cjs/loader:1396:12)\n    at wrapModuleLoad (node:internal/modules/cjs/loader:255:19)\n    at Module.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:154:5)\n    at node:internal/main/run_main_module:33:47",
+  "source": {
+    "index.html": {
+      "before": "9a2a43581faaca572e247b2b1f68999328fda6a323bfa0af094ae0662937d5c5",
+      "after": "e4ec310e7a5f43782c285d6c67e4428cc5a9302382857582bf06a3d2c09b0677"
+    },
+    "game/faction-art.js": {
+      "before": null,
+      "after": "135c06d389a40e51aacd8dce1493bc8a9578283ecb73bf1246a9ccfe0b2b78c0"
+    },
+    "game/mass-battle.js": {
+      "before": "34193621c1044ad1d3fdfcfbc0a93fcd0d8459ac7d5aa6e7fc267582634e988d",
+      "after": "76acfad4d9104ec70a05e514935c6f728b33cecb2fee393a18fd58e30d24ca4e"
+    },
+    "game/mass-battle-ui.js": {
+      "before": "3c9a61f048b80093e633bae2b025cb3e859433088b009d48e943d7895390e46a",
+      "after": "5b944edec7ebab0ff54fab38a34308e8a8123a04290a8eda969f021292b0e260"
+    },
+    "game/mass-battle-wire.js": {
+      "before": "2352b8315e9a675a0387ea780856dd2809d835c82bb144fa5a85d1a6cb96ff22",
+      "after": "25f472a9c4a937dd0606eefee17b369d7fbe16025a17d2413a79b8b1d3962e99"
+    },
+    "sprites/knight.js": {
+      "before": "4759637529cddf971cd2ceedeffea24df20e32464f5e40b80ab70eb03c3ce477",
+      "after": "c19af9f64503f4b41c9c0b43c93d7c4507cef2b488c07c521f9594c9e910c23a"
+    },
+    "sprites/knight-open.js": {
+      "before": "a1ab7f94a0a78a851f42bf175026779295bf4783ce9a6cfddae8b5cd91a0b323",
+      "after": "6ff34f5b062a9570224471c0fece1ce004a4afd1a6f2621e7051f3106a52b165"
+    },
+    "sprites/hero.js": {
+      "before": "9abec3585f471e4665ebb646be73c313326d0c9a997d3105d17c681815b9076b",
+      "after": "7ae5fcdf0fac4235bfd6de961e645aab8e4f6c7db616288dd7a1f772de2c8ec5"
+    },
+    "sprites/hero-open.js": {
+      "before": "00d07fb97bba11d1f8ebe4cc6f30ed3ce564277e71ba82a6f5c39510e4b6e270",
+      "after": "aa9efacb420c6b53bd6748f8bc11156b71952160afe67ef1a1d5f16f934b8737"
+    }
+  },
+  "checks": [
+    {
+      "label": "Core, battle UI, protocol and four sprite files unchanged",
+      "passed": false
+    }
+  ],
+  "errors": [],
+  "captures": []
+}

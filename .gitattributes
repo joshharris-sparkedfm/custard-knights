@@ -16,3 +16,6 @@ qa/homecoming-browser.cjs -text whitespace=cr-at-eol
 qa/reviews/homecoming-2026-10-14.md -text whitespace=cr-at-eol
 qa/results/beta17-desktop/** -text whitespace=cr-at-eol
 qa/results/beta17-packaged-homecoming/** -text whitespace=cr-at-eol
+qa/results/faction-identity-2026-10-14/** -text whitespace=cr-at-eol
+qa/faction-identity*.cjs -text whitespace=cr-at-eol,-blank-at-eof
+qa/reviews/faction-identity-2026-10-14.md -text whitespace=cr-at-eol

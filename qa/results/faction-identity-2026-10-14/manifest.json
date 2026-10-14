@@ -1,0 +1,123 @@
+{
+  "created": "2026-10-14T11:35:07.324Z",
+  "candidate": "0b3d2c69adcedac51a7786c71043afd4bcd54743",
+  "base": "5899a2eb759f02d04144dcdc3384e79ffcbcff42",
+  "runtimeSource": {
+    "index.html": {
+      "before": "9a2a43581faaca572e247b2b1f68999328fda6a323bfa0af094ae0662937d5c5",
+      "after": "e4ec310e7a5f43782c285d6c67e4428cc5a9302382857582bf06a3d2c09b0677",
+      "beforeLF": "9a2a43581faaca572e247b2b1f68999328fda6a323bfa0af094ae0662937d5c5",
+      "afterLF": "e4ec310e7a5f43782c285d6c67e4428cc5a9302382857582bf06a3d2c09b0677"
+    },
+    "game/faction-art.js": {
+      "before": null,
+      "after": "135c06d389a40e51aacd8dce1493bc8a9578283ecb73bf1246a9ccfe0b2b78c0",
+      "beforeLF": null,
+      "afterLF": "3f98db2747212b4864786b6542db8134e113734293554c0a42b8a900a55f5ce9"
+    },
+    "game/mass-battle.js": {
+      "before": "34193621c1044ad1d3fdfcfbc0a93fcd0d8459ac7d5aa6e7fc267582634e988d",
+      "after": "76acfad4d9104ec70a05e514935c6f728b33cecb2fee393a18fd58e30d24ca4e",
+      "beforeLF": "34193621c1044ad1d3fdfcfbc0a93fcd0d8459ac7d5aa6e7fc267582634e988d",
+      "afterLF": "34193621c1044ad1d3fdfcfbc0a93fcd0d8459ac7d5aa6e7fc267582634e988d"
+    },
+    "game/mass-battle-ui.js": {
+      "before": "3c9a61f048b80093e633bae2b025cb3e859433088b009d48e943d7895390e46a",
+      "after": "5b944edec7ebab0ff54fab38a34308e8a8123a04290a8eda969f021292b0e260",
+      "beforeLF": "3c9a61f048b80093e633bae2b025cb3e859433088b009d48e943d7895390e46a",
+      "afterLF": "3c9a61f048b80093e633bae2b025cb3e859433088b009d48e943d7895390e46a"
+    },
+    "game/mass-battle-wire.js": {
+      "before": "2352b8315e9a675a0387ea780856dd2809d835c82bb144fa5a85d1a6cb96ff22",
+      "after": "25f472a9c4a937dd0606eefee17b369d7fbe16025a17d2413a79b8b1d3962e99",
+      "beforeLF": "2352b8315e9a675a0387ea780856dd2809d835c82bb144fa5a85d1a6cb96ff22",
+      "afterLF": "2352b8315e9a675a0387ea780856dd2809d835c82bb144fa5a85d1a6cb96ff22"
+    },
+    "sprites/knight.js": {
+      "before": "4759637529cddf971cd2ceedeffea24df20e32464f5e40b80ab70eb03c3ce477",
+      "after": "c19af9f64503f4b41c9c0b43c93d7c4507cef2b488c07c521f9594c9e910c23a",
+      "beforeLF": "4759637529cddf971cd2ceedeffea24df20e32464f5e40b80ab70eb03c3ce477",
+      "afterLF": "4759637529cddf971cd2ceedeffea24df20e32464f5e40b80ab70eb03c3ce477"
+    },
+    "sprites/knight-open.js": {
+      "before": "a1ab7f94a0a78a851f42bf175026779295bf4783ce9a6cfddae8b5cd91a0b323",
+      "after": "6ff34f5b062a9570224471c0fece1ce004a4afd1a6f2621e7051f3106a52b165",
+      "beforeLF": "a1ab7f94a0a78a851f42bf175026779295bf4783ce9a6cfddae8b5cd91a0b323",
+      "afterLF": "a1ab7f94a0a78a851f42bf175026779295bf4783ce9a6cfddae8b5cd91a0b323"
+    },
+    "sprites/hero.js": {
+      "before": "9abec3585f471e4665ebb646be73c313326d0c9a997d3105d17c681815b9076b",
+      "after": "7ae5fcdf0fac4235bfd6de961e645aab8e4f6c7db616288dd7a1f772de2c8ec5",
+      "beforeLF": "9abec3585f471e4665ebb646be73c313326d0c9a997d3105d17c681815b9076b",
+      "afterLF": "9abec3585f471e4665ebb646be73c313326d0c9a997d3105d17c681815b9076b"
+    },
+    "sprites/hero-open.js": {
+      "before": "00d07fb97bba11d1f8ebe4cc6f30ed3ce564277e71ba82a6f5c39510e4b6e270",
+      "after": "aa9efacb420c6b53bd6748f8bc11156b71952160afe67ef1a1d5f16f934b8737",
+      "beforeLF": "00d07fb97bba11d1f8ebe4cc6f30ed3ce564277e71ba82a6f5c39510e4b6e270",
+      "afterLF": "00d07fb97bba11d1f8ebe4cc6f30ed3ce564277e71ba82a6f5c39510e4b6e270"
+    }
+  },
+  "helperSha256": {
+    "qa/faction-identity-browser.cjs": "907e06982634e7c73ff402dd8a275bfd3e81261501be434c8239c956795e9e2a",
+    "qa/faction-identity-dense.cjs": "0ac872e15f141986967521306e4d4fd545dc44bab383c282de29171f8cecc856"
+  },
+  "evidenceSha256": {
+    "capes-closed-grayscale.png": "1025446471f0058334486d372170464becfd2889fb127926f52ae3cd590918bd",
+    "capes-closed.png": "ddd6ef8e25b5cc50ac860dbaba975141882e7c6e326d9b5d43cd6b792a5ef6bc",
+    "capes-open-grayscale.png": "4df991a6f5eeed3a7e3fe369ac54aaf1324e730edc578505b9d95a84e8d484f2",
+    "capes-open.png": "a349c1b747365de076975351fe6323f885913d906f358b4a5991f5b711948106",
+    "checks.json": "f07653d974bd7f9cb1c4b79f52cce1c1bf07ec87b7205cabd8d2604a5ebd0969",
+    "ci-summary.json": "32c82480fc698252a719817dc5a86a3206d08d6a77496c3086a9a4efefb24e1c",
+    "crowd-20v20-grayscale.png": "8292fc97a22c803441af59a095d70e2af8ef5363f5c67fafcb44e26a027a90c0",
+    "crowd-20v20.png": "7edc585207fe743a16ac32a4cc4b676d15a91ad2fbfed34165f25ffd47671da8",
+    "crowd-4v4-grayscale.png": "b30788fb98606cd52fec8bcca58876f112444e0370f99f554899c613a4248961",
+    "crowd-4v4.png": "1b51db950b48d2aa2f9197b812093d333730783109df97f3ca5f5920dc9b261a",
+    "crowd-50v50-grayscale.png": "1f84381caf9abbc528a17c8ae0999c2b348071b9558af65d1769fd91903a1052",
+    "crowd-50v50.png": "9624f268643199e2d51b4363aa3c09743ca2744067d23eea034f60564a14b4ea",
+    "dense-20v20-grayscale.png": "aca2eb3e56e3d3f9123b5dee35dc8c664520f59db04573560473549f63caa8f7",
+    "dense-20v20.png": "c43093d35654a91c1507ed5248dac825860c20117511c2a534c8aee312f030a1",
+    "dense-4v4-grayscale.png": "5f032f34da330f87110eacc9efe2764fdae5e04eec975fcd28cf71f1253cf3dd",
+    "dense-4v4.png": "b0be45fafaced08dbf880145f8eca757feb6fb67a60cbe2b32a3cfd898d9bb00",
+    "dense-50v50-grayscale.png": "17e6bca05765d19e5d1c98cbc630754887e7b1b8562598421ace3e22f22d7f78",
+    "dense-50v50.png": "2871207a43f9dccc64aa14d4189dbf27cbdbfc3fa478f844c461612421289c88",
+    "dense-capes-checks.json": "27eaea065e9ae242d268029c5ea58b411f652d5c8400589e5ea227adc6f36c8d",
+    "dense-failure-1791977622577.json": "1656be79527d9ec9413520dc349fcfbd6dbec2f49a1f65125178e8c1b4104601",
+    "failure-1791977520304.json": "cf2361e0223e7b0e934ec1468a82f422a9cf84772382e5974dc5aaa33a495c84",
+    "README.md": "bce3818cabbaf486a5c02bc15dc5772f5dad1ccf228e385c36dcd2e2020937f3",
+    "sheet-closed-actual-grayscale.png": "778909e147facd9bf7695fa58bc82a9e6a3117339dfca9a859523d0941944dda",
+    "sheet-closed-actual.png": "60d95cef402b733f4b8c7dd7b9ffaac0cf2a92e269cbfb2e86b26165114d56ab",
+    "sheet-closed-detail-grayscale.png": "38722b41790144e35c0825f1c0a90f5aa19377bdcdf718bf329286aabd114a30",
+    "sheet-closed-detail.png": "b0e77a5ee61268b4e26a8d38f3babe70bb84bec881eedf45645b98ae7d26f2a4",
+    "sheet-open-actual-grayscale.png": "0f4bd0dffd341508f52bcc74c5831a6e536e0d5ca6ce263e63d7145ab5eab911",
+    "sheet-open-actual.png": "6142973fb4f810fa21860db723f1c7ce57e4541fb503195a0d4de3505d64c076",
+    "sheet-open-detail-grayscale.png": "5e59f5dbde6f15d955da5588566b7be0092afc550b1eeaa5753cb8d890689c43",
+    "sheet-open-detail.png": "4582bcdaed8d2f1ac0a39492179069620aaf57ab4f86a27da1c1d519a95191eb",
+    "unit-checks.txt": "46a5b92117e4f0955da1ab30ed2cb8f3bced7dcf12a3a59060fa1ac3d650d5c5"
+  },
+  "indexDiff": "diff --git a/index.html b/index.html\nindex 34fa5fe..17d4fbd 100644\n--- a/index.html\n+++ b/index.html\n@@ -530,6 +530,7 @@ body[data-input=pad] :is(button,.card,.tile,input,select):focus{outline:4px soli\n <script src=\"game/online-recovery.js\"></script>\n <script src=\"game/collection.js\"></script>\n <script src=\"game/collection-art.js\"></script>\n+<script src=\"game/faction-art.js\"></script>\n <script src=\"game/collection-ui.js\"></script>\n <script src=\"game/warnings.js\"></script>\n <script src=\"game/bakery-opening.js\"></script>\n@@ -2079,6 +2080,7 @@ function drawKnight(e){\n  }\n  if(isChicken(e)){ if(!(useSprites()&&drawChickenSprite(e,r,moving,bob))) drawChicken(e,r,bob); ctx.restore(); return; }\n  combatPose(e,r);\n+ if(e.faction)CKFactionArt.drawBack(ctx,e,r,{bob:bob*(useSprites()?.3:1)});\n  CKCollectionArt.pose(ctx,e,r,G.clock,G.over||e.collectionPreview);CKCollectionArt.drawBack(ctx,e,r,G.clock);\n  if(useSprites()){ const ride=!!e.fx.steve, lift=ride?r*1.55:0;\n   if(ride) drawSteve(e,r,fx,moving);\n@@ -3462,7 +3464,7 @@ if(window.CKMassBattle&&window.CKMassBattleUI){\n    const profile=p.appearance||(p.local?loadProfile(1):{}),role=p.role||'vanguard';\n    const elapsed=p.elapsed||0,previous=massBattleWalk.get(p.id),walk=previous&&elapsed>=previous.time?previous.walk+Math.hypot(p.vx||0,p.vy||0)*Math.min(.1,elapsed-previous.time)*.055:0;\n    massBattleWalk.set(p.id,{time:elapsed,walk});\n-   const e=mkKnight({factionSpriteCache:true,id:Number(String(p.id).split('-').pop())||0,color:p.teamColor,team:p.team==='custardia'?'red':'blue',human:p.local?1:0,\n+   const e=mkKnight({factionSpriteCache:true,faction:p.team,id:Number(String(p.id).split('-').pop())||0,color:p.teamColor,team:p.team==='custardia'?'red':'blue',human:p.local?1:0,\n     face:attack?attack.angle:p.angle||0,vx:p.vx||0,vy:p.vy||0,walk,\n     kit:{helm:profile.helm||(role==='engineer'?'kettle':role==='support'?'sallet':'great'),plume:profile.plume||'feather',metal:profile.metal||'steel',visor:p.visor||profile.visor||'closed'},\n     cape:profile.cape||'plain',blade:profile.blade||'steel',emblem:profile.emblem||'star',\n",
+  "successfulReports": [
+    {
+      "file": "checks.json",
+      "created": "2026-10-14T11:32:23.252Z",
+      "checks": 12,
+      "passed": true,
+      "exceptions": 0
+    },
+    {
+      "file": "dense-capes-checks.json",
+      "created": "2026-10-14T11:34:03.188Z",
+      "checks": 11,
+      "passed": true,
+      "exceptions": 0
+    }
+  ],
+  "scope": "Focused scripted renderer/crowd/cape compatibility; no human recognition or role silhouette acceptance.",
+  "unitTranscript": {
+    "file": "unit-checks.txt",
+    "provenance": "Implementation worker transcript reconstruction, explicitly labeled; no rerun",
+    "initial": "2 pass / 1 test-regex false-positive failure",
+    "final": "3 pass / 0 fail; syntax parsed"
+  },
+  "updated": "2026-10-14T11:36:46.918Z"
+}

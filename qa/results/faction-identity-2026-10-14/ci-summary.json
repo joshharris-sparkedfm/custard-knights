@@ -1,0 +1,286 @@
+{
+  "sourceCommit": "0b3d2c69adcedac51a7786c71043afd4bcd54743",
+  "runId": 38557205191,
+  "url": "https://github.com/joshharris-sparkedfm/custard-knights/actions/runs/38557205191",
+  "conclusion": "success",
+  "attempt": 1,
+  "jobs": [
+    {
+      "id": 115829185881,
+      "name": "server (windows-latest)",
+      "status": "completed",
+      "conclusion": "success",
+      "startedAt": "2026-10-14T11:31:50Z",
+      "completedAt": "2026-10-14T11:33:55Z",
+      "steps": [
+        {
+          "name": "Set up job",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020",
+          "conclusion": "success"
+        },
+        {
+          "name": "Install server dependency only",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run full unit suite",
+          "conclusion": "success"
+        },
+        {
+          "name": "Exercise 100 active loopback clients for 60 seconds",
+          "conclusion": "success"
+        },
+        {
+          "name": "Recover journal after an abrupt process exit",
+          "conclusion": "success"
+        },
+        {
+          "name": "Retain passes and failures",
+          "conclusion": "success"
+        },
+        {
+          "name": "Post Run actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020",
+          "conclusion": "success"
+        },
+        {
+          "name": "Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262",
+          "conclusion": "success"
+        },
+        {
+          "name": "Complete job",
+          "conclusion": "success"
+        }
+      ]
+    },
+    {
+      "id": 115829186129,
+      "name": "core (ubuntu-latest, 24)",
+      "status": "completed",
+      "conclusion": "success",
+      "startedAt": "2026-10-14T11:31:49Z",
+      "completedAt": "2026-10-14T11:32:27Z",
+      "steps": [
+        {
+          "name": "Set up job",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run dependency-free shared simulation assertions",
+          "conclusion": "success"
+        },
+        {
+          "name": "Retain passes and failures",
+          "conclusion": "success"
+        },
+        {
+          "name": "Post Run actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020",
+          "conclusion": "success"
+        },
+        {
+          "name": "Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262",
+          "conclusion": "success"
+        },
+        {
+          "name": "Complete job",
+          "conclusion": "success"
+        }
+      ]
+    },
+    {
+      "id": 115829186141,
+      "name": "server (ubuntu-latest)",
+      "status": "completed",
+      "conclusion": "success",
+      "startedAt": "2026-10-14T11:31:50Z",
+      "completedAt": "2026-10-14T11:33:28Z",
+      "steps": [
+        {
+          "name": "Set up job",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020",
+          "conclusion": "success"
+        },
+        {
+          "name": "Install server dependency only",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run full unit suite",
+          "conclusion": "success"
+        },
+        {
+          "name": "Exercise 100 active loopback clients for 60 seconds",
+          "conclusion": "success"
+        },
+        {
+          "name": "Recover journal after an abrupt process exit",
+          "conclusion": "success"
+        },
+        {
+          "name": "Retain passes and failures",
+          "conclusion": "success"
+        },
+        {
+          "name": "Post Run actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020",
+          "conclusion": "success"
+        },
+        {
+          "name": "Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262",
+          "conclusion": "success"
+        },
+        {
+          "name": "Complete job",
+          "conclusion": "success"
+        }
+      ]
+    },
+    {
+      "id": 115829186177,
+      "name": "core (ubuntu-latest, 22)",
+      "status": "completed",
+      "conclusion": "success",
+      "startedAt": "2026-10-14T11:31:49Z",
+      "completedAt": "2026-10-14T11:32:21Z",
+      "steps": [
+        {
+          "name": "Set up job",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run dependency-free shared simulation assertions",
+          "conclusion": "success"
+        },
+        {
+          "name": "Retain passes and failures",
+          "conclusion": "success"
+        },
+        {
+          "name": "Post Run actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020",
+          "conclusion": "success"
+        },
+        {
+          "name": "Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262",
+          "conclusion": "success"
+        },
+        {
+          "name": "Complete job",
+          "conclusion": "success"
+        }
+      ]
+    },
+    {
+      "id": 115829186224,
+      "name": "core (windows-latest, 24)",
+      "status": "completed",
+      "conclusion": "success",
+      "startedAt": "2026-10-14T11:31:50Z",
+      "completedAt": "2026-10-14T11:32:25Z",
+      "steps": [
+        {
+          "name": "Set up job",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run dependency-free shared simulation assertions",
+          "conclusion": "success"
+        },
+        {
+          "name": "Retain passes and failures",
+          "conclusion": "success"
+        },
+        {
+          "name": "Post Run actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020",
+          "conclusion": "success"
+        },
+        {
+          "name": "Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262",
+          "conclusion": "success"
+        },
+        {
+          "name": "Complete job",
+          "conclusion": "success"
+        }
+      ]
+    },
+    {
+      "id": 115829186322,
+      "name": "core (windows-latest, 22)",
+      "status": "completed",
+      "conclusion": "success",
+      "startedAt": "2026-10-14T11:31:49Z",
+      "completedAt": "2026-10-14T11:32:29Z",
+      "steps": [
+        {
+          "name": "Set up job",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run dependency-free shared simulation assertions",
+          "conclusion": "success"
+        },
+        {
+          "name": "Retain passes and failures",
+          "conclusion": "success"
+        },
+        {
+          "name": "Post Run actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020",
+          "conclusion": "success"
+        },
+        {
+          "name": "Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262",
+          "conclusion": "success"
+        },
+        {
+          "name": "Complete job",
+          "conclusion": "success"
+        }
+      ]
+    }
+  ],
+  "limits": "Hosted portability/unit/server checks do not establish human visual readability, physical devices, WAN or Steam acceptance."
+}

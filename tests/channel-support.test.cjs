@@ -16,3 +16,11 @@ test('bridge and support theatre replace the examination with the actionable coo
  assert.match(S.scenes.stirling.intro.cues.map(c=>c.text).join(' '),/north lane.*tool cart.*shield raider.*hold the tools/i);
  assert.deepEqual(C.byId.stirling.requires,['bridge']);assert.equal(C.checkpointLabel({id:'stirling',phase:1}),'Clear service access');assert.equal(C.checkpointLabel({id:'stirling',phase:2}),'Hold the tools');
 });
+test('Steve service scenery keeps the traversable arena unchanged and points food motivation at the bowl winch',()=>{
+ const g=arena(),before=JSON.stringify(g.grid),labels=[],calls=[];let depth=0;
+ const ctx=new Proxy({}, {get(target,key){if(key in target)return target[key];return (...args)=>{for(const a of args)if(typeof a==='number')assert.ok(Number.isFinite(a));if(key==='save')depth++;if(key==='restore')assert.ok(--depth>=0);if(key==='fillText')labels.push(args[0]);calls.push(key);};}});
+ const r={node:{id:'steve'},g,route:0,cage:{c:9,r:8,x:380,y:420},gates:[{x:580,y:300,r:65},{x:820,y:540,r:65},{x:1100,y:440,r:75}]};g.grid[8][9]='x';const closed=JSON.stringify(g.grid);H.scenery(ctx,r);H.draw(ctx,r);assert.equal(JSON.stringify(g.grid),closed);assert.equal(depth,0);assert.ok(calls.includes('ellipse'));assert.ok(labels.includes('MABEL’S BAKERY SCRAPS'));assert.ok(labels.includes('SIEGE BOWL'));assert.ok(labels.includes('WINCH'));
+ g.grid[8][9]='.';assert.equal(JSON.stringify(g.grid),before);H.scenery(ctx,r);H.draw(ctx,r);assert.equal(depth,0);assert.equal(JSON.stringify(g.grid),before);
+ for(const phase of ['intro','outro']){const text=S.scenes.steve[phase].cues.map(c=>c.text).join(' ');assert.match(text,/bakery scraps/i);assert.match(text,/winch/i);assert.doesNotMatch(text,/banners|fortress|dawn of time/i);}
+ assert.match(C.byId.steve.objective,/service gates.*siege-bowl winch/);assert.deepEqual(C.byId.steve.requires,['stirling']);
+});

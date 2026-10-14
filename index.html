@@ -1420,7 +1420,7 @@ function update(dt){
   for(const k in e.fx){ if(k==='big')continue; e.fx[k]-=dt; if(e.fx[k]<=0){ delete e.fx[k]; if(e.lvl) delete e.lvl[k]; if(k==='shield') e.shieldN=0; } }
   if(e.fx.regen){ e.regenT=(e.regenT||0)+dt; if(e.regenT>=6){ e.regenT=0; if(e.hp<maxHp(e)){ e.hp++; floater(e.x,e.y-50,'+1',CUST); burst(e.x,e.y-10,8,[CUST,CREAM],160); sfx('potion'); } } }
   if(e.hp>maxHp(e)) e.hp=maxHp(e);
-  let inp=e.human?humanInput(e.human,e):botInput(e,dt);if(e.human&&G.quietStory&&ADVENTURE)inp=ADVENTURE.playerInput(inp);if(e.human&&isMine(e)&&!G.quietStory)productControls(e,inp);
+  let inp=e.human?humanInput(e.human,e):botInput(e,dt);if(e.human&&G.campaign&&ADVENTURE)inp=ADVENTURE.playerInput(inp);if(e.human&&isMine(e)&&!G.quietStory)productControls(e,inp);
   let {mx,my}=inp;
   if(mirror&&G.ev.owner!==e){mx=-mx;my=-my}
   if(e.stun>0){ mx=my=0; inp.atk=false; inp.dash=false; inp.block=false; }

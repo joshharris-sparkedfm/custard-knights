@@ -126,9 +126,13 @@ test('Rind defeat leads to a real safe cut, then visible guard-clear/support mov
  h.c.event('crate',{c:22,r:8,destroyed:false});h.c.event('crate',{c:22,r:8,destroyed:true});assert.equal(h.c.run.rescue.freed,false,'a story/event call cannot replace actual tile destruction');assert.equal(h.finished.length,0);
  h.g.grid[8][22]='.';h.c.event('crate',{c:22,r:8,destroyed:true});assert.equal(h.c.run.rescue.freed,true);assert.equal(h.c.run.status,'playing');assert.equal(h.finished.length,0);const guardX=h.c.run.rescue.guard.x;
  h.tick(.5);assert.ok(h.c.run.rescue.guard.x>guardX);assert.equal(h.c.run.rescue.rind.supporting,false);assert.equal(h.finished.length,0);
- h.tick(2.4);assert.equal(h.finished[0].won,true);assert.equal(h.c.run.rescue.settled,true);assert.equal(h.c.run.rescue.rind.supporting,true);assert.equal(h.g.campaignRescuePaused,false);assert.equal(h.c.run.rescue.guard.x,980);h.c.event('crate',{c:22,r:8,destroyed:true});h.c.finish(true);assert.equal(h.finished.length,1);
+ h.tick(2.4);assert.equal(h.c.run.phase,3);assert.equal(h.c.run.rescue.settled,true);assert.equal(h.c.run.rescue.rind.supporting,true);assert.equal(h.g.campaignRescuePaused,false);assert.deepEqual(h.c.save.checkpoint,{id:'rind',phase:3});assert.equal(h.finished.length,0);assert.equal(h.c.finish(true),null);completeFinale(h);assert.equal(h.finished[0].won,true);h.c.finish(true);assert.equal(h.finished.length,1);
 });
-test('boss and support checkpoint resume reset scripts and cannot earn full-run flawless spoon',()=>{for(const id of ['rind','stirling']){const h=harness(id);const s={...h.c.save,checkpoint:{id,phase:1}};h.c.restore(s);const g={roundId:'resume',ents:[h.api.makeKnight({id:0,human:1})],flows:new Map()};h.c.begin(id,g,h.api,true);assert.equal(h.c.run.phase,1);assert.equal(h.c.run.resumed,true);h.c.finish(true);assert.equal(h.finished[0].spoons[2],false);}});
+test('boss and support checkpoint resume reset scripts and cannot earn full-run flawless spoon',()=>{
+ for(const id of ['rind','stirling']){const h=harness(id);h.c.restore({...h.c.save,checkpoint:{id,phase:1}});const g={roundId:'resume',ents:[h.api.makeKnight({id:0,human:1})],flows:new Map()};h.c.begin(id,g,h.api,true);assert.equal(h.c.run.phase,1);assert.equal(h.c.run.resumed,true);
+  if(id==='rind'){const live={...h,g,p:g.ents[0],tick(t){g.time-=t;h.c.tick(t);}};h.c.run.boss.dead=true;h.c.event('ko',{v:h.c.run.boss.id,a:0,src:'heavy'});openPantry(live);live.tick(3);completeFinale(live);}else h.c.finish(true);assert.equal(h.finished[0].spoons[2],false);
+ }
+});
 test('rescue checkpoint resumes with marked living skin and no boss replay',()=>{const h=harness('rind');h.c.restore({...h.c.save,checkpoint:{id:'rind',phase:2}});const g={roundId:'resume-rescue',ents:[h.api.makeKnight({id:0,human:1})],flows:new Map()};h.c.begin('rind',g,h.api,true);assert.equal(h.c.run.phase,2);assert.equal(g.grid[8][22],'x');assert.ok(g.ents.slice(1).every(e=>e.dead));assert.equal(g.campaignRescuePaused,true);assert.deepEqual({x:g.ents[0].x,y:g.ents[0].y},{x:720,y:520});assert.equal(h.c.run.rescue.guard.name,C.crossingGuard.name);assert.equal(h.c.run.rescue.freed,false);assert.equal(h.finished.length,0);});
 test('assistance modifies only campaign health and authored timing',()=>{const h=harness('rind');h.c.assist(true);const g={roundId:'assist',ents:[h.api.makeKnight({id:0,human:1})],flows:new Map()};h.c.begin('rind',g,h.api);assert.equal(g.ents[0].campaignMaxHp,5);h.c.tick(2.5);assert.equal(h.c.run.boss.timer,1.5);h.c.tick(1.6);assert.equal(h.c.run.boss.timer,3.8);});
 test('replaying another node never erases an unfinished boss checkpoint',()=>{const h=harness('banquet');h.c.restore({...h.c.save,checkpoint:{id:'rind',phase:1}});h.c.finish(true);assert.deepEqual(h.c.save.checkpoint,{id:'rind',phase:1});const g={roundId:'replay',ents:[h.api.makeKnight({id:0,human:1})],flows:new Map()};h.c.begin('banquet',g,h.api,false);h.c.finish(false);assert.deepEqual(h.c.save.checkpoint,{id:'rind',phase:1});assert.equal(h.c.run.result.checkpoint,null);});
@@ -163,5 +167,40 @@ test('engine countdown skip is scoped to campaign rescue and never changes ordin
  const guard=source.match(/if\(!G\.quietStory[^;]*G\.time-=dt;/)[0];
  for(const campaign of [false,true])for(const paused of [false,true])for(const quiet of [false,true]){
   const state={G:{quietStory:quiet,campaign,campaignRescuePaused:paused,time:100},dt:1};vm.runInNewContext(guard,state);assert.equal(state.G.time,quiet||campaign&&paused?100:99);
+ }
+});
+
+function completeFinale(h){
+ const f=h.c.run.finale;h.g.grid[f.jam.r][f.jam.c]='.';h.c.event('crate',{c:f.jam.c,r:f.jam.r,destroyed:true});bonkEnemies(h);h.tick(3);Object.assign(h.p,f.winch);h.c.playerInput({atk:false,mx:0,my:0});h.c.playerInput({atk:true,mx:0,my:0});h.tick(4);assert.equal(f.diverting,true);assert.equal(h.c.run.status,'playing');h.tick(2);
+}
+function phaseThree(){const h=harness('rind');const save={...h.c.save,results:{...h.c.save.results},checkpoint:{id:'rind',phase:3}};delete save.results.rind;h.c.restore(save);h.c.begin('rind',h.g,h.api,true);return h;}
+test('checkpoint allowlist admits only Rind3 and reconstructs the intact finale before any boss branch',()=>{
+ for(const id of ['stirling','rind','guard','__proto__'])for(const phase of [0,1,2,3,4,'3']){const cp=C.normalize({checkpoint:{id,phase}}).checkpoint;assert.equal(!!cp,(id==='stirling'&&[1,2].includes(phase))||(id==='rind'&&[1,2,3].includes(phase)));}
+ const h=phaseThree();assert.equal(h.c.run.phase,3);assert.equal(h.c.run.boss,null);assert.equal(h.g.grid[8][22],'.');assert.equal(h.c.run.rescue.freed,true);assert.equal(h.c.run.finale.jammed,true);assert.equal(h.c.run.finale.toolsReady,true);assert.equal(h.g.time,120);assert.equal(h.p.hp,3);assert.equal(h.c.run.resumed,true);assert.equal(h.c.run.guardsHit,0);assert.equal(h.c.run.hits,0);assert.equal(h.finished.length,0);assert.equal(C.checkpointLabel(h.c.save.checkpoint),'Divert the siege bowl');
+ h.c.restore({...h.c.save,assist:true});h.c.begin('rind',h.g,h.api,true);assert.equal(h.p.hp,5);assert.equal(h.g.time,120);
+ const completed={...h.c.save,results:{...h.c.save.results,rind:{spoons:[true,true,true],attempts:4,best:90}}};assert.equal(C.merge(completed,completed).checkpoint,null);
+});
+test('winch requires real jam cut, a released then held Swing, supplied tools and an uncontested circle',()=>{
+ const h=phaseThree(),f=h.c.run.finale;Object.assign(h.p,f.winch);h.c.playerInput({atk:true});h.tick(5);assert.equal(f.hold,0);assert.equal(f.diverting,false);assert.equal(h.c.finish(true),null);assert.equal(h.finished.length,0);assert.equal(h.c.save.results.rind,undefined);
+ h.c.event('crate',{c:f.jam.c,r:f.jam.r,destroyed:true});assert.equal(f.jammed,true);h.g.grid[f.jam.r][f.jam.c]='.';h.c.event('crate',{c:f.jam.c,r:f.jam.r,destroyed:true});assert.equal(f.jammed,false);h.c.playerInput({atk:true});h.tick(5);assert.equal(f.hold,0);
+ bonkEnemies(h);h.tick(.01);h.c.playerInput({atk:false});h.c.playerInput({atk:true,mx:1});h.tick(2);assert.equal(f.hold,2);h.c.playerInput({atk:false});h.tick(.1);assert.equal(f.hold,0);
+ h.c.playerInput({atk:true});h.tick(2);h.p.x=f.winch.x+f.winch.r;h.tick(.1);assert.equal(f.hold,0);Object.assign(h.p,f.winch);
+ h.c.playerInput({atk:true});h.tick(2);const e=h.g.ents.find(e=>!e.human);e.dead=false;e.x=f.winch.x;e.y=f.winch.y;h.tick(.1);assert.equal(f.hold,0);assert.equal(f.contested,true);bonkEnemies(h);h.tick(.1);h.c.playerInput({atk:false});h.tick(.01);
+ h.c.playerInput({atk:true});h.tick(3.9);assert.equal(h.finished.length,0);assert.equal(f.bowlProgress,0);h.tick(.1);assert.equal(f.channelOpen,true);assert.equal(f.diverting,true);assert.equal(h.c.save.results.rind,undefined);h.tick(1);assert.equal(f.bowlProgress,.5);assert.equal(h.finished.length,0);h.tick(1);assert.equal(h.finished[0].won,true);assert.deepEqual(h.finished[0].spoons,[true,false,false]);assert.equal(h.finished.length,1);h.c.finish(true);assert.equal(h.finished.length,1);
+});
+test('normal rescue enters a fresh phase budget without losing counters; tools and cover have actual effects',()=>{
+ const h=harness('rind');h.c.run.hits=2;h.c.run.guardsHit=1;h.c.run.elapsed=81;h.g.time=1;h.c.run.boss.dead=true;h.c.event('ko',{v:1,a:0});openPantry(h);h.tick(3);assert.equal(h.c.run.phase,3);assert.equal(h.g.time,120);assert.equal(h.c.run.elapsed,84);assert.equal(h.c.run.hits,2);assert.equal(h.c.run.guardsHit,1);assert.equal(h.c.run.resumed,false);const f=h.c.run.finale;assert.equal(f.toolsReady,false);
+ h.g.grid[f.jam.r][f.jam.c]='.';h.c.event('crate',{c:f.jam.c,r:f.jam.r,destroyed:true});bonkEnemies(h);Object.assign(h.p,f.winch);h.c.playerInput({atk:false});h.c.playerInput({atk:true});h.tick(1);assert.equal(f.hold,0);h.tick(2);assert.equal(f.toolsReady,true);assert.ok(f.north.blocked>0);assert.ok(f.east.blocked>0);assert.equal(h.g.ents.filter(e=>!e.human&&!e.dead).length,0);assert.equal(h.c.run.guardsHit,1);
+ f.north.covering=false;h.tick(3);assert.ok(h.g.ents.some(e=>e.name==='Uncovered service pursuer'));h.c.finish(false,'fixture');h.c.begin('rind',h.g,h.api,true);assert.equal(h.c.run.phase,3);assert.equal(h.g.time,120);assert.equal(h.c.run.finale.toolsReady,true);assert.equal(h.c.run.hits,0);assert.equal(h.c.run.guardsHit,0);assert.equal(h.c.run.resumed,true);
+});
+test('completed-save finale replay is explicit, preserves old ownership and cannot fabricate the sweep or flawless spoon',()=>{
+ const h=phaseThree();assert.throws(()=>h.c.beginFinale(h.g,h.api),/Complete Rind/);const old={spoons:[true,true,true],attempts:7,best:55,assisted:true};h.c.restore({...h.c.save,checkpoint:null,results:{...h.c.save.results,rind:old}});const receipts=[...h.c.save.receipts];assert.deepEqual(h.c.save.results.rind,old);h.c.beginFinale(h.g,h.api);assert.equal(h.c.run.phase,3);assert.equal(h.c.run.resumed,true);assert.equal(h.c.run.guardsHit,0);assert.deepEqual(h.c.save.results.rind,old);assert.deepEqual(h.c.save.receipts,receipts);completeFinale(h);assert.deepEqual(h.finished[0].spoons,[true,false,false]);assert.deepEqual(h.c.save.results.rind.spoons,[true,true,true]);assert.equal(h.c.save.results.rind.attempts,8);assert.equal(h.finished.length,1);
+});
+test('unfinished finale timeout or death retains checkpoint3 and reload reconstructs fresh local state without the earlier bonus',()=>{
+ for(const death of [false,true]){
+  const h=phaseThree();h.c.run.finale.hold=2;h.c.run.finale.jammed=false;h.c.run.guardsHit=1;
+  if(death){h.p.dead=true;h.c.event('ko',{v:0,src:'sword'});}else{h.g.time=0;h.c.tick(.01);}
+  assert.equal(h.finished[0].won,false);assert.deepEqual(h.c.save.checkpoint,{id:'rind',phase:3});assert.deepEqual(h.c.save.results.rind.spoons,[false,false,false]);
+  const c=C.create({storage:h.storage}),g={roundId:'reload-finale',ents:[h.api.makeKnight({id:0,human:1})],flows:new Map()};c.begin('rind',g,h.api,true);assert.equal(c.run.phase,3);assert.equal(c.run.boss,null);assert.equal(c.run.rescue.freed,true);assert.equal(c.run.finale.toolsReady,true);assert.equal(c.run.finale.jammed,true);assert.equal(c.run.finale.hold,0);assert.equal(c.run.finale.released,false);assert.equal(c.run.guardsHit,0);assert.equal(c.run.resumed,true);assert.equal(g.time,120);assert.equal(c.run.player.hp,3);
  }
 });

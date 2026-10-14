@@ -49,8 +49,8 @@ test('portrait, wide and invalid canvas inputs do not produce invalid drawing co
  assert.equal(S.render(null),false);assert.equal(S.render(canvas(0,0)),false);
  assert.equal(S.render(canvas(),NaN,{id:'missing'}),true);
 });
-test('Rind alliance theatre recognizes the crossing guard and leaves the bowl threat unresolved',()=>{
+test('Rind consequence theatre recognizes the crossing guard and shows the earned bowl diversion',()=>{
  const crossing=canvas(),rescue=canvas();S.render(crossing,8,{id:'guard',phase:'outro',drawKnight:crossing.drawKnight});S.render(rescue,8,{id:'rind',phase:'outro',drawKnight:rescue.drawKnight});
  assert.ok(crossing.poses.some(p=>p.guardName===C.crossingGuard.name));assert.ok(rescue.poses.some(p=>p.guardName===C.crossingGuard.name));assert.ok(rescue.poses.some(p=>p.role==='marshal'&&!p.attack&&!p.block));
- assert.ok(S.scenes.rind.outro.cues.some(c=>c.speaker===C.crossingGuard.name));const text=S.scenes.rind.outro.cues.map(c=>c.text).join(' ');assert.match(text,/winch side.*still aimed at our ovens.*open that channel/);assert.doesNotMatch(text,/chapter ends|bakery is safe|saved the bakery/i);
+ assert.ok(S.scenes.rind.outro.cues.some(c=>c.speaker===C.crossingGuard.name));const text=S.scenes.rind.outro.cues.map(c=>c.text).join(' ');assert.match(text,/cooling channel is open.*catch basin.*clear of our ovens.*winch side.*go home/i);assert.doesNotMatch(text,/chapter ends|still aimed at our ovens/i);
 });

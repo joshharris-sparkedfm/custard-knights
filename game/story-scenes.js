@@ -18,9 +18,10 @@
   bridge:{intro:{duration:12,cues:[cue(0,4,'Sir Stirling','The cooling channel runs below these broken landings.'),cue(4,8,'Recruit','Can we go round the holes?'),cue(8,12,'Sir Stirling','Both outer paths are dry. The tools are waiting on the far approach.')]},outro:{duration:12,cues:[cue(0,5,'Recruit','Across the cooling channel. The tools are here.'),cue(5,9,'Sir Stirling','I will cover the north pursuer lane. Bring the cart forward.'),cue(9,12,'Recruit','Then clear the service access. Our ovens need this channel.')] }},
   stirling:{intro:{duration:12,cues:[cue(0,4,'Sir Stirling','I will hold the north lane. Walk beside the tool cart and stay close.'),cue(4,8,'Recruit','The shield raider is blocking the service access.'),cue(8,12,'Sir Stirling','Clear him, then hold the tools while the service door opens.')]},outro:{duration:12,cues:[cue(0,5,'Sir Stirling','The tools are through. The service route is open.'),cue(5,8,'Steve','BAWK!'),cue(8,12,'Recruit','That came from the shed beside the route.')] }},
   steve:{intro:{duration:15,cues:[cue(0,5,'Sir Stirling','Mabel’s bakery scraps. Steve followed them into the service shed.'),cue(5,9,'Recruit','There are more scraps by the siege-bowl winch.'),cue(9,12,'Sir Stirling','Free him, take the golden egg, then ride the three marked service gates.'),cue(12,15,'Recruit','We need that winch to turn the bowl away from home.')]},outro:{duration:12,cues:[cue(0,5,'The Official History','Steve followed the bakery scraps along the service route.'),cue(5,9,'Recruit','The bowl winch. And the bowl is still aimed at our ovens.'),cue(9,12,'Sir Stirling','Marshal Rind is guarding it. Get us to that winch.')]}},
-  rind:{intro:{duration:15,cues:[cue(0,4,'Marshal Rind','We do not run.'),cue(4,7,'Recruit','Because of your honour?'),cue(7,11,'Marshal Rind','Because of our consistency.'),cue(11,15,'Sir Stirling','Bait the slam. Strike when the spoon sticks. Bran needs us at the winch.')]},outro:{duration:18,cues:[cue(0,5,'Marshal Rind','Bran. You came back for him.'),cue(5,9,'Bran','The same recruit from the service crossing.'),cue(9,13,'Marshal Rind','I will take the winch side.'),cue(13,18,'Sir Stirling','The bowl is still aimed at our ovens. We need to open that channel.')]}}
+  rind:{intro:{duration:15,cues:[cue(0,4,'Marshal Rind','We do not run.'),cue(4,7,'Recruit','Because of your honour?'),cue(7,11,'Marshal Rind','Because of our consistency.'),cue(11,15,'Sir Stirling','Bait the slam. Strike when the spoon sticks. Bran needs us at the winch.')]},outro:{duration:18,cues:[cue(0,5,'Pip','The cooling channel is open!'),cue(5,9,'Mabel','The bowl has turned into the catch basin, clear of our ovens.'),cue(9,13,'Bran','Rind has the winch side. Stirling held the approach.'),cue(13,18,'Recruit','Let’s go home.')]}}
  };
  scenes.banquet.disruption={duration:8,cues:[cue(0,2.5,'The Official History','One pie ended the peace banquet.'),cue(2.5,5,'The Official History','In the fight, a thief took the Golden Spoon.'),cue(5,8,'Mabel','Recruit! The pantry is blocked. Get Alf, Pip and me out!')]};
+ scenes.rind.finale={duration:9,cues:[cue(0,3,'Mabel','Our tools are here. Clear the living skin from the sluice.'),cue(3,6,'Sir Stirling','I have the north lane. Bran and Rind cover the winch side.'),cue(6,9,'Recruit','Then release Swing and hold it at the winch to turn the bowl away from home.')]};
  for(const scene of Object.values(scenes))for(const beat of Object.values(scene)){Object.freeze(beat.cues);Object.freeze(beat);}for(const scene of Object.values(scenes))Object.freeze(scene);Object.freeze(scenes);
  function beat(id,phase){return scenes[id]&&scenes[id][phase]||null;}
  function duration(id,phase='intro'){const b=beat(id,phase);return b?b.duration:0;}
@@ -97,6 +98,12 @@
    knight(c,o,951,424,'marshal',{scale:1.55,face:Math.PI});for(let i=0;i<8;i++)ellipse(c,95+i*97,530-i%2*10,5,3,'#e8bd71',INK,1);
   }
  }
+ function sluiceScene(c,t,o){
+  outdoors(c,t,'bridge');floor(c,'#bbaa85',350);box(c,565,237,130,68,'#718789');box(c,620,300,300,24,'#718789');membrane(c,742,310,25,35,t);
+  bowlWinch(c,710,475);ellipse(c,855,198,77,20,'#d5dcda',INK);path(c,[[778,198],[798,241],[912,241],[932,198]],'#8a99a8');ellipse(c,855,193,72,12,'#e8ddbf',INK);membrane(c,688,376,45,48,t);
+  knight(c,o,500,482,'recruit',{scale:1.5});knight(c,o,318,328,'stirling',{scale:1.25,block:true,face:Math.PI});knight(c,o,870,466,'rice',{scale:1.3,guardName:'Bran'});stripedShield(c,843,433,.8);knight(c,o,926,351,'marshal',{scale:1.5});spoon(c,963,345,1.75,.7,false);
+  toolCart(c,280,485);for(let i=0;i<3;i++)knight(c,o,90+i*66,487,'cook',{scale:.9,color:[PINK,GOLD,'#2ec4b6'][i],cookName:['Mabel','Alf','Pip'][i]});
+ }
  function renderEncounter(c,id,t,o,out){
   if(id==='banquet'){opening(c,t,o,out);return;}
   if(id==='bridge'){bridgeScene(c,t,o,out);return;}
@@ -108,9 +115,10 @@
    const p=ease(t,0,6);toolCart(c,out?807:mix(330,610,p),477);knight(c,o,out?888:mix(240,525,p),505,'recruit',{walk:!out&&p<1?t*8:0,face:0});if(!out)knight(c,o,639,464,'rice',{scale:1.5,block:true,face:Math.PI});else{line(c,766,519,951,519,'#2ec4b6',5);for(let i=0;i<3;i++){c.beginPath();c.arc(932,221,25+i*15,-.9,.9);c.strokeStyle='#f6dfa1';c.lineWidth=4;c.stroke();}}return;}
   if(id==='steve'){steveScene(c,t,o,out);return;}
   if(id==='rind'){
-   outdoors(c,t,'bridge');floor(c,'#bbaa85',350);bowlWinch(c,835,386);line(c,835,241,835,222,'#e4c483',4);ellipse(c,835,192,77,20,'#d5dcda',INK);path(c,[[758,192],[778,235],[892,235],[912,192]],'#8a99a8');ellipse(c,835,187,72,12,'#e8ddbf',INK);
+   outdoors(c,t,'bridge');floor(c,'#bbaa85',350);bowlWinch(c,835,386);line(c,835,241,835,222,'#e4c483',4);if(!out){ellipse(c,835,192,77,20,'#d5dcda',INK);path(c,[[758,192],[778,235],[892,235],[912,192]],'#8a99a8');ellipse(c,835,187,72,12,'#e8ddbf',INK);}
    if(out){
     const p=ease(t,1,5),gx=mix(550,650,p),gy=mix(467,500,p),rx=mix(701,775,ease(t,5,9));
+    box(c,505,242,180,62,'#718789');line(c,540,270,805,270,'#9ed6d7',13);const bx=mix(835,595,ease(t,0,5)),by=mix(192,269,ease(t,0,5));ellipse(c,bx,by,77,20,'#d5dcda',INK);path(c,[[bx-77,by],[bx-57,by+43],[bx+57,by+43],[bx+77,by]],'#8a99a8');ellipse(c,bx,by-5,72,12,'#e8ddbf',INK);
     knight(c,o,rx,477+Math.sin(t*2),'marshal',{scale:2.25,face:Math.PI,block:false,walk:t>5&&t<9?t*5:0});spoon(c,rx+75,463,1.75,1.1,false);
     knight(c,o,gx,gy,'rice',{scale:1.4,walk:t<5?t*6:0,guardName:'Bran'});stripedShield(c,gx-28,gy-35,.8);knight(c,o,306,479,'recruit',{face:0});membrane(c,529,473,80,31,t,true);
    }else{
@@ -130,7 +138,7 @@
   const w=Number.isFinite(canvas.width)?canvas.width:1000,h=Number.isFinite(canvas.height)?canvas.height:560;if(w<=0||h<=0)return false;
   const scale=Math.min(w/1000,h/560),x=(w-scale*1000)/2,y=(h-scale*560)/2;
   c.save();c.setTransform(1,0,0,1,0,0);c.globalAlpha=1;c.globalCompositeOperation='source-over';c.fillStyle=INK;c.fillRect(0,0,w,h);c.translate(x,y);c.scale(scale,scale);c.beginPath();c.rect(0,0,1000,560);c.clip();
-  if(phase==='disruption')opening(c,t<2.5?7.5+t*.4:t<5?15+(t-2.5)*1.9:20+(t-5)*1.3,options,false);else renderEncounter(c,id,t,options,phase==='outro'||phase==='consequence');
+  if(phase==='finale')sluiceScene(c,t,options);else if(phase==='disruption')opening(c,t<2.5?7.5+t*.4:t<5?15+(t-2.5)*1.9:20+(t-5)*1.3,options,false);else renderEncounter(c,id,t,options,phase==='outro'||phase==='consequence');
   // Quiet proscenium edges frame the action, with no stage text to compete
   // with the accessible subtitle track in the host UI.
   const vignette=c.createLinearGradient(0,0,1000,0);vignette.addColorStop(0,'rgba(30,17,33,.3)');vignette.addColorStop(.12,'rgba(30,17,33,0)');vignette.addColorStop(.88,'rgba(30,17,33,0)');vignette.addColorStop(1,'rgba(30,17,33,.3)');c.fillStyle=vignette;c.fillRect(0,0,1000,560);c.fillStyle='rgba(30,17,33,.15)';c.fillRect(0,0,1000,9);c.restore();return true;

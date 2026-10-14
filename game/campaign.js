@@ -14,16 +14,17 @@
   {id:'bridge',title:'A Bridge Too Flan',region:'Custardia',map:'frost',at:[56,53],requires:['guard'],objective:'Cross the cooling channel. Reach three dry landings, then hold the service approach for three seconds.',spoons:['Capture the far end','Cross without falling','Use a dash to cross a marked gap'],tip:'Follow the dry outer paths around the channel gaps, or dash straight across a marked gap. Gold landings save your position.',dialogue:['Sir Stirling: The cooling channel runs below these broken landings.','Recruit: Can we go round the holes?','Sir Stirling: Both outer paths are dry. Meet me at the tools on the far approach.'],outro:['The cooling channel is crossed. The cooks\' tools are waiting at the service approach.',"Sir Stirling: I'll cover the pursuer lane. Bring those tools forward."],limit:210},
   {id:'stirling',title:'Tools for the Cooling Channel',region:'Custardia',map:'courtyard',at:[68,67],requires:['bridge'],objective:'Advance the tool cart, clear the service access raider, then hold the tools while access opens.',spoons:['Open the service access','Parry at least one attack','Finish without being bonked'],tip:'Walk beside the cart and stay close to move it forward. Clear the striped access gate, then keep the tool circle free for eight seconds.',dialogue:['Sir Stirling: I will hold the north pursuer lane. Bring the cooks\' tools forward.','Recruit: The shield raider is blocking the service access.','Sir Stirling: Clear him, then hold the tools while the service door opens.'],outro:['Sir Stirling: The tools are through. The service route is open.','A distant BAWK comes from the shed beside the route.'],limit:300},
   {id:'steve',title:'Release the Chicken',region:'Custardia',map:'courtyard',at:[80,44],requires:['stirling'],objective:'Free Steve, collect the golden egg, then ride three service gates to the siege-bowl winch.',spoons:['Release and ride Steve','Ride the route within 60 seconds of opening the cage','Finish without being bonked'],tip:'Swing at Steve’s cage beside the bakery scraps. Take the golden egg and ride gates 1, 2, 3 to the winch. If the ride ends, another egg appears at the cage.',dialogue:['Sir Stirling: Mabel’s bakery scraps. Steve followed them into the service shed.','Recruit: There are more scraps by the siege-bowl winch.','Sir Stirling: Free him, take the golden egg, then ride the marked service gates. We need that winch to turn the bowl away from home.'],outro:['Steve follows the bakery scraps to the siege-bowl winch.','Recruit: There’s the bowl, still aimed at our ovens. Marshal Rind is guarding the winch.'],limit:210},
-  {id:'rind',title:'Skin in the Game',region:'Rice Pudding Kingdom',map:'courtyard',at:[91,65],requires:['steve'],objective:'Bait Rind’s marked slams, defeat him, then cut the living skin trapping Bran at the winch.',spoons:['Defeat Rind and free Bran','Make Rind’s sweep strike one of his shield guards','Win without being bonked'],tip:'The red circle stays where the slam was aimed. Dash out, then attack while the spoon is stuck. Lure the sweep into a guard.',dialogue:['Marshal Rind: We do not run.','Recruit: Because of your honour?','Marshal Rind: Because of our consistency.'],outro:['Marshal Rind: Bran. You came back for him.','Bran: The same recruit from the service crossing.','Marshal Rind: I will take the winch side.','Sir Stirling: The bowl is still aimed at our ovens. We need to open that channel.'],limit:360}
+  {id:'rind',title:'Skin in the Game',region:'Rice Pudding Kingdom',map:'courtyard',at:[91,65],requires:['steve'],objective:'Defeat Rind, free Bran, then clear the sluice jam and operate the winch to divert the bowl away from home.',spoons:['Defeat Rind and divert the siege bowl','Make Rind’s sweep strike one of his shield guards','Win without being bonked'],tip:'The red circle stays where the slam was aimed. Dash out, then attack while the spoon is stuck. Lure the sweep into a guard.',dialogue:['Marshal Rind: We do not run.','Recruit: Because of your honour?','Marshal Rind: Because of our consistency.'],outro:['Pip: The cooling channel is open!','Mabel: The bowl has turned into the catch basin, clear of our ovens.','Marshal Rind: Bran has the winch side. Stirling held the approach.','Recruit: Let’s go home.'],limit:360}
  ];
  const byId=Object.fromEntries(nodes.map(n=>[n.id,n]));
  const factions=[{name:'Custardia',text:'Custard is the meal. Everyone else is decoration.'},{name:'Rice Pudding Kingdom',text:'Proud shield knights. Lumps are structural integrity.'},{name:'Angelic Delight Empire',text:'Pink cloud palaces; lightly whipped, never beaten.'},{name:'Wobbling Court',text:'The Jelly Marshes have never taken a firm position.'},{name:'Crumble miners',text:'The topping is the important part.'},{name:'Lord Skin',text:'A creeping membrane from every pudding nobody stirred.'}];
  const count=n=>Number.isFinite(n)?Math.max(0,Math.min(100000,Math.floor(n))):0;
- const checkpointLabel=cp=>cp?({stirling:{1:'Clear service access',2:'Hold the tools'},rind:{1:'Shield wall',2:'Soldier rescue'}}[cp.id]||{})[cp.phase]||'Saved checkpoint':'';
+ const checkpointPhases=Object.freeze({stirling:Object.freeze([1,2]),rind:Object.freeze([1,2,3])});
+ const checkpointLabel=cp=>cp?({stirling:{1:'Clear service access',2:'Hold the tools'},rind:{1:'Shield wall',2:'Soldier rescue',3:'Divert the siege bowl'}}[cp.id]||{})[cp.phase]||'Saved checkpoint':'';
  function normalize(raw){
   raw=raw&&typeof raw==='object'&&!Array.isArray(raw)?raw:{};const results={};
   for(const n of nodes){const r=raw.results&&raw.results[n.id];if(r&&typeof r==='object')results[n.id]={spoons:[0,1,2].map(i=>!!(Array.isArray(r.spoons)&&r.spoons[i]===true)),attempts:count(r.attempts),best:Number.isFinite(r.best)&&r.best>=0?Math.min(3600,r.best):null,assisted:r.assisted===true};}
-  const checkpoint=raw.checkpoint&&['stirling','rind'].includes(raw.checkpoint.id)&&[1,2].includes(raw.checkpoint.phase)?{id:raw.checkpoint.id,phase:raw.checkpoint.phase}:null;
+  const checkpoint=raw.checkpoint&&Object.hasOwn(checkpointPhases,raw.checkpoint.id)&&checkpointPhases[raw.checkpoint.id].includes(raw.checkpoint.phase)?{id:raw.checkpoint.id,phase:raw.checkpoint.phase}:null;
   return {version:1,results,selected:byId[raw.selected]?raw.selected:'banquet',assist:raw.assist===true,difficulty:Object.hasOwn(difficulties,raw.difficulty)?raw.difficulty:'medium',checkpoint,receipts:[...new Set((Array.isArray(raw.receipts)?raw.receipts:[]).filter(x=>typeof x==='string'&&x.length<=120))].slice(-128)};
  }
  function unlocked(save,id){const n=byId[id];return !!n&&n.requires.every(p=>save.results[p]&&save.results[p].spoons[0]);}
@@ -124,7 +125,36 @@
    const guardClear=walk(s.guard,980,520,100);
    // Rind watches Bran step away from the cut skin before joining his side.
    if(distance(s.guard,run.cage)>65){s.rind.supporting=walk(s.rind,1040,450,200);}
-   if(guardClear&&s.rind.supporting&&s.walkT>=2.8){s.settled=true;finish(true);}
+   if(guardClear&&s.rind.supporting&&s.walkT>=2.8){s.settled=true;finale();}
+  }
+  function finale(reconstruct=false){
+   const g=run.g;clearRescueCombat();run.phase=3;run.phaseT=0;g.campaignRescuePaused=false;
+   // Phase budget is independent from full-run elapsed, hit and sweep evidence.
+   // Persist before starting the local phase, so a reload never replays rescue.
+   checkpoint(3);g.time=120;
+   if(reconstruct){run.player.hp=run.player.campaignMaxHp;run.player.x=800;run.player.y=600;}
+   run.player.inv=2;run.player.protect=2;
+   g.grid[8][22]='.';delete g.crateHp[8*32+22];
+   run.rescue={freed:true,settled:true,guard:{x:1130,y:610,name:crossingGuard.name},rind:{x:1130,y:460,name:'Marshal Rind',supporting:true}};
+   run.finale={jammed:true,toolsReady:reconstruct,tools:{x:reconstruct?850:700,y:690},winch:{x:970,y:600,r:60},hold:0,held:false,released:false,contested:false,diverting:false,bowlProgress:0,channelOpen:false,north:{x:640,y:300,pursuerX:390,blocked:0,flash:0,covering:true},east:{pursuerX:1220,blocked:0,flash:0,covering:true}};
+   cage(24,10,'Sluice jam');run.finale.jam=run.cage;run.cage=null;
+   spawn('shield',950,590,3,'Sluice defender');rebuild();
+   banner('OPEN THE COOLING CHANNEL','The cooks bring the tools. Clear the jam, then release Swing and hold it at the winch.');
+  }
+  function finaleTick(dt){
+   const f=run.finale,g=run.g;
+   if(f.diverting){f.bowlProgress=Math.min(1,f.bowlProgress+dt/2);if(f.bowlProgress>=1)finish(true);return;}
+   f.tools.x=Math.min(850,f.tools.x+dt*50);f.toolsReady=f.tools.x>=850;
+   // Marked reinforcements are intercepted before entering combat, not given
+   // fictional KO credit. The one existing defender is the recruit's problem.
+   for(const [side,end,start,speed] of [[f.north,600,390,90],[f.east,1170,1220,-35]]){
+    side.flash=Math.max(0,side.flash-dt);side.pursuerX+=dt*speed;
+    if(speed>0?side.pursuerX>=end:side.pursuerX<=end){if(side.covering){side.blocked++;side.flash=.5;}else spawn('raider',end,side===f.north?300:530,2,'Uncovered service pursuer');side.pursuerX=start;}
+   }
+   f.contested=g.ents.some(e=>!e.human&&living(e)&&distance(e,f.winch)<90);
+   const eligible=!f.jammed&&f.toolsReady&&!f.contested&&distance(run.player,f.winch)<f.winch.r;
+   f.hold=eligible&&f.held?Math.min(4,f.hold+dt):0;
+   if(f.hold>=4){f.diverting=true;f.channelOpen=true;f.held=false;clearRescueCombat();banner('CHANNEL OPEN','The winch turns. The bowl is diverting into the catch basin, clear of the bakery.');}
   }
   function banquet(){
    const g=run.g;
@@ -171,6 +201,13 @@
   function beginPrelude(g,api){return beginQuiet(g,api,'opening');}
   function beginAftermath(g,api){if(!save.results.banquet?.spoons[0])throw Error('Rescue the cooks before returning to the bakery.');return beginQuiet(g,api,'aftermath');}
   function playerInput(input){
+   if(run?.status==='playing'&&run.node.id==='rind'&&run.phase===3){
+    const f=run.finale;if(!f.jammed&&!input.atk)f.released=true;
+    const operating=!f.jammed&&f.toolsReady&&!f.diverting&&!f.contested&&distance(run.player,f.winch)<f.winch.r;
+    f.held=operating&&f.released&&!!input.atk;
+    if(operating&&input.atk)return {...input,mx:0,my:0,atk:false,block:false,dash:false};
+    return input;
+   }
    if(!run?.prelude||run.status!=='playing')return input;
    if(input.atk&&!run.interactWas)run.interactQueued=true;
    run.interactWas=!!input.atk;return {...input,atk:false,block:false};
@@ -190,9 +227,9 @@
    }else if(r.phase===0){r.phase=1;r.phaseT=0;r.tray.state='supplied';r.speech='Alf: Flour sacks for cover. Pip: Water for the cooling channel. Mabel: That siege bowl is coming for our ovens. Protect these puddings while we move the supplies.';}
    else{r.status='quiet-complete';r.g.over=true;options.onAftermath?.();}
   }
-  function begin(id,g,api,resume=false){if(!unlocked(save,id))throw Error('Campaign encounter is locked: '+id);engine=api;const n=byId[id];freshArena(g,n);g.quietStory=false;grid(g);
+  function begin(id,g,api,resume=false,finaleReplay=false){if(finaleReplay&&(id!=='rind'||!save.results.rind?.spoons[0]))throw Error('Complete Rind before replaying the finale.');if(!unlocked(save,id))throw Error('Campaign encounter is locked: '+id);engine=api;const n=byId[id];freshArena(g,n);g.quietStory=false;grid(g);
    const receipt=(g.roundId||'campaign')+':'+id+':'+(++serial);run={node:n,g,difficulty:save.difficulty,player:g.ents[0],receipt,elapsed:0,phase:0,phaseT:0,status:'playing',hits:0,falls:0,blocks:0,parries:0,reflects:0,heavies:0,dashes:0,hold:0,route:0,checkpoint:{x:180,y:440},wave:1,guardsHit:0,bonus:[false,false],warnings:[],effects:[],result:null};
-   save.selected=id;const cp=resume&&save.checkpoint&&save.checkpoint.id===id?save.checkpoint.phase:0;run.resumed=cp>0;if(!resume&&save.checkpoint&&save.checkpoint.id===id)save.checkpoint=null;persist();
+   save.selected=id;const cp=finaleReplay?3:resume&&save.checkpoint&&save.checkpoint.id===id?save.checkpoint.phase:0;run.resumed=cp>0;if(!resume&&save.checkpoint&&save.checkpoint.id===id)save.checkpoint=null;persist();
    if(id==='banquet')banquet();
    if(id==='puddings'){
     const B=typeof module==='object'&&module.exports?require('./bakery-opening.js'):globalThis.CKBakeryOpening;B.layout(g,'siege');
@@ -205,10 +242,10 @@
    if(id==='bridge'){Channel.layout(g,id);run.gates=[{x:440,y:440,r:65},{x:760,y:440,r:65},{x:1100,y:440,r:70}];run.zone={...run.gates[2],label:'Far end'};}
    if(id==='stirling'){Channel.layout(g,id);supportPhase(Math.min(2,cp));}
    if(id==='steve'){cage(9,8,'Steve’s cage');run.gates=[{x:580,y:300,r:65,label:'Shed exit'},{x:820,y:540,r:65,label:'Channel bend'},{x:1100,y:440,r:75,label:'Bowl winch'}];spawn('raider',680,420,2,'Cage guard');spawn('raider',980,530,2,'Cage guard');run.eggT=0;}
-   if(id==='rind'){run.boss=spawn('marshal',800,440,8,'Marshal Rind');run.boss.r=28;run.boss.blade='spoon';run.boss.kit={helm:'crest',plume:'brush',metal:'steel'};run.boss.emblem='crown';if(cp===2)rescue(true);else if(cp){run.boss.hp=4;bossPhase(1);}else bossPhase(0);}
-   rebuild();if(!(id==='rind'&&cp===2))banner(n.title,n.objective);return run;
+   if(id==='rind'&&cp===3){run.boss=null;finale(true);}else if(id==='rind'){run.boss=spawn('marshal',800,440,8,'Marshal Rind');run.boss.r=28;run.boss.blade='spoon';run.boss.kit={helm:'crest',plume:'brush',metal:'steel'};run.boss.emblem='crown';if(cp===2)rescue(true);else if(cp){run.boss.hp=4;bossPhase(1);}else bossPhase(0);}
+   rebuild();if(!(id==='rind'&&cp>=2))banner(n.title,n.objective);return run;
   }
-  function finish(won,reason){if(!run||run.status!=='playing'||run.prelude)return null;run.status=won?'won':'failed';run.g.campaignRescuePaused=false;run.g.over=true;if(engine.clearBanner)engine.clearBanner();else run.g.banner=null;const id=run.node.id;let bonus;
+  function finish(won,reason){if(!run||run.status!=='playing'||run.prelude||won&&run.node.id==='rind'&&!(run.phase===3&&run.finale?.bowlProgress>=1))return null;run.status=won?'won':'failed';run.g.campaignRescuePaused=false;run.g.over=true;if(engine.clearBanner)engine.clearBanner();else run.g.banner=null;const id=run.node.id;let bonus;
    if(id==='banquet')bonus=[run.hits===0&&run.falls===0,run.elapsed<=90];
    if(id==='puddings')bonus=[run.stands.every(s=>s.hp===4),run.blocks>=3];
    if(id==='guard')bonus=[run.heavies>0,run.hits===0&&run.falls===0];
@@ -224,7 +261,7 @@
   }
   function attackCircle(x,y,r,source,allies=false){const g=run.g;for(const e of g.ents){if(e===source||!living(e)||distance(e,{x,y})>r+e.r||e.dashT>.06||e.inv>0||e.protect>0||e.hitLock>0)continue;if(e.human||allies){const before=e.hp;engine.hurt(e,source,1,{src:'heavy',kb:allies?650:300,dx:e.x-x,dy:e.y-y});if(!e.human&&e.hp<before)run.guardsHit++;}}}
   function tick(dt){if(!run||run.status!=='playing'||!Number.isFinite(dt)||dt<=0)return;if(run.prelude){run.elapsed+=dt;quietTick(dt);return;}run.elapsed+=dt;run.phaseT+=dt;const g=run.g,p=run.player,id=run.node.id;run.warnings=run.warnings.filter(w=>(w.t-=dt)>0&&(w.actor===undefined||living(g.ents[w.actor])&&!(g.ents[w.actor].stun>0)));run.effects=run.effects.filter(f=>(f.t-=dt)>0);
-   if(id==='rind'&&run.phase===2&&g.campaignRescuePaused)g.time=run.rescue.clock;else if(g.time<=0){finish(false,'Time ran out. '+run.node.tip);return;}
+   if(id==='rind'&&run.phase===2&&g.campaignRescuePaused)g.time=run.rescue.clock;else if(g.time<=0&&!run.finale?.diverting){finish(false,'Time ran out. '+run.node.tip);return;}
    if(!living(p))return;
    const enemies=g.ents.filter(e=>!e.human&&living(e));
    if(id==='banquet')banquetTick(dt,enemies);
@@ -236,6 +273,7 @@
    if(id==='steve'&&run.eggOpened!==undefined){run.eggT-=dt;if(!p.fx.steve&&!g.pickups.some(q=>q.kind==='steve')&&run.eggT<=0){g.pickups.push({x:run.cage.x,y:run.cage.y,kind:'steve',tier:4,t:0});run.eggT=2;}if(p.fx.steve){const gate=run.gates[run.route];if(gate&&distance(p,gate)<gate.r){run.route++;if(run.route>=3)finish(true);}}}
    if(id==='rind'&&run.phase<2){const b=run.boss;if(b.dead){rescue();}else if(run.phase===0&&b.hp<=4)bossPhase(1);else{b.timer-=dt;if(b.timer<=0){if(b.step==='stalk'){b.step='warn';b.target={x:p.x,y:p.y};b.timer=(save.assist?1.5:1.15)/pace();b.warnMax=b.timer;banner(run.phase?'SPOON SWEEP':'SPOON SLAM','Leave the red circle. His spoon will lodge in the floor.',{kind:'hazard',key:'boss-tell',duration:b.timer});}else if(b.step==='warn'){clearWarning('boss-tell');attackCircle(b.target.x,b.target.y,run.phase?170:105,b,run.phase===1);run.effects.push({...b.target,r:run.phase?170:105,t:.65,max:.65,kind:'slam'});b.step='exhausted';b.timer=(save.assist?3.8:2.8)/pace();b.recoveryMax=b.timer;b.blocking=false;b.guardLock=3;banner('SPOON STUCK','His shield is down. Get in and bonk him.');}else{b.step='stalk';b.timer=2.4/pace();b.guardLock=0;b.guard=1.5;}}}}
    else if(id==='rind'&&run.phase===2)rescueTick(dt);
+   else if(id==='rind'&&run.phase===3)finaleTick(dt);
   }
   function input(e,dt){if(!run||!run.g.campaign||e.human)return null;const p=run.player,role=e.campaignRole;let out=noInput();if(run.status!=='playing'||!living(p)||!living(e))return out;if(e.stun>0){cancelStandAttack(e);e.campaignTell=false;return out;}const angle=Math.atan2(p.y-e.y,p.x-e.x),d=distance(p,e);out.faceTo=angle;
    if(role==='archer'){return out;}
@@ -254,6 +292,7 @@
    if(k==='parry'&&data.id===p.id){run.blocks++;run.parries++;run.testBlocks=(run.testBlocks||0)+1;}
    if(k==='reflect'&&data.id===p.id)run.reflects++;
    if(k==='hit'){if(data.v===p.id&&data.damage>0)run.hits++;if(data.a===p.id&&['heavy','bash'].includes(data.src))run.heavies++;}
+   if(k==='crate'&&id==='rind'&&run.phase===3&&data.c===run.finale.jam.c&&data.r===run.finale.jam.r&&data.destroyed&&g.grid[data.r][data.c]==='.'&&run.finale.jammed){run.finale.jammed=false;run.finale.released=false;run.finale.held=false;g.pickups=[];banner('JAM CLEARED','Release Swing. Clear the defender, then hold Swing at the winch for four seconds.');}
    if(k==='crate'&&run.cage&&data.c===run.cage.c&&data.r===run.cage.r&&data.destroyed){if(id==='banquet'&&!run.barricadeOpen&&g.grid[data.r][data.c]==='.'){run.barricadeOpen=true;g.pickups=g.pickups.filter(q=>distance(q,run.cage)>45);banner('PANTRY OPEN',g.ents.some(e=>!e.human&&living(e))?'Bonk the two banquet guards so the cooks can move.':'Walk near the three cooks. Stay close to lead them through.');}if(id==='steve'&&run.eggOpened===undefined){run.eggOpened=run.elapsed;g.pickups=g.pickups.filter(q=>distance(q,run.cage)>45);g.pickups.push({x:run.cage.x,y:run.cage.y,kind:'steve',tier:4,t:0});banner('STEVE IS FREE','Take the golden egg. Follow the scraps through gates 1, 2, 3 to the bowl winch.');}if(id==='rind'&&run.phase===2&&!run.rescue.freed&&g.grid[data.r][data.c]==='.'){run.rescue.freed=true;g.pickups=[];banner('BRAN IS FREE','Bran: You came back for me. Rind is taking the winch side.');}}
   }
   function objective(){if(!run)return '';if(run.prelude)return run.quietKind==='opening'?['Talk to Mabel','Pick up tray','Deliver tray'][run.phase]:['Collect supplies','Go to defence'][run.phase];const id=run.node.id,aliveEnemies=run.g.ents.filter(e=>!e.human&&living(e)).length;
@@ -264,11 +303,12 @@
    if(id==='bridge')return run.route<3?`${run.route}/3 checkpoints · ${3-run.falls} falls left`:`Far end: ${run.hold.toFixed(1)}/3s`;
    if(id==='stirling')return run.phase===0?`Advance tools: ${Math.round((run.tools.x-340)/380*100)}% · Walk beside the cart; stay close`:run.phase===1?'Tools delivered · Bonk the service access raider':run.contested?`Tools contested - clear the circle · ${run.hold.toFixed(1)}/8s`:`Hold the tools: ${run.hold.toFixed(1)}/8s`;
    if(id==='steve')return run.eggOpened===undefined?'Swing at Steve’s cage → reach the bowl winch':!run.player.fx.steve?'Take golden egg at cage → ride to bowl winch':run.route<3?`Gate ${run.route+1}/3 · ${run.gates[run.route].label}${run.route<2?' → bowl winch':''}`:'Service route complete · Bowl winch reached';
+   if(id==='rind'&&run.phase===3){const f=run.finale;return f.diverting?'Channel open · bowl diverting clear of the bakery':f.jammed?'Swing at sluice jam → open cooling channel':!f.toolsReady?'Cooks bringing tools → winch':f.contested?'Winch contested · bonk the defender':!f.released?'Release Swing, then hold at winch':`Hold Swing at winch: ${f.hold.toFixed(1)}/4s`; }
    if(id==='rind')return run.phase===2?(run.rescue.freed?'Bran is free · Rind is taking the winch side':'Swing at the skin patch → free Bran · Rind is watching'):`Marshal Rind: ${run.boss.hp}/8 · ${run.boss.step==='exhausted'?'SPOON STUCK — ATTACK':run.boss.step==='warn'?'DASH OUT OF THE RED CIRCLE':'Bait his next swing'}`;
    return run.node.objective;
   }
   function drawScenery(ctx){if(run&&['bridge','stirling','steve','rind'].includes(run.node.id))Channel.scenery(ctx,run);if(run&&(run.prelude||['banquet','puddings'].includes(run.node.id)))globalThis.CKBakeryOpening?.scenery(ctx,run);}
-  function drawForeground(ctx){if(run?.prelude)globalThis.CKBakeryOpening?.foreground(ctx,run);else if(run?.node.id==='guard'&&living(run.guard))globalThis.CKBakeryOpening?.crossingShield(ctx,run.guard);else if(run?.node.id==='rind'&&run.phase===2){Channel.rescueForeground(ctx,run);globalThis.CKBakeryOpening?.crossingShield(ctx,run.rescue.guard);}}
+  function drawForeground(ctx){if(run?.prelude)globalThis.CKBakeryOpening?.foreground(ctx,run);else if(run?.node.id==='guard'&&living(run.guard))globalThis.CKBakeryOpening?.crossingShield(ctx,run.guard);else if(run?.node.id==='rind'&&run.phase===3){Channel.finaleForeground(ctx,run);globalThis.CKBakeryOpening?.crossingShield(ctx,run.rescue.guard);}else if(run?.node.id==='rind'&&run.phase===2){Channel.rescueForeground(ctx,run);globalThis.CKBakeryOpening?.crossingShield(ctx,run.rescue.guard);}}
   function draw(ctx){if(!run||!run.g.campaign)return;if(run.prelude){globalThis.CKBakeryOpening?.draw(ctx,run);return;}if(['bridge','stirling','steve'].includes(run.node.id))Channel.draw(ctx,run);if(run.node.id==='puddings')globalThis.CKBakeryOpening?.siegeStaff(ctx,run);ctx.save();ctx.font='bold 16px Nunito, sans-serif';ctx.textAlign='center';ctx.lineWidth=4;
    const bounded=p=>Math.max(0,Math.min(1,p||0));
    function progressRing(o,color,progress){ctx.beginPath();ctx.strokeStyle=color;ctx.lineWidth=6;ctx.arc(o.x,o.y,(o.r||38)+6,-Math.PI/2,-Math.PI/2+Math.PI*2*bounded(progress));ctx.stroke();ctx.lineWidth=4;}
@@ -290,6 +330,7 @@
      ctx.font='bold 13px Nunito, sans-serif';const label=s.rescued?s.name+' · safe':run.phase===0?s.name+' · help!':s.waiting?s.name+' · wait!':s.name;ctx.strokeStyle='#221733';ctx.lineWidth=4;ctx.strokeText(label,0,-79);ctx.fillStyle=s.rescued?'#2EC4B6':'#FFF7E0';ctx.fillText(label,0,-79);ctx.restore();
     }
    }
+   if(run.node.id==='rind'&&run.phase===3){const f=run.finale;if(f.jammed)marker({...f.jam,r:30},'#FFD23F','JAM · swing');marker(f.winch,f.contested?'#FFB020':'#2EC4B6',f.diverting?'CHANNEL OPEN':'WINCH · hold',f.hold/4);}
    if(run.zone&&run.node.id!=='banquet'&&!(run.node.id==='stirling'&&run.phase!==2)&&!(run.node.id==='bridge'&&run.route<3)){const max=run.node.id==='stirling'?8:run.node.id==='bridge'?3:1.5;marker({...run.zone,labelOffset:run.zone.r+34},run.contested?'#FFB020':'#2EC4B6',run.contested?'Contested — clear the tools':run.zone.label,run.hold/max);}
    if(run.gates)run.gates.forEach((q,i)=>{if(run.node.id==='bridge'&&run.route>=3&&i===2)return;marker(q,i<run.route?'#2EC4B6':i===run.route?'#FFD23F':'#C9B9E6',(i<run.route?'✓ ':'')+'Gate '+(i+1)+(run.node.id==='steve'?' · '+q.label:''));});
    if(run.stands)run.stands.forEach(q=>marker({...q,r:35},q.hp>0?'#FF8FB1':'#6A5A8C',q.label+' '+Math.max(0,q.hp)+'/4'));
@@ -302,7 +343,7 @@
   }
   function stop(){if(run){run.g.campaignRescuePaused=false;if(engine.clearBanner)engine.clearBanner();else run.g.banner=null;}run=null;}
   function restore(raw){save=normalize(raw);persist();return save;}
-  return {begin,beginPrelude,beginAftermath,playerInput,drawScenery,drawForeground,tick,input,event,draw,finish,stop,select,assist,difficulty,restore,objective,get save(){return save;},get run(){return run;},get saveError(){return saveError;},unlocked:id=>unlocked(save,id),next:()=>next(save)};
+  return {begin,beginFinale:(g,api)=>begin('rind',g,api,false,true),beginPrelude,beginAftermath,playerInput,drawScenery,drawForeground,tick,input,event,draw,finish,stop,select,assist,difficulty,restore,objective,get save(){return save;},get run(){return run;},get saveError(){return saveError;},unlocked:id=>unlocked(save,id),next:()=>next(save)};
  }
- return {KEY,crossingGuard,difficulties,nodes,byId,factions,checkpointLabel,normalize,merge,unlocked,next,award,create};
+ return {KEY,crossingGuard,checkpointPhases,difficulties,nodes,byId,factions,checkpointLabel,normalize,merge,unlocked,next,award,create};
 });

@@ -50,7 +50,14 @@
   for(const dx of [-43,43])oval(c,1120+dx,252,14,14,'#664738');text(c,'SIEGE BOWL',1110,164,17);text(c,'WINCH',1130,358,16,gold);
   text(c,'Bowl → bakery · reach the winch',850,690,18);line(c,1040,250,965,250,'#df8b72',4);line(c,977,241,965,250,'#df8b72',4);line(c,977,259,965,250,'#df8b72',4);
  }
- function scenery(c,r){c.save();if(r.node.id==='steve'){steveScenery(c,r);c.restore();return;}
+ function rindScenery(c){
+  // The mechanism remains scenery in the alliance slice; saving the bakery
+  // will require the later playable sluice action, never this rescue alone.
+  winch(c,1100,300);line(c,1100,253,1100,216,'#e4c483',4);
+  oval(c,1100,184,70,18,'#d5dcda');c.beginPath();c.moveTo(1030,184);c.lineTo(1048,224);c.lineTo(1152,224);c.lineTo(1170,184);c.closePath();c.fillStyle='#8a99a8';c.fill();c.strokeStyle=ink;c.lineWidth=3;c.stroke();oval(c,1100,181,65,11,'#e8ddbf');
+  for(const dx of [-40,40])oval(c,1100+dx,227,13,13,'#664738');text(c,'BOWL WINCH',1100,333,17,gold);text(c,'Bowl still aimed at the bakery',1040,680,16);
+ }
+ function scenery(c,r){c.save();if(r.node.id==='steve'){steveScenery(c,r);c.restore();return;}if(r.node.id==='rind'){rindScenery(c);c.restore();return;}
   // Draw every traversable, solid and pit tile at its actual collision extent.
   for(let row=1;row<17;row++)for(let col=1;col<31;col++){
    const x=col*40,y=80+row*40,t=r.g.grid[row][col];
@@ -83,6 +90,25 @@
   line(c,t.x-11,t.y-33,t.x-5,t.y-70,'#d7dfe0',5);line(c,t.x-17,t.y-65,t.x+4,t.y-67,'#d7dfe0',5);
   text(c,'COOLING TOOLS',t.x,t.y+36,16,gold);
  }
+ function rescueForeground(c,r){
+  const s=r.rescue;if(!s)return;c.save();
+  // Render-only witnesses are absent from engine entities, damage and push
+  // loops. Rind's slow breath and lowered spoon distinguish a KO from death.
+  const breath=Math.sin(r.elapsed*2)*1.2;
+  c.save();c.translate(s.rind.x,s.rind.y);c.scale(1.35,1.35);knight(c,0,breath,'#a9bcca',false);
+  line(c,24,-18,55,-8,'#cbd6dc',6);oval(c,64,-5,14,9,'#cbd6dc');c.restore();
+  text(c,s.rind.supporting?'RIND · AT THE WINCH SIDE':'RIND · SPOON LOWERED',s.rind.x,s.rind.y+48,15,teal);
+  text(c,s.freed?'Rind: I will take the winch side.':'Rind: Bran? That skin is not ours.',s.rind.x,s.rind.y+70,14);
+  knight(c,s.guard.x,s.guard.y,'#cfe6ff',false);
+  if(!s.freed){
+   // Cover the actual 40px breakable tile with skin instead of wood, and
+   // show the wrapping rising around Bran. Its collision remains one tile.
+   const {x,y}=r.cage;box(c,x-20,y-20,40,40,'#b9a777');
+   for(let i=0;i<5;i++)line(c,x-18+i*8,y-61,x-12+i*7,y+17,'#d9cd98',4);
+   line(c,x-20,y-27,x+20,y-37,'#706a53',5);text(c,'BRAN · TRAPPED',x,y+46,16,gold);
+  }else{text(c,'BRAN · CLEAR OF THE SKIN',s.guard.x,s.guard.y+40,15,teal);line(c,881,423,893,409,'#b9a777',5);line(c,906,432,918,417,'#b9a777',5);}
+  c.restore();
+ }
  function draw(c,r){
   if(r.node.id==='steve'){
    if(r.g.grid[r.cage.r][r.cage.c]==='x'){
@@ -98,5 +124,5 @@
   cart(c,r.tools);if(r.phase===0)text(c,r.tools.waiting?'Walk beside the cart →':'Stay close · tools moving →',r.tools.x,r.tools.y+62,16);
   c.restore();
  }
- return Object.freeze({layout,access,scenery,draw});
+ return Object.freeze({layout,access,scenery,draw,rescueForeground});
 });

@@ -1,0 +1,3163 @@
+{
+  "behaviorCommit": "8c48d17d7f58917a80d789cba914195f561c9114",
+  "finalCommit": "706a31286c166517c268123c4183bb6f42e2590d",
+  "counts": {
+    "pass": 44,
+    "fail": 0
+  },
+  "checks": [
+    {
+      "name": "Actual guard intro captions preserve Bran and unfinished threat",
+      "pass": true,
+      "details": [
+        {
+          "scene": "guard",
+          "phase": "intro",
+          "caption": "BranThis service crossing is closed. Structural integrity."
+        },
+        {
+          "scene": "guard",
+          "phase": "intro",
+          "caption": "BranThis service crossing is closed. Structural integrity."
+        },
+        {
+          "scene": "guard",
+          "phase": "intro",
+          "caption": "RecruitOur bakery’s cooling channel is blocked. We need to get through."
+        },
+        {
+          "scene": "guard",
+          "phase": "intro",
+          "caption": "Sir StirlingMake Bran turn. Or put your weight behind a heavy swing."
+        },
+        {
+          "scene": "guard",
+          "phase": "intro",
+          "caption": "Sir StirlingMake Bran turn. Or put your weight behind a heavy swing."
+        }
+      ],
+      "report": "run1/report.json"
+    },
+    {
+      "name": "Viewing guard intro theatre cannot award again",
+      "pass": true,
+      "report": "run1/report.json"
+    },
+    {
+      "name": "Compact theatre-guard-intro active surface stays inside viewport",
+      "pass": true,
+      "details": {
+        "selector": ".campaign-captions",
+        "bounds": {
+          "x": 47.0625,
+          "y": 262,
+          "width": 690.875,
+          "height": 78,
+          "top": 262,
+          "right": 737.9375,
+          "bottom": 340,
+          "left": 47.0625
+        },
+        "text": "Sir StirlingMake Bran turn. Or put your weight behind a heavy swing.",
+        "viewport": {
+          "width": 800,
+          "height": 500
+        },
+        "visible": true
+      },
+      "report": "run1/report.json"
+    },
+    {
+      "name": "Actual guard outro captions preserve Bran and unfinished threat",
+      "pass": true,
+      "details": [
+        {
+          "scene": "guard",
+          "phase": "outro",
+          "caption": "BranA temporary structural adjustment. I’m still standing."
+        },
+        {
+          "scene": "guard",
+          "phase": "outro",
+          "caption": "BranA temporary structural adjustment. I’m still standing."
+        },
+        {
+          "scene": "guard",
+          "phase": "outro",
+          "caption": "RecruitHe’s withdrawing towards the winch. The crossing is open."
+        },
+        {
+          "scene": "guard",
+          "phase": "outro",
+          "caption": "Sir StirlingTake the channel bridge. Biscuit practice is optional."
+        },
+        {
+          "scene": "guard",
+          "phase": "outro",
+          "caption": "Sir StirlingTake the channel bridge. Biscuit practice is optional."
+        }
+      ],
+      "report": "run1/report.json"
+    },
+    {
+      "name": "Viewing guard outro theatre cannot award again",
+      "pass": true,
+      "report": "run1/report.json"
+    },
+    {
+      "name": "Compact theatre-guard-outro active surface stays inside viewport",
+      "pass": true,
+      "details": {
+        "selector": ".campaign-captions",
+        "bounds": {
+          "x": 47.0625,
+          "y": 262,
+          "width": 690.875,
+          "height": 78,
+          "top": 262,
+          "right": 737.9375,
+          "bottom": 340,
+          "left": 47.0625
+        },
+        "text": "Sir StirlingTake the channel bridge. Biscuit practice is optional.",
+        "viewport": {
+          "width": 800,
+          "height": 500
+        },
+        "visible": true
+      },
+      "report": "run1/report.json"
+    },
+    {
+      "name": "Actual rind intro captions preserve Bran and unfinished threat",
+      "pass": true,
+      "details": [
+        {
+          "scene": "rind",
+          "phase": "intro",
+          "caption": "Marshal RindWe do not run."
+        },
+        {
+          "scene": "rind",
+          "phase": "intro",
+          "caption": "Marshal RindWe do not run."
+        },
+        {
+          "scene": "rind",
+          "phase": "intro",
+          "caption": "Marshal RindBecause of our consistency."
+        },
+        {
+          "scene": "rind",
+          "phase": "intro",
+          "caption": "Sir StirlingBait the slam. Strike when the spoon sticks. Bran needs us at the winch."
+        },
+        {
+          "scene": "rind",
+          "phase": "intro",
+          "caption": "Sir StirlingBait the slam. Strike when the spoon sticks. Bran needs us at the winch."
+        }
+      ],
+      "report": "run1/report.json"
+    },
+    {
+      "name": "Viewing rind intro theatre cannot award again",
+      "pass": true,
+      "report": "run1/report.json"
+    },
+    {
+      "name": "Compact theatre-rind-intro active surface stays inside viewport",
+      "pass": true,
+      "details": {
+        "selector": ".campaign-captions",
+        "bounds": {
+          "x": 47.0625,
+          "y": 262,
+          "width": 690.875,
+          "height": 78,
+          "top": 262,
+          "right": 737.9375,
+          "bottom": 340,
+          "left": 47.0625
+        },
+        "text": "Sir StirlingBait the slam. Strike when the spoon sticks. Bran needs us at the winch.",
+        "viewport": {
+          "width": 800,
+          "height": 500
+        },
+        "visible": true
+      },
+      "report": "run1/report.json"
+    },
+    {
+      "name": "Actual rind outro captions preserve Bran and unfinished threat",
+      "pass": true,
+      "details": [
+        {
+          "scene": "rind",
+          "phase": "outro",
+          "caption": "Marshal RindBran. You came back for him."
+        },
+        {
+          "scene": "rind",
+          "phase": "outro",
+          "caption": "Marshal RindBran. You came back for him."
+        },
+        {
+          "scene": "rind",
+          "phase": "outro",
+          "caption": "Marshal RindI will take the winch side."
+        },
+        {
+          "scene": "rind",
+          "phase": "outro",
+          "caption": "Sir StirlingThe bowl is still aimed at our ovens. We need to open that channel."
+        },
+        {
+          "scene": "rind",
+          "phase": "outro",
+          "caption": "Sir StirlingThe bowl is still aimed at our ovens. We need to open that channel."
+        }
+      ],
+      "report": "run1/report.json"
+    },
+    {
+      "name": "Viewing rind outro theatre cannot award again",
+      "pass": true,
+      "report": "run1/report.json"
+    },
+    {
+      "name": "Compact theatre-rind-outro active surface stays inside viewport",
+      "pass": true,
+      "details": {
+        "selector": ".campaign-captions",
+        "bounds": {
+          "x": 47.0625,
+          "y": 262,
+          "width": 690.875,
+          "height": 78,
+          "top": 262,
+          "right": 737.9375,
+          "bottom": 340,
+          "left": 47.0625
+        },
+        "text": "Sir StirlingThe bowl is still aimed at our ovens. We need to open that channel.",
+        "viewport": {
+          "width": 800,
+          "height": 500
+        },
+        "visible": true
+      },
+      "report": "run1/report.json"
+    },
+    {
+      "name": "Compact 01-bran-crossing active surface stays inside viewport",
+      "pass": true,
+      "details": {
+        "selector": "#campaignHUD",
+        "bounds": {
+          "x": 229.3671875,
+          "y": 90,
+          "width": 341.265625,
+          "height": 35,
+          "top": 90,
+          "right": 570.6328125,
+          "bottom": 125,
+          "left": 229.3671875
+        },
+        "text": "Medium · Bran: 5/5 · Open the service crossing",
+        "viewport": {
+          "width": 800,
+          "height": 500
+        },
+        "visible": true
+      },
+      "report": "run1/report.json"
+    },
+    {
+      "name": "Staging rescue checkpoint cannot award collection rewards",
+      "pass": true,
+      "report": "run1/report.json"
+    },
+    {
+      "name": "Compact 02-bran-trapped active surface stays inside viewport",
+      "pass": true,
+      "details": {
+        "selector": "#campaignHUD",
+        "bounds": {
+          "x": 208,
+          "y": 90,
+          "width": 384,
+          "height": 55,
+          "top": 90,
+          "right": 592,
+          "bottom": 145,
+          "left": 208
+        },
+        "text": "Medium · Swing at the skin patch → free Bran · Rind is watching",
+        "viewport": {
+          "width": 800,
+          "height": 500
+        },
+        "visible": true
+      },
+      "report": "run1/report.json"
+    },
+    {
+      "name": "Same named Bran returns at the actual membrane with neutral Rind witness",
+      "pass": true,
+      "details": {
+        "id": "rind",
+        "phase": 2,
+        "status": "playing",
+        "elapsed": 0.6500000000000004,
+        "time": 360,
+        "quietStory": false,
+        "safe": true,
+        "resumed": true,
+        "cage": {
+          "c": 22,
+          "r": 8,
+          "x": 900,
+          "y": 420,
+          "label": "Living skin · Bran trapped"
+        },
+        "rescue": {
+          "clock": 360,
+          "freed": false,
+          "walkT": 0,
+          "settled": false,
+          "guard": {
+            "x": 900,
+            "y": 420,
+            "name": "Bran"
+          },
+          "rind": {
+            "x": 800,
+            "y": 440,
+            "name": "Marshal Rind",
+            "supporting": false
+          }
+        },
+        "player": {
+          "x": 720,
+          "y": 520,
+          "hp": 3,
+          "dead": false,
+          "hits": 0
+        },
+        "boss": {
+          "hp": 8,
+          "dead": true,
+          "step": "defeated"
+        },
+        "enemies": [
+          {
+            "name": "Marshal Rind",
+            "hp": 8,
+            "dead": true,
+            "role": "marshal"
+          }
+        ],
+        "hazards": {
+          "proj": 0,
+          "bombs": 0,
+          "bees": 0,
+          "mines": 0,
+          "bananas": 0,
+          "flock": 0,
+          "holes": 0
+        },
+        "warnings": [],
+        "result": null,
+        "save": {
+          "version": 1,
+          "results": {
+            "banquet": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "puddings": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "guard": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "bridge": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "stirling": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "steve": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            }
+          },
+          "selected": "rind",
+          "assist": false,
+          "difficulty": "medium",
+          "checkpoint": {
+            "id": "rind",
+            "phase": 2
+          },
+          "receipts": []
+        },
+        "hud": "Medium · Swing at the skin patch → free Bran · Rind is watching"
+      },
+      "report": "run1/report.json"
+    },
+    {
+      "name": "Rescue preserves ordinary combat input and finite paused countdown",
+      "pass": true,
+      "details": {
+        "id": "rind",
+        "phase": 2,
+        "status": "playing",
+        "elapsed": 0.6500000000000004,
+        "time": 360,
+        "quietStory": false,
+        "safe": true,
+        "resumed": true,
+        "cage": {
+          "c": 22,
+          "r": 8,
+          "x": 900,
+          "y": 420,
+          "label": "Living skin · Bran trapped"
+        },
+        "rescue": {
+          "clock": 360,
+          "freed": false,
+          "walkT": 0,
+          "settled": false,
+          "guard": {
+            "x": 900,
+            "y": 420,
+            "name": "Bran"
+          },
+          "rind": {
+            "x": 800,
+            "y": 440,
+            "name": "Marshal Rind",
+            "supporting": false
+          }
+        },
+        "player": {
+          "x": 720,
+          "y": 520,
+          "hp": 3,
+          "dead": false,
+          "hits": 0
+        },
+        "boss": {
+          "hp": 8,
+          "dead": true,
+          "step": "defeated"
+        },
+        "enemies": [
+          {
+            "name": "Marshal Rind",
+            "hp": 8,
+            "dead": true,
+            "role": "marshal"
+          }
+        ],
+        "hazards": {
+          "proj": 0,
+          "bombs": 0,
+          "bees": 0,
+          "mines": 0,
+          "bananas": 0,
+          "flock": 0,
+          "holes": 0
+        },
+        "warnings": [],
+        "result": null,
+        "save": {
+          "version": 1,
+          "results": {
+            "banquet": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "puddings": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "guard": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "bridge": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "stirling": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "steve": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            }
+          },
+          "selected": "rind",
+          "assist": false,
+          "difficulty": "medium",
+          "checkpoint": {
+            "id": "rind",
+            "phase": 2
+          },
+          "receipts": []
+        },
+        "hud": "Medium · Swing at the skin patch → free Bran · Rind is watching"
+      },
+      "report": "run1/report.json"
+    },
+    {
+      "name": "Legacy checkpoint 1 reconstructs intended phase without completion award",
+      "pass": true,
+      "details": {
+        "id": "rind",
+        "phase": 1,
+        "status": "playing",
+        "elapsed": 0.15,
+        "time": 359.85000000000014,
+        "quietStory": false,
+        "safe": false,
+        "resumed": true,
+        "player": {
+          "x": 180,
+          "y": 440,
+          "hp": 3,
+          "dead": false,
+          "hits": 0
+        },
+        "boss": {
+          "hp": 4,
+          "dead": false,
+          "step": "stalk"
+        },
+        "enemies": [
+          {
+            "name": "Marshal Rind",
+            "hp": 4,
+            "dead": false,
+            "role": "marshal"
+          },
+          {
+            "name": "Shield guard",
+            "hp": 2,
+            "dead": false,
+            "role": "shield"
+          },
+          {
+            "name": "Shield guard",
+            "hp": 2,
+            "dead": false,
+            "role": "shield"
+          }
+        ],
+        "hazards": {
+          "proj": 0,
+          "bombs": 0,
+          "bees": 0,
+          "mines": 0,
+          "bananas": 0,
+          "flock": 0,
+          "holes": 0
+        },
+        "warnings": [],
+        "result": null,
+        "save": {
+          "version": 1,
+          "results": {
+            "banquet": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "puddings": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "guard": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "bridge": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "stirling": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "steve": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            }
+          },
+          "selected": "rind",
+          "assist": false,
+          "difficulty": "medium",
+          "checkpoint": {
+            "id": "rind",
+            "phase": 1
+          },
+          "receipts": []
+        },
+        "hud": "Medium · Marshal Rind: 4/8 · Bait his next swing"
+      },
+      "report": "corrections/report.json"
+    },
+    {
+      "name": "Legacy checkpoint 1 survives document reload without reward mutation",
+      "pass": true,
+      "details": {
+        "before": "{\"save\":{\"version\":1,\"results\":{\"banquet\":{\"spoons\":[true,false,false],\"attempts\":1,\"best\":70,\"assisted\":false},\"puddings\":{\"spoons\":[true,false,false],\"attempts\":1,\"best\":70,\"assisted\":false},\"guard\":{\"spoons\":[true,false,false],\"attempts\":1,\"best\":70,\"assisted\":false},\"bridge\":{\"spoons\":[true,false,false],\"attempts\":1,\"best\":70,\"assisted\":false},\"stirling\":{\"spoons\":[true,false,false],\"attempts\":1,\"best\":70,\"assisted\":false},\"steve\":{\"spoons\":[true,false,false],\"attempts\":1,\"best\":70,\"assisted\":false}},\"selected\":\"rind\",\"assist\":false,\"difficulty\":\"medium\",\"checkpoint\":{\"id\":\"rind\",\"phase\":1},\"receipts\":[]},\"collection\":{\"version\":1,\"completed\":0,\"choice\":null,\"pinned\":null,\"progress\":{\"tea-towel\":0,\"burnt-toast\":0,\"golden-whisk\":0,\"rooster-crown\":0,\"rice-guard\":0,\"steve-strut\":0},\"owned\":[],\"receipts\":[],\"milestones\":[],\"presets\":[null,null,null]}}",
+        "after": "{\"save\":{\"version\":1,\"results\":{\"banquet\":{\"spoons\":[true,false,false],\"attempts\":1,\"best\":70,\"assisted\":false},\"puddings\":{\"spoons\":[true,false,false],\"attempts\":1,\"best\":70,\"assisted\":false},\"guard\":{\"spoons\":[true,false,false],\"attempts\":1,\"best\":70,\"assisted\":false},\"bridge\":{\"spoons\":[true,false,false],\"attempts\":1,\"best\":70,\"assisted\":false},\"stirling\":{\"spoons\":[true,false,false],\"attempts\":1,\"best\":70,\"assisted\":false},\"steve\":{\"spoons\":[true,false,false],\"attempts\":1,\"best\":70,\"assisted\":false}},\"selected\":\"rind\",\"assist\":false,\"difficulty\":\"medium\",\"checkpoint\":{\"id\":\"rind\",\"phase\":1},\"receipts\":[]},\"collection\":{\"version\":1,\"completed\":0,\"choice\":null,\"pinned\":null,\"progress\":{\"tea-towel\":0,\"burnt-toast\":0,\"golden-whisk\":0,\"rooster-crown\":0,\"rice-guard\":0,\"steve-strut\":0},\"owned\":[],\"receipts\":[],\"milestones\":[],\"presets\":[null,null,null]}}"
+      },
+      "report": "corrections/report.json"
+    },
+    {
+      "name": "UI Retry 1 restores intended phase and healthy player",
+      "pass": true,
+      "details": {
+        "id": "rind",
+        "phase": 1,
+        "status": "playing",
+        "elapsed": 0.13333333333333333,
+        "time": 359.8666666666668,
+        "quietStory": false,
+        "safe": false,
+        "resumed": true,
+        "player": {
+          "x": 180,
+          "y": 440,
+          "hp": 3,
+          "dead": false,
+          "hits": 0
+        },
+        "boss": {
+          "hp": 4,
+          "dead": false,
+          "step": "stalk"
+        },
+        "enemies": [
+          {
+            "name": "Marshal Rind",
+            "hp": 4,
+            "dead": false,
+            "role": "marshal"
+          },
+          {
+            "name": "Shield guard",
+            "hp": 2,
+            "dead": false,
+            "role": "shield"
+          },
+          {
+            "name": "Shield guard",
+            "hp": 2,
+            "dead": false,
+            "role": "shield"
+          }
+        ],
+        "hazards": {
+          "proj": 0,
+          "bombs": 0,
+          "bees": 0,
+          "mines": 0,
+          "bananas": 0,
+          "flock": 0,
+          "holes": 0
+        },
+        "warnings": [],
+        "result": null,
+        "save": {
+          "version": 1,
+          "results": {
+            "banquet": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "puddings": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "guard": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "bridge": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "stirling": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "steve": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "rind": {
+              "spoons": [
+                false,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": null,
+              "assisted": false
+            }
+          },
+          "selected": "rind",
+          "assist": false,
+          "difficulty": "medium",
+          "checkpoint": {
+            "id": "rind",
+            "phase": 1
+          },
+          "receipts": [
+            "15767104-9d5d-4369-8974-7260a10ac3e1:rind:1"
+          ]
+        },
+        "hud": "Medium · Marshal Rind: 4/8 · Bait his next swing"
+      },
+      "report": "corrections/report.json"
+    },
+    {
+      "name": "Compact checkpoint-1-retried active surface stays inside viewport",
+      "pass": true,
+      "details": {
+        "selector": "#campaignHUD",
+        "bounds": {
+          "x": 223.046875,
+          "y": 90,
+          "width": 353.90625,
+          "height": 35,
+          "top": 90,
+          "right": 576.953125,
+          "bottom": 125,
+          "left": 223.046875
+        },
+        "text": "Medium · Marshal Rind: 4/8 · Bait his next swing",
+        "viewport": {
+          "width": 800,
+          "height": 500
+        },
+        "visible": true
+      },
+      "report": "corrections/report.json"
+    },
+    {
+      "name": "Legacy checkpoint 2 reconstructs intended phase without completion award",
+      "pass": true,
+      "details": {
+        "id": "rind",
+        "phase": 2,
+        "status": "playing",
+        "elapsed": 0.13333333333333333,
+        "time": 360,
+        "quietStory": false,
+        "safe": true,
+        "resumed": true,
+        "cage": {
+          "c": 22,
+          "r": 8,
+          "x": 900,
+          "y": 420,
+          "label": "Living skin · Bran trapped"
+        },
+        "rescue": {
+          "clock": 360,
+          "freed": false,
+          "walkT": 0,
+          "settled": false,
+          "guard": {
+            "x": 900,
+            "y": 420,
+            "name": "Bran"
+          },
+          "rind": {
+            "x": 800,
+            "y": 440,
+            "name": "Marshal Rind",
+            "supporting": false
+          }
+        },
+        "player": {
+          "x": 720,
+          "y": 520,
+          "hp": 3,
+          "dead": false,
+          "hits": 0
+        },
+        "boss": {
+          "hp": 8,
+          "dead": true,
+          "step": "defeated"
+        },
+        "enemies": [
+          {
+            "name": "Marshal Rind",
+            "hp": 8,
+            "dead": true,
+            "role": "marshal"
+          }
+        ],
+        "hazards": {
+          "proj": 0,
+          "bombs": 0,
+          "bees": 0,
+          "mines": 0,
+          "bananas": 0,
+          "flock": 0,
+          "holes": 0
+        },
+        "warnings": [],
+        "result": null,
+        "save": {
+          "version": 1,
+          "results": {
+            "banquet": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "puddings": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "guard": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "bridge": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "stirling": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "steve": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            }
+          },
+          "selected": "rind",
+          "assist": false,
+          "difficulty": "medium",
+          "checkpoint": {
+            "id": "rind",
+            "phase": 2
+          },
+          "receipts": []
+        },
+        "hud": "Medium · Swing at the skin patch → free Bran · Rind is watching"
+      },
+      "report": "corrections/report.json"
+    },
+    {
+      "name": "Legacy checkpoint 2 survives document reload without reward mutation",
+      "pass": true,
+      "details": {
+        "before": "{\"save\":{\"version\":1,\"results\":{\"banquet\":{\"spoons\":[true,false,false],\"attempts\":1,\"best\":70,\"assisted\":false},\"puddings\":{\"spoons\":[true,false,false],\"attempts\":1,\"best\":70,\"assisted\":false},\"guard\":{\"spoons\":[true,false,false],\"attempts\":1,\"best\":70,\"assisted\":false},\"bridge\":{\"spoons\":[true,false,false],\"attempts\":1,\"best\":70,\"assisted\":false},\"stirling\":{\"spoons\":[true,false,false],\"attempts\":1,\"best\":70,\"assisted\":false},\"steve\":{\"spoons\":[true,false,false],\"attempts\":1,\"best\":70,\"assisted\":false}},\"selected\":\"rind\",\"assist\":false,\"difficulty\":\"medium\",\"checkpoint\":{\"id\":\"rind\",\"phase\":2},\"receipts\":[]},\"collection\":{\"version\":1,\"completed\":0,\"choice\":null,\"pinned\":null,\"progress\":{\"tea-towel\":0,\"burnt-toast\":0,\"golden-whisk\":0,\"rooster-crown\":0,\"rice-guard\":0,\"steve-strut\":0},\"owned\":[],\"receipts\":[],\"milestones\":[],\"presets\":[null,null,null]}}",
+        "after": "{\"save\":{\"version\":1,\"results\":{\"banquet\":{\"spoons\":[true,false,false],\"attempts\":1,\"best\":70,\"assisted\":false},\"puddings\":{\"spoons\":[true,false,false],\"attempts\":1,\"best\":70,\"assisted\":false},\"guard\":{\"spoons\":[true,false,false],\"attempts\":1,\"best\":70,\"assisted\":false},\"bridge\":{\"spoons\":[true,false,false],\"attempts\":1,\"best\":70,\"assisted\":false},\"stirling\":{\"spoons\":[true,false,false],\"attempts\":1,\"best\":70,\"assisted\":false},\"steve\":{\"spoons\":[true,false,false],\"attempts\":1,\"best\":70,\"assisted\":false}},\"selected\":\"rind\",\"assist\":false,\"difficulty\":\"medium\",\"checkpoint\":{\"id\":\"rind\",\"phase\":2},\"receipts\":[]},\"collection\":{\"version\":1,\"completed\":0,\"choice\":null,\"pinned\":null,\"progress\":{\"tea-towel\":0,\"burnt-toast\":0,\"golden-whisk\":0,\"rooster-crown\":0,\"rice-guard\":0,\"steve-strut\":0},\"owned\":[],\"receipts\":[],\"milestones\":[],\"presets\":[null,null,null]}}"
+      },
+      "report": "corrections/report.json"
+    },
+    {
+      "name": "UI Retry 2 restores intended phase and healthy player",
+      "pass": true,
+      "details": {
+        "id": "rind",
+        "phase": 2,
+        "status": "playing",
+        "elapsed": 0.13333333333333333,
+        "time": 360,
+        "quietStory": false,
+        "safe": true,
+        "resumed": true,
+        "cage": {
+          "c": 22,
+          "r": 8,
+          "x": 900,
+          "y": 420,
+          "label": "Living skin · Bran trapped"
+        },
+        "rescue": {
+          "clock": 360,
+          "freed": false,
+          "walkT": 0,
+          "settled": false,
+          "guard": {
+            "x": 900,
+            "y": 420,
+            "name": "Bran"
+          },
+          "rind": {
+            "x": 800,
+            "y": 440,
+            "name": "Marshal Rind",
+            "supporting": false
+          }
+        },
+        "player": {
+          "x": 720,
+          "y": 520,
+          "hp": 3,
+          "dead": false,
+          "hits": 0
+        },
+        "boss": {
+          "hp": 8,
+          "dead": true,
+          "step": "defeated"
+        },
+        "enemies": [
+          {
+            "name": "Marshal Rind",
+            "hp": 8,
+            "dead": true,
+            "role": "marshal"
+          }
+        ],
+        "hazards": {
+          "proj": 0,
+          "bombs": 0,
+          "bees": 0,
+          "mines": 0,
+          "bananas": 0,
+          "flock": 0,
+          "holes": 0
+        },
+        "warnings": [],
+        "result": null,
+        "save": {
+          "version": 1,
+          "results": {
+            "banquet": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "puddings": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "guard": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "bridge": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "stirling": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "steve": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "rind": {
+              "spoons": [
+                false,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": null,
+              "assisted": false
+            }
+          },
+          "selected": "rind",
+          "assist": false,
+          "difficulty": "medium",
+          "checkpoint": {
+            "id": "rind",
+            "phase": 2
+          },
+          "receipts": [
+            "fc2ab7c7-693e-473f-80b3-8c066654978f:rind:1"
+          ]
+        },
+        "hud": "Medium · Swing at the skin patch → free Bran · Rind is watching"
+      },
+      "report": "corrections/report.json"
+    },
+    {
+      "name": "Compact checkpoint-2-retried active surface stays inside viewport",
+      "pass": true,
+      "details": {
+        "selector": "#campaignHUD",
+        "bounds": {
+          "x": 208,
+          "y": 90,
+          "width": 384,
+          "height": 55,
+          "top": 90,
+          "right": 592,
+          "bottom": 145,
+          "left": 208
+        },
+        "text": "Medium · Swing at the skin patch → free Bran · Rind is watching",
+        "viewport": {
+          "width": 800,
+          "height": 500
+        },
+        "visible": true
+      },
+      "report": "corrections/report.json"
+    },
+    {
+      "name": "KO event clears all residual hazards, warnings and hostile attack fields",
+      "pass": true,
+      "details": {
+        "id": "rind",
+        "phase": 2,
+        "status": "playing",
+        "elapsed": 0.15,
+        "time": 359.85000000000014,
+        "quietStory": false,
+        "safe": true,
+        "resumed": true,
+        "cage": {
+          "c": 22,
+          "r": 8,
+          "x": 900,
+          "y": 420,
+          "label": "Living skin · Bran trapped"
+        },
+        "rescue": {
+          "clock": 359.85000000000014,
+          "freed": false,
+          "walkT": 0,
+          "settled": false,
+          "guard": {
+            "x": 900,
+            "y": 420,
+            "name": "Bran"
+          },
+          "rind": {
+            "x": 794.69932092954,
+            "y": 440,
+            "name": "Marshal Rind",
+            "supporting": false
+          }
+        },
+        "player": {
+          "x": 180,
+          "y": 440,
+          "hp": 3,
+          "dead": false,
+          "hits": 0
+        },
+        "boss": {
+          "hp": 4,
+          "dead": true,
+          "step": "defeated"
+        },
+        "enemies": [
+          {
+            "name": "Marshal Rind",
+            "hp": 4,
+            "dead": true,
+            "role": "marshal"
+          },
+          {
+            "name": "Shield guard",
+            "hp": 2,
+            "dead": true,
+            "role": "shield"
+          },
+          {
+            "name": "Shield guard",
+            "hp": 2,
+            "dead": true,
+            "role": "shield"
+          }
+        ],
+        "hazards": {
+          "proj": 0,
+          "bombs": 0,
+          "bees": 0,
+          "mines": 0,
+          "bananas": 0,
+          "flock": 0,
+          "holes": 0
+        },
+        "warnings": [],
+        "result": null,
+        "save": {
+          "version": 1,
+          "results": {
+            "banquet": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "puddings": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "guard": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "bridge": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "stirling": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "steve": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            }
+          },
+          "selected": "rind",
+          "assist": false,
+          "difficulty": "medium",
+          "checkpoint": {
+            "id": "rind",
+            "phase": 2
+          },
+          "receipts": []
+        },
+        "hud": "Medium · Marshal Rind: 4/8 · Bait his next swing"
+      },
+      "report": "run1/report.json"
+    },
+    {
+      "name": "Waiting ten seconds after cleanup holds countdown and causes no lash or damage",
+      "pass": true,
+      "details": {
+        "before": {
+          "id": "rind",
+          "phase": 2,
+          "status": "playing",
+          "elapsed": 0.15,
+          "time": 359.85000000000014,
+          "quietStory": false,
+          "safe": true,
+          "resumed": true,
+          "cage": {
+            "c": 22,
+            "r": 8,
+            "x": 900,
+            "y": 420,
+            "label": "Living skin · Bran trapped"
+          },
+          "rescue": {
+            "clock": 359.85000000000014,
+            "freed": false,
+            "walkT": 0,
+            "settled": false,
+            "guard": {
+              "x": 900,
+              "y": 420,
+              "name": "Bran"
+            },
+            "rind": {
+              "x": 794.69932092954,
+              "y": 440,
+              "name": "Marshal Rind",
+              "supporting": false
+            }
+          },
+          "player": {
+            "x": 180,
+            "y": 440,
+            "hp": 3,
+            "dead": false,
+            "hits": 0
+          },
+          "boss": {
+            "hp": 4,
+            "dead": true,
+            "step": "defeated"
+          },
+          "enemies": [
+            {
+              "name": "Marshal Rind",
+              "hp": 4,
+              "dead": true,
+              "role": "marshal"
+            },
+            {
+              "name": "Shield guard",
+              "hp": 2,
+              "dead": true,
+              "role": "shield"
+            },
+            {
+              "name": "Shield guard",
+              "hp": 2,
+              "dead": true,
+              "role": "shield"
+            }
+          ],
+          "hazards": {
+            "proj": 0,
+            "bombs": 0,
+            "bees": 0,
+            "mines": 0,
+            "bananas": 0,
+            "flock": 0,
+            "holes": 0
+          },
+          "warnings": [],
+          "result": null,
+          "save": {
+            "version": 1,
+            "results": {
+              "banquet": {
+                "spoons": [
+                  true,
+                  false,
+                  false
+                ],
+                "attempts": 1,
+                "best": 70,
+                "assisted": false
+              },
+              "puddings": {
+                "spoons": [
+                  true,
+                  false,
+                  false
+                ],
+                "attempts": 1,
+                "best": 70,
+                "assisted": false
+              },
+              "guard": {
+                "spoons": [
+                  true,
+                  false,
+                  false
+                ],
+                "attempts": 1,
+                "best": 70,
+                "assisted": false
+              },
+              "bridge": {
+                "spoons": [
+                  true,
+                  false,
+                  false
+                ],
+                "attempts": 1,
+                "best": 70,
+                "assisted": false
+              },
+              "stirling": {
+                "spoons": [
+                  true,
+                  false,
+                  false
+                ],
+                "attempts": 1,
+                "best": 70,
+                "assisted": false
+              },
+              "steve": {
+                "spoons": [
+                  true,
+                  false,
+                  false
+                ],
+                "attempts": 1,
+                "best": 70,
+                "assisted": false
+              }
+            },
+            "selected": "rind",
+            "assist": false,
+            "difficulty": "medium",
+            "checkpoint": {
+              "id": "rind",
+              "phase": 2
+            },
+            "receipts": []
+          },
+          "hud": "Medium · Marshal Rind: 4/8 · Bait his next swing"
+        },
+        "after": {
+          "id": "rind",
+          "phase": 2,
+          "status": "playing",
+          "elapsed": 10.166666666666751,
+          "time": 359.85000000000014,
+          "quietStory": false,
+          "safe": true,
+          "resumed": true,
+          "cage": {
+            "c": 22,
+            "r": 8,
+            "x": 900,
+            "y": 420,
+            "label": "Living skin · Bran trapped"
+          },
+          "rescue": {
+            "clock": 359.85000000000014,
+            "freed": false,
+            "walkT": 0,
+            "settled": false,
+            "guard": {
+              "x": 900,
+              "y": 420,
+              "name": "Bran"
+            },
+            "rind": {
+              "x": 794.69932092954,
+              "y": 440,
+              "name": "Marshal Rind",
+              "supporting": false
+            }
+          },
+          "player": {
+            "x": 180,
+            "y": 440,
+            "hp": 3,
+            "dead": false,
+            "hits": 0
+          },
+          "boss": {
+            "hp": 4,
+            "dead": true,
+            "step": "defeated"
+          },
+          "enemies": [
+            {
+              "name": "Marshal Rind",
+              "hp": 4,
+              "dead": true,
+              "role": "marshal"
+            },
+            {
+              "name": "Shield guard",
+              "hp": 2,
+              "dead": true,
+              "role": "shield"
+            },
+            {
+              "name": "Shield guard",
+              "hp": 2,
+              "dead": true,
+              "role": "shield"
+            }
+          ],
+          "hazards": {
+            "proj": 0,
+            "bombs": 0,
+            "bees": 0,
+            "mines": 0,
+            "bananas": 0,
+            "flock": 0,
+            "holes": 0
+          },
+          "warnings": [],
+          "result": null,
+          "save": {
+            "version": 1,
+            "results": {
+              "banquet": {
+                "spoons": [
+                  true,
+                  false,
+                  false
+                ],
+                "attempts": 1,
+                "best": 70,
+                "assisted": false
+              },
+              "puddings": {
+                "spoons": [
+                  true,
+                  false,
+                  false
+                ],
+                "attempts": 1,
+                "best": 70,
+                "assisted": false
+              },
+              "guard": {
+                "spoons": [
+                  true,
+                  false,
+                  false
+                ],
+                "attempts": 1,
+                "best": 70,
+                "assisted": false
+              },
+              "bridge": {
+                "spoons": [
+                  true,
+                  false,
+                  false
+                ],
+                "attempts": 1,
+                "best": 70,
+                "assisted": false
+              },
+              "stirling": {
+                "spoons": [
+                  true,
+                  false,
+                  false
+                ],
+                "attempts": 1,
+                "best": 70,
+                "assisted": false
+              },
+              "steve": {
+                "spoons": [
+                  true,
+                  false,
+                  false
+                ],
+                "attempts": 1,
+                "best": 70,
+                "assisted": false
+              }
+            },
+            "selected": "rind",
+            "assist": false,
+            "difficulty": "medium",
+            "checkpoint": {
+              "id": "rind",
+              "phase": 2
+            },
+            "receipts": []
+          },
+          "hud": "Medium · Swing at the skin patch → free Bran · Rind is watching"
+        }
+      },
+      "report": "run1/report.json"
+    },
+    {
+      "name": "Safe wait does not award a completion or collection receipt",
+      "pass": true,
+      "report": "run1/report.json"
+    },
+    {
+      "name": "Actual keyboard movement remains available during safe rescue",
+      "pass": true,
+      "details": {
+        "id": "rind",
+        "phase": 2,
+        "status": "playing",
+        "elapsed": 13.050000000000228,
+        "time": 359.85000000000014,
+        "quietStory": false,
+        "safe": true,
+        "resumed": true,
+        "cage": {
+          "c": 22,
+          "r": 8,
+          "x": 900,
+          "y": 420,
+          "label": "Living skin · Bran trapped"
+        },
+        "rescue": {
+          "clock": 359.85000000000014,
+          "freed": false,
+          "walkT": 0,
+          "settled": false,
+          "guard": {
+            "x": 900,
+            "y": 420,
+            "name": "Bran"
+          },
+          "rind": {
+            "x": 794.69932092954,
+            "y": 440,
+            "name": "Marshal Rind",
+            "supporting": false
+          }
+        },
+        "player": {
+          "x": 827.1461471790938,
+          "y": 415.07448596317437,
+          "hp": 3,
+          "dead": false,
+          "hits": 0
+        },
+        "boss": {
+          "hp": 4,
+          "dead": true,
+          "step": "defeated"
+        },
+        "enemies": [
+          {
+            "name": "Marshal Rind",
+            "hp": 4,
+            "dead": true,
+            "role": "marshal"
+          },
+          {
+            "name": "Shield guard",
+            "hp": 2,
+            "dead": true,
+            "role": "shield"
+          },
+          {
+            "name": "Shield guard",
+            "hp": 2,
+            "dead": true,
+            "role": "shield"
+          }
+        ],
+        "hazards": {
+          "proj": 0,
+          "bombs": 0,
+          "bees": 0,
+          "mines": 0,
+          "bananas": 0,
+          "flock": 0,
+          "holes": 0
+        },
+        "warnings": [],
+        "result": null,
+        "save": {
+          "version": 1,
+          "results": {
+            "banquet": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "puddings": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "guard": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "bridge": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "stirling": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "steve": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            }
+          },
+          "selected": "rind",
+          "assist": false,
+          "difficulty": "medium",
+          "checkpoint": {
+            "id": "rind",
+            "phase": 2
+          },
+          "receipts": []
+        },
+        "hud": "Medium · Swing at the skin patch → free Bran · Rind is watching"
+      },
+      "report": "run1/report.json"
+    },
+    {
+      "name": "Compact 03-safe-witness-after-wait active surface stays inside viewport",
+      "pass": true,
+      "details": {
+        "selector": "#campaignHUD",
+        "bounds": {
+          "x": 208,
+          "y": 90,
+          "width": 384,
+          "height": 55,
+          "top": 90,
+          "right": 592,
+          "bottom": 145,
+          "left": 208
+        },
+        "text": "Medium · Swing at the skin patch → free Bran · Rind is watching",
+        "viewport": {
+          "width": 800,
+          "height": 500
+        },
+        "visible": true
+      },
+      "report": "run1/report.json"
+    },
+    {
+      "name": "Fallback clears all residual hazards, warnings and hostile attack fields",
+      "pass": true,
+      "details": {
+        "id": "rind",
+        "phase": 2,
+        "status": "playing",
+        "elapsed": 0.21666666666666665,
+        "time": 359.8333333333335,
+        "quietStory": false,
+        "safe": true,
+        "resumed": true,
+        "cage": {
+          "c": 22,
+          "r": 8,
+          "x": 900,
+          "y": 420,
+          "label": "Living skin · Bran trapped"
+        },
+        "rescue": {
+          "clock": 359.8333333333335,
+          "freed": false,
+          "walkT": 0,
+          "settled": false,
+          "guard": {
+            "x": 900,
+            "y": 420,
+            "name": "Bran"
+          },
+          "rind": {
+            "x": 794.69932092954,
+            "y": 440,
+            "name": "Marshal Rind",
+            "supporting": false
+          }
+        },
+        "player": {
+          "x": 180,
+          "y": 440,
+          "hp": 3,
+          "dead": false,
+          "hits": 0
+        },
+        "boss": {
+          "hp": 4,
+          "dead": true,
+          "step": "defeated"
+        },
+        "enemies": [
+          {
+            "name": "Marshal Rind",
+            "hp": 4,
+            "dead": true,
+            "role": "marshal"
+          },
+          {
+            "name": "Shield guard",
+            "hp": 2,
+            "dead": true,
+            "role": "shield"
+          },
+          {
+            "name": "Shield guard",
+            "hp": 2,
+            "dead": true,
+            "role": "shield"
+          }
+        ],
+        "hazards": {
+          "proj": 0,
+          "bombs": 0,
+          "bees": 0,
+          "mines": 0,
+          "bananas": 0,
+          "flock": 0,
+          "holes": 0
+        },
+        "warnings": [],
+        "result": null,
+        "save": {
+          "version": 1,
+          "results": {
+            "banquet": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "puddings": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "guard": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "bridge": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "stirling": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "steve": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            }
+          },
+          "selected": "rind",
+          "assist": false,
+          "difficulty": "medium",
+          "checkpoint": {
+            "id": "rind",
+            "phase": 2
+          },
+          "receipts": []
+        },
+        "hud": "Medium · Swing at the skin patch → free Bran · Rind is watching"
+      },
+      "report": "run1/report.json"
+    },
+    {
+      "name": "Entering soldier rescue cannot award before actual cut",
+      "pass": true,
+      "details": {
+        "id": "rind",
+        "phase": 2,
+        "status": "playing",
+        "elapsed": 0.15,
+        "time": 360,
+        "quietStory": false,
+        "safe": true,
+        "resumed": true,
+        "cage": {
+          "c": 22,
+          "r": 8,
+          "x": 900,
+          "y": 420,
+          "label": "Living skin · Bran trapped"
+        },
+        "rescue": {
+          "clock": 360,
+          "freed": false,
+          "walkT": 0,
+          "settled": false,
+          "guard": {
+            "x": 900,
+            "y": 420,
+            "name": "Bran"
+          },
+          "rind": {
+            "x": 800,
+            "y": 440,
+            "name": "Marshal Rind",
+            "supporting": false
+          }
+        },
+        "player": {
+          "x": 720,
+          "y": 520,
+          "hp": 3,
+          "dead": false,
+          "hits": 0
+        },
+        "boss": {
+          "hp": 8,
+          "dead": true,
+          "step": "defeated"
+        },
+        "enemies": [
+          {
+            "name": "Marshal Rind",
+            "hp": 8,
+            "dead": true,
+            "role": "marshal"
+          }
+        ],
+        "hazards": {
+          "proj": 0,
+          "bombs": 0,
+          "bees": 0,
+          "mines": 0,
+          "bananas": 0,
+          "flock": 0,
+          "holes": 0
+        },
+        "warnings": [],
+        "result": null,
+        "save": {
+          "version": 1,
+          "results": {
+            "banquet": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "puddings": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "guard": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "bridge": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "stirling": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "steve": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            }
+          },
+          "selected": "rind",
+          "assist": false,
+          "difficulty": "medium",
+          "checkpoint": {
+            "id": "rind",
+            "phase": 2
+          },
+          "receipts": []
+        },
+        "hud": "Medium · Swing at the skin patch → free Bran · Rind is watching"
+      },
+      "report": "run1/report.json"
+    },
+    {
+      "name": "Actual sword input cuts membrane before completion and frees Bran",
+      "pass": true,
+      "details": {
+        "id": "rind",
+        "phase": 2,
+        "status": "playing",
+        "elapsed": 4.599999999999989,
+        "time": 360,
+        "quietStory": false,
+        "safe": true,
+        "resumed": true,
+        "cage": {
+          "c": 22,
+          "r": 8,
+          "x": 900,
+          "y": 420,
+          "label": "Living skin · Bran trapped"
+        },
+        "rescue": {
+          "clock": 360,
+          "freed": true,
+          "walkT": 0.19999999999999998,
+          "settled": false,
+          "guard": {
+            "x": 912.4939009510881,
+            "y": 435.6173761888608,
+            "name": "Bran"
+          },
+          "rind": {
+            "x": 800,
+            "y": 440,
+            "name": "Marshal Rind",
+            "supporting": false
+          }
+        },
+        "player": {
+          "x": 862.4,
+          "y": 422.9521495105463,
+          "hp": 3,
+          "dead": false,
+          "hits": 0
+        },
+        "boss": {
+          "hp": 8,
+          "dead": true,
+          "step": "defeated"
+        },
+        "enemies": [
+          {
+            "name": "Marshal Rind",
+            "hp": 8,
+            "dead": true,
+            "role": "marshal"
+          }
+        ],
+        "hazards": {
+          "proj": 0,
+          "bombs": 0,
+          "bees": 0,
+          "mines": 0,
+          "bananas": 0,
+          "flock": 0,
+          "holes": 0
+        },
+        "warnings": [],
+        "result": null,
+        "save": {
+          "version": 1,
+          "results": {
+            "banquet": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "puddings": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "guard": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "bridge": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "stirling": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "steve": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            }
+          },
+          "selected": "rind",
+          "assist": false,
+          "difficulty": "medium",
+          "checkpoint": {
+            "id": "rind",
+            "phase": 2
+          },
+          "receipts": []
+        },
+        "hud": "Medium · Bran is free · Rind is taking the winch side"
+      },
+      "report": "run1/report.json"
+    },
+    {
+      "name": "Cut alone still leaves rewards unchanged until witnesses clear",
+      "pass": true,
+      "report": "run1/report.json"
+    },
+    {
+      "name": "Compact 04-membrane-cut-walk active surface stays inside viewport",
+      "pass": true,
+      "details": {
+        "selector": "#campaignHUD",
+        "bounds": {
+          "x": 210.7890625,
+          "y": 90,
+          "width": 378.421875,
+          "height": 35,
+          "top": 90,
+          "right": 589.2109375,
+          "bottom": 125,
+          "left": 210.7890625
+        },
+        "text": "Medium · Bran is free · Rind is taking the winch side",
+        "viewport": {
+          "width": 800,
+          "height": 500
+        },
+        "visible": true
+      },
+      "report": "run1/report.json"
+    },
+    {
+      "name": "Bran walks clear and Rind takes support position before existing terminal result",
+      "pass": true,
+      "details": {
+        "id": "rind",
+        "phase": 2,
+        "status": "won",
+        "elapsed": 7.216666666666646,
+        "time": 360,
+        "quietStory": false,
+        "safe": false,
+        "resumed": true,
+        "cage": {
+          "c": 22,
+          "r": 8,
+          "x": 900,
+          "y": 420,
+          "label": "Living skin · Bran trapped"
+        },
+        "rescue": {
+          "clock": 360,
+          "freed": true,
+          "walkT": 2.8166666666666615,
+          "settled": true,
+          "guard": {
+            "x": 980,
+            "y": 520,
+            "name": "Bran"
+          },
+          "rind": {
+            "x": 1040,
+            "y": 450,
+            "name": "Marshal Rind",
+            "supporting": true
+          }
+        },
+        "player": {
+          "x": 862.4,
+          "y": 422.9521495105463,
+          "hp": 3,
+          "dead": false,
+          "hits": 0
+        },
+        "boss": {
+          "hp": 8,
+          "dead": true,
+          "step": "defeated"
+        },
+        "enemies": [
+          {
+            "name": "Marshal Rind",
+            "hp": 8,
+            "dead": true,
+            "role": "marshal"
+          }
+        ],
+        "hazards": {
+          "proj": 0,
+          "bombs": 0,
+          "bees": 0,
+          "mines": 0,
+          "bananas": 0,
+          "flock": 0,
+          "holes": 0
+        },
+        "warnings": [],
+        "result": {
+          "id": "rind",
+          "won": true,
+          "reason": "",
+          "spoons": [
+            true,
+            false,
+            false
+          ],
+          "added": [
+            0
+          ],
+          "elapsed": 7.216666666666646,
+          "assisted": false,
+          "outro": [
+            "Marshal Rind: Bran. You came back for him.",
+            "Bran: The same recruit from the service crossing.",
+            "Marshal Rind: I will take the winch side.",
+            "Sir Stirling: The bowl is still aimed at our ovens. We need to open that channel."
+          ],
+          "next": null,
+          "checkpoint": null
+        },
+        "save": {
+          "version": 1,
+          "results": {
+            "banquet": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "puddings": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "guard": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "bridge": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "stirling": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "steve": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "rind": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 7.216666666666646,
+              "assisted": false
+            }
+          },
+          "selected": "rind",
+          "assist": false,
+          "difficulty": "medium",
+          "checkpoint": null,
+          "receipts": [
+            "a4feefd4-0c67-4f75-bcab-6c2735fed588:rind:5"
+          ]
+        },
+        "hud": "Medium · Bran is free · Rind is taking the winch side"
+      },
+      "report": "run1/report.json"
+    },
+    {
+      "name": "Existing rescue terminal remains once-only",
+      "pass": true,
+      "report": "run1/report.json"
+    },
+    {
+      "name": "Compact 05-witnessed-result active surface stays inside viewport",
+      "pass": true,
+      "details": {
+        "selector": "#campaignResult .campaign-panel",
+        "bounds": {
+          "x": 31.0625,
+          "y": 20,
+          "width": 722.875,
+          "height": 721.78125,
+          "top": 20,
+          "right": 753.9375,
+          "bottom": 741.78125,
+          "left": 31.0625
+        },
+        "text": "Encounter completeSkin in the Game1 new spoon earned. Your spoons are saved independently.✓ Defeat Rind and free BranMake Rind’s sweep strike one of his shield guardsWin without being bonkedContinue: Story mapReplay aftermath sceneReplay for spoonsStory mapChoose your first costumeChoose Tea TowelChoose Burnt ToastKeep current look",
+        "viewport": {
+          "width": 800,
+          "height": 500
+        },
+        "visible": true
+      },
+      "report": "run1/report.json"
+    },
+    {
+      "name": "Actual Quit to menu clears held countdown flag",
+      "pass": true,
+      "details": {
+        "time": 360,
+        "safe": true
+      },
+      "report": "run1/report.json"
+    },
+    {
+      "name": "Next combat arena counts down normally and has no rescue state",
+      "pass": true,
+      "details": {
+        "id": "guard",
+        "phase": 0,
+        "status": "playing",
+        "elapsed": 0.733333333333334,
+        "time": 179.26666666666608,
+        "quietStory": false,
+        "safe": false,
+        "resumed": false,
+        "player": {
+          "x": 180,
+          "y": 440,
+          "hp": 3,
+          "dead": false,
+          "hits": 0
+        },
+        "enemies": [
+          {
+            "name": "Bran",
+            "hp": 5,
+            "dead": false,
+            "role": "shield"
+          }
+        ],
+        "hazards": {
+          "proj": 0,
+          "bombs": 0,
+          "bees": 0,
+          "mines": 0,
+          "bananas": 0,
+          "flock": 0,
+          "holes": 0
+        },
+        "warnings": [],
+        "result": null,
+        "save": {
+          "version": 1,
+          "results": {
+            "banquet": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "puddings": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "guard": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "bridge": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "stirling": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "steve": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            }
+          },
+          "selected": "guard",
+          "assist": false,
+          "difficulty": "medium",
+          "checkpoint": {
+            "id": "rind",
+            "phase": 2
+          },
+          "receipts": []
+        },
+        "hud": "Medium · Bran: 5/5 · Open the service crossing"
+      },
+      "report": "run1/report.json"
+    },
+    {
+      "name": "No uncaught browser exceptions",
+      "pass": true,
+      "details": [],
+      "report": "corrections/report.json"
+    },
+    {
+      "name": "Transition closes only tracked opened trapdoor and clears pending holes",
+      "pass": true,
+      "details": {
+        "id": "rind",
+        "phase": 2,
+        "status": "playing",
+        "elapsed": 0.16666666666666666,
+        "time": 359.8333333333335,
+        "quietStory": false,
+        "safe": true,
+        "resumed": true,
+        "cage": {
+          "c": 22,
+          "r": 8,
+          "x": 900,
+          "y": 420,
+          "label": "Living skin · Bran trapped"
+        },
+        "rescue": {
+          "clock": 359.8333333333335,
+          "freed": false,
+          "walkT": 0,
+          "settled": false,
+          "guard": {
+            "x": 900,
+            "y": 420,
+            "name": "Bran"
+          },
+          "rind": {
+            "x": 793.8798960459807,
+            "y": 440,
+            "name": "Marshal Rind",
+            "supporting": false
+          }
+        },
+        "player": {
+          "x": 180,
+          "y": 440,
+          "hp": 3,
+          "dead": false,
+          "hits": 0
+        },
+        "boss": {
+          "hp": 4,
+          "dead": true,
+          "step": "defeated"
+        },
+        "enemies": [
+          {
+            "name": "Marshal Rind",
+            "hp": 4,
+            "dead": true,
+            "role": "marshal"
+          },
+          {
+            "name": "Shield guard",
+            "hp": 2,
+            "dead": true,
+            "role": "shield"
+          },
+          {
+            "name": "Shield guard",
+            "hp": 2,
+            "dead": true,
+            "role": "shield"
+          }
+        ],
+        "hazards": {
+          "proj": 0,
+          "bombs": 0,
+          "bees": 0,
+          "mines": 0,
+          "bananas": 0,
+          "flock": 0,
+          "holes": 0
+        },
+        "warnings": [],
+        "result": null,
+        "save": {
+          "version": 1,
+          "results": {
+            "banquet": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "puddings": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "guard": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "bridge": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "stirling": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "steve": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            }
+          },
+          "selected": "rind",
+          "assist": false,
+          "difficulty": "medium",
+          "checkpoint": {
+            "id": "rind",
+            "phase": 2
+          },
+          "receipts": []
+        },
+        "hud": "Medium · Marshal Rind: 4/8 · Bait his next swing"
+      },
+      "report": "corrections/report.json"
+    },
+    {
+      "name": "Transition clears player stun, slip, goo and fall state",
+      "pass": true,
+      "details": {
+        "id": "rind",
+        "phase": 2,
+        "status": "playing",
+        "elapsed": 0.16666666666666666,
+        "time": 359.8333333333335,
+        "quietStory": false,
+        "safe": true,
+        "resumed": true,
+        "cage": {
+          "c": 22,
+          "r": 8,
+          "x": 900,
+          "y": 420,
+          "label": "Living skin · Bran trapped"
+        },
+        "rescue": {
+          "clock": 359.8333333333335,
+          "freed": false,
+          "walkT": 0,
+          "settled": false,
+          "guard": {
+            "x": 900,
+            "y": 420,
+            "name": "Bran"
+          },
+          "rind": {
+            "x": 793.8798960459807,
+            "y": 440,
+            "name": "Marshal Rind",
+            "supporting": false
+          }
+        },
+        "player": {
+          "x": 180,
+          "y": 440,
+          "hp": 3,
+          "dead": false,
+          "hits": 0
+        },
+        "boss": {
+          "hp": 4,
+          "dead": true,
+          "step": "defeated"
+        },
+        "enemies": [
+          {
+            "name": "Marshal Rind",
+            "hp": 4,
+            "dead": true,
+            "role": "marshal"
+          },
+          {
+            "name": "Shield guard",
+            "hp": 2,
+            "dead": true,
+            "role": "shield"
+          },
+          {
+            "name": "Shield guard",
+            "hp": 2,
+            "dead": true,
+            "role": "shield"
+          }
+        ],
+        "hazards": {
+          "proj": 0,
+          "bombs": 0,
+          "bees": 0,
+          "mines": 0,
+          "bananas": 0,
+          "flock": 0,
+          "holes": 0
+        },
+        "warnings": [],
+        "result": null,
+        "save": {
+          "version": 1,
+          "results": {
+            "banquet": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "puddings": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "guard": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "bridge": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "stirling": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "steve": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            }
+          },
+          "selected": "rind",
+          "assist": false,
+          "difficulty": "medium",
+          "checkpoint": {
+            "id": "rind",
+            "phase": 2
+          },
+          "receipts": []
+        },
+        "hud": "Medium · Marshal Rind: 4/8 · Bait his next swing"
+      },
+      "report": "corrections/report.json"
+    },
+    {
+      "name": "Actual movement works after adversarial transient cleanup",
+      "pass": true,
+      "details": {
+        "id": "rind",
+        "phase": 2,
+        "status": "playing",
+        "elapsed": 1.649999999999999,
+        "time": 359.8333333333335,
+        "quietStory": false,
+        "safe": true,
+        "resumed": true,
+        "cage": {
+          "c": 22,
+          "r": 8,
+          "x": 900,
+          "y": 420,
+          "label": "Living skin · Bran trapped"
+        },
+        "rescue": {
+          "clock": 359.8333333333335,
+          "freed": false,
+          "walkT": 0,
+          "settled": false,
+          "guard": {
+            "x": 900,
+            "y": 420,
+            "name": "Bran"
+          },
+          "rind": {
+            "x": 793.8798960459807,
+            "y": 440,
+            "name": "Marshal Rind",
+            "supporting": false
+          }
+        },
+        "player": {
+          "x": 494.1197232344128,
+          "y": 412.3049844178997,
+          "hp": 3,
+          "dead": false,
+          "hits": 0
+        },
+        "boss": {
+          "hp": 4,
+          "dead": true,
+          "step": "defeated"
+        },
+        "enemies": [
+          {
+            "name": "Marshal Rind",
+            "hp": 4,
+            "dead": true,
+            "role": "marshal"
+          },
+          {
+            "name": "Shield guard",
+            "hp": 2,
+            "dead": true,
+            "role": "shield"
+          },
+          {
+            "name": "Shield guard",
+            "hp": 2,
+            "dead": true,
+            "role": "shield"
+          }
+        ],
+        "hazards": {
+          "proj": 0,
+          "bombs": 0,
+          "bees": 0,
+          "mines": 0,
+          "bananas": 0,
+          "flock": 0,
+          "holes": 0
+        },
+        "warnings": [],
+        "result": null,
+        "save": {
+          "version": 1,
+          "results": {
+            "banquet": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "puddings": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "guard": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "bridge": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "stirling": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            },
+            "steve": {
+              "spoons": [
+                true,
+                false,
+                false
+              ],
+              "attempts": 1,
+              "best": 70,
+              "assisted": false
+            }
+          },
+          "selected": "rind",
+          "assist": false,
+          "difficulty": "medium",
+          "checkpoint": {
+            "id": "rind",
+            "phase": 2
+          },
+          "receipts": []
+        },
+        "hud": "Medium · Swing at the skin patch → free Bran · Rind is watching"
+      },
+      "report": "corrections/report.json"
+    }
+  ],
+  "explanation": "Latest assertion per named check. Initial two failed assertions incorrectly prohibited recording failed attempts; original report retained. Final source adds tracked-trapdoor and transient cleanup, verified by targeted regression without repeating unchanged passing suites."
+}

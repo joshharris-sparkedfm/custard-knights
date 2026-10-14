@@ -1,0 +1,29 @@
+TRANSCRIPT RECONSTRUCTION — NOT AN ORIGINAL SAVED PROCESS LOG
+
+Supplied by implementation worker /root/story_finish_impl from the earlier tool transcript. No test or syntax command was rerun to produce this file. The initial tool output had been truncated; this reconstruction preserves the reported outcome and correction.
+
+Command:
+C:/Users/Joshua/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/bin/node.exe --test tests/faction-art.test.cjs
+
+Initial run:
+✔ faction geometry is opt-in and does not draw on ordinary knights or unknown factions (0.4943ms)
+✔ both faction outlines draw distinct geometry independent of tint, role, visor and cosmetic kit (3.29ms)
+✖ live bridge derives faction from the snapshot and layers it behind both accepted renderers without changing composition (68.0852ms)
+tests 3; suites 0; pass 2; fail 1; cancelled 0; skipped 0; todo 0; duration 143.8807ms
+
+Cause and correction:
+Assertion at tests/faction-art.test.cjs:21:106 incorrectly used /CKFactionArt|e\.faction/ against unchanged sprCompose source containing e.factionSpriteCache. Only the test regex was corrected to /CKFactionArt|e\.faction\b/ (word boundary). Runtime source did not change for this correction.
+
+Final focused run after the test-only correction:
+✔ faction geometry is opt-in and does not draw on ordinary knights or unknown factions (0.5015ms)
+✔ both faction outlines draw distinct geometry independent of tint, role, visor and cosmetic kit (3.235ms)
+✔ live bridge derives faction from the snapshot and layers it behind both accepted renderers without changing composition (1.5346ms)
+tests 3; suites 0; pass 3; fail 0; cancelled 0; skipped 0; todo 0; duration 65.5645ms
+
+Separate syntax check (JavaScript piped to bundled Node stdin):
+const fs=require('node:fs'),vm=require('node:vm');let count=0;for(const match of fs.readFileSync('index.html','utf8').matchAll(/<script(?:\s[^>]*)?>([\s\S]*?)<\/script>/g)){if(!match[1].trim())continue;new vm.Script(match[1]);count++;}new vm.Script(fs.readFileSync('game/faction-art.js','utf8'));console.log('Syntax: '+count+' inline scripts + faction module parsed');
+
+Exact reported result:
+Syntax: 1 inline scripts + faction module parsed
+
+Independent browser moving/falling coverage is retained separately in dense-capes-checks.json. It verifies faction pixel presence and entity/canvas invariants for 32 sampled transformations; it does not claim a numerical screen-position oracle or human recognition.

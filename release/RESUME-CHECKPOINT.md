@@ -1,5 +1,14 @@
 # Checked FE09-B source handoff - 14 October 2026
 
+## Checked FE10-A live faction identity - 14 October 2026
+
+PR43 implements faction armour at frozen source0b3d2c69adcedac51a7786c71043afd4bcd54743, based on PR42 merge5899a2eb759f02d04144dcdc3384e79ffcbcff42. Live Custardia now has hollow saucepan handles/rounded trim; Rice has stepped bowl plates/grain crests. The layer is opt-in from the live snapshot and behind accepted rounded bodies, both visors, cosmetics and weapons. Simulation, stats/hitboxes, network/save fields, atlas and existing32MiB sprite cache remain unchanged.
+
+Focused source tests3/3 and syntax pass. Independent browser reports select23 focused assertions with zero runtime exceptions:32 inactive and32 unknown baseline PNG comparisons,32 differing faction pairs,64 cache parity cases,128 cape fixtures,32 movement/falling fixtures, both visors and4/20/50 ordinary/mixed positional captures. Existing unchanged code/atlas content is LF-normalized equal; raw before/after runtime hashes remain stable. Initial unit regex fixture and two browser helper failures are disclosed; no candidate runtime failure is hidden. HostedCI38557205191 passes all6jobs on first attempt. Luna independent source/visual review clears this bounded change.
+
+Evidence:qa/results/faction-identity-2026-10-14/{README.md,manifest.json,checks.json,dense-capes-checks.json,ci-summary.json}, qa/reviews/faction-identity-2026-10-14.md. Owners: /root/story_finish_impl Solhigh source/tests; /root/faction_identity_qa Solmedium isolatedQA; /root/faction_visual_contract Lunahigh contract/review; root Git/docs. Branch:codex/live-faction-identity in custard-knights-room. Root finalizes checked evidence and verifies PR43 merge before any next integration.
+
+Dense center bodies/healthbars obscure interior fighters: clear/peripheral silhouettes differ, but human faction recognition/every-fighter readability is unproven. Independent role silhouettes and broader FE10 art/media acceptance remain open; next bounded FE10 work is role accessories without disguising faction or combat reach. Beta.17 remains the latest verified friends export and does not contain this source increment. Rebuild after a coherent reviewed art increment; do not repeat beta.17 checks. Preserve originalWIP/normalprofiles/all old exports. No public upload, tester sending or Steam approval is claimed.
 ## Checked beta.17 friends build - 14 October 2026
 
 Latest export is0.3.0-beta.17 at frozen source676e4de9e7a72cb3d5bfb745c8eac2da516a9aa0, after FE09-F PR41 mergeefe9bf9f8f2943c8c4be043f2fec649dccb92fae. PR42 packages the coherent FE09 chapter and accurate tester guide; verify its live merge before continuing. Later commits are QA/docs only.

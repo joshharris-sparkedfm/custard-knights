@@ -54,3 +54,7 @@ test('Rind consequence theatre recognizes the crossing guard and shows the earne
  assert.ok(crossing.poses.some(p=>p.guardName===C.crossingGuard.name));assert.ok(rescue.poses.some(p=>p.guardName===C.crossingGuard.name));assert.ok(rescue.poses.some(p=>p.role==='marshal'&&!p.attack&&!p.block));
  assert.ok(S.scenes.rind.outro.cues.some(c=>c.speaker===C.crossingGuard.name));const text=S.scenes.rind.outro.cues.map(c=>c.text).join(' ');assert.match(text,/cooling channel is open.*catch basin.*clear of our ovens.*winch side.*go home/i);assert.doesNotMatch(text,/chapter ends|still aimed at our ovens/i);
 });
+
+test('saved bakery omits the decorative golden Spoon flag while earlier bakery scenes retain it',()=>{
+ const saved=canvas(),earlier=canvas();S.render(saved,1,{id:'rind',phase:'homecoming'});S.render(earlier,1,{id:'puddings',phase:'intro'});const spoonFlag=c=>c.calls.some(call=>call[0]==='translate'&&call[1]===145&&call[2]===260);assert.equal(spoonFlag(saved),false);assert.equal(spoonFlag(earlier),true);assert.equal(saved.depth(),0);assert.equal(earlier.depth(),0);assert.match(S.scenes.rind.homecoming.cues[0].text,/Golden Spoon is still missing/);
+});

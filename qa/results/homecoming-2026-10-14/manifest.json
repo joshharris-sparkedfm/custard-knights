@@ -1,0 +1,160 @@
+{
+  "createdAt": "2026-10-14T11:06:24.188Z",
+  "files": [
+    {
+      "path": "qa/results/homecoming-2026-10-14/corrections-report-tokens/01-default-homecoming-800x500.png",
+      "bytes": 226807,
+      "sha256": "0d87fa2455ee784cd59b0352654c0bd948d816ab333dc8712610f045bc91883d"
+    },
+    {
+      "path": "qa/results/homecoming-2026-10-14/corrections-report-tokens/01-default-homecoming-wide.png",
+      "bytes": 520351,
+      "sha256": "4a7f1e1c00c957c9b416164eafad4d5859aefa6c6614dd90a68a11dfd175ff20"
+    },
+    {
+      "path": "qa/results/homecoming-2026-10-14/corrections-report-tokens/01-restored-cast-jobs-800x500.png",
+      "bytes": 228238,
+      "sha256": "e60c7ae4ae1e759444f135bbb8fb59d5a95b3e5aca8580e5c8b558f167d7923c"
+    },
+    {
+      "path": "qa/results/homecoming-2026-10-14/corrections-report-tokens/01-restored-cast-jobs-wide.png",
+      "bytes": 612988,
+      "sha256": "c2dbf39b737bfad0547aa17c351c2af7ce7f94c6f6a392729d03f4c891952a2d"
+    },
+    {
+      "path": "qa/results/homecoming-2026-10-14/corrections-report-tokens/02-homecoming-hook-800x500.png",
+      "bytes": 85192,
+      "sha256": "0b7d5ff58237e7e1911fe372c975edba78e7081f2964221c519f60d8e9699afc"
+    },
+    {
+      "path": "qa/results/homecoming-2026-10-14/corrections-report-tokens/02-homecoming-hook-wide.png",
+      "bytes": 228731,
+      "sha256": "e76ad6df28be946d05c911704c780a05821adca621ed1a5c5c16318128b71aa4"
+    },
+    {
+      "path": "qa/results/homecoming-2026-10-14/corrections-report-tokens/03-captured-original-result-800x500.png",
+      "bytes": 61303,
+      "sha256": "4651dd0ab4b4ddb101c465887a21fd2d463a8f875e955ce510c24d2a8649e513"
+    },
+    {
+      "path": "qa/results/homecoming-2026-10-14/corrections-report-tokens/03-captured-original-result-wide.png",
+      "bytes": 148954,
+      "sha256": "3c2b5fb5a78877da112f042ce84e1d1ebb9561b7951404c0db4ccbc9d9dc5597"
+    },
+    {
+      "path": "qa/results/homecoming-2026-10-14/corrections-report-tokens/report.json",
+      "bytes": 78928,
+      "sha256": "145f34540a3dd5085f5cd142fa80ba98634067e32abb53d6c63b040ef881052e"
+    },
+    {
+      "path": "qa/results/homecoming-2026-10-14/final-hook-visual/06-final-hook-missing-spoon-800x500.png",
+      "bytes": 84814,
+      "sha256": "881ff48b534f9556d188c04eb91b64575279944d84b50ab2de1bd1a20a56c747"
+    },
+    {
+      "path": "qa/results/homecoming-2026-10-14/final-hook-visual/06-final-hook-missing-spoon-wide.png",
+      "bytes": 182932,
+      "sha256": "cab4ecc4ce8128a6162614f6c3dd46aab92a80a13d615db2ab98f1cd3b88af42"
+    },
+    {
+      "path": "qa/results/homecoming-2026-10-14/final-hook-visual/06-final-hook-skin-clue-800x500.png",
+      "bytes": 86275,
+      "sha256": "97ecf83e016e6f341a2f6514d046987e0e4b9fee2da467f7a37ba37c56dcf557"
+    },
+    {
+      "path": "qa/results/homecoming-2026-10-14/final-hook-visual/06-final-hook-skin-clue-wide.png",
+      "bytes": 218834,
+      "sha256": "ae846bf00b540b3d9ab0a58f1bcc959f646163fdf5b1b98634e7c7bc6590a932"
+    },
+    {
+      "path": "qa/results/homecoming-2026-10-14/final-hook-visual/07-compact-visible-unlock-controls.png",
+      "bytes": 49591,
+      "sha256": "95cdb7fe89032f1a1c8d4581de282dacfdd6f88a207f9a5ffac01c3641708112"
+    },
+    {
+      "path": "qa/results/homecoming-2026-10-14/final-hook-visual/report.json",
+      "bytes": 8704,
+      "sha256": "132adbf010417b01beeead76f77e16fb727124683651ac6d825853c8c5b6ef91"
+    },
+    {
+      "path": "qa/results/homecoming-2026-10-14/run1/01-default-homecoming-800x500.png",
+      "bytes": 225400,
+      "sha256": "5e32584efa8a68e97a276247271e167e91c4f632babc6a793101e262133f8174"
+    },
+    {
+      "path": "qa/results/homecoming-2026-10-14/run1/01-default-homecoming-wide.png",
+      "bytes": 520375,
+      "sha256": "15d9a2b112233cbfaf2afabbb973a614763ea6d6ffad1a410fcce2a4e78b351c"
+    },
+    {
+      "path": "qa/results/homecoming-2026-10-14/run1/01-restored-cast-jobs-800x500.png",
+      "bytes": 230749,
+      "sha256": "8cf5da2116fcbf19cdbd1cc7e869b748660dd072b9048a3e80f3b7f6da8af5d7"
+    },
+    {
+      "path": "qa/results/homecoming-2026-10-14/run1/01-restored-cast-jobs-wide.png",
+      "bytes": 611573,
+      "sha256": "42cbde3f4c70b54572cd2f2faaa2d8feaeeeddcc10bb5b02d021eb2e042c1eb0"
+    },
+    {
+      "path": "qa/results/homecoming-2026-10-14/run1/02-homecoming-hook-800x500.png",
+      "bytes": 85212,
+      "sha256": "e7f618c8e385ce6de80763734435c132f420badcadc4c646abdc10ef4ee957e6"
+    },
+    {
+      "path": "qa/results/homecoming-2026-10-14/run1/02-homecoming-hook-wide.png",
+      "bytes": 231258,
+      "sha256": "096052875597f303d64e8c11eaafb5c1ab5d2b705c179238272ac091d3af183c"
+    },
+    {
+      "path": "qa/results/homecoming-2026-10-14/run1/03-captured-original-result-800x500.png",
+      "bytes": 61305,
+      "sha256": "f6a8d8f0facece9a73b1464fd09283b27f2b54b8ae45ee9c618bd393f72a86ce"
+    },
+    {
+      "path": "qa/results/homecoming-2026-10-14/run1/03-captured-original-result-wide.png",
+      "bytes": 149208,
+      "sha256": "6e1da104dbd235a9dc41fb742842d71a3bff123347dbc3f66033dda12e1d67b3"
+    },
+    {
+      "path": "qa/results/homecoming-2026-10-14/run1/04-old-save-visit-800x500.png",
+      "bytes": 228831,
+      "sha256": "4d234f5eeebd6511f01184e5d2d8b9fa935579b6f42a7dbff1c73f372707d9fd"
+    },
+    {
+      "path": "qa/results/homecoming-2026-10-14/run1/04-old-save-visit-wide.png",
+      "bytes": 622933,
+      "sha256": "acffdaaa11bc5dcae7b85c83e151756a5445a9a3f8b5ad5e73838b6ccbfad20d"
+    },
+    {
+      "path": "qa/results/homecoming-2026-10-14/run1/05-explicit-replay-result-800x500.png",
+      "bytes": 61893,
+      "sha256": "066a4c9836cee7085e45da506404a2e999422c9df0459c421ad27433bfed3927"
+    },
+    {
+      "path": "qa/results/homecoming-2026-10-14/run1/05-explicit-replay-result-wide.png",
+      "bytes": 135905,
+      "sha256": "1d02c166ca11c5275215948f84c9643626dd6969ebedaebf46daa04f2d5cd372"
+    },
+    {
+      "path": "qa/results/homecoming-2026-10-14/run1/report.json",
+      "bytes": 170160,
+      "sha256": "cdd6e291178a3209014bf92c9863209f2625cb2fa60cd374eeebbd28412d8587"
+    },
+    {
+      "path": "qa/results/homecoming-2026-10-14/summary.json",
+      "bytes": 136212,
+      "sha256": "983b80352f79e3744022a62414f93b8b535e70711b84e540b5e7f16a61d7a374"
+    },
+    {
+      "path": "qa/homecoming-browser.cjs",
+      "bytes": 32184,
+      "sha256": "73d8da168bc32d0e36e48635b2480ff4cce8a43eed8b7cd8feb8aa2aa7b39181"
+    },
+    {
+      "path": "qa/reviews/homecoming-2026-10-14.md",
+      "bytes": 6703,
+      "sha256": "e48e15255db7bbad2bd64f6cf756498ed4e5638e17791210a26135ebaefa8677"
+    }
+  ]
+}

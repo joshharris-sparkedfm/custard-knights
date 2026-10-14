@@ -11,3 +11,6 @@ qa/reviews/rind-rescue-2026-10-14.md -text whitespace=cr-at-eol
 qa/results/bowl-diversion-2026-10-14/** -text whitespace=cr-at-eol
 qa/bowl-diversion-browser.cjs -text whitespace=cr-at-eol
 qa/reviews/bowl-diversion-2026-10-14.md -text whitespace=cr-at-eol
+qa/results/homecoming-2026-10-14/** -text whitespace=cr-at-eol
+qa/homecoming-browser.cjs -text whitespace=cr-at-eol
+qa/reviews/homecoming-2026-10-14.md -text whitespace=cr-at-eol

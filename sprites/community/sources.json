@@ -17,7 +17,8 @@
     "decision": "Use for bakery courtyard scenery; bake into sprites.",
     "source_model": "models/harvest-market-bakery-stall.glb",
     "sprite": "bakery-stall.png",
-    "processing": "Local Blender render; transparent bounds cropped and resized to <=512 px."
+    "processing": "Local Blender render; transparent bounds cropped and resized to <=512 px.",
+    "view": "front"
   },
   {
     "id": "crate-of-fresh-bread",
@@ -37,6 +38,28 @@
     "decision": "Use as an edge-of-arena prop; simplify texture contrast.",
     "source_model": "models/crate-of-fresh-bread.glb",
     "sprite": "bread-crate.png",
-    "processing": "Local Blender render; transparent bounds cropped and resized to <=512 px."
+    "processing": "Local Blender render; transparent bounds cropped and resized to <=512 px.",
+    "view": "front"
+  },
+  {
+    "id": "solitude-tree",
+    "title": "Solitude Tree",
+    "author": "Zahra",
+    "source": "https://www.meshy.ai/posts/019a5320-5fbe-7efb-a9f8-baf780f737e8",
+    "license": "CC0 (shown on asset page)",
+    "accessed": "2026-10-23",
+    "bytes": 6452088,
+    "sha256": "a45ad030ffa2031f8d18dceae64c05614214f7431b4250f3348d9b761ca5a847",
+    "meshes": 1,
+    "materials": 1,
+    "textures": 3,
+    "skins": 0,
+    "animations": 0,
+    "triangles": 2971,
+    "decision": "Chunky foliage candidate for the next scenery pass; validate silhouette, scale and collision placement before integration.",
+    "source_model": "models/solitude-tree.glb",
+    "sprite": "solitude-tree.png",
+    "processing": "Local Blender render; transparent bounds cropped and resized to <=512 px.",
+    "view": "game-angle"
   }
 ]

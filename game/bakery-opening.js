@@ -2,11 +2,12 @@
 (function(root,factory){const api=factory();if(typeof module==='object'&&module.exports)module.exports=api;else root.CKBakeryOpening=api;})(typeof globalThis!=='undefined'?globalThis:this,()=>{
  'use strict';
  const footprints=[{c:3,r:2,w:10,h:5},{c:20,r:3,w:7,h:5},{c:14,r:10,w:3,h:1}];
- function layout(g,kind){const solids=['opening','homecoming'].includes(kind)?footprints:[...footprints,{c:27,r:3,w:4,h:5}];for(const b of solids)for(let r=b.r;r<b.r+b.h;r++)for(let c=b.c;c<b.c+b.w;c++)g.grid[r][c]='#';}
+ const gardens=[{c:15,r:5,w:2,h:1,sprite:[575,115,130,200]},{c:29,r:15,w:2,h:2,sprite:[1152,598,96,147]}];
+ function layout(g,kind){const solids=[...footprints,...gardens,...(['opening','homecoming'].includes(kind)?[]:[{c:27,r:3,w:4,h:5}])];for(const b of solids)for(let r=b.r;r<b.r+b.h;r++)for(let c=b.c;c<b.c+b.w;c++)g.grid[r][c]='#';}
  const ink='#34253e',cream='#fff2cf';
  // Load once; the original drawing remains available while offline assets load.
  const community={};
- if(typeof Image!=='undefined')for(const name of ['bakery-stall','bread-crate']){
+ if(typeof Image!=='undefined')for(const name of ['bakery-stall','bread-crate','solitude-tree']){
   const image=new Image();image.src='sprites/community/'+name+'.png';community[name]=image;
  }
  function communityBakery(c){
@@ -25,6 +26,23 @@
   const oval=(x,y,rx,ry,col)=>{c.beginPath();c.ellipse(x,y,rx,ry,0,0,Math.PI*2);c.fillStyle=col;c.fill();};
   const text=(s,x,y,size=17,col=cream)=>{c.font=`bold ${size}px Nunito,sans-serif`;c.textAlign='center';c.lineWidth=4;c.strokeStyle=ink;c.strokeText(s,x,y);c.fillStyle=col;c.fillText(s,x,y);};
   return {box,oval,text};
+ }
+ function gardenTrees(c){
+  const {box,oval}=tools(c),tree=community['solitude-tree'];
+  for(const bed of gardens){
+   const x=bed.c*40,y=80+bed.r*40,w=bed.w*40,h=bed.h*40,[sx,sy,sw,sh]=bed.sprite;
+   // Raised stone planters expose the exact solid grid footprint, including on image failure.
+   box(x,y,w,h,'#a48f77',7);box(x+4,y+4,w-8,h-9,'#c7bf98',5);
+   oval(x+w/2,y+h-12,w*.35,7,'#675c4d55');
+   if(tree?.complete&&tree.naturalWidth)c.drawImage(tree,sx,sy,sw,sh);
+   else{
+    const cx=sx+sw/2,base=sy+sh-8;
+    box(cx-6,base-sh*.61,12,sh*.61,'#aa7c55',4);
+    for(const [dx,dy,size] of [[0,.76,.24],[-.19,.58,.22],[.18,.47,.2],[-.13,.29,.18]]){
+     oval(cx+dx*sw,base-dy*sh,sw*size,sh*.13,'#77986b');oval(cx+dx*sw-3,base-dy*sh-5,sw*size*.75,sh*.08,'#a8bf82');
+    }
+   }
+  }
  }
  function courtyard(c){
   const {box,oval}=tools(c);
@@ -117,6 +135,7 @@
    text('SERVICE LANE →',1100,700,19,'#2ec4b6');c.restore();return;
   }
   courtyard(c);
+  gardenTrees(c);
   // Bakery footprint: cells c3..12/r2..6, exactly x120..520/y160..360.
   bakeryFacade(c);
   // Steve enclosure footprint: c20..26/r3..7. The gate is decorative;
@@ -176,5 +195,5 @@
   for(const s of r.staff){const station=r.stands[s.station],working=station.hp>0,position=working?job(routes[s.station],r.elapsed+s.station*2):s;cook(c,{...s,...position},s.name);
    if(working){if(s.station===2){box(position.x-13,position.y-34,26,24,'#68a8bc',8);oval(position.x,position.y-34,12,4,'#a9dce4');}else if(s.station===0)tray(c,position.x,position.y-28,false);else{box(position.x-18,position.y-33,36,25,'#e0c99d',10);text('FLOUR',position.x,position.y-18,10,ink);}}
   }text('THE COOKS ARE MOVING YOUR SUPPLIES INTO COVER',640,720,19,'#ffe28a');c.restore();}
- return Object.freeze({layout,footprints,scenery,draw,foreground,crossingShield,siegeStaff});
+ return Object.freeze({layout,footprints,gardens,scenery,draw,foreground,crossingShield,siegeStaff});
 });

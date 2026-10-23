@@ -1,0 +1,2 @@
+Community models: CC0 as displayed on their Meshy source pages on 2026-10-23.
+Local sprite derivatives for Custard Knights. Sources and creators: sources.json.

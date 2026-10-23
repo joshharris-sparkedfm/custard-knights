@@ -4,11 +4,95 @@
  const footprints=[{c:3,r:2,w:10,h:5},{c:20,r:3,w:7,h:5},{c:14,r:10,w:3,h:1}];
  function layout(g,kind){const solids=['opening','homecoming'].includes(kind)?footprints:[...footprints,{c:27,r:3,w:4,h:5}];for(const b of solids)for(let r=b.r;r<b.r+b.h;r++)for(let c=b.c;c<b.c+b.w;c++)g.grid[r][c]='#';}
  const ink='#34253e',cream='#fff2cf';
+ // Load once; the original drawing remains available while offline assets load.
+ const community={};
+ if(typeof Image!=='undefined')for(const name of ['bakery-stall','bread-crate']){
+  const image=new Image();image.src='sprites/community/'+name+'.png';community[name]=image;
+ }
+ function communityBakery(c){
+  const stall=community['bakery-stall'],bread=community['bread-crate'];
+  if(!stall?.complete||!stall.naturalWidth||!bread?.complete||!bread.naturalWidth)return false;
+  const {oval}=tools(c);
+  // A stocked shopfront on the existing bakery, with its roof and ovens retained.
+  // Ground contact stays inside x120..520/y160..360, the authored solid footprint.
+  oval(320,344,92,12,'#34253e33');
+  c.drawImage(stall,225,175,190,185);
+  c.drawImage(bread,139,292,62,60);c.drawImage(bread,439,292,62,60);
+  return true;
+ }
  function tools(c){
   const box=(x,y,w,h,col,r=5)=>{c.beginPath();c.roundRect(x,y,w,h,r);c.fillStyle=col;c.strokeStyle=ink;c.lineWidth=3;c.fill();c.stroke();};
   const oval=(x,y,rx,ry,col)=>{c.beginPath();c.ellipse(x,y,rx,ry,0,0,Math.PI*2);c.fillStyle=col;c.fill();};
   const text=(s,x,y,size=17,col=cream)=>{c.font=`bold ${size}px Nunito,sans-serif`;c.textAlign='center';c.lineWidth=4;c.strokeStyle=ink;c.strokeText(s,x,y);c.fillStyle=col;c.fillText(s,x,y);};
   return {box,oval,text};
+ }
+ function courtyard(c){
+  const {box,oval}=tools(c);
+  c.fillStyle='#a6b584';c.fillRect(0,80,1280,720);
+  // Flat garden markings stay walkable; raised edging is confined to perimeter solids.
+  for(let row=0;row<8;row++)for(let col=0;col<18;col++){
+   if((row*13+col*7)%5>1)continue;
+   const x=58+col*68+(row*17+col*11)%31,y=141+row*79+(col*19+row*7)%27-13;
+   oval(x,y,22+(col%3)*7,8,'#afbd90');
+   if((row+col)%3===0){
+    c.strokeStyle='#8eaa76';c.lineWidth=2;c.beginPath();c.moveTo(x-4,y);c.lineTo(x-7,y-5);c.moveTo(x,y);c.lineTo(x+2,y-7);c.stroke();
+   }
+  }
+  c.fillStyle='#b6a27f';c.fillRect(40,436,1200,163);c.fillRect(421,345,123,324);
+  c.fillStyle='#e5d0a3';c.fillRect(40,442,1200,151);c.fillRect(427,345,111,318);
+  const stones=['#e8d6b0','#dfc89e','#f0dfba','#d9c49d'];
+  for(let row=0;row<4;row++)for(let col=0;col<25;col++){
+   const x=46+col*48,y=449+row*35;
+   c.beginPath();c.roundRect(x,y,43,29,7);c.fillStyle=stones[(col*3+row)%4];c.fill();
+   c.strokeStyle='#c9b18c';c.lineWidth=1.5;c.stroke();
+   c.strokeStyle='#f7e9cb';c.beginPath();c.moveTo(x+7,y+5);c.lineTo(x+34,y+5);c.stroke();
+  }
+  for(let y=363;y<657;y+=37){
+   if(y>430&&y<600)continue;
+   for(let col=0;col<2;col++){c.beginPath();c.roundRect(433+col*51,y,45,29,7);c.fillStyle=stones[(col+y)%4];c.fill();c.strokeStyle='#c9b18c';c.lineWidth=1.5;c.stroke();}
+  }
+  // Foundation stones and soft hedge crowns make all four collision edges visible.
+  box(0,80,1280,40,'#668366',5);box(0,760,1280,40,'#668366',5);
+  box(0,120,40,640,'#668366',5);box(1240,120,40,640,'#668366',5);
+  for(let x=22;x<1280;x+=42){
+   oval(x,96,25,12,'#779568');oval(x-5,91,16,5,'#94ac78');
+   oval(x,779,25,13,'#779568');oval(x-5,774,16,5,'#94ac78');
+  }
+  for(let y=138;y<752;y+=42){
+   oval(19,y,15,25,'#779568');oval(1261,y,15,25,'#779568');
+   oval(15,y-7,5,13,'#94ac78');oval(1257,y-7,5,13,'#94ac78');
+  }
+  c.strokeStyle='#d1d4ab';c.lineWidth=3;c.beginPath();c.moveTo(42,121);c.lineTo(1238,121);c.moveTo(42,758);c.lineTo(1238,758);c.stroke();
+  for(let x=72;x<1230;x+=89){
+   for(const y of [694,736]){
+    const ox=(y===694?0:23);oval(x+ox,y,3,3,'#fff0cb');oval(x+ox+4,y-3,3,3,'#fff0cb');oval(x+ox+1,y-2,2,2,'#d4a65c');
+   }
+  }
+ }
+ function bakeryFacade(c){
+  const {box,oval,text}=tools(c);
+  box(120,160,400,200,'#f3d9ad',8);
+  box(124,330,392,26,'#bd9572',4);
+  for(let x=130;x<511;x+=47){c.strokeStyle='#dfbd93';c.lineWidth=2;c.beginPath();c.moveTo(x,333);c.lineTo(x,355);c.stroke();}
+  for(const x of [124,503])box(x,220,13,109,'#c69e75',2);
+  box(270,272,68,84,'#527c79',13);box(281,285,45,63,'#3c6266',8);oval(320,320,3,3,'#f7d98c');
+  c.beginPath();c.moveTo(111,187);c.lineTo(320,134);c.lineTo(529,187);c.closePath();c.fillStyle='#b66a73';c.strokeStyle=ink;c.lineWidth=4;c.fill();c.stroke();
+  c.strokeStyle='#d68c8b';c.lineWidth=3;
+  for(let row=0;row<3;row++){
+   const y=153+row*12,half=(y-134)*3.9;
+   c.beginPath();c.moveTo(320-half,y);c.lineTo(320+half,y);c.stroke();
+   for(let x=320-half+15;x<320+half-10;x+=27){c.beginPath();c.moveTo(x,y);c.lineTo(x+4,y+8);c.stroke();}
+  }
+  for(const x of [150,372]){
+   box(x,230,96,75,'#537c79',7);box(x+7,237,82,51,'#f7ce85',4);
+   oval(x+23,281,17,8,'#bd864d');oval(x+60,278,18,9,'#e8d398');
+   c.strokeStyle='#6c6859';c.lineWidth=3;c.beginPath();c.moveTo(x+48,236);c.lineTo(x+48,291);c.moveTo(x+7,259);c.lineTo(x+88,259);c.stroke();
+   c.fillStyle='#fff2c955';c.fillRect(x+12,241,19,35);
+   box(x-4,299,104,9,'#c69e75',3);
+  }
+  if(!communityBakery(c))for(let i=0;i<10;i++)box(120+i*40,312,40,18,i%2?cream:'#b7646b',2);
+  box(140,183,360,40,'#493e4a',8);box(148,190,344,26,'#f2dbab',5);text('MABEL’S BAKERY',320,212,23,'#fff5d6');
+  for(const x of [132,508]){oval(x,238,9,12,'#e4b46b');oval(x-2,235,4,7,'#fff0bb');}
  }
  function cook(c,s,label=s.name){const {box,oval,text}=tools(c);c.save();c.translate(s.x,s.y);oval(0,4,20,7,ink+'55');
   c.strokeStyle=ink;c.lineWidth=6;c.beginPath();c.moveTo(-8,-7);c.lineTo(-10,3);c.moveTo(8,-7);c.lineTo(10,3);c.stroke();
@@ -32,19 +116,14 @@
    for(let row=1;row<17;row++){if(row===8)continue;box(720,80+row*40,40,40,'#80634e',2);oval(730,94+row*40,7,7,'#e4b762');oval(748,96+row*40,7,8,'#eee2b7');}
    text('SERVICE LANE →',1100,700,19,'#2ec4b6');c.restore();return;
   }
-  c.fillStyle='#718367';c.fillRect(0,80,1280,720);c.fillStyle='#bfa782';c.fillRect(40,440,1200,155);c.fillRect(425,345,115,320);
-  // Solid perimeter tiles are visible hedges and low walls, never invisible edges.
-  box(0,80,1280,40,'#496b53',5);box(0,760,1280,40,'#496b53',5);box(0,120,40,640,'#496b53',5);box(1240,120,40,640,'#496b53',5);
-  for(let y=456;y<589;y+=35)for(let x=54;x<1220;x+=48){c.strokeStyle='#a48d70';c.lineWidth=2;c.beginPath();c.roundRect(x+(y%2)*9,y,40,26,6);c.stroke();}
-  for(let x=65;x<1230;x+=75){oval(x,684,14,8,'#889972');oval(x+20,730,5,3,'#e5c687');}
+  courtyard(c);
   // Bakery footprint: cells c3..12/r2..6, exactly x120..520/y160..360.
-  box(120,160,400,200,'#e7c394',8);box(270,272,68,88,'#754843');box(296,304,16,56,'#523847');
-  c.beginPath();c.moveTo(111,187);c.lineTo(320,134);c.lineTo(529,187);c.closePath();c.fillStyle='#965662';c.strokeStyle=ink;c.lineWidth=4;c.fill();c.stroke();
-  for(const x of [150,372]){box(x,230,96,75,'#694a45');box(x+7,237,82,51,'#eabf7a');oval(x+23,281,17,8,'#bd864d');oval(x+60,278,18,9,'#e8d398');c.strokeStyle='#4e4148';c.beginPath();c.moveTo(x+48,234);c.lineTo(x+48,294);c.stroke();}
-  box(140,183,360,40,'#544047',8);text('MABEL’S BAKERY',320,212,25);for(let i=0;i<10;i++)box(120+i*40,312,40,18,i%2?cream:'#b7646b',2);
+  bakeryFacade(c);
   // Steve enclosure footprint: c20..26/r3..7. The gate is decorative;
   // players reach every delivery objective through the clear southern lane.
-  box(800,200,280,200,'#829270',7);for(let x=812;x<1075;x+=29){box(x,358,7,41,'#a78860',2);}box(800,372,280,8,'#c6a476',2);text('STEVE · SCRAPS ONLY',940,186,16);
+  box(800,200,280,200,'#c1c995',7);box(806,207,268,186,'#b0bc86',5);
+  for(let i=0;i<12;i++){const x=820+(i*71)%235,y=227+(i*43)%123;oval(x,y,7,3,'#d8d7a5');}
+  for(let x=812;x<1075;x+=29){box(x,358,7,41,'#c79c72',2);}box(800,372,280,8,'#ebc99a',2);text('STEVE · SCRAPS ONLY',940,186,16);
   box(560,480,120,40,'#916c50',6);box(567,488,105,10,'#b69268',3);text(r.quietKind==='opening'?'DELIVERY TABLE':r.quietKind==='homecoming'?'FRESH BREAD':'COOKS’ SUPPLIES',620,565,17);
   box(1060,419,150,32,'#615141',5);text(r.quietKind==='opening'?'BANQUET →':r.quietKind==='homecoming'?'HOME SAFE':r.node.id==='puddings'?'SERVICE →':'PUDDINGS →',1135,442,18);
   c.strokeStyle='#e4c474';c.lineWidth=4;c.setLineDash([10,15]);c.beginPath();c.moveTo(695,559);c.lineTo(1140,559);c.stroke();c.setLineDash([]);

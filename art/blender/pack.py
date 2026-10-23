@@ -105,7 +105,7 @@ for c in meta.get('chicks', []):
     if anchor is None: r = base['r'][0]; anchor = (r[5] + r[3] - 4, r[5])
     K.setdefault('chicks', {})[c] = {'base': base, 'mask': layer('chick_' + c, 'mask', True)[0]}
 if 'scale' in meta: K['scale'] = meta['scale']
-for key in ('faceRevision', 'visorStyle'):
+for key in ('faceRevision', 'visorStyle', 'motionRevision'):
     if key in meta: K[key] = meta[key]
 if 'rig' in meta: K['rig'] = meta['rig']
 K['anchorY'], K['topY'] = anchor

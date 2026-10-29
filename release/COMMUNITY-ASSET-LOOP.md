@@ -1,5 +1,7 @@
 # Community asset improvement loop
 
+**Superseding visual feedback, 29 October:** the user rejected the mixture of cartoon knights and detailed community models. Read `release/ART-DIRECTION-RESET.md` first. Stop the Pip vampire-chef intake and isolated asset additions. Establish a coherent whole-scene style with updated knights before further production integration. The historical implementation below is not visually accepted.
+
 Updated 29 October 2026. Continue community-first improvements to Custard Knights. Download suitable free Meshy community models before considering generation; generate only for a documented unmet need. Preserve creators, source URLs, displayed licences and hashes. Keep original GLBs separate from derived runtime sprites.
 
 ## Integrated work

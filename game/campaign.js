@@ -172,6 +172,7 @@
    if(run.phase===0){if(!run.barricadeOpen||enemies.length)return;run.phase=1;run.phaseT=0;banner('GET THE COOKS OUT','Walk near Mabel, Alf and Pip. Stay close as they head through the pantry.');}
    if(run.phase===1){
     for(const s of run.staff){
+     s.renderSpeed=0;
      if(s.rescued)continue;
      const near=distance(s,run.player);if(near<150)s.following=true;
      s.waiting=!s.following||near>230;
@@ -180,7 +181,7 @@
      // and prevent a following cook cutting a corner through the wall.
      const leader=run.staff[run.staff.indexOf(s)-1];
      let remaining=dt*100;if(leader&&!leader.rescued&&leader.following)remaining=Math.min(remaining,Math.max(0,distance(s,leader)-75));
-     while(remaining>0&&!s.rescued){const target=run.escortRoute[s.route],d=distance(s,target),step=Math.min(remaining,d);if(d>0){s.x+=(target.x-s.x)/d*step;s.y+=(target.y-s.y)/d*step;s.walk+=step*.07;}remaining-=step;if(d<=step){s.route++;if(s.route===run.escortRoute.length){s.rescued=true;s.waiting=false;s.x=1170;s.y=330+run.staff.indexOf(s)*90;}}else break;}
+     let travelled=0;while(remaining>0&&!s.rescued){const target=run.escortRoute[s.route],d=distance(s,target),step=Math.min(remaining,d);if(d>0){s.face=Math.atan2(target.y-s.y,target.x-s.x);s.x+=(target.x-s.x)/d*step;s.y+=(target.y-s.y)/d*step;s.walk+=step*.07;travelled+=step;}remaining-=step;if(d<=step){s.route++;if(s.route===run.escortRoute.length){s.rescued=true;s.waiting=false;s.x=1170;s.y=330+run.staff.indexOf(s)*90;}}else break;}s.renderSpeed=s.rescued?0:dt>0?travelled/dt:0;
     }
     if(run.staff.every(s=>s.rescued)){run.phase=2;run.phaseT=0;run.hold=0;spawn('raider',820,250,2,'Pantry reinforcement');spawn('raider',820,590,2,'Pantry reinforcement');banner('HOLD THE PANTRY','Two more guards! Bonk them and defend the gold circle for six seconds.');}
    }else if(run.phase===2){
@@ -313,7 +314,7 @@
   }
   function drawScenery(ctx){if(run&&['bridge','stirling','steve','rind'].includes(run.node.id))Channel.scenery(ctx,run);if(run&&(run.prelude||['banquet','puddings'].includes(run.node.id)))globalThis.CKBakeryOpening?.scenery(ctx,run);}
   function drawForeground(ctx){if(run?.prelude)globalThis.CKBakeryOpening?.foreground(ctx,run);else if(run?.node.id==='guard'&&living(run.guard))globalThis.CKBakeryOpening?.crossingShield(ctx,run.guard);else if(run?.node.id==='rind'&&run.phase===3){Channel.finaleForeground(ctx,run);globalThis.CKBakeryOpening?.crossingShield(ctx,run.rescue.guard);}else if(run?.node.id==='rind'&&run.phase===2){Channel.rescueForeground(ctx,run);globalThis.CKBakeryOpening?.crossingShield(ctx,run.rescue.guard);}}
-  function draw(ctx){if(!run||!run.g.campaign)return;if(run.prelude){globalThis.CKBakeryOpening?.draw(ctx,run);return;}if(['bridge','stirling','steve'].includes(run.node.id))Channel.draw(ctx,run);if(run.node.id==='puddings')globalThis.CKBakeryOpening?.siegeStaff(ctx,run);ctx.save();ctx.font='bold 16px Nunito, sans-serif';ctx.textAlign='center';ctx.lineWidth=4;
+  function draw(ctx){if(!run||!run.g.campaign)return;if(run.prelude){globalThis.CKBakeryOpening?.draw(ctx,run,engine.drawBakeryActor);return;}if(['bridge','stirling','steve'].includes(run.node.id))Channel.draw(ctx,run);if(run.node.id==='puddings')globalThis.CKBakeryOpening?.siegeStaff(ctx,run,engine.drawBakeryActor);ctx.save();ctx.font='bold 16px Nunito, sans-serif';ctx.textAlign='center';ctx.lineWidth=4;
    const bounded=p=>Math.max(0,Math.min(1,p||0));
    function progressRing(o,color,progress){ctx.beginPath();ctx.strokeStyle=color;ctx.lineWidth=6;ctx.arc(o.x,o.y,(o.r||38)+6,-Math.PI/2,-Math.PI/2+Math.PI*2*bounded(progress));ctx.stroke();ctx.lineWidth=4;}
    function marker(o,color,label,progress){ctx.beginPath();ctx.arc(o.x,o.y,o.r||38,0,Math.PI*2);ctx.fillStyle=color+'30';ctx.strokeStyle=color;ctx.fill();ctx.stroke();if(progress!==undefined)progressRing(o,'#FFF7E0',progress);ctx.fillStyle='#FFF7E0';ctx.strokeStyle='#221733';ctx.lineWidth=4;ctx.strokeText(label,o.labelX||o.x,o.y-(o.labelOffset||(o.r||38)+12));ctx.fillText(label,o.labelX||o.x,o.y-(o.labelOffset||(o.r||38)+12));}
@@ -325,6 +326,7 @@
     if(run.phase===1){ctx.save();ctx.setLineDash([9,12]);ctx.beginPath();ctx.moveTo(600,420);for(const q of run.escortRoute)ctx.lineTo(q.x,q.y);ctx.strokeStyle='#2EC4B6';ctx.lineWidth=3;ctx.stroke();ctx.restore();}
     // Kitchen staff are visible civilians, never enemy knights or damage targets.
     for(const s of run.staff){
+     if(globalThis.CKBakeryOpening?.cook){const label=s.rescued?s.name+' · safe':run.phase===0?s.name+' · help!':s.waiting?s.name+' · wait!':s.name;globalThis.CKBakeryOpening.cook(ctx,{...s,time:run.elapsed,speed:s.renderSpeed||0,labelBeside:true},label,engine.drawBakeryActor);continue;}
      ctx.save();ctx.translate(s.x,s.y);const bob=s.following&&!s.waiting&&!s.rescued?Math.sin(s.walk)*2:0;
      ctx.beginPath();ctx.ellipse(0,3,18,7,0,0,Math.PI*2);ctx.fillStyle='#22173355';ctx.fill();ctx.translate(0,bob);
      ctx.lineWidth=5;ctx.strokeStyle='#221733';ctx.beginPath();ctx.moveTo(-7,-4);ctx.lineTo(-9,3);ctx.moveTo(7,-4);ctx.lineTo(9,3);ctx.stroke();
@@ -338,7 +340,7 @@
    if(run.zone&&run.node.id!=='banquet'&&!(run.node.id==='stirling'&&run.phase!==2)&&!(run.node.id==='bridge'&&run.route<3)){const max=run.node.id==='stirling'?8:run.node.id==='bridge'?3:1.5;marker({...run.zone,labelOffset:run.zone.r+34},run.contested?'#FFB020':'#2EC4B6',run.contested?'Contested — clear the tools':run.zone.label,run.hold/max);}
    if(run.gates)run.gates.forEach((q,i)=>{if(run.node.id==='bridge'&&run.route>=3&&i===2)return;marker(q,i<run.route?'#2EC4B6':i===run.route?'#FFD23F':'#C9B9E6',(i<run.route?'✓ ':'')+'Gate '+(i+1)+(run.node.id==='steve'?' · '+q.label:''));});
    if(run.stands)run.stands.forEach(q=>marker({...q,r:35},q.hp>0?'#FF8FB1':'#6A5A8C',q.label+' '+Math.max(0,q.hp)+'/4'));
-   if(run.cage&&run.g.grid[run.cage.r][run.cage.c]==='x')marker({...run.cage,r:36,...(run.node.id==='banquet'?{labelX:590}: {})},'#FFD23F',(run.node.id==='banquet'?'Barricade':run.cage.label)+' · swing here');
+   if(run.cage&&run.g.grid[run.cage.r][run.cage.c]==='x')marker({...run.cage,r:36},'#FFD23F',(run.node.id==='banquet'?'Barricade':run.cage.label)+' · swing here');
    for(const w of run.warnings)danger(w,w.label,1-w.t/w.max);
    if(run.boss&&run.phase<2){const b=run.boss;if(b.step==='warn'){const progress=bounded(1-b.timer/(b.warnMax||1.15));danger({...b.target,r:run.phase?170:105},run.phase?'SWEEP — DASH OUT':'SLAM — DASH OUT',progress);spoon(b.x+36,b.y-72-28*progress,-.25+.4*progress,1.1);}else if(b.step==='exhausted'){marker({...b,r:b.r+30,labelOffset:112},'#2EC4B6','SHIELD DOWN — BONK!',b.timer/(b.recoveryMax||2.8));if(b.target)spoon(b.target.x,b.target.y-78,Math.PI-.08,1);}}
    for(const effect of run.effects){const progress=bounded(1-effect.t/effect.max);ctx.save();ctx.globalAlpha=1-progress;ctx.beginPath();ctx.arc(effect.x,effect.y,effect.r*(.8+progress*.22),0,Math.PI*2);ctx.lineWidth=8*(1-progress)+2;ctx.strokeStyle='#FFD23F';ctx.stroke();for(let i=0;i<8;i++){const a=i*Math.PI/4;ctx.beginPath();ctx.moveTo(effect.x+Math.cos(a)*20,effect.y+Math.sin(a)*20);ctx.lineTo(effect.x+Math.cos(a)*(35+progress*55),effect.y+Math.sin(a)*(35+progress*55));ctx.lineWidth=3;ctx.strokeStyle='#221733';ctx.stroke();}ctx.restore();}

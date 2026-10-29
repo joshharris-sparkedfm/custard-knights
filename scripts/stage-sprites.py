@@ -553,7 +553,7 @@ def save_manifest(run_dir, manifest):
 
 
 def main():
-    global BLENDER_THREADS
+    global BLENDER_THREADS, BLENDER
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('phase', choices=('pilot', 'full', 'patch-block', 'preview-patch',
                                           'visor-pilot', 'visor-full', 'visor-resume',
@@ -566,8 +566,10 @@ def main():
     parser.add_argument('--max-estimate-minutes', type=float, default=15)
     parser.add_argument('--max-visor-estimate-minutes', type=float, default=60)
     parser.add_argument('--blender-threads', type=int, choices=(1, 2, 4), default=4)
+    parser.add_argument('--blender', type=Path, default=BLENDER, help='Blender executable for this checkout')
     args = parser.parse_args()
     BLENDER_THREADS = args.blender_threads
+    BLENDER = args.blender.resolve()
     if args.phase.startswith('visor-') and args.source == REPO / 'art/blender/face_bake.py':
         args.source = VISOR_SOURCE
     args.source = args.source.resolve()
@@ -597,7 +599,7 @@ def main():
     geometry = VISOR_GEOMETRY if args.phase.startswith('visor-') else FACE_GEOMETRY
     if args.phase != 'archive-review':
         current_hashes = {str(p.relative_to(REPO)): sha(p) for p in
-                          (CHICKEN_SOURCE, geometry, args.source, PACKER, VALIDATOR, Path(__file__))
+                          (CHICKEN_SOURCE, geometry, VISOR_SOURCE, args.source, PACKER, VALIDATOR, Path(__file__))
                           if p.is_file() and p.is_relative_to(REPO)}
         pinned_hashes = manifest.get('sourceHashes')
         if args.phase in ('visor-full', 'visor-resume'):

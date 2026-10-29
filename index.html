@@ -667,6 +667,8 @@ select{font:inherit;font-weight:800;border:3px solid var(--ink);border-radius:12
 <script src="game/faction-art.js"></script>
 <script src="game/collection-ui.js"></script>
 <script src="game/warnings.js"></script>
+<script src="sprites/community-cooks.js"></script>
+<script src="game/cook-sprites.js"></script>
 <script src="game/bakery-opening.js"></script>
 <script src="game/channel-support.js"></script>
 <script src="game/campaign.js"></script>
@@ -2416,6 +2418,14 @@ function drawChickenSprite(e,r,moving,bob){ if(!SPRC||!SPRC.chicks) return false
  ctx.drawImage(S1,-cell/2*sc,-SPRC.anchorY*sc,cell*sc,cell*sc);
  if(SET.flash&&e.flash>0){ ctx.globalAlpha=.65; ctx.globalCompositeOperation='lighter'; ctx.drawImage(S1,-cell/2*sc,-SPRC.anchorY*sc,cell*sc,cell*sc); }
  ctx.restore(); return true; }
+// Bakery cameos use the same art as gameplay without joining the combat roster.
+// Returning false lets the story keep its illustrated fallback while sprites load.
+function drawBakeryActor(target,p){
+ if(!useSprites())return false;
+ if(p.kind==='cook')return globalThis.CKCookSprites?.draw(target,p)||false;
+ const r=p.r||22,e={id:p.kind==='chicken'?90:p.role==='bran'?91:92,r,color:p.color||'#FFF2CF',face:p.face??.8,walk:p.walk||0,fx:{},kit:{helm:p.role==='stirling'?'crest':'great',metal:'steel',plume:'feather',visor:'closed'},cape:'plain',emblem:'plain',blade:'sword',flash:0,stun:0,swing:0,charge:0,blocking:false,wpn:null,chickSkin:'hen'};
+ const old=ctx;target.save();try{ctx=target;target.translate(p.x,p.y-r*.72);if(p.tilt)target.rotate(p.tilt);return p.kind==='chicken'?drawChickenSprite(e,r,!!p.moving,0):drawKnightSprite(e,r,!!p.moving,0);}finally{target.restore();ctx=old;}
+}
 const sprTop=r=>r*.72-(SPR?(SPR.anchorY-SPR.topY)*sprScale(r):r*3);
 function heart(x,y,s,fill){ ctx.beginPath(); ctx.moveTo(x,y+s*.9); ctx.bezierCurveTo(x-s*1.5,y-s*.1,x-s*.7,y-s*1.2,x,y-s*.35); ctx.bezierCurveTo(x+s*.7,y-s*1.2,x+s*1.5,y-s*.1,x,y+s*.9); ctx.closePath(); ctx.fillStyle=fill; ctx.fill(); ctx.lineWidth=2; ctx.strokeStyle=INK; ctx.stroke(); }
 const headTop=e=>{const r=e.r*sizeMul(e),helm=e.kit&&e.kit.helm;let top;
@@ -3574,7 +3584,7 @@ const cupLobby=document.createElement('button');cupLobby.type='button';cupLobby.
 /* ---------- Great Pudding War ---------- */
 const adventureMenu=$('tAdventure');
 ADVENTURE=CKCampaignIntegration.connect({
- makeKnight:mkKnight,steer,hurt,redraw:drawBg,showBanner,clearBanner,
+ makeKnight:mkKnight,steer,hurt,redraw:drawBg,showBanner,clearBanner,drawBakeryActor,
  reducedMotion:()=>!SET.flash||matchMedia('(prefers-reduced-motion: reduce)').matches,
  drawStoryKnight:(target,p)=>{const old=ctx,oldG=G;const e=mkKnight({id:42,hero:1,human:0,x:0,y:0,color:p.color||CUST,plume:p.plume||CUST,kit:{helm:p.role==='rice'?'riceGuard':p.role==='stirling'?'crest':'great',plume:'feather',metal:p.role==='king'?'gold':'steel',visor:loadProfile(1).visor},face:p.face,walk:p.walk||0,vx:p.walk?50:0,vy:0,blocking:!!p.block});if(p.attack){e.swingKind='light';e.swingDur=SWINGS.light.dur;e.swing=SWINGS.light.dur*.48;}target.save();try{ctx=target;G={...oldG,clock:p.walk||0,demo:true,over:false,ev:null,mode:'ffa'};target.translate(p.x,p.y-22.5*p.scale);target.scale(p.scale*1.5,p.scale*1.5);drawKnight(e);}finally{target.restore();ctx=old;G=oldG;}},
  boot:map=>{firstFightFinish('abandoned');collectionUnlocks=[];cancelCup();SEATS=null;partyGo=false;clearArenaInput();const saved={...cfg};Object.assign(cfg,{players:1,map,mode:'ffa',diff:'chill',length:360,chaosPlus:false,chaosSpeed:'normal',arenaSize:'classic'});audio();menuMusic(false);newGame(false);Object.assign(cfg,saved);return G;},

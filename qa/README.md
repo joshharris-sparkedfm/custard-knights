@@ -8,6 +8,7 @@ Automated playtesters for Custard Knights. They run the real game in headless Ch
 node qa/run.js          # full matrix: every arena x every persona, bots-only baselines, difficulty and teams checks
 node qa/run.js quick    # one arena per persona
 node qa/run.js perf     # real-time frame rate on each arena
+node qa/bot-stuck.cjs --seeds 3 --seconds 120   # seeded bots-only matches on every arena, size and mode: stuck-bot episodes, pit/lava deaths
 ```
 
 Results land in `qa/results/<timestamp>/` as `raw.json` (every KO, respawn, pickup and event with time, position, source) and `summary.md` (pace, hazard share, spawn deaths, what kills people, combat feel, power-up use, difficulty, spawn-death hot spots).

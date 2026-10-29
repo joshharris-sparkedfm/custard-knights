@@ -1,0 +1,147 @@
+[
+  {
+    "character": "Mabel",
+    "community": {
+      "id": "canteen-lady",
+      "title": "canteen lady",
+      "author": "wis.domzcd",
+      "source": "https://www.meshy.ai/posts/canteen-lady-01a1614f-6ff8-74bb-9b73-c26992535f6f",
+      "license": "CC0 (shown on asset page)",
+      "accessed": "2026-10-23",
+      "file": "models/canteen-lady.glb",
+      "bytes": 19702056,
+      "sha256": "31ee1c6e8381d69212d9898a2275a95baa84f71007947c0d62e10b6bca945224",
+      "meshes": 1,
+      "materials": 1,
+      "textures": 3,
+      "skins": 0,
+      "animations": 0,
+      "triangles": 479156,
+      "decision": "Integrated as Mabel: local palette adaptation, Meshy rig walk/run, eight-direction baked sprites. Original GLB preserved."
+    },
+    "preparation": {
+      "sourceSha256": "31ee1c6e8381d69212d9898a2275a95baa84f71007947c0d62e10b6bca945224",
+      "sourceTriangles": 479156,
+      "preparedTriangles": 59999,
+      "preparedBytes": 7520628,
+      "preparedSha256": "ef45c2920eb30a636c7b87fec476e70b6907f812b71f8e9526910cdf56a3cf85",
+      "targetTriangles": 60000,
+      "method": "Blender Decimate collapse; original UVs and materials retained"
+    },
+    "rig": {
+      "taskId": "01a1688b-e90d-717a-98c1-25b02b5ca571",
+      "credits": 5,
+      "joints": 24,
+      "motion": "Meshy walking and running included with rigging; licensed account outputs, separate from the CC0 source geometry.",
+      "walkSha256": "04f66a08078075c2b2f68765a5a823a22b9eca97916f3b3d96155f482a3c34f9",
+      "runSha256": "07acb2e6d34ff32a9cd4fa067d94902c04ab6a26a307ccafbaf33b202ff9b061"
+    },
+    "derivative": {
+      "name": "Mabel",
+      "source": "canteen-lady",
+      "frames": 112,
+      "bordersClear": true,
+      "file": "mabel-cook.png",
+      "bytes": 661376,
+      "decodedBytes": 2514944,
+      "sha256": "4010cd84d2d2c9c09ef90831ffc371c1fdf8f6ea030a5619981f623593a8c55b",
+      "walkRigSha256": "04f66a08078075c2b2f68765a5a823a22b9eca97916f3b3d96155f482a3c34f9",
+      "runRigSha256": "07acb2e6d34ff32a9cd4fa067d94902c04ab6a26a307ccafbaf33b202ff9b061"
+    },
+    "localAdaptation": "Rose apron and head-weighted cream chef cap; softer PBR lighting.",
+    "rebuild": "art/blender/COMMUNITY_COOKS.md"
+  },
+  {
+    "character": "Alf",
+    "community": {
+      "id": "bakers-delight",
+      "title": "Baker's Delight",
+      "author": "beingwallflower",
+      "source": "https://www.meshy.ai/posts/019be467-8678-76d2-b883-3dcf4330d1fb",
+      "license": "CC0 (shown on asset page)",
+      "accessed": "2026-10-23",
+      "file": "models/bakers-delight.glb",
+      "bytes": 24486324,
+      "sha256": "ed5ff701c9db3b9607847734a88a8faa14a8d5de5f44a670f4997187500cc3ae",
+      "meshes": 1,
+      "materials": 1,
+      "textures": 3,
+      "skins": 0,
+      "animations": 0,
+      "triangles": 557819,
+      "decision": "Integrated as Alf: local palette adaptation, Meshy rig walk/run, eight-direction baked sprites. Original GLB preserved."
+    },
+    "preparation": {
+      "sourceSha256": "ed5ff701c9db3b9607847734a88a8faa14a8d5de5f44a670f4997187500cc3ae",
+      "sourceTriangles": 557819,
+      "preparedTriangles": 60000,
+      "preparedBytes": 9772936,
+      "preparedSha256": "ad250161226b04818d42996a43a735e8a6eed3047e8f025c1e4344fa29d38816",
+      "targetTriangles": 60000,
+      "method": "Blender Decimate collapse; original UVs and materials retained"
+    },
+    "rig": {
+      "taskId": "01a16892-f859-739b-a787-4f45ac51ea29",
+      "credits": 5,
+      "joints": 24,
+      "motion": "Meshy walking and running included with rigging; licensed account outputs, separate from the CC0 source geometry.",
+      "walkSha256": "9ed980ae43ffb825ab1d601f1b684c7f0ed0ba1d693f5ae21108a1ec17eb40f5",
+      "runSha256": "317e0e080feb3871bce4959b3b71bfc3144bf170f827bc45954340a5a7d4edfc"
+    },
+    "derivative": {
+      "name": "Alf",
+      "source": "bakers-delight",
+      "frames": 112,
+      "bordersClear": true,
+      "file": "alf-cook.png",
+      "bytes": 911204,
+      "decodedBytes": 2895872,
+      "sha256": "553cfdbc6226a934901c9943774bd2075b3487ab96eb02dd0d2e6aa9e62be527",
+      "walkRigSha256": "9ed980ae43ffb825ab1d601f1b684c7f0ed0ba1d693f5ae21108a1ec17eb40f5",
+      "runRigSha256": "317e0e080feb3871bce4959b3b71bfc3144bf170f827bc45954340a5a7d4edfc"
+    },
+    "localAdaptation": "Mustard clothing and softer PBR lighting; original flat cap retained.",
+    "rebuild": "art/blender/COMMUNITY_COOKS.md",
+    "rigUpload": {
+      "file": "rig-upload.glb",
+      "bytes": 6282192,
+      "sha256": "6c833bf50c59e48371dd73f69a69860d87f77fb22ee255f5279a20275a6b6a34",
+      "images": [
+        {
+          "name": "Image_0",
+          "from": [
+            2048,
+            2048
+          ],
+          "to": [
+            1024,
+            1024
+          ]
+        },
+        {
+          "name": "Image_1",
+          "from": [
+            2048,
+            2048
+          ],
+          "to": [
+            1024,
+            1024
+          ]
+        },
+        {
+          "name": "Image_2",
+          "from": [
+            2048,
+            2048
+          ],
+          "to": [
+            1024,
+            1024
+          ]
+        }
+      ],
+      "purpose": "Smaller rigging upload only; full-resolution prepared source retained"
+    }
+  }
+]

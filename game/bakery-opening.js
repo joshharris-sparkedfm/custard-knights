@@ -112,10 +112,10 @@
   box(140,183,360,40,'#493e4a',8);box(148,190,344,26,'#f2dbab',5);text('MABEL’S BAKERY',320,212,23,'#fff5d6');
   for(const x of [132,508]){oval(x,238,9,12,'#e4b46b');oval(x-2,235,4,7,'#fff0bb');}
  }
- function cook(c,s,label=s.name){const {box,oval,text}=tools(c);c.save();c.translate(s.x,s.y);oval(0,4,20,7,ink+'55');
+ function cook(c,s,label=s.name,drawActor){const {box,oval,text}=tools(c);c.save();oval(s.x,s.y+4,20,7,ink+'55');const rendered=drawActor?.(c,{kind:'cook',name:s.name,x:s.x,y:s.y,face:s.face,speed:s.speed||0,time:s.time||0});c.translate(s.x,s.y);if(!rendered){
   c.strokeStyle=ink;c.lineWidth=6;c.beginPath();c.moveTo(-8,-7);c.lineTo(-10,3);c.moveTo(8,-7);c.lineTo(10,3);c.stroke();
   box(-17,-37,34,32,s.color,9);box(-10,-34,20,29,cream,5);oval(0,-49,13,13,'#e9b889');
-  box(-15,-69,30,14,cream);for(let i=-1;i<=1;i++)oval(i*10,-71,10,10,cream);text(label,0,-94,16);c.restore();
+  box(-15,-69,30,14,cream);for(let i=-1;i<=1;i++)oval(i*10,-71,10,10,cream);}text(label,s.labelBeside?-104:0,s.labelBeside?-34:-94,16,s.rescued?'#2ec4b6':cream);c.restore();
  }
  function tray(c,x,y,covered=true){const {oval,box}=tools(c);oval(x,y+6,31,9,'#b8c5cc');oval(x,y+3,29,7,'#e0e7e4');for(let i=-1;i<=1;i++){oval(x+i*16,y-2,11,9,'#e2a759');oval(x+i*16-3,y-5,3,3,cream);}if(covered){box(x-29,y-15,58,14,cream,8);c.strokeStyle='#ca7886';c.lineWidth=3;c.beginPath();c.moveTo(x-15,y-13);c.lineTo(x-15,y-1);c.moveTo(x+15,y-13);c.lineTo(x+15,y-1);c.stroke();}}
  function siege(c,r){const {oval,box,text}=tools(c),x=1166+75*(1-r.supplyProgress);c.save();c.translate(x,30);c.scale(.86,.86);
@@ -170,11 +170,11 @@
     c.beginPath();c.moveTo(headX+17,281+8*reach);c.lineTo(headX+35,289+8*reach);c.lineTo(headX+16,296+8*reach);c.closePath();c.fillStyle='#edb55d';c.fill();
    }
    if(t<.85)oval(1040,315,13,8,'#e8b86d');else if(t<2.1)oval(rendered?steveX+44:headX+33,rendered?279:294+8*reach,13,8,'#e8b86d');oval(1051,326,5,3,'#e8b86d');text(t>=1.6?'Steve · stolen bun!':'Scraps',1040,350,13);
-   const m={...r.mabel};if(r.steve.stolen){const d=Math.min(1,Math.max(0,(r.phaseT-1.6)/4));m.x+=d*550;m.y=424+Math.min(1,d*5)*132;}cook(c,m,dName(r,m));
+   const m={...r.mabel,time:r.elapsed};if(r.steve.stolen){const d=Math.min(1,Math.max(0,(r.phaseT-1.6)/4));m.x+=d*550;m.y=424+Math.min(1,d*5)*132;m.speed=d>0&&d<1?Math.hypot(137.5,d<.2?165:0):0;m.face=d<.2?Math.atan2(165,137.5):0;}cook(c,m,dName(r,m),drawActor);
   }else if(r.quietKind==='homecoming'){homecoming(c,r,drawActor);
   }else{
    const names=['Mabel · keeping home open','Alf · flour for cover','Pip · cooling water'];
-   r.staff.forEach((s,i)=>cook(c,{...s,y:s.y+(i===1?25*r.supplyProgress:0),x:s.x-(i===2?35*r.supplyProgress:0)},names[i]));
+   r.staff.forEach((s,i)=>cook(c,{...s,time:r.elapsed,y:s.y+(i===1?25*r.supplyProgress:0),x:s.x-(i===2?35*r.supplyProgress:0)},names[i],drawActor));
    box(577,464,34,27,'#e0c99d',9);text('FLOUR',594,484,9,ink);box(625,461,29,30,'#68a8bc',7);oval(639,462,14,5,'#a9dce4');
    tray(c,699,476,false);text(r.tray.state==='supplied'?'Supplies ready · protect the puddings':'Saved cooks → supplies → cover',770,618,19,'#ffe28a');
   }
@@ -184,7 +184,7 @@
  }
  function homeKnight(c,e,col,drawActor,role){const {box,oval,text}=tools(c);oval(e.x,e.y+4,22,7,ink+'55');const rendered=drawActor?.(c,{kind:'knight',role,x:e.x,y:e.y,r:25,color:col,face:1.1});c.save();c.translate(e.x,e.y);if(!rendered){oval(0,-26,21,25,col);oval(0,-52,20,18,'#c9d8dd');box(-17,-58,34,11,'#3b364b',4);oval(0,-75,7,12,col);c.strokeStyle=cream;c.lineWidth=2;for(const x of [-6,3]){c.beginPath();c.moveTo(x,-56);c.lineTo(x,-49);c.stroke();}}text(e.name,0,34,14);c.restore();return !!rendered;}
  function homecoming(c,r,drawActor){const {box,oval,text}=tools(c);
-  for(const [i,s]of r.staff.entries()){const working={...s};if(i===1)working.y+=Math.sin(r.elapsed)*4;if(i===2)working.x-=15+Math.sin(r.elapsed*.7)*10;cook(c,working,s.name);if(i===1){box(working.x-17,working.y-35,34,26,'#e0c99d',6);text('FLOUR',working.x,working.y-18,9,ink);}if(i===2){box(working.x-12,working.y-33,24,25,'#68a8bc',6);oval(working.x,working.y-33,12,4,'#a9dce4');}}
+  for(const [i,s]of r.staff.entries()){const working={...s,time:r.elapsed};if(i===1)working.y+=Math.sin(r.elapsed)*4;if(i===2)working.x-=15+Math.sin(r.elapsed*.7)*10;cook(c,working,s.name,drawActor);if(i===1){box(working.x-17,working.y-35,34,26,'#e0c99d',6);text('FLOUR',working.x,working.y-18,9,ink);}if(i===2){box(working.x-12,working.y-33,24,25,'#68a8bc',6);oval(working.x,working.y-33,12,4,'#a9dce4');}}
   tray(c,620,475,false);const branSprite=homeKnight(c,r.homecoming.bran,'#cfe6ff',drawActor,'bran');crossingShield(c,r.homecoming.bran,branSprite);homeKnight(c,r.homecoming.stirling,'#69b0a4',drawActor,'stirling');box(862,553,34,27,'#e0c99d',6);text('FLOUR',879,570,8,ink);
   // The same food interest is at home now: Steve eats the scraps in his pen.
   const dip=(1+Math.sin(r.elapsed*2))*.5,hx=982,hy=283+dip*19;oval(955,338,40,12,ink+'44');if(!drawActor?.(c,{kind:'chicken',x:965,y:338,r:42,face:.15,tilt:dip*.08})){oval(938,311,47,35,cream);oval(hx,hy,22,24,cream);oval(hx-5,hy-25,9,11,'#c95664');oval(hx+6,hy-5,3,4,ink);c.beginPath();c.moveTo(hx+17,hy+3);c.lineTo(hx+35,hy+11);c.lineTo(hx+16,hy+18);c.closePath();c.fillStyle='#edb55d';c.fill();}for(let i=0;i<5;i++)oval(1020+i*7,329-i%2*5,5,3,'#e8b86d');text('Steve · eating scraps',982,433,14);
@@ -193,11 +193,11 @@
  function foreground(c,r){if(r.tray.state==='carried'){c.save();tray(c,r.player.x+Math.cos(r.player.face)*18,r.player.y-34);c.restore();}}
  function crossingShield(c,e,sprite=false){const {text}=tools(c);c.save();c.translate(e.x,e.y);c.save();if(sprite)c.translate(40,0);
   c.beginPath();c.ellipse(-23,-25,12,18,0,0,Math.PI*2);c.fillStyle='#9bafb9';c.strokeStyle=ink;c.lineWidth=2;c.fill();c.stroke();c.beginPath();c.moveTo(-31,-15);c.lineTo(-15,-35);c.strokeStyle=cream;c.lineWidth=4;c.stroke();c.restore();text('Bran · striped shield',0,-91,13);c.restore();}
- function siegeStaff(c,r){c.save();const {box,oval,text}=tools(c);
+ function siegeStaff(c,r,drawActor){c.save();const {box,oval,text}=tools(c);
   const routes=[[{x:410,y:405},{x:410,y:390},{x:320,y:390}],[{x:640,y:440},{x:690,y:440},{x:690,y:550},{x:420,y:550},{x:420,y:390},{x:360,y:390}],[{x:460,y:620},{x:420,y:620},{x:420,y:390},{x:400,y:390}]];
-  function job(route,t){const lengths=route.slice(1).map((p,i)=>Math.hypot(p.x-route[i].x,p.y-route[i].y)),total=lengths.reduce((a,b)=>a+b,0);let d=(t*58)%(total*2);if(d>total)d=total*2-d;for(let i=0;i<lengths.length;i++){if(d>lengths[i]){d-=lengths[i];continue;}const f=d/lengths[i];return {x:route[i].x+(route[i+1].x-route[i].x)*f,y:route[i].y+(route[i+1].y-route[i].y)*f};}return route.at(-1);}
-  for(const s of r.staff){const station=r.stands[s.station],working=station.hp>0,position=working?job(routes[s.station],r.elapsed+s.station*2):s;cook(c,{...s,...position},s.name);
+  function job(route,t){const lengths=route.slice(1).map((p,i)=>Math.hypot(p.x-route[i].x,p.y-route[i].y)),total=lengths.reduce((a,b)=>a+b,0);let d=(t*58)%(total*2),sign=d>total?-1:1;if(d>total)d=total*2-d;for(let i=0;i<lengths.length;i++){if(d>lengths[i]){d-=lengths[i];continue;}const f=d/lengths[i],dx=route[i+1].x-route[i].x,dy=route[i+1].y-route[i].y;return {x:route[i].x+dx*f,y:route[i].y+dy*f,face:Math.atan2(dy*sign,dx*sign),speed:58};}return route.at(-1);}
+  for(const s of r.staff){const station=r.stands[s.station],working=station.hp>0,position=working?job(routes[s.station],r.elapsed+s.station*2):s;cook(c,{...s,...position,time:r.elapsed},s.name,drawActor);
    if(working){if(s.station===2){box(position.x-13,position.y-34,26,24,'#68a8bc',8);oval(position.x,position.y-34,12,4,'#a9dce4');}else if(s.station===0)tray(c,position.x,position.y-28,false);else{box(position.x-18,position.y-33,36,25,'#e0c99d',10);text('FLOUR',position.x,position.y-18,10,ink);}}
   }text('THE COOKS ARE MOVING YOUR SUPPLIES INTO COVER',640,720,19,'#ffe28a');c.restore();}
- return Object.freeze({layout,footprints,gardens,scenery,draw,foreground,crossingShield,siegeStaff});
+ return Object.freeze({layout,footprints,gardens,cook,scenery,draw,foreground,crossingShield,siegeStaff});
 });

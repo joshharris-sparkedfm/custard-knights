@@ -533,6 +533,8 @@ body[data-input=pad] :is(button,.card,.tile,input,select):focus{outline:4px soli
 <script src="game/faction-art.js"></script>
 <script src="game/collection-ui.js"></script>
 <script src="game/warnings.js"></script>
+<script src="sprites/community-cooks.js"></script>
+<script src="game/cook-sprites.js"></script>
 <script src="game/bakery-opening.js"></script>
 <script src="game/channel-support.js"></script>
 <script src="game/campaign.js"></script>
@@ -2276,6 +2278,7 @@ function drawChickenSprite(e,r,moving,bob){ if(!SPRC||!SPRC.chicks) return false
 // Returning false lets the story keep its illustrated fallback while sprites load.
 function drawBakeryActor(target,p){
  if(!useSprites())return false;
+ if(p.kind==='cook')return globalThis.CKCookSprites?.draw(target,p)||false;
  const r=p.r||22,e={id:p.kind==='chicken'?90:p.role==='bran'?91:92,r,color:p.color||'#FFF2CF',face:p.face??.8,walk:p.walk||0,fx:{},kit:{helm:p.role==='stirling'?'crest':'great',metal:'steel',plume:'feather',visor:'closed'},cape:'plain',emblem:'plain',blade:'sword',flash:0,stun:0,swing:0,charge:0,blocking:false,wpn:null,chickSkin:'hen'};
  const old=ctx;target.save();try{ctx=target;target.translate(p.x,p.y-r*.72);if(p.tilt)target.rotate(p.tilt);return p.kind==='chicken'?drawChickenSprite(e,r,!!p.moving,0):drawKnightSprite(e,r,!!p.moving,0);}finally{target.restore();ctx=old;}
 }

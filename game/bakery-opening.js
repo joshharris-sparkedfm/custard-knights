@@ -7,11 +7,15 @@
  const ink='#34253e',cream='#fff2cf';
  // Load once; the original drawing remains available while offline assets load.
  const community={};
- if(typeof Image!=='undefined')for(const name of ['bakery-stall','bread-crate','solitude-tree']){
+ // Baked with art/blender/bake_props.py; provenance in sprites/community/props-sources.json.
+ const props=['bakery-house','chicken-coop','run-fence','hedge','delivery-table','bun-plate','siege-bowl','siege-cart','flour-sack','water-bucket'];
+ if(typeof Image!=='undefined')for(const name of ['bakery-stall','bread-crate','solitude-tree',...props]){
   const image=new Image();image.src='sprites/community/'+name+'.png';community[name]=image;
  }
  // A baked prop is drawn only once its image has decoded; callers keep their illustrated fallback.
  const ready=name=>{const im=community[name];return im?.complete&&im.naturalWidth?im:null;};
+ // Draws a baked prop with its base centred on (x,y) at width w; false keeps the caller's fallback.
+ function prop(c,name,x,y,w){const im=ready(name);if(!im)return false;const h=w*im.naturalHeight/im.naturalWidth;c.drawImage(im,x-w/2,y-h,w,h);return true;}
  function communityBakery(c){
   const stall=ready('bakery-stall'),bread=ready('bread-crate');
   if(!stall||!bread)return false;
@@ -81,11 +85,13 @@
   // Foundation stones and soft hedge crowns make all four collision edges visible.
   slab(0,80,1280,40,'#6f8d64','#56704f',5,6);slab(0,760,1280,40,'#6f8d64','#56704f',5,6);
   slab(0,120,40,640,'#6f8d64','#56704f',5,4);slab(1240,120,40,640,'#6f8d64','#56704f',5,4);
-  for(let x=22;x<1280;x+=42){
+  if(ready('hedge'))for(let x=0;x<1280;x+=128){prop(c,'hedge',x+64,121,134);prop(c,'hedge',x+64,801,134);}
+  else for(let x=22;x<1280;x+=42){
    oval(x,96,25,12,'#779568');oval(x-5,91,16,5,'#94ac78');
    oval(x,779,25,13,'#779568');oval(x-5,774,16,5,'#94ac78');
   }
-  for(let y=138;y<752;y+=42){
+  if(ready('hedge'))for(let y=136;y<772;y+=11){prop(c,'hedge',20,y,46);prop(c,'hedge',1260,y,46);}
+  else for(let y=138;y<752;y+=42){
    oval(19,y,15,25,'#779568');oval(1261,y,15,25,'#779568');
    oval(15,y-7,5,13,'#94ac78');oval(1257,y-7,5,13,'#94ac78');
   }
@@ -97,7 +103,12 @@
   }
  }
  function bakeryFacade(c){
-  const {box,oval,text}=tools(c);
+  const {box,oval,text,slab}=tools(c);
+  // Baked cottage behind the stall; the stone forecourt shows the solid footprint x120..520/y160..360.
+  if(ready('bakery-house')){
+   slab(120,250,400,110,'#e3d3b1','#b9a27f',10,8);prop(c,'bakery-house',320,318,205);
+   communityBakery(c);text('MABEL’S BAKERY',250,384,18,'#fff5d6');return;
+  }
   box(120,160,400,200,'#f3d9ad',8);
   box(124,330,392,26,'#bd9572',4);
   for(let x=130;x<511;x+=47){c.strokeStyle='#dfbd93';c.lineWidth=2;c.beginPath();c.moveTo(x,333);c.lineTo(x,355);c.stroke();}
@@ -121,13 +132,18 @@
   box(140,183,360,40,'#493e4a',8);box(148,190,344,26,'#f2dbab',5);text('MABEL’S BAKERY',320,212,23,'#fff5d6');
   for(const x of [132,508]){oval(x,238,9,12,'#e4b46b');oval(x-2,235,4,7,'#fff0bb');}
  }
+ // Carried and stacked supplies: baked sack and bucket, with the original labelled boxes as fallback.
+ function flour(c,x,y,w=34){if(prop(c,'flour-sack',x,y+2,w))return;const {box,text}=tools(c);box(x-w/2,y-26,w,26,'#e0c99d',6);text('FLOUR',x,y-9,9,ink);}
+ function water(c,x,y,w=26){if(prop(c,'water-bucket',x,y+2,w))return;const {box,oval}=tools(c);box(x-w/2,y-25,w,25,'#68a8bc',6);oval(x,y-25,w/2,4,'#a9dce4');}
  function cook(c,s,label=s.name,drawActor){const {box,oval,text}=tools(c);c.save();oval(s.x,s.y+4,20,7,ink+'55');const rendered=drawActor?.(c,{kind:'cook',name:s.name,x:s.x,y:s.y,face:s.face,speed:s.speed||0,time:s.time||0});c.translate(s.x,s.y);if(!rendered){
   c.strokeStyle=ink;c.lineWidth=6;c.beginPath();c.moveTo(-8,-7);c.lineTo(-10,3);c.moveTo(8,-7);c.lineTo(10,3);c.stroke();
   box(-17,-37,34,32,s.color,9);box(-10,-34,20,29,cream,5);oval(0,-49,13,13,'#e9b889');
   box(-15,-69,30,14,cream);for(let i=-1;i<=1;i++)oval(i*10,-71,10,10,cream);}text(label,s.labelBeside?-104:0,s.labelBeside?-34:-94,16,s.rescued?'#2ec4b6':cream);c.restore();
  }
- function tray(c,x,y,covered=true){const {oval,box}=tools(c);oval(x,y+6,31,9,'#b8c5cc');oval(x,y+3,29,7,'#e0e7e4');for(let i=-1;i<=1;i++){oval(x+i*16,y-2,11,9,'#e2a759');oval(x+i*16-3,y-5,3,3,cream);}if(covered){box(x-29,y-15,58,14,cream,8);c.strokeStyle='#ca7886';c.lineWidth=3;c.beginPath();c.moveTo(x-15,y-13);c.lineTo(x-15,y-1);c.moveTo(x+15,y-13);c.lineTo(x+15,y-1);c.stroke();}}
- function siege(c,r){const {oval,box,text}=tools(c),x=1166+75*(1-r.supplyProgress);c.save();c.translate(x,30);c.scale(.86,.86);
+ function tray(c,x,y,covered=true){const {oval,box}=tools(c);if(prop(c,'bun-plate',x,y+12,64))return;oval(x,y+6,31,9,'#b8c5cc');oval(x,y+3,29,7,'#e0e7e4');for(let i=-1;i<=1;i++){oval(x+i*16,y-2,11,9,'#e2a759');oval(x+i*16-3,y-5,3,3,cream);}if(covered){box(x-29,y-15,58,14,cream,8);c.strokeStyle='#ca7886';c.lineWidth=3;c.beginPath();c.moveTo(x-15,y-13);c.lineTo(x-15,y-1);c.moveTo(x+15,y-13);c.lineTo(x+15,y-1);c.stroke();}}
+ function siege(c,r){const {oval,box,text}=tools(c),x=1166+75*(1-r.supplyProgress);
+  if(ready('siege-bowl')&&ready('siege-cart')){c.save();oval(x-6,372,92,14,'#34253e33');prop(c,'siege-cart',x-6,380,190);prop(c,'siege-bowl',x-6,322,176);text('SIEGE BOWL',x-8,200,18,'#ffe28a');c.restore();return;}
+  c.save();c.translate(x,30);c.scale(.86,.86);
   for(const wx of [-68,62]){oval(wx,370,24,28,ink);oval(wx,370,14,17,'#b48b61');}
   box(-93,330,175,25,'#87624b',8);box(-13,194,15,158,'#80684f');box(-73,240,128,18,'#80684f');
   c.beginPath();c.moveTo(-99,273);c.quadraticCurveTo(-79,365,-10,365);c.quadraticCurveTo(68,365,92,273);c.closePath();c.fillStyle='#d9e4df';c.strokeStyle=ink;c.lineWidth=5;c.fill();c.stroke();
@@ -140,7 +156,7 @@
    box(92,153,564,57,'#694a4f',10);text('PEACE BANQUET · ONE PIE TOO MANY',374,190,23);box(822,154,366,57,'#466966',10);text('PANTRY · GET EVERYONE OUT',1005,190,22);
    // Shelves occupy the same solid dividing-wall cells; the breakable doorway
    // at row 8 remains visible and clear once the actual engine crate is gone.
-   for(let row=1;row<17;row++){if(row===8)continue;box(720,80+row*40,40,40,'#80634e',2);oval(730,94+row*40,7,7,'#e4b762');oval(748,96+row*40,7,8,'#eee2b7');}
+   const crate=ready('bread-crate');for(let row=1;row<17;row++){if(row===8)continue;if(crate){oval(740,118+row*40,22,5,'#34253e33');c.drawImage(crate,717,78+row*40,46,44);continue;}box(720,80+row*40,40,40,'#80634e',2);oval(730,94+row*40,7,7,'#e4b762');oval(748,96+row*40,7,8,'#eee2b7');}
    text('SERVICE LANE →',1100,700,19,'#2ec4b6');c.restore();return;
   }
   courtyard(c);
@@ -149,22 +165,30 @@
   bakeryFacade(c);
   // Steve enclosure footprint: c20..26/r3..7. The gate is decorative;
   // players reach every delivery objective through the clear southern lane.
-  box(800,200,280,200,'#c1c995',7);box(806,207,268,186,'#b0bc86',5);
-  for(let i=0;i<12;i++){const x=820+(i*71)%235,y=227+(i*43)%123;oval(x,y,7,3,'#d8d7a5');}
-  for(let x=812;x<1075;x+=29){box(x,358,7,41,'#c79c72',2);}box(800,372,280,8,'#ebc99a',2);text('STEVE · SCRAPS ONLY',940,186,16);
-  box(560,480,120,40,'#916c50',6);box(567,488,105,10,'#b69268',3);text(r.quietKind==='opening'?'DELIVERY TABLE':r.quietKind==='homecoming'?'FRESH BREAD':'COOKS’ SUPPLIES',620,565,17);
+  if(ready('chicken-coop')&&ready('run-fence')){
+   const {slab}=tools(c);slab(800,200,280,200,'#b9c38f','#9aa776',9,6);
+   for(let i=0;i<12;i++){const x=820+(i*71)%235,y=227+(i*43)%123;oval(x,y,7,3,'#d8d7a5');}
+   prop(c,'chicken-coop',852,318,96);for(const x of [870,1010])prop(c,'run-fence',x,404,142);
+  }else{
+   box(800,200,280,200,'#c1c995',7);box(806,207,268,186,'#b0bc86',5);
+   for(let i=0;i<12;i++){const x=820+(i*71)%235,y=227+(i*43)%123;oval(x,y,7,3,'#d8d7a5');}
+   for(let x=812;x<1075;x+=29){box(x,358,7,41,'#c79c72',2);}box(800,372,280,8,'#ebc99a',2);
+  }
+  text('STEVE · SCRAPS ONLY',ready('chicken-coop')?985:940,186,16);
+  if(!prop(c,'delivery-table',620,524,128)){box(560,480,120,40,'#916c50',6);box(567,488,105,10,'#b69268',3);}text(r.quietKind==='opening'?'DELIVERY TABLE':r.quietKind==='homecoming'?'FRESH BREAD':'COOKS’ SUPPLIES',620,565,17);
   box(1060,419,150,32,'#615141',5);text(r.quietKind==='opening'?'BANQUET →':r.quietKind==='homecoming'?'HOME SAFE':r.node.id==='puddings'?'SERVICE →':'PUDDINGS →',1135,442,18);
   c.strokeStyle='#e4c474';c.lineWidth=4;c.setLineDash([10,15]);c.beginPath();c.moveTo(695,559);c.lineTo(1140,559);c.stroke();c.setLineDash([]);
   if(r.quietKind==='aftermath'||r.node.id==='puddings'){
    // The closed siege approach has the exact extra solid footprint c27..30,
    // r3..7. Its stone rim makes the blockade readable even beside the bowl.
-   box(1080,200,160,200,'#8e8b77',7);box(1080,200,160,12,'#c4b697',2);box(1080,388,160,12,'#c4b697',2);box(1080,212,10,176,'#b4a385',2);box(1230,212,10,176,'#b4a385',2);siege(c,r);
-   if(r.node.id==='puddings'){box(535,579,200,27,'#688a91',6);oval(578,591,37,14,'#b6a775');for(let i=0;i<5;i++){c.strokeStyle='#756b54';c.lineWidth=3;c.beginPath();c.moveTo(552+i*13,581);c.lineTo(561+i*13,602);c.stroke();}
+   if(ready('siege-bowl')&&ready('siege-cart')){const {slab}=tools(c);slab(1080,200,160,200,'#a29d86','#7f7b68',9,8);slab(1090,212,140,170,'#8e8b77','#7a7764',6,3);}
+   else{box(1080,200,160,200,'#8e8b77',7);box(1080,200,160,12,'#c4b697',2);box(1080,388,160,12,'#c4b697',2);box(1080,212,10,176,'#b4a385',2);box(1230,212,10,176,'#b4a385',2);}siege(c,r);
+   if(r.node.id==='puddings'){tools(c).slab(535,579,200,27,'#7fb3bd','#5f8f98',6,5);oval(578,591,37,14,'#b6a775');for(let i=0;i<5;i++){c.strokeStyle='#756b54';c.lineWidth=3;c.beginPath();c.moveTo(552+i*13,581);c.lineTo(561+i*13,602);c.stroke();}
     box(194,539,292,31,'#443846',5);text('BOWL → OVENS · CHANNEL BLOCKED',340,560,14,'#ffe28a');
     box(545,613,198,27,'#443846',5);text('COOLING ROUTE →',644,632,15,'#a9dce4');}
 
   }
-  if(r.quietKind==='homecoming'){box(545,390,220,24,'#688a91',5);c.strokeStyle='#a9dce4';c.lineWidth=8;c.beginPath();c.moveTo(555,402);c.lineTo(755,402);c.stroke();text('COOLING WATER FLOWING',655,378,14,'#a9dce4');text('OVENS OPEN',320,392,17,'#ffe28a');}
+  if(r.quietKind==='homecoming'){tools(c).slab(545,390,220,24,'#7fb3bd','#5f8f98',6,5);c.strokeStyle='#a9dce4';c.lineWidth=8;c.beginPath();c.moveTo(555,402);c.lineTo(755,402);c.stroke();text('COOLING WATER FLOWING',655,378,14,'#a9dce4');text('OVENS OPEN',250,408,17,'#ffe28a');}
   c.restore();
  }
  function draw(c,r,drawActor){c.save();const {box,oval,text}=tools(c);
@@ -184,7 +208,7 @@
   }else{
    const names=['Mabel · keeping home open','Alf · flour for cover','Pip · cooling water'];
    r.staff.forEach((s,i)=>cook(c,{...s,time:r.elapsed,y:s.y+(i===1?25*r.supplyProgress:0),x:s.x-(i===2?35*r.supplyProgress:0)},names[i],drawActor));
-   box(577,464,34,27,'#e0c99d',9);text('FLOUR',594,484,9,ink);box(625,461,29,30,'#68a8bc',7);oval(639,462,14,5,'#a9dce4');
+   flour(c,594,491,34);water(c,640,491,28);
    tray(c,699,476,false);text(r.tray.state==='supplied'?'Supplies ready · protect the puddings':'Saved cooks → supplies → cover',770,618,19,'#ffe28a');
   }
   const target=r.quietKind==='homecoming'?r.mabel:r.phase===0&&r.quietKind==='opening'?r.mabel:r.phase<(r.quietKind==='opening'?2:1)?{x:605,y:550}:{x:1130,y:500};
@@ -193,8 +217,8 @@
  }
  function homeKnight(c,e,col,drawActor,role){const {box,oval,text}=tools(c);oval(e.x,e.y+4,22,7,ink+'55');const rendered=drawActor?.(c,{kind:'knight',role,x:e.x,y:e.y,r:25,color:col,face:1.1});c.save();c.translate(e.x,e.y);if(!rendered){oval(0,-26,21,25,col);oval(0,-52,20,18,'#c9d8dd');box(-17,-58,34,11,'#3b364b',4);oval(0,-75,7,12,col);c.strokeStyle=cream;c.lineWidth=2;for(const x of [-6,3]){c.beginPath();c.moveTo(x,-56);c.lineTo(x,-49);c.stroke();}}text(e.name,0,34,14);c.restore();return !!rendered;}
  function homecoming(c,r,drawActor){const {box,oval,text}=tools(c);
-  for(const [i,s]of r.staff.entries()){const working={...s,time:r.elapsed};if(i===1)working.y+=Math.sin(r.elapsed)*4;if(i===2)working.x-=15+Math.sin(r.elapsed*.7)*10;cook(c,working,s.name,drawActor);if(i===1){box(working.x-17,working.y-35,34,26,'#e0c99d',6);text('FLOUR',working.x,working.y-18,9,ink);}if(i===2){box(working.x-12,working.y-33,24,25,'#68a8bc',6);oval(working.x,working.y-33,12,4,'#a9dce4');}}
-  tray(c,620,475,false);const branSprite=homeKnight(c,r.homecoming.bran,'#cfe6ff',drawActor,'bran');crossingShield(c,r.homecoming.bran,branSprite);homeKnight(c,r.homecoming.stirling,'#69b0a4',drawActor,'stirling');box(862,553,34,27,'#e0c99d',6);text('FLOUR',879,570,8,ink);
+  for(const [i,s]of r.staff.entries()){const working={...s,time:r.elapsed};if(i===1)working.y+=Math.sin(r.elapsed)*4;if(i===2)working.x-=15+Math.sin(r.elapsed*.7)*10;cook(c,working,s.name,drawActor);if(i===1)flour(c,working.x,working.y-9,32);if(i===2)water(c,working.x,working.y-8,24);}
+  tray(c,620,475,false);const branSprite=homeKnight(c,r.homecoming.bran,'#cfe6ff',drawActor,'bran');crossingShield(c,r.homecoming.bran,branSprite);homeKnight(c,r.homecoming.stirling,'#69b0a4',drawActor,'stirling');flour(c,879,580,34);
   // The same food interest is at home now: Steve eats the scraps in his pen.
   const dip=(1+Math.sin(r.elapsed*2))*.5,hx=982,hy=283+dip*19;oval(955,338,40,12,ink+'44');if(!drawActor?.(c,{kind:'chicken',x:965,y:338,r:42,face:.15,tilt:dip*.08})){oval(938,311,47,35,cream);oval(hx,hy,22,24,cream);oval(hx-5,hy-25,9,11,'#c95664');oval(hx+6,hy-5,3,4,ink);c.beginPath();c.moveTo(hx+17,hy+3);c.lineTo(hx+35,hy+11);c.lineTo(hx+16,hy+18);c.closePath();c.fillStyle='#edb55d';c.fill();}for(let i=0;i<5;i++)oval(1020+i*7,329-i%2*5,5,3,'#e8b86d');text('Steve · eating scraps',982,433,14);
  }
@@ -206,7 +230,7 @@
   const routes=[[{x:410,y:405},{x:410,y:390},{x:320,y:390}],[{x:640,y:440},{x:690,y:440},{x:690,y:550},{x:420,y:550},{x:420,y:390},{x:360,y:390}],[{x:460,y:620},{x:420,y:620},{x:420,y:390},{x:400,y:390}]];
   function job(route,t){const lengths=route.slice(1).map((p,i)=>Math.hypot(p.x-route[i].x,p.y-route[i].y)),total=lengths.reduce((a,b)=>a+b,0);let d=(t*58)%(total*2),sign=d>total?-1:1;if(d>total)d=total*2-d;for(let i=0;i<lengths.length;i++){if(d>lengths[i]){d-=lengths[i];continue;}const f=d/lengths[i],dx=route[i+1].x-route[i].x,dy=route[i+1].y-route[i].y;return {x:route[i].x+dx*f,y:route[i].y+dy*f,face:Math.atan2(dy*sign,dx*sign),speed:58};}return route.at(-1);}
   for(const s of r.staff){const station=r.stands[s.station],working=station.hp>0,position=working?job(routes[s.station],r.elapsed+s.station*2):s;cook(c,{...s,...position,time:r.elapsed},s.name,drawActor);
-   if(working){if(s.station===2){box(position.x-13,position.y-34,26,24,'#68a8bc',8);oval(position.x,position.y-34,12,4,'#a9dce4');}else if(s.station===0)tray(c,position.x,position.y-28,false);else{box(position.x-18,position.y-33,36,25,'#e0c99d',10);text('FLOUR',position.x,position.y-18,10,ink);}}
+   if(working){if(s.station===2)water(c,position.x,position.y-10,26);else if(s.station===0)tray(c,position.x,position.y-28,false);else flour(c,position.x,position.y-8,34);}
   }text('THE COOKS ARE MOVING YOUR SUPPLIES INTO COVER',640,720,19,'#ffe28a');c.restore();}
  return Object.freeze({layout,footprints,gardens,cook,scenery,draw,foreground,crossingShield,siegeStaff});
 });

@@ -1,0 +1,211 @@
+[
+  {
+    "id": "stylized-bakery-house",
+    "title": "A stylized medieval bakery house, designed in a hand-painted fantasy art style. ",
+    "author": "sohaibblemka123",
+    "source": "https://www.meshy.ai/posts/01972630-f6c7-7534-96c0-5c42734d95b2",
+    "license": "CC0 (shown on asset page)",
+    "accessed": "2026-10-29",
+    "sourceModel": "models/stylized-bakery-house.glb",
+    "sha256": "8e6d4609e6af926960b3dc55a5b853f667a27a144e2617cfb3c8aff23bddf423",
+    "bytes": 2859220,
+    "triangles": 32994,
+    "sprite": "bakery-house.png",
+    "spriteSize": [
+      436,
+      512
+    ],
+    "spriteSha256": "eb6d428edd6f576172292f5c3209c0e821c4219e99f0e40004e2cb84fed373f2",
+    "processing": "Shared prop rig (art/blender/bake_props.py): orthographic, 38.7 degree elevation, yaw 0, three-light studio, AgX; cropped and resized to <= 512 px."
+  },
+  {
+    "id": "chicken-coop",
+    "title": "medieval and vintage chicken coop, empty. stylized texture. wodden. made of wood",
+    "author": "t-rexy",
+    "source": "https://www.meshy.ai/posts/01982f7d-bf76-7641-89ee-9fa9442a0172",
+    "license": "CC0 (shown on asset page)",
+    "accessed": "2026-10-29",
+    "sourceModel": "models/chicken-coop.glb",
+    "sha256": "4aed51210eb5c66b584c6afe3897e06a66affa1723a9d7dd4b435d1d2bab1773",
+    "bytes": 3951640,
+    "triangles": 11462,
+    "sprite": "chicken-coop.png",
+    "spriteSize": [
+      391,
+      512
+    ],
+    "spriteSha256": "1a1ed3ad7b2f74b0c12a7b19652e0e4897b3d312e6729d60fa4e5547ab8da133",
+    "processing": "Shared prop rig (art/blender/bake_props.py): orthographic, 38.7 degree elevation, yaw 0, three-light studio, AgX; cropped and resized to <= 512 px."
+  },
+  {
+    "id": "run-fence",
+    "title": "Wooden Barrier Fence",
+    "author": "arq.thompson",
+    "source": "https://www.meshy.ai/posts/019bd3cd-e9a3-782e-b3e7-fe3f1fcc087c",
+    "license": "CC0 (shown on asset page)",
+    "accessed": "2026-10-29",
+    "sourceModel": "models/run-fence.glb",
+    "sha256": "3d2987459c9ff5ae0b3ea0afb9bdbe3db893ba7598570ece21d72d80d65eabaa",
+    "bytes": 14862124,
+    "triangles": 182654,
+    "sprite": "run-fence.png",
+    "spriteSize": [
+      512,
+      156
+    ],
+    "spriteSha256": "6e4de05b1a2b0ebb173d3affd68959b65eceb33da64eefed6c4415cd78f64dc8",
+    "processing": "Shared prop rig (art/blender/bake_props.py): orthographic, 38.7 degree elevation, yaw 0, three-light studio, AgX; cropped and resized to <= 512 px."
+  },
+  {
+    "id": "emerald-hedge",
+    "title": "Emerald Hedge",
+    "author": "ccg3793",
+    "source": "https://www.meshy.ai/posts/019fba08-7aa0-7260-a949-e79a05d6791c",
+    "license": "CC0 (shown on asset page)",
+    "accessed": "2026-10-29",
+    "sourceModel": "models/emerald-hedge.glb",
+    "sha256": "f0de62c303141c28dbc0c0492df5fa2cc6f090251cdf9d98ba608215b4d93e96",
+    "bytes": 20894124,
+    "triangles": 365072,
+    "sprite": "hedge.png",
+    "spriteSize": [
+      512,
+      153
+    ],
+    "spriteSha256": "af76b947c7c67447d26eac9006b480839821f0ef37bfef41f02ebc8a263dc9c1",
+    "processing": "Shared prop rig (art/blender/bake_props.py): orthographic, 38.7 degree elevation, yaw 0, three-light studio, AgX; cropped and resized to <= 512 px. Local palette tint: #5f7f48."
+  },
+  {
+    "id": "delivery-table",
+    "title": "Wooden Table",
+    "author": "hiperc",
+    "source": "https://www.meshy.ai/posts/019740c4-465c-72d0-8963-71552d94461b",
+    "license": "CC0 (shown on asset page)",
+    "accessed": "2026-10-29",
+    "sourceModel": "models/delivery-table.glb",
+    "sha256": "330d62f5e8361ec9dc76baeec924f3cbfc8054a830bd9fe93842db7be53f1952",
+    "bytes": 1781248,
+    "triangles": 19720,
+    "sprite": "delivery-table.png",
+    "spriteSize": [
+      512,
+      320
+    ],
+    "spriteSha256": "4f84acaa27f9406084de15a51f4c9d4f9575fa5b5d94eebba7e84bd2874b06b4",
+    "processing": "Shared prop rig (art/blender/bake_props.py): orthographic, 38.7 degree elevation, yaw 0, three-light studio, AgX; cropped and resized to <= 512 px."
+  },
+  {
+    "id": "bun-plate",
+    "title": "Bread Delight",
+    "author": "cocodesigns",
+    "source": "https://www.meshy.ai/posts/019a46db-91a9-7769-b7b2-fc2ce4ad68ba",
+    "license": "CC0 (shown on asset page)",
+    "accessed": "2026-10-29",
+    "sourceModel": "models/bun-plate.glb",
+    "sha256": "ab5eb22683d340e7d14bcb15ada5644d399c6d371000d043427320cc6e88b5bf",
+    "bytes": 23598804,
+    "triangles": 518903,
+    "sprite": "bun-plate.png",
+    "spriteSize": [
+      512,
+      327
+    ],
+    "spriteSha256": "a4f5bdd3d07d8d2b5e43c2fc31885f64408b4dd63f1b40090ad441ee1671225a",
+    "processing": "Shared prop rig (art/blender/bake_props.py): orthographic, 38.7 degree elevation, yaw 0, three-light studio, AgX; cropped and resized to <= 512 px."
+  },
+  {
+    "id": "rice-bowl",
+    "title": "a ceramic bowl filled with fluffy white rice, soft texture, slightly heaped, rea",
+    "author": "Allen_Chan",
+    "source": "https://www.meshy.ai/posts/01989d16-98d3-7f34-990f-dadccba553ac",
+    "license": "CC0 (shown on asset page)",
+    "accessed": "2026-10-29",
+    "sourceModel": "models/rice-bowl.glb",
+    "sha256": "ea8eebc17d7889cb26a038692097f5f5fabe97323bfcc2d711871cf231fc1a4d",
+    "bytes": 13187640,
+    "triangles": 370886,
+    "sprite": "siege-bowl.png",
+    "spriteSize": [
+      512,
+      403
+    ],
+    "spriteSha256": "48a66476247bca14b30230633024756580e3d804ac294437651d4bce34993f32",
+    "processing": "Shared prop rig (art/blender/bake_props.py): orthographic, 38.7 degree elevation, yaw 0, three-light studio, AgX; cropped and resized to <= 512 px."
+  },
+  {
+    "id": "toy-cart",
+    "title": "Wooden Toy Cart",
+    "author": "HeumanAntunes",
+    "source": "https://www.meshy.ai/posts/0194bc79-87f3-7381-861f-e140758e07f1",
+    "license": "CC0 (shown on asset page)",
+    "accessed": "2026-10-29",
+    "sourceModel": "models/toy-cart.glb",
+    "sha256": "a51179d6a85358bcd86c51e175a4fef4913ebb0e9e4d415fa40e565750b99f32",
+    "bytes": 6121676,
+    "triangles": 170523,
+    "sprite": "siege-cart.png",
+    "spriteSize": [
+      512,
+      369
+    ],
+    "spriteSha256": "9699e3101da859bff35aad411295556668f5210b0804da515d02287700e22040",
+    "processing": "Shared prop rig (art/blender/bake_props.py): orthographic, 38.7 degree elevation, yaw 90, three-light studio, AgX; cropped and resized to <= 512 px. Local palette tint: #3f62a8, #3f62a8, #f0c95a, #2ec4b6."
+  },
+  {
+    "id": "flour-sack",
+    "title": "Flour Sack Illustration",
+    "author": "22906",
+    "source": "https://www.meshy.ai/posts/019927bd-7cea-73aa-983a-aea7f160ce63",
+    "license": "CC0 (shown on asset page)",
+    "accessed": "2026-10-29",
+    "sourceModel": "models/flour-sack.glb",
+    "sha256": "ffd1b2fc1e94dec0b94b5fe4beeb65ea53f4870a201e536fd190ce36b9725c01",
+    "bytes": 21308284,
+    "triangles": 512076,
+    "sprite": "flour-sack.png",
+    "spriteSize": [
+      492,
+      512
+    ],
+    "spriteSha256": "983299affc9de763801538a6155732cd06f44bc61852879ae74722b1bfb2181d",
+    "processing": "Shared prop rig (art/blender/bake_props.py): orthographic, 38.7 degree elevation, yaw 0, three-light studio, AgX; cropped and resized to <= 512 px."
+  },
+  {
+    "id": "wooden-bucket",
+    "title": "Wooden Bucket",
+    "author": "OG_Games",
+    "source": "https://www.meshy.ai/posts/019b4545-88b7-7ae5-a21b-4b788bfb523d",
+    "license": "CC0 (shown on asset page)",
+    "accessed": "2026-10-29",
+    "sourceModel": "models/wooden-bucket.glb",
+    "sha256": "bc6ba4c7488cea1be97ef6851d53a43e186f440fd85b8c84fe283bb20cfd53c2",
+    "bytes": 21226516,
+    "triangles": 442827,
+    "sprite": "water-bucket.png",
+    "spriteSize": [
+      393,
+      512
+    ],
+    "spriteSha256": "5a811325191abc7a54f87165d2b5880279e5e7a624f19e2aa6d475d1736ee50e",
+    "processing": "Shared prop rig (art/blender/bake_props.py): orthographic, 38.7 degree elevation, yaw 0, three-light studio, AgX; cropped and resized to <= 512 px."
+  },
+  {
+    "id": "wooden-barrier",
+    "title": "Wooden Barrier",
+    "author": "zak.t.thorpe",
+    "source": "https://www.meshy.ai/posts/01989626-7c67-775c-a2e6-003fe4b0864b",
+    "license": "CC0 (shown on asset page)",
+    "accessed": "2026-10-29",
+    "sourceModel": "models/wooden-barrier.glb",
+    "sha256": "70855ebfa2203dd51fcb36a154a455ac18da83dbd706b9a10ce08f9bc3bcc71e",
+    "bytes": 8523776,
+    "triangles": 3478,
+    "sprite": "barricade.png",
+    "spriteSize": [
+      512,
+      290
+    ],
+    "spriteSha256": "382b888585ebf381fc15c0e8825468de8995ee354e12b6b385b94813c42ead3f",
+    "processing": "Shared prop rig (art/blender/bake_props.py): orthographic, 38.7 degree elevation, yaw 0, three-light studio, AgX; cropped and resized to <= 512 px."
+  }
+]

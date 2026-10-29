@@ -143,5 +143,53 @@
       ],
       "purpose": "Smaller rigging upload only; full-resolution prepared source retained"
     }
+  },
+  {
+    "character": "Pip",
+    "community": {
+      "id": "t-pose-chef",
+      "title": "T-Pose Chef",
+      "author": "ivan.morev",
+      "source": "https://www.meshy.ai/posts/019fde18-a13c-7ed4-8601-dffb91f980fc",
+      "license": "CC0 (shown on asset page)",
+      "accessed": "2026-10-29",
+      "file": "models/t-pose-chef.glb",
+      "bytes": 80841892,
+      "sha256": "710866e886be13d9bda1a797776b0ed1a4a5d4324ace7651263810f77749f71b",
+      "triangles": 1999161,
+      "decision": "Integrated as Pip: teal trim and trousers, Meshy rig walk/run, eight-direction baked sprites. Original GLB preserved."
+    },
+    "preparation": {
+      "sourceSha256": "710866e886be13d9bda1a797776b0ed1a4a5d4324ace7651263810f77749f71b",
+      "sourceTriangles": 1999161,
+      "preparedTriangles": 59999,
+      "preparedBytes": 25642208,
+      "preparedSha256": "d301c214a08922859f1524be42c0108ad8373ebe6cf3695ae296741f7252c441",
+      "targetTriangles": 60000,
+      "method": "Blender Decimate collapse; original UVs and materials retained",
+      "uploadCopy": "Separate copy with 1024 px JPEG textures to fit the MCP 10 MiB transport limit."
+    },
+    "rig": {
+      "taskId": "01a1889b-fa7c-739f-94b6-2a2de203d991",
+      "credits": 5,
+      "joints": 24,
+      "motion": "Meshy walking and running included with rigging; licensed account outputs, separate from the CC0 source geometry.",
+      "walkSha256": "a1f75dbf9ff0355cb3971e06c300083c06a6c3e45c03497cc094f0ca7ab470f7",
+      "runSha256": "db8da19c4c7cb07abbe74cf71b9de8f826e61221d9b58e181ad17ad3203bd452"
+    },
+    "derivative": {
+      "name": "Pip",
+      "source": "t-pose-chef",
+      "frames": 112,
+      "bordersClear": true,
+      "file": "pip-cook.png",
+      "bytes": 530429,
+      "decodedBytes": 2072576,
+      "sha256": "a5ab42c784e83d1853428b3f1d390fc31bcad3d628f55aa3b9fd982b86467c73",
+      "walkRigSha256": "a1f75dbf9ff0355cb3971e06c300083c06a6c3e45c03497cc094f0ca7ab470f7",
+      "runRigSha256": "db8da19c4c7cb07abbe74cf71b9de8f826e61221d9b58e181ad17ad3203bd452"
+    },
+    "localAdaptation": "Red piping recoloured teal (#2ec4b6); trousers deep teal; softer PBR lighting.",
+    "rebuild": "art/blender/COMMUNITY_COOKS.md"
   }
 ]

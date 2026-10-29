@@ -13,7 +13,7 @@ test('incomplete or failed community assets retain a drawable bakery without thr
 });
 test('loaded scenery uses local sprites and keeps the bread crates inside the bakery solid footprint',()=>{
  const {images,drawn}=render([true,true]);assert.equal(drawn.length,3);
- assert.deepEqual(images.map(i=>i.src),['sprites/community/bakery-stall.png','sprites/community/bread-crate.png','sprites/community/solitude-tree.png']);
+ assert.deepEqual(images.slice(0,3).map(i=>i.src),['sprites/community/bakery-stall.png','sprites/community/bread-crate.png','sprites/community/solitude-tree.png']);
  for(const [,x,y,w,h] of drawn){assert.ok(x>=120&&x+w<=520);assert.ok(y+h<=360);}
  for(const im of images){const p=path.join(root,im.src),b=fs.readFileSync(p);assert.equal(b.subarray(1,4).toString(),'PNG');assert.ok(b.readUInt32BE(16)<=512&&b.readUInt32BE(20)<=512);}
  const sources=JSON.parse(fs.readFileSync(path.join(root,'sprites/community/sources.json')));assert.equal(sources.length,3);assert.ok(sources.every(e=>e.source.startsWith('https://www.meshy.ai/posts/')&&e.license.startsWith('CC0')));
@@ -25,4 +25,14 @@ test('tree sprites load independently of the shop and fall back to visible plant
   assert.equal(trees.length,2);assert.deepEqual(trees.map(a=>a.slice(1)),B.gardens.map(b=>b.sprite));
  }
  assert.equal(render([true,true,false]).drawn.length,3);
+});
+test('baked props share provenance, stay within sprite limits and keep illustrated fallbacks',()=>{
+ const all=render(Array(13).fill(true)),none=render([]);
+ const props=all.images.slice(3).map(i=>path.basename(i.src,'.png'));assert.equal(props.length,10);
+ const sources=JSON.parse(fs.readFileSync(path.join(root,'sprites/community/props-sources.json')));
+ for(const name of props){
+  const e=sources.find(s=>s.sprite===name+'.png');assert.ok(e,name);assert.ok(e.source.startsWith('https://www.meshy.ai/posts/')&&e.license.startsWith('CC0'));
+  const b=fs.readFileSync(path.join(root,'sprites/community',name+'.png'));assert.equal(b.subarray(1,4).toString(),'PNG');assert.ok(b.readUInt32BE(16)<=512&&b.readUInt32BE(20)<=512);
+ }
+ assert.ok(all.drawn.length>none.drawn.length);assert.equal(none.drawn.length,0);
 });

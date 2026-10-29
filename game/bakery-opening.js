@@ -10,9 +10,11 @@
  if(typeof Image!=='undefined')for(const name of ['bakery-stall','bread-crate','solitude-tree']){
   const image=new Image();image.src='sprites/community/'+name+'.png';community[name]=image;
  }
+ // A baked prop is drawn only once its image has decoded; callers keep their illustrated fallback.
+ const ready=name=>{const im=community[name];return im?.complete&&im.naturalWidth?im:null;};
  function communityBakery(c){
-  const stall=community['bakery-stall'],bread=community['bread-crate'];
-  if(!stall?.complete||!stall.naturalWidth||!bread?.complete||!bread.naturalWidth)return false;
+  const stall=ready('bakery-stall'),bread=ready('bread-crate');
+  if(!stall||!bread)return false;
   const {oval}=tools(c);
   // A stocked shopfront on the existing bakery, with its roof and ovens retained.
   // Ground contact stays inside x120..520/y160..360, the authored solid footprint.
@@ -25,16 +27,23 @@
   const box=(x,y,w,h,col,r=5)=>{c.beginPath();c.roundRect(x,y,w,h,r);c.fillStyle=col;c.strokeStyle=ink;c.lineWidth=3;c.fill();c.stroke();};
   const oval=(x,y,rx,ry,col)=>{c.beginPath();c.ellipse(x,y,rx,ry,0,0,Math.PI*2);c.fillStyle=col;c.fill();};
   const text=(s,x,y,size=17,col=cream)=>{c.font=`bold ${size}px Nunito,sans-serif`;c.textAlign='center';c.lineWidth=col===ink?2:4;c.strokeStyle=col===ink?cream:ink;c.strokeText(s,x,y);c.fillStyle=col;c.fillText(s,x,y);};
-  return {box,oval,text};
+  // Soft raised block lit like the baked community renders: no ink outline, lit top, shaded side.
+  const slab=(x,y,w,h,top,side,r=8,depth=7)=>{
+   c.save();c.fillStyle='#3a2f2a33';c.beginPath();c.roundRect(x+3,y+5,w,h,r);c.fill();
+   c.fillStyle=side;c.beginPath();c.roundRect(x,y,w,h,r);c.fill();
+   c.fillStyle=top;c.beginPath();c.roundRect(x,y,w,h-depth,r);c.fill();
+   c.fillStyle='#ffffff2e';c.beginPath();c.roundRect(x+2,y+2,w-4,Math.min(h-depth-4,Math.max(3,(h-depth)*.35)),Math.max(2,r-2));c.fill();c.restore();
+  };
+  return {box,oval,text,slab};
  }
  function gardenTrees(c){
-  const {box,oval}=tools(c),tree=community['solitude-tree'];
+  const {box,oval,slab}=tools(c),tree=ready('solitude-tree');
   for(const bed of gardens){
    const x=bed.c*40,y=80+bed.r*40,w=bed.w*40,h=bed.h*40,[sx,sy,sw,sh]=bed.sprite;
    // Raised stone planters expose the exact solid grid footprint, including on image failure.
-   box(x,y,w,h,'#a48f77',7);box(x+4,y+4,w-8,h-9,'#c7bf98',5);
-   oval(x+w/2,y+h-12,w*.35,7,'#675c4d55');
-   if(tree?.complete&&tree.naturalWidth)c.drawImage(tree,sx,sy,sw,sh);
+   slab(x,y,w,h,'#d8cbb0','#a8957a',9,9);slab(x+6,y+5,w-12,h-21,'#7f9a63','#6c8655',6,3);
+   oval(x+w/2,y+h-16,w*.33,6,'#4f5d3c44');
+   if(tree)c.drawImage(tree,sx,sy,sw,sh);
    else{
     const cx=sx+sw/2,base=sy+sh-8;
     box(cx-6,base-sh*.61,12,sh*.61,'#aa7c55',4);
@@ -45,7 +54,7 @@
   }
  }
  function courtyard(c){
-  const {box,oval}=tools(c);
+  const {oval,slab}=tools(c);
   c.fillStyle='#a6b584';c.fillRect(0,80,1280,720);
   // Flat garden markings stay walkable; raised edging is confined to perimeter solids.
   for(let row=0;row<8;row++)for(let col=0;col<18;col++){
@@ -70,8 +79,8 @@
    for(let col=0;col<2;col++){c.beginPath();c.roundRect(433+col*51,y,45,29,7);c.fillStyle=stones[(col+y)%4];c.fill();c.strokeStyle='#c9b18c';c.lineWidth=1.5;c.stroke();}
   }
   // Foundation stones and soft hedge crowns make all four collision edges visible.
-  box(0,80,1280,40,'#668366',5);box(0,760,1280,40,'#668366',5);
-  box(0,120,40,640,'#668366',5);box(1240,120,40,640,'#668366',5);
+  slab(0,80,1280,40,'#6f8d64','#56704f',5,6);slab(0,760,1280,40,'#6f8d64','#56704f',5,6);
+  slab(0,120,40,640,'#6f8d64','#56704f',5,4);slab(1240,120,40,640,'#6f8d64','#56704f',5,4);
   for(let x=22;x<1280;x+=42){
    oval(x,96,25,12,'#779568');oval(x-5,91,16,5,'#94ac78');
    oval(x,779,25,13,'#779568');oval(x-5,774,16,5,'#94ac78');

@@ -23,3 +23,9 @@ Review the cast AND environment together before choosing a production style. Upd
 Show the visual proof to Joshua for directional feedback before wider integration. Keep the study on its separate branch until that feedback is incorporated. Then stage a complete small gameplay area with a working knight, cooks, props, animation, lighting and UI together, validate readable silhouettes at gameplay size and retain all saves, cosmetics, equipment sockets and combat timing. Do not declare success from tests or asset quantity alone.
 
 The hourly automation has been updated to prioritize this correction. Historical PR #45 and its technical checks remain true, but its artwork is rejected as the target visual direction.
+
+## Integration checkpoint — 31 October 2026
+
+Joshua requested merging and pushing all completed work. The community scenery/Pip implementation and this separate toy art study are now included together in main. The study remains reference material; it does not replace the production sprites. Earlier instructions to keep the study on its branch are superseded by that merge request.
+
+This checkpoint preserves the work, not visual acceptance. Scale, camera consistency, prop placement and label overlaps still need refinement. The merged code passes all 358 automated tests (none skipped); that result does not establish live gameplay or visual approval.

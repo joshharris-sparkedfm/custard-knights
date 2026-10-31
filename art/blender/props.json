@@ -1,0 +1,190 @@
+[
+ {
+  "id": "stylized-bakery-house",
+  "file": "stylized-bakery-house.glb",
+  "sprite": "bakery-house",
+  "maxPx": 512,
+  "yaw": 0,
+  "title": "A stylized medieval bakery house, designed in a hand-painted fantasy art style. ",
+  "author": "sohaibblemka123",
+  "source": "https://www.meshy.ai/posts/01972630-f6c7-7534-96c0-5c42734d95b2",
+  "license": "CC0 (shown on asset page)",
+  "accessed": "2026-10-29"
+ },
+ {
+  "id": "chicken-coop",
+  "file": "chicken-coop.glb",
+  "sprite": "chicken-coop",
+  "maxPx": 512,
+  "yaw": 0,
+  "title": "medieval and vintage chicken coop, empty. stylized texture. wodden. made of wood",
+  "author": "t-rexy",
+  "source": "https://www.meshy.ai/posts/01982f7d-bf76-7641-89ee-9fa9442a0172",
+  "license": "CC0 (shown on asset page)",
+  "accessed": "2026-10-29"
+ },
+ {
+  "id": "run-fence",
+  "file": "run-fence.glb",
+  "sprite": "run-fence",
+  "maxPx": 512,
+  "yaw": 0,
+  "title": "Wooden Barrier Fence",
+  "author": "arq.thompson",
+  "source": "https://www.meshy.ai/posts/019bd3cd-e9a3-782e-b3e7-fe3f1fcc087c",
+  "license": "CC0 (shown on asset page)",
+  "accessed": "2026-10-29"
+ },
+ {
+  "id": "emerald-hedge",
+  "file": "emerald-hedge.glb",
+  "sprite": "hedge",
+  "maxPx": 512,
+  "yaw": 0,
+  "title": "Emerald Hedge",
+  "author": "ccg3793",
+  "source": "https://www.meshy.ai/posts/019fba08-7aa0-7260-a949-e79a05d6791c",
+  "license": "CC0 (shown on asset page)",
+  "accessed": "2026-10-29",
+  "tint": [
+   {
+    "hue": [
+     0.15,
+     0.45
+    ],
+    "minSat": 0.2,
+    "to": "#5f7f48"
+   }
+  ]
+ },
+ {
+  "id": "delivery-table",
+  "file": "delivery-table.glb",
+  "sprite": "delivery-table",
+  "maxPx": 512,
+  "yaw": 0,
+  "title": "Wooden Table",
+  "author": "hiperc",
+  "source": "https://www.meshy.ai/posts/019740c4-465c-72d0-8963-71552d94461b",
+  "license": "CC0 (shown on asset page)",
+  "accessed": "2026-10-29"
+ },
+ {
+  "id": "bun-plate",
+  "file": "bun-plate.glb",
+  "sprite": "bun-plate",
+  "maxPx": 512,
+  "yaw": 0,
+  "title": "Bread Delight",
+  "author": "cocodesigns",
+  "source": "https://www.meshy.ai/posts/019a46db-91a9-7769-b7b2-fc2ce4ad68ba",
+  "license": "CC0 (shown on asset page)",
+  "accessed": "2026-10-29"
+ },
+ {
+  "id": "rice-bowl",
+  "file": "rice-bowl.glb",
+  "sprite": "siege-bowl",
+  "maxPx": 512,
+  "yaw": 0,
+  "title": "a ceramic bowl filled with fluffy white rice, soft texture, slightly heaped, rea",
+  "author": "Allen_Chan",
+  "source": "https://www.meshy.ai/posts/01989d16-98d3-7f34-990f-dadccba553ac",
+  "license": "CC0 (shown on asset page)",
+  "accessed": "2026-10-29"
+ },
+ {
+  "id": "toy-cart",
+  "file": "toy-cart.glb",
+  "sprite": "siege-cart",
+  "maxPx": 512,
+  "yaw": 90,
+  "title": "Wooden Toy Cart",
+  "author": "HeumanAntunes",
+  "source": "https://www.meshy.ai/posts/0194bc79-87f3-7381-861f-e140758e07f1",
+  "license": "CC0 (shown on asset page)",
+  "accessed": "2026-10-29",
+  "tint": [
+   {
+    "hue": [
+     0.0,
+     0.115
+    ],
+    "minSat": 0.45,
+    "to": "#3f62a8"
+   },
+   {
+    "hue": [
+     0.94,
+     1.01
+    ],
+    "minSat": 0.45,
+    "to": "#3f62a8"
+   },
+   {
+    "hue": [
+     0.115,
+     0.19
+    ],
+    "minSat": 0.45,
+    "to": "#f0c95a"
+   },
+   {
+    "hue": [
+     0.19,
+     0.52
+    ],
+    "minSat": 0.35,
+    "to": "#2ec4b6"
+   }
+  ]
+ },
+ {
+  "id": "flour-sack",
+  "file": "flour-sack.glb",
+  "sprite": "flour-sack",
+  "maxPx": 512,
+  "yaw": 0,
+  "title": "Flour Sack Illustration",
+  "author": "22906",
+  "source": "https://www.meshy.ai/posts/019927bd-7cea-73aa-983a-aea7f160ce63",
+  "license": "CC0 (shown on asset page)",
+  "accessed": "2026-10-29"
+ },
+ {
+  "id": "wooden-bucket",
+  "file": "wooden-bucket.glb",
+  "sprite": "water-bucket",
+  "maxPx": 512,
+  "yaw": 0,
+  "title": "Wooden Bucket",
+  "author": "OG_Games",
+  "source": "https://www.meshy.ai/posts/019b4545-88b7-7ae5-a21b-4b788bfb523d",
+  "license": "CC0 (shown on asset page)",
+  "accessed": "2026-10-29"
+ },
+ {
+  "id": "banquet-table",
+  "file": "banquet-table.glb",
+  "sprite": "banquet-table",
+  "maxPx": 512,
+  "yaw": 0,
+  "title": "long wooden dining table, medieval, detailed, realistic",
+  "author": "Jungle_Jim",
+  "source": "https://www.meshy.ai/posts/01937dd7-de21-7eb7-9f5e-e408c9c1229c",
+  "license": "CC0 (shown on asset page)",
+  "accessed": "2026-10-29"
+ },
+ {
+  "id": "wooden-barrier",
+  "file": "wooden-barrier.glb",
+  "sprite": "barricade",
+  "maxPx": 512,
+  "yaw": 0,
+  "title": "Wooden Barrier",
+  "author": "zak.t.thorpe",
+  "source": "https://www.meshy.ai/posts/01989626-7c67-775c-a2e6-003fe4b0864b",
+  "license": "CC0 (shown on asset page)",
+  "accessed": "2026-10-29"
+ }
+]

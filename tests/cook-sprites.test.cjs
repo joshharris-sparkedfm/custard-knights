@@ -12,7 +12,7 @@ test('every direction and idle/walk/run frame references a valid local packed re
   for(const [x,y,rw,rh,dx,dy]of atlas.rects){assert.ok([x,y,rw,rh,dx,dy].every(Number.isFinite));assert.ok(x>=0&&y>=0&&rw>0&&rh>0&&x+rw<=w&&y+rh<=h);}
   for(let d=0;d<8;d++)for(const [animation,speed]of [['idle',0],['walk',65],['run',160]]){const seen=new Set();for(let i=0;i<atlas.anims[animation][1];i++)seen.add(Cooks.frameFor(atlas,{face:d*Math.PI/4,speed,time:atlas.seconds[animation]*(i+.1)/atlas.anims[animation][1]}));assert.equal(seen.size,atlas.anims[animation][1]);for(const frame of seen)assert.ok(Math.floor(frame/atlas.per)===d);}
   assert.ok(Number.isInteger(Cooks.frameFor(atlas,{time:NaN,speed:Infinity,face:NaN})));
- }assert.ok(decoded<6*1024*1024,'Two cooks stay within a 6 MiB decoded atlas budget');
+ }const cooks=Object.keys(atlases).length;assert.equal(cooks,3);assert.ok(decoded<cooks*3*1024*1024,'Each cook stays within a 3 MiB decoded atlas budget on average');
 });
 test('escorted cooks stop their movement animation when the player leaves or a leader blocks them',()=>{
  const c=C.create({storage:null}),api={makeKnight:o=>({r:22,dead:false,falling:0,fx:{},vx:0,vy:0,...o}),redraw(){}},g={roundId:'cooks',ents:[api.makeKnight({id:0,human:1})],flows:new Map()};c.begin('banquet',g,api);c.run.phase=1;c.run.barricadeOpen=true;g.ents.slice(1).forEach(e=>e.dead=true);

@@ -4,7 +4,7 @@ import json,hashlib,argparse
 ap=argparse.ArgumentParser();ap.add_argument('--input-root',required=True);ap.add_argument('--output',required=True);args=ap.parse_args()
 input_root=Path(args.input_root).resolve();out=Path(args.output).resolve();out.mkdir(parents=True,exist_ok=True)
 configs={};audit=[]
-for name,source in [('Mabel','canteen-lady'),('Alf','bakers-delight')]:
+for name,source in [('Mabel','canteen-lady'),('Alf','bakers-delight'),('Pip','t-pose-chef')]:
  root=input_root/source;walk=json.loads((root/'sprite-pilot/bake.json').read_text());run=json.loads((root/'run-pilot/bake.json').read_text());assert walk['worldHeight']==run['worldHeight']
  frames=[];rects=[];x=y=rowHeight=0;atlas=Image.new('RGBA',(1024,1024))
  for direction in range(8):
